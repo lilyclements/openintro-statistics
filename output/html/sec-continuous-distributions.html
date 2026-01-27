@@ -452,24 +452,81 @@ true);
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-continuous-distributions"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Continuous distributions</span>
 </h2>
-<section class="introduction" id="introduction-11"><div class="para" id="p-382">So far in this chapter we’ve discussed cases where the outcome of a variable is discrete. In this section, we consider a context where the outcome is a continuous numerical variable.</div></section><article class="example example-like" id="ex-us-heights"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-us-heights"><h3 class="heading">
+<section class="introduction" id="introduction-12"><div class="para" id="p-633">So far in this chapter we’ve discussed cases where the outcome of a variable is discrete. In this section, we consider a context where the outcome is a continuous numerical variable.</div></section><article class="example example-like" id="ex-us-heights"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-us-heights"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span><span class="space"> </span><span class="title">US adult heights histograms.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-us-heights"><article class="example example-like"><div class="para" id="p-383">Figure shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-us-heights"><article class="example example-like"><div class="para" id="p-634">
+<a href="" class="xref" data-knowl="./knowl/fig-fdic-histograms.html" title="Figure 3.5.2">Figure 3.5.2</a> shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-23" id="solution-23"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-23"><div class="solution solution-like"><div class="para" id="p-384">To be converted from LaTeX source.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-87" id="solution-87"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-87"><div class="solution solution-like"><div class="para" id="p-635">Adding more bins provides greater detail. This sample is extremely large, which is why much smaller bins still work well. Usually we do not use so many bins with smaller sample sizes since small counts per bin mean the bin heights are very volatile.</div></div></div>
 </div></article></div>
-<figure class="figure figure-like" id="fig-fdic-histograms"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/fdicHistograms.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.2<span class="period">.</span></span><span class="space"> </span>Four hollow histograms of US adults heights with varying bin widths</figcaption></figure><section class="subsection" id="subsec-histograms-to-continuous"><h3 class="heading hide-type">
+<figure class="figure figure-like" id="fig-fdic-histograms"><div class="image-box" style="width: 95%; margin-left: 2.5%; margin-right: 2.5%;"><img src="ch_probability/figures/fdicHistograms.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.2<span class="period">.</span></span><span class="space"> </span>Four hollow histograms of US adults heights with varying bin widths</figcaption></figure><article class="example example-like" id="ex-height-180-185"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-height-180-185"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span><span class="space"> </span><span class="title">Probability from histogram.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-height-180-185"><article class="example example-like"><div class="para" id="p-636">What proportion of the sample is between 180 cm and 185 cm tall (about 5’11" to 6’1")?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-88" id="solution-88"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-88"><div class="solution solution-like"><div class="para logical" id="p-637">
+<div class="para">We can add up the heights of the bins in the range 180 cm and 185 cm and divide by the sample size. For instance, this can be done with the two shaded bins shown in <a href="" class="xref" data-knowl="./knowl/fig-us-heights-180-185.html" title="Figure 3.5.4">Figure 3.5.4</a>. The two bins in this region have counts of 195,307 and 156,239 people, resulting in the following estimate of the probability:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-us-heights-180-185.html">
+\begin{equation*}
+\frac{195307 + 156239}{3,000,000} = 0.1172
+\end{equation*}
+</div>
+<div class="para">This fraction is the same as the proportion of the histogram’s area that falls in the range 180 to 185 cm.</div>
+</div></div></div>
+</div></article></div>
+<figure class="figure figure-like" id="fig-us-heights-180-185"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="ch_probability/figures/usHeightsHist180185.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.4<span class="period">.</span></span><span class="space"> </span>A histogram with bin sizes of 2.5 cm. The shaded region represents individuals with heights between 180 and 185 cm.</figcaption></figure><section class="subsection" id="subsec-histograms-to-continuous"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.5.1</span> <span class="title">From histograms to continuous distributions</span>
 </h3>
-<div class="para" id="p-385">To be converted from LaTeX source.</div>
-<figure class="figure figure-like" id="fig-fdic-height-cont-dist"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/fdicHeightContDist.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>The continuous probability distribution of heights for US adults</figcaption></figure></section><section class="subsection" id="subsec-probabilities-continuous"><h3 class="heading hide-type">
+<div class="para" id="p-638">Examine the transition from a boxy hollow histogram in the top-left of <a href="" class="xref" data-knowl="./knowl/fig-fdic-histograms.html" title="Figure 3.5.2">Figure 3.5.2</a> to the much smoother plot in the lower-right. In this last plot, the bins are so slim that the hollow histogram is starting to resemble a smooth curve. This suggests the population height as a continuous numerical variable might best be explained by a curve that represents the outline of extremely slim bins.</div>
+<div class="para" id="p-639">This smooth curve represents a <dfn class="terminology">probability density function</dfn> (also called a <dfn class="terminology">density</dfn> or <dfn class="terminology">distribution</dfn>), and such a curve is shown in <a href="" class="xref" data-knowl="./knowl/fig-fdic-height-cont-dist.html" title="Figure 3.5.5">Figure 3.5.5</a> overlaid on a histogram of the sample. A density has a special property: the total area under the density’s curve is 1.</div>
+<figure class="figure figure-like" id="fig-fdic-height-cont-dist"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="ch_probability/figures/fdicHeightContDist.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.5<span class="period">.</span></span><span class="space"> </span>The continuous probability distribution of heights for US adults.</figcaption></figure></section><section class="subsection" id="subsec-probabilities-continuous"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.5.2</span> <span class="title">Probabilities from continuous distributions</span>
 </h3>
-<div class="para" id="p-386">To be converted from LaTeX source.</div>
-<figure class="figure figure-like" id="fig-fdic-height-filled"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/fdicHeightContDistFilled.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.4<span class="period">.</span></span><span class="space"> </span>Density for heights with the area between 180 and 185 cm shaded</figcaption></figure></section></section></div>
+<div class="para logical" id="p-640">
+<div class="para">We computed the proportion of individuals with heights 180 to 185 cm in <a href="" class="xref" data-knowl="./knowl/ex-height-180-185.html" title="Example 3.5.3: Probability from histogram">Example 3.5.3</a> as a fraction:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-height-180-185.html ./knowl/ex-height-180-185.html">
+\begin{equation*}
+\frac{\text{number of people between 180 and 185}}{\text{total sample size}}
+\end{equation*}
+</div>
+<div class="para">We found the number of people with heights between 180 and 185 cm by determining the fraction of the histogram’s area in this region. Similarly, we can use the area in the shaded region under the curve to find a probability (with the help of a computer):</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-height-180-185.html ./knowl/ex-height-180-185.html">
+\begin{equation*}
+P(\text{height between 180 and 185}) = \text{area between 180 and 185} = 0.1157
+\end{equation*}
+</div>
+<div class="para">The probability that a randomly selected person is between 180 and 185 cm is 0.1157. This is very close to the estimate from <a href="" class="xref" data-knowl="./knowl/ex-height-180-185.html" title="Example 3.5.3: Probability from histogram">Example 3.5.3</a>: 0.1172.</div>
+</div>
+<figure class="figure figure-like" id="fig-fdic-height-filled"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="ch_probability/figures/fdicHeightContDistFilled.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.6<span class="period">.</span></span><span class="space"> </span>Density for heights in the US adult population with the area between 180 and 185 cm shaded. Compare this plot with <a href="" class="xref" data-knowl="./knowl/fig-us-heights-180-185.html" title="Figure 3.5.4">Figure 3.5.4</a>.</figcaption></figure><article class="exercise exercise-like" id="ex-height-three-adults"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-height-three-adults"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.7</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-height-three-adults"><article class="exercise exercise-like"><div class="para" id="p-641">Three US adults are randomly selected. The probability a single adult is between 180 and 185 cm is 0.1157.</div> <div class="para logical" id="p-642"><ol class="lower-alpha">
+<li id="li-190"><div class="para" id="p-643">What is the probability that all three are between 180 and 185 cm tall?</div></li>
+<li id="li-191"><div class="para" id="p-644">What is the probability that none are between 180 and 185 cm?</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-89" id="solution-89"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-89"><div class="solution solution-like"><div class="para logical" id="p-645">
+<div class="para">Brief answers:</div>
+<ol class="lower-alpha">
+<li id="li-192"><div class="para" id="p-646"><span class="process-math">\(\displaystyle 0.1157 \times 0.1157 \times 0.1157 = 0.0015\)</span></div></li>
+<li id="li-193"><div class="para" id="p-647"><span class="process-math">\(\displaystyle (1 - 0.1157)^3 = 0.692\)</span></div></li>
+</ol>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-exactly-180-cm"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-exactly-180-cm"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.8</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-exactly-180-cm"><article class="example example-like"><div class="para" id="p-648">What is the probability that a randomly selected person is exactly 180 cm? Assume you can measure perfectly.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-90" id="solution-90"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-90"><div class="solution solution-like"><div class="para" id="p-649">This probability is zero. A person might be close to 180 cm, but not exactly 180 cm tall. This also makes sense with the definition of probability as area; there is no area captured between 180 cm and 180 cm.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-rounded-height"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-rounded-height"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.5.9</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-rounded-height"><article class="exercise exercise-like"><div class="para" id="p-650">Suppose a person’s height is rounded to the nearest centimeter. Is there a chance that a random person’s measured height will be 180 cm?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-91" id="solution-91"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-91"><div class="solution solution-like"><div class="para" id="p-651">This has positive probability. Anyone between 179.5 cm and 180.5 cm will have a measured height of 180 cm. This is probably a more realistic scenario to encounter in practice versus <a href="" class="xref" data-knowl="./knowl/ex-exactly-180-cm.html" title="Example 3.5.8">Example 3.5.8</a>.</div></div></div>
+</div></article></div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-random-variables.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="ch-distributions.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

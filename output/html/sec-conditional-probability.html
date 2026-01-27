@@ -452,31 +452,629 @@ true);
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-conditional-probability"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Conditional probability</span>
 </h2>
-<section class="subsection" id="subsec-exploring-contingency-table"><h3 class="heading hide-type">
+<section class="introduction" id="introduction-9"><div class="para" id="p-458">There can be rich relationships between two or more variables that are useful to understand. For example a car insurance company will consider information about a person’s driving history to assess the risk that they will be responsible for an accident. These types of relationships are the realm of conditional probabilities.</div></section><section class="subsection" id="subsec-exploring-contingency-table"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.1</span> <span class="title">Exploring probabilities with a contingency table</span>
 </h3>
-<div class="para" id="p-363">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-marginal-joint-probabilities"><h3 class="heading hide-type">
+<div class="para" id="p-459">The <code class="code-inline tex2jax_ignore">photo_classify</code> data set represents a classifier for a sample of 1822 photos from a photo sharing website. Data scientists have been working to improve a classifier for whether the photo is about fashion or not, and these 1822 photos represent a test for their classifier. Each photo gets two classifications: the first is called <code class="code-inline tex2jax_ignore">mach_learn</code> and gives a classification from a machine learning (ML) system of either “pred_fashion” or “pred_not”. Each of these 1822 photos have also been classified carefully by a team of people, which we take to be the source of truth; this variable is called <code class="code-inline tex2jax_ignore">truth</code> and takes values “fashion” and “not”. <a href="" class="xref" data-knowl="./knowl/fig-contingency-fashion.html" title="Figure 3.2.1">Figure 3.2.1</a> summarizes the results.</div>
+<figure class="figure figure-like" id="fig-contingency-fashion"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines" colspan="2">truth</td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines">fashion</td>
+<td class="c m b1 r0 l0 t0 lines">not</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn: pred_fashion</td>
+<td class="c m b0 r0 l0 t0 lines">197</td>
+<td class="c m b0 r0 l0 t0 lines">22</td>
+<td class="c m b0 r0 l0 t0 lines">219</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn: pred_not</td>
+<td class="c m b0 r0 l0 t0 lines">112</td>
+<td class="c m b0 r0 l0 t0 lines">1491</td>
+<td class="c m b0 r0 l0 t0 lines">1603</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+<td class="c m b1 r0 l0 t0 lines">309</td>
+<td class="c m b1 r0 l0 t0 lines">1513</td>
+<td class="c m b1 r0 l0 t0 lines">1822</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span>Contingency table summarizing the <code class="code-inline tex2jax_ignore">photo_classify</code> data set.</figcaption></figure><figure class="figure figure-like" id="fig-photo-classify-venn"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="ch_probability/figures/photoClassifyVenn.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.2<span class="period">.</span></span><span class="space"> </span>A Venn diagram using boxes for the <code class="code-inline tex2jax_ignore">photo_classify</code> data set.</figcaption></figure><article class="example example-like" id="ex-ml-classifier-accuracy"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-ml-classifier-accuracy"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-ml-classifier-accuracy"><article class="example example-like"><div class="para" id="p-460">If a photo is actually about fashion, what is the chance the ML classifier correctly identified the photo as being about fashion?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-43" id="solution-43"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-43"><div class="solution solution-like"><div class="para logical" id="p-461">
+<div class="para">We can estimate this probability using the data. Of the 309 fashion photos, the ML algorithm correctly classified 197 of the photos:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{mach_learn is pred_fashion} \mid \text{truth is fashion}) = \frac{197}{309} = 0.638
+\end{equation*}
+</div>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-ml-false-negative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-ml-false-negative"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-ml-false-negative"><article class="example example-like"><div class="para" id="p-462">We sample a photo from the data set and learn the ML algorithm predicted this photo was not about fashion. What is the probability that it was incorrect and the photo is about fashion?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-44" id="solution-44"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-44"><div class="solution solution-like"><div class="para logical" id="p-463">
+<div class="para">If the ML classifier suggests a photo is not about fashion, then it comes from the second row in the data set. Of these 1603 photos, 112 were actually about fashion:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{truth is fashion} \mid \text{mach_learn is pred_not}) = \frac{112}{1603} = 0.070
+\end{equation*}
+</div>
+</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-marginal-joint-probabilities"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.2</span> <span class="title">Marginal and joint probabilities</span>
 </h3>
-<div class="para" id="p-364">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-defining-conditional-probability"><h3 class="heading hide-type">
+<div class="para logical" id="p-464">
+<div class="para">
+<a href="" class="xref" data-knowl="./knowl/fig-contingency-fashion.html" title="Figure 3.2.1">Figure 3.2.1</a> includes row and column totals for each variable separately in the <code class="code-inline tex2jax_ignore">photo_classify</code> data set. These totals represent <dfn class="terminology">marginal probabilities</dfn> for the sample, which are the probabilities based on a single variable without regard to any other variables. For instance, a probability based solely on the <code class="code-inline tex2jax_ignore">mach_learn</code> variable is a marginal probability:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-contingency-fashion.html">
+\begin{equation*}
+P(\text{mach_learn is pred_fashion}) = \frac{219}{1822} = 0.12
+\end{equation*}
+</div>
+<div class="para">A probability of outcomes for two or more variables or processes is called a <dfn class="terminology">joint probability</dfn>:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-contingency-fashion.html">
+\begin{equation*}
+P(\text{mach_learn is pred_fashion and truth is fashion}) = \frac{197}{1822} = 0.11
+\end{equation*}
+</div>
+<div class="para">It is common to substitute a comma for “and” in a joint probability, although using either the word “and” or a comma is acceptable.</div>
+</div>
+<article class="assemblage assemblage-like" id="marginal-joint-def"><h4 class="heading"><span class="title">Marginal and joint probabilities.</span></h4>
+<div class="para" id="p-465">If a probability is based on a single variable, it is a <dfn class="terminology">marginal probability</dfn>. The probability of outcomes for two or more variables or processes is called a <dfn class="terminology">joint probability</dfn>.</div></article><div class="para" id="p-466">We use <dfn class="terminology">table proportions</dfn> to summarize joint probabilities for the <code class="code-inline tex2jax_ignore">photo_classify</code> sample. These proportions are computed by dividing each count by the table’s total, 1822, to obtain the probabilities in <a href="" class="xref" data-knowl="./knowl/fig-photo-classify-prob-table.html" title="Figure 3.2.5">Figure 3.2.5</a>. The joint probability distribution of the <code class="code-inline tex2jax_ignore">mach_learn</code> and <code class="code-inline tex2jax_ignore">truth</code> variables is shown in <a href="" class="xref" data-knowl="./knowl/fig-photo-classify-dist.html" title="Figure 3.2.6">Figure 3.2.6</a>.</div>
+<figure class="figure figure-like" id="fig-photo-classify-prob-table"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines">truth: fashion</td>
+<td class="c m b1 r0 l0 t0 lines">truth: not</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn: pred_fashion</td>
+<td class="c m b0 r0 l0 t0 lines">0.1081</td>
+<td class="c m b0 r0 l0 t0 lines">0.0121</td>
+<td class="c m b0 r0 l0 t0 lines">0.1202</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines">mach_learn: pred_not</td>
+<td class="c m b1 r0 l0 t0 lines">0.0615</td>
+<td class="c m b1 r0 l0 t0 lines">0.8183</td>
+<td class="c m b1 r0 l0 t0 lines">0.8798</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Total</td>
+<td class="c m b0 r0 l0 t0 lines">0.1696</td>
+<td class="c m b0 r0 l0 t0 lines">0.8304</td>
+<td class="c m b0 r0 l0 t0 lines">1.00</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.5<span class="period">.</span></span><span class="space"> </span>Probability table summarizing the <code class="code-inline tex2jax_ignore">photo_classify</code> data set.</figcaption></figure><figure class="figure figure-like" id="fig-photo-classify-dist"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Joint outcome</td>
+<td class="c m b1 r0 l0 t0 lines">Probability</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn is pred_fashion and truth is fashion</td>
+<td class="c m b0 r0 l0 t0 lines">0.1081</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn is pred_fashion and truth is not</td>
+<td class="c m b0 r0 l0 t0 lines">0.0121</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn is pred_not and truth is fashion</td>
+<td class="c m b0 r0 l0 t0 lines">0.0615</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">mach_learn is pred_not and truth is not</td>
+<td class="c m b0 r0 l0 t0 lines">0.8183</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+<td class="c m b1 r0 l0 t0 lines">1.0000</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.6<span class="period">.</span></span><span class="space"> </span>Joint probability distribution for the <code class="code-inline tex2jax_ignore">photo_classify</code> data set.</figcaption></figure><article class="exercise exercise-like" id="ex-verify-photo-dist"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-verify-photo-dist"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-verify-photo-dist"><article class="exercise exercise-like"><div class="para" id="p-467">Verify <a href="" class="xref" data-knowl="./knowl/fig-photo-classify-dist.html" title="Figure 3.2.6">Figure 3.2.6</a> represents a probability distribution: events are disjoint, all probabilities are non-negative, and the probabilities sum to 1.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-45" id="solution-45"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-45"><div class="solution solution-like"><div class="para" id="p-468">Each of the four outcome combinations are disjoint, all probabilities are indeed non-negative, and the sum of the probabilities is <span class="process-math">\(0.1081 + 0.0121 + 0.0615 + 0.8183 = 1.00\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para logical" id="p-469">
+<div class="para">We can compute marginal probabilities using joint probabilities in simple cases. For example, the probability a randomly selected photo from the data set is about fashion is found by summing the outcomes where <code class="code-inline tex2jax_ignore">truth</code> takes value “fashion”:</div>
+<div class="displaymath process-math" id="md-6">
+\begin{align*}
+P(\text{truth is fashion}) \amp= P(\text{mach_learn is pred_fashion and truth is fashion})\\
+\amp\quad + P(\text{mach_learn is pred_not and truth is fashion})\\
+\amp= 0.1081 + 0.0615 = 0.1696
+\end{align*}
+</div>
+</div></section><section class="subsection" id="subsec-defining-conditional-probability"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.3</span> <span class="title">Defining conditional probability</span>
 </h3>
-<div class="para" id="p-365">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-smallpox-boston"><h3 class="heading hide-type">
+<div class="para" id="p-470">The ML classifier predicts whether a photo is about fashion, even if it is not perfect. We would like to better understand how to use information from a variable like <code class="code-inline tex2jax_ignore">mach_learn</code> to improve our probability estimation of a second variable, which in this example is <code class="code-inline tex2jax_ignore">truth</code>.</div>
+<div class="para logical" id="p-471">
+<div class="para">The probability that a random photo from the data set is about fashion is about 0.17. If we knew the machine learning classifier predicted the photo was about fashion, could we get a better estimate of the probability the photo is actually about fashion? Absolutely. To do so, we limit our view to only those 219 cases where the ML classifier predicted that the photo was about fashion and look at the fraction where the photo was actually about fashion:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{truth is fashion} \mid \text{mach_learn is pred_fashion}) = \frac{197}{219} = 0.900
+\end{equation*}
+</div>
+<div class="para">We call this a <dfn class="terminology">conditional probability</dfn> because we computed the probability under a condition: the ML classifier prediction said the photo was about fashion.</div>
+</div>
+<div class="para logical" id="p-472">
+<div class="para">There are two parts to a conditional probability, the <dfn class="terminology">outcome of interest</dfn> and the <dfn class="terminology">condition</dfn>. It is useful to think of the condition as information we know to be true, and this information usually can be described as a known outcome or event. We generally separate the text inside our probability notation into the outcome of interest and the condition with a vertical bar:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{truth is fashion} \mid \text{mach_learn is pred_fashion}) = \frac{197}{219} = 0.900
+\end{equation*}
+</div>
+<div class="para">The vertical bar “<span class="process-math">\(|\)</span>” is read as <em class="emphasis">given</em>.</div>
+</div>
+<div class="para logical" id="p-473">
+<div class="para">In this equation, we computed the probability a photo was about fashion based on the condition that the ML algorithm predicted it was about fashion as a fraction:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\text{number of cases where truth is fashion and mach_learn is pred_fashion}}{\text{number of cases where mach_learn is pred_fashion}} = \frac{197}{219} = 0.900
+\end{equation*}
+</div>
+<div class="para">We considered only those cases that met the condition (<code class="code-inline tex2jax_ignore">mach_learn</code> is “pred_fashion”) and then we computed the ratio of those cases that satisfied our outcome of interest (photo was actually about fashion).</div>
+</div>
+<div class="para" id="p-474">Frequently, marginal and joint probabilities are provided instead of count data. For example, disease rates are commonly listed in percentages rather than in a count format. We would like to be able to compute conditional probabilities even when no counts are available, and we use the previous equation as a template to understand this technique.</div>
+<div class="para logical" id="p-475">
+<div class="para">If we were provided only the information in <a href="" class="xref" data-knowl="./knowl/fig-photo-classify-prob-table.html" title="Figure 3.2.5">Figure 3.2.5</a>, i.e. only probability data, then if we took a sample of 1000 photos, we would anticipate about 12.0% or <span class="process-math">\(0.120 \times 1000 = 120\)</span> would be predicted to be about fashion. Similarly, we would expect about 10.8% or <span class="process-math">\(0.108 \times 1000 = 108\)</span> to meet both the information criteria and represent our outcome of interest. Then the conditional probability can be computed as:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-photo-classify-prob-table.html">
+\begin{equation*}
+\frac{108}{120} = \frac{0.108}{0.120} = 0.90
+\end{equation*}
+</div>
+<div class="para">Here we are examining exactly the fraction of two probabilities, 0.108 and 0.120, which we can write as:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-photo-classify-prob-table.html">
+\begin{equation*}
+P(\text{truth is fashion and mach_learn is pred_fashion}) \quad\text{and}\quad P(\text{mach_learn is pred_fashion})
+\end{equation*}
+</div>
+<div class="para">The fraction of these probabilities is an example of the general formula for conditional probability.</div>
+</div>
+<article class="assemblage assemblage-like" id="conditional-probability-def"><h4 class="heading"><span class="title">Conditional probability.</span></h4>
+<div class="para logical" id="p-476">
+<div class="para">The conditional probability of outcome <span class="process-math">\(A\)</span> given condition <span class="process-math">\(B\)</span> is computed as:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \mid B) = \frac{P(A \text{ and } B)}{P(B)}
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="ex-conditional-ml-correct"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-conditional-ml-correct"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.8</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-conditional-ml-correct"><article class="exercise exercise-like"><div class="para" id="p-477">(a) Write out the following statement in conditional probability notation: “The probability that the ML prediction was correct, if the photo was about fashion”. Here the condition is now based on the photo’s <code class="code-inline tex2jax_ignore">truth</code> status, not the ML algorithm. (b) Determine the probability from part (a). <a href="" class="xref" data-knowl="./knowl/fig-photo-classify-prob-table.html" title="Figure 3.2.5">Figure 3.2.5</a> may be helpful.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-46" id="solution-46"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-46"><div class="solution solution-like"><div class="para logical" id="p-478">
+<div class="para">(a)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{mach_learn is pred_fashion} \mid \text{truth is fashion})
+\end{equation*}
+</div>
+<div class="para">(b) The equation for conditional probability indicates we should first find <span class="process-math">\(P(\text{mach_learn is pred_fashion and truth is fashion}) = 0.1081\)</span> and <span class="process-math">\(P(\text{truth is fashion}) = 0.1696\text{.}\)</span> Then the ratio represents the conditional probability: <span class="process-math">\(0.1081 / 0.1696 = 0.6374\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-cond-prob-sum-to-1"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-cond-prob-sum-to-1"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.9</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-cond-prob-sum-to-1"><article class="exercise exercise-like"><div class="para" id="p-479">(a) Determine the probability that the algorithm is incorrect if it is known the photo is about fashion. (b) Using part (a) and the previous exercise, compute the sum of the two conditional probabilities. (c) Provide an intuitive argument to explain why this sum is 1.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like"><div class="para logical" id="p-480">
+<div class="para">(a)</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{mach_learn is pred_not} \mid \text{truth is fashion}) = \frac{0.0615}{0.1696} = 0.3626
+\end{equation*}
+</div>
+<div class="para">(b) The total equals 1. (c) Under the condition the photo is about fashion, the ML algorithm must have either predicted it was about fashion or predicted it was not about fashion. The complement still works for conditional probabilities, provided the probabilities are conditioned on the same information.</div>
+</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-smallpox-boston"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.4</span> <span class="title">Smallpox in Boston, 1721</span>
 </h3>
-<div class="para" id="p-366">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-general-multiplication-rule"><h3 class="heading hide-type">
+<div class="para" id="p-481">The <code class="code-inline tex2jax_ignore">smallpox</code> data set provides a sample of 6,224 individuals from the year 1721 who were exposed to smallpox in Boston. Doctors at the time believed that inoculation, which involves exposing a person to the disease in a controlled form, could reduce the likelihood of death.</div>
+<div class="para" id="p-482">Each case represents one person with two variables: <code class="code-inline tex2jax_ignore">inoculated</code> and <code class="code-inline tex2jax_ignore">result</code>. The variable <code class="code-inline tex2jax_ignore">inoculated</code> takes two levels: “yes” or “no”, indicating whether the person was inoculated or not. The variable <code class="code-inline tex2jax_ignore">result</code> has outcomes “lived” or “died”. These data are summarized in <a href="" class="xref" data-knowl="./knowl/fig-smallpox-contingency.html" title="Figure 3.2.10">Figure 3.2.10</a> and <a href="" class="xref" data-knowl="./knowl/fig-smallpox-prob.html" title="Figure 3.2.11">Figure 3.2.11</a>.</div>
+<figure class="figure figure-like" id="fig-smallpox-contingency"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines" colspan="2">inoculated</td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines">yes</td>
+<td class="c m b1 r0 l0 t0 lines">no</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">lived</td>
+<td class="c m b0 r0 l0 t0 lines">238</td>
+<td class="c m b0 r0 l0 t0 lines">5136</td>
+<td class="c m b0 r0 l0 t0 lines">5374</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines">died</td>
+<td class="c m b1 r0 l0 t0 lines">6</td>
+<td class="c m b1 r0 l0 t0 lines">844</td>
+<td class="c m b1 r0 l0 t0 lines">850</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Total</td>
+<td class="c m b0 r0 l0 t0 lines">244</td>
+<td class="c m b0 r0 l0 t0 lines">5980</td>
+<td class="c m b0 r0 l0 t0 lines">6224</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.10<span class="period">.</span></span><span class="space"> </span>Contingency table for the <code class="code-inline tex2jax_ignore">smallpox</code> data set.</figcaption></figure><figure class="figure figure-like" id="fig-smallpox-prob"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines" colspan="2">inoculated</td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines">yes</td>
+<td class="c m b1 r0 l0 t0 lines">no</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">lived</td>
+<td class="c m b0 r0 l0 t0 lines">0.0382</td>
+<td class="c m b0 r0 l0 t0 lines">0.8252</td>
+<td class="c m b0 r0 l0 t0 lines">0.8634</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines">died</td>
+<td class="c m b1 r0 l0 t0 lines">0.0010</td>
+<td class="c m b1 r0 l0 t0 lines">0.1356</td>
+<td class="c m b1 r0 l0 t0 lines">0.1366</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Total</td>
+<td class="c m b0 r0 l0 t0 lines">0.0392</td>
+<td class="c m b0 r0 l0 t0 lines">0.9608</td>
+<td class="c m b0 r0 l0 t0 lines">1.0000</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.11<span class="period">.</span></span><span class="space"> </span>Table proportions for the <code class="code-inline tex2jax_ignore">smallpox</code> data, computed by dividing each count by the table total, 6224.</figcaption></figure><article class="exercise exercise-like" id="ex-prob-died-not-inoculated"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-prob-died-not-inoculated"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-died-not-inoculated"><article class="exercise exercise-like"><div class="para" id="p-483">Write out, in formal notation, the probability a randomly selected person who was not inoculated died from smallpox, and find this probability.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like"><div class="para logical" id="p-484"><div class="displaymath process-math">
+\begin{equation*}
+P(\text{result} = \text{died} \mid \text{inoculated} = \text{no}) = \frac{P(\text{result} = \text{died and inoculated} = \text{no})}{P(\text{inoculated} = \text{no})} = \frac{0.1356}{0.9608} = 0.1411
+\end{equation*}
+</div></div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-prob-died-inoculated"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-prob-died-inoculated"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.13</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-died-inoculated"><article class="exercise exercise-like"><div class="para" id="p-485">Determine the probability that an inoculated person died from smallpox. How does this result compare with the previous exercise?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-49" id="solution-49"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-49"><div class="solution solution-like"><div class="para logical" id="p-486">
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{result} = \text{died} \mid \text{inoculated} = \text{yes}) = \frac{0.0010}{0.0392} = 0.0255
+\end{equation*}
+</div>
+<div class="para">(If we avoided rounding errors, we’d get <span class="process-math">\(6 / 244 = 0.0246\)</span>). The death rate for individuals who were inoculated is only about 1 in 40 while the death rate is about 1 in 7 for those who were not inoculated.</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-smallpox-obs-exp"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-smallpox-obs-exp"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-smallpox-obs-exp"><article class="exercise exercise-like"><div class="para" id="p-487">The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational or was this an experiment? (b) Can we infer any causal connection using these data? (c) What are some potential confounding variables that might influence whether someone lived or died and also affect whether that person was inoculated?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-50" id="solution-50"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-50"><div class="solution solution-like"><div class="para" id="p-488">Brief answers: (a) Observational. (b) No, we cannot infer causation from this observational study. (c) Accessibility to the latest and best medical care. There are other valid answers for part (c).</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-general-multiplication-rule"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.5</span> <span class="title">General multiplication rule</span>
 </h3>
-<div class="para" id="p-367">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-independence-conditional"><h3 class="heading hide-type">
+<div class="para" id="p-489">Section 3.1 on Independence introduced the Multiplication Rule for independent processes. Here we provide the <dfn class="terminology">General Multiplication Rule</dfn> for events that might not be independent.</div>
+<article class="assemblage assemblage-like" id="general-mult-rule"><h4 class="heading"><span class="title">General Multiplication Rule.</span></h4>
+<div class="para logical" id="p-490">
+<div class="para">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> represent two outcomes or events, then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \text{ and } B) = P(A \mid B)\times P(B)
+\end{equation*}
+</div>
+<div class="para">It is useful to think of <span class="process-math">\(A\)</span> as the outcome of interest and <span class="process-math">\(B\)</span> as the condition.</div>
+</div></article><div class="para" id="p-491">This General Multiplication Rule is simply a rearrangement of the conditional probability equation.</div>
+<article class="example example-like" id="ex-smallpox-mult-rule"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-smallpox-mult-rule"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-smallpox-mult-rule"><article class="example example-like"><div class="para" id="p-492">Consider the <code class="code-inline tex2jax_ignore">smallpox</code> data set. Suppose we are given only two pieces of information: 96.08% of residents were not inoculated, and 85.88% of the residents who were not inoculated ended up surviving. How could we compute the probability that a resident was not inoculated and lived?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-51" id="solution-51"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-51"><div class="solution solution-like">
+<div class="para" id="p-493">We will compute our answer using the General Multiplication Rule and then verify it using <a href="" class="xref" data-knowl="./knowl/fig-smallpox-prob.html" title="Figure 3.2.11">Figure 3.2.11</a>. We want to determine <span class="process-math">\(P(\text{result} = \text{lived and inoculated} = \text{no})\)</span> and we are given that <span class="process-math">\(P(\text{result} = \text{lived} \mid \text{inoculated} = \text{no}) = 0.8588\)</span> and <span class="process-math">\(P(\text{inoculated} = \text{no}) = 0.9608\text{.}\)</span>
+</div> <div class="para logical" id="p-494">
+<div class="para">Among the 96.08% of people who were not inoculated, 85.88% survived:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-smallpox-prob.html">
+\begin{equation*}
+P(\text{result} = \text{lived and inoculated} = \text{no}) = 0.8588 \times 0.9608 = 0.8251
+\end{equation*}
+</div>
+<div class="para">This is equivalent to the General Multiplication Rule. We can confirm this probability in <a href="" class="xref" data-knowl="./knowl/fig-smallpox-prob.html" title="Figure 3.2.11">Figure 3.2.11</a> at the intersection of “no” and “lived” (with a small rounding error).</div>
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-inoculated-lived"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-inoculated-lived"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.16</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-inoculated-lived"><article class="exercise exercise-like"><div class="para" id="p-495">Use <span class="process-math">\(P(\text{inoculated} = \text{yes}) = 0.0392\)</span> and <span class="process-math">\(P(\text{result} = \text{lived} \mid \text{inoculated} = \text{yes}) = 0.9754\)</span> to determine the probability that a person was both inoculated and lived.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-52" id="solution-52"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-52"><div class="solution solution-like"><div class="para" id="p-496">The answer is 0.0382, which can be verified using <a href="" class="xref" data-knowl="./knowl/fig-smallpox-prob.html" title="Figure 3.2.11">Figure 3.2.11</a>.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-inoculated-died-pct"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-inoculated-died-pct"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.17</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-inoculated-died-pct"><article class="exercise exercise-like"><div class="para" id="p-497">If 97.54% of the inoculated people lived, what proportion of inoculated people must have died?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-53" id="solution-53"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-53"><div class="solution solution-like"><div class="para" id="p-498">There were only two possible outcomes: lived or died. This means that <span class="process-math">\(100\% - 97.54\% = 2.46\%\)</span> of the people who were inoculated died.</div></div></div>
+</div></article></div>
+<article class="assemblage assemblage-like" id="sum-conditional-probs"><h4 class="heading"><span class="title">Sum of conditional probabilities.</span></h4>
+<div class="para logical" id="p-499">
+<div class="para">Let <span class="process-math">\(A_1, \ldots, A_k\)</span> represent all the disjoint outcomes for a variable or process. Then if <span class="process-math">\(B\)</span> is an event, possibly for another variable or process, we have:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_1|B) + \cdots + P(A_k|B) = 1
+\end{equation*}
+</div>
+<div class="para">The rule for complements also holds when an event and its complement are conditioned on the same information:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \mid B) = 1 - P(A^c \mid B)
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="ex-inoculation-effective"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-inoculation-effective"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.18</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-inoculation-effective"><article class="exercise exercise-like"><div class="para" id="p-500">Based on the probabilities computed above, does it appear that inoculation is effective at reducing the risk of death from smallpox?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-54" id="solution-54"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-54"><div class="solution solution-like"><div class="para" id="p-501">The samples are large relative to the difference in death rates for the “inoculated” and “not inoculated” groups, so it seems there is an association between <code class="code-inline tex2jax_ignore">inoculated</code> and <code class="code-inline tex2jax_ignore">result</code>. However, this is an observational study and we cannot be sure if there is a causal connection. (Further research has shown that inoculation is effective at reducing death rates.)</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-independence-conditional"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.6</span> <span class="title">Independence considerations in conditional probability</span>
 </h3>
-<div class="para" id="p-368">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-tree-diagrams"><h3 class="heading hide-type">
+<div class="para" id="p-502">If two events are independent, then knowing the outcome of one should provide no information about the other. We can show this is mathematically true using conditional probabilities.</div>
+<article class="exercise exercise-like" id="ex-dice-independence"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-dice-independence"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.19</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-dice-independence"><article class="exercise exercise-like"><div class="para" id="p-503">Let <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> represent the outcomes of rolling two dice.</div> <div class="para logical" id="p-504"><ol class="lower-alpha">
+<li id="li-178"><div class="para" id="p-505">What is the probability that the first die, <span class="process-math">\(X\text{,}\)</span> is 1?</div></li>
+<li id="li-179"><div class="para" id="p-506">What is the probability that both <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are 1?</div></li>
+<li id="li-180"><div class="para" id="p-507">Use the formula for conditional probability to compute <span class="process-math">\(P(Y = 1 \mid X = 1)\text{.}\)</span>
+</div></li>
+<li id="li-181"><div class="para" id="p-508">What is <span class="process-math">\(P(Y=1)\text{?}\)</span> Is this different from the answer from part (c)? Explain.</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-55" id="solution-55"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-55"><div class="solution solution-like"><div class="para" id="p-509">Brief solutions: (a) <span class="process-math">\(1/6\text{.}\)</span> (b) <span class="process-math">\(1/36\text{.}\)</span> (c) <span class="process-math">\(\frac{P(Y = 1 \text{ and } X = 1)}{P(X = 1)} = \frac{1/36}{1/6} = 1/6\text{.}\)</span> (d) The probability is the same as in part (c): <span class="process-math">\(P(Y=1)=1/6\text{.}\)</span> The probability that <span class="process-math">\(Y=1\)</span> was unchanged by knowledge about <span class="process-math">\(X\text{,}\)</span> which makes sense as <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are independent.</div></div></div>
+</div></article></div>
+<div class="para logical" id="p-510">
+<div class="para">We can show in the above exercise that the conditioning information has no influence by using the Multiplication Rule for independence processes:</div>
+<div class="displaymath process-math" id="md-7">
+\begin{align*}
+P(Y=1 \mid X=1) \amp= \frac{P(Y=1 \text{ and } X=1)}{P(X=1)}\\
+\amp= \frac{P(Y=1) \times P(X=1)}{P(X=1)}\\
+\amp= P(Y=1)
+\end{align*}
+</div>
+</div>
+<article class="exercise exercise-like" id="ex-gamblers-fallacy"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-gamblers-fallacy"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.20</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-gamblers-fallacy"><article class="exercise exercise-like"><div class="para" id="p-511">Ron is watching a roulette table in a casino and notices that the last five outcomes were black. He figures that the chances of getting black six times in a row is very small (about 1/64) and puts his paycheck on red. What is wrong with his reasoning?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-56" id="solution-56"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-56"><div class="solution solution-like"><div class="para" id="p-512">He has forgotten that the next roulette spin is independent of the previous spins. This fallacy, known as the <dfn class="terminology">gambler’s fallacy</dfn>, is commonly exploited by casinos which post the last several outcomes of betting games.</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-tree-diagrams"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.7</span> <span class="title">Tree diagrams</span>
 </h3>
-<div class="para" id="p-369">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-bayes-theorem"><h3 class="heading hide-type">
+<div class="para" id="p-513">
+<dfn class="terminology">Tree diagrams</dfn> are a tool to organize outcomes and probabilities around the structure of the data. They are most useful when two or more processes occur in a sequence and each process is conditioned on its predecessors.</div>
+<div class="para" id="p-514">The <code class="code-inline tex2jax_ignore">smallpox</code> data fit this description. We see the population as split by <code class="code-inline tex2jax_ignore">inoculation</code>: yes and no. Following this split, survival rates were observed for each group. This structure is reflected in the tree diagram shown in <a href="" class="xref" data-knowl="./knowl/fig-smallpox-tree.html" title="Figure 3.2.21">Figure 3.2.21</a>.</div>
+<figure class="figure figure-like" id="fig-smallpox-tree"><div class="image-box" style="width: 93%; margin-left: 3.5%; margin-right: 3.5%;"><img src="ch_probability/figures/smallpoxTreeDiagram.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.21<span class="period">.</span></span><span class="space"> </span>A tree diagram of the <code class="code-inline tex2jax_ignore">smallpox</code> data set.</figcaption></figure><div class="para logical" id="p-515">
+<div class="para">Tree diagrams are annotated with marginal and conditional probabilities. This tree diagram splits the smallpox data by <code class="code-inline tex2jax_ignore">inoculation</code> into the yes and no groups with respective marginal probabilities 0.0392 and 0.9608. The secondary branches are conditioned on the first, so we assign conditional probabilities to these branches. We may construct joint probabilities at the end of each branch in our tree by multiplying the numbers we come across as we move from left to right. These joint probabilities are computed using the General Multiplication Rule:</div>
+<div class="displaymath process-math" id="md-8">
+\begin{align*}
+P(\text{inoculated} = \text{yes and result} = \text{lived})\\
+\amp= P(\text{inoculated} = \text{yes}) \times P(\text{result} = \text{lived} \mid \text{inoculated} = \text{yes})\\
+\amp= 0.0392 \times 0.9754 = 0.0382
+\end{align*}
+</div>
+</div>
+<article class="example example-like" id="ex-test-scores-tree"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-ex-test-scores-tree"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.22</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-test-scores-tree"><article class="example example-like"><div class="para" id="p-516">Consider the midterm and final for a statistics class. Suppose 13% of students earned an A on the midterm. Of those students who earned an A on the midterm, 47% received an A on the final, and 11% of the students who earned lower than an A on the midterm received an A on the final. You randomly pick up a final exam and notice the student received an A. What is the probability that this student earned an A on the midterm?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-57" id="solution-57"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-57"><div class="solution solution-like">
+<div class="para" id="p-517">The end-goal is to find <span class="process-math">\(P(\text{midterm} = A \mid \text{final} = A)\text{.}\)</span> To calculate this conditional probability, we need <span class="process-math">\(P(\text{midterm} = A \text{ and final} = A)\)</span> and <span class="process-math">\(P(\text{final} = A)\text{.}\)</span> Since we aren’t sure how to proceed, it is useful to organize the information into a tree diagram (shown below).</div> <figure class="figure figure-like" id="figure-51"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="ch_probability/figures/testTree.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.23<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="p-518">Variables provided with marginal probabilities are often used to create the tree’s primary branches; in this case, the marginal probabilities are provided for midterm grades. The final grades, which correspond to the conditional probabilities provided, will be shown on the secondary branches.</div> <div class="para logical" id="p-519">
+<div class="para">With the tree diagram constructed, we may compute the required probabilities:</div>
+<div class="displaymath process-math" id="md-9">
+\begin{align*}
+P(\text{midterm} = A \text{ and final} = A) \amp= 0.0611\\
+P(\text{final} = A) \amp= P(\text{midterm} = \text{other and final} = A) + P(\text{midterm} = A \text{ and final} = A)\\
+\amp= 0.0957 + 0.0611 = 0.1568
+\end{align*}
+</div>
+<div class="para">The marginal probability <span class="process-math">\(P(\text{final} = A)\)</span> was calculated by adding up all the joint probabilities corresponding to final = A. We may now take the ratio of the two probabilities:</div>
+<div class="displaymath process-math" id="md-10">
+\begin{align*}
+P(\text{midterm} = A \mid \text{final} = A) \amp= \frac{P(\text{midterm} = A \text{ and final} = A)}{P(\text{final} = A)}\\
+\amp= \frac{0.0611}{0.1568} = 0.3897
+\end{align*}
+</div>
+<div class="para">The probability the student also earned an A on the midterm is about 0.39.</div>
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-tree-diagram-pass"><a href="" data-knowl="" class="id-ref exercise-knowl original has-image" data-refid="hk-ex-tree-diagram-pass"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.24</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-tree-diagram-pass"><article class="exercise exercise-like"><div class="para" id="p-520">After an introductory statistics course, 78% of students can successfully construct tree diagrams. Of those who can construct tree diagrams, 97% passed, while only 57% of those students who could not construct tree diagrams passed. (a) Organize this information into a tree diagram. (b) What is the probability that a randomly selected student passed? (c) Compute the probability a student is able to construct a tree diagram if it is known that she passed.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-58" id="solution-58"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-58"><div class="solution solution-like">
+<div class="para" id="p-521">(a) The tree diagram is provided below. (b) Identify which two joint probabilities represent students who passed, and add them: <span class="process-math">\(P(\text{passed}) = 0.7566+0.1254= 0.8820\text{.}\)</span> (c) <span class="process-math">\(P(\text{construct tree diagram} \mid \text{passed}) = \frac{0.7566}{0.8820} = 0.8578\text{.}\)</span>
+</div> <figure class="figure figure-like" id="figure-52"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="ch_probability/figures/treeDiagramAndPass.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.25<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div></section><section class="subsection" id="subsec-bayes-theorem"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.2.8</span> <span class="title">Bayes’ Theorem</span>
 </h3>
-<div class="para" id="p-370">To be converted from LaTeX source.</div></section></section></div>
+<div class="para" id="p-522">In many instances, we are given a conditional probability of the form <span class="process-math">\(P(\text{statement about 
+variable 1} \mid \text{statement about variable 2})\)</span> but we would really like to know the inverted conditional probability: <span class="process-math">\(P(\text{statement about variable 2} \mid \text{statement about variable 1})\text{.}\)</span> Tree diagrams can be used to find the second conditional probability when given the first. However, sometimes it is not possible to draw the scenario in a tree diagram. In these cases, we can apply a very useful and general formula: Bayes’ Theorem.</div>
+<article class="example example-like" id="ex-mammogram"><a href="" data-knowl="" class="id-ref example-knowl original has-image" data-refid="hk-ex-mammogram"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.26</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-mammogram"><article class="example example-like"><div class="para" id="p-523">In Canada, about 0.35% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11% of patients with breast cancer, the test gives a <dfn class="terminology">false negative</dfn>: it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a <dfn class="terminology">false positive</dfn> in 7% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not. If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive — that is, the test suggested the patient has cancer — what is the probability that the patient actually has breast cancer?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-59" id="solution-59"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-59"><div class="solution solution-like">
+<div class="para" id="p-524">Notice that we are given sufficient information to quickly compute the probability of testing positive if a woman has breast cancer (<span class="process-math">\(1.00 - 0.11 = 0.89\)</span>). However, we seek the inverted probability of cancer given a positive test result.</div> <div class="para logical" id="p-525">
+<div class="para">This inverted probability can be broken into two pieces:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{has cancer} \mid \text{mammogram+}) = \frac{P(\text{has cancer and mammogram+})}{P(\text{mammogram+})}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-526">We can construct a tree diagram to organize these probabilities:</div> <figure class="figure figure-like" id="figure-53"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="ch_probability/figures/BreastCancerTreeDiagram.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.27<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para logical" id="p-527">
+<div class="para">The probability the patient has breast cancer and the mammogram is positive is:</div>
+<div class="displaymath process-math" id="md-11">
+\begin{align*}
+P(\text{has cancer and mammogram+}) \amp= P(\text{mammogram+} \mid \text{has cancer})P(\text{has cancer})\\
+\amp= 0.89 \times 0.0035 = 0.00312
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-528">
+<div class="para">The probability of a positive test result is the sum of the two corresponding scenarios:</div>
+<div class="displaymath process-math" id="md-12">
+\begin{align*}
+P(\text{mammogram+}) \amp= P(\text{mammogram+ and has cancer}) + P(\text{mammogram+ and no cancer})\\
+\amp= P(\text{has cancer})P(\text{mammogram+} \mid \text{has cancer})\\
+\amp\quad + P(\text{no cancer})P(\text{mammogram+} \mid \text{no cancer})\\
+\amp= 0.0035 \times 0.89 + 0.9965 \times 0.07 = 0.07288
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-529">
+<div class="para">Then if the mammogram screening is positive for a patient, the probability the patient has breast cancer is:</div>
+<div class="displaymath process-math" id="md-13">
+\begin{align*}
+P(\text{has cancer} \mid \text{mammogram+}) \amp= \frac{P(\text{has cancer and mammogram+})}{P(\text{mammogram+})}\\
+\amp= \frac{0.00312}{0.07288} \approx 0.0428
+\end{align*}
+</div>
+<div class="para">That is, even if a patient has a positive mammogram screening, there is still only about a 4% chance that she has breast cancer.</div>
+</div>
+</div></div>
+</div></article></div>
+<div class="para" id="p-530">
+<a href="" class="xref" data-knowl="./knowl/ex-mammogram.html" title="Example 3.2.26">Example 3.2.26</a> highlights why doctors often run more tests regardless of a first positive test result. When a medical condition is rare, a single positive test isn’t generally definitive.</div>
+<div class="para logical" id="p-531">
+<div class="para">Consider again the last equation of <a href="" class="xref" data-knowl="./knowl/ex-mammogram.html" title="Example 3.2.26">Example 3.2.26</a>. Using the tree diagram, we can see that the numerator is:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mammogram.html">
+\begin{equation*}
+P(\text{has cancer and mammogram+}) = P(\text{mammogram+} \mid \text{has cancer})P(\text{has cancer})
+\end{equation*}
+</div>
+<div class="para">The denominator—the probability the screening was positive—is the sum of probabilities for each positive screening scenario:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-mammogram.html" id="md-14">
+\begin{align*}
+P(\text{mammogram+}) \amp= P(\text{mammogram+ and no cancer}) + P(\text{mammogram+ and has cancer})\\
+\amp= P(\text{mammogram+} \mid \text{no cancer})P(\text{no cancer})\\
+\amp\quad + P(\text{mammogram+} \mid \text{has cancer})P(\text{has cancer})
+\end{align*}
+</div>
+</div>
+<article class="assemblage assemblage-like" id="bayes-theorem"><h4 class="heading"><span class="title">Bayes’ Theorem: inverting probabilities.</span></h4>
+<div class="para logical" id="p-532">
+<div class="para">Consider the following conditional probability for variable 1 and variable 2:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{outcome } A_1 \text{ of variable 1} \mid \text{outcome } B \text{ of variable 2})
+\end{equation*}
+</div>
+<div class="para">Bayes’ Theorem states that this conditional probability can be identified as:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{P(B \mid A_1) P(A_1)}{P(B \mid A_1) P(A_1) + P(B \mid A_2) P(A_2) + \cdots + P(B \mid A_k) P(A_k)}
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(A_2, A_3, \ldots, A_k\)</span> represent all other possible outcomes of the first variable.</div>
+</div></article><div class="para" id="p-533">Bayes’ Theorem is a generalization of what we have done using tree diagrams. The numerator identifies the probability of getting both <span class="process-math">\(A_1\)</span> and <span class="process-math">\(B\text{.}\)</span> The denominator is the marginal probability of getting <span class="process-math">\(B\text{.}\)</span> This bottom component of the fraction appears long and complicated since we have to add up probabilities from all of the different ways to get <span class="process-math">\(B\text{.}\)</span> We always completed this step when using tree diagrams. However, we usually did it in a separate step so it didn’t seem as complex.</div>
+<div class="para" id="p-534">To apply Bayes’ Theorem correctly, there are two preparatory steps:</div>
+<div class="para logical" id="p-535"><ol class="decimal">
+<li id="li-182"><div class="para" id="p-536">First identify the marginal probabilities of each possible outcome of the first variable: <span class="process-math">\(P(A_1), P(A_2), \ldots, P(A_k)\text{.}\)</span>
+</div></li>
+<li id="li-183"><div class="para" id="p-537">Then identify the probability of the outcome <span class="process-math">\(B\text{,}\)</span> conditioned on each possible scenario for the first variable: <span class="process-math">\(P(B \mid A_1), P(B \mid A_2), \ldots, P(B \mid A_k)\text{.}\)</span>
+</div></li>
+</ol></div>
+<div class="para" id="p-538">Once each of these probabilities are identified, they can be applied directly within the formula. Bayes’ Theorem tends to be a good option when there are so many scenarios that drawing a tree diagram would be complex.</div>
+<article class="exercise exercise-like" id="ex-parking-garage-tree"><a href="" data-knowl="" class="id-ref exercise-knowl original has-image" data-refid="hk-ex-parking-garage-tree"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.28</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-parking-garage-tree"><article class="exercise exercise-like"><div class="para" id="p-539">Jose visits campus every Thursday evening. However, some days the parking garage is full, often due to college events. There are academic events on 35% of evenings, sporting events on 20% of evenings, and no events on 45% of evenings. When there is an academic event, the garage fills up about 25% of the time, and it fills up 70% of evenings with sporting events. On evenings when there are no events, it only fills up about 5% of the time. If Jose comes to campus and finds the garage full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
+<div class="para" id="p-540">The tree diagram with three primary branches is shown below. Next, we identify two probabilities from the tree diagram: (1) The probability that there is a sporting event and the garage is full: 0.14. (2) The probability the garage is full: <span class="process-math">\(0.0875 + 0.14 + 0.0225 = 0.25\text{.}\)</span> Then the solution is the ratio of these probabilities: <span class="process-math">\(\frac{0.14}{0.25} = 0.56\text{.}\)</span> If the garage is full, there is a 56% probability that there is a sporting event.</div> <figure class="figure figure-like" id="figure-54"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="ch_probability/figures/treeDiagramGarage.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.29<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="ex-bayes-parking"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-bayes-parking"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.30</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-bayes-parking"><article class="example example-like"><div class="para" id="p-541">Here we solve the same problem presented in the previous exercise, except this time we use Bayes’ Theorem.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
+<div class="para logical" id="p-542">
+<div class="para">The outcome of interest is whether there is a sporting event (call this <span class="process-math">\(A_1\)</span>), and the condition is that the lot is full (<span class="process-math">\(B\)</span>). Let <span class="process-math">\(A_2\)</span> represent an academic event and <span class="process-math">\(A_3\)</span> represent there being no event on campus. Then the given probabilities can be written as:</div>
+<div class="displaymath process-math" id="md-15">
+\begin{gather*}
+P(A_1) = 0.2 \quad P(A_2) = 0.35 \quad P(A_3) = 0.45\\
+P(B \mid A_1) = 0.7 \quad P(B \mid A_2) = 0.25 \quad P(B \mid A_3) = 0.05
+\end{gather*}
+</div>
+</div> <div class="para logical" id="p-543">
+<div class="para">Bayes’ Theorem can be used to compute the probability of a sporting event (<span class="process-math">\(A_1\)</span>) under the condition that the parking lot is full (<span class="process-math">\(B\)</span>):</div>
+<div class="displaymath process-math" id="md-16">
+\begin{align*}
+P(A_1 \mid B) \amp= \frac{P(B \mid A_1) P(A_1)}{P(B \mid A_1) P(A_1) + P(B \mid A_2) P(A_2) + P(B \mid A_3) P(A_3)}\\
+\amp= \frac{(0.7)(0.2)}{(0.7)(0.2) + (0.25)(0.35) + (0.05)(0.45)}\\
+\amp= 0.56
+\end{align*}
+</div>
+<div class="para">Based on the information that the garage is full, there is a 56% probability that a sporting event is being held on campus that evening.</div>
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-parking-academic-event"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-parking-academic-event"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.31</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-parking-academic-event"><article class="exercise exercise-like"><div class="para" id="p-544">Use the information in <a href="" class="xref" data-knowl="./knowl/ex-parking-garage-tree.html" title="Checkpoint 3.2.28">Checkpoint 3.2.28</a> and <a href="" class="xref" data-knowl="./knowl/ex-bayes-parking.html" title="Example 3.2.30">Example 3.2.30</a> to verify the probability that there is an academic event conditioned on the parking lot being full is 0.35.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like"><div class="para logical" id="p-545">
+<div class="para">Short answer:</div>
+<div class="displaymath process-math" id="md-17">
+\begin{align*}
+P(A_2 \mid B) \amp= \frac{P(B \mid A_2) P(A_2)}{P(B \mid A_1) P(A_1) + P(B \mid A_2) P(A_2) + P(B \mid A_3) P(A_3)}\\
+\amp= \frac{(0.25)(0.35)}{(0.7)(0.2) + (0.25)(0.35) + (0.05)(0.45)}\\
+\amp= 0.35
+\end{align*}
+</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-parking-no-event"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-parking-no-event"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.2.32</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-parking-no-event"><article class="exercise exercise-like"><div class="para" id="p-546">In <a href="" class="xref" data-knowl="./knowl/ex-parking-garage-tree.html" title="Checkpoint 3.2.28">Checkpoint 3.2.28</a> and <a href="" class="xref" data-knowl="./knowl/ex-bayes-parking.html" title="Example 3.2.30">Example 3.2.30</a>, you found that if the parking lot is full, the probability there is a sporting event is 0.56 and the probability there is an academic event is 0.35. Using this information, compute <span class="process-math">\(P(\text{no event} \mid 
+\text{the lot is full})\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like"><div class="para" id="p-547">Each probability is conditioned on the same information that the garage is full, so the complement may be used: <span class="process-math">\(1.00 - 0.56 - 0.35 = 0.09\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para" id="p-548">The last several exercises offered a way to update our belief about whether there is a sporting event, academic event, or no event going on at the school based on the information that the parking lot was full. This strategy of <em class="emphasis">updating beliefs</em> using Bayes’ Theorem is actually the foundation of an entire section of statistics called <dfn class="terminology">Bayesian statistics</dfn>. While Bayesian statistics is very important and useful, we will not have time to cover much more of it in this book.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-defining-probability.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-sampling-small-population.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

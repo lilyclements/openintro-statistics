@@ -452,24 +452,432 @@ true);
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-random-variables"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.4</span> <span class="title">Random variables</span>
 </h2>
-<section class="introduction" id="introduction-10"><div class="para" id="p-376">It’s often useful to model a process using what’s called a random variable. Such a model allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.</div></section><article class="example example-like" id="ex-bookstore-sales"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-bookstore-sales"><h3 class="heading">
+<section class="introduction" id="introduction-11"><div class="para" id="p-569">It’s often useful to model a process using what’s called a <dfn class="terminology">random variable</dfn>. Such a model allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.</div></section><article class="example example-like" id="ex-bookstore-sales"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-bookstore-sales"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.1</span><span class="period">.</span><span class="space"> </span><span class="title">Bookstore sales expectation.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-bookstore-sales"><article class="example example-like"><div class="para" id="p-377">Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-bookstore-sales"><article class="example example-like"><div class="para" id="p-570">Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-22" id="solution-22"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like"><div class="para" id="p-378">To be converted from LaTeX source.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-71" id="solution-71"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-71"><div class="solution solution-like"><div class="para" id="p-571">Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The bookstore should expect to sell about 105 books for this class.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-bookstore-variability"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-bookstore-variability"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-bookstore-variability"><article class="exercise exercise-like"><div class="para" id="p-572">Would you be surprised if the bookstore sold slightly more or less than 105 books?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-72" id="solution-72"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-72"><div class="solution solution-like"><div class="para" id="p-573">If they sell a little more or a little less, this should not be a surprise. There is natural variability in observed data. For example, if we flip a coin 100 times, it will not usually come up heads exactly half the time, but it will probably be close.</div></div></div>
 </div></article></div>
 <section class="subsection" id="subsec-expectation"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.1</span> <span class="title">Expectation</span>
 </h3>
-<div class="para" id="p-379">To be converted from LaTeX source.</div>
-<figure class="figure figure-like" id="fig-book-cost-dist"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/bookCostDist.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.2<span class="period">.</span></span><span class="space"> </span>Probability distribution for the bookstore’s revenue from one student</figcaption></figure></section><section class="subsection" id="subsec-variability-random-variables"><h3 class="heading hide-type">
+<div class="para" id="p-574">We call a variable or process with a numerical outcome a <dfn class="terminology">random variable</dfn>, and we usually represent this random variable with a capital letter such as <span class="process-math">\(X\text{,}\)</span> <span class="process-math">\(Y\text{,}\)</span> or <span class="process-math">\(Z\text{.}\)</span> The amount of money a single student will spend on her statistics books is a random variable, and we represent it by <span class="process-math">\(X\text{.}\)</span>
+</div>
+<article class="assemblage assemblage-like" id="def-random-variable"><h4 class="heading"><span class="title">Random variable.</span></h4>
+<div class="para" id="p-575">A random process or variable with a numerical outcome.</div></article><div class="para" id="p-576">The possible outcomes of <span class="process-math">\(X\)</span> are labeled with a corresponding lower case letter <span class="process-math">\(x\)</span> and subscripts. For example, we write <span class="process-math">\(x_1 = \$0\text{,}\)</span> <span class="process-math">\(x_2 = \$137\text{,}\)</span> and <span class="process-math">\(x_3 = \$170\text{,}\)</span> which occur with probabilities 0.20, 0.55, and 0.25. The distribution of <span class="process-math">\(X\)</span> is summarized in the table below.</div>
+<figure class="figure figure-like" id="fig-stat-spend-dist"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(i\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(x_i\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">$0</td>
+<td class="c m b0 r0 l0 t0 lines">$137</td>
+<td class="c m b0 r0 l0 t0 lines">$170</td>
+<td class="c m b0 r0 l0 t0 lines">--</td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(P(X=x_i)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">0.20</td>
+<td class="c m b1 r0 l0 t0 lines">0.55</td>
+<td class="c m b1 r0 l0 t0 lines">0.25</td>
+<td class="c m b1 r0 l0 t0 lines">1.00</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.3<span class="period">.</span></span><span class="space"> </span>The probability distribution for the random variable <span class="process-math">\(X\text{,}\)</span> representing the bookstore’s revenue from a single student.</figcaption></figure><figure class="figure figure-like" id="fig-book-cost-dist"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="ch_probability/figures/bookCostDist.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.4<span class="period">.</span></span><span class="space"> </span>Probability distribution for the bookstore’s revenue from one student. The triangle represents the average revenue per student.</figcaption></figure><article class="example example-like" id="ex-rev-per-student"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-rev-per-student"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.5</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-rev-per-student"><article class="example example-like"><div class="para" id="p-577">What is the average revenue per student for this course?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-73" id="solution-73"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-73"><div class="solution solution-like"><div class="para" id="p-578">The expected total revenue is $11,785, and there are 100 students. Therefore the expected revenue per student is <span class="process-math">\(\$11,785/100 = \$117.85\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para logical" id="p-579">
+<div class="para">We computed the average outcome of <span class="process-math">\(X\)</span> as <span class="process-math">\(\$117.85\)</span> in <a href="" class="xref" data-knowl="./knowl/ex-rev-per-student.html" title="Example 3.4.5">Example 3.4.5</a>. We call this average the <dfn class="terminology">expected value</dfn> of <span class="process-math">\(X\text{,}\)</span> denoted by <span class="process-math">\(E(X)\text{.}\)</span> The expected value of a random variable is computed by adding each outcome weighted by its probability:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-rev-per-student.html" id="md-21">
+\begin{align*}
+E(X) \amp= 0 \times P(X=0) + 137 \times P(X=137) + 170 \times P(X=170)\\
+\amp= 0 \times 0.20 + 137 \times 0.55 + 170 \times 0.25 = 117.85
+\end{align*}
+</div>
+</div>
+<article class="assemblage assemblage-like" id="def-expected-value"><h4 class="heading"><span class="title">Expected value of a discrete random variable.</span></h4>
+<div class="para logical" id="p-580">
+<div class="para">If <span class="process-math">\(X\)</span> takes outcomes <span class="process-math">\(x_1, \ldots, x_k\)</span> with probabilities <span class="process-math">\(P(X=x_1), \ldots, P(X=x_k)\text{,}\)</span> the expected value of <span class="process-math">\(X\)</span> is the sum of each outcome multiplied by its corresponding probability:</div>
+<div class="displaymath process-math" id="md-22">
+\begin{align*}
+E(X) \amp= x_1 \times P(X = x_1) + \cdots + x_k \times P(X = x_k)\\
+\amp= \sum_{i=1}^{k} x_i P(X = x_i)
+\end{align*}
+</div>
+<div class="para">The Greek letter <span class="process-math">\(\mu\)</span> may be used in place of the notation <span class="process-math">\(E(X)\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-581">The expected value for a random variable represents the average outcome. For example, <span class="process-math">\(E(X) = 117.85\)</span> represents the average amount the bookstore expects to make from a single student, which we could also write as <span class="process-math">\(\mu = 117.85\text{.}\)</span>
+</div>
+<div class="para" id="p-582">It is also possible to compute the expected value of a continuous random variable (see <a href="sec-continuous-distributions.html" class="internal" title="Section 3.5: Continuous distributions">Section 3.5</a>). However, it requires calculus and we save it for a later class.</div>
+<div class="para" id="p-583">In physics, the expectation holds the same meaning as the center of gravity. The distribution can be represented by a series of weights at each outcome, and the mean represents the balancing point.</div></section><section class="subsection" id="subsec-variability-random-variables"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.2</span> <span class="title">Variability in random variables</span>
 </h3>
-<div class="para" id="p-380">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-linear-combinations"><h3 class="heading hide-type">
+<div class="para" id="p-584">Suppose you ran the university bookstore. Besides how much revenue you expect to generate, you might also want to know the volatility (variability) in your revenue.</div>
+<div class="para" id="p-585">The <dfn class="terminology">variance</dfn> and <dfn class="terminology">standard deviation</dfn> can be used to describe the variability of a random variable. We first compute deviations from the mean (<span class="process-math">\(x_i - \mu\)</span>), square those deviations, and take an average to get the variance. In the case of a random variable, we again compute squared deviations. However, we take their sum weighted by their corresponding probabilities, just like we did for the expectation. This weighted sum of squared deviations equals the variance, and we calculate the standard deviation by taking the square root of the variance.</div>
+<article class="assemblage assemblage-like" id="def-variance-random-variable"><h4 class="heading"><span class="title">Variance of a discrete random variable.</span></h4>
+<div class="para logical" id="p-586">
+<div class="para">If <span class="process-math">\(X\)</span> takes outcomes <span class="process-math">\(x_1, \ldots, x_k\)</span> with probabilities <span class="process-math">\(P(X=x_1), \ldots, P(X=x_k)\)</span> and expected value <span class="process-math">\(\mu = E(X)\text{,}\)</span> then the variance of <span class="process-math">\(X\text{,}\)</span> denoted by <span class="process-math">\(\text{Var}(X)\)</span> or the symbol <span class="process-math">\(\sigma^2\text{,}\)</span> is</div>
+<div class="displaymath process-math" id="md-23">
+\begin{align*}
+\sigma^2 \amp= (x_1-\mu)^2 \times P(X=x_1) + \cdots + (x_k-\mu)^2 \times P(X=x_k)\\
+\amp= \sum_{j=1}^{k} (x_j - \mu)^2 P(X=x_j)
+\end{align*}
+</div>
+<div class="para">The standard deviation of <span class="process-math">\(X\text{,}\)</span> labeled <span class="process-math">\(\sigma\text{,}\)</span> is the square root of the variance.</div>
+</div></article><article class="example example-like" id="ex-revenue-variance"><a href="" data-knowl="" class="id-ref example-knowl original has-tabular" data-refid="hk-ex-revenue-variance"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.6</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-revenue-variance"><article class="example example-like"><div class="para" id="p-587">Compute the expected value, variance, and standard deviation of <span class="process-math">\(X\text{,}\)</span> the revenue of a single statistics student for the bookstore.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-74" id="solution-74"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-74"><div class="solution solution-like">
+<div class="para" id="p-588">It is useful to construct a table that holds computations for each outcome separately, then add up the results.</div> <figure class="figure figure-like" id="figure-57"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(i\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(x_i\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">$0</td>
+<td class="c m b0 r0 l0 t0 lines">$137</td>
+<td class="c m b0 r0 l0 t0 lines">$170</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P(X=x_i)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0.20</td>
+<td class="c m b0 r0 l0 t0 lines">0.55</td>
+<td class="c m b0 r0 l0 t0 lines">0.25</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x_i \times P(X=x_i)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">0</td>
+<td class="c m b1 r0 l0 t0 lines">75.35</td>
+<td class="c m b1 r0 l0 t0 lines">42.50</td>
+<td class="c m b1 r0 l0 t0 lines">117.85</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="p-589">Thus, the expected value is <span class="process-math">\(\mu = 117.85\text{,}\)</span> which we computed earlier. The variance can be constructed by extending this table:</div> <figure class="figure figure-like" id="figure-58"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(i\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(x_i\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">$0</td>
+<td class="c m b0 r0 l0 t0 lines">$137</td>
+<td class="c m b0 r0 l0 t0 lines">$170</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P(X=x_i)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0.20</td>
+<td class="c m b0 r0 l0 t0 lines">0.55</td>
+<td class="c m b0 r0 l0 t0 lines">0.25</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(x_i \times P(X=x_i)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">75.35</td>
+<td class="c m b0 r0 l0 t0 lines">42.50</td>
+<td class="c m b0 r0 l0 t0 lines">117.85</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(x_i - \mu\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">-117.85</td>
+<td class="c m b0 r0 l0 t0 lines">19.15</td>
+<td class="c m b0 r0 l0 t0 lines">52.15</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((x_i-\mu)^2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">13888.62</td>
+<td class="c m b0 r0 l0 t0 lines">366.72</td>
+<td class="c m b0 r0 l0 t0 lines">2719.62</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\((x_i-\mu)^2 \times P(X=x_i)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">2777.7</td>
+<td class="c m b1 r0 l0 t0 lines">201.7</td>
+<td class="c m b1 r0 l0 t0 lines">679.9</td>
+<td class="c m b1 r0 l0 t0 lines">3659.3</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure> <div class="para" id="p-590">The variance of <span class="process-math">\(X\)</span> is <span class="process-math">\(\sigma^2 = 3659.3\text{,}\)</span> which means the standard deviation is <span class="process-math">\(\sigma = \sqrt{3659.3} = \$60.49\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-chemistry-books-revenue"><a href="" data-knowl="" class="id-ref exercise-knowl original has-tabular" data-refid="hk-ex-chemistry-books-revenue"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.9</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-chemistry-books-revenue"><article class="exercise exercise-like"><div class="para" id="p-591">The bookstore also offers a chemistry textbook for $159 and a book supplement for $41. From past experience, they know about 25% of chemistry students just buy the textbook while 60% buy both the textbook and supplement.</div> <div class="para logical" id="p-592"><ol class="lower-alpha">
+<li id="li-186"><div class="para" id="p-593">What proportion of students don’t buy either book? Assume no students buy the supplement without the textbook.</div></li>
+<li id="li-187"><div class="para" id="p-594">Let <span class="process-math">\(Y\)</span> represent the revenue from a single student. Write out the probability distribution of <span class="process-math">\(Y\text{,}\)</span> i.e. a table for each outcome and its associated probability.</div></li>
+<li id="li-188"><div class="para" id="p-595">Compute the expected revenue from a single chemistry student.</div></li>
+<li id="li-189"><div class="para" id="p-596">Find the standard deviation to describe the variability associated with the revenue from a single student.</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-solution-75" id="solution-75"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-75"><div class="solution solution-like">
+<div class="para" id="p-597">(a) <span class="process-math">\(100\% - 25\% - 60\% = 15\%\)</span> of students do not buy any books for the class.</div> <div class="para" id="p-598">(b) The probability distribution is represented in the table below.</div> <div class="para" id="p-599">(c) The expectation is given as the total on the line <span class="process-math">\(y_i \times P(Y=y_i)\text{:}\)</span> <span class="process-math">\(E(Y) = 159.75\text{.}\)</span>
+</div> <div class="para" id="p-600">(d) The result is the square root of the variance listed in the total on the last line: <span class="process-math">\(\sigma = \sqrt{\text{Var}(Y)} = \$69.28\text{.}\)</span>
+</div> <figure class="figure figure-like" id="figure-59"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(i\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">1</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">Total</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Scenario</td>
+<td class="c m b0 r0 l0 t0 lines">no book</td>
+<td class="c m b0 r0 l0 t0 lines">textbook</td>
+<td class="c m b0 r0 l0 t0 lines">both</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(y_i\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0.00</td>
+<td class="c m b0 r0 l0 t0 lines">159.00</td>
+<td class="c m b0 r0 l0 t0 lines">200.00</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(P(Y=y_i)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0.15</td>
+<td class="c m b0 r0 l0 t0 lines">0.25</td>
+<td class="c m b0 r0 l0 t0 lines">0.60</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(y_i \times P(Y=y_i)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">0.00</td>
+<td class="c m b0 r0 l0 t0 lines">39.75</td>
+<td class="c m b0 r0 l0 t0 lines">120.00</td>
+<td class="c m b0 r0 l0 t0 lines">159.75</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(y_i - E(Y)\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">-159.75</td>
+<td class="c m b0 r0 l0 t0 lines">-0.75</td>
+<td class="c m b0 r0 l0 t0 lines">40.25</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\((y_i-E(Y))^2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">25520.06</td>
+<td class="c m b0 r0 l0 t0 lines">0.56</td>
+<td class="c m b0 r0 l0 t0 lines">1620.06</td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\((y_i-E(Y))^2 \times P(Y)\)</span></td>
+<td class="c m b1 r0 l0 t0 lines">3828.0</td>
+<td class="c m b1 r0 l0 t0 lines">0.1</td>
+<td class="c m b1 r0 l0 t0 lines">972.0</td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(\approx 4800\)</span></td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.10<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div></section><section class="subsection" id="subsec-linear-combinations"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.4.3</span> <span class="title">Linear combinations of random variables</span>
 </h3>
-<div class="para" id="p-381">To be converted from LaTeX source.</div></section></section></div>
+<div class="para" id="p-601">So far, we have thought of each variable as being a complete story in and of itself. Sometimes it is more appropriate to use a combination of variables. For instance, the amount of time a person spends commuting to work each week can be broken down into several daily commutes. Similarly, the total gain or loss in a stock portfolio is the sum of the gains and losses in its components.</div>
+<article class="example example-like" id="ex-john-weekly-commute"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-john-weekly-commute"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.11</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-john-weekly-commute"><article class="example example-like"><div class="para" id="p-602">John travels to work five days a week. We will use <span class="process-math">\(X_1\)</span> to represent his travel time on Monday, <span class="process-math">\(X_2\)</span> to represent his travel time on Tuesday, and so on. Write an equation using <span class="process-math">\(X_1, \ldots, X_5\)</span> that represents his travel time for the week, denoted by <span class="process-math">\(W\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-76" id="solution-76"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-76"><div class="solution solution-like"><div class="para logical" id="p-603">
+<div class="para">His total weekly travel time is the sum of the five daily values:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+W = X_1 + X_2 + X_3 + X_4 + X_5
+\end{equation*}
+</div>
+<div class="para">Breaking the weekly travel time <span class="process-math">\(W\)</span> into pieces provides a framework for understanding each source of randomness and is useful for modeling <span class="process-math">\(W\text{.}\)</span>
+</div>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-john-weekly-expectation"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-john-weekly-expectation"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-john-weekly-expectation"><article class="example example-like"><div class="para" id="p-604">It takes John an average of 18 minutes each day to commute to work. What would you expect his average commute time to be for the week?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-77" id="solution-77"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-77"><div class="solution solution-like"><div class="para logical" id="p-605">
+<div class="para">We were told that the average (i.e. expected value) of the commute time is 18 minutes per day: <span class="process-math">\(E(X_i) = 18\text{.}\)</span> To get the expected time for the sum of the five days, we can add up the expected time for each individual day:</div>
+<div class="displaymath process-math" id="md-24">
+\begin{align*}
+E(W) \amp= E(X_1 + X_2 + X_3 + X_4 + X_5)\\
+\amp= E(X_1) + E(X_2) + E(X_3) + E(X_4) + E(X_5)\\
+\amp= 18 + 18 + 18 + 18 + 18 = 90 \text{ minutes}
+\end{align*}
+</div>
+<div class="para">The expectation of the total time is equal to the sum of the expected individual times. More generally, the expectation of a sum of random variables is always the sum of the expectation for each random variable.</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-elena-auction"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-elena-auction"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.13</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-elena-auction"><article class="exercise exercise-like"><div class="para" id="p-606">Elena is selling a TV at a cash auction and also intends to buy a toaster oven in the auction. If <span class="process-math">\(X\)</span> represents the profit for selling the TV and <span class="process-math">\(Y\)</span> represents the cost of the toaster oven, write an equation that represents the net change in Elena’s cash.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-78" id="solution-78"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-78"><div class="solution solution-like"><div class="para" id="p-607">She will make <span class="process-math">\(X\)</span> dollars on the TV but spend <span class="process-math">\(Y\)</span> dollars on the toaster oven: <span class="process-math">\(X - Y\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-elena-expectation"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-elena-expectation"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-elena-expectation"><article class="exercise exercise-like"><div class="para" id="p-608">Based on past auctions, Elena figures she should expect to make about $175 on the TV and pay about $23 for the toaster oven. In total, how much should she expect to make or spend?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-79" id="solution-79"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-79"><div class="solution solution-like"><div class="para" id="p-609">
+<span class="process-math">\(E(X - Y) = E(X) - E(Y) = 175 - 23 = \$152\text{.}\)</span> She should expect to make about $152.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-uncertainty-sum"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-uncertainty-sum"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-uncertainty-sum"><article class="exercise exercise-like"><div class="para" id="p-610">Would you be surprised if John’s weekly commute wasn’t exactly 90 minutes or if Elena didn’t make exactly $152? Explain.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-80" id="solution-80"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-80"><div class="solution solution-like"><div class="para" id="p-611">No, since there is probably some variability. For example, the traffic will vary from one day to next, and auction prices will vary depending on the quality of the merchandise and the interest of the attendees.</div></div></div>
+</div></article></div>
+<div class="para" id="p-612">Two important concepts concerning combinations of random variables have so far been introduced. First, a final value can sometimes be described as the sum of its parts in an equation. Second, intuition suggests that putting the individual average values into this equation gives the average value we would expect in total. This second point needs clarification -- it is guaranteed to be true in what are called <em class="emphasis">linear combinations of random variables</em>.</div>
+<div class="para logical" id="p-613">
+<div class="para">A <dfn class="terminology">linear combination</dfn> of two random variables <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> is a combination</div>
+<div class="displaymath process-math">
+\begin{equation*}
+aX + bY
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are some fixed and known numbers. For John’s commute time, there were five random variables -- one for each work day -- and each random variable could be written as having a fixed coefficient of 1:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+1X_1 + 1X_2 + 1X_3 + 1X_4 + 1X_5
+\end{equation*}
+</div>
+<div class="para">For Elena’s net gain or loss, the <span class="process-math">\(X\)</span> random variable had a coefficient of +1 and the <span class="process-math">\(Y\)</span> random variable had a coefficient of -1.</div>
+</div>
+<div class="para" id="p-614">When considering the average of a linear combination of random variables, it is safe to plug in the mean of each random variable and then compute the final result. For some examples of nonlinear combinations of random variables -- cases where we cannot simply plug in the means -- consider: <span class="process-math">\(X^{1+Y}\text{,}\)</span> <span class="process-math">\(X \times Y\text{,}\)</span> <span class="process-math">\(X/Y\text{.}\)</span> In such cases, plugging in the average value for each random variable and computing the result will not generally lead to an accurate average value for the end result.</div>
+<article class="assemblage assemblage-like" id="linear-combination-mean"><h4 class="heading"><span class="title">Linear combinations of random variables and the average result.</span></h4>
+<div class="para logical" id="p-615">
+<div class="para">If <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are random variables, then a linear combination of the random variables is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+aX + bY
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are some fixed numbers. To compute the average value of a linear combination of random variables, plug in the average of each individual random variable and compute the result:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a \times E(X) + b \times E(Y)
+\end{equation*}
+</div>
+<div class="para">Recall that the expected value is the same as the mean, e.g. <span class="process-math">\(E(X) = \mu_X\text{.}\)</span>
+</div>
+</div></article><article class="example example-like" id="ex-leonard-portfolio"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-leonard-portfolio"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.16</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-leonard-portfolio"><article class="example example-like"><div class="para" id="p-616">Leonard has invested $6000 in Caterpillar Inc (stock ticker: CAT) and $2000 in Exxon Mobil Corp (XOM). If <span class="process-math">\(X\)</span> represents the change in Caterpillar’s stock next month and <span class="process-math">\(Y\)</span> represents the change in Exxon Mobil’s stock next month, write an equation that describes how much money will be made or lost in Leonard’s stocks for the month.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-81" id="solution-81"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-81"><div class="solution solution-like"><div class="para logical" id="p-617">
+<div class="para">For simplicity, we will suppose <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are not in percents but are in decimal form (e.g. if Caterpillar’s stock increases 1%, then <span class="process-math">\(X = 0.01\text{;}\)</span> or if it loses 1%, then <span class="process-math">\(X = -0.01\)</span>). Then we can write an equation for Leonard’s gain as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\$6000 \times X + \$2000 \times Y
+\end{equation*}
+</div>
+<div class="para">If we plug in the change in the stock value for <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\text{,}\)</span> this equation gives the change in value of Leonard’s stock portfolio for the month. A positive value represents a gain, and a negative value represents a loss.</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-leonard-expected-return"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-leonard-expected-return"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.17</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-leonard-expected-return"><article class="exercise exercise-like"><div class="para" id="p-618">Caterpillar stock has recently been rising at 2.0% and Exxon Mobil’s at 0.2% per month, respectively. Compute the expected change in Leonard’s stock portfolio for next month.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-82" id="solution-82"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-82"><div class="solution solution-like"><div class="para" id="p-619"><span class="process-math">\(E(\$6000 \times X + \$2000 \times Y) = \$6000 \times 0.020 + \$2000 \times 0.002 = \$124\)</span></div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-leonard-risk"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-leonard-risk"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.18</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-leonard-risk"><article class="exercise exercise-like"><div class="para" id="p-620">You should have found that Leonard expects a positive gain in <a href="" class="xref" data-knowl="./knowl/ex-leonard-expected-return.html" title="Checkpoint 3.4.17">Checkpoint 3.4.17</a>. However, would you be surprised if he actually had a loss this month?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-83" id="solution-83"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-83"><div class="solution solution-like"><div class="para" id="p-621">No. While stocks tend to rise over time, they are often volatile in the short term.</div></div></div>
+</div></article></div>
+<div class="para" id="p-622">Quantifying the average outcome from a linear combination of random variables is helpful, but it is also important to have some sense of the uncertainty associated with the total outcome of that combination of random variables. The expected net gain or loss of Leonard’s stock portfolio was considered in <a href="" class="xref" data-knowl="./knowl/ex-leonard-expected-return.html" title="Checkpoint 3.4.17">Checkpoint 3.4.17</a>. However, there was no quantitative discussion of the volatility of this portfolio.</div>
+<figure class="figure figure-like" id="fig-leonard-portfolio-monthly"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="ch_probability/figures/changeInLeonardsStockPortfolioFor36Months.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.4.19<span class="period">.</span></span><span class="space"> </span>The change in a portfolio like Leonard’s for 36 months, where $6000 is in Caterpillar’s stock and $2000 is in Exxon Mobil’s.</figcaption></figure><div class="para" id="p-623">For instance, while the average monthly gain might be about $124 according to the data, that gain is not guaranteed. The figure shows the monthly changes in a portfolio like Leonard’s during a three year period. The gains and losses vary widely, and quantifying these fluctuations is important when investing in stocks.</div>
+<div class="para" id="p-624">Just as we have done in many previous cases, we use the variance and standard deviation to describe the uncertainty associated with Leonard’s monthly returns. The variance of a linear combination of random variables can be computed by plugging in the variances of the individual random variables and squaring the coefficients of the random variables. This equation is valid as long as the random variables are independent.</div>
+<article class="assemblage assemblage-like" id="variance-linear-combination"><h4 class="heading"><span class="title">Variability of linear combinations of random variables.</span></h4>
+<div class="para logical" id="p-625">
+<div class="para">The variance of a linear combination of random variables may be computed by squaring the constants, substituting in the variances for the random variables, and computing the result:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Var}(aX + bY) = a^2 \times \text{Var}(X) + b^2 \times \text{Var}(Y)
+\end{equation*}
+</div>
+<div class="para">This equation is valid as long as the random variables are independent of each other. The standard deviation of the linear combination may be found by taking the square root of the variance.</div>
+</div></article><article class="example example-like" id="ex-john-weekly-sd"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-john-weekly-sd"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.4.20</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-john-weekly-sd"><article class="example example-like"><div class="para" id="p-626">Suppose John’s daily commute has a standard deviation of 4 minutes. What is the uncertainty in his total commute time for the week?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-84" id="solution-84"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-84"><div class="solution solution-like"><div class="para logical" id="p-627">
+<div class="para">The expression for John’s commute time was</div>
+<div class="displaymath process-math">
+\begin{equation*}
+X_1 + X_2 + X_3 + X_4 + X_5
+\end{equation*}
+</div>
+<div class="para">Each coefficient is 1, and the variance of each day’s time is <span class="process-math">\(4^2 = 16\text{.}\)</span> Thus, the variance of the total weekly commute time is</div>
+<div class="displaymath process-math" id="md-25">
+\begin{align*}
+\text{variance} \amp= 1^2 \times 16 + 1^2 \times 16 + 1^2 \times 16 + 1^2 \times 16 + 1^2 \times 16 = 5 \times 16 = 80\\
+\text{standard deviation} \amp= \sqrt{\text{variance}} = \sqrt{80} = 8.94
+\end{align*}
+</div>
+<div class="para">The standard deviation for John’s weekly work commute time is about 9 minutes.</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-john-independence"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-john-independence"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.21</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-john-independence"><article class="exercise exercise-like"><div class="para" id="p-628">The computation in <a href="" class="xref" data-knowl="./knowl/ex-john-weekly-sd.html" title="Example 3.4.20">Example 3.4.20</a> relied on an important assumption: the commute time for each day is independent of the time on other days of that week. Do you think this is valid? Explain.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-85" id="solution-85"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-85"><div class="solution solution-like"><div class="para" id="p-629">One concern is whether traffic patterns tend to have a weekly cycle (e.g. Fridays may be worse than other days). If that is the case, and John drives, then the assumption is probably not reasonable. However, if John walks to work, then his commute is probably not affected by any weekly traffic cycle.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-elena-variability"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-elena-variability"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.4.22</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-elena-variability"><article class="exercise exercise-like"><div class="para" id="p-630">Consider Elena’s two auctions from <a href="" class="xref" data-knowl="./knowl/ex-elena-auction.html" title="Checkpoint 3.4.13">Checkpoint 3.4.13</a>. Suppose these auctions are approximately independent and the variability in auction prices associated with the TV and toaster oven can be described using standard deviations of $25 and $8. Compute the standard deviation of Elena’s net gain.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-86" id="solution-86"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-86"><div class="solution solution-like"><div class="para logical" id="p-631">
+<div class="para">The equation for Elena can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1) \times X + (-1) \times Y
+\end{equation*}
+</div>
+<div class="para">The variances of <span class="process-math">\(X\)</span> and <span class="process-math">\(Y\)</span> are 625 and 64. We square the coefficients and plug in the variances:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(1)^2 \times \text{Var}(X) + (-1)^2 \times \text{Var}(Y) = 1 \times 625 + 1 \times 64 = 689
+\end{equation*}
+</div>
+<div class="para">The variance of the linear combination is 689, and the standard deviation is the square root of 689: about $26.25.</div>
+</div></div></div>
+</div></article></div>
+<div class="para" id="p-632">Consider again <a href="" class="xref" data-knowl="./knowl/ex-elena-variability.html" title="Checkpoint 3.4.22">Checkpoint 3.4.22</a>. The negative coefficient for <span class="process-math">\(Y\)</span> in the linear combination was eliminated when we squared the coefficients. This generally holds true: negatives in a linear combination will have no impact on the variability computed for a linear combination, but they do impact the expected value computations.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-sampling-small-population.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-continuous-distributions.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

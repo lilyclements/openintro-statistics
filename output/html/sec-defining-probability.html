@@ -449,47 +449,482 @@ true);
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-defining-probability"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-defining-probability"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">Defining probability</span>
 </h2>
 <section class="introduction" id="introduction-8"><div class="para" id="p-350">Statistics is based on probability, and while probability is not required for the applied techniques in this book, it may help you gain a deeper understanding of the methods and set a better foundation for future courses.</div></section><section class="subsection" id="subsec-introductory-examples"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.1</span> <span class="title">Introductory examples</span>
 </h3>
-<div class="para" id="p-351">To be converted from LaTeX source.</div>
+<div class="para" id="p-351">Before we get into technical ideas, let’s walk through some basic examples that may feel more familiar.</div>
 <article class="example example-like" id="ex-prob-of-1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-prob-of-1"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Probability of rolling a 1.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-of-1"><article class="example example-like"><div class="para" id="p-352">A "die", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?</div>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-of-1"><article class="example example-like"><div class="para" id="p-352">A “die”, the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like"><div class="para" id="p-353">To be converted from LaTeX source.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-18" id="solution-18"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-18"><div class="solution solution-like"><div class="para" id="p-353">If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there are six outcomes, the chance must be 1-in-6 or, equivalently, <span class="process-math">\(1/6\text{.}\)</span>
+</div></div></div>
 </div></article></div>
 <article class="example example-like" id="ex-prob-of-1-or-2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-prob-of-1-or-2"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Probability of rolling a 1 or 2.</span>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-of-1-or-2"><article class="example example-like"><div class="para" id="p-354">What is the chance of getting a 1 or 2 in the next roll?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like"><div class="para" id="p-355">To be converted from LaTeX source.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-19" id="solution-19"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-19"><div class="solution solution-like"><div class="para" id="p-355">1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of these two outcomes must be <span class="process-math">\(2/6 = 1/3\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-prob-of-123456"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-prob-of-123456"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-of-123456"><article class="example example-like"><div class="para" id="p-356">What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like"><div class="para" id="p-357">100%. The outcome must be one of these numbers.</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-prob-not-2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-prob-not-2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-not-2"><article class="example example-like"><div class="para" id="p-358">What is the chance of not rolling a 2?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
+<div class="para" id="p-359">Since the chance of rolling a 2 is <span class="process-math">\(1/6\)</span> or <span class="process-math">\(16.\overline{6}\%\text{,}\)</span> the chance of not rolling a 2 must be <span class="process-math">\(100\% - 16.\overline{6}\% = 83.\overline{3}\%\)</span> or <span class="process-math">\(5/6\text{.}\)</span>
+</div> <div class="para" id="p-360">Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6, which makes up five of the six equally likely outcomes and has probability <span class="process-math">\(5/6\text{.}\)</span>
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="ex-prob-of-2-ones"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-prob-of-2-ones"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-of-2-ones"><article class="example example-like"><div class="para" id="p-361">Consider rolling two dice. If <span class="process-math">\(1/6\)</span> of the time the first die is a 1 and <span class="process-math">\(1/6\)</span> of those times the second die is a 1, what is the chance of getting two 1s?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-22" id="solution-22"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-22"><div class="solution solution-like"><div class="para" id="p-362">If <span class="process-math">\(16.\overline{6}\%\)</span> of the time the first die is a 1 and <span class="process-math">\(1/6\)</span> of <em class="emphasis">those</em> times the second die is also a 1, then the chance that both dice are 1 is <span class="process-math">\((1/6)\times (1/6)\)</span> or <span class="process-math">\(1/36\text{.}\)</span>
+</div></div></div>
 </div></article></div></section><section class="subsection" id="subsec-probability-definition"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.2</span> <span class="title">Probability</span>
 </h3>
-<div class="para" id="p-356">To be converted from LaTeX source.</div>
+<div class="para" id="p-363">We use probability to build tools to describe and understand apparent randomness. We often frame probability in terms of a <dfn class="terminology">random process</dfn> giving rise to an <dfn class="terminology">outcome</dfn>.</div>
+<div class="para" id="p-364">Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome: Roll a die <span class="process-math">\(\\rightarrow\)</span> 1, 2, 3, 4, 5, or 6; Flip a coin <span class="process-math">\(\\rightarrow\)</span> H or T.</div>
+<article class="assemblage assemblage-like" id="def-probability"><h4 class="heading"><span class="title">Probability.</span></h4>
+<div class="para" id="p-365">The <dfn class="terminology">probability</dfn> of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times.</div></article><div class="para" id="p-366">Probability is defined as a proportion, and it always takes values between 0 and 1 (inclusively). It may also be displayed as a percentage between 0% and 100%.</div>
+<div class="para" id="p-367">Probability can be illustrated by rolling a die many times. Let <span class="process-math">\(\\hat{p}_n\)</span> be the proportion of outcomes that are 1 after the first <span class="process-math">\(n\)</span> rolls. As the number of rolls increases, <span class="process-math">\(\\hat{p}_n\)</span> will converge to the probability of rolling a 1, <span class="process-math">\(p = 1/6\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/fig-die-prop.html" title="Figure 3.1.6">Figure 3.1.6</a> shows this convergence for 100,000 die rolls. The tendency of <span class="process-math">\(\\hat{p}_n\)</span> to stabilize around <span class="process-math">\(p\)</span> is described by the <dfn class="terminology">Law of Large Numbers</dfn>.</div>
 <figure class="figure figure-like" id="fig-die-prop"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/dieProp.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.3<span class="period">.</span></span><span class="space"> </span>The fraction of die rolls that are 1 at each stage in a simulation</figcaption></figure><article class="exercise exercise-like" id="ex-random-process"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-random-process"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Random processes.</span>
-</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-random-process"><article class="exercise exercise-like"><div class="para" id="p-357">Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process.</div></article></div></section><section class="subsection" id="subsec-disjoint-outcomes"><h3 class="heading hide-type">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.6<span class="period">.</span></span><span class="space"> </span>The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to get closer to the probability <span class="process-math">\(1/6 \\approx 0.167\)</span> as the number of rolls increases.</figcaption></figure><article class="assemblage assemblage-like" id="law-large-numbers"><h4 class="heading"><span class="title">Law of Large Numbers.</span></h4>
+<div class="para" id="p-368">As more observations are collected, the proportion <span class="process-math">\(\\hat{p}_n\)</span> of occurrences with a particular outcome converges to the probability <span class="process-math">\(p\)</span> of that outcome.</div></article><div class="para" id="p-369">Occasionally the proportion will veer off from the probability and appear to defy the Law of Large Numbers, as <span class="process-math">\(\\hat{p}_n\)</span> does many times in <a href="" class="xref" data-knowl="./knowl/fig-die-prop.html" title="Figure 3.1.6">Figure 3.1.6</a>. However, these deviations become smaller as the number of rolls increases.</div>
+<div class="para logical" id="p-370">
+<div class="para">Above we write <span class="process-math">\(p\)</span> as the probability of rolling a 1. We can also write this probability as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\\text{rolling a 1})
+\end{equation*}
+</div>
+<div class="para">As we become more comfortable with this notation, we will abbreviate it further. For instance, if it is clear that the process is “rolling a die”, we could abbreviate <span class="process-math">\(P(\)</span>rolling a 1<span class="process-math">\()\)</span> as <span class="process-math">\(P(1)\text{.}\)</span>
+</div>
+</div>
+<article class="exercise exercise-like" id="ex-random-process"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-random-process"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Random processes.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-random-process"><article class="exercise exercise-like"><div class="para" id="p-371">Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process with possible outcomes 1, 2, …, 6.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-23" id="solution-23"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-23"><div class="solution solution-like"><div class="para" id="p-372">Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process with outcomes “sick” and “not”. (ii) We can <em class="emphasis">generate</em> a random process by randomly picking a person and measuring that person’s height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up or down next week is a seemingly random process with possible outcomes “up”, “down”, and “no_change”. Alternatively, we could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans her dishes tonight probably seems like a random process with possible outcomes “cleans_dishes” and “leaves_dishes”.</div></div></div>
+</div></article></div>
+<div class="para" id="p-373">What we think of as random processes are not necessarily random, but they may just be too difficult to understand exactly. The fourth example in the solution to <a href="" class="xref" data-knowl="./knowl/ex-random-process.html" title="Checkpoint 3.1.7: Random processes">Checkpoint 3.1.7</a> suggests a roommate’s behavior is a random process. However, even if a roommate’s behavior is not truly random, modeling her behavior as a random process can still be useful.</div></section><section class="subsection" id="subsec-disjoint-outcomes"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.3</span> <span class="title">Disjoint or mutually exclusive outcomes</span>
 </h3>
-<div class="para" id="p-358">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-probabilities-not-disjoint"><h3 class="heading hide-type">
+<div class="para" id="p-374">Two outcomes are called <dfn class="terminology">disjoint</dfn> or <dfn class="terminology">mutually exclusive</dfn> if they cannot both happen. For instance, if we roll a die, the outcomes 1 and 2 are disjoint since they cannot both occur. On the other hand, the outcomes 1 and “rolling an odd number” are not disjoint since both occur if the outcome of the roll is a 1. The terms <em class="emphasis">disjoint</em> and <em class="emphasis">mutually exclusive</em> are equivalent and interchangeable.</div>
+<div class="para logical" id="p-375">
+<div class="para">Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1 and 2 are disjoint, and we compute the probability that one of these outcomes will occur by adding their separate probabilities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\\text{1 or 2}) = P(\\text{1})+P(\\text{2}) = 1/6 + 1/6 = 1/3
+\end{equation*}
+</div>
+<div class="para">What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are disjoint so we add the probabilities:</div>
+<div class="displaymath process-math" id="md-1">
+\begin{align*}
+P(\\text{1 or 2 or 3 or 4 or 5 or 6}) \\amp= P(\\text{1})+P(\\text{2}) + P(\\text{3})+P(\\text{4}) + P(\\text{5})+P(\\text{6})\\
+\\amp= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1
+\end{align*}
+</div>
+<div class="para">The <dfn class="terminology">Addition Rule</dfn> guarantees the accuracy of this approach when the outcomes are disjoint.</div>
+</div>
+<article class="assemblage assemblage-like" id="addition-rule-disjoint"><h4 class="heading"><span class="title">Addition Rule of disjoint outcomes.</span></h4>
+<div class="para logical" id="p-376">
+<div class="para">If <span class="process-math">\(A_1\)</span> and <span class="process-math">\(A_2\)</span> represent two disjoint outcomes, then the probability that one of them occurs is given by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_1\\text{ or } A_2) = P(A_1) + P(A_2)
+\end{equation*}
+</div>
+<div class="para">If there are many disjoint outcomes <span class="process-math">\(A_1\text{,}\)</span> …, <span class="process-math">\(A_k\text{,}\)</span> then the probability that one of these outcomes will occur is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_1) + P(A_2) + \\cdots + P(A_k)
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="ex-disjoint-145"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-disjoint-145"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-disjoint-145"><article class="exercise exercise-like"><div class="para" id="p-377">We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and 5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine <span class="process-math">\(P(\)</span>1 or 4 or 5<span class="process-math">\()\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-24" id="solution-24"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-24"><div class="solution solution-like"><div class="para" id="p-378">(a) The random process is a die roll, and at most one of these outcomes can come up. This means they are disjoint outcomes. (b) <span class="process-math">\(P(\)</span>1 or 4 or 5<span class="process-math">\() = P(1)+P(4)+P(5) = \\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-loans-homeownership"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-loans-homeownership"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-loans-homeownership"><article class="exercise exercise-like"><div class="para" id="p-379">In the loans data set in Chapter 1, the homeownership variable described whether the borrower rents, has a mortgage, or owns her property. Of the 10,000 borrowers, 3858 rented, 4789 had a mortgage, and 1353 owned their home.</div> <div class="para logical" id="p-380"><ol class="lower-alpha">
+<li id="li-162"><div class="para" id="p-381">Are the outcomes “rent”, “mortgage”, and “own” disjoint?</div></li>
+<li id="li-163"><div class="para" id="p-382">Determine the proportion of loans with value “mortgage” and “own” separately.</div></li>
+<li id="li-164"><div class="para" id="p-383">Use the Addition Rule for disjoint outcomes to compute the probability a randomly selected loan from the data set is for someone who has a mortgage or owns her home.</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-25" id="solution-25"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-25"><div class="solution solution-like"><div class="para" id="p-384">(a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: <span class="process-math">\(\\frac{4789}{10000} = 0.479\text{.}\)</span> Own: <span class="process-math">\(\\frac{1353}{10000} = 0.135\text{.}\)</span> (c) <span class="process-math">\(P(\)</span>mortgage or own<span class="process-math">\() = P(\)</span>mortgage<span class="process-math">\() + P(\)</span>own<span class="process-math">\() = 0.479 + 0.135 = 0.614\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para" id="p-385">Data scientists rarely work with individual outcomes and instead consider <em class="emphasis">sets</em> or <em class="emphasis">collections</em> of outcomes. Let <span class="process-math">\(A\)</span> represent the event where a die roll results in 1 or 2 and <span class="process-math">\(B\)</span> represent the event that the die roll is a 4 or a 6. We write <span class="process-math">\(A\)</span> as the set of outcomes <span class="process-math">\(\\{1, 2\\}\)</span> and <span class="process-math">\(B=\\{4, 6\\}\text{.}\)</span> These sets are commonly called <dfn class="terminology">events</dfn>. Because <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> have no elements in common, they are disjoint events. <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are represented in <a href="" class="xref" data-knowl="./knowl/fig-disjoint-sets.html" title="Figure 3.1.10">Figure 3.1.10</a>.</div>
+<figure class="figure figure-like" id="fig-disjoint-sets"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="ch_probability/figures/disjointSets.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.10<span class="period">.</span></span><span class="space"> </span>Three events, <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(D\text{,}\)</span> consist of outcomes from rolling a die. <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are disjoint since they do not have any outcomes in common.</figcaption></figure><div class="para logical" id="p-386">
+<div class="para">The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that one of the disjoint events <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> occurs is the sum of the separate probabilities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A\\text{ or }B) = P(A) + P(B) = 1/3 + 1/3 = 2/3
+\end{equation*}
+</div>
+</div>
+<article class="exercise exercise-like" id="ex-verify-prob-a-b"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-verify-prob-a-b"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.11</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-verify-prob-a-b"><article class="exercise exercise-like"><div class="para" id="p-387">(a) Verify the probability of event <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(P(A)\text{,}\)</span> is <span class="process-math">\(1/3\)</span> using the Addition Rule. (b) Do the same for event <span class="process-math">\(B\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-26" id="solution-26"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-26"><div class="solution solution-like"><div class="para" id="p-388">(a) <span class="process-math">\(P(A) = P(\)</span>1 or 2<span class="process-math">\() = P(1) + P(2) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}\text{.}\)</span> (b) Similarly, <span class="process-math">\(P(B) = 1/3\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-examining-disjoint-sets-abd"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-examining-disjoint-sets-abd"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-examining-disjoint-sets-abd"><article class="exercise exercise-like"><div class="para" id="p-389">(a) Using <a href="" class="xref" data-knowl="./knowl/fig-disjoint-sets.html" title="Figure 3.1.10">Figure 3.1.10</a> as a reference, what outcomes are represented by event <span class="process-math">\(D\text{?}\)</span> (b) Are events <span class="process-math">\(B\)</span> and <span class="process-math">\(D\)</span> disjoint? (c) Are events <span class="process-math">\(A\)</span> and <span class="process-math">\(D\)</span> disjoint?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-27" id="solution-27"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-27"><div class="solution solution-like"><div class="para" id="p-390">(a) Outcomes 2 and 3. (b) Yes, events <span class="process-math">\(B\)</span> and <span class="process-math">\(D\)</span> are disjoint because they share no outcomes. (c) The events <span class="process-math">\(A\)</span> and <span class="process-math">\(D\)</span> share an outcome in common, 2, and so are not disjoint.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-prob-b-or-d"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-prob-b-or-d"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.13</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-prob-b-or-d"><article class="exercise exercise-like"><div class="para" id="p-391">In <a href="" class="xref" data-knowl="./knowl/ex-examining-disjoint-sets-abd.html" title="Checkpoint 3.1.12">Checkpoint 3.1.12</a>, you confirmed <span class="process-math">\(B\)</span> and <span class="process-math">\(D\)</span> from <a href="" class="xref" data-knowl="./knowl/fig-disjoint-sets.html" title="Figure 3.1.10">Figure 3.1.10</a> are disjoint. Compute the probability that event <span class="process-math">\(B\)</span> or event <span class="process-math">\(D\)</span> occurs.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-28" id="solution-28"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-28"><div class="solution solution-like"><div class="para" id="p-392">Since <span class="process-math">\(B\)</span> and <span class="process-math">\(D\)</span> are disjoint events, use the Addition Rule: <span class="process-math">\(P(B\)</span> or <span class="process-math">\(D) = P(B) + P(D) = \\frac{1}{3} + \\frac{1}{3} = \\frac{2}{3}\text{.}\)</span>
+</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-probabilities-not-disjoint"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.4</span> <span class="title">Probabilities when events are not disjoint</span>
 </h3>
-<div class="para" id="p-359">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-probability-distributions"><h3 class="heading hide-type">
+<div class="para" id="p-393">Let’s consider calculations for two events that are not disjoint in the context of a regular deck of 52 cards, represented in <a href="" class="xref" data-knowl="./knowl/fig-deck-of-cards.html" title="Figure 3.1.14">Figure 3.1.14</a>. If you are unfamiliar with the cards in a regular deck, please see the footnote.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-1" id="fn-1"><sup> 1 </sup></a>
+</div>
+<figure class="figure figure-like" id="fig-deck-of-cards"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="ch_probability/figures/deckOfCards.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.14<span class="period">.</span></span><span class="space"> </span>Representations of the 52 unique cards in a deck.</figcaption></figure><article class="exercise exercise-like" id="ex-diamond-face-card-prob"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-diamond-face-card-prob"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-diamond-face-card-prob"><article class="exercise exercise-like"><div class="para" id="p-394">(a) What is the probability that a randomly selected card is a diamond? (b) What is the probability that a randomly selected card is a face card?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-29" id="solution-29"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-29"><div class="solution solution-like"><div class="para" id="p-395">(a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuffled, each card has an equal chance of being drawn, so the probability that a randomly selected card is a diamond is <span class="process-math">\(P(\diamondsuit) = \frac{13}{52} = 0.250\text{.}\)</span> (b) Likewise, there are 12 face cards, so <span class="process-math">\(P(\text{face card}) = \frac{12}{52} = \frac{3}{13} = 0.231\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para" id="p-396">
+<dfn class="terminology">Venn diagrams</dfn> are useful when outcomes can be categorized as “in” or “out” for two or three variables, attributes, or random processes. The Venn diagram in <a href="" class="xref" data-knowl="./knowl/fig-cards-diamond-face-venn.html" title="Figure 3.1.16">Figure 3.1.16</a> uses a circle to represent diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls into the intersection of the circles. If it is a diamond but not a face card, it will be in part of the left circle that is not in the right circle (and so on). The total number of cards that are diamonds is given by the total number of cards in the diamonds circle: <span class="process-math">\(10+3=13\text{.}\)</span> The probabilities are also shown (e.g. <span class="process-math">\(10/52 = 0.1923\)</span>).</div>
+<figure class="figure figure-like" id="fig-cards-diamond-face-venn"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="ch_probability/figures/cardsDiamondFaceVenn.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.16<span class="period">.</span></span><span class="space"> </span>A Venn diagram for diamonds and face cards.</figcaption></figure><div class="para logical" id="p-397">
+<div class="para">Let <span class="process-math">\(A\)</span> represent the event that a randomly selected card is a diamond and <span class="process-math">\(B\)</span> represent the event that it is a face card. How do we compute <span class="process-math">\(P(A \text{ or } B)\text{?}\)</span> Events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are not disjoint — the cards <span class="process-math">\(J\diamondsuit\text{,}\)</span> <span class="process-math">\(Q\diamondsuit\text{,}\)</span> and <span class="process-math">\(K\diamondsuit\)</span> fall into both categories — so we cannot use the Addition Rule for disjoint events. Instead we use the Venn diagram. We start by adding the probabilities of the two events:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A) + P(B) = P(\diamondsuit) + P(\text{face card}) = 13/52 + 12/52
+\end{equation*}
+</div>
+<div class="para">However, the three cards that are in both events were counted twice, once in each probability. We must correct this double counting:</div>
+<div class="displaymath process-math" id="md-2">
+\begin{align*}
+P(A\text{ or } B) \amp= P(\diamondsuit\text{ or face card})\\
+\amp= P(\diamondsuit) + P(\text{face card}) - P(\diamondsuit\text{ and face card})\\
+\amp= 13/52 + 12/52 - 3/52\\
+\amp= 22/52 = 11/26
+\end{align*}
+</div>
+<div class="para">This equation is an example of the <dfn class="terminology">General Addition Rule</dfn>.</div>
+</div>
+<article class="assemblage assemblage-like" id="general-addition-rule"><h4 class="heading"><span class="title">General Addition Rule.</span></h4>
+<div class="para logical" id="p-398">
+<div class="para">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are any two events, disjoint or not, then the probability that at least one of them will occur is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A\text{ or }B) = P(A) + P(B) - P(A\text{ and }B)
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(P(A \text{ and } B)\)</span> is the probability that both events occur.</div>
+</div></article><article class="note remark-like" id="note-1"><h4 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">3.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">“or” is inclusive.</span>
+</h4> <div class="para" id="p-399">When we write “or” in statistics, we mean “and/or” unless we explicitly state otherwise. Thus, <span class="process-math">\(A\)</span> or <span class="process-math">\(B\)</span> occurs means <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> or both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> occur.</div></article><article class="exercise exercise-like" id="ex-disjoint-implies-empty-intersection"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-disjoint-implies-empty-intersection"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.18</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-disjoint-implies-empty-intersection"><article class="exercise exercise-like"><div class="para" id="p-400">(a) If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are disjoint, describe why this implies <span class="process-math">\(P(A \text{ and } B) = 0\text{.}\)</span> (b) Using part (a), verify that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are disjoint.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-30" id="solution-30"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-30"><div class="solution solution-like"><div class="para" id="p-401">(a) If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are disjoint, <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> can never occur simultaneously. (b) If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are disjoint, then the last <span class="process-math">\(P(A\text{ and }B)\)</span> term in the General Addition Rule formula is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-loans-venn"><a href="" data-knowl="" class="id-ref exercise-knowl original has-image" data-refid="hk-ex-loans-venn"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.19</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-loans-venn"><article class="exercise exercise-like"><div class="para" id="p-402">In the <code class="code-inline tex2jax_ignore">loans</code> data set describing 10,000 loans, 1495 loans were from joint applications (e.g. a couple applied together), 4789 applicants had a mortgage, and 950 had both of these characteristics. Create a Venn diagram for this setup.</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-31" id="solution-31"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-31"><div class="solution solution-like">
+<div class="para" id="p-403">Both the counts and corresponding probabilities (e.g. <span class="process-math">\(3839/10000 = 0.384\)</span>) are shown. Notice that the number of loans represented in the left circle corresponds to <span class="process-math">\(3839 + 950 = 4789\text{,}\)</span> and the number represented in the right circle is <span class="process-math">\(950 + 545 = 1495\text{.}\)</span>
+</div> <figure class="figure figure-like" id="figure-37"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="ch_probability/figures/loans_app_type_home_venn.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.20<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-loans-venn-prob"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-loans-venn-prob"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.21</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-loans-venn-prob"><article class="exercise exercise-like"><div class="para" id="p-404">(a) Use your Venn diagram from the previous exercise to determine the probability a randomly drawn loan from the <code class="code-inline tex2jax_ignore">loans</code> data set is from a joint application where the couple had a mortgage. (b) What is the probability that the loan had either of these attributes?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-32" id="solution-32"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-32"><div class="solution solution-like"><div class="para" id="p-405">(a) The solution is represented by the intersection of the two circles: 0.095. (b) This is the sum of the three disjoint probabilities shown in the circles: <span class="process-math">\(0.384 + 0.095 + 0.055 = 0.534\)</span> (off by 0.001 due to a rounding error).</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-probability-distributions"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.5</span> <span class="title">Probability distributions</span>
 </h3>
-<div class="para" id="p-360">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-complement"><h3 class="heading hide-type">
+<div class="para" id="p-406">A <dfn class="terminology">probability distribution</dfn> is a table of all disjoint outcomes and their associated probabilities. <a href="" class="xref" data-knowl="./knowl/fig-dice-prob.html" title="Figure 3.1.22">Figure 3.1.22</a> shows the probability distribution for the sum of two dice.</div>
+<figure class="figure figure-like" id="fig-dice-prob"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Dice sum</td>
+<td class="c m b1 r0 l0 t0 lines">2</td>
+<td class="c m b1 r0 l0 t0 lines">3</td>
+<td class="c m b1 r0 l0 t0 lines">4</td>
+<td class="c m b1 r0 l0 t0 lines">5</td>
+<td class="c m b1 r0 l0 t0 lines">6</td>
+<td class="c m b1 r0 l0 t0 lines">7</td>
+<td class="c m b1 r0 l0 t0 lines">8</td>
+<td class="c m b1 r0 l0 t0 lines">9</td>
+<td class="c m b1 r0 l0 t0 lines">10</td>
+<td class="c m b1 r0 l0 t0 lines">11</td>
+<td class="c m b1 r0 l0 t0 lines">12</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Probability</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{2}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{3}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{4}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{5}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{6}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{5}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{4}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{3}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{2}{36}\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{36}\)</span></td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.22<span class="period">.</span></span><span class="space"> </span>Probability distribution for the sum of two dice.</figcaption></figure><article class="assemblage assemblage-like" id="rules-probability-distributions"><h4 class="heading"><span class="title">Rules for probability distributions.</span></h4>
+<div class="para" id="p-407">A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules:</div>
+<div class="para logical" id="p-408"><ol class="decimal">
+<li id="li-165"><div class="para" id="p-409">The outcomes listed must be disjoint.</div></li>
+<li id="li-166"><div class="para" id="p-410">Each probability must be between 0 and 1.</div></li>
+<li id="li-167"><div class="para" id="p-411">The probabilities must total 1.</div></li>
+</ol></div></article><article class="exercise exercise-like" id="ex-us-household-income-dists"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-us-household-income-dists"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.23</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-us-household-income-dists"><article class="exercise exercise-like"><div class="para" id="p-412">
+<a href="" class="xref" data-knowl="./knowl/fig-us-household-income-dists.html" title="Figure 3.1.24">Figure 3.1.24</a> suggests three distributions for household income in the United States. Only one is correct. Which one must it be? What is wrong with the other two?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-33" id="solution-33"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-33"><div class="solution solution-like"><div class="para" id="p-413">The probabilities of (a) do not sum to 1. The second probability in (b) is negative. This leaves (c), which sure enough satisfies the requirements of a distribution. One of the three was said to be the actual distribution of US household incomes, so it must be (c).</div></div></div>
+</div></article></div>
+<figure class="figure figure-like" id="fig-us-household-income-dists"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Income Range</td>
+<td class="c m b1 r0 l0 t0 lines">$0-25k</td>
+<td class="c m b1 r0 l0 t0 lines">$25k-50k</td>
+<td class="c m b1 r0 l0 t0 lines">$50k-100k</td>
+<td class="c m b1 r0 l0 t0 lines">$100k+</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">(a)</td>
+<td class="c m b0 r0 l0 t0 lines">0.18</td>
+<td class="c m b0 r0 l0 t0 lines">0.39</td>
+<td class="c m b0 r0 l0 t0 lines">0.33</td>
+<td class="c m b0 r0 l0 t0 lines">0.16</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">(b)</td>
+<td class="c m b0 r0 l0 t0 lines">0.38</td>
+<td class="c m b0 r0 l0 t0 lines">-0.27</td>
+<td class="c m b0 r0 l0 t0 lines">0.52</td>
+<td class="c m b0 r0 l0 t0 lines">0.37</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">(c)</td>
+<td class="c m b0 r0 l0 t0 lines">0.28</td>
+<td class="c m b0 r0 l0 t0 lines">0.27</td>
+<td class="c m b0 r0 l0 t0 lines">0.29</td>
+<td class="c m b0 r0 l0 t0 lines">0.16</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.24<span class="period">.</span></span><span class="space"> </span>Proposed distributions of US household incomes.</figcaption></figure><div class="para" id="p-414">Chapter 1 emphasized the importance of plotting data to provide quick summaries. Probability distributions can also be summarized in a bar plot. For instance, the distribution of US household incomes is shown in <a href="" class="xref" data-knowl="./knowl/fig-us-household-income-dist-bar.html" title="Figure 3.1.25">Figure 3.1.25</a> as a bar plot. The probability distribution for the sum of two dice is shown in <a href="" class="xref" data-knowl="./knowl/fig-dice-prob.html" title="Figure 3.1.22">Figure 3.1.22</a> and plotted in <a href="" class="xref" data-knowl="./knowl/fig-dice-sum-dist.html" title="Figure 3.1.26">Figure 3.1.26</a>.</div>
+<figure class="figure figure-like" id="fig-us-household-income-dist-bar"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="ch_probability/figures/usHouseholdIncomeDistBar.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.25<span class="period">.</span></span><span class="space"> </span>The probability distribution of US household income.</figcaption></figure><figure class="figure figure-like" id="fig-dice-sum-dist"><div class="image-box" style="width: 67%; margin-left: 16.5%; margin-right: 16.5%;"><img src="ch_probability/figures/diceSumDist.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.26<span class="period">.</span></span><span class="space"> </span>The probability distribution of the sum of two dice.</figcaption></figure><div class="para" id="p-415">In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes are numerical and discrete, it is usually (visually) convenient to make a bar plot that resembles a histogram, as in the case of the sum of two dice. Another example of plotting the bars at their respective locations is shown in <a href="" class="xref" data-knowl="./knowl/fig-book-cost-dist.html" title="Figure 3.4.4">Figure 3.4.4</a> in <a href="sec-random-variables.html" class="internal" title="Section 3.4: Random variables">Section 3.4</a>.</div></section><section class="subsection" id="subsec-complement"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.6</span> <span class="title">Complement of an event</span>
 </h3>
-<div class="para" id="p-361">To be converted from LaTeX source.</div></section><section class="subsection" id="subsec-independence"><h3 class="heading hide-type">
+<div class="para" id="p-416">Rolling a die produces a value in the set <span class="process-math">\(\{1, 2, 3, 4, 5, 6\}\text{.}\)</span> This set of all possible outcomes is called the <dfn class="terminology">sample space</dfn> (<span class="process-math">\(S\)</span>) for rolling a die. We often use the sample space to examine the scenario where an event does not occur.</div>
+<div class="para" id="p-417">Let <span class="process-math">\(D=\{2, 3\}\)</span> represent the event that the outcome of a die roll is 2 or 3. Then the <dfn class="terminology">complement</dfn> of <span class="process-math">\(D\)</span> represents all outcomes in our sample space that are not in <span class="process-math">\(D\text{,}\)</span> which is denoted by <span class="process-math">\(D^c = \{1, 4, 5, 6\}\text{.}\)</span> That is, <span class="process-math">\(D^c\)</span> is the set of all possible outcomes not already included in <span class="process-math">\(D\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/fig-complement-of-d.html" title="Figure 3.1.27">Figure 3.1.27</a> shows the relationship between <span class="process-math">\(D\text{,}\)</span> <span class="process-math">\(D^c\text{,}\)</span> and the sample space <span class="process-math">\(S\text{.}\)</span>
+</div>
+<figure class="figure figure-like" id="fig-complement-of-d"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="ch_probability/figures/complementOfD.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.27<span class="period">.</span></span><span class="space"> </span>Event <span class="process-math">\(D=\{2, 3\}\)</span> and its complement, <span class="process-math">\(D^c = \{1, 4, 5, 6\}\text{.}\)</span> <span class="process-math">\(S\)</span> represents the sample space, which is the set of all possible outcomes.</figcaption></figure><article class="exercise exercise-like" id="ex-complement-dice"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-complement-dice"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.28</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-complement-dice"><article class="exercise exercise-like"><div class="para" id="p-418">(a) Compute <span class="process-math">\(P(D^c) = P(\text{rolling a } 1, 4, 5, \text{ or } 6)\text{.}\)</span> (b) What is <span class="process-math">\(P(D) + P(D^c)\text{?}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-34" id="solution-34"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-34"><div class="solution solution-like"><div class="para" id="p-419">(a) The outcomes are disjoint and each has probability <span class="process-math">\(1/6\text{,}\)</span> so the total probability is <span class="process-math">\(4/6=2/3\text{.}\)</span> (b) We can also see that <span class="process-math">\(P(D)=\frac{1}{6} + \frac{1}{6} = 1/3\text{.}\)</span> Since <span class="process-math">\(D\)</span> and <span class="process-math">\(D^c\)</span> are disjoint, <span class="process-math">\(P(D) + P(D^c) = 1\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-complement-ab"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-complement-ab"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.29</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-complement-ab"><article class="exercise exercise-like"><div class="para" id="p-420">Events <span class="process-math">\(A=\{1, 2\}\)</span> and <span class="process-math">\(B=\{4, 6\}\)</span> are shown in <a href="" class="xref" data-knowl="./knowl/fig-disjoint-sets.html" title="Figure 3.1.10">Figure 3.1.10</a>. (a) Write out what <span class="process-math">\(A^c\)</span> and <span class="process-math">\(B^c\)</span> represent. (b) Compute <span class="process-math">\(P(A^c)\)</span> and <span class="process-math">\(P(B^c)\text{.}\)</span> (c) Compute <span class="process-math">\(P(A)+P(A^c)\)</span> and <span class="process-math">\(P(B)+P(B^c)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-35" id="solution-35"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-35"><div class="solution solution-like"><div class="para" id="p-421">Brief solutions: (a) <span class="process-math">\(A^c=\{3, 4, 5, 6\}\)</span> and <span class="process-math">\(B^c=\{1, 2, 3, 5\}\text{.}\)</span> (b) Noting that each outcome is disjoint, add the individual outcome probabilities to get <span class="process-math">\(P(A^c)=2/3\)</span> and <span class="process-math">\(P(B^c)=2/3\text{.}\)</span> (c) <span class="process-math">\(A\)</span> and <span class="process-math">\(A^c\)</span> are disjoint, and the same is true of <span class="process-math">\(B\)</span> and <span class="process-math">\(B^c\text{.}\)</span> Therefore, <span class="process-math">\(P(A) + P(A^c) = 1\)</span> and <span class="process-math">\(P(B) + P(B^c) = 1\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<div class="para logical" id="p-422">
+<div class="para">A complement of an event <span class="process-math">\(A\)</span> is constructed to have two very important properties: (i) every possible outcome not in <span class="process-math">\(A\)</span> is in <span class="process-math">\(A^c\text{,}\)</span> and (ii) <span class="process-math">\(A\)</span> and <span class="process-math">\(A^c\)</span> are disjoint. Property (i) implies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A\text{ or }A^c) = 1
+\end{equation*}
+</div>
+<div class="para">That is, if the outcome is not in <span class="process-math">\(A\text{,}\)</span> it must be represented in <span class="process-math">\(A^c\text{.}\)</span> We use the Addition Rule for disjoint events to apply Property (ii):</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A\text{ or }A^c) = P(A) + P(A^c)
+\end{equation*}
+</div>
+<div class="para">Combining the last two equations yields a very useful relationship between the probability of an event and its complement.</div>
+</div>
+<article class="assemblage assemblage-like" id="complement-rule"><h4 class="heading"><span class="title">Complement.</span></h4>
+<div class="para logical" id="p-423">
+<div class="para">The complement of event <span class="process-math">\(A\)</span> is denoted <span class="process-math">\(A^c\text{,}\)</span> and <span class="process-math">\(A^c\)</span> represents all outcomes not in <span class="process-math">\(A\text{.}\)</span> <span class="process-math">\(A\)</span> and <span class="process-math">\(A^c\)</span> are mathematically related:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A) + P(A^c) = 1, \quad\text{i.e.}\quad P(A) = 1-P(A^c)
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-424">In simple examples, computing <span class="process-math">\(A\)</span> or <span class="process-math">\(A^c\)</span> is feasible in a few steps. However, using the complement can save a lot of time as problems grow in complexity.</div>
+<article class="exercise exercise-like" id="ex-dice-sum-less-than-12"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-dice-sum-less-than-12"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.30</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-dice-sum-less-than-12"><article class="exercise exercise-like"><div class="para" id="p-425">Let <span class="process-math">\(A\)</span> represent the event where we roll two dice and their total is less than 12. (a) What does the event <span class="process-math">\(A^c\)</span> represent? (b) Determine <span class="process-math">\(P(A^c)\)</span> from <a href="" class="xref" data-knowl="./knowl/fig-dice-prob.html" title="Figure 3.1.22">Figure 3.1.22</a>. (c) Determine <span class="process-math">\(P(A)\text{.}\)</span>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-36" id="solution-36"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-36"><div class="solution solution-like"><div class="para" id="p-426">(a) The complement of <span class="process-math">\(A\text{:}\)</span> when the total is equal to 12. (b) <span class="process-math">\(P(A^c) = 1/36\text{.}\)</span> (c) Use the probability of the complement from part (b), <span class="process-math">\(P(A^c) = 1/36\text{,}\)</span> and the equation for the complement: <span class="process-math">\(P(\text{less than } 12) = 1 - P(12) = 1 - 1/36 = 35/36\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-dice-sum-complements"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-dice-sum-complements"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.31</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-dice-sum-complements"><article class="exercise exercise-like"><div class="para" id="p-427">Find the following probabilities for rolling two dice:</div> <div class="para logical" id="p-428"><ol class="lower-alpha">
+<li id="li-168"><div class="para" id="p-429">The sum of the dice is <em class="emphasis">not</em> 6.</div></li>
+<li id="li-169"><div class="para" id="p-430">The sum is at least 4. That is, determine the probability of the event <span class="process-math">\(B = \{4, 5, \ldots, 12\}\text{.}\)</span>
+</div></li>
+<li id="li-170"><div class="para" id="p-431">The sum is no more than 10. That is, determine the probability of the event <span class="process-math">\(D=\{2, 3, \ldots, 10\}\text{.}\)</span>
+</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-37" id="solution-37"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-37"><div class="solution solution-like"><div class="para" id="p-432">(a) First find <span class="process-math">\(P(6)=5/36\text{,}\)</span> then use the complement: <span class="process-math">\(P(\text{not } 6) = 1 - P(6) = 31/36\text{.}\)</span> (b) First find the complement, which requires much less effort: <span class="process-math">\(P(2 \text{ or } 3)=1/36+2/36=1/12\text{.}\)</span> Then calculate <span class="process-math">\(P(B) = 1-P(B^c) = 1-1/12 = 11/12\text{.}\)</span> (c) As before, finding the complement is the clever way to determine <span class="process-math">\(P(D)\text{.}\)</span> First find <span class="process-math">\(P(D^c) = P(11 \text{ or } 12)=2/36 + 1/36=1/12\text{.}\)</span> Then calculate <span class="process-math">\(P(D) = 1 - P(D^c) = 11/12\text{.}\)</span>
+</div></div></div>
+</div></article></div></section><section class="subsection" id="subsec-independence"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.1.7</span> <span class="title">Independence</span>
 </h3>
-<div class="para" id="p-362">To be converted from LaTeX source.</div></section></section></div>
+<div class="para" id="p-433">Just as variables and observations can be independent, random processes can be independent, too. Two processes are <dfn class="terminology">independent</dfn> if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes — knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.</div>
+<div class="para" id="p-434">
+<a href="" class="xref" data-knowl="./knowl/ex-prob-of-2-ones.html" title="Example 3.1.5">Example 3.1.5</a> provides a basic example of two independent processes: rolling two dice. We want to determine the probability that both will be 1. Suppose one of the dice is red and the other white. If the outcome of the red die is a 1, it provides no information about the outcome of the white die. We first encountered this same question in <a href="" class="xref" data-knowl="./knowl/ex-prob-of-2-ones.html" title="Example 3.1.5">Example 3.1.5</a>, where we calculated the probability using the following reasoning: <span class="process-math">\(1/6\)</span> of the time the red die is a 1, and <span class="process-math">\(1/6\)</span> of <em class="emphasis">those</em> times the white die will also be a 1. This is illustrated in <a href="" class="xref" data-knowl="./knowl/fig-indep-for-rolling-two-1s.html" title="Figure 3.1.32">Figure 3.1.32</a>. Because the rolls are independent, the probabilities of the corresponding outcomes can be multiplied to get the final answer: <span class="process-math">\((1/6)\times(1/6)=1/36\text{.}\)</span> This can be generalized to many independent processes.</div>
+<figure class="figure figure-like" id="fig-indep-for-rolling-two-1s"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="ch_probability/figures/indepForRollingTwo1s.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.1.32<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(1/6\)</span> of the time, the first roll is a 1. Then <span class="process-math">\(1/6\)</span> of <em class="emphasis">those</em> times, the second roll will also be a 1.</figcaption></figure><article class="example example-like" id="ex-three-dice"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-three-dice"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.33</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-three-dice"><article class="example example-like"><div class="para" id="p-435">What if there was also a blue die independent of the other two? What is the probability of rolling the three dice and getting all 1s?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-38" id="solution-38"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-38"><div class="solution solution-like"><div class="para logical" id="p-436">
+<div class="para">The same logic applies from <a href="" class="xref" data-knowl="./knowl/ex-prob-of-2-ones.html" title="Example 3.1.5">Example 3.1.5</a>. If <span class="process-math">\(1/36\)</span> of the time the white and red dice are both 1, then <span class="process-math">\(1/6\)</span> of <em class="emphasis">those</em> times the blue die will also be 1, so multiply:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-prob-of-2-ones.html" id="md-3">
+\begin{align*}
+P(\text{white}=1 \text{ and } \text{red}=1 \text{ and } \text{blue}=1)\\
+\amp= P(\text{white}=1)\times P(\text{red}=1)\times P(\text{blue}=1)\\
+\amp= (1/6)\times (1/6)\times (1/6) = 1/216
+\end{align*}
+</div>
+</div></div></div>
+</div></article></div>
+<div class="para" id="p-437">
+<a href="" class="xref" data-knowl="./knowl/ex-three-dice.html" title="Example 3.1.33">Example 3.1.33</a> illustrates what is called the Multiplication Rule for independent processes.</div>
+<article class="assemblage assemblage-like" id="multiplication-rule-independent"><h4 class="heading"><span class="title">Multiplication Rule for independent processes.</span></h4>
+<div class="para logical" id="p-438">
+<div class="para">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> represent events from two different and independent processes, then the probability that both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> occur can be calculated as the product of their separate probabilities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A \text{ and }B) = P(A) \times  P(B)
+\end{equation*}
+</div>
+<div class="para">Similarly, if there are <span class="process-math">\(k\)</span> events <span class="process-math">\(A_1, \ldots, A_k\)</span> from <span class="process-math">\(k\)</span> independent processes, then the probability they all occur is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(A_1) \times  P(A_2)\times  \cdots \times  P(A_k)
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="ex-two-handedness"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-two-handedness"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.34</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-two-handedness"><article class="exercise exercise-like"><div class="para" id="p-439">About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. population. Because the sample size of 2 is very small relative to the population, it is reasonable to assume these two people are independent. (a) What is the probability that both are left-handed? (b) What is the probability that both are right-handed?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-39" id="solution-39"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-39"><div class="solution solution-like"><div class="para" id="p-440">(a) The probability the first person is left-handed is 0.09, which is the same for the second person. We apply the Multiplication Rule for independent processes to determine the probability that both will be left-handed: <span class="process-math">\(0.09\times 0.09 = 0.0081\text{.}\)</span> (b) It is reasonable to assume the proportion of people who are ambidextrous (both right- and left-handed) is nearly 0, which results in <span class="process-math">\(P(\text{right-handed})=1-0.09=0.91\text{.}\)</span> Using the same reasoning as in part (a), the probability that both will be right-handed is <span class="process-math">\(0.91\times 0.91 = 0.8281\text{.}\)</span>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-five-handedness"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-five-handedness"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.35</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-five-handedness"><article class="exercise exercise-like"><div class="para" id="p-441">Suppose 5 people are selected at random.</div> <div class="para logical" id="p-442"><ol class="lower-alpha">
+<li id="li-171"><div class="para" id="p-443">What is the probability that all are right-handed?</div></li>
+<li id="li-172"><div class="para" id="p-444">What is the probability that all are left-handed?</div></li>
+<li id="li-173"><div class="para" id="p-445">What is the probability that not all of the people are right-handed?</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-40" id="solution-40"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-40"><div class="solution solution-like"><div class="para logical" id="p-446">
+<div class="para">(a) The abbreviations RH and LH are used for right-handed and left-handed, respectively. Since each are independent, we apply the Multiplication Rule for independent processes:</div>
+<div class="displaymath process-math" id="md-4">
+\begin{align*}
+P(\text{all five are RH}) \amp= P(\text{first = RH, second = RH, ..., fifth = RH})\\
+\amp= P(\text{first = RH})\times P(\text{second = RH})\times  \cdots \times P(\text{fifth = RH})\\
+\amp= 0.91\times 0.91\times 0.91\times 0.91\times 0.91 = 0.624
+\end{align*}
+</div>
+<div class="para">(b) Using the same reasoning as in (a), <span class="process-math">\(0.09\times 0.09\times 0.09\times 0.09\times 0.09 = 0.0000059\text{.}\)</span> (c) Use the complement, <span class="process-math">\(P(\text{all five are RH})\text{,}\)</span> to answer this question:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{not all RH}) = 1 - P(\text{all RH}) = 1 - 0.624 = 0.376
+\end{equation*}
+</div>
+</div></div></div>
+</div></article></div>
+<div class="para logical" id="p-447">
+<div class="para">Suppose the variables <code class="code-inline tex2jax_ignore">handedness</code> and <code class="code-inline tex2jax_ignore">sex</code> are independent, i.e. knowing someone’s sex provides no useful information about their handedness and vice-versa. Then we can compute whether a randomly selected person is right-handed and female<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-2" id="fn-2"><sup> 2 </sup></a> using the Multiplication Rule:</div>
+<div class="displaymath process-math" id="md-5">
+\begin{align*}
+P(\text{right-handed and female}) \amp= P(\text{right-handed}) \times  P(\text{female})\\
+\amp= 0.91 \times  0.50 = 0.455
+\end{align*}
+</div>
+</div>
+<article class="exercise exercise-like" id="ex-three-people-sex-handedness"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-three-people-sex-handedness"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.1.36</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-three-people-sex-handedness"><article class="exercise exercise-like"><div class="para" id="p-448">Three people are selected at random.</div> <div class="para logical" id="p-449"><ol class="lower-alpha">
+<li id="li-174"><div class="para" id="p-450">What is the probability that the first person is male and right-handed?</div></li>
+<li id="li-175"><div class="para" id="p-451">What is the probability that the first two people are male and right-handed?</div></li>
+<li id="li-176"><div class="para" id="p-452">What is the probability that the third person is female and left-handed?</div></li>
+<li id="li-177"><div class="para" id="p-453">What is the probability that the first two people are male and right-handed and the third person is female and left-handed?</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-41" id="solution-41"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-41"><div class="solution solution-like"><div class="para" id="p-454">Brief answers are provided. (a) This can be written in probability notation as <span class="process-math">\(P(\text{a randomly 
+selected person is male and right-handed})=0.455\text{.}\)</span> (b) 0.207. (c) 0.045. (d) 0.0093.</div></div></div>
+</div></article></div>
+<div class="para" id="p-455">Sometimes we wonder if one outcome provides useful information about another outcome. The question we are asking is, are the occurrences of the two events independent? We say that two events <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are independent if they satisfy <span class="process-math">\(P(A \text{ and }B) = P(A) \times  P(B)\text{.}\)</span>
+</div>
+<article class="example example-like" id="ex-heart-ace-independent"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-heart-ace-independent"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.1.37</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-heart-ace-independent"><article class="example example-like"><div class="para" id="p-456">If we shuffle up a deck of cards and draw one, is the event that the card is a heart independent of the event that the card is an ace?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-42" id="solution-42"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-42"><div class="solution solution-like"><div class="para logical" id="p-457">
+<div class="para">The probability the card is a heart is <span class="process-math">\(1/4\)</span> and the probability that it is an ace is <span class="process-math">\(1/13\text{.}\)</span> The probability the card is the ace of hearts is <span class="process-math">\(1/52\text{.}\)</span> We check whether <span class="process-math">\(P(A \text{ and }B) = P(A) \times  P(B)\)</span> is satisfied:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\heartsuit)\times P(\text{ace}) = \frac{1}{4}\times \frac{1}{13} = \frac{1}{52} = P(\heartsuit\text{ and ace})
+\end{equation*}
+</div>
+<div class="para">Because the equation holds, the event that the card is a heart and the event that the card is an ace are independent events.</div>
+</div></div></div>
+</div></article></div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-1"><div class="fn">The 52 cards are split into four <dfn class="terminology">suits</dfn>: <span class="process-math">\(\clubsuit\)</span> (club), <span class="process-math">\(\diamondsuit\)</span> (diamond), <span class="process-math">\(\heartsuit\)</span> (heart), <span class="process-math">\(\spadesuit\)</span> (spade). Each suit has its 13 cards labeled: 2, 3, …, 10, J (jack), Q (queen), K (king), and A (ace). Thus, each card is a unique combination of a suit and a label, e.g. <span class="process-math">\(4\heartsuit\)</span> and <span class="process-math">\(J\clubsuit\text{.}\)</span> The 12 cards represented by the jacks, queens, and kings are called <dfn class="terminology">face cards</dfn>. The cards that are <span class="process-math">\(\diamondsuit\)</span> or <span class="process-math">\(\heartsuit\)</span> are typically colored red while the other two suits are typically colored black.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-2"><div class="fn">The actual proportion of the U.S. population that is female is about 50%, and so we use 0.5 for the probability of sampling a woman. However, this probability does differ in other countries.</div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="ch-probability.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-conditional-probability.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

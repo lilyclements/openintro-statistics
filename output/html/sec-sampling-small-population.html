@@ -452,18 +452,85 @@ true);
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-sampling-small-population"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Sampling from a small population</span>
 </h2>
-<section class="introduction" id="introduction-9"><div class="para" id="p-371">When we sample observations from a population, usually we’re only sampling a small fraction of the possible individuals or cases. However, sometimes our sample size is large enough or the population is small enough that we sample more than 10% of a population without replacement.</div></section><article class="example example-like" id="ex-professor-select-student"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-professor-select-student"><h3 class="heading">
+<section class="introduction" id="introduction-10"><div class="para" id="p-549">When we sample observations from a population, usually we’re only sampling a small fraction of the possible individuals or cases. However, sometimes our sample size is large enough or the population is small enough that we sample more than 10% of a population without replacement (meaning we do not have a chance of sampling the same cases twice). Sampling such a notable fraction of a population can be important for how we analyze the sample.</div></section><article class="example example-like" id="ex-professor-select-student"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-professor-select-student"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Selecting a student at random.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-professor-select-student"><article class="example example-like"><div class="para" id="p-372">Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-professor-select-student"><article class="example example-like"><div class="para" id="p-550">Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like"><div class="para" id="p-373">To be converted from LaTeX source.</div></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like"><div class="para" id="p-551">If there are 15 people to ask and none are skipping class, then the probability is <span class="process-math">\(1/15\text{,}\)</span> or about 0.067.</div></div></div>
 </div></article></div>
 <article class="example example-like" id="ex-3-questions-wo-replacement"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-3-questions-wo-replacement"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Three questions without replacement.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-3-questions-wo-replacement"><article class="example example-like"><div class="para" id="p-374">If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.</div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-3-questions-wo-replacement"><article class="example example-like"><div class="para" id="p-552">If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like"><div class="para" id="p-375">To be converted from LaTeX source.</div></div></div>
-</div></article></div></section></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like"><div class="para logical" id="p-553">
+<div class="para">For the first question, she will pick someone else with probability <span class="process-math">\(14/15\text{.}\)</span> When she asks the second question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the first question, the probability you are again not picked is <span class="process-math">\(13/14\text{.}\)</span> Similarly, the probability you are again not picked on the third question is <span class="process-math">\(12/13\text{,}\)</span> and the probability of not being picked for any of the three questions is</div>
+<div class="displaymath process-math" id="md-18">
+\begin{align*}
+P(\text{not picked in 3 questions}) \amp= P(\text{Q1} = \text{not picked, Q2} = \text{not picked, Q3} = \text{not picked})\\
+\amp= \frac{14}{15} \times \frac{13}{14} \times \frac{12}{13} = \frac{12}{15} = 0.80
+\end{align*}
+</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-rule-multiply-probs"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-rule-multiply-probs"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-rule-multiply-probs"><article class="exercise exercise-like"><div class="para" id="p-554">What rule permitted us to multiply the probabilities in <a href="" class="xref" data-knowl="./knowl/ex-3-questions-wo-replacement.html" title="Example 3.3.2: Three questions without replacement">Example 3.3.2</a>?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-66" id="solution-66"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-66"><div class="solution solution-like"><div class="para logical" id="p-555">
+<div class="para">The three probabilities we computed were actually one marginal probability, <span class="process-math">\(P(\text{Q1} = \text{not picked})\text{,}\)</span> and two conditional probabilities:</div>
+<div class="displaymath process-math" id="md-19">
+\begin{gather*}
+P(\text{Q2} = \text{not picked} \mid \text{Q1} = \text{not picked})\\
+P(\text{Q3} = \text{not picked} \mid \text{Q1} = \text{not picked, Q2} = \text{not picked})
+\end{gather*}
+</div>
+<div class="para">Using the General Multiplication Rule, the product of these three probabilities is the probability of not being picked in 3 questions.</div>
+</div></div></div>
+</div></article></div>
+<article class="example example-like" id="ex-3-questions-w-replacement"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-3-questions-w-replacement"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Three questions with replacement.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-3-questions-w-replacement"><article class="example example-like"><div class="para" id="p-556">Suppose the professor randomly picks without regard to who she already selected, i.e. students can be picked more than once. What is the probability that you will not be picked for any of the three questions?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-67" id="solution-67"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-67"><div class="solution solution-like"><div class="para logical" id="p-557">
+<div class="para">Each pick is independent, and the probability of not being picked for any individual question is <span class="process-math">\(14/15\text{.}\)</span> Thus, we can use the Multiplication Rule for independent processes.</div>
+<div class="displaymath process-math" id="md-20">
+\begin{align*}
+P(\text{not picked in 3 questions}) \amp= P(\text{Q1} = \text{not picked, Q2} = \text{not picked, Q3} = \text{not picked})\\
+\amp= \frac{14}{15} \times \frac{14}{15} \times \frac{14}{15} = 0.813
+\end{align*}
+</div>
+<div class="para">You have a slightly higher chance of not being picked compared to when she picked a new person for each question. However, you now may be picked more than once.</div>
+</div></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-picked-all-three"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-picked-all-three"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-picked-all-three"><article class="exercise exercise-like"><div class="para" id="p-558">Under the setup of <a href="" class="xref" data-knowl="./knowl/ex-3-questions-w-replacement.html" title="Example 3.3.4: Three questions with replacement">Example 3.3.4</a>, what is the probability of being picked to answer all three questions?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-68" id="solution-68"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-68"><div class="solution solution-like"><div class="para" id="p-559"><span class="process-math">\(P(\text{being picked to answer all three questions}) = \left(\frac{1}{15}\right)^3 = 0.00030\)</span></div></div></div>
+</div></article></div>
+<div class="para" id="p-560">If we sample from a small population without replacement, we no longer have independence between our observations. In <a href="" class="xref" data-knowl="./knowl/ex-3-questions-wo-replacement.html" title="Example 3.3.2: Three questions without replacement">Example 3.3.2</a>, the probability of not being picked for the second question was conditioned on the event that you were not picked for the first question. In <a href="" class="xref" data-knowl="./knowl/ex-3-questions-w-replacement.html" title="Example 3.3.4: Three questions with replacement">Example 3.3.4</a>, the professor sampled her students with replacement: she repeatedly sampled the entire class without regard to who she already picked.</div>
+<article class="exercise exercise-like" id="ex-raffle-30-tickets"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-raffle-30-tickets"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-raffle-30-tickets"><article class="exercise exercise-like"><div class="para logical" id="p-561">
+<div class="para">Your department is holding a raffle. They sell 30 tickets and offer seven prizes.</div>
+<ol class="lower-alpha">
+<li id="li-184"><div class="para" id="p-562">They place the tickets in a hat and draw one for each prize. The tickets are sampled without replacement, i.e. the selected tickets are not placed back in the hat. What is the probability of winning a prize if you buy one ticket?</div></li>
+<li id="li-185"><div class="para" id="p-563">What if the tickets are sampled with replacement?</div></li>
+</ol>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-69" id="solution-69"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-69"><div class="solution solution-like">
+<div class="para" id="p-564">(a) First determine the probability of not winning. The tickets are sampled without replacement, which means the probability you do not win on the first draw is <span class="process-math">\(29/30\text{,}\)</span> <span class="process-math">\(28/29\)</span> for the second, <span class="process-math">\(\ldots\text{,}\)</span> and <span class="process-math">\(23/24\)</span> for the seventh. The probability you win no prize is the product of these separate probabilities: <span class="process-math">\(23/30\text{.}\)</span> That is, the probability of winning a prize is <span class="process-math">\(1 - 23/30 = 7/30 = 0.233\text{.}\)</span>
+</div> <div class="para" id="p-565">(b) When the tickets are sampled with replacement, there are seven independent draws. Again we first find the probability of not winning a prize: <span class="process-math">\((29/30)^7 = 0.789\text{.}\)</span> Thus, the probability of winning (at least) one prize when drawing with replacement is 0.211.</div>
+</div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="ex-raffle-comparison"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-ex-raffle-comparison"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">3.3.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-raffle-comparison"><article class="exercise exercise-like"><div class="para" id="p-566">Compare your answers in <a href="" class="xref" data-knowl="./knowl/ex-raffle-30-tickets.html" title="Checkpoint 3.3.6">Checkpoint 3.3.6</a>. How much influence does the sampling method have on your chances of winning a prize?</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-70" id="solution-70"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-70"><div class="solution solution-like"><div class="para" id="p-567">There is about a 10% larger chance of winning a prize when using sampling without replacement. However, at most one prize may be won under this sampling procedure.</div></div></div>
+</div></article></div>
+<div class="para" id="p-568">Had we repeated <a href="" class="xref" data-knowl="./knowl/ex-raffle-30-tickets.html" title="Checkpoint 3.3.6">Checkpoint 3.3.6</a> with 300 tickets instead of 30, we would have found something interesting: the results would be nearly identical. The probability would be 0.0233 without replacement and 0.0231 with replacement. When the sample size is only a small fraction of the population (under 10%), observations are nearly independent even when sampling without replacement.</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-conditional-probability.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-random-variables.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

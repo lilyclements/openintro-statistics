@@ -1375,7 +1375,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.1",
   "title": "Defining probability",
-  "body": " Defining probability   Statistics is based on probability, and while probability is not required for the applied techniques in this book, it may help you gain a deeper understanding of the methods and set a better foundation for future courses.    Introductory examples  To be converted from LaTeX source.   Probability of rolling a 1   A \"die\", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    To be converted from LaTeX source.     Probability of rolling a 1 or 2   What is the chance of getting a 1 or 2 in the next roll?    To be converted from LaTeX source.      Probability  To be converted from LaTeX source.   The fraction of die rolls that are 1 at each stage in a simulation    Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process.     Disjoint or mutually exclusive outcomes  To be converted from LaTeX source.    Probabilities when events are not disjoint  To be converted from LaTeX source.    Probability distributions  To be converted from LaTeX source.    Complement of an event  To be converted from LaTeX source.    Independence  To be converted from LaTeX source.   "
+  "body": " Defining probability   Statistics is based on probability, and while probability is not required for the applied techniques in this book, it may help you gain a deeper understanding of the methods and set a better foundation for future courses.    Introductory examples  Before we get into technical ideas, let's walk through some basic examples that may feel more familiar.    A die , the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there are six outcomes, the chance must be 1-in-6 or, equivalently, .      What is the chance of getting a 1 or 2 in the next roll?    1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of these two outcomes must be .      What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?    100%. The outcome must be one of these numbers.      What is the chance of not rolling a 2?    Since the chance of rolling a 2 is or , the chance of not rolling a 2 must be or .  Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6, which makes up five of the six equally likely outcomes and has probability .      Consider rolling two dice. If of the time the first die is a 1 and of those times the second die is a 1, what is the chance of getting two 1s?    If of the time the first die is a 1 and of those times the second die is also a 1, then the chance that both dice are 1 is or .      Probability  We use probability to build tools to describe and understand apparent randomness. We often frame probability in terms of a random process giving rise to an outcome .  Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome: Roll a die 1, 2, 3, 4, 5, or 6; Flip a coin H or T.   Probability  The probability of an outcome is the proportion of times the outcome would occur if we observed the random process an infinite number of times.   Probability is defined as a proportion, and it always takes values between 0 and 1 (inclusively). It may also be displayed as a percentage between 0% and 100%.  Probability can be illustrated by rolling a die many times. Let be the proportion of outcomes that are 1 after the first rolls. As the number of rolls increases, will converge to the probability of rolling a 1, . shows this convergence for 100,000 die rolls. The tendency of to stabilize around is described by the Law of Large Numbers .   The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to get closer to the probability as the number of rolls increases.     Law of Large Numbers  As more observations are collected, the proportion of occurrences with a particular outcome converges to the probability of that outcome.   Occasionally the proportion will veer off from the probability and appear to defy the Law of Large Numbers, as does many times in . However, these deviations become smaller as the number of rolls increases.  Above we write as the probability of rolling a 1. We can also write this probability as As we become more comfortable with this notation, we will abbreviate it further. For instance, if it is clear that the process is rolling a die , we could abbreviate rolling a 1 as .  Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process with possible outcomes 1, 2, , 6.   Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process with outcomes sick and not . (ii) We can generate a random process by randomly picking a person and measuring that person's height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up or down next week is a seemingly random process with possible outcomes up , down , and no_change . Alternatively, we could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans her dishes tonight probably seems like a random process with possible outcomes cleans_dishes and leaves_dishes .   What we think of as random processes are not necessarily random, but they may just be too difficult to understand exactly. The fourth example in the solution to suggests a roommate's behavior is a random process. However, even if a roommate's behavior is not truly random, modeling her behavior as a random process can still be useful.    Disjoint or mutually exclusive outcomes  Two outcomes are called disjoint or mutually exclusive if they cannot both happen. For instance, if we roll a die, the outcomes 1 and 2 are disjoint since they cannot both occur. On the other hand, the outcomes 1 and rolling an odd number are not disjoint since both occur if the outcome of the roll is a 1. The terms disjoint and mutually exclusive are equivalent and interchangeable.  Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1 and 2 are disjoint, and we compute the probability that one of these outcomes will occur by adding their separate probabilities: What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are disjoint so we add the probabilities: The Addition Rule guarantees the accuracy of this approach when the outcomes are disjoint.   Addition Rule of disjoint outcomes  If and represent two disjoint outcomes, then the probability that one of them occurs is given by If there are many disjoint outcomes , , , then the probability that one of these outcomes will occur is     We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and 5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine 1 or 4 or 5 .   (a) The random process is a die roll, and at most one of these outcomes can come up. This means they are disjoint outcomes. (b) 1 or 4 or 5     In the loans data set in Chapter 1, the homeownership variable described whether the borrower rents, has a mortgage, or owns her property. Of the 10,000 borrowers, 3858 rented, 4789 had a mortgage, and 1353 owned their home.    Are the outcomes rent , mortgage , and own disjoint?  Determine the proportion of loans with value mortgage and own separately.  Use the Addition Rule for disjoint outcomes to compute the probability a randomly selected loan from the data set is for someone who has a mortgage or owns her home.     (a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: . Own: . (c) mortgage or own mortgage own .   Data scientists rarely work with individual outcomes and instead consider sets or collections of outcomes. Let represent the event where a die roll results in 1 or 2 and represent the event that the die roll is a 4 or a 6. We write as the set of outcomes and . These sets are commonly called events . Because and have no elements in common, they are disjoint events. and are represented in .   Three events, , , and , consist of outcomes from rolling a die. and are disjoint since they do not have any outcomes in common.    The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that one of the disjoint events or occurs is the sum of the separate probabilities:    (a) Verify the probability of event , , is using the Addition Rule. (b) Do the same for event .   (a) 1 or 2 . (b) Similarly, .    (a) Using as a reference, what outcomes are represented by event ? (b) Are events and disjoint? (c) Are events and disjoint?   (a) Outcomes 2 and 3. (b) Yes, events and are disjoint because they share no outcomes. (c) The events and share an outcome in common, 2, and so are not disjoint.    In , you confirmed and from are disjoint. Compute the probability that event or event occurs.   Since and are disjoint events, use the Addition Rule: or .     Probabilities when events are not disjoint  Let's consider calculations for two events that are not disjoint in the context of a regular deck of 52 cards, represented in . If you are unfamiliar with the cards in a regular deck, please see the footnote. The 52 cards are split into four suits : (club), (diamond), (heart), (spade). Each suit has its 13 cards labeled: 2, 3, , 10, J (jack), Q (queen), K (king), and A (ace). Thus, each card is a unique combination of a suit and a label, e.g. and . The 12 cards represented by the jacks, queens, and kings are called face cards . The cards that are or are typically colored red while the other two suits are typically colored black.    Representations of the 52 unique cards in a deck.     (a) What is the probability that a randomly selected card is a diamond? (b) What is the probability that a randomly selected card is a face card?   (a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuffled, each card has an equal chance of being drawn, so the probability that a randomly selected card is a diamond is . (b) Likewise, there are 12 face cards, so .    Venn diagrams are useful when outcomes can be categorized as in or out for two or three variables, attributes, or random processes. The Venn diagram in uses a circle to represent diamonds and another to represent face cards. If a card is both a diamond and a face card, it falls into the intersection of the circles. If it is a diamond but not a face card, it will be in part of the left circle that is not in the right circle (and so on). The total number of cards that are diamonds is given by the total number of cards in the diamonds circle: . The probabilities are also shown (e.g. ).   A Venn diagram for diamonds and face cards.    Let represent the event that a randomly selected card is a diamond and represent the event that it is a face card. How do we compute ? Events and are not disjoint the cards , , and fall into both categories so we cannot use the Addition Rule for disjoint events. Instead we use the Venn diagram. We start by adding the probabilities of the two events: However, the three cards that are in both events were counted twice, once in each probability. We must correct this double counting: This equation is an example of the General Addition Rule .   General Addition Rule  If and are any two events, disjoint or not, then the probability that at least one of them will occur is where is the probability that both events occur.    or is inclusive  When we write or in statistics, we mean and\/or unless we explicitly state otherwise. Thus, or occurs means , , or both and occur.    (a) If and are disjoint, describe why this implies . (b) Using part (a), verify that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if and are disjoint.   (a) If and are disjoint, and can never occur simultaneously. (b) If and are disjoint, then the last term in the General Addition Rule formula is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.    In the loans data set describing 10,000 loans, 1495 loans were from joint applications (e.g. a couple applied together), 4789 applicants had a mortgage, and 950 had both of these characteristics. Create a Venn diagram for this setup.   Both the counts and corresponding probabilities (e.g. ) are shown. Notice that the number of loans represented in the left circle corresponds to , and the number represented in the right circle is .       (a) Use your Venn diagram from the previous exercise to determine the probability a randomly drawn loan from the loans data set is from a joint application where the couple had a mortgage. (b) What is the probability that the loan had either of these attributes?   (a) The solution is represented by the intersection of the two circles: 0.095. (b) This is the sum of the three disjoint probabilities shown in the circles: (off by 0.001 due to a rounding error).     Probability distributions  A probability distribution is a table of all disjoint outcomes and their associated probabilities. shows the probability distribution for the sum of two dice.   Probability distribution for the sum of two dice.    Dice sum  2 3 4 5 6 7  8 9 10 11 12    Probability          Rules for probability distributions  A probability distribution is a list of the possible outcomes with corresponding probabilities that satisfies three rules:    The outcomes listed must be disjoint.  Each probability must be between 0 and 1.  The probabilities must total 1.       suggests three distributions for household income in the United States. Only one is correct. Which one must it be? What is wrong with the other two?   The probabilities of (a) do not sum to 1. The second probability in (b) is negative. This leaves (c), which sure enough satisfies the requirements of a distribution. One of the three was said to be the actual distribution of US household incomes, so it must be (c).    Proposed distributions of US household incomes.    Income Range  $0-25k $25k-50k $50k-100k $100k+    (a)  0.18 0.39 0.33 0.16    (b)  0.38 -0.27 0.52 0.37    (c)  0.28 0.27 0.29 0.16     Chapter 1 emphasized the importance of plotting data to provide quick summaries. Probability distributions can also be summarized in a bar plot. For instance, the distribution of US household incomes is shown in as a bar plot. The probability distribution for the sum of two dice is shown in and plotted in .   The probability distribution of US household income.     The probability distribution of the sum of two dice.    In these bar plots, the bar heights represent the probabilities of outcomes. If the outcomes are numerical and discrete, it is usually (visually) convenient to make a bar plot that resembles a histogram, as in the case of the sum of two dice. Another example of plotting the bars at their respective locations is shown in in .    Complement of an event  Rolling a die produces a value in the set . This set of all possible outcomes is called the sample space ( ) for rolling a die. We often use the sample space to examine the scenario where an event does not occur.  Let represent the event that the outcome of a die roll is 2 or 3. Then the complement of represents all outcomes in our sample space that are not in , which is denoted by . That is, is the set of all possible outcomes not already included in . shows the relationship between , , and the sample space .   Event and its complement, . represents the sample space, which is the set of all possible outcomes.     (a) Compute . (b) What is ?   (a) The outcomes are disjoint and each has probability , so the total probability is . (b) We can also see that . Since and are disjoint, .    Events and are shown in . (a) Write out what and represent. (b) Compute and . (c) Compute and .   Brief solutions: (a) and . (b) Noting that each outcome is disjoint, add the individual outcome probabilities to get and . (c) and are disjoint, and the same is true of and . Therefore, and .   A complement of an event is constructed to have two very important properties: (i) every possible outcome not in is in , and (ii) and are disjoint. Property (i) implies That is, if the outcome is not in , it must be represented in . We use the Addition Rule for disjoint events to apply Property (ii): Combining the last two equations yields a very useful relationship between the probability of an event and its complement.   Complement  The complement of event is denoted , and represents all outcomes not in . and are mathematically related:    In simple examples, computing or is feasible in a few steps. However, using the complement can save a lot of time as problems grow in complexity.   Let represent the event where we roll two dice and their total is less than 12. (a) What does the event represent? (b) Determine from . (c) Determine .   (a) The complement of : when the total is equal to 12. (b) . (c) Use the probability of the complement from part (b), , and the equation for the complement: .    Find the following probabilities for rolling two dice:    The sum of the dice is not 6.  The sum is at least 4. That is, determine the probability of the event .  The sum is no more than 10. That is, determine the probability of the event .     (a) First find , then use the complement: . (b) First find the complement, which requires much less effort: . Then calculate . (c) As before, finding the complement is the clever way to determine . First find . Then calculate .     Independence  Just as variables and observations can be independent, random processes can be independent, too. Two processes are independent if knowing the outcome of one provides no useful information about the outcome of the other. For instance, flipping a coin and rolling a die are two independent processes knowing the coin was heads does not help determine the outcome of a die roll. On the other hand, stock prices usually move up or down together, so they are not independent.   provides a basic example of two independent processes: rolling two dice. We want to determine the probability that both will be 1. Suppose one of the dice is red and the other white. If the outcome of the red die is a 1, it provides no information about the outcome of the white die. We first encountered this same question in , where we calculated the probability using the following reasoning: of the time the red die is a 1, and of those times the white die will also be a 1. This is illustrated in . Because the rolls are independent, the probabilities of the corresponding outcomes can be multiplied to get the final answer: . This can be generalized to many independent processes.   of the time, the first roll is a 1. Then of those times, the second roll will also be a 1.      What if there was also a blue die independent of the other two? What is the probability of rolling the three dice and getting all 1s?    The same logic applies from . If of the time the white and red dice are both 1, then of those times the blue die will also be 1, so multiply:      illustrates what is called the Multiplication Rule for independent processes.   Multiplication Rule for independent processes  If and represent events from two different and independent processes, then the probability that both and occur can be calculated as the product of their separate probabilities: Similarly, if there are events from independent processes, then the probability they all occur is     About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. population. Because the sample size of 2 is very small relative to the population, it is reasonable to assume these two people are independent. (a) What is the probability that both are left-handed? (b) What is the probability that both are right-handed?   (a) The probability the first person is left-handed is 0.09, which is the same for the second person. We apply the Multiplication Rule for independent processes to determine the probability that both will be left-handed: . (b) It is reasonable to assume the proportion of people who are ambidextrous (both right- and left-handed) is nearly 0, which results in . Using the same reasoning as in part (a), the probability that both will be right-handed is .    Suppose 5 people are selected at random.    What is the probability that all are right-handed?  What is the probability that all are left-handed?  What is the probability that not all of the people are right-handed?     (a) The abbreviations RH and LH are used for right-handed and left-handed, respectively. Since each are independent, we apply the Multiplication Rule for independent processes: (b) Using the same reasoning as in (a), . (c) Use the complement, , to answer this question:    Suppose the variables handedness and sex are independent, i.e. knowing someone's sex provides no useful information about their handedness and vice-versa. Then we can compute whether a randomly selected person is right-handed and female The actual proportion of the U.S. population that is female is about 50%, and so we use 0.5 for the probability of sampling a woman. However, this probability does differ in other countries. using the Multiplication Rule:    Three people are selected at random.    What is the probability that the first person is male and right-handed?  What is the probability that the first two people are male and right-handed?  What is the probability that the third person is female and left-handed?  What is the probability that the first two people are male and right-handed and the third person is female and left-handed?     Brief answers are provided. (a) This can be written in probability notation as . (b) 0.207. (c) 0.045. (d) 0.0093.   Sometimes we wonder if one outcome provides useful information about another outcome. The question we are asking is, are the occurrences of the two events independent? We say that two events and are independent if they satisfy .    If we shuffle up a deck of cards and draw one, is the event that the card is a heart independent of the event that the card is an ace?    The probability the card is a heart is and the probability that it is an ace is . The probability the card is the ace of hearts is . We check whether is satisfied: Because the equation holds, the event that the card is a heart and the event that the card is an ace are independent events.     "
 },
 {
   "id": "ex-prob-of-1",
@@ -1383,8 +1383,8 @@ var ptx_lunr_docs = [
   "url": "sec-defining-probability.html#ex-prob-of-1",
   "type": "Example",
   "number": "3.1.1",
-  "title": "Probability of rolling a 1.",
-  "body": " Probability of rolling a 1   A \"die\", the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    To be converted from LaTeX source.   "
+  "title": "",
+  "body": "  A die , the singular of dice, is a cube with six faces numbered 1, 2, 3, 4, 5, and 6. What is the chance of getting 1 when rolling a die?    If the die is fair, then the chance of a 1 is as good as the chance of any other number. Since there are six outcomes, the chance must be 1-in-6 or, equivalently, .   "
 },
 {
   "id": "ex-prob-of-1-or-2",
@@ -1392,26 +1392,431 @@ var ptx_lunr_docs = [
   "url": "sec-defining-probability.html#ex-prob-of-1-or-2",
   "type": "Example",
   "number": "3.1.2",
-  "title": "Probability of rolling a 1 or 2.",
-  "body": " Probability of rolling a 1 or 2   What is the chance of getting a 1 or 2 in the next roll?    To be converted from LaTeX source.   "
+  "title": "",
+  "body": "  What is the chance of getting a 1 or 2 in the next roll?    1 and 2 constitute two of the six equally likely possible outcomes, so the chance of getting one of these two outcomes must be .   "
+},
+{
+  "id": "ex-prob-of-123456",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-of-123456",
+  "type": "Example",
+  "number": "3.1.3",
+  "title": "",
+  "body": "  What is the chance of getting either 1, 2, 3, 4, 5, or 6 on the next roll?    100%. The outcome must be one of these numbers.   "
+},
+{
+  "id": "ex-prob-not-2",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-not-2",
+  "type": "Example",
+  "number": "3.1.4",
+  "title": "",
+  "body": "  What is the chance of not rolling a 2?    Since the chance of rolling a 2 is or , the chance of not rolling a 2 must be or .  Alternatively, we could have noticed that not rolling a 2 is the same as getting a 1, 3, 4, 5, or 6, which makes up five of the six equally likely outcomes and has probability .   "
+},
+{
+  "id": "ex-prob-of-2-ones",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-of-2-ones",
+  "type": "Example",
+  "number": "3.1.5",
+  "title": "",
+  "body": "  Consider rolling two dice. If of the time the first die is a 1 and of those times the second die is a 1, what is the chance of getting two 1s?    If of the time the first die is a 1 and of those times the second die is also a 1, then the chance that both dice are 1 is or .   "
+},
+{
+  "id": "p-363",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-363",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "random process outcome "
+},
+{
+  "id": "p-365",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-365",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability "
+},
+{
+  "id": "p-367",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-367",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Law of Large Numbers "
 },
 {
   "id": "fig-die-prop",
   "level": "2",
   "url": "sec-defining-probability.html#fig-die-prop",
   "type": "Figure",
-  "number": "3.1.3",
+  "number": "3.1.6",
   "title": "",
-  "body": " The fraction of die rolls that are 1 at each stage in a simulation   "
+  "body": " The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to get closer to the probability as the number of rolls increases.   "
 },
 {
   "id": "ex-random-process",
   "level": "2",
   "url": "sec-defining-probability.html#ex-random-process",
   "type": "Checkpoint",
-  "number": "3.1.4",
+  "number": "3.1.7",
   "title": "Random processes.",
-  "body": "Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process.  "
+  "body": "Random processes  Random processes include rolling a die and flipping a coin. (a) Think of another random process. (b) Describe all the possible outcomes of that process. For instance, rolling a die is a random process with possible outcomes 1, 2, , 6.   Here are four examples. (i) Whether someone gets sick in the next month or not is an apparently random process with outcomes sick and not . (ii) We can generate a random process by randomly picking a person and measuring that person's height. The outcome of this process will be a positive number. (iii) Whether the stock market goes up or down next week is a seemingly random process with possible outcomes up , down , and no_change . Alternatively, we could have used the percent change in the stock market as a numerical outcome. (iv) Whether your roommate cleans her dishes tonight probably seems like a random process with possible outcomes cleans_dishes and leaves_dishes .  "
+},
+{
+  "id": "p-374",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-374",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "disjoint mutually exclusive "
+},
+{
+  "id": "p-375",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-375",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Addition Rule "
+},
+{
+  "id": "ex-disjoint-145",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-disjoint-145",
+  "type": "Checkpoint",
+  "number": "3.1.8",
+  "title": "",
+  "body": " We are interested in the probability of rolling a 1, 4, or 5. (a) Explain why the outcomes 1, 4, and 5 are disjoint. (b) Apply the Addition Rule for disjoint outcomes to determine 1 or 4 or 5 .   (a) The random process is a die roll, and at most one of these outcomes can come up. This means they are disjoint outcomes. (b) 1 or 4 or 5   "
+},
+{
+  "id": "ex-loans-homeownership",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-loans-homeownership",
+  "type": "Checkpoint",
+  "number": "3.1.9",
+  "title": "",
+  "body": " In the loans data set in Chapter 1, the homeownership variable described whether the borrower rents, has a mortgage, or owns her property. Of the 10,000 borrowers, 3858 rented, 4789 had a mortgage, and 1353 owned their home.    Are the outcomes rent , mortgage , and own disjoint?  Determine the proportion of loans with value mortgage and own separately.  Use the Addition Rule for disjoint outcomes to compute the probability a randomly selected loan from the data set is for someone who has a mortgage or owns her home.     (a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: . Own: . (c) mortgage or own mortgage own .  "
+},
+{
+  "id": "p-385",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-385",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "events "
+},
+{
+  "id": "fig-disjoint-sets",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-disjoint-sets",
+  "type": "Figure",
+  "number": "3.1.10",
+  "title": "",
+  "body": " Three events, , , and , consist of outcomes from rolling a die. and are disjoint since they do not have any outcomes in common.   "
+},
+{
+  "id": "ex-verify-prob-a-b",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-verify-prob-a-b",
+  "type": "Checkpoint",
+  "number": "3.1.11",
+  "title": "",
+  "body": " (a) Verify the probability of event , , is using the Addition Rule. (b) Do the same for event .   (a) 1 or 2 . (b) Similarly, .  "
+},
+{
+  "id": "ex-examining-disjoint-sets-abd",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-examining-disjoint-sets-abd",
+  "type": "Checkpoint",
+  "number": "3.1.12",
+  "title": "",
+  "body": " (a) Using as a reference, what outcomes are represented by event ? (b) Are events and disjoint? (c) Are events and disjoint?   (a) Outcomes 2 and 3. (b) Yes, events and are disjoint because they share no outcomes. (c) The events and share an outcome in common, 2, and so are not disjoint.  "
+},
+{
+  "id": "ex-prob-b-or-d",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-prob-b-or-d",
+  "type": "Checkpoint",
+  "number": "3.1.13",
+  "title": "",
+  "body": " In , you confirmed and from are disjoint. Compute the probability that event or event occurs.   Since and are disjoint events, use the Addition Rule: or .  "
+},
+{
+  "id": "p-393",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-393",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "suits face cards "
+},
+{
+  "id": "fig-deck-of-cards",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-deck-of-cards",
+  "type": "Figure",
+  "number": "3.1.14",
+  "title": "",
+  "body": " Representations of the 52 unique cards in a deck.   "
+},
+{
+  "id": "ex-diamond-face-card-prob",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-diamond-face-card-prob",
+  "type": "Checkpoint",
+  "number": "3.1.15",
+  "title": "",
+  "body": " (a) What is the probability that a randomly selected card is a diamond? (b) What is the probability that a randomly selected card is a face card?   (a) There are 52 cards and 13 diamonds. If the cards are thoroughly shuffled, each card has an equal chance of being drawn, so the probability that a randomly selected card is a diamond is . (b) Likewise, there are 12 face cards, so .  "
+},
+{
+  "id": "p-396",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-396",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Venn diagrams "
+},
+{
+  "id": "fig-cards-diamond-face-venn",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-cards-diamond-face-venn",
+  "type": "Figure",
+  "number": "3.1.16",
+  "title": "",
+  "body": " A Venn diagram for diamonds and face cards.   "
+},
+{
+  "id": "p-397",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-397",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "General Addition Rule "
+},
+{
+  "id": "note-1",
+  "level": "2",
+  "url": "sec-defining-probability.html#note-1",
+  "type": "Note",
+  "number": "3.1.17",
+  "title": "“or” is inclusive.",
+  "body": " or is inclusive  When we write or in statistics, we mean and\/or unless we explicitly state otherwise. Thus, or occurs means , , or both and occur.  "
+},
+{
+  "id": "ex-disjoint-implies-empty-intersection",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-disjoint-implies-empty-intersection",
+  "type": "Checkpoint",
+  "number": "3.1.18",
+  "title": "",
+  "body": " (a) If and are disjoint, describe why this implies . (b) Using part (a), verify that the General Addition Rule simplifies to the simpler Addition Rule for disjoint events if and are disjoint.   (a) If and are disjoint, and can never occur simultaneously. (b) If and are disjoint, then the last term in the General Addition Rule formula is 0 (see part (a)) and we are left with the Addition Rule for disjoint events.  "
+},
+{
+  "id": "ex-loans-venn",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-loans-venn",
+  "type": "Checkpoint",
+  "number": "3.1.19",
+  "title": "",
+  "body": " In the loans data set describing 10,000 loans, 1495 loans were from joint applications (e.g. a couple applied together), 4789 applicants had a mortgage, and 950 had both of these characteristics. Create a Venn diagram for this setup.   Both the counts and corresponding probabilities (e.g. ) are shown. Notice that the number of loans represented in the left circle corresponds to , and the number represented in the right circle is .     "
+},
+{
+  "id": "ex-loans-venn-prob",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-loans-venn-prob",
+  "type": "Checkpoint",
+  "number": "3.1.21",
+  "title": "",
+  "body": " (a) Use your Venn diagram from the previous exercise to determine the probability a randomly drawn loan from the loans data set is from a joint application where the couple had a mortgage. (b) What is the probability that the loan had either of these attributes?   (a) The solution is represented by the intersection of the two circles: 0.095. (b) This is the sum of the three disjoint probabilities shown in the circles: (off by 0.001 due to a rounding error).  "
+},
+{
+  "id": "p-406",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-406",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability distribution "
+},
+{
+  "id": "fig-dice-prob",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-dice-prob",
+  "type": "Figure",
+  "number": "3.1.22",
+  "title": "",
+  "body": " Probability distribution for the sum of two dice.    Dice sum  2 3 4 5 6 7  8 9 10 11 12    Probability        "
+},
+{
+  "id": "ex-us-household-income-dists",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-us-household-income-dists",
+  "type": "Checkpoint",
+  "number": "3.1.23",
+  "title": "",
+  "body": "  suggests three distributions for household income in the United States. Only one is correct. Which one must it be? What is wrong with the other two?   The probabilities of (a) do not sum to 1. The second probability in (b) is negative. This leaves (c), which sure enough satisfies the requirements of a distribution. One of the three was said to be the actual distribution of US household incomes, so it must be (c).  "
+},
+{
+  "id": "fig-us-household-income-dists",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-us-household-income-dists",
+  "type": "Figure",
+  "number": "3.1.24",
+  "title": "",
+  "body": " Proposed distributions of US household incomes.    Income Range  $0-25k $25k-50k $50k-100k $100k+    (a)  0.18 0.39 0.33 0.16    (b)  0.38 -0.27 0.52 0.37    (c)  0.28 0.27 0.29 0.16    "
+},
+{
+  "id": "fig-us-household-income-dist-bar",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-us-household-income-dist-bar",
+  "type": "Figure",
+  "number": "3.1.25",
+  "title": "",
+  "body": " The probability distribution of US household income.   "
+},
+{
+  "id": "fig-dice-sum-dist",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-dice-sum-dist",
+  "type": "Figure",
+  "number": "3.1.26",
+  "title": "",
+  "body": " The probability distribution of the sum of two dice.   "
+},
+{
+  "id": "p-416",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-416",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sample space "
+},
+{
+  "id": "p-417",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-417",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "complement "
+},
+{
+  "id": "fig-complement-of-d",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-complement-of-d",
+  "type": "Figure",
+  "number": "3.1.27",
+  "title": "",
+  "body": " Event and its complement, . represents the sample space, which is the set of all possible outcomes.   "
+},
+{
+  "id": "ex-complement-dice",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-complement-dice",
+  "type": "Checkpoint",
+  "number": "3.1.28",
+  "title": "",
+  "body": " (a) Compute . (b) What is ?   (a) The outcomes are disjoint and each has probability , so the total probability is . (b) We can also see that . Since and are disjoint, .  "
+},
+{
+  "id": "ex-complement-ab",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-complement-ab",
+  "type": "Checkpoint",
+  "number": "3.1.29",
+  "title": "",
+  "body": " Events and are shown in . (a) Write out what and represent. (b) Compute and . (c) Compute and .   Brief solutions: (a) and . (b) Noting that each outcome is disjoint, add the individual outcome probabilities to get and . (c) and are disjoint, and the same is true of and . Therefore, and .  "
+},
+{
+  "id": "ex-dice-sum-less-than-12",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-dice-sum-less-than-12",
+  "type": "Checkpoint",
+  "number": "3.1.30",
+  "title": "",
+  "body": " Let represent the event where we roll two dice and their total is less than 12. (a) What does the event represent? (b) Determine from . (c) Determine .   (a) The complement of : when the total is equal to 12. (b) . (c) Use the probability of the complement from part (b), , and the equation for the complement: .  "
+},
+{
+  "id": "ex-dice-sum-complements",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-dice-sum-complements",
+  "type": "Checkpoint",
+  "number": "3.1.31",
+  "title": "",
+  "body": " Find the following probabilities for rolling two dice:    The sum of the dice is not 6.  The sum is at least 4. That is, determine the probability of the event .  The sum is no more than 10. That is, determine the probability of the event .     (a) First find , then use the complement: . (b) First find the complement, which requires much less effort: . Then calculate . (c) As before, finding the complement is the clever way to determine . First find . Then calculate .  "
+},
+{
+  "id": "p-433",
+  "level": "2",
+  "url": "sec-defining-probability.html#p-433",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "independent "
+},
+{
+  "id": "fig-indep-for-rolling-two-1s",
+  "level": "2",
+  "url": "sec-defining-probability.html#fig-indep-for-rolling-two-1s",
+  "type": "Figure",
+  "number": "3.1.32",
+  "title": "",
+  "body": " of the time, the first roll is a 1. Then of those times, the second roll will also be a 1.   "
+},
+{
+  "id": "ex-three-dice",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-three-dice",
+  "type": "Example",
+  "number": "3.1.33",
+  "title": "",
+  "body": "  What if there was also a blue die independent of the other two? What is the probability of rolling the three dice and getting all 1s?    The same logic applies from . If of the time the white and red dice are both 1, then of those times the blue die will also be 1, so multiply:    "
+},
+{
+  "id": "ex-two-handedness",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-two-handedness",
+  "type": "Checkpoint",
+  "number": "3.1.34",
+  "title": "",
+  "body": " About 9% of people are left-handed. Suppose 2 people are selected at random from the U.S. population. Because the sample size of 2 is very small relative to the population, it is reasonable to assume these two people are independent. (a) What is the probability that both are left-handed? (b) What is the probability that both are right-handed?   (a) The probability the first person is left-handed is 0.09, which is the same for the second person. We apply the Multiplication Rule for independent processes to determine the probability that both will be left-handed: . (b) It is reasonable to assume the proportion of people who are ambidextrous (both right- and left-handed) is nearly 0, which results in . Using the same reasoning as in part (a), the probability that both will be right-handed is .  "
+},
+{
+  "id": "ex-five-handedness",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-five-handedness",
+  "type": "Checkpoint",
+  "number": "3.1.35",
+  "title": "",
+  "body": " Suppose 5 people are selected at random.    What is the probability that all are right-handed?  What is the probability that all are left-handed?  What is the probability that not all of the people are right-handed?     (a) The abbreviations RH and LH are used for right-handed and left-handed, respectively. Since each are independent, we apply the Multiplication Rule for independent processes: (b) Using the same reasoning as in (a), . (c) Use the complement, , to answer this question:   "
+},
+{
+  "id": "ex-three-people-sex-handedness",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-three-people-sex-handedness",
+  "type": "Checkpoint",
+  "number": "3.1.36",
+  "title": "",
+  "body": " Three people are selected at random.    What is the probability that the first person is male and right-handed?  What is the probability that the first two people are male and right-handed?  What is the probability that the third person is female and left-handed?  What is the probability that the first two people are male and right-handed and the third person is female and left-handed?     Brief answers are provided. (a) This can be written in probability notation as . (b) 0.207. (c) 0.045. (d) 0.0093.  "
+},
+{
+  "id": "ex-heart-ace-independent",
+  "level": "2",
+  "url": "sec-defining-probability.html#ex-heart-ace-independent",
+  "type": "Example",
+  "number": "3.1.37",
+  "title": "",
+  "body": "  If we shuffle up a deck of cards and draw one, is the event that the card is a heart independent of the event that the card is an ace?    The probability the card is a heart is and the probability that it is an ace is . The probability the card is the ace of hearts is . We check whether is satisfied: Because the equation holds, the event that the card is a heart and the event that the card is an ace are independent events.   "
 },
 {
   "id": "sec-conditional-probability",
@@ -1420,7 +1825,331 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.2",
   "title": "Conditional probability",
-  "body": " Conditional probability   Exploring probabilities with a contingency table  To be converted from LaTeX source.    Marginal and joint probabilities  To be converted from LaTeX source.    Defining conditional probability  To be converted from LaTeX source.    Smallpox in Boston, 1721  To be converted from LaTeX source.    General multiplication rule  To be converted from LaTeX source.    Independence considerations in conditional probability  To be converted from LaTeX source.    Tree diagrams  To be converted from LaTeX source.    Bayes' Theorem  To be converted from LaTeX source.   "
+  "body": " Conditional probability   There can be rich relationships between two or more variables that are useful to understand. For example a car insurance company will consider information about a person's driving history to assess the risk that they will be responsible for an accident. These types of relationships are the realm of conditional probabilities.    Exploring probabilities with a contingency table  The photo_classify data set represents a classifier for a sample of 1822 photos from a photo sharing website. Data scientists have been working to improve a classifier for whether the photo is about fashion or not, and these 1822 photos represent a test for their classifier. Each photo gets two classifications: the first is called mach_learn and gives a classification from a machine learning (ML) system of either pred_fashion or pred_not . Each of these 1822 photos have also been classified carefully by a team of people, which we take to be the source of truth; this variable is called truth and takes values fashion and not . summarizes the results.   Contingency table summarizing the photo_classify data set.     truth      fashion  not  Total    mach_learn: pred_fashion  197  22  219    mach_learn: pred_not  112  1491  1603    Total  309  1513  1822      A Venn diagram using boxes for the photo_classify data set.      If a photo is actually about fashion, what is the chance the ML classifier correctly identified the photo as being about fashion?    We can estimate this probability using the data. Of the 309 fashion photos, the ML algorithm correctly classified 197 of the photos:       We sample a photo from the data set and learn the ML algorithm predicted this photo was not about fashion. What is the probability that it was incorrect and the photo is about fashion?    If the ML classifier suggests a photo is not about fashion, then it comes from the second row in the data set. Of these 1603 photos, 112 were actually about fashion:       Marginal and joint probabilities   includes row and column totals for each variable separately in the photo_classify data set. These totals represent marginal probabilities for the sample, which are the probabilities based on a single variable without regard to any other variables. For instance, a probability based solely on the mach_learn variable is a marginal probability: A probability of outcomes for two or more variables or processes is called a joint probability : It is common to substitute a comma for and in a joint probability, although using either the word and or a comma is acceptable.   Marginal and joint probabilities  If a probability is based on a single variable, it is a marginal probability . The probability of outcomes for two or more variables or processes is called a joint probability .   We use table proportions to summarize joint probabilities for the photo_classify sample. These proportions are computed by dividing each count by the table's total, 1822, to obtain the probabilities in . The joint probability distribution of the mach_learn and truth variables is shown in .   Probability table summarizing the photo_classify data set.     truth: fashion  truth: not  Total    mach_learn: pred_fashion  0.1081  0.0121  0.1202    mach_learn: pred_not  0.0615  0.8183  0.8798    Total  0.1696  0.8304  1.00      Joint probability distribution for the photo_classify data set.    Joint outcome  Probability    mach_learn is pred_fashion and truth is fashion  0.1081    mach_learn is pred_fashion and truth is not  0.0121    mach_learn is pred_not and truth is fashion  0.0615    mach_learn is pred_not and truth is not  0.8183    Total  1.0000      Verify represents a probability distribution: events are disjoint, all probabilities are non-negative, and the probabilities sum to 1.   Each of the four outcome combinations are disjoint, all probabilities are indeed non-negative, and the sum of the probabilities is .   We can compute marginal probabilities using joint probabilities in simple cases. For example, the probability a randomly selected photo from the data set is about fashion is found by summing the outcomes where truth takes value fashion :     Defining conditional probability  The ML classifier predicts whether a photo is about fashion, even if it is not perfect. We would like to better understand how to use information from a variable like mach_learn to improve our probability estimation of a second variable, which in this example is truth .  The probability that a random photo from the data set is about fashion is about 0.17. If we knew the machine learning classifier predicted the photo was about fashion, could we get a better estimate of the probability the photo is actually about fashion? Absolutely. To do so, we limit our view to only those 219 cases where the ML classifier predicted that the photo was about fashion and look at the fraction where the photo was actually about fashion: We call this a conditional probability because we computed the probability under a condition: the ML classifier prediction said the photo was about fashion.  There are two parts to a conditional probability, the outcome of interest and the condition . It is useful to think of the condition as information we know to be true, and this information usually can be described as a known outcome or event. We generally separate the text inside our probability notation into the outcome of interest and the condition with a vertical bar: The vertical bar is read as given .  In this equation, we computed the probability a photo was about fashion based on the condition that the ML algorithm predicted it was about fashion as a fraction: We considered only those cases that met the condition ( mach_learn is pred_fashion ) and then we computed the ratio of those cases that satisfied our outcome of interest (photo was actually about fashion).  Frequently, marginal and joint probabilities are provided instead of count data. For example, disease rates are commonly listed in percentages rather than in a count format. We would like to be able to compute conditional probabilities even when no counts are available, and we use the previous equation as a template to understand this technique.  If we were provided only the information in , i.e. only probability data, then if we took a sample of 1000 photos, we would anticipate about 12.0% or would be predicted to be about fashion. Similarly, we would expect about 10.8% or to meet both the information criteria and represent our outcome of interest. Then the conditional probability can be computed as: Here we are examining exactly the fraction of two probabilities, 0.108 and 0.120, which we can write as: The fraction of these probabilities is an example of the general formula for conditional probability.   Conditional probability  The conditional probability of outcome given condition is computed as:     (a) Write out the following statement in conditional probability notation: The probability that the ML prediction was correct, if the photo was about fashion . Here the condition is now based on the photo's truth status, not the ML algorithm. (b) Determine the probability from part (a). may be helpful.   (a) (b) The equation for conditional probability indicates we should first find and . Then the ratio represents the conditional probability: .    (a) Determine the probability that the algorithm is incorrect if it is known the photo is about fashion. (b) Using part (a) and the previous exercise, compute the sum of the two conditional probabilities. (c) Provide an intuitive argument to explain why this sum is 1.   (a) (b) The total equals 1. (c) Under the condition the photo is about fashion, the ML algorithm must have either predicted it was about fashion or predicted it was not about fashion. The complement still works for conditional probabilities, provided the probabilities are conditioned on the same information.     Smallpox in Boston, 1721  The smallpox data set provides a sample of 6,224 individuals from the year 1721 who were exposed to smallpox in Boston. Doctors at the time believed that inoculation, which involves exposing a person to the disease in a controlled form, could reduce the likelihood of death.  Each case represents one person with two variables: inoculated and result . The variable inoculated takes two levels: yes or no , indicating whether the person was inoculated or not. The variable result has outcomes lived or died . These data are summarized in and .   Contingency table for the smallpox data set.     inoculated      yes  no  Total    lived  238  5136  5374    died  6  844  850    Total  244  5980  6224      Table proportions for the smallpox data, computed by dividing each count by the table total, 6224.     inoculated      yes  no  Total    lived  0.0382  0.8252  0.8634    died  0.0010  0.1356  0.1366    Total  0.0392  0.9608  1.0000      Write out, in formal notation, the probability a randomly selected person who was not inoculated died from smallpox, and find this probability.        Determine the probability that an inoculated person died from smallpox. How does this result compare with the previous exercise?    (If we avoided rounding errors, we'd get ). The death rate for individuals who were inoculated is only about 1 in 40 while the death rate is about 1 in 7 for those who were not inoculated.    The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational or was this an experiment? (b) Can we infer any causal connection using these data? (c) What are some potential confounding variables that might influence whether someone lived or died and also affect whether that person was inoculated?   Brief answers: (a) Observational. (b) No, we cannot infer causation from this observational study. (c) Accessibility to the latest and best medical care. There are other valid answers for part (c).     General multiplication rule  Section 3.1 on Independence introduced the Multiplication Rule for independent processes. Here we provide the General Multiplication Rule for events that might not be independent.   General Multiplication Rule  If and represent two outcomes or events, then It is useful to think of as the outcome of interest and as the condition.   This General Multiplication Rule is simply a rearrangement of the conditional probability equation.    Consider the smallpox data set. Suppose we are given only two pieces of information: 96.08% of residents were not inoculated, and 85.88% of the residents who were not inoculated ended up surviving. How could we compute the probability that a resident was not inoculated and lived?    We will compute our answer using the General Multiplication Rule and then verify it using . We want to determine and we are given that and .  Among the 96.08% of people who were not inoculated, 85.88% survived: This is equivalent to the General Multiplication Rule. We can confirm this probability in at the intersection of no and lived (with a small rounding error).     Use and to determine the probability that a person was both inoculated and lived.   The answer is 0.0382, which can be verified using .    If 97.54% of the inoculated people lived, what proportion of inoculated people must have died?   There were only two possible outcomes: lived or died. This means that of the people who were inoculated died.    Sum of conditional probabilities  Let represent all the disjoint outcomes for a variable or process. Then if is an event, possibly for another variable or process, we have: The rule for complements also holds when an event and its complement are conditioned on the same information:     Based on the probabilities computed above, does it appear that inoculation is effective at reducing the risk of death from smallpox?   The samples are large relative to the difference in death rates for the inoculated and not inoculated groups, so it seems there is an association between inoculated and result . However, this is an observational study and we cannot be sure if there is a causal connection. (Further research has shown that inoculation is effective at reducing death rates.)     Independence considerations in conditional probability  If two events are independent, then knowing the outcome of one should provide no information about the other. We can show this is mathematically true using conditional probabilities.   Let and represent the outcomes of rolling two dice.    What is the probability that the first die, , is 1?  What is the probability that both and are 1?  Use the formula for conditional probability to compute .  What is ? Is this different from the answer from part (c)? Explain.     Brief solutions: (a) . (b) . (c) . (d) The probability is the same as in part (c): . The probability that was unchanged by knowledge about , which makes sense as and are independent.   We can show in the above exercise that the conditioning information has no influence by using the Multiplication Rule for independence processes:    Ron is watching a roulette table in a casino and notices that the last five outcomes were black. He figures that the chances of getting black six times in a row is very small (about 1\/64) and puts his paycheck on red. What is wrong with his reasoning?   He has forgotten that the next roulette spin is independent of the previous spins. This fallacy, known as the gambler's fallacy , is commonly exploited by casinos which post the last several outcomes of betting games.     Tree diagrams   Tree diagrams are a tool to organize outcomes and probabilities around the structure of the data. They are most useful when two or more processes occur in a sequence and each process is conditioned on its predecessors.  The smallpox data fit this description. We see the population as split by inoculation : yes and no. Following this split, survival rates were observed for each group. This structure is reflected in the tree diagram shown in .   A tree diagram of the smallpox data set.    Tree diagrams are annotated with marginal and conditional probabilities. This tree diagram splits the smallpox data by inoculation into the yes and no groups with respective marginal probabilities 0.0392 and 0.9608. The secondary branches are conditioned on the first, so we assign conditional probabilities to these branches. We may construct joint probabilities at the end of each branch in our tree by multiplying the numbers we come across as we move from left to right. These joint probabilities are computed using the General Multiplication Rule:     Consider the midterm and final for a statistics class. Suppose 13% of students earned an A on the midterm. Of those students who earned an A on the midterm, 47% received an A on the final, and 11% of the students who earned lower than an A on the midterm received an A on the final. You randomly pick up a final exam and notice the student received an A. What is the probability that this student earned an A on the midterm?    The end-goal is to find . To calculate this conditional probability, we need and . Since we aren't sure how to proceed, it is useful to organize the information into a tree diagram (shown below).     Variables provided with marginal probabilities are often used to create the tree's primary branches; in this case, the marginal probabilities are provided for midterm grades. The final grades, which correspond to the conditional probabilities provided, will be shown on the secondary branches.  With the tree diagram constructed, we may compute the required probabilities: The marginal probability was calculated by adding up all the joint probabilities corresponding to final = A. We may now take the ratio of the two probabilities: The probability the student also earned an A on the midterm is about 0.39.     After an introductory statistics course, 78% of students can successfully construct tree diagrams. Of those who can construct tree diagrams, 97% passed, while only 57% of those students who could not construct tree diagrams passed. (a) Organize this information into a tree diagram. (b) What is the probability that a randomly selected student passed? (c) Compute the probability a student is able to construct a tree diagram if it is known that she passed.   (a) The tree diagram is provided below. (b) Identify which two joint probabilities represent students who passed, and add them: . (c) .        Bayes' Theorem  In many instances, we are given a conditional probability of the form but we would really like to know the inverted conditional probability: . Tree diagrams can be used to find the second conditional probability when given the first. However, sometimes it is not possible to draw the scenario in a tree diagram. In these cases, we can apply a very useful and general formula: Bayes' Theorem.    In Canada, about 0.35% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11% of patients with breast cancer, the test gives a false negative : it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a false positive in 7% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not. If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive — that is, the test suggested the patient has cancer — what is the probability that the patient actually has breast cancer?    Notice that we are given sufficient information to quickly compute the probability of testing positive if a woman has breast cancer ( ). However, we seek the inverted probability of cancer given a positive test result.  This inverted probability can be broken into two pieces:   We can construct a tree diagram to organize these probabilities:     The probability the patient has breast cancer and the mammogram is positive is:   The probability of a positive test result is the sum of the two corresponding scenarios:   Then if the mammogram screening is positive for a patient, the probability the patient has breast cancer is: That is, even if a patient has a positive mammogram screening, there is still only about a 4% chance that she has breast cancer.     highlights why doctors often run more tests regardless of a first positive test result. When a medical condition is rare, a single positive test isn't generally definitive.  Consider again the last equation of . Using the tree diagram, we can see that the numerator is: The denominator—the probability the screening was positive—is the sum of probabilities for each positive screening scenario:    Bayes' Theorem: inverting probabilities  Consider the following conditional probability for variable 1 and variable 2: Bayes' Theorem states that this conditional probability can be identified as: where represent all other possible outcomes of the first variable.   Bayes' Theorem is a generalization of what we have done using tree diagrams. The numerator identifies the probability of getting both and . The denominator is the marginal probability of getting . This bottom component of the fraction appears long and complicated since we have to add up probabilities from all of the different ways to get . We always completed this step when using tree diagrams. However, we usually did it in a separate step so it didn't seem as complex.  To apply Bayes' Theorem correctly, there are two preparatory steps:    First identify the marginal probabilities of each possible outcome of the first variable: .  Then identify the probability of the outcome , conditioned on each possible scenario for the first variable: .    Once each of these probabilities are identified, they can be applied directly within the formula. Bayes' Theorem tends to be a good option when there are so many scenarios that drawing a tree diagram would be complex.   Jose visits campus every Thursday evening. However, some days the parking garage is full, often due to college events. There are academic events on 35% of evenings, sporting events on 20% of evenings, and no events on 45% of evenings. When there is an academic event, the garage fills up about 25% of the time, and it fills up 70% of evenings with sporting events. On evenings when there are no events, it only fills up about 5% of the time. If Jose comes to campus and finds the garage full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.   The tree diagram with three primary branches is shown below. Next, we identify two probabilities from the tree diagram: (1) The probability that there is a sporting event and the garage is full: 0.14. (2) The probability the garage is full: . Then the solution is the ratio of these probabilities: . If the garage is full, there is a 56% probability that there is a sporting event.        Here we solve the same problem presented in the previous exercise, except this time we use Bayes' Theorem.    The outcome of interest is whether there is a sporting event (call this ), and the condition is that the lot is full ( ). Let represent an academic event and represent there being no event on campus. Then the given probabilities can be written as:   Bayes' Theorem can be used to compute the probability of a sporting event ( ) under the condition that the parking lot is full ( ): Based on the information that the garage is full, there is a 56% probability that a sporting event is being held on campus that evening.     Use the information in and to verify the probability that there is an academic event conditioned on the parking lot being full is 0.35.   Short answer:     In and , you found that if the parking lot is full, the probability there is a sporting event is 0.56 and the probability there is an academic event is 0.35. Using this information, compute .   Each probability is conditioned on the same information that the garage is full, so the complement may be used: .   The last several exercises offered a way to update our belief about whether there is a sporting event, academic event, or no event going on at the school based on the information that the parking lot was full. This strategy of updating beliefs using Bayes' Theorem is actually the foundation of an entire section of statistics called Bayesian statistics . While Bayesian statistics is very important and useful, we will not have time to cover much more of it in this book.   "
+},
+{
+  "id": "fig-contingency-fashion",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-contingency-fashion",
+  "type": "Figure",
+  "number": "3.2.1",
+  "title": "",
+  "body": " Contingency table summarizing the photo_classify data set.     truth      fashion  not  Total    mach_learn: pred_fashion  197  22  219    mach_learn: pred_not  112  1491  1603    Total  309  1513  1822    "
+},
+{
+  "id": "fig-photo-classify-venn",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-photo-classify-venn",
+  "type": "Figure",
+  "number": "3.2.2",
+  "title": "",
+  "body": " A Venn diagram using boxes for the photo_classify data set.   "
+},
+{
+  "id": "ex-ml-classifier-accuracy",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-ml-classifier-accuracy",
+  "type": "Example",
+  "number": "3.2.3",
+  "title": "",
+  "body": "  If a photo is actually about fashion, what is the chance the ML classifier correctly identified the photo as being about fashion?    We can estimate this probability using the data. Of the 309 fashion photos, the ML algorithm correctly classified 197 of the photos:    "
+},
+{
+  "id": "ex-ml-false-negative",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-ml-false-negative",
+  "type": "Example",
+  "number": "3.2.4",
+  "title": "",
+  "body": "  We sample a photo from the data set and learn the ML algorithm predicted this photo was not about fashion. What is the probability that it was incorrect and the photo is about fashion?    If the ML classifier suggests a photo is not about fashion, then it comes from the second row in the data set. Of these 1603 photos, 112 were actually about fashion:    "
+},
+{
+  "id": "p-464",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-464",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "marginal probabilities joint probability "
+},
+{
+  "id": "p-465",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-465",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "marginal probability joint probability "
+},
+{
+  "id": "p-466",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-466",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "table proportions "
+},
+{
+  "id": "fig-photo-classify-prob-table",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-photo-classify-prob-table",
+  "type": "Figure",
+  "number": "3.2.5",
+  "title": "",
+  "body": " Probability table summarizing the photo_classify data set.     truth: fashion  truth: not  Total    mach_learn: pred_fashion  0.1081  0.0121  0.1202    mach_learn: pred_not  0.0615  0.8183  0.8798    Total  0.1696  0.8304  1.00    "
+},
+{
+  "id": "fig-photo-classify-dist",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-photo-classify-dist",
+  "type": "Figure",
+  "number": "3.2.6",
+  "title": "",
+  "body": " Joint probability distribution for the photo_classify data set.    Joint outcome  Probability    mach_learn is pred_fashion and truth is fashion  0.1081    mach_learn is pred_fashion and truth is not  0.0121    mach_learn is pred_not and truth is fashion  0.0615    mach_learn is pred_not and truth is not  0.8183    Total  1.0000    "
+},
+{
+  "id": "ex-verify-photo-dist",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-verify-photo-dist",
+  "type": "Checkpoint",
+  "number": "3.2.7",
+  "title": "",
+  "body": " Verify represents a probability distribution: events are disjoint, all probabilities are non-negative, and the probabilities sum to 1.   Each of the four outcome combinations are disjoint, all probabilities are indeed non-negative, and the sum of the probabilities is .  "
+},
+{
+  "id": "p-471",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-471",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "conditional probability "
+},
+{
+  "id": "p-472",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-472",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "outcome of interest condition "
+},
+{
+  "id": "ex-conditional-ml-correct",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-conditional-ml-correct",
+  "type": "Checkpoint",
+  "number": "3.2.8",
+  "title": "",
+  "body": " (a) Write out the following statement in conditional probability notation: The probability that the ML prediction was correct, if the photo was about fashion . Here the condition is now based on the photo's truth status, not the ML algorithm. (b) Determine the probability from part (a). may be helpful.   (a) (b) The equation for conditional probability indicates we should first find and . Then the ratio represents the conditional probability: .  "
+},
+{
+  "id": "ex-cond-prob-sum-to-1",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-cond-prob-sum-to-1",
+  "type": "Checkpoint",
+  "number": "3.2.9",
+  "title": "",
+  "body": " (a) Determine the probability that the algorithm is incorrect if it is known the photo is about fashion. (b) Using part (a) and the previous exercise, compute the sum of the two conditional probabilities. (c) Provide an intuitive argument to explain why this sum is 1.   (a) (b) The total equals 1. (c) Under the condition the photo is about fashion, the ML algorithm must have either predicted it was about fashion or predicted it was not about fashion. The complement still works for conditional probabilities, provided the probabilities are conditioned on the same information.  "
+},
+{
+  "id": "fig-smallpox-contingency",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-smallpox-contingency",
+  "type": "Figure",
+  "number": "3.2.10",
+  "title": "",
+  "body": " Contingency table for the smallpox data set.     inoculated      yes  no  Total    lived  238  5136  5374    died  6  844  850    Total  244  5980  6224    "
+},
+{
+  "id": "fig-smallpox-prob",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-smallpox-prob",
+  "type": "Figure",
+  "number": "3.2.11",
+  "title": "",
+  "body": " Table proportions for the smallpox data, computed by dividing each count by the table total, 6224.     inoculated      yes  no  Total    lived  0.0382  0.8252  0.8634    died  0.0010  0.1356  0.1366    Total  0.0392  0.9608  1.0000    "
+},
+{
+  "id": "ex-prob-died-not-inoculated",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-prob-died-not-inoculated",
+  "type": "Checkpoint",
+  "number": "3.2.12",
+  "title": "",
+  "body": " Write out, in formal notation, the probability a randomly selected person who was not inoculated died from smallpox, and find this probability.      "
+},
+{
+  "id": "ex-prob-died-inoculated",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-prob-died-inoculated",
+  "type": "Checkpoint",
+  "number": "3.2.13",
+  "title": "",
+  "body": " Determine the probability that an inoculated person died from smallpox. How does this result compare with the previous exercise?    (If we avoided rounding errors, we'd get ). The death rate for individuals who were inoculated is only about 1 in 40 while the death rate is about 1 in 7 for those who were not inoculated.  "
+},
+{
+  "id": "ex-smallpox-obs-exp",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-smallpox-obs-exp",
+  "type": "Checkpoint",
+  "number": "3.2.14",
+  "title": "",
+  "body": " The people of Boston self-selected whether or not to be inoculated. (a) Is this study observational or was this an experiment? (b) Can we infer any causal connection using these data? (c) What are some potential confounding variables that might influence whether someone lived or died and also affect whether that person was inoculated?   Brief answers: (a) Observational. (b) No, we cannot infer causation from this observational study. (c) Accessibility to the latest and best medical care. There are other valid answers for part (c).  "
+},
+{
+  "id": "p-489",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-489",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "General Multiplication Rule "
+},
+{
+  "id": "ex-smallpox-mult-rule",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-smallpox-mult-rule",
+  "type": "Example",
+  "number": "3.2.15",
+  "title": "",
+  "body": "  Consider the smallpox data set. Suppose we are given only two pieces of information: 96.08% of residents were not inoculated, and 85.88% of the residents who were not inoculated ended up surviving. How could we compute the probability that a resident was not inoculated and lived?    We will compute our answer using the General Multiplication Rule and then verify it using . We want to determine and we are given that and .  Among the 96.08% of people who were not inoculated, 85.88% survived: This is equivalent to the General Multiplication Rule. We can confirm this probability in at the intersection of no and lived (with a small rounding error).   "
+},
+{
+  "id": "ex-inoculated-lived",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-inoculated-lived",
+  "type": "Checkpoint",
+  "number": "3.2.16",
+  "title": "",
+  "body": " Use and to determine the probability that a person was both inoculated and lived.   The answer is 0.0382, which can be verified using .  "
+},
+{
+  "id": "ex-inoculated-died-pct",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-inoculated-died-pct",
+  "type": "Checkpoint",
+  "number": "3.2.17",
+  "title": "",
+  "body": " If 97.54% of the inoculated people lived, what proportion of inoculated people must have died?   There were only two possible outcomes: lived or died. This means that of the people who were inoculated died.  "
+},
+{
+  "id": "ex-inoculation-effective",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-inoculation-effective",
+  "type": "Checkpoint",
+  "number": "3.2.18",
+  "title": "",
+  "body": " Based on the probabilities computed above, does it appear that inoculation is effective at reducing the risk of death from smallpox?   The samples are large relative to the difference in death rates for the inoculated and not inoculated groups, so it seems there is an association between inoculated and result . However, this is an observational study and we cannot be sure if there is a causal connection. (Further research has shown that inoculation is effective at reducing death rates.)  "
+},
+{
+  "id": "ex-dice-independence",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-dice-independence",
+  "type": "Checkpoint",
+  "number": "3.2.19",
+  "title": "",
+  "body": " Let and represent the outcomes of rolling two dice.    What is the probability that the first die, , is 1?  What is the probability that both and are 1?  Use the formula for conditional probability to compute .  What is ? Is this different from the answer from part (c)? Explain.     Brief solutions: (a) . (b) . (c) . (d) The probability is the same as in part (c): . The probability that was unchanged by knowledge about , which makes sense as and are independent.  "
+},
+{
+  "id": "ex-gamblers-fallacy",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-gamblers-fallacy",
+  "type": "Checkpoint",
+  "number": "3.2.20",
+  "title": "",
+  "body": " Ron is watching a roulette table in a casino and notices that the last five outcomes were black. He figures that the chances of getting black six times in a row is very small (about 1\/64) and puts his paycheck on red. What is wrong with his reasoning?   He has forgotten that the next roulette spin is independent of the previous spins. This fallacy, known as the gambler's fallacy , is commonly exploited by casinos which post the last several outcomes of betting games.  "
+},
+{
+  "id": "p-513",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-513",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Tree diagrams "
+},
+{
+  "id": "fig-smallpox-tree",
+  "level": "2",
+  "url": "sec-conditional-probability.html#fig-smallpox-tree",
+  "type": "Figure",
+  "number": "3.2.21",
+  "title": "",
+  "body": " A tree diagram of the smallpox data set.   "
+},
+{
+  "id": "ex-test-scores-tree",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-test-scores-tree",
+  "type": "Example",
+  "number": "3.2.22",
+  "title": "",
+  "body": "  Consider the midterm and final for a statistics class. Suppose 13% of students earned an A on the midterm. Of those students who earned an A on the midterm, 47% received an A on the final, and 11% of the students who earned lower than an A on the midterm received an A on the final. You randomly pick up a final exam and notice the student received an A. What is the probability that this student earned an A on the midterm?    The end-goal is to find . To calculate this conditional probability, we need and . Since we aren't sure how to proceed, it is useful to organize the information into a tree diagram (shown below).     Variables provided with marginal probabilities are often used to create the tree's primary branches; in this case, the marginal probabilities are provided for midterm grades. The final grades, which correspond to the conditional probabilities provided, will be shown on the secondary branches.  With the tree diagram constructed, we may compute the required probabilities: The marginal probability was calculated by adding up all the joint probabilities corresponding to final = A. We may now take the ratio of the two probabilities: The probability the student also earned an A on the midterm is about 0.39.   "
+},
+{
+  "id": "ex-tree-diagram-pass",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-tree-diagram-pass",
+  "type": "Checkpoint",
+  "number": "3.2.24",
+  "title": "",
+  "body": " After an introductory statistics course, 78% of students can successfully construct tree diagrams. Of those who can construct tree diagrams, 97% passed, while only 57% of those students who could not construct tree diagrams passed. (a) Organize this information into a tree diagram. (b) What is the probability that a randomly selected student passed? (c) Compute the probability a student is able to construct a tree diagram if it is known that she passed.   (a) The tree diagram is provided below. (b) Identify which two joint probabilities represent students who passed, and add them: . (c) .     "
+},
+{
+  "id": "ex-mammogram",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-mammogram",
+  "type": "Example",
+  "number": "3.2.26",
+  "title": "",
+  "body": "  In Canada, about 0.35% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11% of patients with breast cancer, the test gives a false negative : it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a false positive in 7% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not. If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive — that is, the test suggested the patient has cancer — what is the probability that the patient actually has breast cancer?    Notice that we are given sufficient information to quickly compute the probability of testing positive if a woman has breast cancer ( ). However, we seek the inverted probability of cancer given a positive test result.  This inverted probability can be broken into two pieces:   We can construct a tree diagram to organize these probabilities:     The probability the patient has breast cancer and the mammogram is positive is:   The probability of a positive test result is the sum of the two corresponding scenarios:   Then if the mammogram screening is positive for a patient, the probability the patient has breast cancer is: That is, even if a patient has a positive mammogram screening, there is still only about a 4% chance that she has breast cancer.   "
+},
+{
+  "id": "ex-parking-garage-tree",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-parking-garage-tree",
+  "type": "Checkpoint",
+  "number": "3.2.28",
+  "title": "",
+  "body": " Jose visits campus every Thursday evening. However, some days the parking garage is full, often due to college events. There are academic events on 35% of evenings, sporting events on 20% of evenings, and no events on 45% of evenings. When there is an academic event, the garage fills up about 25% of the time, and it fills up 70% of evenings with sporting events. On evenings when there are no events, it only fills up about 5% of the time. If Jose comes to campus and finds the garage full, what is the probability that there is a sporting event? Use a tree diagram to solve this problem.   The tree diagram with three primary branches is shown below. Next, we identify two probabilities from the tree diagram: (1) The probability that there is a sporting event and the garage is full: 0.14. (2) The probability the garage is full: . Then the solution is the ratio of these probabilities: . If the garage is full, there is a 56% probability that there is a sporting event.     "
+},
+{
+  "id": "ex-bayes-parking",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-bayes-parking",
+  "type": "Example",
+  "number": "3.2.30",
+  "title": "",
+  "body": "  Here we solve the same problem presented in the previous exercise, except this time we use Bayes' Theorem.    The outcome of interest is whether there is a sporting event (call this ), and the condition is that the lot is full ( ). Let represent an academic event and represent there being no event on campus. Then the given probabilities can be written as:   Bayes' Theorem can be used to compute the probability of a sporting event ( ) under the condition that the parking lot is full ( ): Based on the information that the garage is full, there is a 56% probability that a sporting event is being held on campus that evening.   "
+},
+{
+  "id": "ex-parking-academic-event",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-parking-academic-event",
+  "type": "Checkpoint",
+  "number": "3.2.31",
+  "title": "",
+  "body": " Use the information in and to verify the probability that there is an academic event conditioned on the parking lot being full is 0.35.   Short answer:   "
+},
+{
+  "id": "ex-parking-no-event",
+  "level": "2",
+  "url": "sec-conditional-probability.html#ex-parking-no-event",
+  "type": "Checkpoint",
+  "number": "3.2.32",
+  "title": "",
+  "body": " In and , you found that if the parking lot is full, the probability there is a sporting event is 0.56 and the probability there is an academic event is 0.35. Using this information, compute .   Each probability is conditioned on the same information that the garage is full, so the complement may be used: .  "
+},
+{
+  "id": "p-548",
+  "level": "2",
+  "url": "sec-conditional-probability.html#p-548",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Bayesian statistics "
 },
 {
   "id": "sec-sampling-small-population",
@@ -1429,7 +2158,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.3",
   "title": "Sampling from a small population",
-  "body": " Sampling from a small population   When we sample observations from a population, usually we're only sampling a small fraction of the possible individuals or cases. However, sometimes our sample size is large enough or the population is small enough that we sample more than 10% of a population without replacement.    Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    To be converted from LaTeX source.     Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    To be converted from LaTeX source.    "
+  "body": " Sampling from a small population   When we sample observations from a population, usually we're only sampling a small fraction of the possible individuals or cases. However, sometimes our sample size is large enough or the population is small enough that we sample more than 10% of a population without replacement (meaning we do not have a chance of sampling the same cases twice). Sampling such a notable fraction of a population can be important for how we analyze the sample.    Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    If there are 15 people to ask and none are skipping class, then the probability is , or about 0.067.     Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    For the first question, she will pick someone else with probability . When she asks the second question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the first question, the probability you are again not picked is . Similarly, the probability you are again not picked on the third question is , and the probability of not being picked for any of the three questions is      What rule permitted us to multiply the probabilities in ?   The three probabilities we computed were actually one marginal probability, , and two conditional probabilities: Using the General Multiplication Rule, the product of these three probabilities is the probability of not being picked in 3 questions.    Three questions with replacement   Suppose the professor randomly picks without regard to who she already selected, i.e. students can be picked more than once. What is the probability that you will not be picked for any of the three questions?    Each pick is independent, and the probability of not being picked for any individual question is . Thus, we can use the Multiplication Rule for independent processes. You have a slightly higher chance of not being picked compared to when she picked a new person for each question. However, you now may be picked more than once.     Under the setup of , what is the probability of being picked to answer all three questions?       If we sample from a small population without replacement, we no longer have independence between our observations. In , the probability of not being picked for the second question was conditioned on the event that you were not picked for the first question. In , the professor sampled her students with replacement: she repeatedly sampled the entire class without regard to who she already picked.   Your department is holding a raffle. They sell 30 tickets and offer seven prizes.  They place the tickets in a hat and draw one for each prize. The tickets are sampled without replacement, i.e. the selected tickets are not placed back in the hat. What is the probability of winning a prize if you buy one ticket?  What if the tickets are sampled with replacement?     (a) First determine the probability of not winning. The tickets are sampled without replacement, which means the probability you do not win on the first draw is , for the second, , and for the seventh. The probability you win no prize is the product of these separate probabilities: . That is, the probability of winning a prize is .  (b) When the tickets are sampled with replacement, there are seven independent draws. Again we first find the probability of not winning a prize: . Thus, the probability of winning (at least) one prize when drawing with replacement is 0.211.    Compare your answers in . How much influence does the sampling method have on your chances of winning a prize?   There is about a 10% larger chance of winning a prize when using sampling without replacement. However, at most one prize may be won under this sampling procedure.   Had we repeated with 300 tickets instead of 30, we would have found something interesting: the results would be nearly identical. The probability would be 0.0233 without replacement and 0.0231 with replacement. When the sample size is only a small fraction of the population (under 10%), observations are nearly independent even when sampling without replacement.  "
 },
 {
   "id": "ex-professor-select-student",
@@ -1438,7 +2167,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.3.1",
   "title": "Selecting a student at random.",
-  "body": " Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    To be converted from LaTeX source.   "
+  "body": " Selecting a student at random   Professors sometimes select a student at random to answer a question. If each student has an equal chance of being selected and there are 15 people in your class, what is the chance that she will pick you for the next question?    If there are 15 people to ask and none are skipping class, then the probability is , or about 0.067.   "
 },
 {
   "id": "ex-3-questions-wo-replacement",
@@ -1447,7 +2176,52 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.3.2",
   "title": "Three questions without replacement.",
-  "body": " Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    To be converted from LaTeX source.   "
+  "body": " Three questions without replacement   If the professor asks 3 questions, what is the probability that you will not be selected? Assume that she will not pick the same person twice in a given lecture.    For the first question, she will pick someone else with probability . When she asks the second question, she only has 14 people who have not yet been asked. Thus, if you were not picked on the first question, the probability you are again not picked is . Similarly, the probability you are again not picked on the third question is , and the probability of not being picked for any of the three questions is    "
+},
+{
+  "id": "ex-rule-multiply-probs",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-rule-multiply-probs",
+  "type": "Checkpoint",
+  "number": "3.3.3",
+  "title": "",
+  "body": " What rule permitted us to multiply the probabilities in ?   The three probabilities we computed were actually one marginal probability, , and two conditional probabilities: Using the General Multiplication Rule, the product of these three probabilities is the probability of not being picked in 3 questions.  "
+},
+{
+  "id": "ex-3-questions-w-replacement",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-3-questions-w-replacement",
+  "type": "Example",
+  "number": "3.3.4",
+  "title": "Three questions with replacement.",
+  "body": " Three questions with replacement   Suppose the professor randomly picks without regard to who she already selected, i.e. students can be picked more than once. What is the probability that you will not be picked for any of the three questions?    Each pick is independent, and the probability of not being picked for any individual question is . Thus, we can use the Multiplication Rule for independent processes. You have a slightly higher chance of not being picked compared to when she picked a new person for each question. However, you now may be picked more than once.   "
+},
+{
+  "id": "ex-picked-all-three",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-picked-all-three",
+  "type": "Checkpoint",
+  "number": "3.3.5",
+  "title": "",
+  "body": " Under the setup of , what is the probability of being picked to answer all three questions?      "
+},
+{
+  "id": "ex-raffle-30-tickets",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-raffle-30-tickets",
+  "type": "Checkpoint",
+  "number": "3.3.6",
+  "title": "",
+  "body": " Your department is holding a raffle. They sell 30 tickets and offer seven prizes.  They place the tickets in a hat and draw one for each prize. The tickets are sampled without replacement, i.e. the selected tickets are not placed back in the hat. What is the probability of winning a prize if you buy one ticket?  What if the tickets are sampled with replacement?     (a) First determine the probability of not winning. The tickets are sampled without replacement, which means the probability you do not win on the first draw is , for the second, , and for the seventh. The probability you win no prize is the product of these separate probabilities: . That is, the probability of winning a prize is .  (b) When the tickets are sampled with replacement, there are seven independent draws. Again we first find the probability of not winning a prize: . Thus, the probability of winning (at least) one prize when drawing with replacement is 0.211.  "
+},
+{
+  "id": "ex-raffle-comparison",
+  "level": "2",
+  "url": "sec-sampling-small-population.html#ex-raffle-comparison",
+  "type": "Checkpoint",
+  "number": "3.3.7",
+  "title": "",
+  "body": " Compare your answers in . How much influence does the sampling method have on your chances of winning a prize?   There is about a 10% larger chance of winning a prize when using sampling without replacement. However, at most one prize may be won under this sampling procedure.  "
 },
 {
   "id": "sec-random-variables",
@@ -1456,7 +2230,16 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.4",
   "title": "Random variables",
-  "body": " Random variables   It's often useful to model a process using what's called a random variable. Such a model allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.    Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    To be converted from LaTeX source.     Expectation  To be converted from LaTeX source.   Probability distribution for the bookstore's revenue from one student      Variability in random variables  To be converted from LaTeX source.    Linear combinations of random variables  To be converted from LaTeX source.   "
+  "body": " Random variables   It's often useful to model a process using what's called a random variable . Such a model allows us to apply a mathematical framework and statistical principles for better understanding and predicting outcomes in the real world.    Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The bookstore should expect to sell about 105 books for this class.     Would you be surprised if the bookstore sold slightly more or less than 105 books?   If they sell a little more or a little less, this should not be a surprise. There is natural variability in observed data. For example, if we flip a coin 100 times, it will not usually come up heads exactly half the time, but it will probably be close.    Expectation  We call a variable or process with a numerical outcome a random variable , and we usually represent this random variable with a capital letter such as , , or . The amount of money a single student will spend on her statistics books is a random variable, and we represent it by .   Random variable  A random process or variable with a numerical outcome.   The possible outcomes of are labeled with a corresponding lower case letter and subscripts. For example, we write , , and , which occur with probabilities 0.20, 0.55, and 0.25. The distribution of is summarized in the table below.   The probability distribution for the random variable , representing the bookstore's revenue from a single student.     1  2  3  Total     $0  $137  $170  --     0.20  0.55  0.25  1.00      Probability distribution for the bookstore's revenue from one student. The triangle represents the average revenue per student.      What is the average revenue per student for this course?    The expected total revenue is $11,785, and there are 100 students. Therefore the expected revenue per student is .    We computed the average outcome of as in . We call this average the expected value of , denoted by . The expected value of a random variable is computed by adding each outcome weighted by its probability:    Expected value of a discrete random variable  If takes outcomes with probabilities , the expected value of is the sum of each outcome multiplied by its corresponding probability: The Greek letter may be used in place of the notation .   The expected value for a random variable represents the average outcome. For example, represents the average amount the bookstore expects to make from a single student, which we could also write as .  It is also possible to compute the expected value of a continuous random variable (see ). However, it requires calculus and we save it for a later class.  In physics, the expectation holds the same meaning as the center of gravity. The distribution can be represented by a series of weights at each outcome, and the mean represents the balancing point.    Variability in random variables  Suppose you ran the university bookstore. Besides how much revenue you expect to generate, you might also want to know the volatility (variability) in your revenue.  The variance and standard deviation can be used to describe the variability of a random variable. We first compute deviations from the mean ( ), square those deviations, and take an average to get the variance. In the case of a random variable, we again compute squared deviations. However, we take their sum weighted by their corresponding probabilities, just like we did for the expectation. This weighted sum of squared deviations equals the variance, and we calculate the standard deviation by taking the square root of the variance.   Variance of a discrete random variable  If takes outcomes with probabilities and expected value , then the variance of , denoted by or the symbol , is The standard deviation of , labeled , is the square root of the variance.     Compute the expected value, variance, and standard deviation of , the revenue of a single statistics student for the bookstore.    It is useful to construct a table that holds computations for each outcome separately, then add up the results.      1  2  3  Total     $0  $137  $170      0.20  0.55  0.25      0  75.35  42.50  117.85     Thus, the expected value is , which we computed earlier. The variance can be constructed by extending this table:      1  2  3  Total     $0  $137  $170      0.20  0.55  0.25      0  75.35  42.50  117.85     -117.85  19.15  52.15      13888.62  366.72  2719.62      2777.7  201.7  679.9  3659.3     The variance of is , which means the standard deviation is .     The bookstore also offers a chemistry textbook for $159 and a book supplement for $41. From past experience, they know about 25% of chemistry students just buy the textbook while 60% buy both the textbook and supplement.    What proportion of students don't buy either book? Assume no students buy the supplement without the textbook.  Let represent the revenue from a single student. Write out the probability distribution of , i.e. a table for each outcome and its associated probability.  Compute the expected revenue from a single chemistry student.  Find the standard deviation to describe the variability associated with the revenue from a single student.     (a) of students do not buy any books for the class.  (b) The probability distribution is represented in the table below.  (c) The expectation is given as the total on the line : .  (d) The result is the square root of the variance listed in the total on the last line: .      1  2  3  Total    Scenario  no book  textbook  both      0.00  159.00  200.00      0.15  0.25  0.60      0.00  39.75  120.00  159.75     -159.75  -0.75  40.25      25520.06  0.56  1620.06      3828.0  0.1  972.0         Linear combinations of random variables  So far, we have thought of each variable as being a complete story in and of itself. Sometimes it is more appropriate to use a combination of variables. For instance, the amount of time a person spends commuting to work each week can be broken down into several daily commutes. Similarly, the total gain or loss in a stock portfolio is the sum of the gains and losses in its components.    John travels to work five days a week. We will use to represent his travel time on Monday, to represent his travel time on Tuesday, and so on. Write an equation using that represents his travel time for the week, denoted by .    His total weekly travel time is the sum of the five daily values: Breaking the weekly travel time into pieces provides a framework for understanding each source of randomness and is useful for modeling .      It takes John an average of 18 minutes each day to commute to work. What would you expect his average commute time to be for the week?    We were told that the average (i.e. expected value) of the commute time is 18 minutes per day: . To get the expected time for the sum of the five days, we can add up the expected time for each individual day: The expectation of the total time is equal to the sum of the expected individual times. More generally, the expectation of a sum of random variables is always the sum of the expectation for each random variable.     Elena is selling a TV at a cash auction and also intends to buy a toaster oven in the auction. If represents the profit for selling the TV and represents the cost of the toaster oven, write an equation that represents the net change in Elena's cash.   She will make dollars on the TV but spend dollars on the toaster oven: .    Based on past auctions, Elena figures she should expect to make about $175 on the TV and pay about $23 for the toaster oven. In total, how much should she expect to make or spend?    . She should expect to make about $152.    Would you be surprised if John's weekly commute wasn't exactly 90 minutes or if Elena didn't make exactly $152? Explain.   No, since there is probably some variability. For example, the traffic will vary from one day to next, and auction prices will vary depending on the quality of the merchandise and the interest of the attendees.   Two important concepts concerning combinations of random variables have so far been introduced. First, a final value can sometimes be described as the sum of its parts in an equation. Second, intuition suggests that putting the individual average values into this equation gives the average value we would expect in total. This second point needs clarification -- it is guaranteed to be true in what are called linear combinations of random variables .  A linear combination of two random variables and is a combination where and are some fixed and known numbers. For John's commute time, there were five random variables -- one for each work day -- and each random variable could be written as having a fixed coefficient of 1: For Elena's net gain or loss, the random variable had a coefficient of +1 and the random variable had a coefficient of -1.  When considering the average of a linear combination of random variables, it is safe to plug in the mean of each random variable and then compute the final result. For some examples of nonlinear combinations of random variables -- cases where we cannot simply plug in the means -- consider: , , . In such cases, plugging in the average value for each random variable and computing the result will not generally lead to an accurate average value for the end result.   Linear combinations of random variables and the average result  If and are random variables, then a linear combination of the random variables is given by where and are some fixed numbers. To compute the average value of a linear combination of random variables, plug in the average of each individual random variable and compute the result: Recall that the expected value is the same as the mean, e.g. .     Leonard has invested $6000 in Caterpillar Inc (stock ticker: CAT) and $2000 in Exxon Mobil Corp (XOM). If represents the change in Caterpillar's stock next month and represents the change in Exxon Mobil's stock next month, write an equation that describes how much money will be made or lost in Leonard's stocks for the month.    For simplicity, we will suppose and are not in percents but are in decimal form (e.g. if Caterpillar's stock increases 1%, then ; or if it loses 1%, then ). Then we can write an equation for Leonard's gain as If we plug in the change in the stock value for and , this equation gives the change in value of Leonard's stock portfolio for the month. A positive value represents a gain, and a negative value represents a loss.     Caterpillar stock has recently been rising at 2.0% and Exxon Mobil's at 0.2% per month, respectively. Compute the expected change in Leonard's stock portfolio for next month.        You should have found that Leonard expects a positive gain in . However, would you be surprised if he actually had a loss this month?   No. While stocks tend to rise over time, they are often volatile in the short term.   Quantifying the average outcome from a linear combination of random variables is helpful, but it is also important to have some sense of the uncertainty associated with the total outcome of that combination of random variables. The expected net gain or loss of Leonard's stock portfolio was considered in . However, there was no quantitative discussion of the volatility of this portfolio.   The change in a portfolio like Leonard's for 36 months, where $6000 is in Caterpillar's stock and $2000 is in Exxon Mobil's.    For instance, while the average monthly gain might be about $124 according to the data, that gain is not guaranteed. The figure shows the monthly changes in a portfolio like Leonard's during a three year period. The gains and losses vary widely, and quantifying these fluctuations is important when investing in stocks.  Just as we have done in many previous cases, we use the variance and standard deviation to describe the uncertainty associated with Leonard's monthly returns. The variance of a linear combination of random variables can be computed by plugging in the variances of the individual random variables and squaring the coefficients of the random variables. This equation is valid as long as the random variables are independent.   Variability of linear combinations of random variables  The variance of a linear combination of random variables may be computed by squaring the constants, substituting in the variances for the random variables, and computing the result: This equation is valid as long as the random variables are independent of each other. The standard deviation of the linear combination may be found by taking the square root of the variance.     Suppose John's daily commute has a standard deviation of 4 minutes. What is the uncertainty in his total commute time for the week?    The expression for John's commute time was Each coefficient is 1, and the variance of each day's time is . Thus, the variance of the total weekly commute time is The standard deviation for John's weekly work commute time is about 9 minutes.     The computation in relied on an important assumption: the commute time for each day is independent of the time on other days of that week. Do you think this is valid? Explain.   One concern is whether traffic patterns tend to have a weekly cycle (e.g. Fridays may be worse than other days). If that is the case, and John drives, then the assumption is probably not reasonable. However, if John walks to work, then his commute is probably not affected by any weekly traffic cycle.    Consider Elena's two auctions from . Suppose these auctions are approximately independent and the variability in auction prices associated with the TV and toaster oven can be described using standard deviations of $25 and $8. Compute the standard deviation of Elena's net gain.   The equation for Elena can be written as The variances of and are 625 and 64. We square the coefficients and plug in the variances: The variance of the linear combination is 689, and the standard deviation is the square root of 689: about $26.25.   Consider again . The negative coefficient for in the linear combination was eliminated when we squared the coefficients. This generally holds true: negatives in a linear combination will have no impact on the variability computed for a linear combination, but they do impact the expected value computations.   "
+},
+{
+  "id": "p-569",
+  "level": "2",
+  "url": "sec-random-variables.html#p-569",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "random variable "
 },
 {
   "id": "ex-bookstore-sales",
@@ -1465,16 +2248,205 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.4.1",
   "title": "Bookstore sales expectation.",
-  "body": " Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    To be converted from LaTeX source.   "
+  "body": " Bookstore sales expectation   Two books are assigned for a statistics class: a textbook and its corresponding study guide. The university bookstore determined 20% of enrolled students do not buy either book, 55% buy the textbook only, and 25% buy both books. If there are 100 students enrolled, how many books should the bookstore expect to sell to this class?    Around 20 students will not buy either book (0 books total), about 55 will buy one book (55 books total), and approximately 25 will buy two books (totaling 50 books for these 25 students). The bookstore should expect to sell about 105 books for this class.   "
+},
+{
+  "id": "ex-bookstore-variability",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-bookstore-variability",
+  "type": "Checkpoint",
+  "number": "3.4.2",
+  "title": "",
+  "body": " Would you be surprised if the bookstore sold slightly more or less than 105 books?   If they sell a little more or a little less, this should not be a surprise. There is natural variability in observed data. For example, if we flip a coin 100 times, it will not usually come up heads exactly half the time, but it will probably be close.  "
+},
+{
+  "id": "p-574",
+  "level": "2",
+  "url": "sec-random-variables.html#p-574",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "random variable "
+},
+{
+  "id": "fig-stat-spend-dist",
+  "level": "2",
+  "url": "sec-random-variables.html#fig-stat-spend-dist",
+  "type": "Figure",
+  "number": "3.4.3",
+  "title": "",
+  "body": " The probability distribution for the random variable , representing the bookstore's revenue from a single student.     1  2  3  Total     $0  $137  $170  --     0.20  0.55  0.25  1.00    "
 },
 {
   "id": "fig-book-cost-dist",
   "level": "2",
   "url": "sec-random-variables.html#fig-book-cost-dist",
   "type": "Figure",
-  "number": "3.4.2",
+  "number": "3.4.4",
   "title": "",
-  "body": " Probability distribution for the bookstore's revenue from one student   "
+  "body": " Probability distribution for the bookstore's revenue from one student. The triangle represents the average revenue per student.   "
+},
+{
+  "id": "ex-rev-per-student",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-rev-per-student",
+  "type": "Example",
+  "number": "3.4.5",
+  "title": "",
+  "body": "  What is the average revenue per student for this course?    The expected total revenue is $11,785, and there are 100 students. Therefore the expected revenue per student is .   "
+},
+{
+  "id": "p-579",
+  "level": "2",
+  "url": "sec-random-variables.html#p-579",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "expected value "
+},
+{
+  "id": "p-585",
+  "level": "2",
+  "url": "sec-random-variables.html#p-585",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "variance standard deviation "
+},
+{
+  "id": "ex-revenue-variance",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-revenue-variance",
+  "type": "Example",
+  "number": "3.4.6",
+  "title": "",
+  "body": "  Compute the expected value, variance, and standard deviation of , the revenue of a single statistics student for the bookstore.    It is useful to construct a table that holds computations for each outcome separately, then add up the results.      1  2  3  Total     $0  $137  $170      0.20  0.55  0.25      0  75.35  42.50  117.85     Thus, the expected value is , which we computed earlier. The variance can be constructed by extending this table:      1  2  3  Total     $0  $137  $170      0.20  0.55  0.25      0  75.35  42.50  117.85     -117.85  19.15  52.15      13888.62  366.72  2719.62      2777.7  201.7  679.9  3659.3     The variance of is , which means the standard deviation is .   "
+},
+{
+  "id": "ex-chemistry-books-revenue",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-chemistry-books-revenue",
+  "type": "Checkpoint",
+  "number": "3.4.9",
+  "title": "",
+  "body": " The bookstore also offers a chemistry textbook for $159 and a book supplement for $41. From past experience, they know about 25% of chemistry students just buy the textbook while 60% buy both the textbook and supplement.    What proportion of students don't buy either book? Assume no students buy the supplement without the textbook.  Let represent the revenue from a single student. Write out the probability distribution of , i.e. a table for each outcome and its associated probability.  Compute the expected revenue from a single chemistry student.  Find the standard deviation to describe the variability associated with the revenue from a single student.     (a) of students do not buy any books for the class.  (b) The probability distribution is represented in the table below.  (c) The expectation is given as the total on the line : .  (d) The result is the square root of the variance listed in the total on the last line: .      1  2  3  Total    Scenario  no book  textbook  both      0.00  159.00  200.00      0.15  0.25  0.60      0.00  39.75  120.00  159.75     -159.75  -0.75  40.25      25520.06  0.56  1620.06      3828.0  0.1  972.0      "
+},
+{
+  "id": "ex-john-weekly-commute",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-john-weekly-commute",
+  "type": "Example",
+  "number": "3.4.11",
+  "title": "",
+  "body": "  John travels to work five days a week. We will use to represent his travel time on Monday, to represent his travel time on Tuesday, and so on. Write an equation using that represents his travel time for the week, denoted by .    His total weekly travel time is the sum of the five daily values: Breaking the weekly travel time into pieces provides a framework for understanding each source of randomness and is useful for modeling .   "
+},
+{
+  "id": "ex-john-weekly-expectation",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-john-weekly-expectation",
+  "type": "Example",
+  "number": "3.4.12",
+  "title": "",
+  "body": "  It takes John an average of 18 minutes each day to commute to work. What would you expect his average commute time to be for the week?    We were told that the average (i.e. expected value) of the commute time is 18 minutes per day: . To get the expected time for the sum of the five days, we can add up the expected time for each individual day: The expectation of the total time is equal to the sum of the expected individual times. More generally, the expectation of a sum of random variables is always the sum of the expectation for each random variable.   "
+},
+{
+  "id": "ex-elena-auction",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-elena-auction",
+  "type": "Checkpoint",
+  "number": "3.4.13",
+  "title": "",
+  "body": " Elena is selling a TV at a cash auction and also intends to buy a toaster oven in the auction. If represents the profit for selling the TV and represents the cost of the toaster oven, write an equation that represents the net change in Elena's cash.   She will make dollars on the TV but spend dollars on the toaster oven: .  "
+},
+{
+  "id": "ex-elena-expectation",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-elena-expectation",
+  "type": "Checkpoint",
+  "number": "3.4.14",
+  "title": "",
+  "body": " Based on past auctions, Elena figures she should expect to make about $175 on the TV and pay about $23 for the toaster oven. In total, how much should she expect to make or spend?    . She should expect to make about $152.  "
+},
+{
+  "id": "ex-uncertainty-sum",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-uncertainty-sum",
+  "type": "Checkpoint",
+  "number": "3.4.15",
+  "title": "",
+  "body": " Would you be surprised if John's weekly commute wasn't exactly 90 minutes or if Elena didn't make exactly $152? Explain.   No, since there is probably some variability. For example, the traffic will vary from one day to next, and auction prices will vary depending on the quality of the merchandise and the interest of the attendees.  "
+},
+{
+  "id": "p-613",
+  "level": "2",
+  "url": "sec-random-variables.html#p-613",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "linear combination "
+},
+{
+  "id": "ex-leonard-portfolio",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-leonard-portfolio",
+  "type": "Example",
+  "number": "3.4.16",
+  "title": "",
+  "body": "  Leonard has invested $6000 in Caterpillar Inc (stock ticker: CAT) and $2000 in Exxon Mobil Corp (XOM). If represents the change in Caterpillar's stock next month and represents the change in Exxon Mobil's stock next month, write an equation that describes how much money will be made or lost in Leonard's stocks for the month.    For simplicity, we will suppose and are not in percents but are in decimal form (e.g. if Caterpillar's stock increases 1%, then ; or if it loses 1%, then ). Then we can write an equation for Leonard's gain as If we plug in the change in the stock value for and , this equation gives the change in value of Leonard's stock portfolio for the month. A positive value represents a gain, and a negative value represents a loss.   "
+},
+{
+  "id": "ex-leonard-expected-return",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-leonard-expected-return",
+  "type": "Checkpoint",
+  "number": "3.4.17",
+  "title": "",
+  "body": " Caterpillar stock has recently been rising at 2.0% and Exxon Mobil's at 0.2% per month, respectively. Compute the expected change in Leonard's stock portfolio for next month.      "
+},
+{
+  "id": "ex-leonard-risk",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-leonard-risk",
+  "type": "Checkpoint",
+  "number": "3.4.18",
+  "title": "",
+  "body": " You should have found that Leonard expects a positive gain in . However, would you be surprised if he actually had a loss this month?   No. While stocks tend to rise over time, they are often volatile in the short term.  "
+},
+{
+  "id": "fig-leonard-portfolio-monthly",
+  "level": "2",
+  "url": "sec-random-variables.html#fig-leonard-portfolio-monthly",
+  "type": "Figure",
+  "number": "3.4.19",
+  "title": "",
+  "body": " The change in a portfolio like Leonard's for 36 months, where $6000 is in Caterpillar's stock and $2000 is in Exxon Mobil's.   "
+},
+{
+  "id": "ex-john-weekly-sd",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-john-weekly-sd",
+  "type": "Example",
+  "number": "3.4.20",
+  "title": "",
+  "body": "  Suppose John's daily commute has a standard deviation of 4 minutes. What is the uncertainty in his total commute time for the week?    The expression for John's commute time was Each coefficient is 1, and the variance of each day's time is . Thus, the variance of the total weekly commute time is The standard deviation for John's weekly work commute time is about 9 minutes.   "
+},
+{
+  "id": "ex-john-independence",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-john-independence",
+  "type": "Checkpoint",
+  "number": "3.4.21",
+  "title": "",
+  "body": " The computation in relied on an important assumption: the commute time for each day is independent of the time on other days of that week. Do you think this is valid? Explain.   One concern is whether traffic patterns tend to have a weekly cycle (e.g. Fridays may be worse than other days). If that is the case, and John drives, then the assumption is probably not reasonable. However, if John walks to work, then his commute is probably not affected by any weekly traffic cycle.  "
+},
+{
+  "id": "ex-elena-variability",
+  "level": "2",
+  "url": "sec-random-variables.html#ex-elena-variability",
+  "type": "Checkpoint",
+  "number": "3.4.22",
+  "title": "",
+  "body": " Consider Elena's two auctions from . Suppose these auctions are approximately independent and the variability in auction prices associated with the TV and toaster oven can be described using standard deviations of $25 and $8. Compute the standard deviation of Elena's net gain.   The equation for Elena can be written as The variances of and are 625 and 64. We square the coefficients and plug in the variances: The variance of the linear combination is 689, and the standard deviation is the square root of 689: about $26.25.  "
 },
 {
   "id": "sec-continuous-distributions",
@@ -1483,7 +2455,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "3.5",
   "title": "Continuous distributions",
-  "body": " Continuous distributions   So far in this chapter we've discussed cases where the outcome of a variable is discrete. In this section, we consider a context where the outcome is a continuous numerical variable.    US adult heights histograms   Figure shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    To be converted from LaTeX source.     Four hollow histograms of US adults heights with varying bin widths     From histograms to continuous distributions  To be converted from LaTeX source.   The continuous probability distribution of heights for US adults      Probabilities from continuous distributions  To be converted from LaTeX source.   Density for heights with the area between 180 and 185 cm shaded     "
+  "body": " Continuous distributions   So far in this chapter we've discussed cases where the outcome of a variable is discrete. In this section, we consider a context where the outcome is a continuous numerical variable.    US adult heights histograms    shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    Adding more bins provides greater detail. This sample is extremely large, which is why much smaller bins still work well. Usually we do not use so many bins with smaller sample sizes since small counts per bin mean the bin heights are very volatile.     Four hollow histograms of US adults heights with varying bin widths     Probability from histogram   What proportion of the sample is between 180 cm and 185 cm tall (about 5'11\" to 6'1\")?    We can add up the heights of the bins in the range 180 cm and 185 cm and divide by the sample size. For instance, this can be done with the two shaded bins shown in . The two bins in this region have counts of 195,307 and 156,239 people, resulting in the following estimate of the probability: This fraction is the same as the proportion of the histogram's area that falls in the range 180 to 185 cm.     A histogram with bin sizes of 2.5 cm. The shaded region represents individuals with heights between 180 and 185 cm.     From histograms to continuous distributions  Examine the transition from a boxy hollow histogram in the top-left of to the much smoother plot in the lower-right. In this last plot, the bins are so slim that the hollow histogram is starting to resemble a smooth curve. This suggests the population height as a continuous numerical variable might best be explained by a curve that represents the outline of extremely slim bins.  This smooth curve represents a probability density function (also called a density or distribution ), and such a curve is shown in overlaid on a histogram of the sample. A density has a special property: the total area under the density's curve is 1.   The continuous probability distribution of heights for US adults.      Probabilities from continuous distributions  We computed the proportion of individuals with heights 180 to 185 cm in as a fraction: We found the number of people with heights between 180 and 185 cm by determining the fraction of the histogram's area in this region. Similarly, we can use the area in the shaded region under the curve to find a probability (with the help of a computer): The probability that a randomly selected person is between 180 and 185 cm is 0.1157. This is very close to the estimate from : 0.1172.   Density for heights in the US adult population with the area between 180 and 185 cm shaded. Compare this plot with .     Three US adults are randomly selected. The probability a single adult is between 180 and 185 cm is 0.1157.    What is the probability that all three are between 180 and 185 cm tall?  What is the probability that none are between 180 and 185 cm?     Brief answers:         What is the probability that a randomly selected person is exactly 180 cm? Assume you can measure perfectly.    This probability is zero. A person might be close to 180 cm, but not exactly 180 cm tall. This also makes sense with the definition of probability as area; there is no area captured between 180 cm and 180 cm.     Suppose a person's height is rounded to the nearest centimeter. Is there a chance that a random person's measured height will be 180 cm?   This has positive probability. Anyone between 179.5 cm and 180.5 cm will have a measured height of 180 cm. This is probably a more realistic scenario to encounter in practice versus .    "
 },
 {
   "id": "ex-us-heights",
@@ -1492,7 +2464,7 @@ var ptx_lunr_docs = [
   "type": "Example",
   "number": "3.5.1",
   "title": "US adult heights histograms.",
-  "body": " US adult heights histograms   Figure shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    To be converted from LaTeX source.   "
+  "body": " US adult heights histograms    shows a few different hollow histograms for the heights of US adults. How does changing the number of bins allow you to make different interpretations of the data?    Adding more bins provides greater detail. This sample is extremely large, which is why much smaller bins still work well. Usually we do not use so many bins with smaller sample sizes since small counts per bin mean the bin heights are very volatile.   "
 },
 {
   "id": "fig-fdic-histograms",
@@ -1504,22 +2476,76 @@ var ptx_lunr_docs = [
   "body": " Four hollow histograms of US adults heights with varying bin widths   "
 },
 {
+  "id": "ex-height-180-185",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#ex-height-180-185",
+  "type": "Example",
+  "number": "3.5.3",
+  "title": "Probability from histogram.",
+  "body": " Probability from histogram   What proportion of the sample is between 180 cm and 185 cm tall (about 5'11\" to 6'1\")?    We can add up the heights of the bins in the range 180 cm and 185 cm and divide by the sample size. For instance, this can be done with the two shaded bins shown in . The two bins in this region have counts of 195,307 and 156,239 people, resulting in the following estimate of the probability: This fraction is the same as the proportion of the histogram's area that falls in the range 180 to 185 cm.   "
+},
+{
+  "id": "fig-us-heights-180-185",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#fig-us-heights-180-185",
+  "type": "Figure",
+  "number": "3.5.4",
+  "title": "",
+  "body": " A histogram with bin sizes of 2.5 cm. The shaded region represents individuals with heights between 180 and 185 cm.   "
+},
+{
+  "id": "p-639",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#p-639",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability density function density distribution "
+},
+{
   "id": "fig-fdic-height-cont-dist",
   "level": "2",
   "url": "sec-continuous-distributions.html#fig-fdic-height-cont-dist",
   "type": "Figure",
-  "number": "3.5.3",
+  "number": "3.5.5",
   "title": "",
-  "body": " The continuous probability distribution of heights for US adults   "
+  "body": " The continuous probability distribution of heights for US adults.   "
 },
 {
   "id": "fig-fdic-height-filled",
   "level": "2",
   "url": "sec-continuous-distributions.html#fig-fdic-height-filled",
   "type": "Figure",
-  "number": "3.5.4",
+  "number": "3.5.6",
   "title": "",
-  "body": " Density for heights with the area between 180 and 185 cm shaded   "
+  "body": " Density for heights in the US adult population with the area between 180 and 185 cm shaded. Compare this plot with .   "
+},
+{
+  "id": "ex-height-three-adults",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#ex-height-three-adults",
+  "type": "Checkpoint",
+  "number": "3.5.7",
+  "title": "",
+  "body": " Three US adults are randomly selected. The probability a single adult is between 180 and 185 cm is 0.1157.    What is the probability that all three are between 180 and 185 cm tall?  What is the probability that none are between 180 and 185 cm?     Brief answers:      "
+},
+{
+  "id": "ex-exactly-180-cm",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#ex-exactly-180-cm",
+  "type": "Example",
+  "number": "3.5.8",
+  "title": "",
+  "body": "  What is the probability that a randomly selected person is exactly 180 cm? Assume you can measure perfectly.    This probability is zero. A person might be close to 180 cm, but not exactly 180 cm tall. This also makes sense with the definition of probability as area; there is no area captured between 180 cm and 180 cm.   "
+},
+{
+  "id": "ex-rounded-height",
+  "level": "2",
+  "url": "sec-continuous-distributions.html#ex-rounded-height",
+  "type": "Checkpoint",
+  "number": "3.5.9",
+  "title": "",
+  "body": " Suppose a person's height is rounded to the nearest centimeter. Is there a chance that a random person's measured height will be 180 cm?   This has positive probability. Anyone between 179.5 cm and 180.5 cm will have a measured height of 180 cm. This is probably a more realistic scenario to encounter in practice versus .  "
 },
 {
   "id": "sec-normal-distribution",
