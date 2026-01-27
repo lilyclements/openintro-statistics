@@ -158,7 +158,68 @@ true);
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-experiments"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">Experiments</span>
 </h2>
-<p id="p-69">Content from <code class="code-inline tex2jax_ignore">experiments.tex</code> to be converted.</p></section></div></main>
+<section class="introduction" id="introduction-5"><p id="p-183">In experiments, researchers assign treatments to cases. Randomized experiments are the gold standard for establishing causation.</p></section><section class="subsection" id="subsec-experimental-design"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.1</span> <span class="title">Principles of experimental design</span>
+</h3>
+<p id="p-184">Four core principles:</p>
+<dfn class="terminology">Controlling:</dfn> hold other factors constant across groups. <dfn class="terminology">Randomization:</dfn> randomly assign cases to treatments to balance unmeasured factors. <dfn class="terminology">Replication:</dfn> use enough cases (and replicate studies) to estimate effects precisely. <dfn class="terminology">Blocking:</dfn> when a known factor affects the response, group by that factor and randomize within blocks.<figure class="figure figure-like" id="fig-blocking"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="ch_intro_to_data/figures/figureShowingBlocking/figureShowingBlocking.pdf" class="contained" alt="Patients split into low/high risk blocks, then randomized within blocks to control and treatment."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.1<span class="period">.</span></span><span class="space"> </span>Blocking on patient risk</figcaption></figure></section><section class="subsection" id="subsec-reducing-bias"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.2</span> <span class="title">Reducing bias in human experiments</span>
+</h3>
+<p id="p-185">To avoid placebo and observer effects, patients are blinded to treatment via placebos; double-blind designs also blind caregivers/researchers interacting with patients.</p>
+<article class="exercise exercise-like" id="gp-stents-blinding"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gp-stents-blinding"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span><span class="space"> </span><span class="title">Blinding in the stent study.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-gp-stents-blinding"><article class="exercise exercise-like"><p id="p-186">Was the stent study an experiment? Was it blind or double-blind?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like"><p id="p-187">It was an experiment (researchers assigned treatments). It was not blind, so not double-blind.</p></div></div>
+</div></article></div>
+<article class="exercise exercise-like" id="gp-sham-surgery"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gp-sham-surgery"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span><span class="space"> </span><span class="title">Placebos via sham surgery.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-gp-sham-surgery"><article class="exercise exercise-like"><p id="p-188">Could the stent study have used a placebo? What would it look like?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like"><p id="p-189">A sham surgery—performing surgical steps without implanting the stent—could serve as a placebo, though with ethical considerations.</p></div></div>
+</div></article></div></section><section class="exercises" id="exercises-4"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.4.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ex-light-exam-performance"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Light and exam performance.</span>
+</h4>
+<p id="p-190">Design: compare lighting types on exam performance, blocking by sex. Identify response, explanatory variable (with levels), and blocking variable.</p></article><article class="exercise exercise-like" id="ex-vitamin-supplement"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Vitamin supplements.</span>
+</h4>
+<p id="p-191">Study with placebo, 1g, 3g vitamin C, 3g vitamin C plus additives; appearance identical. Nurses know assignments; assessors are blinded. No significant differences found.</p>
+<ol class="lower-alpha">
+<li id="li-76"><p id="p-192">Experiment or observational?</p></li>
+<li id="li-77"><p id="p-193">Explanatory and response variables?</p></li>
+<li id="li-78"><p id="p-194">Were patients blinded?</p></li>
+<li id="li-79"><p id="p-195">Was it double-blind?</p></li>
+<li id="li-80"><p id="p-196">Does non-adherence introduce confounding?</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-light-noise-exam"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Light, noise, and exam performance.</span>
+</h4>
+<p id="p-197">Design tests light (3 levels) and noise (3 levels) on exam performance, blocking by sex.</p>
+<ol class="lower-alpha">
+<li id="li-81"><p id="p-198">What type of study?</p></li>
+<li id="li-82"><p id="p-199">How many factors? List factors and levels.</p></li>
+<li id="li-83"><p id="p-200">Role of sex variable?</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-music-learning"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Music and learning.</span>
+</h4>
+<p id="p-201">Outline an experiment comparing study with no music, instrumental music, or music with lyrics.</p></article><article class="exercise exercise-like" id="ex-soda-preference"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Soda preference.</span>
+</h4>
+<p id="p-202">Outline an experiment to compare regular Coke vs. Diet Coke preference.</p></article><article class="exercise exercise-like" id="ex-exercise-mental-health"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Exercise and mental health.</span>
+</h4>
+<p id="p-203">A stratified randomized study assigns half of each age group (18-30, 31-40, 41-55) to exercise twice a week and half to no exercise; mental health measured pre/post.</p>
+<ol class="lower-alpha">
+<li id="li-84"><p id="p-204">Study type?</p></li>
+<li id="li-85"><p id="p-205">Treatment and control groups?</p></li>
+<li id="li-86"><p id="p-206">Is blocking used? What variable?</p></li>
+<li id="li-87"><p id="p-207">Is blinding used?</p></li>
+<li id="li-88"><p id="p-208">Can results establish causation and generalize? Explain.</p></li>
+<li id="li-89"><p id="p-209">Any reservations about funding this study?</p></li>
+</ol></article></section></section></div></main>
 </div>
 </body>
 </html>

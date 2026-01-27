@@ -286,7 +286,7 @@ true);
 <p id="p-52">The <code class="code-inline tex2jax_ignore">pop</code> variable is also numerical, although it seems to be a little different than <code class="code-inline tex2jax_ignore">unemp_rate</code>. This variable of the population count can only take whole non-negative numbers (0, 1, 2, …). For this reason, the population variable is said to be <dfn class="terminology">discrete</dfn> since it can only take numerical values with jumps. On the other hand, the unemployment rate variable is said to be <dfn class="terminology">continuous</dfn>.</p>
 <p id="p-53">The variable <code class="code-inline tex2jax_ignore">state</code> can take up to 51 values after accounting for Washington, DC: AL, AK, …, and WY. Because the responses themselves are categories, <code class="code-inline tex2jax_ignore">state</code> is called a <dfn class="terminology">categorical</dfn> variable, and the possible values are called the variable's <dfn class="terminology">levels</dfn>.</p>
 <p id="p-54">Finally, consider the <code class="code-inline tex2jax_ignore">median_edu</code> variable, which describes the median education level of county residents and takes values <code class="code-inline tex2jax_ignore">below_hs</code>, <code class="code-inline tex2jax_ignore">hs_diploma</code>, <code class="code-inline tex2jax_ignore">some_college</code>, or <code class="code-inline tex2jax_ignore">bachelors</code> in each county. This variable seems to be a hybrid: it is a categorical variable but the levels have a natural ordering. A variable with these properties is called an <dfn class="terminology">ordinal</dfn> variable, while a regular categorical variable without this type of special ordering is called a <dfn class="terminology">nominal</dfn> variable. To simplify analyses, any ordinal variable in this book will be treated as a nominal (unordered) categorical variable.</p>
-<figure class="figure figure-like" id="fig-variable-types"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="ch_intro_to_data/figures/variables.png" class="contained" alt='A tree diagram showing "all variables" at the top, branching into "numeric" and "categorical". The "numeric" branch splits into "continuous" and "discrete", while the "categorical" branch splits into "nominal (unordered categorical)" and "ordinal (ordered categorical)".'></div>
+<figure class="figure figure-like" id="fig-variable-types"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="ch_intro_to_data/figures/variables/variables.pdf" class="contained" alt='A tree diagram showing "all variables" at the top, branching into "numeric" and "categorical". The "numeric" branch splits into "continuous" and "discrete", while the "categorical" branch splits into "nominal (unordered categorical)" and "ordinal (ordered categorical)".'></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.6<span class="period">.</span></span><span class="space"> </span>Breakdown of variables into their respective types</figcaption></figure><article class="example example-like" id="example-classify-variables"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-classify-variables"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Classifying variables by type.</span>
 </h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-classify-variables"><article class="example example-like"><p id="p-55">Data were collected about students in a statistics course. Three variables were recorded for each student: number of siblings, student height, and whether the student had previously taken a statistics course. Classify each of the variables as continuous numerical, discrete numerical, or categorical.</p>
@@ -312,7 +312,232 @@ true);
 <p id="p-66">The multi-unit and homeownership rates are said to be associated because the plot shows a discernible pattern. When two variables show some connection with one another, they are called <dfn class="terminology">associated</dfn> variables. Associated variables can also be called <dfn class="terminology">dependent</dfn> variables and vice-versa.</p></section><section class="exercises" id="exercises-2"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">1.2.4</span> <span class="title">Exercises</span>
 </h3>
-<section class="introduction" id="introduction-4"><p id="p-67">Additional exercises for this section would be included here, converted from the <code class="code-inline tex2jax_ignore">data_basics.tex</code> file in the original LaTeX source.</p></section></section></section></div></main>
+<article class="exercise exercise-like" id="ex-air-pollution-components"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Air pollution and birth outcomes, study components.</span>
+</h4>
+<p id="p-67">Researchers collected data to examine the relationship between air pollutants and preterm births in Southern California. During the study air pollution levels were measured by air quality monitoring stations. Length of gestation data were collected on 143,196 births between the years 1989 and 1993, and air pollution exposure during gestation was calculated for each birth. The analysis suggested that increased ambient PM10 and, to a lesser degree, CO concentrations may be associated with the occurrence of preterm births.</p>
+<ol class="lower-alpha">
+<li id="li-16"><p id="p-68">Identify the main research question of the study.</p></li>
+<li id="li-17"><p id="p-69">Who are the subjects in this study, and how many are included?</p></li>
+<li id="li-18"><p id="p-70">What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-buteyko-components"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Buteyko method, study components.</span>
+</h4>
+<p id="p-71">The Buteyko method is a shallow breathing technique developed by Konstantin Buteyko, a Russian doctor, in 1952. Anecdotal evidence suggests that the Buteyko method can reduce asthma symptoms and improve quality of life. In a scientific study to determine the effectiveness of this method, researchers recruited 600 asthma patients aged 18-69 who relied on medication for asthma treatment. These patients were randomly split into two research groups: one practiced the Buteyko method and the other did not. Patients were scored on quality of life, activity, asthma symptoms, and medication reduction on a scale from 0 to 10. On average, the participants in the Buteyko group experienced a significant reduction in asthma symptoms and an improvement in quality of life.</p>
+<ol class="lower-alpha">
+<li id="li-19"><p id="p-72">Identify the main research question of the study.</p></li>
+<li id="li-20"><p id="p-73">Who are the subjects in this study, and how many are included?</p></li>
+<li id="li-21"><p id="p-74">What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-cheaters-components"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Cheaters, study components.</span>
+</h4>
+<p id="p-75">Researchers studying the relationship between honesty, age and self-control conducted an experiment on 160 children between the ages of 5 and 15. Participants reported their age, sex, and whether they were an only child or not. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet, and said they would only reward children who report white. The study found differences in cheating rates based on instructions and characteristics.</p>
+<ol class="lower-alpha">
+<li id="li-22"><p id="p-76">Identify the main research question of the study.</p></li>
+<li id="li-23"><p id="p-77">Who are the subjects in this study, and how many are included?</p></li>
+<li id="li-24"><p id="p-78">How many variables were recorded for each subject in the study in order to conclude these findings? State the variables and their types.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-stealers-components"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Stealers, study components.</span>
+</h4>
+<p id="p-79">In a study of the relationship between socio-economic class and unethical behavior, 129 University of California undergraduates at Berkeley were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others.</p>
+<ol class="lower-alpha">
+<li id="li-25"><p id="p-80">Identify the main research question of the study.</p></li>
+<li id="li-26"><p id="p-81">Who are the subjects in this study, and how many are included?</p></li>
+<li id="li-27"><p id="p-82">The study found that students who were identified as upper-class took more candy than others. How many variables were recorded for each subject in the study in order to conclude these findings? State the variables and their types.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-relax-after-work"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Relaxing after work.</span>
+</h4>
+<p id="p-83">The General Social Survey asked the question, “After an average work day, about how many hours do you have to relax or pursue activities that you enjoy?” to a random sample of 1,155 Americans. The average relaxing time was found to be 1.65 hours. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter.</p>
+<ol class="lower-alpha">
+<li id="li-28"><p id="p-84">An American in the sample.</p></li>
+<li id="li-29"><p id="p-85">Number of hours spent relaxing after an average work day.</p></li>
+<li id="li-30"><p id="p-86">1.65.</p></li>
+<li id="li-31"><p id="p-87">Average number of hours all Americans spend relaxing after an average work day.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-cats-on-youtube"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Cats on YouTube.</span>
+</h4>
+<p id="p-88">Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter.</p>
+<ol class="lower-alpha">
+<li id="li-32"><p id="p-89">Percentage of all videos on YouTube that are cat videos.</p></li>
+<li id="li-33"><p id="p-90">2%.</p></li>
+<li id="li-34"><p id="p-91">A video in your sample.</p></li>
+<li id="li-35"><p id="p-92">Whether or not a video is a cat video.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-course-satisfaction"><h4 class="heading">
+<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">Course satisfaction across sections.</span>
+</h4>
+<p id="p-93">A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student's overall satisfaction with the course.</p>
+<ol class="lower-alpha">
+<li id="li-36"><p id="p-94">What type of study is this?</p></li>
+<li id="li-37"><p id="p-95">Suggest a sampling strategy for carrying out this study.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-housing-proposal-dorms"><h4 class="heading">
+<span class="codenumber">8<span class="period">.</span></span><span class="space"> </span><span class="title">Housing proposal across dorms.</span>
+</h4>
+<p id="p-96">On a large college campus first-year students and sophomores live in dorms located on the eastern part of the campus and juniors and seniors live in dorms located on the western part of the campus. Suppose you want to collect student opinions on a new housing structure the college administration is proposing and you want to make sure your survey equally represents opinions from students from all years.</p>
+<ol class="lower-alpha">
+<li id="li-38"><p id="p-97">What type of study is this?</p></li>
+<li id="li-39"><p id="p-98">Suggest a sampling strategy for carrying out this study.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-internet-life-expectancy"><h4 class="heading">
+<span class="codenumber">9<span class="period">.</span></span><span class="space"> </span><span class="title">Internet use and life expectancy.</span>
+</h4>
+<p id="p-99">A study evaluated the relationship between estimated life expectancy at birth (as of 2014) and percentage of internet users (as of 2009) in 208 countries. A scatterplot shows life expectancy versus percent internet users.</p>
+<ol class="lower-alpha">
+<li id="li-40"><p id="p-100">Describe the relationship between life expectancy and percentage of internet users.</p></li>
+<li id="li-41"><p id="p-101">What type of study is this?</p></li>
+<li id="li-42"><p id="p-102">State a possible confounding variable that might explain this relationship and describe its potential effect.</p></li>
+</ol>
+<figure class="figure figure-like" id="fig-internet-life-expectancy"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="ch_intro_to_data/figures/eoce/internet_life_expectancy/internet_life_expectancy.pdf" class="contained" alt="Scatterplot of life expectancy at birth versus percent internet users for 208 countries."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.9<span class="period">.</span></span><span class="space"> </span>Life expectancy versus internet use</figcaption></figure></article><article class="exercise exercise-like" id="ex-stressed-out-part1"><h4 class="heading">
+<span class="codenumber">10<span class="period">.</span></span><span class="space"> </span><span class="title">Stressed out, Part I.</span>
+</h4>
+<p id="p-103">A study surveyed a random sample of otherwise healthy high school students and found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed.</p>
+<ol class="lower-alpha">
+<li id="li-43"><p id="p-104">What type of study is this?</p></li>
+<li id="li-44"><p id="p-105">Can this study be used to conclude a causal relationship between increased stress and muscle cramps?</p></li>
+<li id="li-45"><p id="p-106">State possible confounding variables that might explain the observed relationship between increased stress and muscle cramps.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-evaluate-sampling-methods"><h4 class="heading">
+<span class="codenumber">11<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluate sampling methods.</span>
+</h4>
+<p id="p-107">A university wants to determine what fraction of its undergraduate student body support a new $25 annual fee to improve the student union. For each proposed method below, indicate whether the method is reasonable or not.</p>
+<ol class="lower-alpha">
+<li id="li-46"><p id="p-108">Survey a simple random sample of 500 students.</p></li>
+<li id="li-47"><p id="p-109">Stratify students by their field of study, then sample 10% of students from each stratum.</p></li>
+<li id="li-48"><p id="p-110">Cluster students by their ages (e.g. 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-random-digit-dialing"><h4 class="heading">
+<span class="codenumber">12<span class="period">.</span></span><span class="space"> </span><span class="title">Random digit dialing.</span>
+</h4>
+<p id="p-111">The Gallup Poll uses a procedure called random digit dialing, which creates phone numbers based on a list of all area codes in America in conjunction with the associated number of residential households in each area code. Give a possible reason the Gallup Poll chooses to use random digit dialing instead of picking phone numbers from the phone book.</p></article><article class="exercise exercise-like" id="ex-haters-gonna-hate"><h4 class="heading">
+<span class="codenumber">13<span class="period">.</span></span><span class="space"> </span><span class="title">Haters are gonna hate, study confirms.</span>
+</h4>
+<p id="p-112">A study asked a group of 200 randomly sampled men and women to evaluate how they felt about various subjects to measure their attitude towards mostly independent stimuli, then presented information about a fictitious microwave oven. People who reacted positively to the subjects also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it.</p>
+<ol class="lower-alpha">
+<li id="li-49"><p id="p-113">What are the cases?</p></li>
+<li id="li-50"><p id="p-114">What are the response variables?</p></li>
+<li id="li-51"><p id="p-115">What are the explanatory variables?</p></li>
+<li id="li-52"><p id="p-116">Does the study employ random sampling?</p></li>
+<li id="li-53"><p id="p-117">Is this an observational study or an experiment? Explain.</p></li>
+<li id="li-54"><p id="p-118">Can we establish a causal link between the explanatory and response variables?</p></li>
+<li id="li-55"><p id="p-119">Can the results of the study be generalized to the population at large?</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-family-size-bias"><h4 class="heading">
+<span class="codenumber">14<span class="period">.</span></span><span class="space"> </span><span class="title">Family size.</span>
+</h4>
+<p id="p-120">Suppose we want to estimate household size. If we select students at random at an elementary school and ask them what their family size is, will this be a good measure of household size? Or will our average be biased? If so, will it overestimate or underestimate the true value?</p></article><article class="exercise exercise-like" id="ex-sampling-strategies-social-media"><h4 class="heading">
+<span class="codenumber">15<span class="period">.</span></span><span class="space"> </span><span class="title">Sampling strategies.</span>
+</h4>
+<p id="p-121">A statistics student curious about the relationship between the amount of time students spend on social networking sites and their performance at school considers several sampling strategies. For each, name the sampling method proposed and any bias you might expect.</p>
+<ol class="lower-alpha">
+<li id="li-56"><p id="p-122">Randomly sample 40 students from the population, give them the survey, ask them to return it the next day.</p></li>
+<li id="li-57"><p id="p-123">Give out the survey only to friends, making sure each one fills it out.</p></li>
+<li id="li-58"><p id="p-124">Post a link to an online survey on Facebook and ask friends to fill it out.</p></li>
+<li id="li-59"><p id="p-125">Randomly sample 5 classes and ask a random sample of students from those classes to fill out the survey.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-reading-the-paper"><h4 class="heading">
+<span class="codenumber">16<span class="period">.</span></span><span class="space"> </span><span class="title">Reading the paper.</span>
+</h4>
+<p id="p-126">Consider two news excerpts, one about smoking and dementia, and another about sleep disorders and bullying. For each, evaluate whether the conclusions are justified and what can actually be concluded from the studies described.</p>
+<ol class="lower-alpha">
+<li id="li-60"><p id="p-127">Researchers analyzed data on over 23,000 people aged 50-60 and found smokers were more likely to develop dementia. Can we conclude smoking causes dementia later in life? Explain.</p></li>
+<li id="li-61"><p id="p-128">A study collected survey data on children’s sleep habits and bullying behavior and found those with sleep problems were twice as likely to have disruptive behavior or bullying issues. Does this show sleep disorders lead to bullying? If not, how best to describe the conclusion?</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-migraine-exp-response"><h4 class="heading">
+<span class="codenumber">17<span class="period">.</span></span><span class="space"> </span><span class="title">Migraine and acupuncture, Part II.</span>
+</h4>
+<p id="p-129">A randomized controlled study assigned migraine patients to acupuncture designed for migraines (treatment) or placebo acupuncture (control). Twenty-four hours later, patients reported whether they were pain free. Identify the explanatory and response variables.</p></article><article class="exercise exercise-like" id="ex-sinusitis-exp-response"><h4 class="heading">
+<span class="codenumber">18<span class="period">.</span></span><span class="space"> </span><span class="title">Sinusitis and antibiotics, Part II.</span>
+</h4>
+<p id="p-130">A study on acute sinusitis compared a 10-day antibiotic course (treatment) to a placebo (control), then asked patients if they experienced improvement in symptoms. Identify the explanatory and response variables.</p></article><article class="exercise exercise-like" id="ex-fishers-irises"><h4 class="heading">
+<span class="codenumber">19<span class="period">.</span></span><span class="space"> </span><span class="title">Fisher’s irises.</span>
+</h4>
+<p id="p-131">A data set contains sepal length and width, and petal length and width from three species of iris flowers (setosa, versicolor, virginica), with 50 flowers from each species.</p>
+<ol class="lower-alpha">
+<li id="li-62"><p id="p-132">How many cases are included?</p></li>
+<li id="li-63"><p id="p-133">How many numerical variables are included? Identify each and whether it is continuous or discrete.</p></li>
+<li id="li-64"><p id="p-134">How many categorical variables are included? List them and their levels.</p></li>
+</ol>
+<figure class="figure figure-like" id="fig-fisher-iris"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="ch_intro_to_data/figures/eoce/fisher_irises/irisversicolor.jpg" class="contained" alt="Photo of a purple iris flower."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.10<span class="period">.</span></span><span class="space"> </span>Iris versicolor</figcaption></figure></article><article class="exercise exercise-like" id="ex-smoking-habits-uk"><h4 class="heading">
+<span class="codenumber">20<span class="period">.</span></span><span class="space"> </span><span class="title">Smoking habits of UK residents.</span>
+</h4>
+<p id="p-135">A survey was conducted to study the smoking habits of UK residents. A portion of the data matrix is shown with variables: sex, age, marital status, gross income, smoking status, and cigarettes per day on weekends and weekdays.</p>
+<figure class="table table-like" id="table-smoking-habits-uk"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.11<span class="period">.</span></span><span class="space"> </span>Subset of UK smoking survey</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">sex</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">age</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">marital</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">grossIncome</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">smoke</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">amtWeekends</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">amtWeekdays</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">Female</td>
+<td class="l m b0 r0 l0 t0 lines">42</td>
+<td class="l m b0 r0 l0 t0 lines">Single</td>
+<td class="l m b0 r0 l0 t0 lines">Under GBP 2,600</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">12 cig/day</td>
+<td class="l m b0 r0 l0 t0 lines">12 cig/day</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">Male</td>
+<td class="l m b0 r0 l0 t0 lines">44</td>
+<td class="l m b0 r0 l0 t0 lines">Single</td>
+<td class="l m b0 r0 l0 t0 lines">GBP 10,400 to GBP 15,600</td>
+<td class="l m b0 r0 l0 t0 lines">No</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+<td class="l m b0 r0 l0 t0 lines">N/A</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">Male</td>
+<td class="l m b0 r0 l0 t0 lines">53</td>
+<td class="l m b0 r0 l0 t0 lines">Married</td>
+<td class="l m b0 r0 l0 t0 lines">Above GBP 36,400</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">6 cig/day</td>
+<td class="l m b0 r0 l0 t0 lines">6 cig/day</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1691</td>
+<td class="l m b0 r0 l0 t0 lines">Male</td>
+<td class="l m b0 r0 l0 t0 lines">40</td>
+<td class="l m b0 r0 l0 t0 lines">Single</td>
+<td class="l m b0 r0 l0 t0 lines">GBP 2,600 to GBP 5,200</td>
+<td class="l m b0 r0 l0 t0 lines">Yes</td>
+<td class="l m b0 r0 l0 t0 lines">8 cig/day</td>
+<td class="l m b0 r0 l0 t0 lines">8 cig/day</td>
+</tr>
+</table></div></figure><ol class="lower-alpha">
+<li id="li-65"><p id="p-136">What does each row of the data matrix represent?</p></li>
+<li id="li-66"><p id="p-137">How many participants were included in the survey?</p></li>
+<li id="li-67"><p id="p-138">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-us-airports"><h4 class="heading">
+<span class="codenumber">21<span class="period">.</span></span><span class="space"> </span><span class="title">US Airports.</span>
+</h4>
+<p id="p-139">A visualization shows the geographical distribution of airports in the contiguous United States, by ownership and usage type. Each observation is an airport.</p>
+<figure class="figure figure-like" id="fig-us-airports"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="ch_intro_to_data/figures/eoce/airports/airports.png" class="contained" alt="Maps showing public/private ownership and use of airports across the US."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.12<span class="period">.</span></span><span class="space"> </span>Distribution of US airports by ownership and use</figcaption></figure><ol class="lower-alpha">
+<li id="li-68"><p id="p-140">List the variables used in creating this visualization.</p></li>
+<li id="li-69"><p id="p-141">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.</p></li>
+</ol></article><article class="exercise exercise-like" id="ex-un-votes"><h4 class="heading">
+<span class="codenumber">22<span class="period">.</span></span><span class="space"> </span><span class="title">UN Votes.</span>
+</h4>
+<p id="p-142">A visualization shows voting patterns in the United States, Canada, and Mexico in the UN General Assembly from 1946 to 2015, displaying the percentage of roll calls voting yes for various issues. Each observation is a country/year pair.</p>
+<figure class="figure figure-like" id="fig-un-votes"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="ch_intro_to_data/figures/eoce/unvotes/unvotes.png" class="contained" alt="Trends of percent yes votes over time for several UN issues for three countries."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.13<span class="period">.</span></span><span class="space"> </span>UN General Assembly voting patterns</figcaption></figure><ol class="lower-alpha">
+<li id="li-70"><p id="p-143">List the variables used in creating this visualization.</p></li>
+<li id="li-71"><p id="p-144">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.</p></li>
+</ol></article></section></section></div></main>
 </div>
 </body>
 </html>

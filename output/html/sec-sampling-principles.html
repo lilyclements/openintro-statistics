@@ -158,7 +158,115 @@ true);
 <main class="main"><div id="content" class="pretext-content"><section class="section" id="sec-sampling-principles"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Sampling principles and strategies</span>
 </h2>
-<p id="p-68">Content from <code class="code-inline tex2jax_ignore">sampling_principles_and_strategies.tex</code> to be converted.</p></section></div></main>
+<section class="introduction" id="introduction-4"><p id="p-145">The first step in research is to pose a clear question, then decide what subjects to study and how to collect reliable data. Careful sampling is essential for trustworthy conclusions.</p></section><section class="subsection" id="subsec-populations-samples"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.1</span> <span class="title">Populations and samples</span>
+</h3>
+<p id="p-146">Each research question targets a population. Often it is too expensive to measure every case, so we select a sample—a subset of the population—to estimate the quantity of interest.</p>
+<article class="example example-like" id="ex-population-examples"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-population-examples"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Identifying populations.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-population-examples"><article class="example example-like"><p id="p-147">Consider: (1) the average mercury content in Atlantic swordfish, (2) the average time to degree for Duke undergrads in the last 5 years, (3) whether a new drug reduces deaths in patients with severe heart disease. Each has a population and cases; samples are used to estimate population features.</p></article></div>
+<article class="exercise exercise-like" id="gp-population-identification"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gp-population-identification"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Identifying populations.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-gp-population-identification"><article class="exercise exercise-like"><p id="p-148">For questions (2) and (3) above, identify the target population and what represents a single case.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like"><p id="p-149">Graduated Duke undergrads in the last five years; each graduate is a case. People with severe heart disease; each patient is a case.</p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-anecdotal-evidence"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.2</span> <span class="title">Anecdotal evidence</span>
+</h3>
+<p id="p-150">Conclusions based on a few striking cases—anecdotal evidence—may not represent the population. Such cases are memorable but rarely typical.</p>
+<figure class="figure figure-like" id="fig-mn-winter"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="ch_intro_to_data/figures/mnWinter/mnWinter.JPG" class="contained" alt="Snowy trees after a storm; one storm in one region says little about global climate."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.3<span class="period">.</span></span><span class="space"> </span>Anecdotal evidence can mislead</figcaption></figure><p id="p-151">Be cautious with anecdotal evidence: it may be true but not representative.</p></section><section class="subsection" id="subsec-sampling-population"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.3</span> <span class="title">Sampling from a population</span>
+</h3>
+<p id="p-152">We typically use a random sample to avoid bias. In a simple random sample each case has equal chance of selection and selection of one case gives no information about others.</p>
+<figure class="figure figure-like" id="fig-pop-to-sample"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="ch_intro_to_data/figures/popToSample/popToSampleGraduates.pdf" class="contained" alt="Randomly selecting cases from a population to form a sample."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.4<span class="period">.</span></span><span class="space"> </span>Selecting a random sample</figcaption></figure><article class="example example-like" id="ex-bias-example"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-bias-example"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Unintentional bias.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-bias-example"><article class="example example-like"><p id="p-153">Letting a nutrition major hand-pick graduates might overrepresent health-related fields. Hand selection risks bias even when unintended.</p></article></div>
+<figure class="figure figure-like" id="fig-pop-to-sub-sample"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="ch_intro_to_data/figures/popToSample/popToSubSampleGraduates.pdf" class="contained" alt="Sampling only from a subset (e.g., health-related majors) introduces bias."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.6<span class="period">.</span></span><span class="space"> </span>Biased selection</figcaption></figure><p id="p-154">Non-response can also bias results: if only a fraction respond, the sample may not represent the population.</p>
+<figure class="figure figure-like" id="fig-survey-sample"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="ch_intro_to_data/figures/popToSample/surveySample.pdf" class="contained" alt="Surveys may only capture a subset of the intended population."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.7<span class="period">.</span></span><span class="space"> </span>Effect of non-response</figcaption></figure><article class="exercise exercise-like" id="gp-online-reviews"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gp-online-reviews"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Interpreting online reviews.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-gp-online-reviews"><article class="exercise exercise-like"><p id="p-155">Product ratings online come from those who choose to post. If 50% of reviews are negative, does that imply 50% of buyers are dissatisfied?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like"><p id="p-156">Likely not; reviewers are self-selected and may be more motivated when dissatisfied, creating negative bias.</p></div></div>
+</div></article></div></section><section class="subsection" id="subsec-observational-studies"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.4</span> <span class="title">Observational studies</span>
+</h3>
+<p id="p-157">Observational data arise without assigning treatments. They can show association but cannot alone establish causation due to possible confounding variables.</p>
+<article class="exercise exercise-like" id="gp-sunscreen-confounding"><a href="" data-knowl="" class="id-ref exercise-knowl original" data-refid="hk-gp-sunscreen-confounding"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space"> </span><span class="codenumber">1.3.9</span><span class="period">.</span><span class="space"> </span><span class="title">Sunscreen and skin cancer.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-gp-sunscreen-confounding"><article class="exercise exercise-like"><p id="p-158">Suppose an observational study finds sunscreen use associated with higher skin cancer. Does sunscreen cause cancer?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like"><p id="p-159">No. Sun exposure confounds: more sun leads to both more sunscreen and higher cancer risk.</p></div></div>
+</div></article></div>
+<p id="p-160">Confounding variables affect both explanatory and response variables. Observational studies may be prospective (following subjects forward) or retrospective (using past records).</p></section><section class="subsection" id="subsec-four-sampling-methods"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.5</span> <span class="title">Four sampling methods</span>
+</h3>
+<p id="p-161">Randomness underlies most statistical methods. Common designs:</p>
+<ul class="disc">
+<li id="li-72"><p id="p-162"><dfn class="terminology">Simple random sample:</dfn> every case equally likely, independent selection.</p></li>
+<li id="li-73"><p id="p-163"><dfn class="terminology">Stratified sample:</dfn> divide into similar strata, then sample within each.</p></li>
+<li id="li-74"><p id="p-164"><dfn class="terminology">Cluster sample:</dfn> divide into clusters, sample clusters, include all cases in chosen clusters.</p></li>
+<li id="li-75"><p id="p-165"><dfn class="terminology">Multistage sample:</dfn> sample clusters, then sample within clusters.</p></li>
+</ul>
+<figure class="figure figure-like" id="fig-simple-stratified"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="ch_intro_to_data/figures/samplingMethodsFigure/samplingMethodsFigure.pdf" class="contained" alt="Comparison of selecting individuals directly versus sampling within strata."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.10<span class="period">.</span></span><span class="space"> </span>Simple random vs. stratified sampling</figcaption></figure><figure class="figure figure-like" id="fig-cluster-multistage"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="ch_intro_to_data/figures/samplingMethodsFigure/samplingMethodsFigure.pdf" class="contained" alt="Sampling entire clusters or sampling within selected clusters."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.11<span class="period">.</span></span><span class="space"> </span>Cluster and multistage sampling</figcaption></figure><article class="example example-like" id="ex-malaria-sampling"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-ex-malaria-sampling"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.12</span><span class="period">.</span><span class="space"> </span><span class="title">Choosing a sampling design.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-ex-malaria-sampling"><article class="example example-like"><p id="p-166">Estimating malaria rate across 30 similar villages: cluster or multistage sampling (select villages, then people) is cost-effective and yields reliable estimates with appropriate analysis.</p></article></div></section><section class="exercises" id="exercises-3"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.3.6</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ex-air-pollution-scope"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Air pollution and birth outcomes, scope of inference.</span>
+</h4>
+<p id="p-167">For the air pollution and preterm births study: identify population and sample; discuss generalizability and causality.</p></article><article class="exercise exercise-like" id="ex-cheaters-scope"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Cheaters, scope of inference.</span>
+</h4>
+<p id="p-168">For the honesty study on 160 children: identify population and sample; discuss generalizability and causality.</p></article><article class="exercise exercise-like" id="ex-buteyko-scope"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Buteyko method, scope of inference.</span>
+</h4>
+<p id="p-169">For the Buteyko asthma study: identify population and sample; discuss generalizability and causality.</p></article><article class="exercise exercise-like" id="ex-stealers-scope"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Stealers, scope of inference.</span>
+</h4>
+<p id="p-170">For the socio-economic class and candy study: identify population and sample; discuss generalizability and causality.</p></article><article class="exercise exercise-like" id="ex-relax-after-work-definitions"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Relaxing after work.</span>
+</h4>
+<p id="p-171">Classify observation, variable, statistic, parameter for the relaxing time survey (mean 1.65 hours).</p></article><article class="exercise exercise-like" id="ex-cats-on-youtube-definitions"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Cats on YouTube.</span>
+</h4>
+<p id="p-172">Classify observation, variable, statistic, parameter for estimating percent cat videos.</p></article><article class="exercise exercise-like" id="ex-course-satisfaction-sections"><h4 class="heading">
+<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">Course satisfaction across sections.</span>
+</h4>
+<p id="p-173">Large class with four lab sections: identify study type and propose sampling strategy.</p></article><article class="exercise exercise-like" id="ex-housing-proposal"><h4 class="heading">
+<span class="codenumber">8<span class="period">.</span></span><span class="space"> </span><span class="title">Housing proposal across dorms.</span>
+</h4>
+<p id="p-174">Survey opinions across east/west campus dorms ensuring equal year representation: identify study type and sampling plan.</p></article><article class="exercise exercise-like" id="ex-internet-life-expectancy-scope"><h4 class="heading">
+<span class="codenumber">9<span class="period">.</span></span><span class="space"> </span><span class="title">Internet use and life expectancy.</span>
+</h4>
+<p id="p-175">Interpret the life expectancy vs. internet use scatterplot; identify study type and a confounder.</p></article><article class="exercise exercise-like" id="ex-stressed-out-observational"><h4 class="heading">
+<span class="codenumber">10<span class="period">.</span></span><span class="space"> </span><span class="title">Stressed out, Part I.</span>
+</h4>
+<p id="p-176">Stress and muscle cramps observational study: study type, causality, possible confounders.</p></article><article class="exercise exercise-like" id="ex-evaluate-sampling-methods-union"><h4 class="heading">
+<span class="codenumber">11<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluate sampling methods.</span>
+</h4>
+<p id="p-177">Assess reasonableness of three proposed sampling designs for a student fee survey.</p></article><article class="exercise exercise-like" id="ex-random-digit-dialing-gallup"><h4 class="heading">
+<span class="codenumber">12<span class="period">.</span></span><span class="space"> </span><span class="title">Random digit dialing.</span>
+</h4>
+<p id="p-178">Why Gallup uses random digit dialing instead of the phone book.</p></article><article class="exercise exercise-like" id="ex-haters-scope"><h4 class="heading">
+<span class="codenumber">13<span class="period">.</span></span><span class="space"> </span><span class="title">Haters are gonna hate, study confirms.</span>
+</h4>
+<p id="p-179">Dispositional attitude study with fake microwave reviews: identify cases, variables, sampling, design, causality, generalization.</p></article><article class="exercise exercise-like" id="ex-family-size-bias-question"><h4 class="heading">
+<span class="codenumber">14<span class="period">.</span></span><span class="space"> </span><span class="title">Family size.</span>
+</h4>
+<p id="p-180">Surveying elementary students about family size: is the estimate biased and in which direction?</p></article><article class="exercise exercise-like" id="ex-sampling-strategies-social"><h4 class="heading">
+<span class="codenumber">15<span class="period">.</span></span><span class="space"> </span><span class="title">Sampling strategies.</span>
+</h4>
+<p id="p-181">Classify four proposed sampling methods for a social networking survey and discuss bias.</p></article><article class="exercise exercise-like" id="ex-reading-paper"><h4 class="heading">
+<span class="codenumber">16<span class="period">.</span></span><span class="space"> </span><span class="title">Reading the paper.</span>
+</h4>
+<p id="p-182">Evaluate conclusions in two news articles: smoking and dementia; sleep disorders and bullying.</p></article></section></section></div></main>
 </div>
 </body>
 </html>
