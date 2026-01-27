@@ -1517,49 +1517,929 @@
 
     <introduction>
       <p>
-        The binomial distribution describes the probability of having exactly k 
-        successes in n independent Bernoulli trials with probability of success p.
+        The <term>binomial distribution</term> is used to describe the number of successes 
+        in a fixed number of trials. This is different from the geometric distribution, which 
+        described the number of trials we must wait before we observe a success.
       </p>
     </introduction>
 
     <subsection xml:id="subsec-binomial-distribution-def">
       <title>The binomial distribution</title>
-      <p>To be converted from LaTeX source.</p>
+      
+      <p>
+        Let's again imagine ourselves back at the insurance agency where 70% of individuals 
+        do not exceed their deductible.
+      </p>
 
-      <example xml:id="ex-binomial-underage-drinking">
-        <title>Underage drinking</title>
+      <example xml:id="ex-insure-one-of-four-exceeds">
+        <title>Probability of one exceeding deductible</title>
         <statement>
           <p>
-            Suppose we randomly sample 10 high school students and ask if they 
-            have consumed alcohol in the last month. What is the probability 
-            that exactly 2 of them say yes?
+            Suppose the insurance agency is considering a random sample of four individuals 
+            they insure. What is the chance exactly one of them will exceed the deductible 
+            and the other three will not? Let's call the four people Ariana (<m>A</m>), 
+            Brittany (<m>B</m>), Carlton (<m>C</m>), and Damian (<m>D</m>) for convenience.
           </p>
         </statement>
         <solution>
-          <p>To be converted from LaTeX source.</p>
+          <p>
+            Let's consider a scenario where one person exceeds the deductible:
+            <md>
+              <mrow>
+                \amp P(A=\text{exceed}, B=\text{not}, C=\text{not}, D=\text{not})
+              </mrow>
+              <mrow>
+                \amp \quad = P(A=\text{exceed}) \cdot P(B=\text{not}) \cdot P(C=\text{not}) \cdot P(D=\text{not})
+              </mrow>
+              <mrow>
+                \amp \quad = (0.3)(0.7)(0.7)(0.7)
+              </mrow>
+              <mrow>
+                \amp \quad = (0.7)^3 (0.3)^1
+              </mrow>
+              <mrow>
+                \amp \quad = 0.103
+              </mrow>
+            </md>
+            But there are three other scenarios: Brittany, Carlton, or Damian could have been 
+            the one to exceed the deductible. In each of these cases, the probability is again 
+            <m>(0.7)^3(0.3)^1</m>. These four scenarios exhaust all the possible ways that exactly 
+            one of these four people could have exceeded the deductible, so the total probability is
+            <me>4 \times (0.7)^3(0.3)^1 = 0.412</me>
+          </p>
         </solution>
       </example>
+
+      <exercise>
+        <statement>
+          <p>
+            Verify that the scenario where Brittany is the only one to exceed the deductible 
+            has probability <m>(0.7)^3(0.3)^1</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>P(A=\text{not}, B=\text{exceed}, C=\text{not}, D=\text{not}) 
+            = (0.7)(0.3)(0.7)(0.7) = (0.7)^3(0.3)^1</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        The scenario outlined in <xref ref="ex-insure-one-of-four-exceeds"/> is an example 
+        of a binomial distribution scenario. The <term>binomial distribution</term> describes 
+        the probability of having exactly <m>k</m> successes in <m>n</m> independent Bernoulli 
+        trials with probability of a success <m>p</m> (in <xref ref="ex-insure-one-of-four-exceeds"/>, 
+        <m>n=4</m>, <m>k=3</m>, <m>p=0.7</m>). We would like to determine the probabilities 
+        associated with the binomial distribution more generally, i.e. we want a formula where 
+        we can use <m>n</m>, <m>k</m>, and <m>p</m> to obtain the probability. To do this, we 
+        reexamine each part of <xref ref="ex-insure-one-of-four-exceeds"/>.
+      </p>
+
+      <p>
+        There were four individuals who could have been the one to exceed the deductible, and 
+        each of these four scenarios had the same probability. Thus, we could identify the final 
+        probability as
+        <me>[\text{number of scenarios}] \times P(\text{single scenario})</me>
+        The first component of this equation is the number of ways to arrange the <m>k=3</m> 
+        successes among the <m>n=4</m> trials. The second component is the probability of any 
+        of the four (equally probable) scenarios.
+      </p>
+
+      <p>
+        Consider <m>P(\text{single scenario})</m> under the general case of <m>k</m> successes 
+        and <m>n-k</m> failures in the <m>n</m> trials. In any such scenario, we apply the 
+        Multiplication Rule for independent events:
+        <me>p^k(1-p)^{n-k}</me>
+        This is our general formula for <m>P(\text{single scenario})</m>.
+      </p>
+
+      <p>
+        Secondly, we introduce a general formula for the number of ways to choose <m>k</m> 
+        successes in <m>n</m> trials, i.e. arrange <m>k</m> successes and <m>n-k</m> failures:
+        <me>\binom{n}{k} = \frac{n!}{k!(n-k)!}</me>
+        The quantity <m>\binom{n}{k}</m> is read <term>n choose k</term>.<fn>Other notation for 
+        <m>n</m> choose <m>k</m> includes <m>_nC_k</m>, <m>C_n^k</m>, and <m>C(n,k)</m>.</fn> 
+        The exclamation point notation (e.g. <m>k!</m>) denotes a <term>factorial</term> expression.
+        <md>
+          <mrow>0! \amp = 1</mrow>
+          <mrow>1! \amp = 1</mrow>
+          <mrow>2! \amp = 2\times 1 = 2</mrow>
+          <mrow>3! \amp = 3\times 2\times 1 = 6</mrow>
+          <mrow>4! \amp = 4\times 3\times 2\times 1 = 24</mrow>
+          <mrow>\amp \vdots</mrow>
+          <mrow>n! \amp = n\times(n-1)\times\cdots\times 3\times 2\times 1</mrow>
+        </md>
+        Using the formula, we can compute the number of ways to choose <m>k=3</m> successes 
+        in <m>n=4</m> trials:
+        <me>
+          \binom{4}{3} = \frac{4!}{3!(4-3)!} = \frac{4!}{3!1!} 
+          = \frac{4\times 3\times 2\times 1}{(3\times 2\times 1)(1)} = 4
+        </me>
+        This result is exactly what we found by carefully thinking of each possible scenario in 
+        <xref ref="ex-insure-one-of-four-exceeds"/>.
+      </p>
+
+      <p>
+        Substituting <m>n</m> choose <m>k</m> for the number of scenarios and 
+        <m>p^k(1-p)^{n-k}</m> for the single scenario probability yields the general binomial formula.
+      </p>
+
+      <blockquote>
+        <p>
+          <term>Binomial distribution</term>
+        </p>
+        <p>
+          Suppose the probability of a single trial being a success is <m>p</m>. Then the 
+          probability of observing exactly <m>k</m> successes in <m>n</m> independent trials 
+          is given by
+          <me>\binom{n}{k}p^k(1-p)^{n-k} = \frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}</me>
+          The mean, variance, and standard deviation of the number of observed successes are
+          <md>
+            <mrow>\mu \amp = np \amp \sigma^2 \amp = np(1-p) \amp \sigma \amp = \sqrt{np(1-p)}</mrow>
+          </md>
+        </p>
+      </blockquote>
+
+      <blockquote>
+        <p>
+          <term>Is it binomial? Four conditions to check.</term>
+        </p>
+        <p>
+          <ol>
+            <li><p>The trials are independent.</p></li>
+            <li><p>The number of trials, <m>n</m>, is fixed.</p></li>
+            <li><p>Each trial outcome can be classified as a <em>success</em> or <em>failure</em>.</p></li>
+            <li><p>The probability of a success, <m>p</m>, is the same for each trial.</p></li>
+          </ol>
+        </p>
+      </blockquote>
+
+      <example xml:id="ex-binomial-eight-individuals">
+        <title>Probability of 3 of 8 exceeding deductible</title>
+        <statement>
+          <p>
+            What is the probability that 3 of 8 randomly selected individuals will have exceeded 
+            the insurance deductible, i.e. that 5 of 8 will not exceed the deductible? Recall 
+            that 70% of individuals will not exceed the deductible.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We would like to apply the binomial model, so we check the conditions. The number of 
+            trials is fixed (<m>n=8</m>) (condition 2) and each trial outcome can be classified 
+            as a success or failure (condition 3). Because the sample is random, the trials are 
+            independent (condition 1) and the probability of a success is the same for each trial 
+            (condition 4).
+          </p>
+          <p>
+            In the outcome of interest, there are <m>k=5</m> successes in <m>n=8</m> trials (recall 
+            that a success is an individual who does <em>not</em> exceed the deductible), and the 
+            probability of a success is <m>p=0.7</m>. So the probability that 5 of 8 will not exceed 
+            the deductible and 3 will exceed the deductible is given by
+            <md>
+              <mrow>
+                \binom{8}{5}(0.7)^5(1-0.7)^{8-5} \amp = \frac{8!}{5!(8-5)!}(0.7)^5(1-0.7)^{8-5}
+              </mrow>
+              <mrow>
+                \amp = \frac{8!}{5!3!}(0.7)^5(0.3)^3
+              </mrow>
+            </md>
+            Dealing with the factorial part:
+            <me>
+              \frac{8!}{5!3!} = \frac{8\times 7\times 6\times 5\times 4\times 3\times 2\times 1}{(5\times 4\times 3\times 2\times 1)(3\times 2\times 1)}
+              = \frac{8\times 7\times 6}{3\times 2\times 1} = 56
+            </me>
+            Using <m>(0.7)^5(0.3)^3 \approx 0.00454</m>, the final probability is about 
+            <m>56 \times 0.00454 \approx 0.254</m>.
+          </p>
+        </solution>
+      </example>
+
+      <blockquote>
+        <p>
+          <term>Computing binomial probabilities</term>
+        </p>
+        <p>
+          The first step in using the binomial model is to check that the model is appropriate. 
+          The second step is to identify <m>n</m>, <m>p</m>, and <m>k</m>. As the last stage 
+          use software or the formulas to determine the probability, then interpret the results.
+        </p>
+        <p>
+          If you must do calculations by hand, it's often useful to cancel out as many terms as 
+          possible in the top and bottom of the binomial coefficient.
+        </p>
+      </blockquote>
+
+      <exercise>
+        <statement>
+          <p>
+            If we randomly sampled 40 case files from the insurance agency discussed earlier, how 
+            many of the cases would you expect to not have exceeded the deductible in a given year? 
+            What is the standard deviation of the number that would not have exceeded the deductible?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We are asked to determine the expected number (the mean) and the standard deviation, 
+            both of which can be directly computed from the formulas: 
+            <m>\mu = np = 40 \times 0.7 = 28</m> and 
+            <m>\sigma = \sqrt{np(1-p)} = \sqrt{40 \times 0.7 \times 0.3} = 2.9</m>. Because very 
+            roughly 95% of observations fall within 2 standard deviations of the mean (see 
+            Section 1.6.3), we would probably observe at least 22 but fewer than 34 individuals 
+            in our sample who would not exceed the deductible.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            The probability that a random smoker will develop a severe lung condition in his or 
+            her lifetime is about 0.3. If you have 4 friends who smoke, are the conditions for 
+            the binomial model satisfied?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            One possible answer: if the friends know each other, then the independence assumption 
+            is probably not satisfied. For example, acquaintances may have similar smoking habits, 
+            or those friends might make a pact to quit together.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-no-more-than-one-friend-lung-condition">
+        <statement>
+          <p>
+            Suppose these four friends do not know each other and we can treat them as if they 
+            were a random sample from the population. Is the binomial model appropriate? What is 
+            the probability that
+            <ol marker="a.">
+              <li><p>None of them will develop a severe lung condition?</p></li>
+              <li><p>One will develop a severe lung condition?</p></li>
+              <li><p>That no more than one will develop a severe lung condition?</p></li>
+            </ol>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            To check if the binomial model is appropriate, we must verify the conditions. (i) Since 
+            we are supposing we can treat the friends as a random sample, they are independent. 
+            (ii) We have a fixed number of trials (<m>n=4</m>). (iii) Each outcome is a success or 
+            failure. (iv) The probability of a success is the same for each trial since the 
+            individuals are like a random sample (<m>p=0.3</m> if we say a <q>success</q> is someone 
+            getting a lung condition, a morbid choice).
+          </p>
+          <p>
+            Compute parts (a) and (b) using the binomial formula: 
+            <m>P(0) = \binom{4}{0}(0.3)^0(0.7)^4 = 1 \times 1 \times 0.7^4 = 0.2401</m>, 
+            <m>P(1) = \binom{4}{1}(0.3)^1(0.7)^3 = 0.4116</m>. Note: <m>0! = 1</m>. Part (c) can 
+            be computed as the sum of parts (a) and (b): <m>P(0) + P(1) = 0.2401 + 0.4116 = 0.6517</m>. 
+            That is, there is about a 65% chance that no more than one of your four smoking friends 
+            will develop a severe lung condition.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            What is the probability that at least 2 of your 4 smoking friends will develop a 
+            severe lung condition in their lifetimes?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The complement (no more than one will develop a severe lung condition) as computed in 
+            <xref ref="ex-no-more-than-one-friend-lung-condition"/> as 0.6517, so we compute one 
+            minus this value: 0.3483.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            Suppose you have 7 friends who are smokers and they can be treated as a random sample 
+            of smokers.
+            <ol marker="a.">
+              <li>
+                <p>
+                  How many would you expect to develop a severe lung condition, i.e. what is the mean?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at most 2 of your 7 friends will develop a severe 
+                  lung condition?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (a) <m>\mu = 0.3 \times 7 = 2.1</m>. (b) <m>P(\text{0, 1, or 2 develop severe lung condition}) 
+            = P(k=0) + P(k=1) + P(k=2) = 0.6471</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        Next we consider the first term in the binomial probability, <m>n</m> choose <m>k</m> 
+        under some special scenarios.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Why is it true that <m>\binom{n}{0} = 1</m> and <m>\binom{n}{n} = 1</m> for any number <m>n</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Frame these expressions into words. How many different ways are there to arrange 0 
+            successes and <m>n</m> failures in <m>n</m> trials? (1 way.) How many different ways 
+            are there to arrange <m>n</m> successes and 0 failures in <m>n</m> trials? (1 way.)
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise>
+        <statement>
+          <p>
+            How many ways can you arrange one success and <m>n-1</m> failures in <m>n</m> trials? 
+            How many ways can you arrange <m>n-1</m> successes and one failure in <m>n</m> trials?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            One success and <m>n-1</m> failures: there are exactly <m>n</m> unique places we can 
+            put the success, so there are <m>n</m> ways to arrange one success and <m>n-1</m> 
+            failures. A similar argument is used for the second question. Mathematically, we show 
+            these results by verifying the following two equations:
+            <me>\binom{n}{1} = n, \qquad \binom{n}{n-1} = n</me>
+          </p>
+        </solution>
+      </exercise>
     </subsection>
 
     <subsection xml:id="subsec-normal-approx-binomial">
       <title>Normal approximation to the binomial distribution</title>
-      <p>To be converted from LaTeX source.</p>
+
+      <p>
+        The binomial formula is cumbersome when the sample size (<m>n</m>) is large, particularly 
+        when we consider a range of observations. In some cases we may use the normal distribution 
+        as an easier and faster way to estimate binomial probabilities.
+      </p>
+
+      <example xml:id="ex-exact-binom-smoker">
+        <title>Smoker survey probability</title>
+        <statement>
+          <p>
+            Approximately 15% of the US population smokes cigarettes. A local government believed 
+            their community had a lower smoker rate and commissioned a survey of 400 randomly 
+            selected individuals. The survey found that only 42 of the 400 participants smoke 
+            cigarettes. If the true proportion of smokers in the community was really 15%, what 
+            is the probability of observing 42 or fewer smokers in a sample of 400 people?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We leave the usual verification that the four conditions for the binomial model are 
+            valid as an exercise.
+          </p>
+          <p>
+            The question posed is equivalent to asking, what is the probability of observing 
+            <m>k=0</m>, 1, 2, <ellipsis/>, or 42 smokers in a sample of <m>n=400</m> when 
+            <m>p=0.15</m>? We can compute these 43 different probabilities and add them together 
+            to find the answer:
+            <md>
+              <mrow>
+                \amp P(k=0 \text{ or } k=1 \text{ or } \cdots \text{ or } k=42)
+              </mrow>
+              <mrow>
+                \amp \quad = P(k=0) + P(k=1) + \cdots + P(k=42)
+              </mrow>
+              <mrow>
+                \amp \quad = 0.0054
+              </mrow>
+            </md>
+            If the true proportion of smokers in the community is <m>p=0.15</m>, then the 
+            probability of observing 42 or fewer smokers in a sample of <m>n=400</m> is 0.0054.
+          </p>
+        </solution>
+      </example>
+
+      <p>
+        The computations in <xref ref="ex-exact-binom-smoker"/> are tedious and long. In general, 
+        we should avoid such work if an alternative method exists that is faster, easier, and still 
+        accurate. Recall that calculating probabilities of a range of values is much easier in the 
+        normal model. We might wonder, is it reasonable to use the normal model in place of the 
+        binomial distribution? Surprisingly, yes, if certain conditions are met.
+      </p>
+
+      <exercise>
+        <statement>
+          <p>
+            Here we consider the binomial model when the probability of a success is <m>p=0.10</m>. 
+            <xref ref="fig-four-binomial-approx"/> shows four hollow histograms for simulated samples 
+            from the binomial distribution using four different sample sizes: <m>n=10, 30, 100, 300</m>. 
+            What happens to the shape of the distributions as the sample size increases? What 
+            distribution does the last hollow histogram resemble?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The distribution is transformed from a blocky and skewed distribution into one that 
+            rather resembles the normal distribution in last hollow histogram.
+          </p>
+        </solution>
+      </exercise>
 
       <figure xml:id="fig-four-binomial-approx">
-        <caption>Four binomial models showing approximation to normal</caption>
+        <caption>
+          Hollow histograms of samples from the binomial model when <m>p=0.10</m>. The sample 
+          sizes for the four plots are <m>n=10</m>, 30, 100, and 300, respectively.
+        </caption>
         <image source="ch_distributions/figures/fourBinomialModelsShowingApproxToNormal"/>
       </figure>
+
+      <blockquote>
+        <p>
+          <term>Normal approximation of the binomial distribution</term>
+        </p>
+        <p>
+          The binomial distribution with probability of success <m>p</m> is nearly normal when 
+          the sample size <m>n</m> is sufficiently large that <m>np</m> and <m>n(1-p)</m> are 
+          both at least 10. The approximate normal distribution has parameters corresponding to 
+          the mean and standard deviation of the binomial distribution:
+          <md>
+            <mrow>\mu \amp = np \amp \sigma \amp = \sqrt{np(1-p)}</mrow>
+          </md>
+        </p>
+      </blockquote>
+
+      <p>
+        The normal approximation may be used when computing the range of many possible successes. 
+        For instance, we may apply the normal distribution to the setting of 
+        <xref ref="ex-exact-binom-smoker"/>.
+      </p>
+
+      <example xml:id="ex-approx-normal-for-smoker-binom">
+        <title>Normal approximation for smoker survey</title>
+        <statement>
+          <p>
+            How can we use the normal approximation to estimate the probability of observing 42 or 
+            fewer smokers in a sample of 400, if the true proportion of smokers is <m>p=0.15</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Showing that the binomial model is reasonable was a suggested exercise in 
+            <xref ref="ex-exact-binom-smoker"/>. We also verify that both <m>np</m> and 
+            <m>n(1-p)</m> are at least 10:
+            <md>
+              <mrow>np \amp = 400 \times 0.15 = 60 \amp n(1-p) \amp = 400 \times 0.85 = 340</mrow>
+            </md>
+            With these conditions checked, we may use the normal approximation in place of the 
+            binomial distribution using the mean and standard deviation from the binomial model:
+            <md>
+              <mrow>\mu \amp = np = 60 \amp \sigma \amp = \sqrt{np(1-p)} = 7.14</mrow>
+            </md>
+            We want to find the probability of observing 42 or fewer smokers using this model.
+          </p>
+        </solution>
+      </example>
+
+      <exercise>
+        <statement>
+          <p>
+            Use the normal model <m>N(\mu=60, \sigma=7.14)</m> to estimate the probability of 
+            observing 42 or fewer smokers. Your answer should be approximately equal to the 
+            solution of <xref ref="ex-exact-binom-smoker"/>: 0.0054.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Compute the Z-score first: <m>Z = \frac{42-60}{7.14} = -2.52</m>. The corresponding 
+            left tail area is 0.0059.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
 
     <subsection xml:id="subsec-normal-approx-breaks-down">
       <title>The normal approximation breaks down on small intervals</title>
-      <p>To be converted from LaTeX source.</p>
+
+      <p>
+        The normal approximation to the binomial distribution tends to perform poorly when 
+        estimating the probability of a small range of counts, even when the conditions are met.
+      </p>
+
+      <p>
+        Suppose we wanted to compute the probability of observing 49, 50, or 51 smokers in 400 
+        when <m>p=0.15</m>. With such a large sample, we might be tempted to apply the normal 
+        approximation and use the range 49 to 51. However, we would find that the binomial 
+        solution and the normal approximation notably differ:
+        <md>
+          <mrow>\text{Binomial:} \amp \text{ } 0.0649 \amp \text{Normal:} \amp \text{ } 0.0421</mrow>
+        </md>
+        We can identify the cause of this discrepancy using <xref ref="fig-norm-approx-binomial-fail"/>, 
+        which shows the areas representing the binomial probability (outlined) and normal 
+        approximation (shaded). Notice that the width of the area under the normal distribution 
+        is 0.5 units too slim on both sides of the interval.
+      </p>
 
       <figure xml:id="fig-norm-approx-binomial-fail">
-        <caption>Normal approximation to binomial can fail on small intervals</caption>
+        <caption>
+          A normal curve with the area between 49 and 51 shaded. The outlined area represents 
+          the exact binomial probability.
+        </caption>
         <image source="ch_distributions/figures/normApproxToBinomFail"/>
       </figure>
+
+      <blockquote>
+        <p>
+          <term>Improving the normal approximation for the binomial distribution</term>
+        </p>
+        <p>
+          The normal approximation to the binomial distribution for intervals of values is usually 
+          improved if cutoff values are modified slightly. The cutoff values for the lower end of 
+          a shaded region should be reduced by 0.5, and the cutoff value for the upper end should 
+          be increased by 0.5.
+        </p>
+      </blockquote>
+
+      <p>
+        The tip to add extra area when applying the normal approximation is most often useful when 
+        examining a range of observations. In the example above, the revised normal distribution 
+        estimate is 0.0633, much closer to the exact value of 0.0649. While it is possible to also 
+        apply this correction when computing a tail area, the benefit of the modification usually 
+        disappears since the total interval is typically quite wide.
+      </p>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-underage-drinking-intro">
+        <title>Underage drinking, Part I</title>
+        <statement>
+          <p>
+            Data collected by the Substance Abuse and Mental Health Services Administration 
+            (SAMSHA) suggests that 69.7% of 18-20 year olds consumed alcoholic beverages in any 
+            given year.<fn>Substance Abuse and Mental Health Services Administration, <url href="http://www.samhsa.gov/data/">Results from the 2013 National Survey on Drug Use and Health: Summary of National Findings</url></fn>
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Suppose a random sample of ten 18-20 year olds is taken. Is the use of the 
+                  binomial distribution appropriate for calculating the probability that exactly 
+                  six consumed alcoholic beverages? Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that exactly 6 out of 10 randomly sampled 18-20 year 
+                  olds consumed an alcoholic drink.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that exactly four out of ten 18-20 year olds have 
+                  <em>not</em> consumed an alcoholic beverage?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at most 2 out of 5 randomly sampled 18-20 year olds 
+                  have consumed alcoholic beverages?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at least 1 out of 5 randomly sampled 18-20 year olds 
+                  have consumed alcoholic beverages?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-chickenpox-intro">
+        <title>Chickenpox, Part I</title>
+        <statement>
+          <p>
+            Boston Children's Hospital estimates that 90% of Americans have had chickenpox by the 
+            time they reach adulthood.<fn>Boston Children's Hospital, <url href="http://www.childrenshospital.org/conditions-and-treatments/conditions/c/chickenpox/overview">Chickenpox</url></fn>
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Suppose we take a random sample of 100 American adults. Is the use of the 
+                  binomial distribution appropriate for calculating the probability that exactly 97 
+                  out of 100 randomly sampled American adults had chickenpox during childhood? Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that exactly 97 out of 100 randomly sampled American 
+                  adults had chickenpox during childhood.
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that exactly 3 out of a new sample of 100 American adults 
+                  have <em>not</em> had chickenpox in their childhood?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at least 1 out of 10 randomly sampled American adults 
+                  have had chickenpox?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that at most 3 out of 10 randomly sampled American adults 
+                  have <em>not</em> had chickenpox?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-underage-drinking-normal-approx">
+        <title>Underage drinking, Part II</title>
+        <statement>
+          <p>
+            We learned in <xref ref="ex-underage-drinking-intro"/> that about 70% of 18-20 year 
+            olds consumed alcoholic beverages in any given year. We now consider a random sample 
+            of fifty 18-20 year olds.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  How many people would you expect to have consumed alcoholic beverages? And with 
+                  what standard deviation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would you be surprised if there were 45 or more people who have consumed alcoholic 
+                  beverages?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that 45 or more people in this sample have consumed 
+                  alcoholic beverages? How does this probability relate to your answer to part (b)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-chickenpox-normal-approx">
+        <title>Chickenpox, Part II</title>
+        <statement>
+          <p>
+            We learned in <xref ref="ex-chickenpox-intro"/> that about 90% of American adults had 
+            chickenpox before adulthood. We now consider a random sample of 120 American adults.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  How many people in this sample would you expect to have had chickenpox in their 
+                  childhood? And with what standard deviation?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would you be surprised if there were 105 people who have had chickenpox in their 
+                  childhood?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that 105 or fewer people in this sample have had chickenpox 
+                  in their childhood? How does this probability relate to your answer to part (b)?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-game-of-dreidel">
+        <title>Game of dreidel</title>
+        <statement>
+          <p>
+            A dreidel is a four-sided spinning top with the Hebrew letters <em>nun</em>, 
+            <em>gimel</em>, <em>hei</em>, and <em>shin</em>, one on each side. Each side is 
+            equally likely to come up in a single spin of the dreidel. Suppose you spin a dreidel 
+            three times. Calculate the probability of getting
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>at least one <em>nun</em>?</p></li>
+              <li><p>exactly 2 <em>nun</em>s?</p></li>
+              <li><p>exactly 1 <em>hei</em>?</p></li>
+              <li><p>at most 2 <em>gimel</em>s?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-arachnophobia">
+        <title>Arachnophobia</title>
+        <statement>
+          <p>
+            A Gallup Poll found that 7% of teenagers (ages 13 to 17) suffer from arachnophobia and 
+            are extremely afraid of spiders. At a summer camp there are 10 teenagers sleeping in 
+            each tent. Assume that these 10 teenagers are independent of each other.<fn>Gallup Poll, <url href="http://www.gallup.com/poll/">Fear of Spiders</url></fn>
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Calculate the probability that at least one of them suffers from arachnophobia.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that exactly 2 of them suffer from arachnophobia.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Calculate the probability that at most 1 of them suffers from arachnophobia.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the camp counselor wants to make sure no more than 1 teenager in each tent is 
+                  afraid of spiders, does it seem reasonable for him to randomly assign teenagers to 
+                  tents?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-eye-color-binomial">
+        <title>Eye color, Part II</title>
+        <statement>
+          <p>
+            Exercise 4.2.12 introduces a husband and wife with brown eyes who have 0.75 probability 
+            of having children with brown eyes, 0.125 probability of having children with blue eyes, 
+            and 0.125 probability of having children with green eyes.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that their first child will have green eyes and the second 
+                  will not?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that exactly one of their two children will have green eyes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If they have six children, what is the probability that exactly two will have green 
+                  eyes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If they have six children, what is the probability that at least one will have green 
+                  eyes?
+                </p>
+              </li>
+              <li>
+                <p>
+                  What is the probability that the first green eyed child will be the 4th child?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Would it be considered unusual if only 2 out of their 6 children had brown eyes?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sickle-cell-anemia">
+        <title>Sickle cell anemia</title>
+        <statement>
+          <p>
+            Sickle cell anemia is a genetic blood disorder where red blood cells lose their 
+            flexibility and assume an abnormal, rigid, <q>sickle</q> shape, which results in a 
+            risk of various complications. If both parents are carriers of the disease, then a 
+            child has a 25% chance of having the disease, 50% chance of being a carrier, and 25% 
+            chance of neither having the disease nor being a carrier. If two parents who are 
+            carriers of the disease have 3 children, what is the probability that
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>two will have the disease?</p></li>
+              <li><p>none will have the disease?</p></li>
+              <li><p>at least one will neither have the disease nor be a carrier?</p></li>
+              <li><p>the first child with the disease will the be 3rd child?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-explore-combinations">
+        <title>Exploring permutations</title>
+        <statement>
+          <p>
+            The formula for the number of ways to arrange <m>n</m> objects is 
+            <m>n! = n \times (n-1) \times \cdots \times 2 \times 1</m>. This exercise walks you 
+            through the derivation of this formula for a couple of special cases.
+          </p>
+          <p>
+            A small company has five employees: Anna, Ben, Carl, Damian, and Eddy. There are five 
+            parking spots in a row at the company, none of which are assigned, and each day the 
+            employees pull into a random parking spot. That is, all possible orderings of the cars 
+            in the row of spots are equally likely.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  On a given day, what is the probability that the employees park in alphabetical 
+                  order?
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the alphabetical order has an equal chance of occurring relative to all other 
+                  possible orderings, how many ways must there be to arrange the five cars?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Now consider a sample of 8 employees instead. How many possible ways are there to 
+                  order these 8 employees' cars?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-male-children">
+        <title>Male children</title>
+        <statement>
+          <p>
+            While it is often assumed that the probabilities of having a boy or a girl are the same, 
+            the actual probability of having a boy is slightly higher at 0.51. Suppose a couple 
+            plans to have 3 kids.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Use the binomial model to calculate the probability that two of them will be boys.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Write out all possible orderings of 3 children, 2 of whom are boys. Use these 
+                  scenarios to calculate the same probability from part (a) but using the addition 
+                  rule for disjoint outcomes. Confirm that your answers from parts (a) and (b) match.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If we wanted to calculate the probability that a couple who plans to have 8 kids 
+                  will have 3 boys, briefly describe why the approach from part (b) would be more 
+                  tedious than the approach from part (a).
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
 
   <!-- Section 4.4: Negative binomial distribution -->
