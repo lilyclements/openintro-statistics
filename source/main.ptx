@@ -12,7 +12,7 @@
       \pgfplotsset{compat=1.15}
     </latex-image-preamble>
     
-    <brandlogo url="https://www.openintro.org/" source="images/openintro-logo.png" />
+    <brandlogo url="https://www.openintro.org/" source="images/openintro-logo.svg" />
     
     <document-id>openintro-statistics</document-id>
     
