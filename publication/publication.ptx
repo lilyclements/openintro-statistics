@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <publication>
+  <assets>
+    <directory>../source/images</directory>
+  </assets>
   <!-- HTML-Specific Options -->
   <html>
     <calculator model="geogebra-graphing"/>
