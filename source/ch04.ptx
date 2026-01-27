@@ -2448,28 +2448,579 @@
 
     <introduction>
       <p>
-        The negative binomial distribution describes the probability of observing 
-        the kth success on the nth trial, where each trial has probability p of 
-        success and all trials are independent.
+        The geometric distribution describes the probability of observing the first 
+        success on the <m>n^{th}</m> trial. The <term>negative binomial distribution</term> 
+        is more general: it describes the probability of observing the <m>k^{th}</m> 
+        success on the <m>n^{th}</m> trial.
       </p>
     </introduction>
 
-    <p>To be converted from LaTeX source.</p>
-
-    <example xml:id="ex-negative-binomial">
-      <title>Negative binomial example</title>
+    <example xml:id="ex-brian-field-goals-intro">
+      <title>Field goal attempts</title>
       <statement>
         <p>
-          Suppose we are interested in the number of people we need to survey 
-          until we find 3 people who support a particular policy. If each person 
-          has a 40% chance of supporting the policy, what is the probability we 
-          need to survey exactly 10 people?
+          Each day a high school football coach tells his star kicker, Brian, that he 
+          can go home after he successfully kicks four 35 yard field goals. Suppose we 
+          say each kick has a probability <m>p</m> of being successful. If <m>p</m> is 
+          small <mdash/> e.g. close to 0.1 <mdash/> would we expect Brian to need many 
+          attempts before he successfully kicks his fourth field goal?
         </p>
       </statement>
       <solution>
-        <p>To be converted from LaTeX source.</p>
+        <p>
+          We are waiting for the fourth success (<m>k=4</m>). If the probability of a 
+          success (<m>p</m>) is small, then the number of attempts (<m>n</m>) will 
+          probably be large. This means that Brian is more likely to need many attempts 
+          before he gets <m>k=4</m> successes. To put this another way, the probability 
+          of <m>n</m> being small is low.
+        </p>
       </solution>
     </example>
+
+    <p>
+      To identify a negative binomial case, we check 4 conditions. The first three are 
+      common to the binomial distribution.
+    </p>
+
+    <blockquote>
+      <p>
+        <term>Is it negative binomial? Four conditions to check</term>
+      </p>
+      <p>
+        <ol marker="1.">
+          <li><p>The trials are independent.</p></li>
+          <li><p>Each trial outcome can be classified as a success or failure.</p></li>
+          <li><p>The probability of a success (<m>p</m>) is the same for each trial.</p></li>
+          <li><p>The last trial must be a success.</p></li>
+        </ol>
+      </p>
+    </blockquote>
+
+    <exercise>
+      <statement>
+        <p>
+          Suppose Brian is very diligent in his attempts and he makes each 35 yard field 
+          goal with probability <m>p=0.8</m>. Take a guess at how many attempts he would 
+          need before making his fourth kick.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          One possible answer: since he is likely to make each field goal attempt, it 
+          will take him at least 4 attempts but probably not more than 6 or 7.
+        </p>
+      </solution>
+    </exercise>
+
+    <example xml:id="ex-six-tries-for-four-successes">
+      <title>Sequences of successes and failures</title>
+      <statement>
+        <p>
+          In yesterday's practice, it took Brian only 6 tries to get his fourth field 
+          goal. Write out each of the possible sequences of kicks.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Because it took Brian six tries to get the fourth success, we know the last 
+          kick must have been a success. That leaves three successful kicks and two 
+          unsuccessful kicks (we label these as failures) that make up the first five 
+          attempts. There are ten possible sequences of these first five kicks, which 
+          are shown in <xref ref="fig-brian-six-attempts"/>. If Brian achieved his fourth 
+          success (<m>k=4</m>) on his sixth attempt (<m>n=6</m>), then his order of 
+          successes and failures must be one of these ten possible sequences.
+        </p>
+      </solution>
+    </example>
+
+    <figure xml:id="fig-brian-six-attempts">
+      <caption>
+        The ten possible sequences when the fourth successful kick is on the sixth 
+        attempt. S denotes a success and F denotes a failure.
+      </caption>
+      <tabular>
+        <row header="yes" bottom="minor">
+          <cell></cell>
+          <cell colspan="6" halign="center">Kick Attempt</cell>
+        </row>
+        <row header="yes" bottom="medium">
+          <cell></cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+          <cell>6</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>6</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>7</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>8</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>9</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+        <row>
+          <cell>10</cell>
+          <cell><m>S_1</m></cell>
+          <cell><m>S_2</m></cell>
+          <cell><m>S_3</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>F</m></cell>
+          <cell><m>S_4</m></cell>
+        </row>
+      </tabular>
+    </figure>
+
+    <exercise xml:id="ex-prob-of-first-sequence">
+      <statement>
+        <p>
+          Each sequence in <xref ref="fig-brian-six-attempts"/> has exactly two failures 
+          and four successes with the last attempt always being a success. If the 
+          probability of a success is <m>p=0.8</m>, find the probability of the first 
+          sequence.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The first sequence: <m>0.2 \times 0.2 \times 0.8 \times 0.8 \times 0.8 \times 0.8 
+          = 0.0164</m>.
+        </p>
+      </solution>
+    </exercise>
+
+    <p>
+      If the probability Brian kicks a 35 yard field goal is <m>p=0.8</m>, what is the 
+      probability it takes Brian exactly six tries to get his fourth successful kick? We 
+      can write this as
+      <md>
+        <mrow>
+          \amp P(\text{it takes Brian six tries to make four field goals})
+        </mrow>
+        <mrow>
+          \amp \quad = P(\text{Brian makes three of his first five field goals, and he makes the sixth one})
+        </mrow>
+        <mrow>
+          \amp \quad = P(\text{$1^{st}$ sequence OR $2^{nd}$ sequence OR } \cdots \text{ OR $10^{th}$ sequence})
+        </mrow>
+      </md>
+      where the sequences are from <xref ref="fig-brian-six-attempts"/>. We can break down 
+      this last probability into the sum of ten disjoint possibilities:
+      <md>
+        <mrow>
+          \amp P(\text{$1^{st}$ sequence OR $2^{nd}$ sequence OR } \cdots \text{ OR $10^{th}$ sequence})
+        </mrow>
+        <mrow>
+          \amp \quad = P(\text{$1^{st}$ sequence}) + P(\text{$2^{nd}$ sequence}) + \cdots + P(\text{$10^{th}$ sequence})
+        </mrow>
+      </md>
+      The probability of the first sequence was identified in <xref ref="ex-prob-of-first-sequence"/> 
+      as 0.0164, and each of the other sequences have the same probability. Since each of 
+      the ten sequences has the same probability, the total probability is ten times that 
+      of any individual sequence.
+    </p>
+
+    <p>
+      The way to compute this negative binomial probability is similar to how the binomial 
+      problems were solved in <xref ref="sec-binomial-distribution"/>. The probability is 
+      broken into two pieces:
+      <md>
+        <mrow>
+          \amp P(\text{it takes Brian six tries to make four field goals})
+        </mrow>
+        <mrow>
+          \amp \quad = [\text{Number of possible sequences}] \times P(\text{Single sequence})
+        </mrow>
+      </md>
+      Each part is examined separately, then we multiply to get the final result.
+    </p>
+
+    <p>
+      We first identify the probability of a single sequence. One particular case is to 
+      first observe all the failures (<m>n-k</m> of them) followed by the <m>k</m> 
+      successes:
+      <md>
+        <mrow>
+          P(\text{Single sequence}) \amp = P(\text{$n-k$ failures and then $k$ successes})
+        </mrow>
+        <mrow>
+          \amp = (1-p)^{n-k} p^{k}
+        </mrow>
+      </md>
+    </p>
+
+    <p>
+      We must also identify the number of sequences for the general case. Above, ten 
+      sequences were identified where the fourth success came on the sixth attempt. These 
+      sequences were identified by fixing the last observation as a success and looking 
+      for all the ways to arrange the other observations. In other words, how many ways 
+      could we arrange <m>k-1</m> successes in <m>n-1</m> trials? This can be found using 
+      the <m>n</m> choose <m>k</m> coefficient but for <m>n-1</m> and <m>k-1</m> instead:
+      <me>
+        {n-1 \choose k-1} = \frac{(n-1)!}{(k-1)! \left((n-1) - (k-1)\right)!} = 
+        \frac{(n-1)!}{(k-1)! \left(n - k\right)!}
+      </me>
+      This is the number of different ways we can order <m>k-1</m> successes and <m>n-k</m> 
+      failures in <m>n-1</m> trials.
+    </p>
+
+    <blockquote>
+      <p>
+        <term>Negative binomial distribution</term>
+      </p>
+      <p>
+        The negative binomial distribution describes the probability of observing the 
+        <m>k^{th}</m> success on the <m>n^{th}</m> trial, where all trials are independent:
+        <me>
+          P(\text{the $k^{th}$ success on the $n^{th}$ trial}) = {n-1 \choose k-1} p^{k}(1-p)^{n-k}
+        </me>
+        The value <m>p</m> represents the probability that an individual trial is a success.
+      </p>
+    </blockquote>
+
+    <example xml:id="ex-brian-fourth-on-sixth">
+      <title>Using the negative binomial formula</title>
+      <statement>
+        <p>
+          Show using the formula for the negative binomial distribution that the probability 
+          Brian kicks his fourth successful field goal on the sixth attempt is 0.164.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The probability of a single success is <m>p=0.8</m>, the number of successes is 
+          <m>k=4</m>, and the number of necessary attempts under this scenario is <m>n=6</m>.
+          <md>
+            <mrow>
+              {n-1 \choose k-1}p^k(1-p)^{n-k} \amp = \frac{5!}{3!2!} (0.8)^4 (0.2)^2
+            </mrow>
+            <mrow>
+              \amp = 10\times 0.0164
+            </mrow>
+            <mrow>
+              \amp = 0.164
+            </mrow>
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <exercise>
+      <statement>
+        <p>
+          The negative binomial distribution requires that each kick attempt by Brian is 
+          independent. Do you think it is reasonable to suggest that each of Brian's kick 
+          attempts are independent?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Answers may vary. We cannot conclusively say they are or are not independent. 
+          However, many statistical reviews of athletic performance suggest such attempts 
+          are very nearly independent.
+        </p>
+      </solution>
+    </exercise>
+
+    <exercise xml:id="ex-brian-within-five">
+      <statement>
+        <p>
+          Assume Brian's kick attempts are independent. What is the probability that Brian 
+          will kick his fourth field goal within 5 attempts?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If his fourth field goal (<m>k=4</m>) is within five attempts, it either took him 
+          four or five tries (<m>n=4</m> or <m>n=5</m>). We have <m>p=0.8</m> from earlier. 
+          Use the negative binomial distribution to compute the probability of <m>n = 4</m> 
+          tries and <m>n=5</m> tries, then add those probabilities together:
+          <md>
+            <mrow>
+              P(n=4\text{ OR }n=5) \amp = P(n=4) + P(n=5)
+            </mrow>
+            <mrow>
+              \amp = {4-1 \choose 4-1} 0.8^4 + {5-1 \choose 4-1} (0.8)^4(1-0.8)
+            </mrow>
+            <mrow>
+              \amp = 1\times 0.41 + 4\times 0.082
+            </mrow>
+            <mrow>
+              \amp = 0.41 + 0.33 = 0.74
+            </mrow>
+          </md>
+        </p>
+      </solution>
+    </exercise>
+
+    <blockquote>
+      <p>
+        <term>Binomial versus negative binomial</term>
+      </p>
+      <p>
+        In the binomial case, we typically have a fixed number of trials and instead 
+        consider the number of successes. In the negative binomial case, we examine how 
+        many trials it takes to observe a fixed number of successes and require that the 
+        last observation be a success.
+      </p>
+    </blockquote>
+
+    <exercise xml:id="ex-hospital-heart-attacks">
+      <statement>
+        <p>
+          On 70% of days, a hospital admits at least one heart attack patient. On 30% of 
+          the days, no heart attack patients are admitted. Identify each case below as a 
+          binomial or negative binomial case, and compute the probability.
+        </p>
+        <p>
+          <ol marker="a.">
+            <li>
+              <p>
+                What is the probability the hospital will admit a heart attack patient on 
+                exactly three days this week?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the probability the second day with a heart attack patient will be 
+                the fourth day of the week?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the probability the fifth day of next month will be the first day 
+                with a heart attack patient?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In each part, <m>p=0.7</m>.
+        </p>
+        <p>
+          <ol marker="a.">
+            <li>
+              <p>
+                The number of days is fixed, so this is binomial. The parameters are 
+                <m>k=3</m> and <m>n=7</m>: 0.097.
+              </p>
+            </li>
+            <li>
+              <p>
+                The last <q>success</q> (admitting a heart attack patient) is fixed to the 
+                last day, so we should apply the negative binomial distribution. The 
+                parameters are <m>k=2</m>, <m>n=4</m>: 0.132.
+              </p>
+            </li>
+            <li>
+              <p>
+                This problem is negative binomial with <m>k=1</m> and <m>n=5</m>: 0.006. 
+                Note that the negative binomial case when <m>k=1</m> is the same as using 
+                the geometric distribution.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </exercise>
+
+    <exercises xml:id="exercises-negative-binomial">
+      <title>Section 4.4 Exercises</title>
+
+      <exercise xml:id="ex-rolling-die-neg-binom">
+        <title>Rolling a die</title>
+        <statement>
+          <p>
+            Calculate the following probabilities and indicate which probability distribution 
+            model is appropriate in each case. You roll a fair die 5 times. What is the 
+            probability of rolling
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>the first 6 on the fifth roll?</p></li>
+              <li><p>exactly three 6s?</p></li>
+              <li><p>the third 6 on the fifth roll?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-playing-darts">
+        <title>Playing darts</title>
+        <statement>
+          <p>
+            Calculate the following probabilities and indicate which probability distribution 
+            model is appropriate in each case. A very good darts player can hit the bull's 
+            eye (red circle in the center of the dart board) 65% of the time. What is the 
+            probability that he
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>hits the bullseye for the <m>10^{th}</m> time on the <m>15^{th}</m> try?</p></li>
+              <li><p>hits the bullseye 10 times in 15 tries?</p></li>
+              <li><p>hits the first bullseye on the third try?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sampling-at-school">
+        <title>Sampling at school</title>
+        <statement>
+          <p>
+            For a sociology class project you are asked to conduct a survey on 20 students 
+            at your school. You decide to stand outside of your dorm's cafeteria and conduct 
+            the survey on a random sample of 20 students leaving the cafeteria after dinner 
+            one evening. Your dorm is comprised of 45% males and 55% females.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  Which probability model is most appropriate for calculating the probability 
+                  that the <m>4^{th}</m> person you survey is the <m>2^{nd}</m> female? Explain.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compute the probability from part (a).
+                </p>
+              </li>
+              <li>
+                <p>
+                  The three possible scenarios that lead to <m>4^{th}</m> person you survey 
+                  being the <m>2^{nd}</m> female are
+                  <me>
+                    \{M, M, F, F\}, \{M, F, M, F\}, \{F, M, M, F\}
+                  </me>
+                  One common feature among these scenarios is that the last trial is always 
+                  female. In the first three trials there are 2 males and 1 female. Use the 
+                  binomial coefficient to confirm that there are 3 ways of ordering 2 males 
+                  and 1 female.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Use the findings presented in part (c) to explain why the formula for the 
+                  coefficient for the negative binomial is <m>{n-1 \choose k-1}</m> while the 
+                  formula for the binomial coefficient is <m>{n \choose k}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-serving-volleyball">
+        <title>Serving in volleyball</title>
+        <statement>
+          <p>
+            A not-so-skilled volleyball player has a 15% chance of making the serve, which 
+            involves hitting the ball so it passes over the net on a trajectory such that 
+            it will land in the opposing team's court. Suppose that her serves are 
+            independent of each other.
+          </p>
+          <p>
+            <ol marker="a.">
+              <li>
+                <p>
+                  What is the probability that on the <m>10^{th}</m> try she will make her 
+                  <m>3^{rd}</m> successful serve?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose she has made two successful serves in nine attempts. What is the 
+                  probability that her <m>10^{th}</m> serve will be successful?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Even though parts (a) and (b) discuss the same scenario, the probabilities 
+                  you calculated should be different. Can you explain the reason for this 
+                  discrepancy?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
 
   <!-- Section 4.5: Poisson distribution -->
