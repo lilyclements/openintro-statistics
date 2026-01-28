@@ -3907,6 +3907,42 @@ var ptx_lunr_docs = [
   "body": "Multiple choice quiz  In a multiple choice quiz there are 5 questions and 4 choices for each question (a, b, c, d). Robin has not studied for the quiz at all, and decides to randomly guess the answers. What is the probability that    the first question she gets right is the 3 question?  she gets exactly 3 or exactly 4 questions right?  she gets the majority of the questions right?    "
 },
 {
+  "id": "sec-point-estimates",
+  "level": "1",
+  "url": "sec-point-estimates.html",
+  "type": "Section",
+  "number": "5.1",
+  "title": "Point estimates and sampling variability",
+  "body": " Point estimates and sampling variability  Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.  [Content for point estimates section - full conversion from LaTeX sections needed]  "
+},
+{
+  "id": "sec-confidence-intervals",
+  "level": "1",
+  "url": "sec-confidence-intervals.html",
+  "type": "Section",
+  "number": "5.2",
+  "title": "Confidence Intervals",
+  "body": " Confidence Intervals  [Content for confidence intervals section - full conversion from LaTeX sections needed]  "
+},
+{
+  "id": "sec-hypothesis-testing",
+  "level": "1",
+  "url": "sec-hypothesis-testing.html",
+  "type": "Section",
+  "number": "5.3",
+  "title": "Hypothesis Testing",
+  "body": " Hypothesis Testing  [Content for hypothesis testing section - full conversion from LaTeX sections needed]  "
+},
+{
+  "id": "sec-ch05-review",
+  "level": "1",
+  "url": "sec-ch05-review.html",
+  "type": "Section",
+  "number": "5.4",
+  "title": "Review Exercises",
+  "body": " Review Exercises  [Review exercises - full conversion from LaTeX sections needed]  "
+},
+{
   "id": "appendix-data-sets",
   "level": "1",
   "url": "appendix-data-sets.html",

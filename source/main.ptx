@@ -87,6 +87,7 @@
     <xi:include href="./ch02.ptx" />
     <xi:include href="./ch03.ptx" />
     <xi:include href="./ch04.ptx" />
+    <xi:include href="./ch05.ptx" />
 
     <backmatter xml:id="backmatter">
       <title>Back Matter</title>
