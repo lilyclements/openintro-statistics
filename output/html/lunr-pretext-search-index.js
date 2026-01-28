@@ -2554,7 +2554,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.1",
   "title": "Normal distribution",
-  "body": " Normal distribution   Among all the distributions we see in practice, one is overwhelmingly the most common. The symmetric, unimodal, bell curve is ubiquitous throughout statistics. Indeed it is so common, that people often know it as the normal curve or normal distribution.   A normal curve    Variables such as SAT scores and heights of US adult males closely follow the normal distribution.    Normal distribution model  The normal distribution always describes a symmetric, unimodal, bell-shaped curve. However, these curves can look different depending on the details of the model. Specifically, the normal distribution model can be adjusted using two parameters: mean and standard deviation.   Two normal distributions with different parameters     The normal distributions plotted together on the same scale    To be converted from LaTeX source.    Standardizing with Z-scores  We often want to put data onto a standardized scale, which can make comparisons more reasonable.  To be converted from LaTeX source.    Finding tail areas  To be converted from LaTeX source.    Normal probability examples  To be converted from LaTeX source.    68-95-99.7 rule  To be converted from LaTeX source.   "
+  "body": " Normal distribution   Among all the distributions we see in practice, one is overwhelmingly the most common. The symmetric, unimodal, bell curve is ubiquitous throughout statistics. Indeed it is so common, that people often know it as the normal curve or normal distribution.   A normal curve    Variables such as SAT scores and heights of US adult males closely follow the normal distribution.    Normal distribution model  The normal distribution always describes a symmetric, unimodal, bell-shaped curve. However, these curves can look different depending on the details of the model. Specifically, the normal distribution model can be adjusted using two parameters: mean and standard deviation. As you can probably guess, changing the mean shifts the bell curve to the left or right, while changing the standard deviation stretches or constricts the curve. shows the normal distribution with mean and standard deviation in the left panel and the normal distribution with mean and standard deviation in the right panel. shows these distributions on the same axis.   Both curves represent the normal distribution. However, they differ in their center and spread.     The normal distributions shown in but plotted together and on the same scale.    If a normal distribution has mean and standard deviation , we may write the distribution as . The two distributions in may be written as Because the mean and standard deviation describe a normal distribution exactly, they are called the distribution's parameters .    Normal distribution facts   Many variables are nearly normal, but none are exactly normal. Thus the normal distribution, while not perfect for any single problem, is very useful for a variety of problems. We will use it in data exploration and to solve important problems in statistics.   The normal distribution with mean and standard deviation is called the standard normal distribution .   Write down the short-hand for a normal distribution with (a) mean 5 and standard deviation 3, (b) mean -100 and standard deviation 10, and (c) mean 2 and standard deviation 9.   (a) . (b) . (c) .     Standardizing with Z-scores  We often want to put data onto a standardized scale, which can make comparisons more reasonable.   Comparing SAT and ACT scores    shows the mean and standard deviation for total scores on the SAT and ACT. The distribution of SAT and ACT scores are both nearly normal. Suppose Ann scored 1300 on her SAT and Tom scored 24 on his ACT. Who performed better?    We use the standard deviation as a guide. Ann is 1 standard deviation above average on the SAT: . Tom is 0.5 standard deviations above the mean on the ACT: . In , we can see that Ann tends to do better with respect to everyone else than Tom did, so her score was better.     Mean and standard deviation for the SAT and ACT     SAT  ACT    Mean  1100  21    SD  200  6      Ann's and Tom's scores shown against the SAT and ACT distributions.     used a standardization technique called a Z-score, a method most commonly employed for nearly normal observations but that may be used with any distribution. The Z-score of an observation is defined as the number of standard deviations it falls above or below the mean. If the observation is one standard deviation above the mean, its Z-score is 1. If it is 1.5 standard deviations below the mean, then its Z-score is -1.5. If is an observation from a distribution , we define the Z-score mathematically as Using , , and , we find Ann's Z-score:     The Z-score   The Z-score of an observation is the number of standard deviations it falls above or below the mean. We compute the Z-score for an observation that follows a distribution with mean and standard deviation using     Use Tom's ACT score, 24, along with the ACT mean and standard deviation to find his Z-score.       Observations above the mean always have positive Z-scores, while those below the mean always have negative Z-scores. If an observation is equal to the mean, such as an SAT score of 1100, then the Z-score is .   Let represent a random variable from , and suppose we observe . (a) Find the Z-score of . (b) Use the Z-score to determine how many standard deviations above or below the mean falls.   (a) Its Z-score is given by . (b) The observation is 1.095 standard deviations above the mean. We know it must be above the mean since is positive.    Head lengths of brushtail possums follow a normal distribution with mean 92.6 mm and standard deviation 3.6 mm. Compute the Z-scores for possums with head lengths of 95.4 mm and 85.8 mm.   For mm: . For mm: .   We can use Z-scores to roughly identify which observations are more unusual than others. An observation is said to be more unusual than another observation if the absolute value of its Z-score is larger than the absolute value of the other observation's Z-score: . This technique is especially insightful when a distribution is symmetric.   Which of the observations in is more unusual?   Because the absolute value of Z-score for the second observation is larger than that of the first, the second observation has a more unusual head length.     Finding tail areas  It's very useful in statistics to be able to identify tail areas of distributions. For instance, what fraction of people have an SAT score below Ann's score of 1300? This is the same as the percentile Ann is at, which is the percentage of cases that have lower scores than Ann. We can visualize such a tail area like the curve and shading shown in .   The area to the left of represents the fraction of people who scored lower than Ann.    There are many techniques for doing this, and we'll discuss three of the options.   The most common approach in practice is to use statistical software. For example, in the program R, we could find the area shown in using the following command, which takes in the Z-score and returns the lower tail area: pnorm(1) returns 0.8413447 . According to this calculation, the region shaded that is below 1300 represents the proportion 0.841 (84.1%) of SAT test takers who had Z-scores below . More generally, we can also specify the cutoff explicitly if we also note the mean and standard deviation: pnorm(1300, mean = 1100, sd = 200) returns 0.8413447 .  There are many other software options, such as Python or SAS; even spreadsheet programs such as Excel and Google Sheets support these calculations.    A common strategy in classrooms is to use a graphing calculator, such as a TI or Casio calculator. These calculators require a series of button presses that are less concisely described. You can find instructions on using these calculators for finding tail areas of a normal distribution in the OpenIntro video library: .    The last option for finding tail areas is to use what's called a probability table ; these are occasionally used in classrooms but rarely in practice. The appendix contains such a table and a guide for how to use it.     We will solve normal distribution problems in this section by always first finding the Z-score. The reason is that we will encounter close parallels called test statistics beginning in Chapter 5; these are, in many instances, an equivalent of a Z-score.    Normal probability examples  Cumulative SAT scores are approximated well by a normal model, .   Finding probability of SAT score above 1190   Shannon is a randomly selected SAT taker, and nothing is known about Shannon's SAT aptitude. What is the probability Shannon scores at least 1190 on her SATs?    First, always draw and label a picture of the normal distribution. (Drawings need not be exact to be useful.) We are interested in the chance she scores above 1190, so we shade this upper tail:   Shading the upper tail above 1190    The picture shows the mean and the values at 2 standard deviations above and below the mean. The simplest way to find the shaded area under the curve makes use of the Z-score of the cutoff value. With , , and the cutoff value , the Z-score is computed as Using statistical software (or another preferred method), we can find the area left of as 0.6736. To find the area above  , we compute one minus the area of the lower tail:   Computing the upper tail area    The probability Shannon scores at least 1190 on the SAT is 0.3264.      Always draw a picture first, and find the Z-score second   For any normal probability situation, always always always draw and label the normal curve and shade the area of interest first. The picture will provide an estimate of the probability. After drawing a figure to represent the situation, identify the Z-score for the value of interest.    If the probability of Shannon scoring at least 1190 is 0.3264, then what is the probability she scores less than 1190? Draw the normal curve representing this exercise, shading the lower region instead of the upper one.   We found this probability in : 0.6736.    Finding a percentile   Edward earned a 1030 on his SAT. What is his percentile?    First, a picture is needed. Edward's percentile is the proportion of people who do not get as high as a 1030. These are the scores to the left of 1030.   Shading the lower tail below 1030    Identifying the mean , the standard deviation , and the cutoff for the tail area makes it easy to compute the Z-score: Using statistical software, we get a tail area of 0.3632. Edward is at the 36 percentile.     Use the results of to compute the proportion of SAT takers who did better than Edward. Also draw a new picture.   If Edward did better than 36% of SAT takers, then about 64% must have done better than him.     Finding areas to the right   Many software programs return the area to the left when given a Z-score. If you would like the area to the right, first find the area to the left and then subtract this amount from one.    Stuart earned an SAT score of 1500. Draw a picture for each part. (a) What is his percentile? (b) What percent of SAT takers did better than Stuart?   We leave the drawings to you. (a) . (b) .   Based on a sample of 100 men, the heights of male adults in the US is nearly normal with mean 70.0'' and standard deviation 3.3''.   Mike is 5'7'' and Jose is 6'4'', and they both live in the US. (a) What is Mike's height percentile? (b) What is Jose's height percentile? Also draw one picture for each part.   First put the heights into inches: 67 and 76 inches. (a) . (b) .   The last several problems have focused on finding the percentile (lower tail) or the upper tail for a particular observation. What if you would like to know the observation corresponding to a particular percentile?   Finding height at 40th percentile   Erik's height is at the 40 percentile. How tall is he?    As always, first draw the picture.   Finding the height at the 40th percentile    In this case, the lower tail probability is known (0.40), which can be shaded on the diagram. We want to find the observation that corresponds to this value. As a first step in this direction, we determine the Z-score associated with the 40 percentile. Using software, we can obtain the corresponding Z-score of about -0.25.  Knowing and the population parameters and inches, the Z-score formula can be set up to determine Erik's unknown height, labeled : Solving for yields a height of 69.18 inches. That is, Erik is about 5'9''.     Finding height at 82nd percentile   What is the adult male height at the 82 percentile?    Again, we draw the figure first.   Finding the height at the 82nd percentile    Next, we want to find the Z-score at the 82 percentile, which will be a positive value and can be found using software as . Finally, the height is found using the Z-score formula with the known mean , standard deviation , and Z-score : This yields 73.04 inches or about 6'1'' as the height at the 82 percentile.     The SAT scores follow . (a) What is the 95 percentile for SAT scores? (b) What is the 97.5 percentile for SAT scores?   Short answers: (a) SAT score. (b) SAT score.    Adult male heights follow . (a) What is the probability that a randomly selected male adult is at least 6'2'' (74 inches)? (b) What is the probability that a male adult is shorter than 5'9'' (69 inches)?   Short answers: (a) , then subtract this value from 1 to get 0.1131. (b) .    Finding probability between two values   What is the probability that a random adult male is between 5'9'' and 6'2''?    These heights correspond to 69 inches and 74 inches. First, draw the figure. The area of interest is no longer an upper or lower tail.   Finding area between two values    The total area under the curve is 1. If we find the area of the two tails that are not shaded (from , these areas are 0.3821 and 0.1131), then we can find the middle area:   Subtracting the tail areas from 1    That is, the probability of being between 5'9'' and 6'2'' is 0.5048.     SAT scores follow . What percent of SAT takers get between 1100 and 1400?   This is an abbreviated solution. (Be sure to draw a figure!) First find the percent who get below 1100 and the percent that get above 1400: (area below), (area above). Final answer: .    Adult male heights follow . What percent of adult males are between 5'5'' and 5'7''?   5'5'' is 65 inches ( ). 5'7'' is 67 inches ( ). Numerical solution: , i.e. 11.71%.     68-95-99.7 rule  Here, we present a useful rule of thumb for the probability of falling within 1, 2, and 3 standard deviations of the mean in the normal distribution. This will be useful in a wide range of practical settings, especially when trying to make a quick estimate without a calculator or Z-table.   Probabilities for falling within 1, 2, and 3 standard deviations of the mean in a normal distribution.     Use software, a calculator, or a probability table to confirm that about 68%, 95%, and 99.7% of observations fall within 1, 2, and 3 standard deviations of the mean in the normal distribution, respectively. For instance, first find the area that falls between and , which should have an area of about 0.68. Similarly there should be an area of about 0.95 between and .   First draw the pictures. Using software, we get 0.6827 within 1 standard deviation, 0.9545 within 2 standard deviations, and 0.9973 within 3 standard deviations.   It is possible for a normal random variable to fall 4, 5, or even more standard deviations from the mean. However, these occurrences are very rare if the data are nearly normal. The probability of being further than 4 standard deviations from the mean is about 1-in-15,000. For 5 and 6 standard deviations, it is about 1-in-2 million and 1-in-500 million, respectively.   SAT scores closely follow the normal model with mean and standard deviation . (a) About what percent of test takers score 700 to 1500? (b) What percent score between 1100 and 1500?   (a) 700 and 1500 represent two standard deviations below and above the mean, which means about 95% of test takers will score between 700 and 1500. (b) We found that 700 to 1500 represents about 95% of test takers. These test takers would be evenly split by the center of the distribution, 1100, so of all test takers score between 1100 and 1500.     Exercises  Area under the curve, Part I  What percent of a standard normal distribution is found in each region? Be sure to draw a graph.           Area under the curve, Part II  What percent of a standard normal distribution is found in each region? Be sure to draw a graph.           GRE scores, Part I  Sophia who took the Graduate Record Examination (GRE) scored 160 on the Verbal Reasoning section and 157 on the Quantitative Reasoning section. The mean score for Verbal Reasoning section for all test takers was 151 with a standard deviation of 7, and the mean score for the Quantitative Reasoning was 153 with a standard deviation of 7.67. Suppose that both distributions are nearly normal.    Write down the short-hand for these two normal distributions.   What is Sophia's Z-score on the Verbal Reasoning section? On the Quantitative Reasoning section? Draw a standard normal distribution curve and mark these two Z-scores.   What do these Z-scores tell you?  Relative to others, which section did she do better on?  Find her percentile scores for the two exams.   What percent of the test takers did better than her on the Verbal Reasoning section? On the Quantitative Reasoning section?    Explain why simply comparing raw scores from the two sections could lead to an incorrect conclusion as to which section a student did better on.    If the distributions of the scores on these exams are not nearly normal, would your answers to parts (b) - (f) change? Explain your reasoning.      Triathlon times, Part I  In triathlons, it is common for racers to be placed into age and gender groups. Friends Leo and Mary both completed the Hermosa Beach Triathlon, where Leo competed in the Men, Ages 30 - 34 group while Mary competed in the Women, Ages 25 - 29 group. Leo completed the race in 1:22:28 (4948 seconds), while Mary completed the race in 1:31:53 (5513 seconds). Obviously Leo finished faster, but they are curious about how they did within their respective groups. Can you help them? Here is some information on the performance of their groups:     The finishing times of the Men, Ages 30 - 34 group has a mean of 4313 seconds with a standard deviation of 583 seconds.    The finishing times of the Women, Ages 25 - 29 group has a mean of 5261 seconds with a standard deviation of 807 seconds.    The distributions of finishing times for both groups are approximately normal.     Remember: a better performance corresponds to a faster finish.    Write down the short-hand for these two normal distributions.   What are the Z-scores for Leo's and Mary's finishing times? What do these Z-scores tell you?    Did Leo or Mary rank better in their respective groups? Explain your reasoning.    What percent of the triathletes did Leo finish faster than in his group?    What percent of the triathletes did Mary finish faster than in her group?    If the distributions of finishing times are not nearly normal, would your answers to parts (b)-(e) change? Explain your reasoning.      GRE scores, Part II  In we saw two distributions for GRE scores: for the verbal part of the exam and for the quantitative part. Use this information to compute each of the following:     The score of a student who scored in the 80 percentile on the Quantitative Reasoning section.    The score of a student who scored worse than 70% of the test takers in the Verbal Reasoning section.      Triathlon times, Part II  In we saw two distributions for triathlon times: for Men, Ages 30 - 34 and for the Women, Ages 25 - 29 group. Times are listed in seconds. Use this information to compute each of the following:     The cutoff time for the fastest 5% of athletes in the men's group, i.e. those who took the shortest 5% of time to finish.    The cutoff time for the slowest 10% of athletes in the women's group.      LA weather, Part I  The average daily high temperature in June in LA is 77°F with a standard deviation of 5°F. Suppose that the temperatures in June closely follow a normal distribution.     What is the probability of observing an 83°F temperature or higher in LA during a randomly chosen day in June?    How cool are the coldest 10% of the days (days with lowest high temperature) during June in LA?      CAPM  The Capital Asset Pricing Model (CAPM) is a financial model that assumes returns on a portfolio are normally distributed. Suppose a portfolio has an average annual return of 14.7% (i.e. an average gain of 14.7%) with a standard deviation of 33%. A return of 0% means the value of the portfolio doesn't change, a negative return means that the portfolio loses money, and a positive return means that the portfolio gains money.     What percent of years does this portfolio lose money, i.e. have a return less than 0%?    What is the cutoff for the highest 15% of annual returns with this portfolio?      LA weather, Part II   states that average daily high temperature in June in LA is 77°F with a standard deviation of 5°F, and it can be assumed that they follow a normal distribution. We use the following equation to convert °F (Fahrenheit) to °C (Celsius):      Write the probability model for the distribution of temperature in °C in June in LA.    What is the probability of observing a 28°C (which roughly corresponds to 83°F) temperature or higher in June in LA? Calculate using the °C model from part (a).    Did you get the same answer or different answers in part (b) of this question and part (a) of ? Are you surprised? Explain.    Estimate the IQR of the temperatures (in °C) in June in LA.      Find the SD  Cholesterol levels for women aged 20 to 34 follow an approximately normal distribution with mean 185 milligrams per deciliter (mg\/dl). Women with cholesterol levels above 220 mg\/dl are considered to have high cholesterol and about 18.5% of women fall into this category. What is the standard deviation of the distribution of cholesterol levels for women aged 20 to 34?    "
 },
 {
   "id": "fig-simple-normal",
@@ -2566,13 +2566,22 @@ var ptx_lunr_docs = [
   "body": " A normal curve   "
 },
 {
+  "id": "p-655",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-655",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normal distribution "
+},
+{
   "id": "fig-two-sample-normals",
   "level": "2",
   "url": "sec-normal-distribution.html#fig-two-sample-normals",
   "type": "Figure",
   "number": "4.1.2",
   "title": "",
-  "body": " Two normal distributions with different parameters   "
+  "body": " Both curves represent the normal distribution. However, they differ in their center and spread.   "
 },
 {
   "id": "fig-two-sample-normals-stacked",
@@ -2581,7 +2590,412 @@ var ptx_lunr_docs = [
   "type": "Figure",
   "number": "4.1.3",
   "title": "",
-  "body": " The normal distributions plotted together on the same scale   "
+  "body": " The normal distributions shown in but plotted together and on the same scale.   "
+},
+{
+  "id": "p-656",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-656",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parameters "
+},
+{
+  "id": "p-657",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-657",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Normal distribution facts "
+},
+{
+  "id": "p-659",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-659",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard normal distribution "
+},
+{
+  "id": "exercise-152",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-152",
+  "type": "Checkpoint",
+  "number": "4.1.4",
+  "title": "",
+  "body": " Write down the short-hand for a normal distribution with (a) mean 5 and standard deviation 3, (b) mean -100 and standard deviation 10, and (c) mean 2 and standard deviation 9.   (a) . (b) . (c) .  "
+},
+{
+  "id": "ex-act-sat",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-act-sat",
+  "type": "Example",
+  "number": "4.1.5",
+  "title": "Comparing SAT and ACT scores.",
+  "body": " Comparing SAT and ACT scores    shows the mean and standard deviation for total scores on the SAT and ACT. The distribution of SAT and ACT scores are both nearly normal. Suppose Ann scored 1300 on her SAT and Tom scored 24 on his ACT. Who performed better?    We use the standard deviation as a guide. Ann is 1 standard deviation above average on the SAT: . Tom is 0.5 standard deviations above the mean on the ACT: . In , we can see that Ann tends to do better with respect to everyone else than Tom did, so her score was better.   "
+},
+{
+  "id": "table-sat-act-stats",
+  "level": "2",
+  "url": "sec-normal-distribution.html#table-sat-act-stats",
+  "type": "Table",
+  "number": "4.1.6",
+  "title": "Mean and standard deviation for the SAT and ACT",
+  "body": " Mean and standard deviation for the SAT and ACT     SAT  ACT    Mean  1100  21    SD  200  6    "
+},
+{
+  "id": "fig-sat-act-normals",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-sat-act-normals",
+  "type": "Figure",
+  "number": "4.1.7",
+  "title": "",
+  "body": " Ann's and Tom's scores shown against the SAT and ACT distributions.   "
+},
+{
+  "id": "p-665",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-665",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Z-score "
+},
+{
+  "id": "p-666",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-666",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "The Z-score "
+},
+{
+  "id": "exercise-153",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-153",
+  "type": "Checkpoint",
+  "number": "4.1.8",
+  "title": "",
+  "body": " Use Tom's ACT score, 24, along with the ACT mean and standard deviation to find his Z-score.      "
+},
+{
+  "id": "exercise-154",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-154",
+  "type": "Checkpoint",
+  "number": "4.1.9",
+  "title": "",
+  "body": " Let represent a random variable from , and suppose we observe . (a) Find the Z-score of . (b) Use the Z-score to determine how many standard deviations above or below the mean falls.   (a) Its Z-score is given by . (b) The observation is 1.095 standard deviations above the mean. We know it must be above the mean since is positive.  "
+},
+{
+  "id": "ex-head-length-zscore",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-head-length-zscore",
+  "type": "Checkpoint",
+  "number": "4.1.10",
+  "title": "",
+  "body": " Head lengths of brushtail possums follow a normal distribution with mean 92.6 mm and standard deviation 3.6 mm. Compute the Z-scores for possums with head lengths of 95.4 mm and 85.8 mm.   For mm: . For mm: .  "
+},
+{
+  "id": "exercise-156",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-156",
+  "type": "Checkpoint",
+  "number": "4.1.11",
+  "title": "",
+  "body": " Which of the observations in is more unusual?   Because the absolute value of Z-score for the second observation is larger than that of the first, the second observation has a more unusual head length.  "
+},
+{
+  "id": "p-678",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-678",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "percentile "
+},
+{
+  "id": "fig-sat-below-1300",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-sat-below-1300",
+  "type": "Figure",
+  "number": "4.1.12",
+  "title": "",
+  "body": " The area to the left of represents the fraction of people who scored lower than Ann.   "
+},
+{
+  "id": "p-679",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-679",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "probability table "
+},
+{
+  "id": "p-684",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-684",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "test statistics "
+},
+{
+  "id": "ex-sat-above-1190",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-sat-above-1190",
+  "type": "Example",
+  "number": "4.1.13",
+  "title": "Finding probability of SAT score above 1190.",
+  "body": " Finding probability of SAT score above 1190   Shannon is a randomly selected SAT taker, and nothing is known about Shannon's SAT aptitude. What is the probability Shannon scores at least 1190 on her SATs?    First, always draw and label a picture of the normal distribution. (Drawings need not be exact to be useful.) We are interested in the chance she scores above 1190, so we shade this upper tail:   Shading the upper tail above 1190    The picture shows the mean and the values at 2 standard deviations above and below the mean. The simplest way to find the shaded area under the curve makes use of the Z-score of the cutoff value. With , , and the cutoff value , the Z-score is computed as Using statistical software (or another preferred method), we can find the area left of as 0.6736. To find the area above  , we compute one minus the area of the lower tail:   Computing the upper tail area    The probability Shannon scores at least 1190 on the SAT is 0.3264.   "
+},
+{
+  "id": "p-690",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-690",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Always draw a picture first, and find the Z-score second "
+},
+{
+  "id": "exercise-157",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-157",
+  "type": "Checkpoint",
+  "number": "4.1.16",
+  "title": "",
+  "body": " If the probability of Shannon scoring at least 1190 is 0.3264, then what is the probability she scores less than 1190? Draw the normal curve representing this exercise, shading the lower region instead of the upper one.   We found this probability in : 0.6736.  "
+},
+{
+  "id": "ex-edward-sat-below-1030",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-edward-sat-below-1030",
+  "type": "Example",
+  "number": "4.1.17",
+  "title": "Finding a percentile.",
+  "body": " Finding a percentile   Edward earned a 1030 on his SAT. What is his percentile?    First, a picture is needed. Edward's percentile is the proportion of people who do not get as high as a 1030. These are the scores to the left of 1030.   Shading the lower tail below 1030    Identifying the mean , the standard deviation , and the cutoff for the tail area makes it easy to compute the Z-score: Using statistical software, we get a tail area of 0.3632. Edward is at the 36 percentile.   "
+},
+{
+  "id": "exercise-158",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-158",
+  "type": "Checkpoint",
+  "number": "4.1.19",
+  "title": "",
+  "body": " Use the results of to compute the proportion of SAT takers who did better than Edward. Also draw a new picture.   If Edward did better than 36% of SAT takers, then about 64% must have done better than him.  "
+},
+{
+  "id": "p-699",
+  "level": "2",
+  "url": "sec-normal-distribution.html#p-699",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Finding areas to the right "
+},
+{
+  "id": "exercise-159",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-159",
+  "type": "Checkpoint",
+  "number": "4.1.20",
+  "title": "",
+  "body": " Stuart earned an SAT score of 1500. Draw a picture for each part. (a) What is his percentile? (b) What percent of SAT takers did better than Stuart?   We leave the drawings to you. (a) . (b) .  "
+},
+{
+  "id": "exercise-160",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-160",
+  "type": "Checkpoint",
+  "number": "4.1.21",
+  "title": "",
+  "body": " Mike is 5'7'' and Jose is 6'4'', and they both live in the US. (a) What is Mike's height percentile? (b) What is Jose's height percentile? Also draw one picture for each part.   First put the heights into inches: 67 and 76 inches. (a) . (b) .  "
+},
+{
+  "id": "ex-normal-40-perc",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-normal-40-perc",
+  "type": "Example",
+  "number": "4.1.22",
+  "title": "Finding height at 40th percentile.",
+  "body": " Finding height at 40th percentile   Erik's height is at the 40 percentile. How tall is he?    As always, first draw the picture.   Finding the height at the 40th percentile    In this case, the lower tail probability is known (0.40), which can be shaded on the diagram. We want to find the observation that corresponds to this value. As a first step in this direction, we determine the Z-score associated with the 40 percentile. Using software, we can obtain the corresponding Z-score of about -0.25.  Knowing and the population parameters and inches, the Z-score formula can be set up to determine Erik's unknown height, labeled : Solving for yields a height of 69.18 inches. That is, Erik is about 5'9''.   "
+},
+{
+  "id": "ex-height-82-perc",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-height-82-perc",
+  "type": "Example",
+  "number": "4.1.24",
+  "title": "Finding height at 82nd percentile.",
+  "body": " Finding height at 82nd percentile   What is the adult male height at the 82 percentile?    Again, we draw the figure first.   Finding the height at the 82nd percentile    Next, we want to find the Z-score at the 82 percentile, which will be a positive value and can be found using software as . Finally, the height is found using the Z-score formula with the known mean , standard deviation , and Z-score : This yields 73.04 inches or about 6'1'' as the height at the 82 percentile.   "
+},
+{
+  "id": "exercise-161",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-161",
+  "type": "Checkpoint",
+  "number": "4.1.26",
+  "title": "",
+  "body": " The SAT scores follow . (a) What is the 95 percentile for SAT scores? (b) What is the 97.5 percentile for SAT scores?   Short answers: (a) SAT score. (b) SAT score.  "
+},
+{
+  "id": "ex-more-74-less-69",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-more-74-less-69",
+  "type": "Checkpoint",
+  "number": "4.1.27",
+  "title": "",
+  "body": " Adult male heights follow . (a) What is the probability that a randomly selected male adult is at least 6'2'' (74 inches)? (b) What is the probability that a male adult is shorter than 5'9'' (69 inches)?   Short answers: (a) , then subtract this value from 1 to get 0.1131. (b) .  "
+},
+{
+  "id": "ex-between-59-and-62",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-between-59-and-62",
+  "type": "Example",
+  "number": "4.1.28",
+  "title": "Finding probability between two values.",
+  "body": " Finding probability between two values   What is the probability that a random adult male is between 5'9'' and 6'2''?    These heights correspond to 69 inches and 74 inches. First, draw the figure. The area of interest is no longer an upper or lower tail.   Finding area between two values    The total area under the curve is 1. If we find the area of the two tails that are not shaded (from , these areas are 0.3821 and 0.1131), then we can find the middle area:   Subtracting the tail areas from 1    That is, the probability of being between 5'9'' and 6'2'' is 0.5048.   "
+},
+{
+  "id": "exercise-163",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-163",
+  "type": "Checkpoint",
+  "number": "4.1.31",
+  "title": "",
+  "body": " SAT scores follow . What percent of SAT takers get between 1100 and 1400?   This is an abbreviated solution. (Be sure to draw a figure!) First find the percent who get below 1100 and the percent that get above 1400: (area below), (area above). Final answer: .  "
+},
+{
+  "id": "exercise-164",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-164",
+  "type": "Checkpoint",
+  "number": "4.1.32",
+  "title": "",
+  "body": " Adult male heights follow . What percent of adult males are between 5'5'' and 5'7''?   5'5'' is 65 inches ( ). 5'7'' is 67 inches ( ). Numerical solution: , i.e. 11.71%.  "
+},
+{
+  "id": "fig-68-95-997",
+  "level": "2",
+  "url": "sec-normal-distribution.html#fig-68-95-997",
+  "type": "Figure",
+  "number": "4.1.33",
+  "title": "",
+  "body": " Probabilities for falling within 1, 2, and 3 standard deviations of the mean in a normal distribution.   "
+},
+{
+  "id": "exercise-165",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-165",
+  "type": "Checkpoint",
+  "number": "4.1.34",
+  "title": "",
+  "body": " Use software, a calculator, or a probability table to confirm that about 68%, 95%, and 99.7% of observations fall within 1, 2, and 3 standard deviations of the mean in the normal distribution, respectively. For instance, first find the area that falls between and , which should have an area of about 0.68. Similarly there should be an area of about 0.95 between and .   First draw the pictures. Using software, we get 0.6827 within 1 standard deviation, 0.9545 within 2 standard deviations, and 0.9973 within 3 standard deviations.  "
+},
+{
+  "id": "exercise-166",
+  "level": "2",
+  "url": "sec-normal-distribution.html#exercise-166",
+  "type": "Checkpoint",
+  "number": "4.1.35",
+  "title": "",
+  "body": " SAT scores closely follow the normal model with mean and standard deviation . (a) About what percent of test takers score 700 to 1500? (b) What percent score between 1100 and 1500?   (a) 700 and 1500 represent two standard deviations below and above the mean, which means about 95% of test takers will score between 700 and 1500. (b) We found that 700 to 1500 represents about 95% of test takers. These test takers would be evenly split by the center of the distribution, 1100, so of all test takers score between 1100 and 1500.  "
+},
+{
+  "id": "ex-area-under-curve-1",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-area-under-curve-1",
+  "type": "Exercise",
+  "number": "4.1.6.1",
+  "title": "Area under the curve, Part I.",
+  "body": "Area under the curve, Part I  What percent of a standard normal distribution is found in each region? Be sure to draw a graph.          "
+},
+{
+  "id": "ex-area-under-curve-2",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-area-under-curve-2",
+  "type": "Exercise",
+  "number": "4.1.6.2",
+  "title": "Area under the curve, Part II.",
+  "body": "Area under the curve, Part II  What percent of a standard normal distribution is found in each region? Be sure to draw a graph.          "
+},
+{
+  "id": "ex-gre-intro",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-gre-intro",
+  "type": "Exercise",
+  "number": "4.1.6.3",
+  "title": "GRE scores, Part I.",
+  "body": "GRE scores, Part I  Sophia who took the Graduate Record Examination (GRE) scored 160 on the Verbal Reasoning section and 157 on the Quantitative Reasoning section. The mean score for Verbal Reasoning section for all test takers was 151 with a standard deviation of 7, and the mean score for the Quantitative Reasoning was 153 with a standard deviation of 7.67. Suppose that both distributions are nearly normal.    Write down the short-hand for these two normal distributions.   What is Sophia's Z-score on the Verbal Reasoning section? On the Quantitative Reasoning section? Draw a standard normal distribution curve and mark these two Z-scores.   What do these Z-scores tell you?  Relative to others, which section did she do better on?  Find her percentile scores for the two exams.   What percent of the test takers did better than her on the Verbal Reasoning section? On the Quantitative Reasoning section?    Explain why simply comparing raw scores from the two sections could lead to an incorrect conclusion as to which section a student did better on.    If the distributions of the scores on these exams are not nearly normal, would your answers to parts (b) - (f) change? Explain your reasoning.     "
+},
+{
+  "id": "ex-triathlon-times-intro",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-triathlon-times-intro",
+  "type": "Exercise",
+  "number": "4.1.6.4",
+  "title": "Triathlon times, Part I.",
+  "body": "Triathlon times, Part I  In triathlons, it is common for racers to be placed into age and gender groups. Friends Leo and Mary both completed the Hermosa Beach Triathlon, where Leo competed in the Men, Ages 30 - 34 group while Mary competed in the Women, Ages 25 - 29 group. Leo completed the race in 1:22:28 (4948 seconds), while Mary completed the race in 1:31:53 (5513 seconds). Obviously Leo finished faster, but they are curious about how they did within their respective groups. Can you help them? Here is some information on the performance of their groups:     The finishing times of the Men, Ages 30 - 34 group has a mean of 4313 seconds with a standard deviation of 583 seconds.    The finishing times of the Women, Ages 25 - 29 group has a mean of 5261 seconds with a standard deviation of 807 seconds.    The distributions of finishing times for both groups are approximately normal.     Remember: a better performance corresponds to a faster finish.    Write down the short-hand for these two normal distributions.   What are the Z-scores for Leo's and Mary's finishing times? What do these Z-scores tell you?    Did Leo or Mary rank better in their respective groups? Explain your reasoning.    What percent of the triathletes did Leo finish faster than in his group?    What percent of the triathletes did Mary finish faster than in her group?    If the distributions of finishing times are not nearly normal, would your answers to parts (b)-(e) change? Explain your reasoning.     "
+},
+{
+  "id": "ex-gre-cutoffs",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-gre-cutoffs",
+  "type": "Exercise",
+  "number": "4.1.6.5",
+  "title": "GRE scores, Part II.",
+  "body": "GRE scores, Part II  In we saw two distributions for GRE scores: for the verbal part of the exam and for the quantitative part. Use this information to compute each of the following:     The score of a student who scored in the 80 percentile on the Quantitative Reasoning section.    The score of a student who scored worse than 70% of the test takers in the Verbal Reasoning section.     "
+},
+{
+  "id": "ex-triathlon-times-cutoffs",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-triathlon-times-cutoffs",
+  "type": "Exercise",
+  "number": "4.1.6.6",
+  "title": "Triathlon times, Part II.",
+  "body": "Triathlon times, Part II  In we saw two distributions for triathlon times: for Men, Ages 30 - 34 and for the Women, Ages 25 - 29 group. Times are listed in seconds. Use this information to compute each of the following:     The cutoff time for the fastest 5% of athletes in the men's group, i.e. those who took the shortest 5% of time to finish.    The cutoff time for the slowest 10% of athletes in the women's group.     "
+},
+{
+  "id": "ex-la-weather-intro",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-la-weather-intro",
+  "type": "Exercise",
+  "number": "4.1.6.7",
+  "title": "LA weather, Part I.",
+  "body": "LA weather, Part I  The average daily high temperature in June in LA is 77°F with a standard deviation of 5°F. Suppose that the temperatures in June closely follow a normal distribution.     What is the probability of observing an 83°F temperature or higher in LA during a randomly chosen day in June?    How cool are the coldest 10% of the days (days with lowest high temperature) during June in LA?     "
+},
+{
+  "id": "ex-capm",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-capm",
+  "type": "Exercise",
+  "number": "4.1.6.8",
+  "title": "CAPM.",
+  "body": "CAPM  The Capital Asset Pricing Model (CAPM) is a financial model that assumes returns on a portfolio are normally distributed. Suppose a portfolio has an average annual return of 14.7% (i.e. an average gain of 14.7%) with a standard deviation of 33%. A return of 0% means the value of the portfolio doesn't change, a negative return means that the portfolio loses money, and a positive return means that the portfolio gains money.     What percent of years does this portfolio lose money, i.e. have a return less than 0%?    What is the cutoff for the highest 15% of annual returns with this portfolio?     "
+},
+{
+  "id": "ex-la-weather-unit-change",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-la-weather-unit-change",
+  "type": "Exercise",
+  "number": "4.1.6.9",
+  "title": "LA weather, Part II.",
+  "body": "LA weather, Part II   states that average daily high temperature in June in LA is 77°F with a standard deviation of 5°F, and it can be assumed that they follow a normal distribution. We use the following equation to convert °F (Fahrenheit) to °C (Celsius):      Write the probability model for the distribution of temperature in °C in June in LA.    What is the probability of observing a 28°C (which roughly corresponds to 83°F) temperature or higher in June in LA? Calculate using the °C model from part (a).    Did you get the same answer or different answers in part (b) of this question and part (a) of ? Are you surprised? Explain.    Estimate the IQR of the temperatures (in °C) in June in LA.     "
+},
+{
+  "id": "ex-find-sd-cholesterol",
+  "level": "2",
+  "url": "sec-normal-distribution.html#ex-find-sd-cholesterol",
+  "type": "Exercise",
+  "number": "4.1.6.10",
+  "title": "Find the SD.",
+  "body": "Find the SD  Cholesterol levels for women aged 20 to 34 follow an approximately normal distribution with mean 185 milligrams per deciliter (mg\/dl). Women with cholesterol levels above 220 mg\/dl are considered to have high cholesterol and about 18.5% of women fall into this category. What is the standard deviation of the distribution of cholesterol levels for women aged 20 to 34?  "
 },
 {
   "id": "sec-geometric-distribution",
@@ -2590,43 +3004,196 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.2",
   "title": "Geometric distribution",
-  "body": " Geometric distribution   Bernoulli distribution  To be converted from LaTeX source.   Bernoulli random variable for a coin flip   Consider a single coin flip. Define a random variable X that takes value 1 if the coin lands heads and 0 if it lands tails. Is X a Bernoulli random variable?    To be converted from LaTeX source.      Geometric distribution  To be converted from LaTeX source.   Geometric distribution for eye color   Suppose we observe individuals one at a time until we find someone with blue eyes. Let X represent the number of people observed. What is the probability distribution of X?    To be converted from LaTeX source.     Geometric distribution with p = 0.35     Geometric distribution with p = 0.70     "
+  "body": " Geometric distribution   How long should we expect to flip a coin until it turns up heads? Or how many times should we expect to roll a die until we get a 1? These questions can be answered using the geometric distribution. We first formalize each trial such as a single coin flip or die toss using the Bernoulli distribution, and then we combine these with our tools from probability (Chapter 3) to construct the geometric distribution.    Bernoulli distribution  Many health insurance plans in the United States have a deductible, where the insured individual is responsible for costs up to the deductible, and then the costs above the deductible are shared between the individual and insurance company for the remainder of the year.  Suppose a health insurance company found that 70% of the people they insure stay below their deductible in any given year. Each of these people can be thought of as a trial . We label a person a success if her healthcare costs do not exceed the deductible. We label a person a failure if she does exceed her deductible in the year. Because 70% of the individuals will not hit their deductible, we denote the probability of a success as . The probability of a failure is sometimes denoted with , which would be 0.3 for the insurance example.  When an individual trial only has two possible outcomes, often labeled as success or failure , it is called a Bernoulli random variable . We chose to label a person who does not hit her deductible as a success and all others as failures . However, we could just as easily have reversed these labels. The mathematical framework we will build does not depend on which outcome is labeled a success and which a failure, as long as we are consistent.  Bernoulli random variables are often denoted as 1 for a success and 0 for a failure. In addition to being convenient in entering data, it is also mathematically handy. Suppose we observe ten trials:  1 1 1 0 1 0 0 1 1 0  Then the sample proportion , , is the sample mean of these observations: This mathematical inquiry of Bernoulli random variables can be extended even further. Because 0 and 1 are numerical outcomes, we can define the mean and standard deviation of a Bernoulli random variable. (See Exercises and .)    Bernoulli random variable   If is a random variable that takes value 1 with probability of success and 0 with probability , then is a Bernoulli random variable with mean and standard deviation    In general, it is useful to think about a Bernoulli random variable as a random process with only two outcomes: a success or failure. Then we build our mathematical framework using the numerical labels 1 and 0 for successes and failures, respectively.    Geometric distribution  The geometric distribution is used to describe how many trials it takes to observe a success. Let's first look at an example.   Finding first success in insurance claims   Suppose we are working at the insurance company and need to find a case where the person did not exceed her (or his) deductible as a case study. If the probability a person will not exceed her deductible is 0.7 and we are drawing people at random, what are the chances that the first person will not have exceeded her deductible, i.e. be a success? The second person? The third? What about we pull cases before we find the first success, i.e. the first success is the person? (If the first success is the fifth person, then we say .)    The probability of stopping after the first person is just the chance the first person will not hit her (or his) deductible: 0.7. The probability the second person is the first to not hit her deductible is Likewise, the probability it will be the third case is .  If the first success is on the person, then there are failures and finally 1 success, which corresponds to the probability . This is the same as .     illustrates what the geometric distribution is, which describes the waiting time until a success for independent and identically distributed (iid) Bernoulli random variables. In this case, the independence aspect just means the individuals in the example don't affect each other, and identical means they each have the same probability of success.  The geometric distribution from is shown in . In general, the probabilities for a geometric distribution decrease exponentially fast.   The geometric distribution when the probability of success is     While this text will not derive the formulas for the mean (expected) number of trials needed to find the first success or the standard deviation or variance of this distribution, we present general formulas for each.    Geometric Distribution   If the probability of a success in one trial is and the probability of a failure is , then the probability of finding the first success in the trial is given by The mean (i.e. expected value), variance, and standard deviation of this wait time are given by    It is no accident that we use the symbol for both the mean and expected value. The mean and the expected value are one and the same.  It takes, on average, trials to get a success under the geometric distribution. This mathematical result is consistent with what we would expect intuitively. If the probability of a success is high (e.g. 0.8), then we don't usually wait very long for a success: trials on average. If the probability of a success is low (e.g. 0.1), then we would expect to view many trials before we see a success: trials.   The probability that a particular case would not exceed their deductible is said to be 0.7. If we were to examine cases until we found one where the person did not hit her deductible, how many cases should we expect to check?   We would expect to see about individuals to find the first success.    Finding probability of success within first 3 cases   What is the chance that we would find the first success within the first 3 cases?    This is the chance it is the first ( ), second ( ), or third ( ) case is the first success, which are three disjoint outcomes. Because the individuals in the sample are randomly sampled from a large population, they are independent. We compute the probability of each case and add the separate results: There is a probability of 0.973 that we would find a successful case within 3 cases.     Determine a more clever way to solve . Show that you get the same result.   First find the probability of the complement: . Next, compute one minus this probability: .    Expected draws for car insurance   Suppose a car insurer has determined that 88% of its drivers will not exceed their deductible in a given year. If someone at the company were to randomly draw driver files until they found one that had not exceeded their deductible, what is the expected number of drivers the insurance employee must check? What is the standard deviation of the number of driver files that must be drawn?    In this example, a success is again when someone will not exceed the insurance deductible, which has probability . The expected number of people to be checked is and the standard deviation is .     Using the results from , and , would it be appropriate to use the normal model to find what proportion of experiments would end in 3 or fewer trials?   No. The geometric distribution is always right skewed and can never be well-approximated by the normal model.   The independence assumption is crucial to the geometric distribution's accurate description of a scenario. Mathematically, we can see that to construct the probability of the success on the trial, we had to use the Multiplication Rule for Independent Processes. It is no simple task to generalize the geometric model for dependent trials.    Exercises  Is it Bernoulli  Determine if each trial can be considered an independent Bernoulli trial for the following situations.    Cards dealt in a hand of poker.  Outcome of each roll of a die.     With and without replacement  In the following situations assume that half of the specified population is male and the other half is female.     Suppose you're sampling from a room with 10 people. What is the probability of sampling two females in a row when sampling with replacement? What is the probability when sampling without replacement?    Now suppose you're sampling from a stadium with 10,000 people. What is the probability of sampling two females in a row when sampling with replacement? What is the probability when sampling without replacement?    We often treat individuals who are sampled from a large population as independent. Using your findings from parts (a) and (b), explain whether or not this assumption is reasonable.      Eye color, Part I  A husband and wife both have brown eyes but carry genes that make it possible for their children to have brown eyes (probability 0.75), blue eyes (0.125), or green eyes (0.125).     What is the probability the first blue-eyed child they have is their third child? Assume that the eye colors of the children are independent of each other.    On average, how many children would such a pair of parents have before having a blue-eyed child? What is the standard deviation of the number of children they would expect to have until the first blue-eyed child?      Defective rate  A machine that produces a special type of transistor (a component of computers) has a 2% defective rate. The production is considered a random process where each transistor is independent of the others.     What is the probability that the transistor produced is the first with a defect?    What is the probability that the machine produces no defective transistors in a batch of 100?    On average, how many transistors would you expect to be produced before the first with a defect? What is the standard deviation?    Another machine that also produces transistors has a 5% defective rate where each transistor is produced independent of the others. On average how many transistors would you expect to be produced with this machine before the first with a defect? What is the standard deviation?    Based on your answers to parts (c) and (d), how does increasing the probability of an event affect the mean and standard deviation of the wait time until success?      Bernoulli, the mean  Use the probability rules from Section 3.4 to derive the mean of a Bernoulli random variable, i.e. a random variable that takes value 1 with probability and value 0 with probability . That is, compute the expected value of a generic Bernoulli random variable.   Bernoulli, the standard deviation  Use the probability rules from Section 3.4 to derive the standard deviation of a Bernoulli random variable, i.e. a random variable that takes value 1 with probability and value 0 with probability . That is, compute the square root of the variance of a generic Bernoulli random variable.    "
 },
 {
-  "id": "ex-bernoulli-coin",
+  "id": "p-792",
   "level": "2",
-  "url": "sec-geometric-distribution.html#ex-bernoulli-coin",
+  "url": "sec-geometric-distribution.html#p-792",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "trial success failure probability of a success "
+},
+{
+  "id": "p-793",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-793",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Bernoulli random variable "
+},
+{
+  "id": "p-796",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-796",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sample proportion "
+},
+{
+  "id": "p-797",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-797",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Bernoulli random variable "
+},
+{
+  "id": "p-800",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-800",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "geometric distribution "
+},
+{
+  "id": "ex-wait-for-deductible",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-wait-for-deductible",
   "type": "Example",
   "number": "4.2.1",
-  "title": "Bernoulli random variable for a coin flip.",
-  "body": " Bernoulli random variable for a coin flip   Consider a single coin flip. Define a random variable X that takes value 1 if the coin lands heads and 0 if it lands tails. Is X a Bernoulli random variable?    To be converted from LaTeX source.   "
+  "title": "Finding first success in insurance claims.",
+  "body": " Finding first success in insurance claims   Suppose we are working at the insurance company and need to find a case where the person did not exceed her (or his) deductible as a case study. If the probability a person will not exceed her deductible is 0.7 and we are drawing people at random, what are the chances that the first person will not have exceeded her deductible, i.e. be a success? The second person? The third? What about we pull cases before we find the first success, i.e. the first success is the person? (If the first success is the fifth person, then we say .)    The probability of stopping after the first person is just the chance the first person will not hit her (or his) deductible: 0.7. The probability the second person is the first to not hit her deductible is Likewise, the probability it will be the third case is .  If the first success is on the person, then there are failures and finally 1 success, which corresponds to the probability . This is the same as .   "
 },
 {
-  "id": "ex-geometric-eye-color",
+  "id": "p-804",
   "level": "2",
-  "url": "sec-geometric-distribution.html#ex-geometric-eye-color",
-  "type": "Example",
-  "number": "4.2.2",
-  "title": "Geometric distribution for eye color.",
-  "body": " Geometric distribution for eye color   Suppose we observe individuals one at a time until we find someone with blue eyes. Let X represent the number of people observed. What is the probability distribution of X?    To be converted from LaTeX source.   "
-},
-{
-  "id": "fig-geometric-dist-35",
-  "level": "2",
-  "url": "sec-geometric-distribution.html#fig-geometric-dist-35",
-  "type": "Figure",
-  "number": "4.2.3",
+  "url": "sec-geometric-distribution.html#p-804",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " Geometric distribution with p = 0.35   "
+  "body": "geometric distribution independent and identically distributed (iid) "
+},
+{
+  "id": "p-805",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-805",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "exponentially "
 },
 {
   "id": "fig-geometric-dist-70",
   "level": "2",
   "url": "sec-geometric-distribution.html#fig-geometric-dist-70",
   "type": "Figure",
-  "number": "4.2.4",
+  "number": "4.2.2",
   "title": "",
-  "body": " Geometric distribution with p = 0.70   "
+  "body": " The geometric distribution when the probability of success is    "
+},
+{
+  "id": "p-807",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#p-807",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Geometric Distribution "
+},
+{
+  "id": "exercise-177",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#exercise-177",
+  "type": "Checkpoint",
+  "number": "4.2.3",
+  "title": "",
+  "body": " The probability that a particular case would not exceed their deductible is said to be 0.7. If we were to examine cases until we found one where the person did not hit her deductible, how many cases should we expect to check?   We would expect to see about individuals to find the first success.  "
+},
+{
+  "id": "ex-insure-first-success-in-lt4",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-insure-first-success-in-lt4",
+  "type": "Example",
+  "number": "4.2.4",
+  "title": "Finding probability of success within first 3 cases.",
+  "body": " Finding probability of success within first 3 cases   What is the chance that we would find the first success within the first 3 cases?    This is the chance it is the first ( ), second ( ), or third ( ) case is the first success, which are three disjoint outcomes. Because the individuals in the sample are randomly sampled from a large population, they are independent. We compute the probability of each case and add the separate results: There is a probability of 0.973 that we would find a successful case within 3 cases.   "
+},
+{
+  "id": "exercise-178",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#exercise-178",
+  "type": "Checkpoint",
+  "number": "4.2.5",
+  "title": "",
+  "body": " Determine a more clever way to solve . Show that you get the same result.   First find the probability of the complement: . Next, compute one minus this probability: .  "
+},
+{
+  "id": "ex-car-insure-08-draw-one",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-car-insure-08-draw-one",
+  "type": "Example",
+  "number": "4.2.6",
+  "title": "Expected draws for car insurance.",
+  "body": " Expected draws for car insurance   Suppose a car insurer has determined that 88% of its drivers will not exceed their deductible in a given year. If someone at the company were to randomly draw driver files until they found one that had not exceeded their deductible, what is the expected number of drivers the insurance employee must check? What is the standard deviation of the number of driver files that must be drawn?    In this example, a success is again when someone will not exceed the insurance deductible, which has probability . The expected number of people to be checked is and the standard deviation is .   "
+},
+{
+  "id": "exercise-179",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#exercise-179",
+  "type": "Checkpoint",
+  "number": "4.2.7",
+  "title": "",
+  "body": " Using the results from , and , would it be appropriate to use the normal model to find what proportion of experiments would end in 3 or fewer trials?   No. The geometric distribution is always right skewed and can never be well-approximated by the normal model.  "
+},
+{
+  "id": "ex-is-it-bernoulli",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-is-it-bernoulli",
+  "type": "Exercise",
+  "number": "4.2.3.1",
+  "title": "Is it Bernoulli.",
+  "body": "Is it Bernoulli  Determine if each trial can be considered an independent Bernoulli trial for the following situations.    Cards dealt in a hand of poker.  Outcome of each roll of a die.    "
+},
+{
+  "id": "ex-with-without-replacement",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-with-without-replacement",
+  "type": "Exercise",
+  "number": "4.2.3.2",
+  "title": "With and without replacement.",
+  "body": "With and without replacement  In the following situations assume that half of the specified population is male and the other half is female.     Suppose you're sampling from a room with 10 people. What is the probability of sampling two females in a row when sampling with replacement? What is the probability when sampling without replacement?    Now suppose you're sampling from a stadium with 10,000 people. What is the probability of sampling two females in a row when sampling with replacement? What is the probability when sampling without replacement?    We often treat individuals who are sampled from a large population as independent. Using your findings from parts (a) and (b), explain whether or not this assumption is reasonable.     "
+},
+{
+  "id": "ex-eye-color-geometric",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-eye-color-geometric",
+  "type": "Exercise",
+  "number": "4.2.3.3",
+  "title": "Eye color, Part I.",
+  "body": "Eye color, Part I  A husband and wife both have brown eyes but carry genes that make it possible for their children to have brown eyes (probability 0.75), blue eyes (0.125), or green eyes (0.125).     What is the probability the first blue-eyed child they have is their third child? Assume that the eye colors of the children are independent of each other.    On average, how many children would such a pair of parents have before having a blue-eyed child? What is the standard deviation of the number of children they would expect to have until the first blue-eyed child?     "
+},
+{
+  "id": "ex-defective-rate",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-defective-rate",
+  "type": "Exercise",
+  "number": "4.2.3.4",
+  "title": "Defective rate.",
+  "body": "Defective rate  A machine that produces a special type of transistor (a component of computers) has a 2% defective rate. The production is considered a random process where each transistor is independent of the others.     What is the probability that the transistor produced is the first with a defect?    What is the probability that the machine produces no defective transistors in a batch of 100?    On average, how many transistors would you expect to be produced before the first with a defect? What is the standard deviation?    Another machine that also produces transistors has a 5% defective rate where each transistor is produced independent of the others. On average how many transistors would you expect to be produced with this machine before the first with a defect? What is the standard deviation?    Based on your answers to parts (c) and (d), how does increasing the probability of an event affect the mean and standard deviation of the wait time until success?     "
+},
+{
+  "id": "ex-bernoulli-mean-derivation",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-bernoulli-mean-derivation",
+  "type": "Exercise",
+  "number": "4.2.3.5",
+  "title": "Bernoulli, the mean.",
+  "body": "Bernoulli, the mean  Use the probability rules from Section 3.4 to derive the mean of a Bernoulli random variable, i.e. a random variable that takes value 1 with probability and value 0 with probability . That is, compute the expected value of a generic Bernoulli random variable.  "
+},
+{
+  "id": "ex-bernoulli-sd-derivation",
+  "level": "2",
+  "url": "sec-geometric-distribution.html#ex-bernoulli-sd-derivation",
+  "type": "Exercise",
+  "number": "4.2.3.6",
+  "title": "Bernoulli, the standard deviation.",
+  "body": "Bernoulli, the standard deviation  Use the probability rules from Section 3.4 to derive the standard deviation of a Bernoulli random variable, i.e. a random variable that takes value 1 with probability and value 0 with probability . That is, compute the square root of the variance of a generic Bernoulli random variable.  "
 },
 {
   "id": "sec-binomial-distribution",
@@ -2635,34 +3202,313 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.3",
   "title": "Binomial distribution",
-  "body": " Binomial distribution   The binomial distribution describes the probability of having exactly k successes in n independent Bernoulli trials with probability of success p.    The binomial distribution  To be converted from LaTeX source.   Underage drinking   Suppose we randomly sample 10 high school students and ask if they have consumed alcohol in the last month. What is the probability that exactly 2 of them say yes?    To be converted from LaTeX source.      Normal approximation to the binomial distribution  To be converted from LaTeX source.   Four binomial models showing approximation to normal      The normal approximation breaks down on small intervals  To be converted from LaTeX source.   Normal approximation to binomial can fail on small intervals     "
+  "body": " Binomial distribution   The binomial distribution is used to describe the number of successes in a fixed number of trials. This is different from the geometric distribution, which described the number of trials we must wait before we observe a success.    The binomial distribution  Let's again imagine ourselves back at the insurance agency where 70% of individuals do not exceed their deductible.   Probability of one exceeding deductible   Suppose the insurance agency is considering a random sample of four individuals they insure. What is the chance exactly one of them will exceed the deductible and the other three will not? Let's call the four people Ariana ( ), Brittany ( ), Carlton ( ), and Damian ( ) for convenience.    Let's consider a scenario where one person exceeds the deductible: But there are three other scenarios: Brittany, Carlton, or Damian could have been the one to exceed the deductible. In each of these cases, the probability is again . These four scenarios exhaust all the possible ways that exactly one of these four people could have exceeded the deductible, so the total probability is      Verify that the scenario where Brittany is the only one to exceed the deductible has probability .    .   The scenario outlined in is an example of a binomial distribution scenario. The binomial distribution describes the probability of having exactly successes in independent Bernoulli trials with probability of a success (in , , , ). We would like to determine the probabilities associated with the binomial distribution more generally, i.e. we want a formula where we can use , , and to obtain the probability. To do this, we reexamine each part of .  There were four individuals who could have been the one to exceed the deductible, and each of these four scenarios had the same probability. Thus, we could identify the final probability as The first component of this equation is the number of ways to arrange the successes among the trials. The second component is the probability of any of the four (equally probable) scenarios.  Consider under the general case of successes and failures in the trials. In any such scenario, we apply the Multiplication Rule for independent events: This is our general formula for .  Secondly, we introduce a general formula for the number of ways to choose successes in trials, i.e. arrange successes and failures: The quantity is read n choose k . Other notation for choose includes , , and . The exclamation point notation (e.g. ) denotes a factorial expression. Using the formula, we can compute the number of ways to choose successes in trials: This result is exactly what we found by carefully thinking of each possible scenario in .  Substituting choose for the number of scenarios and for the single scenario probability yields the general binomial formula.    Binomial distribution   Suppose the probability of a single trial being a success is . Then the probability of observing exactly successes in independent trials is given by The mean, variance, and standard deviation of the number of observed successes are      Is it binomial? Four conditions to check.     The trials are independent.  The number of trials, , is fixed.  Each trial outcome can be classified as a success or failure .  The probability of a success, , is the same for each trial.      Probability of 3 of 8 exceeding deductible   What is the probability that 3 of 8 randomly selected individuals will have exceeded the insurance deductible, i.e. that 5 of 8 will not exceed the deductible? Recall that 70% of individuals will not exceed the deductible.    We would like to apply the binomial model, so we check the conditions. The number of trials is fixed ( ) (condition 2) and each trial outcome can be classified as a success or failure (condition 3). Because the sample is random, the trials are independent (condition 1) and the probability of a success is the same for each trial (condition 4).  In the outcome of interest, there are successes in trials (recall that a success is an individual who does not exceed the deductible), and the probability of a success is . So the probability that 5 of 8 will not exceed the deductible and 3 will exceed the deductible is given by Dealing with the factorial part: Using , the final probability is about .      Computing binomial probabilities   The first step in using the binomial model is to check that the model is appropriate. The second step is to identify , , and . As the last stage use software or the formulas to determine the probability, then interpret the results.  If you must do calculations by hand, it's often useful to cancel out as many terms as possible in the top and bottom of the binomial coefficient.    If we randomly sampled 40 case files from the insurance agency discussed earlier, how many of the cases would you expect to not have exceeded the deductible in a given year? What is the standard deviation of the number that would not have exceeded the deductible?   We are asked to determine the expected number (the mean) and the standard deviation, both of which can be directly computed from the formulas: and . Because very roughly 95% of observations fall within 2 standard deviations of the mean (see Section 1.6.3), we would probably observe at least 22 but fewer than 34 individuals in our sample who would not exceed the deductible.    The probability that a random smoker will develop a severe lung condition in his or her lifetime is about 0.3. If you have 4 friends who smoke, are the conditions for the binomial model satisfied?   One possible answer: if the friends know each other, then the independence assumption is probably not satisfied. For example, acquaintances may have similar smoking habits, or those friends might make a pact to quit together.    Suppose these four friends do not know each other and we can treat them as if they were a random sample from the population. Is the binomial model appropriate? What is the probability that  None of them will develop a severe lung condition?  One will develop a severe lung condition?  That no more than one will develop a severe lung condition?     To check if the binomial model is appropriate, we must verify the conditions. (i) Since we are supposing we can treat the friends as a random sample, they are independent. (ii) We have a fixed number of trials ( ). (iii) Each outcome is a success or failure. (iv) The probability of a success is the same for each trial since the individuals are like a random sample ( if we say a success is someone getting a lung condition, a morbid choice).  Compute parts (a) and (b) using the binomial formula: , . Note: . Part (c) can be computed as the sum of parts (a) and (b): . That is, there is about a 65% chance that no more than one of your four smoking friends will develop a severe lung condition.    What is the probability that at least 2 of your 4 smoking friends will develop a severe lung condition in their lifetimes?   The complement (no more than one will develop a severe lung condition) as computed in as 0.6517, so we compute one minus this value: 0.3483.    Suppose you have 7 friends who are smokers and they can be treated as a random sample of smokers.   How many would you expect to develop a severe lung condition, i.e. what is the mean?    What is the probability that at most 2 of your 7 friends will develop a severe lung condition?      (a) . (b) .   Next we consider the first term in the binomial probability, choose under some special scenarios.   Why is it true that and for any number ?   Frame these expressions into words. How many different ways are there to arrange 0 successes and failures in trials? (1 way.) How many different ways are there to arrange successes and 0 failures in trials? (1 way.)    How many ways can you arrange one success and failures in trials? How many ways can you arrange successes and one failure in trials?   One success and failures: there are exactly unique places we can put the success, so there are ways to arrange one success and failures. A similar argument is used for the second question. Mathematically, we show these results by verifying the following two equations:      Normal approximation to the binomial distribution  The binomial formula is cumbersome when the sample size ( ) is large, particularly when we consider a range of observations. In some cases we may use the normal distribution as an easier and faster way to estimate binomial probabilities.   Smoker survey probability   Approximately 15% of the US population smokes cigarettes. A local government believed their community had a lower smoker rate and commissioned a survey of 400 randomly selected individuals. The survey found that only 42 of the 400 participants smoke cigarettes. If the true proportion of smokers in the community was really 15%, what is the probability of observing 42 or fewer smokers in a sample of 400 people?    We leave the usual verification that the four conditions for the binomial model are valid as an exercise.  The question posed is equivalent to asking, what is the probability of observing , 1, 2, , or 42 smokers in a sample of when ? We can compute these 43 different probabilities and add them together to find the answer: If the true proportion of smokers in the community is , then the probability of observing 42 or fewer smokers in a sample of is 0.0054.    The computations in are tedious and long. In general, we should avoid such work if an alternative method exists that is faster, easier, and still accurate. Recall that calculating probabilities of a range of values is much easier in the normal model. We might wonder, is it reasonable to use the normal model in place of the binomial distribution? Surprisingly, yes, if certain conditions are met.   Here we consider the binomial model when the probability of a success is . shows four hollow histograms for simulated samples from the binomial distribution using four different sample sizes: . What happens to the shape of the distributions as the sample size increases? What distribution does the last hollow histogram resemble?   The distribution is transformed from a blocky and skewed distribution into one that rather resembles the normal distribution in last hollow histogram.    Hollow histograms of samples from the binomial model when . The sample sizes for the four plots are , 30, 100, and 300, respectively.      Normal approximation of the binomial distribution   The binomial distribution with probability of success is nearly normal when the sample size is sufficiently large that and are both at least 10. The approximate normal distribution has parameters corresponding to the mean and standard deviation of the binomial distribution:    The normal approximation may be used when computing the range of many possible successes. For instance, we may apply the normal distribution to the setting of .   Normal approximation for smoker survey   How can we use the normal approximation to estimate the probability of observing 42 or fewer smokers in a sample of 400, if the true proportion of smokers is ?    Showing that the binomial model is reasonable was a suggested exercise in . We also verify that both and are at least 10: With these conditions checked, we may use the normal approximation in place of the binomial distribution using the mean and standard deviation from the binomial model: We want to find the probability of observing 42 or fewer smokers using this model.     Use the normal model to estimate the probability of observing 42 or fewer smokers. Your answer should be approximately equal to the solution of : 0.0054.   Compute the Z-score first: . The corresponding left tail area is 0.0059.     The normal approximation breaks down on small intervals  The normal approximation to the binomial distribution tends to perform poorly when estimating the probability of a small range of counts, even when the conditions are met.  Suppose we wanted to compute the probability of observing 49, 50, or 51 smokers in 400 when . With such a large sample, we might be tempted to apply the normal approximation and use the range 49 to 51. However, we would find that the binomial solution and the normal approximation notably differ: We can identify the cause of this discrepancy using , which shows the areas representing the binomial probability (outlined) and normal approximation (shaded). Notice that the width of the area under the normal distribution is 0.5 units too slim on both sides of the interval.   A normal curve with the area between 49 and 51 shaded. The outlined area represents the exact binomial probability.      Improving the normal approximation for the binomial distribution   The normal approximation to the binomial distribution for intervals of values is usually improved if cutoff values are modified slightly. The cutoff values for the lower end of a shaded region should be reduced by 0.5, and the cutoff value for the upper end should be increased by 0.5.   The tip to add extra area when applying the normal approximation is most often useful when examining a range of observations. In the example above, the revised normal distribution estimate is 0.0633, much closer to the exact value of 0.0649. While it is possible to also apply this correction when computing a tail area, the benefit of the modification usually disappears since the total interval is typically quite wide.    Exercises  Underage drinking, Part I  Data collected by the Substance Abuse and Mental Health Services Administration (SAMSHA) suggests that 69.7% of 18-20 year olds consumed alcoholic beverages in any given year. Substance Abuse and Mental Health Services Administration, Results from the 2013 National Survey on Drug Use and Health: Summary of National Findings      Suppose a random sample of ten 18-20 year olds is taken. Is the use of the binomial distribution appropriate for calculating the probability that exactly six consumed alcoholic beverages? Explain.    Calculate the probability that exactly 6 out of 10 randomly sampled 18-20 year olds consumed an alcoholic drink.    What is the probability that exactly four out of ten 18-20 year olds have not consumed an alcoholic beverage?    What is the probability that at most 2 out of 5 randomly sampled 18-20 year olds have consumed alcoholic beverages?    What is the probability that at least 1 out of 5 randomly sampled 18-20 year olds have consumed alcoholic beverages?      Chickenpox, Part I  Boston Children's Hospital estimates that 90% of Americans have had chickenpox by the time they reach adulthood. Boston Children's Hospital, Chickenpox      Suppose we take a random sample of 100 American adults. Is the use of the binomial distribution appropriate for calculating the probability that exactly 97 out of 100 randomly sampled American adults had chickenpox during childhood? Explain.    Calculate the probability that exactly 97 out of 100 randomly sampled American adults had chickenpox during childhood.    What is the probability that exactly 3 out of a new sample of 100 American adults have not had chickenpox in their childhood?    What is the probability that at least 1 out of 10 randomly sampled American adults have had chickenpox?    What is the probability that at most 3 out of 10 randomly sampled American adults have not had chickenpox?      Underage drinking, Part II  We learned in that about 70% of 18-20 year olds consumed alcoholic beverages in any given year. We now consider a random sample of fifty 18-20 year olds.     How many people would you expect to have consumed alcoholic beverages? And with what standard deviation?    Would you be surprised if there were 45 or more people who have consumed alcoholic beverages?    What is the probability that 45 or more people in this sample have consumed alcoholic beverages? How does this probability relate to your answer to part (b)?      Chickenpox, Part II  We learned in that about 90% of American adults had chickenpox before adulthood. We now consider a random sample of 120 American adults.     How many people in this sample would you expect to have had chickenpox in their childhood? And with what standard deviation?    Would you be surprised if there were 105 people who have had chickenpox in their childhood?    What is the probability that 105 or fewer people in this sample have had chickenpox in their childhood? How does this probability relate to your answer to part (b)?      Game of dreidel  A dreidel is a four-sided spinning top with the Hebrew letters nun , gimel , hei , and shin , one on each side. Each side is equally likely to come up in a single spin of the dreidel. Suppose you spin a dreidel three times. Calculate the probability of getting    at least one nun ?  exactly 2 nun s?  exactly 1 hei ?  at most 2 gimel s?     Arachnophobia  A Gallup Poll found that 7% of teenagers (ages 13 to 17) suffer from arachnophobia and are extremely afraid of spiders. At a summer camp there are 10 teenagers sleeping in each tent. Assume that these 10 teenagers are independent of each other. Gallup Poll, Fear of Spiders      Calculate the probability that at least one of them suffers from arachnophobia.    Calculate the probability that exactly 2 of them suffer from arachnophobia.    Calculate the probability that at most 1 of them suffers from arachnophobia.    If the camp counselor wants to make sure no more than 1 teenager in each tent is afraid of spiders, does it seem reasonable for him to randomly assign teenagers to tents?      Eye color, Part II  Exercise 4.2.12 introduces a husband and wife with brown eyes who have 0.75 probability of having children with brown eyes, 0.125 probability of having children with blue eyes, and 0.125 probability of having children with green eyes.     What is the probability that their first child will have green eyes and the second will not?    What is the probability that exactly one of their two children will have green eyes?    If they have six children, what is the probability that exactly two will have green eyes?    If they have six children, what is the probability that at least one will have green eyes?    What is the probability that the first green eyed child will be the 4th child?    Would it be considered unusual if only 2 out of their 6 children had brown eyes?      Sickle cell anemia  Sickle cell anemia is a genetic blood disorder where red blood cells lose their flexibility and assume an abnormal, rigid, sickle shape, which results in a risk of various complications. If both parents are carriers of the disease, then a child has a 25% chance of having the disease, 50% chance of being a carrier, and 25% chance of neither having the disease nor being a carrier. If two parents who are carriers of the disease have 3 children, what is the probability that    two will have the disease?  none will have the disease?  at least one will neither have the disease nor be a carrier?  the first child with the disease will the be 3rd child?     Exploring permutations  The formula for the number of ways to arrange objects is . This exercise walks you through the derivation of this formula for a couple of special cases.  A small company has five employees: Anna, Ben, Carl, Damian, and Eddy. There are five parking spots in a row at the company, none of which are assigned, and each day the employees pull into a random parking spot. That is, all possible orderings of the cars in the row of spots are equally likely.     On a given day, what is the probability that the employees park in alphabetical order?    If the alphabetical order has an equal chance of occurring relative to all other possible orderings, how many ways must there be to arrange the five cars?    Now consider a sample of 8 employees instead. How many possible ways are there to order these 8 employees' cars?      Male children  While it is often assumed that the probabilities of having a boy or a girl are the same, the actual probability of having a boy is slightly higher at 0.51. Suppose a couple plans to have 3 kids.     Use the binomial model to calculate the probability that two of them will be boys.    Write out all possible orderings of 3 children, 2 of whom are boys. Use these scenarios to calculate the same probability from part (a) but using the addition rule for disjoint outcomes. Confirm that your answers from parts (a) and (b) match.    If we wanted to calculate the probability that a couple who plans to have 8 kids will have 3 boys, briefly describe why the approach from part (b) would be more tedious than the approach from part (a).       "
 },
 {
-  "id": "ex-binomial-underage-drinking",
+  "id": "p-844",
   "level": "2",
-  "url": "sec-binomial-distribution.html#ex-binomial-underage-drinking",
+  "url": "sec-binomial-distribution.html#p-844",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "binomial distribution "
+},
+{
+  "id": "ex-insure-one-of-four-exceeds",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-insure-one-of-four-exceeds",
   "type": "Example",
   "number": "4.3.1",
-  "title": "Underage drinking.",
-  "body": " Underage drinking   Suppose we randomly sample 10 high school students and ask if they have consumed alcohol in the last month. What is the probability that exactly 2 of them say yes?    To be converted from LaTeX source.   "
+  "title": "Probability of one exceeding deductible.",
+  "body": " Probability of one exceeding deductible   Suppose the insurance agency is considering a random sample of four individuals they insure. What is the chance exactly one of them will exceed the deductible and the other three will not? Let's call the four people Ariana ( ), Brittany ( ), Carlton ( ), and Damian ( ) for convenience.    Let's consider a scenario where one person exceeds the deductible: But there are three other scenarios: Brittany, Carlton, or Damian could have been the one to exceed the deductible. In each of these cases, the probability is again . These four scenarios exhaust all the possible ways that exactly one of these four people could have exceeded the deductible, so the total probability is    "
+},
+{
+  "id": "exercise-186",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-186",
+  "type": "Checkpoint",
+  "number": "4.3.2",
+  "title": "",
+  "body": " Verify that the scenario where Brittany is the only one to exceed the deductible has probability .    .  "
+},
+{
+  "id": "p-850",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-850",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "binomial distribution "
+},
+{
+  "id": "p-853",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-853",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "n choose k factorial "
+},
+{
+  "id": "p-855",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-855",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Binomial distribution "
+},
+{
+  "id": "p-857",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-857",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Is it binomial? Four conditions to check. "
+},
+{
+  "id": "ex-binomial-eight-individuals",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-binomial-eight-individuals",
+  "type": "Example",
+  "number": "4.3.3",
+  "title": "Probability of 3 of 8 exceeding deductible.",
+  "body": " Probability of 3 of 8 exceeding deductible   What is the probability that 3 of 8 randomly selected individuals will have exceeded the insurance deductible, i.e. that 5 of 8 will not exceed the deductible? Recall that 70% of individuals will not exceed the deductible.    We would like to apply the binomial model, so we check the conditions. The number of trials is fixed ( ) (condition 2) and each trial outcome can be classified as a success or failure (condition 3). Because the sample is random, the trials are independent (condition 1) and the probability of a success is the same for each trial (condition 4).  In the outcome of interest, there are successes in trials (recall that a success is an individual who does not exceed the deductible), and the probability of a success is . So the probability that 5 of 8 will not exceed the deductible and 3 will exceed the deductible is given by Dealing with the factorial part: Using , the final probability is about .   "
+},
+{
+  "id": "p-866",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-866",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Computing binomial probabilities "
+},
+{
+  "id": "exercise-187",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-187",
+  "type": "Checkpoint",
+  "number": "4.3.4",
+  "title": "",
+  "body": " If we randomly sampled 40 case files from the insurance agency discussed earlier, how many of the cases would you expect to not have exceeded the deductible in a given year? What is the standard deviation of the number that would not have exceeded the deductible?   We are asked to determine the expected number (the mean) and the standard deviation, both of which can be directly computed from the formulas: and . Because very roughly 95% of observations fall within 2 standard deviations of the mean (see Section 1.6.3), we would probably observe at least 22 but fewer than 34 individuals in our sample who would not exceed the deductible.  "
+},
+{
+  "id": "exercise-188",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-188",
+  "type": "Checkpoint",
+  "number": "4.3.5",
+  "title": "",
+  "body": " The probability that a random smoker will develop a severe lung condition in his or her lifetime is about 0.3. If you have 4 friends who smoke, are the conditions for the binomial model satisfied?   One possible answer: if the friends know each other, then the independence assumption is probably not satisfied. For example, acquaintances may have similar smoking habits, or those friends might make a pact to quit together.  "
+},
+{
+  "id": "ex-no-more-than-one-friend-lung-condition",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-no-more-than-one-friend-lung-condition",
+  "type": "Checkpoint",
+  "number": "4.3.6",
+  "title": "",
+  "body": " Suppose these four friends do not know each other and we can treat them as if they were a random sample from the population. Is the binomial model appropriate? What is the probability that  None of them will develop a severe lung condition?  One will develop a severe lung condition?  That no more than one will develop a severe lung condition?     To check if the binomial model is appropriate, we must verify the conditions. (i) Since we are supposing we can treat the friends as a random sample, they are independent. (ii) We have a fixed number of trials ( ). (iii) Each outcome is a success or failure. (iv) The probability of a success is the same for each trial since the individuals are like a random sample ( if we say a success is someone getting a lung condition, a morbid choice).  Compute parts (a) and (b) using the binomial formula: , . Note: . Part (c) can be computed as the sum of parts (a) and (b): . That is, there is about a 65% chance that no more than one of your four smoking friends will develop a severe lung condition.  "
+},
+{
+  "id": "exercise-190",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-190",
+  "type": "Checkpoint",
+  "number": "4.3.7",
+  "title": "",
+  "body": " What is the probability that at least 2 of your 4 smoking friends will develop a severe lung condition in their lifetimes?   The complement (no more than one will develop a severe lung condition) as computed in as 0.6517, so we compute one minus this value: 0.3483.  "
+},
+{
+  "id": "exercise-191",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-191",
+  "type": "Checkpoint",
+  "number": "4.3.8",
+  "title": "",
+  "body": " Suppose you have 7 friends who are smokers and they can be treated as a random sample of smokers.   How many would you expect to develop a severe lung condition, i.e. what is the mean?    What is the probability that at most 2 of your 7 friends will develop a severe lung condition?      (a) . (b) .  "
+},
+{
+  "id": "exercise-192",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-192",
+  "type": "Checkpoint",
+  "number": "4.3.9",
+  "title": "",
+  "body": " Why is it true that and for any number ?   Frame these expressions into words. How many different ways are there to arrange 0 successes and failures in trials? (1 way.) How many different ways are there to arrange successes and 0 failures in trials? (1 way.)  "
+},
+{
+  "id": "exercise-193",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-193",
+  "type": "Checkpoint",
+  "number": "4.3.10",
+  "title": "",
+  "body": " How many ways can you arrange one success and failures in trials? How many ways can you arrange successes and one failure in trials?   One success and failures: there are exactly unique places we can put the success, so there are ways to arrange one success and failures. A similar argument is used for the second question. Mathematically, we show these results by verifying the following two equations:   "
+},
+{
+  "id": "ex-exact-binom-smoker",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-exact-binom-smoker",
+  "type": "Example",
+  "number": "4.3.11",
+  "title": "Smoker survey probability.",
+  "body": " Smoker survey probability   Approximately 15% of the US population smokes cigarettes. A local government believed their community had a lower smoker rate and commissioned a survey of 400 randomly selected individuals. The survey found that only 42 of the 400 participants smoke cigarettes. If the true proportion of smokers in the community was really 15%, what is the probability of observing 42 or fewer smokers in a sample of 400 people?    We leave the usual verification that the four conditions for the binomial model are valid as an exercise.  The question posed is equivalent to asking, what is the probability of observing , 1, 2, , or 42 smokers in a sample of when ? We can compute these 43 different probabilities and add them together to find the answer: If the true proportion of smokers in the community is , then the probability of observing 42 or fewer smokers in a sample of is 0.0054.   "
+},
+{
+  "id": "exercise-194",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-194",
+  "type": "Checkpoint",
+  "number": "4.3.12",
+  "title": "",
+  "body": " Here we consider the binomial model when the probability of a success is . shows four hollow histograms for simulated samples from the binomial distribution using four different sample sizes: . What happens to the shape of the distributions as the sample size increases? What distribution does the last hollow histogram resemble?   The distribution is transformed from a blocky and skewed distribution into one that rather resembles the normal distribution in last hollow histogram.  "
 },
 {
   "id": "fig-four-binomial-approx",
   "level": "2",
   "url": "sec-binomial-distribution.html#fig-four-binomial-approx",
   "type": "Figure",
-  "number": "4.3.2",
+  "number": "4.3.13",
   "title": "",
-  "body": " Four binomial models showing approximation to normal   "
+  "body": " Hollow histograms of samples from the binomial model when . The sample sizes for the four plots are , 30, 100, and 300, respectively.   "
+},
+{
+  "id": "p-897",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-897",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Normal approximation of the binomial distribution "
+},
+{
+  "id": "ex-approx-normal-for-smoker-binom",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-approx-normal-for-smoker-binom",
+  "type": "Example",
+  "number": "4.3.14",
+  "title": "Normal approximation for smoker survey.",
+  "body": " Normal approximation for smoker survey   How can we use the normal approximation to estimate the probability of observing 42 or fewer smokers in a sample of 400, if the true proportion of smokers is ?    Showing that the binomial model is reasonable was a suggested exercise in . We also verify that both and are at least 10: With these conditions checked, we may use the normal approximation in place of the binomial distribution using the mean and standard deviation from the binomial model: We want to find the probability of observing 42 or fewer smokers using this model.   "
+},
+{
+  "id": "exercise-195",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#exercise-195",
+  "type": "Checkpoint",
+  "number": "4.3.15",
+  "title": "",
+  "body": " Use the normal model to estimate the probability of observing 42 or fewer smokers. Your answer should be approximately equal to the solution of : 0.0054.   Compute the Z-score first: . The corresponding left tail area is 0.0059.  "
 },
 {
   "id": "fig-norm-approx-binomial-fail",
   "level": "2",
   "url": "sec-binomial-distribution.html#fig-norm-approx-binomial-fail",
   "type": "Figure",
-  "number": "4.3.3",
+  "number": "4.3.16",
   "title": "",
-  "body": " Normal approximation to binomial can fail on small intervals   "
+  "body": " A normal curve with the area between 49 and 51 shaded. The outlined area represents the exact binomial probability.   "
+},
+{
+  "id": "p-906",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#p-906",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Improving the normal approximation for the binomial distribution "
+},
+{
+  "id": "ex-underage-drinking-intro",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-underage-drinking-intro",
+  "type": "Exercise",
+  "number": "4.3.4.1",
+  "title": "Underage drinking, Part I.",
+  "body": "Underage drinking, Part I  Data collected by the Substance Abuse and Mental Health Services Administration (SAMSHA) suggests that 69.7% of 18-20 year olds consumed alcoholic beverages in any given year. Substance Abuse and Mental Health Services Administration, Results from the 2013 National Survey on Drug Use and Health: Summary of National Findings      Suppose a random sample of ten 18-20 year olds is taken. Is the use of the binomial distribution appropriate for calculating the probability that exactly six consumed alcoholic beverages? Explain.    Calculate the probability that exactly 6 out of 10 randomly sampled 18-20 year olds consumed an alcoholic drink.    What is the probability that exactly four out of ten 18-20 year olds have not consumed an alcoholic beverage?    What is the probability that at most 2 out of 5 randomly sampled 18-20 year olds have consumed alcoholic beverages?    What is the probability that at least 1 out of 5 randomly sampled 18-20 year olds have consumed alcoholic beverages?     "
+},
+{
+  "id": "ex-chickenpox-intro",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-chickenpox-intro",
+  "type": "Exercise",
+  "number": "4.3.4.2",
+  "title": "Chickenpox, Part I.",
+  "body": "Chickenpox, Part I  Boston Children's Hospital estimates that 90% of Americans have had chickenpox by the time they reach adulthood. Boston Children's Hospital, Chickenpox      Suppose we take a random sample of 100 American adults. Is the use of the binomial distribution appropriate for calculating the probability that exactly 97 out of 100 randomly sampled American adults had chickenpox during childhood? Explain.    Calculate the probability that exactly 97 out of 100 randomly sampled American adults had chickenpox during childhood.    What is the probability that exactly 3 out of a new sample of 100 American adults have not had chickenpox in their childhood?    What is the probability that at least 1 out of 10 randomly sampled American adults have had chickenpox?    What is the probability that at most 3 out of 10 randomly sampled American adults have not had chickenpox?     "
+},
+{
+  "id": "ex-underage-drinking-normal-approx",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-underage-drinking-normal-approx",
+  "type": "Exercise",
+  "number": "4.3.4.3",
+  "title": "Underage drinking, Part II.",
+  "body": "Underage drinking, Part II  We learned in that about 70% of 18-20 year olds consumed alcoholic beverages in any given year. We now consider a random sample of fifty 18-20 year olds.     How many people would you expect to have consumed alcoholic beverages? And with what standard deviation?    Would you be surprised if there were 45 or more people who have consumed alcoholic beverages?    What is the probability that 45 or more people in this sample have consumed alcoholic beverages? How does this probability relate to your answer to part (b)?     "
+},
+{
+  "id": "ex-chickenpox-normal-approx",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-chickenpox-normal-approx",
+  "type": "Exercise",
+  "number": "4.3.4.4",
+  "title": "Chickenpox, Part II.",
+  "body": "Chickenpox, Part II  We learned in that about 90% of American adults had chickenpox before adulthood. We now consider a random sample of 120 American adults.     How many people in this sample would you expect to have had chickenpox in their childhood? And with what standard deviation?    Would you be surprised if there were 105 people who have had chickenpox in their childhood?    What is the probability that 105 or fewer people in this sample have had chickenpox in their childhood? How does this probability relate to your answer to part (b)?     "
+},
+{
+  "id": "ex-game-of-dreidel",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-game-of-dreidel",
+  "type": "Exercise",
+  "number": "4.3.4.5",
+  "title": "Game of dreidel.",
+  "body": "Game of dreidel  A dreidel is a four-sided spinning top with the Hebrew letters nun , gimel , hei , and shin , one on each side. Each side is equally likely to come up in a single spin of the dreidel. Suppose you spin a dreidel three times. Calculate the probability of getting    at least one nun ?  exactly 2 nun s?  exactly 1 hei ?  at most 2 gimel s?    "
+},
+{
+  "id": "ex-arachnophobia",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-arachnophobia",
+  "type": "Exercise",
+  "number": "4.3.4.6",
+  "title": "Arachnophobia.",
+  "body": "Arachnophobia  A Gallup Poll found that 7% of teenagers (ages 13 to 17) suffer from arachnophobia and are extremely afraid of spiders. At a summer camp there are 10 teenagers sleeping in each tent. Assume that these 10 teenagers are independent of each other. Gallup Poll, Fear of Spiders      Calculate the probability that at least one of them suffers from arachnophobia.    Calculate the probability that exactly 2 of them suffer from arachnophobia.    Calculate the probability that at most 1 of them suffers from arachnophobia.    If the camp counselor wants to make sure no more than 1 teenager in each tent is afraid of spiders, does it seem reasonable for him to randomly assign teenagers to tents?     "
+},
+{
+  "id": "ex-eye-color-binomial",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-eye-color-binomial",
+  "type": "Exercise",
+  "number": "4.3.4.7",
+  "title": "Eye color, Part II.",
+  "body": "Eye color, Part II  Exercise 4.2.12 introduces a husband and wife with brown eyes who have 0.75 probability of having children with brown eyes, 0.125 probability of having children with blue eyes, and 0.125 probability of having children with green eyes.     What is the probability that their first child will have green eyes and the second will not?    What is the probability that exactly one of their two children will have green eyes?    If they have six children, what is the probability that exactly two will have green eyes?    If they have six children, what is the probability that at least one will have green eyes?    What is the probability that the first green eyed child will be the 4th child?    Would it be considered unusual if only 2 out of their 6 children had brown eyes?     "
+},
+{
+  "id": "ex-sickle-cell-anemia",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-sickle-cell-anemia",
+  "type": "Exercise",
+  "number": "4.3.4.8",
+  "title": "Sickle cell anemia.",
+  "body": "Sickle cell anemia  Sickle cell anemia is a genetic blood disorder where red blood cells lose their flexibility and assume an abnormal, rigid, sickle shape, which results in a risk of various complications. If both parents are carriers of the disease, then a child has a 25% chance of having the disease, 50% chance of being a carrier, and 25% chance of neither having the disease nor being a carrier. If two parents who are carriers of the disease have 3 children, what is the probability that    two will have the disease?  none will have the disease?  at least one will neither have the disease nor be a carrier?  the first child with the disease will the be 3rd child?    "
+},
+{
+  "id": "ex-explore-combinations",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-explore-combinations",
+  "type": "Exercise",
+  "number": "4.3.4.9",
+  "title": "Exploring permutations.",
+  "body": "Exploring permutations  The formula for the number of ways to arrange objects is . This exercise walks you through the derivation of this formula for a couple of special cases.  A small company has five employees: Anna, Ben, Carl, Damian, and Eddy. There are five parking spots in a row at the company, none of which are assigned, and each day the employees pull into a random parking spot. That is, all possible orderings of the cars in the row of spots are equally likely.     On a given day, what is the probability that the employees park in alphabetical order?    If the alphabetical order has an equal chance of occurring relative to all other possible orderings, how many ways must there be to arrange the five cars?    Now consider a sample of 8 employees instead. How many possible ways are there to order these 8 employees' cars?     "
+},
+{
+  "id": "ex-male-children",
+  "level": "2",
+  "url": "sec-binomial-distribution.html#ex-male-children",
+  "type": "Exercise",
+  "number": "4.3.4.10",
+  "title": "Male children.",
+  "body": "Male children  While it is often assumed that the probabilities of having a boy or a girl are the same, the actual probability of having a boy is slightly higher at 0.51. Suppose a couple plans to have 3 kids.     Use the binomial model to calculate the probability that two of them will be boys.    Write out all possible orderings of 3 children, 2 of whom are boys. Use these scenarios to calculate the same probability from part (a) but using the addition rule for disjoint outcomes. Confirm that your answers from parts (a) and (b) match.    If we wanted to calculate the probability that a couple who plans to have 8 kids will have 3 boys, briefly describe why the approach from part (b) would be more tedious than the approach from part (a).     "
 },
 {
   "id": "sec-negative-binomial",
@@ -2671,16 +3517,160 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.4",
   "title": "Negative binomial distribution",
-  "body": " Negative binomial distribution   The negative binomial distribution describes the probability of observing the kth success on the nth trial, where each trial has probability p of success and all trials are independent.   To be converted from LaTeX source.   Negative binomial example   Suppose we are interested in the number of people we need to survey until we find 3 people who support a particular policy. If each person has a 40% chance of supporting the policy, what is the probability we need to survey exactly 10 people?    To be converted from LaTeX source.    "
+  "body": " Negative binomial distribution   The geometric distribution describes the probability of observing the first success on the trial. The negative binomial distribution is more general: it describes the probability of observing the success on the trial.    Field goal attempts   Each day a high school football coach tells his star kicker, Brian, that he can go home after he successfully kicks four 35 yard field goals. Suppose we say each kick has a probability of being successful. If is small e.g. close to 0.1 would we expect Brian to need many attempts before he successfully kicks his fourth field goal?    We are waiting for the fourth success ( ). If the probability of a success ( ) is small, then the number of attempts ( ) will probably be large. This means that Brian is more likely to need many attempts before he gets successes. To put this another way, the probability of being small is low.    To identify a negative binomial case, we check 4 conditions. The first three are common to the binomial distribution.    Is it negative binomial? Four conditions to check     The trials are independent.  Each trial outcome can be classified as a success or failure.  The probability of a success ( ) is the same for each trial.  The last trial must be a success.      Suppose Brian is very diligent in his attempts and he makes each 35 yard field goal with probability . Take a guess at how many attempts he would need before making his fourth kick.   One possible answer: since he is likely to make each field goal attempt, it will take him at least 4 attempts but probably not more than 6 or 7.    Sequences of successes and failures   In yesterday's practice, it took Brian only 6 tries to get his fourth field goal. Write out each of the possible sequences of kicks.    Because it took Brian six tries to get the fourth success, we know the last kick must have been a success. That leaves three successful kicks and two unsuccessful kicks (we label these as failures) that make up the first five attempts. There are ten possible sequences of these first five kicks, which are shown in . If Brian achieved his fourth success ( ) on his sixth attempt ( ), then his order of successes and failures must be one of these ten possible sequences.     The ten possible sequences when the fourth successful kick is on the sixth attempt. S denotes a success and F denotes a failure.     Kick Attempt     1  2  3  4  5  6    1          2          3          4          5          6          7          8          9          10            Each sequence in has exactly two failures and four successes with the last attempt always being a success. If the probability of a success is , find the probability of the first sequence.   The first sequence: .   If the probability Brian kicks a 35 yard field goal is , what is the probability it takes Brian exactly six tries to get his fourth successful kick? We can write this as where the sequences are from . We can break down this last probability into the sum of ten disjoint possibilities: The probability of the first sequence was identified in as 0.0164, and each of the other sequences have the same probability. Since each of the ten sequences has the same probability, the total probability is ten times that of any individual sequence.  The way to compute this negative binomial probability is similar to how the binomial problems were solved in . The probability is broken into two pieces: Each part is examined separately, then we multiply to get the final result.  We first identify the probability of a single sequence. One particular case is to first observe all the failures ( of them) followed by the successes:   We must also identify the number of sequences for the general case. Above, ten sequences were identified where the fourth success came on the sixth attempt. These sequences were identified by fixing the last observation as a success and looking for all the ways to arrange the other observations. In other words, how many ways could we arrange successes in trials? This can be found using the choose coefficient but for and instead: This is the number of different ways we can order successes and failures in trials.    Negative binomial distribution   The negative binomial distribution describes the probability of observing the success on the trial, where all trials are independent: The value represents the probability that an individual trial is a success.    Using the negative binomial formula   Show using the formula for the negative binomial distribution that the probability Brian kicks his fourth successful field goal on the sixth attempt is 0.164.    The probability of a single success is , the number of successes is , and the number of necessary attempts under this scenario is .      The negative binomial distribution requires that each kick attempt by Brian is independent. Do you think it is reasonable to suggest that each of Brian's kick attempts are independent?   Answers may vary. We cannot conclusively say they are or are not independent. However, many statistical reviews of athletic performance suggest such attempts are very nearly independent.    Assume Brian's kick attempts are independent. What is the probability that Brian will kick his fourth field goal within 5 attempts?   If his fourth field goal ( ) is within five attempts, it either took him four or five tries ( or ). We have from earlier. Use the negative binomial distribution to compute the probability of tries and tries, then add those probabilities together:      Binomial versus negative binomial   In the binomial case, we typically have a fixed number of trials and instead consider the number of successes. In the negative binomial case, we examine how many trials it takes to observe a fixed number of successes and require that the last observation be a success.    On 70% of days, a hospital admits at least one heart attack patient. On 30% of the days, no heart attack patients are admitted. Identify each case below as a binomial or negative binomial case, and compute the probability.     What is the probability the hospital will admit a heart attack patient on exactly three days this week?    What is the probability the second day with a heart attack patient will be the fourth day of the week?    What is the probability the fifth day of next month will be the first day with a heart attack patient?      In each part, .     The number of days is fixed, so this is binomial. The parameters are and : 0.097.    The last success (admitting a heart attack patient) is fixed to the last day, so we should apply the negative binomial distribution. The parameters are , : 0.132.    This problem is negative binomial with and : 0.006. Note that the negative binomial case when is the same as using the geometric distribution.       Section 4.4 Exercises  Rolling a die  Calculate the following probabilities and indicate which probability distribution model is appropriate in each case. You roll a fair die 5 times. What is the probability of rolling    the first 6 on the fifth roll?  exactly three 6s?  the third 6 on the fifth roll?     Playing darts  Calculate the following probabilities and indicate which probability distribution model is appropriate in each case. A very good darts player can hit the bull's eye (red circle in the center of the dart board) 65% of the time. What is the probability that he    hits the bullseye for the time on the try?  hits the bullseye 10 times in 15 tries?  hits the first bullseye on the third try?     Sampling at school  For a sociology class project you are asked to conduct a survey on 20 students at your school. You decide to stand outside of your dorm's cafeteria and conduct the survey on a random sample of 20 students leaving the cafeteria after dinner one evening. Your dorm is comprised of 45% males and 55% females.     Which probability model is most appropriate for calculating the probability that the person you survey is the female? Explain.    Compute the probability from part (a).    The three possible scenarios that lead to person you survey being the female are One common feature among these scenarios is that the last trial is always female. In the first three trials there are 2 males and 1 female. Use the binomial coefficient to confirm that there are 3 ways of ordering 2 males and 1 female.    Use the findings presented in part (c) to explain why the formula for the coefficient for the negative binomial is while the formula for the binomial coefficient is .      Serving in volleyball  A not-so-skilled volleyball player has a 15% chance of making the serve, which involves hitting the ball so it passes over the net on a trajectory such that it will land in the opposing team's court. Suppose that her serves are independent of each other.     What is the probability that on the try she will make her successful serve?    Suppose she has made two successful serves in nine attempts. What is the probability that her serve will be successful?    Even though parts (a) and (b) discuss the same scenario, the probabilities you calculated should be different. Can you explain the reason for this discrepancy?       "
 },
 {
-  "id": "ex-negative-binomial",
+  "id": "p-970",
   "level": "2",
-  "url": "sec-negative-binomial.html#ex-negative-binomial",
+  "url": "sec-negative-binomial.html#p-970",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "negative binomial distribution "
+},
+{
+  "id": "ex-brian-field-goals-intro",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-brian-field-goals-intro",
   "type": "Example",
   "number": "4.4.1",
-  "title": "Negative binomial example.",
-  "body": " Negative binomial example   Suppose we are interested in the number of people we need to survey until we find 3 people who support a particular policy. If each person has a 40% chance of supporting the policy, what is the probability we need to survey exactly 10 people?    To be converted from LaTeX source.   "
+  "title": "Field goal attempts.",
+  "body": " Field goal attempts   Each day a high school football coach tells his star kicker, Brian, that he can go home after he successfully kicks four 35 yard field goals. Suppose we say each kick has a probability of being successful. If is small e.g. close to 0.1 would we expect Brian to need many attempts before he successfully kicks his fourth field goal?    We are waiting for the fourth success ( ). If the probability of a success ( ) is small, then the number of attempts ( ) will probably be large. This means that Brian is more likely to need many attempts before he gets successes. To put this another way, the probability of being small is low.   "
+},
+{
+  "id": "p-974",
+  "level": "2",
+  "url": "sec-negative-binomial.html#p-974",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Is it negative binomial? Four conditions to check "
+},
+{
+  "id": "exercise-206",
+  "level": "2",
+  "url": "sec-negative-binomial.html#exercise-206",
+  "type": "Checkpoint",
+  "number": "4.4.2",
+  "title": "",
+  "body": " Suppose Brian is very diligent in his attempts and he makes each 35 yard field goal with probability . Take a guess at how many attempts he would need before making his fourth kick.   One possible answer: since he is likely to make each field goal attempt, it will take him at least 4 attempts but probably not more than 6 or 7.  "
+},
+{
+  "id": "ex-six-tries-for-four-successes",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-six-tries-for-four-successes",
+  "type": "Example",
+  "number": "4.4.3",
+  "title": "Sequences of successes and failures.",
+  "body": " Sequences of successes and failures   In yesterday's practice, it took Brian only 6 tries to get his fourth field goal. Write out each of the possible sequences of kicks.    Because it took Brian six tries to get the fourth success, we know the last kick must have been a success. That leaves three successful kicks and two unsuccessful kicks (we label these as failures) that make up the first five attempts. There are ten possible sequences of these first five kicks, which are shown in . If Brian achieved his fourth success ( ) on his sixth attempt ( ), then his order of successes and failures must be one of these ten possible sequences.   "
+},
+{
+  "id": "fig-brian-six-attempts",
+  "level": "2",
+  "url": "sec-negative-binomial.html#fig-brian-six-attempts",
+  "type": "Figure",
+  "number": "4.4.4",
+  "title": "",
+  "body": " The ten possible sequences when the fourth successful kick is on the sixth attempt. S denotes a success and F denotes a failure.     Kick Attempt     1  2  3  4  5  6    1          2          3          4          5          6          7          8          9          10          "
+},
+{
+  "id": "ex-prob-of-first-sequence",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-prob-of-first-sequence",
+  "type": "Checkpoint",
+  "number": "4.4.5",
+  "title": "",
+  "body": " Each sequence in has exactly two failures and four successes with the last attempt always being a success. If the probability of a success is , find the probability of the first sequence.   The first sequence: .  "
+},
+{
+  "id": "p-990",
+  "level": "2",
+  "url": "sec-negative-binomial.html#p-990",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Negative binomial distribution "
+},
+{
+  "id": "ex-brian-fourth-on-sixth",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-brian-fourth-on-sixth",
+  "type": "Example",
+  "number": "4.4.6",
+  "title": "Using the negative binomial formula.",
+  "body": " Using the negative binomial formula   Show using the formula for the negative binomial distribution that the probability Brian kicks his fourth successful field goal on the sixth attempt is 0.164.    The probability of a single success is , the number of successes is , and the number of necessary attempts under this scenario is .    "
+},
+{
+  "id": "exercise-208",
+  "level": "2",
+  "url": "sec-negative-binomial.html#exercise-208",
+  "type": "Checkpoint",
+  "number": "4.4.7",
+  "title": "",
+  "body": " The negative binomial distribution requires that each kick attempt by Brian is independent. Do you think it is reasonable to suggest that each of Brian's kick attempts are independent?   Answers may vary. We cannot conclusively say they are or are not independent. However, many statistical reviews of athletic performance suggest such attempts are very nearly independent.  "
+},
+{
+  "id": "ex-brian-within-five",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-brian-within-five",
+  "type": "Checkpoint",
+  "number": "4.4.8",
+  "title": "",
+  "body": " Assume Brian's kick attempts are independent. What is the probability that Brian will kick his fourth field goal within 5 attempts?   If his fourth field goal ( ) is within five attempts, it either took him four or five tries ( or ). We have from earlier. Use the negative binomial distribution to compute the probability of tries and tries, then add those probabilities together:   "
+},
+{
+  "id": "p-998",
+  "level": "2",
+  "url": "sec-negative-binomial.html#p-998",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Binomial versus negative binomial "
+},
+{
+  "id": "ex-hospital-heart-attacks",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-hospital-heart-attacks",
+  "type": "Checkpoint",
+  "number": "4.4.9",
+  "title": "",
+  "body": " On 70% of days, a hospital admits at least one heart attack patient. On 30% of the days, no heart attack patients are admitted. Identify each case below as a binomial or negative binomial case, and compute the probability.     What is the probability the hospital will admit a heart attack patient on exactly three days this week?    What is the probability the second day with a heart attack patient will be the fourth day of the week?    What is the probability the fifth day of next month will be the first day with a heart attack patient?      In each part, .     The number of days is fixed, so this is binomial. The parameters are and : 0.097.    The last success (admitting a heart attack patient) is fixed to the last day, so we should apply the negative binomial distribution. The parameters are , : 0.132.    This problem is negative binomial with and : 0.006. Note that the negative binomial case when is the same as using the geometric distribution.     "
+},
+{
+  "id": "ex-rolling-die-neg-binom",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-rolling-die-neg-binom",
+  "type": "Exercise",
+  "number": "4.4.1",
+  "title": "Rolling a die.",
+  "body": "Rolling a die  Calculate the following probabilities and indicate which probability distribution model is appropriate in each case. You roll a fair die 5 times. What is the probability of rolling    the first 6 on the fifth roll?  exactly three 6s?  the third 6 on the fifth roll?    "
+},
+{
+  "id": "ex-playing-darts",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-playing-darts",
+  "type": "Exercise",
+  "number": "4.4.2",
+  "title": "Playing darts.",
+  "body": "Playing darts  Calculate the following probabilities and indicate which probability distribution model is appropriate in each case. A very good darts player can hit the bull's eye (red circle in the center of the dart board) 65% of the time. What is the probability that he    hits the bullseye for the time on the try?  hits the bullseye 10 times in 15 tries?  hits the first bullseye on the third try?    "
+},
+{
+  "id": "ex-sampling-at-school",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-sampling-at-school",
+  "type": "Exercise",
+  "number": "4.4.3",
+  "title": "Sampling at school.",
+  "body": "Sampling at school  For a sociology class project you are asked to conduct a survey on 20 students at your school. You decide to stand outside of your dorm's cafeteria and conduct the survey on a random sample of 20 students leaving the cafeteria after dinner one evening. Your dorm is comprised of 45% males and 55% females.     Which probability model is most appropriate for calculating the probability that the person you survey is the female? Explain.    Compute the probability from part (a).    The three possible scenarios that lead to person you survey being the female are One common feature among these scenarios is that the last trial is always female. In the first three trials there are 2 males and 1 female. Use the binomial coefficient to confirm that there are 3 ways of ordering 2 males and 1 female.    Use the findings presented in part (c) to explain why the formula for the coefficient for the negative binomial is while the formula for the binomial coefficient is .     "
+},
+{
+  "id": "ex-serving-volleyball",
+  "level": "2",
+  "url": "sec-negative-binomial.html#ex-serving-volleyball",
+  "type": "Exercise",
+  "number": "4.4.4",
+  "title": "Serving in volleyball.",
+  "body": "Serving in volleyball  A not-so-skilled volleyball player has a 15% chance of making the serve, which involves hitting the ball so it passes over the net on a trajectory such that it will land in the opposing team's court. Suppose that her serves are independent of each other.     What is the probability that on the try she will make her successful serve?    Suppose she has made two successful serves in nine attempts. What is the probability that her serve will be successful?    Even though parts (a) and (b) discuss the same scenario, the probabilities you calculated should be different. Can you explain the reason for this discrepancy?     "
 },
 {
   "id": "sec-poisson-distribution",
@@ -2689,196 +3679,232 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.5",
   "title": "Poisson distribution",
-  "body": " Poisson distribution   The Poisson distribution is used to describe the number of rare events that occur in a fixed amount of time or space when the events occur independently and at a constant average rate.   To be converted from LaTeX source.   Website visits   A website receives an average of 2 visits per minute. What is the probability the website receives exactly 5 visits in the next minute?    To be converted from LaTeX source.    "
+  "body": " Poisson distribution   AMI incidents in New York City   There are about 8 million individuals in New York City. How many individuals might we expect to be hospitalized for acute myocardial infarction (AMI), i.e. a heart attack, each day? According to historical records, the average number is about 4.4 individuals. However, we would also like to know the approximate distribution of counts. What would a histogram of the number of AMI occurrences each day look like if we recorded the daily counts over an entire year?    A histogram of the number of occurrences of AMI on 365 days for NYC is shown in . These data are simulated. In practice, we should check for an association between successive days. The sample mean (4.38) is similar to the historical average of 4.4. The sample standard deviation is about 2, and the histogram indicates that about 70% of the data fall between 2.4 and 6.4. The distribution's shape is unimodal and skewed to the right.     A histogram of the number of occurrences of AMI on 365 separate days in NYC.    The Poisson distribution is often useful for estimating the number of events in a large population over a unit of time. For instance, consider each of the following events:  having a heart attack,  getting married, and  getting struck by lightning.  The Poisson distribution helps us describe the number of such events that will occur in a day for a fixed population if the individuals within the population are independent. The Poisson distribution could also be used over another unit of time, such as an hour or a week.  The histogram in approximates a Poisson distribution with rate equal to 4.4. The rate for a Poisson distribution is the average number of occurrences in a mostly-fixed population per unit of time. In , the time unit is a day, the population is all New York City residents, and the historical rate is 4.4. The parameter in the Poisson distribution is the rate or how many events we expect to observe and it is typically denoted by (the Greek letter lambda ) or . Using the rate, we can describe the probability of observing exactly events in a single unit of time.    Poisson distribution   Suppose we are watching for events and the number of observed events follows a Poisson distribution with rate . Then where may take a value 0, 1, 2, and so on, and represents -factorial, as described on page . The letter is the base of the natural logarithm. The mean and standard deviation of this distribution are and , respectively.   We will leave a rigorous set of conditions for the Poisson distribution to a later course. However, we offer a few simple guidelines that can be used for an initial evaluation of whether the Poisson model would be appropriate.  A random variable may follow a Poisson distribution if we are looking for the number of events, the population that generates such events is large, and the events occur independently of each other.  Even when events are not really independent for instance, Saturdays and Sundays are especially popular for weddings a Poisson model may sometimes still be reasonable if we allow it to have a different rate for different times. In the wedding example, the rate would be modeled as higher on weekends than on weekdays. The idea of modeling rates for a Poisson distribution against a second variable such as the day of week forms the foundation of some more advanced methods that fall in the realm of generalized linear models . In Chapters and , we will discuss a foundation of linear models.   Section 4.5 Exercises  Customers at a coffee shop  A coffee shop serves an average of 75 customers per hour during the morning rush.     Which distribution have we studied that is most appropriate for calculating the probability of a given number of customers arriving within one hour during this time of day?    What are the mean and the standard deviation of the number of customers this coffee shop serves in one hour during this time of day?    Would it be considered unusually low if only 60 customers showed up to this coffee shop in one hour during this time of day?    Calculate the probability that this coffee shop serves 70 customers in one hour during this time of day.      Stenographer's typos  A very skilled court stenographer makes one typographical error (typo) per hour on average.     What probability distribution is most appropriate for calculating the probability of a given number of typos this stenographer makes in an hour?    What are the mean and the standard deviation of the number of typos this stenographer makes?    Would it be considered unusual if this stenographer made 4 typos in a given hour?    Calculate the probability that this stenographer makes at most 2 typos in a given hour.      How many cars show up  For Monday through Thursday when there isn't a holiday, the average number of vehicles that visit a particular retailer between 2pm and 3pm each afternoon is 6.5, and the number of cars that show up on any given day follows a Poisson distribution.     What is the probability that exactly 5 cars will show up next Monday?    What is the probability that 0, 1, or 2 cars will show up next Monday between 2pm and 3pm?    There is an average of 11.7 people who visit during those same hours from vehicles. Is it likely that the number of people visiting by car during this hour is also Poisson? Explain.      Lost baggage  Occasionally an airline will lose a bag. Suppose a small airline has found it can reasonably model the number of bags lost each weekday using a Poisson model with a mean of 2.2 bags.     What is the probability that the airline will lose no bags next Monday?    What is the probability that the airline will lose 0, 1, or 2 bags on next Monday?    Suppose the airline expands over the course of the next 3 years, doubling the number of flights it makes, and the CEO asks you if it's reasonable for them to continue using the Poisson model with a mean of 2.2. What is an appropriate recommendation? Explain.       "
 },
 {
-  "id": "ex-poisson-visits",
+  "id": "ex-ami-nyc",
   "level": "2",
-  "url": "sec-poisson-distribution.html#ex-poisson-visits",
+  "url": "sec-poisson-distribution.html#ex-ami-nyc",
   "type": "Example",
   "number": "4.5.1",
-  "title": "Website visits.",
-  "body": " Website visits   A website receives an average of 2 visits per minute. What is the probability the website receives exactly 5 visits in the next minute?    To be converted from LaTeX source.   "
+  "title": "AMI incidents in New York City.",
+  "body": " AMI incidents in New York City   There are about 8 million individuals in New York City. How many individuals might we expect to be hospitalized for acute myocardial infarction (AMI), i.e. a heart attack, each day? According to historical records, the average number is about 4.4 individuals. However, we would also like to know the approximate distribution of counts. What would a histogram of the number of AMI occurrences each day look like if we recorded the daily counts over an entire year?    A histogram of the number of occurrences of AMI on 365 days for NYC is shown in . These data are simulated. In practice, we should check for an association between successive days. The sample mean (4.38) is similar to the historical average of 4.4. The sample standard deviation is about 2, and the histogram indicates that about 70% of the data fall between 2.4 and 6.4. The distribution's shape is unimodal and skewed to the right.   "
 },
 {
-  "id": "sec-point-estimates",
-  "level": "1",
-  "url": "sec-point-estimates.html",
-  "type": "Section",
-  "number": "5.1",
-  "title": "Point estimates and sampling variability",
-  "body": " Point estimates and sampling variability   Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.    Point estimates and error  Suppose a poll suggested the US President's approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population.  To be converted from LaTeX source.    Understanding the variability of a point estimate  To be converted from LaTeX source.    Central Limit Theorem  To be converted from LaTeX source.   Central Limit Theorem for proportions   Describe the sampling distribution for the sample proportion when sampling from a population where the true proportion is 0.3.    To be converted from LaTeX source.     Sampling distributions showing Central Limit Theorem      Applying the Central Limit Theorem to proportions  To be converted from LaTeX source.   Sampling distribution of sample proportion      More details regarding the Central Limit Theorem  To be converted from LaTeX source.    Extending the framework for other statistics  To be converted from LaTeX source.   "
-},
-{
-  "id": "ex-clt-proportions",
+  "id": "fig-ami-incidences-over-100-days",
   "level": "2",
-  "url": "sec-point-estimates.html#ex-clt-proportions",
-  "type": "Example",
-  "number": "5.1.1",
-  "title": "Central Limit Theorem for proportions.",
-  "body": " Central Limit Theorem for proportions   Describe the sampling distribution for the sample proportion when sampling from a population where the true proportion is 0.3.    To be converted from LaTeX source.   "
-},
-{
-  "id": "fig-clt-prop-grid",
-  "level": "2",
-  "url": "sec-point-estimates.html#fig-clt-prop-grid",
+  "url": "sec-poisson-distribution.html#fig-ami-incidences-over-100-days",
   "type": "Figure",
-  "number": "5.1.2",
+  "number": "4.5.2",
   "title": "",
-  "body": " Sampling distributions showing Central Limit Theorem   "
+  "body": " A histogram of the number of occurrences of AMI on 365 separate days in NYC.   "
 },
 {
-  "id": "fig-p-hat-from-53-59",
+  "id": "p-1033",
   "level": "2",
-  "url": "sec-point-estimates.html#fig-p-hat-from-53-59",
-  "type": "Figure",
-  "number": "5.1.3",
+  "url": "sec-poisson-distribution.html#p-1033",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " Sampling distribution of sample proportion   "
+  "body": "Poisson distribution "
 },
 {
-  "id": "sec-confidence-intervals",
-  "level": "1",
-  "url": "sec-confidence-intervals.html",
-  "type": "Section",
-  "number": "5.2",
-  "title": "Confidence intervals for a proportion",
-  "body": " Confidence intervals for a proportion   A point estimate provides a single plausible value for a parameter. However, a point estimate is rarely perfect; usually there is some error in the estimate. Instead of supplying just a point estimate, a confidence interval provides a plausible range of values for the parameter.    Capturing the population parameter  To be converted from LaTeX source.   95% confidence interval illustration      Constructing a 95% confidence interval  To be converted from LaTeX source.   Constructing a confidence interval   In a poll of 1000 registered voters, 540 say they will vote for Candidate A. Construct a 95% confidence interval for the proportion of all registered voters who will vote for Candidate A.    To be converted from LaTeX source.     Choosing the z-value for confidence intervals      Changing the confidence level  To be converted from LaTeX source.    More case studies  To be converted from LaTeX source.    Interpreting confidence intervals  To be converted from LaTeX source.   "
-},
-{
-  "id": "fig-95-percent-ci",
+  "id": "p-1037",
   "level": "2",
-  "url": "sec-confidence-intervals.html#fig-95-percent-ci",
-  "type": "Figure",
-  "number": "5.2.1",
+  "url": "sec-poisson-distribution.html#p-1037",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " 95% confidence interval illustration   "
+  "body": "rate "
 },
 {
-  "id": "ex-construct-ci",
+  "id": "p-1038",
   "level": "2",
-  "url": "sec-confidence-intervals.html#ex-construct-ci",
-  "type": "Example",
-  "number": "5.2.2",
-  "title": "Constructing a confidence interval.",
-  "body": " Constructing a confidence interval   In a poll of 1000 registered voters, 540 say they will vote for Candidate A. Construct a 95% confidence interval for the proportion of all registered voters who will vote for Candidate A.    To be converted from LaTeX source.   "
-},
-{
-  "id": "fig-choosing-z-for-ci",
-  "level": "2",
-  "url": "sec-confidence-intervals.html#fig-choosing-z-for-ci",
-  "type": "Figure",
-  "number": "5.2.3",
+  "url": "sec-poisson-distribution.html#p-1038",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " Choosing the z-value for confidence intervals   "
+  "body": "Poisson distribution "
 },
 {
-  "id": "sec-hypothesis-testing",
-  "level": "1",
-  "url": "sec-hypothesis-testing.html",
-  "type": "Section",
-  "number": "5.3",
-  "title": "Hypothesis testing for a proportion",
-  "body": " Hypothesis testing for a proportion   Confidence intervals are useful for estimating parameters, but they are not the only way to make use of sample data. In this section we introduce hypothesis testing, which is a formal technique for making decisions based on data and evaluating claims about a population.    Hypothesis testing framework  To be converted from LaTeX source.   Jury selection   In a particular county, 80% of registered voters are white. A jury of 12 people is selected, and only 8 are white. Does this provide evidence of discrimination in jury selection?    To be converted from LaTeX source.     P-value for jury selection hypothesis test      Testing hypotheses using confidence intervals  To be converted from LaTeX source.    Decision errors  To be converted from LaTeX source.   Types of errors in hypothesis testing     H true  H true    Reject H  Type I Error  Correct decision    Fail to reject H  Correct decision  Type II Error       Formal testing using p-values  To be converted from LaTeX source.   Computing a p-value   A poll of 500 voters finds that 270 support a particular policy. Test whether this provides evidence that more than half of all voters support the policy.    To be converted from LaTeX source.     Computing p-value from normal distribution      Choosing a significance level  To be converted from LaTeX source.    Statistical significance versus practical significance  To be converted from LaTeX source.    One-sided hypothesis tests (special topic)  To be converted from LaTeX source.   One-sided hypothesis test illustration     "
-},
-{
-  "id": "ex-jury-selection",
+  "id": "p-1042",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-jury-selection",
-  "type": "Example",
-  "number": "5.3.1",
-  "title": "Jury selection.",
-  "body": " Jury selection   In a particular county, 80% of registered voters are white. A jury of 12 people is selected, and only 8 are white. Does this provide evidence of discrimination in jury selection?    To be converted from LaTeX source.   "
-},
-{
-  "id": "fig-juror-ht-pvalue",
-  "level": "2",
-  "url": "sec-hypothesis-testing.html#fig-juror-ht-pvalue",
-  "type": "Figure",
-  "number": "5.3.2",
+  "url": "sec-poisson-distribution.html#p-1042",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
   "title": "",
-  "body": " P-value for jury selection hypothesis test   "
+  "body": "generalized linear models "
 },
 {
-  "id": "table-decision-errors",
+  "id": "ex-coffee-shop-customers",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#table-decision-errors",
-  "type": "Table",
-  "number": "5.3.3",
-  "title": "Types of errors in hypothesis testing",
-  "body": " Types of errors in hypothesis testing     H true  H true    Reject H  Type I Error  Correct decision    Fail to reject H  Correct decision  Type II Error    "
+  "url": "sec-poisson-distribution.html#ex-coffee-shop-customers",
+  "type": "Exercise",
+  "number": "4.5.1",
+  "title": "Customers at a coffee shop.",
+  "body": "Customers at a coffee shop  A coffee shop serves an average of 75 customers per hour during the morning rush.     Which distribution have we studied that is most appropriate for calculating the probability of a given number of customers arriving within one hour during this time of day?    What are the mean and the standard deviation of the number of customers this coffee shop serves in one hour during this time of day?    Would it be considered unusually low if only 60 customers showed up to this coffee shop in one hour during this time of day?    Calculate the probability that this coffee shop serves 70 customers in one hour during this time of day.     "
 },
 {
-  "id": "ex-pvalue-computation",
+  "id": "ex-stenographer-typos",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#ex-pvalue-computation",
-  "type": "Example",
-  "number": "5.3.4",
-  "title": "Computing a p-value.",
-  "body": " Computing a p-value   A poll of 500 voters finds that 270 support a particular policy. Test whether this provides evidence that more than half of all voters support the policy.    To be converted from LaTeX source.   "
+  "url": "sec-poisson-distribution.html#ex-stenographer-typos",
+  "type": "Exercise",
+  "number": "4.5.2",
+  "title": "Stenographer’s typos.",
+  "body": "Stenographer's typos  A very skilled court stenographer makes one typographical error (typo) per hour on average.     What probability distribution is most appropriate for calculating the probability of a given number of typos this stenographer makes in an hour?    What are the mean and the standard deviation of the number of typos this stenographer makes?    Would it be considered unusual if this stenographer made 4 typos in a given hour?    Calculate the probability that this stenographer makes at most 2 typos in a given hour.     "
 },
 {
-  "id": "fig-normal-dist-pvalue",
+  "id": "ex-cars-in-parking-lot",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#fig-normal-dist-pvalue",
-  "type": "Figure",
-  "number": "5.3.5",
-  "title": "",
-  "body": " Computing p-value from normal distribution   "
+  "url": "sec-poisson-distribution.html#ex-cars-in-parking-lot",
+  "type": "Exercise",
+  "number": "4.5.3",
+  "title": "How many cars show up.",
+  "body": "How many cars show up  For Monday through Thursday when there isn't a holiday, the average number of vehicles that visit a particular retailer between 2pm and 3pm each afternoon is 6.5, and the number of cars that show up on any given day follows a Poisson distribution.     What is the probability that exactly 5 cars will show up next Monday?    What is the probability that 0, 1, or 2 cars will show up next Monday between 2pm and 3pm?    There is an average of 11.7 people who visit during those same hours from vehicles. Is it likely that the number of people visiting by car during this hour is also Poisson? Explain.     "
 },
 {
-  "id": "fig-business-one-sided",
+  "id": "ex-lost-baggage",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#fig-business-one-sided",
-  "type": "Figure",
-  "number": "5.3.6",
-  "title": "",
-  "body": " One-sided hypothesis test illustration   "
+  "url": "sec-poisson-distribution.html#ex-lost-baggage",
+  "type": "Exercise",
+  "number": "4.5.4",
+  "title": "Lost baggage.",
+  "body": "Lost baggage  Occasionally an airline will lose a bag. Suppose a small airline has found it can reasonably model the number of bags lost each weekday using a Poisson model with a mean of 2.2 bags.     What is the probability that the airline will lose no bags next Monday?    What is the probability that the airline will lose 0, 1, or 2 bags on next Monday?    Suppose the airline expands over the course of the next 3 years, doubling the number of flights it makes, and the CEO asks you if it's reasonable for them to continue using the Poisson model with a mean of 2.2. What is an appropriate recommendation? Explain.     "
 },
 {
-  "id": "sec-one-prop",
+  "id": "sec-ch04-review",
   "level": "1",
-  "url": "sec-one-prop.html",
+  "url": "sec-ch04-review.html",
   "type": "Section",
-  "number": "6.1",
-  "title": "Inference for a single proportion",
-  "body": " Inference for a single proportion  Content to be converted from LaTeX source.  "
+  "number": "4.6",
+  "title": "Chapter review",
+  "body": " Chapter review   Chapter review  Roulette winnings  In the game of roulette, a wheel is spun and you place bets on where it will stop. One popular bet is that it will stop on a red slot; such a bet has an 18\/38 chance of winning. If it stops on red, you double the money you bet. If not, you lose the money you bet. Suppose you play 3 times, each time with a $1 bet. Let Y represent the total amount won or lost. Write a probability model for Y.   Speeding on the I-5, Part I  The distribution of passenger vehicle speeds traveling on the Interstate 5 Freeway (I-5) in California is nearly normal with a mean of 72.6 miles\/hour and a standard deviation of 4.78 miles\/hour.    What percent of passenger vehicles travel slower than 80 miles\/hour?  What percent of passenger vehicles travel between 60 and 80 miles\/hour?  How fast do the fastest 5% of passenger vehicles travel?   The speed limit on this stretch of the I-5 is 70 miles\/hour. Approximate what percentage of the passenger vehicles travel above the speed limit on this stretch of the I-5.      University admissions  Suppose a university announced that it admitted 2,500 students for the following year's freshman class. However, the university has dorm room spots for only 1,786 freshman students. If there is a 70% chance that an admitted student will decide to accept the offer and attend this university, what is the approximate probability that the university will not have enough dormitory room spots for the freshman class?   Speeding on the I-5, Part II   states that the distribution of speeds of cars traveling on the Interstate 5 Freeway (I-5) in California is nearly normal with a mean of 72.6 miles\/hour and a standard deviation of 4.78 miles\/hour. The speed limit on this stretch of the I-5 is 70 miles\/hour.     A highway patrol officer is hidden on the side of the freeway. What is the probability that 5 cars pass and none are speeding? Assume that the speeds of the cars are independent of each other.    On average, how many cars would the highway patrol officer expect to watch until the first car that is speeding? What is the standard deviation of the number of cars he would expect to watch?      Auto insurance premiums  Suppose a newspaper article states that the distribution of auto insurance premiums for residents of California is approximately normal with a mean of $1,650. The article also states that 25% of California residents pay more than $1,800.     What is the Z-score that corresponds to the top 25% (or the 75 percentile) of the standard normal distribution?   What is the mean insurance cost? What is the cutoff for the 75th percentile?  Identify the standard deviation of insurance premiums in California.     SAT scores  SAT scores (out of 1600) are distributed normally with a mean of 1100 and a standard deviation of 200. Suppose a school council awards a certificate of excellence to all students who score at least 1350 on the SAT, and suppose we pick one of the recognized students at random. What is the probability this student's score will be at least 1500? (The material covered in Section 2.2 on conditional probability would be useful for this question.)   Married women  The American Community Survey estimates that 47.1% of women ages 15 years and over are married.     We randomly select three women between these ages. What is the probability that the third woman selected is the only one who is married?    What is the probability that all three randomly selected women are married?    On average, how many women would you expect to sample before selecting a married woman? What is the standard deviation?    If the proportion of married women was actually 30%, how many women would you expect to sample before selecting a married woman? What is the standard deviation?    Based on your answers to parts (c) and (d), how does decreasing the probability of an event affect the mean and standard deviation of the wait time until success?      Survey response rate  Pew Research reported that the typical response rate to their surveys is only 9%. If for a particular survey 15,000 households are contacted, what is the probability that at least 1,500 will agree to respond?   Overweight baggage  Suppose weights of the checked baggage of airline passengers follow a nearly normal distribution with mean 45 pounds and standard deviation 3.2 pounds. Most airlines charge a fee for baggage that weigh in excess of 50 pounds. Determine what percent of airline passengers incur this fee.   Heights of 10 year olds, Part I  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     What is the probability that a randomly chosen 10 year old is shorter than 48 inches?    What is the probability that a randomly chosen 10 year old is between 60 and 65 inches?    If the tallest 10% of the class is considered very tall , what is the height cutoff for very tall ?      Buying books on Ebay  Suppose you're considering buying your expensive chemistry textbook on Ebay. Looking at past auctions suggests that the prices of this textbook follow an approximately normal distribution with mean $89 and standard deviation $15.     What is the probability that a randomly selected auction for this book closes at more than $100?    Ebay allows you to set your maximum bid price so that if someone outbids you on an auction you can automatically outbid them, up to the maximum bid price you set. If you are only bidding on one auction, what are the advantages and disadvantages of setting a bid price too high or too low? What if you are bidding on multiple auctions?    If you watched 10 auctions, roughly what percentile might you use for a maximum bid cutoff to be somewhat sure that you will win one of these ten auctions? Is it possible to find a cutoff point that will ensure that you win an auction?    If you are willing to track up to ten auctions closely, about what price might you use as your maximum bid price if you want to be somewhat sure that you will buy one of these ten books?      Heights of 10 year olds, Part II  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     The height requirement for Batman the Ride at Six Flags Magic Mountain is 54 inches. What percent of 10 year olds cannot go on this ride?    Suppose there are four 10 year olds. What is the chance that at least two of them will be able to ride Batman the Ride ?    Suppose you work at the park to help them better understand their customers' demographics, and you are counting people as they enter the park. What is the chance that the first 10 year old you see who can ride Batman the Ride is the 3rd 10 year old who enters the park?    What is the chance that the fifth 10 year old you see who can ride Batman the Ride is the 12th 10 year old who enters the park?      Heights of 10 year olds, Part III  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     What fraction of 10 year olds are taller than 76 inches?    If there are 2,000 10 year olds entering Six Flags Magic Mountain in a single day, then compute the expected number of 10 year olds who are at least 76 inches tall. (You may assume the heights of the 10-year olds are independent.)    Using the binomial distribution, compute the probability that 0 of the 2,000 10 year olds will be at least 76 inches tall.    The number of 10 year olds who enter Six Flags Magic Mountain and are at least 76 inches tall in a given day follows a Poisson distribution with mean equal to the value found in part . Use the Poisson distribution to identify the probability no 10 year old will enter the park who is 76 inches or taller.      Multiple choice quiz  In a multiple choice quiz there are 5 questions and 4 choices for each question (a, b, c, d). Robin has not studied for the quiz at all, and decides to randomly guess the answers. What is the probability that    the first question she gets right is the 3 question?  she gets exactly 3 or exactly 4 questions right?  she gets the majority of the questions right?      "
 },
 {
-  "id": "sec-one-mean",
-  "level": "1",
-  "url": "sec-one-mean.html",
-  "type": "Section",
-  "number": "7.1",
-  "title": "Inference for a single mean",
-  "body": " Inference for a single mean  Content to be converted from LaTeX source.  "
+  "id": "ex-roulette-winnings",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-roulette-winnings",
+  "type": "Exercise",
+  "number": "4.6.1",
+  "title": "Roulette winnings.",
+  "body": "Roulette winnings  In the game of roulette, a wheel is spun and you place bets on where it will stop. One popular bet is that it will stop on a red slot; such a bet has an 18\/38 chance of winning. If it stops on red, you double the money you bet. If not, you lose the money you bet. Suppose you play 3 times, each time with a $1 bet. Let Y represent the total amount won or lost. Write a probability model for Y.  "
 },
 {
-  "id": "sec-line-best-fit",
-  "level": "1",
-  "url": "sec-line-best-fit.html",
-  "type": "Section",
-  "number": "8.1",
-  "title": "Line fitting and residuals",
-  "body": " Line fitting and residuals  Content to be converted from LaTeX source.  "
+  "id": "ex-speeding-i5-intro",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-speeding-i5-intro",
+  "type": "Exercise",
+  "number": "4.6.2",
+  "title": "Speeding on the I-5, Part I.",
+  "body": "Speeding on the I-5, Part I  The distribution of passenger vehicle speeds traveling on the Interstate 5 Freeway (I-5) in California is nearly normal with a mean of 72.6 miles\/hour and a standard deviation of 4.78 miles\/hour.    What percent of passenger vehicles travel slower than 80 miles\/hour?  What percent of passenger vehicles travel between 60 and 80 miles\/hour?  How fast do the fastest 5% of passenger vehicles travel?   The speed limit on this stretch of the I-5 is 70 miles\/hour. Approximate what percentage of the passenger vehicles travel above the speed limit on this stretch of the I-5.     "
 },
 {
-  "id": "sec-multiple-regression",
-  "level": "1",
-  "url": "sec-multiple-regression.html",
-  "type": "Section",
-  "number": "9.1",
-  "title": "Multiple regression",
-  "body": " Multiple regression  Content to be converted from LaTeX source.  "
+  "id": "ex-university-admissions",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-university-admissions",
+  "type": "Exercise",
+  "number": "4.6.3",
+  "title": "University admissions.",
+  "body": "University admissions  Suppose a university announced that it admitted 2,500 students for the following year's freshman class. However, the university has dorm room spots for only 1,786 freshman students. If there is a 70% chance that an admitted student will decide to accept the offer and attend this university, what is the approximate probability that the university will not have enough dormitory room spots for the freshman class?  "
 },
 {
-  "id": "sec-logistic-regression",
-  "level": "1",
-  "url": "sec-logistic-regression.html",
-  "type": "Section",
-  "number": "9.2",
-  "title": "Logistic regression",
-  "body": " Logistic regression  Content to be converted from LaTeX source.  "
+  "id": "ex-speeding-i5-geometric",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-speeding-i5-geometric",
+  "type": "Exercise",
+  "number": "4.6.4",
+  "title": "Speeding on the I-5, Part II.",
+  "body": "Speeding on the I-5, Part II   states that the distribution of speeds of cars traveling on the Interstate 5 Freeway (I-5) in California is nearly normal with a mean of 72.6 miles\/hour and a standard deviation of 4.78 miles\/hour. The speed limit on this stretch of the I-5 is 70 miles\/hour.     A highway patrol officer is hidden on the side of the freeway. What is the probability that 5 cars pass and none are speeding? Assume that the speeds of the cars are independent of each other.    On average, how many cars would the highway patrol officer expect to watch until the first car that is speeding? What is the standard deviation of the number of cars he would expect to watch?     "
+},
+{
+  "id": "ex-auto-insurance-premiums",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-auto-insurance-premiums",
+  "type": "Exercise",
+  "number": "4.6.5",
+  "title": "Auto insurance premiums.",
+  "body": "Auto insurance premiums  Suppose a newspaper article states that the distribution of auto insurance premiums for residents of California is approximately normal with a mean of $1,650. The article also states that 25% of California residents pay more than $1,800.     What is the Z-score that corresponds to the top 25% (or the 75 percentile) of the standard normal distribution?   What is the mean insurance cost? What is the cutoff for the 75th percentile?  Identify the standard deviation of insurance premiums in California.    "
+},
+{
+  "id": "ex-sat-scores",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-sat-scores",
+  "type": "Exercise",
+  "number": "4.6.6",
+  "title": "SAT scores.",
+  "body": "SAT scores  SAT scores (out of 1600) are distributed normally with a mean of 1100 and a standard deviation of 200. Suppose a school council awards a certificate of excellence to all students who score at least 1350 on the SAT, and suppose we pick one of the recognized students at random. What is the probability this student's score will be at least 1500? (The material covered in Section 2.2 on conditional probability would be useful for this question.)  "
+},
+{
+  "id": "ex-married-women",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-married-women",
+  "type": "Exercise",
+  "number": "4.6.7",
+  "title": "Married women.",
+  "body": "Married women  The American Community Survey estimates that 47.1% of women ages 15 years and over are married.     We randomly select three women between these ages. What is the probability that the third woman selected is the only one who is married?    What is the probability that all three randomly selected women are married?    On average, how many women would you expect to sample before selecting a married woman? What is the standard deviation?    If the proportion of married women was actually 30%, how many women would you expect to sample before selecting a married woman? What is the standard deviation?    Based on your answers to parts (c) and (d), how does decreasing the probability of an event affect the mean and standard deviation of the wait time until success?     "
+},
+{
+  "id": "ex-survey-response-rate",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-survey-response-rate",
+  "type": "Exercise",
+  "number": "4.6.8",
+  "title": "Survey response rate.",
+  "body": "Survey response rate  Pew Research reported that the typical response rate to their surveys is only 9%. If for a particular survey 15,000 households are contacted, what is the probability that at least 1,500 will agree to respond?  "
+},
+{
+  "id": "ex-overweight-baggage",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-overweight-baggage",
+  "type": "Exercise",
+  "number": "4.6.9",
+  "title": "Overweight baggage.",
+  "body": "Overweight baggage  Suppose weights of the checked baggage of airline passengers follow a nearly normal distribution with mean 45 pounds and standard deviation 3.2 pounds. Most airlines charge a fee for baggage that weigh in excess of 50 pounds. Determine what percent of airline passengers incur this fee.  "
+},
+{
+  "id": "ex-heights-10-yrs",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-heights-10-yrs",
+  "type": "Exercise",
+  "number": "4.6.10",
+  "title": "Heights of 10 year olds, Part I.",
+  "body": "Heights of 10 year olds, Part I  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     What is the probability that a randomly chosen 10 year old is shorter than 48 inches?    What is the probability that a randomly chosen 10 year old is between 60 and 65 inches?    If the tallest 10% of the class is considered very tall , what is the height cutoff for very tall ?     "
+},
+{
+  "id": "ex-buy-books-ebay",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-buy-books-ebay",
+  "type": "Exercise",
+  "number": "4.6.11",
+  "title": "Buying books on Ebay.",
+  "body": "Buying books on Ebay  Suppose you're considering buying your expensive chemistry textbook on Ebay. Looking at past auctions suggests that the prices of this textbook follow an approximately normal distribution with mean $89 and standard deviation $15.     What is the probability that a randomly selected auction for this book closes at more than $100?    Ebay allows you to set your maximum bid price so that if someone outbids you on an auction you can automatically outbid them, up to the maximum bid price you set. If you are only bidding on one auction, what are the advantages and disadvantages of setting a bid price too high or too low? What if you are bidding on multiple auctions?    If you watched 10 auctions, roughly what percentile might you use for a maximum bid cutoff to be somewhat sure that you will win one of these ten auctions? Is it possible to find a cutoff point that will ensure that you win an auction?    If you are willing to track up to ten auctions closely, about what price might you use as your maximum bid price if you want to be somewhat sure that you will buy one of these ten books?     "
+},
+{
+  "id": "ex-heights-10-yrs-prob",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-heights-10-yrs-prob",
+  "type": "Exercise",
+  "number": "4.6.12",
+  "title": "Heights of 10 year olds, Part II.",
+  "body": "Heights of 10 year olds, Part II  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     The height requirement for Batman the Ride at Six Flags Magic Mountain is 54 inches. What percent of 10 year olds cannot go on this ride?    Suppose there are four 10 year olds. What is the chance that at least two of them will be able to ride Batman the Ride ?    Suppose you work at the park to help them better understand their customers' demographics, and you are counting people as they enter the park. What is the chance that the first 10 year old you see who can ride Batman the Ride is the 3rd 10 year old who enters the park?    What is the chance that the fifth 10 year old you see who can ride Batman the Ride is the 12th 10 year old who enters the park?     "
+},
+{
+  "id": "ex-heights-10-yrs-dist",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-heights-10-yrs-dist",
+  "type": "Exercise",
+  "number": "4.6.13",
+  "title": "Heights of 10 year olds, Part III.",
+  "body": "Heights of 10 year olds, Part III  Heights of 10 year olds, regardless of gender, closely follow a normal distribution with mean 55 inches and standard deviation 6 inches.     What fraction of 10 year olds are taller than 76 inches?    If there are 2,000 10 year olds entering Six Flags Magic Mountain in a single day, then compute the expected number of 10 year olds who are at least 76 inches tall. (You may assume the heights of the 10-year olds are independent.)    Using the binomial distribution, compute the probability that 0 of the 2,000 10 year olds will be at least 76 inches tall.    The number of 10 year olds who enter Six Flags Magic Mountain and are at least 76 inches tall in a given day follows a Poisson distribution with mean equal to the value found in part . Use the Poisson distribution to identify the probability no 10 year old will enter the park who is 76 inches or taller.     "
+},
+{
+  "id": "ex-mc-quiz",
+  "level": "2",
+  "url": "sec-ch04-review.html#ex-mc-quiz",
+  "type": "Exercise",
+  "number": "4.6.14",
+  "title": "Multiple choice quiz.",
+  "body": "Multiple choice quiz  In a multiple choice quiz there are 5 questions and 4 choices for each question (a, b, c, d). Robin has not studied for the quiz at all, and decides to randomly guess the answers. What is the probability that    the first question she gets right is the 3 question?  she gets exactly 3 or exactly 4 questions right?  she gets the majority of the questions right?    "
 },
 {
   "id": "appendix-data-sets",
