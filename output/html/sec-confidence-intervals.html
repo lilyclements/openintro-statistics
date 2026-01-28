@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Confidence Intervals</title>
+<title>Confidence Intervals for a Proportion</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -397,10 +397,37 @@ true);
 <li>
 <div class="toc-item"><a href="ch-foundations-for-inference.html" class="internal"><span class="codenumber">5</span> <span class="title">Foundations for Inference</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point estimates and sampling variability</span></a></div></li>
-<li class="active"><div class="toc-item"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence Intervals</span></a></div></li>
-<li><div class="toc-item"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing</span></a></div></li>
-<li><div class="toc-item"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Review Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point Estimates and Sampling Variability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-point-estimates-error" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Point Estimates and Error</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-variability-point-estimate" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Understanding the Variability of a Point Estimate</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to Real-World Settings</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Extending the Framework for Other Statistics</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence Intervals for a Proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-capturing-parameter" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Capturing the Population Parameter</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-changing-confidence" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-ci-procedure" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Confidence Interval Procedure for a Single Proportion</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing for a Proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis Testing Framework</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-ht-confidence-intervals" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing Hypotheses Using Confidence Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision Errors in Hypothesis Testing</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Choosing a Significance Level</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chapter 5 Review Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -415,9 +442,57 @@ true);
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-confidence-intervals"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Confidence Intervals</span>
+<span class="type">Section</span> <span class="codenumber">5.2</span> <span class="title">Confidence Intervals for a Proportion</span>
 </h2>
-<div class="para" id="p-1124">[Content for confidence intervals section - full conversion from LaTeX sections needed]</div></section></div>
+<section class="introduction" id="introduction-20"><div class="para" id="p-1139">The sample proportion <span class="process-math">\(\hat{p}\)</span> provides a single plausible value for the population proportion <span class="process-math">\(p\text{.}\)</span> However, the sample proportion isn’t perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.</div></section><section class="subsection" id="subsec-capturing-parameter"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.1</span> <span class="title">Capturing the Population Parameter</span>
+</h3>
+<div class="para" id="p-1140">A <dfn class="terminology">confidence interval</dfn> is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.</div></section><section class="subsection" id="subsec-95-ci"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span>
+</h3>
+<div class="para" id="p-1141">Our sample proportion <span class="process-math">\(\hat{p}\)</span> is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.</div>
+<div class="para" id="p-1142">In a normal distribution, 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be 95% confident that the interval captures the population proportion:</div>
+<div class="displaymath process-math" id="md-48">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1143">When we say we are 95% confident, we mean: suppose we took many samples and built a 95% confidence interval from each. Then about 95% of those intervals would contain the parameter, <span class="process-math">\(p\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="definition-3"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1144">A <dfn class="terminology">95% confidence interval</dfn> for a parameter is constructed as:</div>
+<div class="displaymath process-math" id="md-49">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1145">This confidence interval accounts for sampling error but not bias.</div></article></section><section class="subsection" id="subsec-changing-confidence"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span>
+</h3>
+<div class="para" id="p-1146">We can create confidence intervals with different confidence levels. For example, to create a 99% confidence interval, we use 2.58 instead of 1.96:</div>
+<div class="displaymath process-math" id="md-50">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1147">The choice of critical value depends on the desired confidence level. To find <span class="process-math">\(z^*\)</span> for any confidence level, we select it so that the area between <span class="process-math">\(-z^*\)</span> and <span class="process-math">\(z^*\)</span> in the standard normal distribution corresponds to the confidence level.</div>
+<article class="definition definition-like" id="definition-4"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1148">For a point estimate that closely follows a normal model with standard error <span class="process-math">\(SE\text{,}\)</span> a confidence interval for the population parameter is:</div>
+<div class="displaymath process-math" id="md-51">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1149">where <span class="process-math">\(z^*\)</span> corresponds to the confidence level selected.</div></article><article class="definition definition-like" id="definition-5"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.2.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1150">In a confidence interval, <span class="process-math">\(z^* \times SE\)</span> is called the <dfn class="terminology">margin of error</dfn>.</div></article></section><section class="subsection" id="subsec-ci-procedure"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.4</span> <span class="title">Confidence Interval Procedure for a Single Proportion</span>
+</h3> <div class="para" id="p-1151">Identify <span class="process-math">\(\hat{p}\)</span> and <span class="process-math">\(n\text{,}\)</span> and determine what confidence level you wish to use.</div>  <div class="para" id="p-1152">Verify the conditions to ensure <span class="process-math">\(\hat{p}\)</span> is nearly normal. For one-proportion confidence intervals, use <span class="process-math">\(\hat{p}\)</span> in place of <span class="process-math">\(p\)</span> to check the success-failure condition.</div>  <div class="para" id="p-1153">If the conditions hold, compute <span class="process-math">\(SE\)</span> using <span class="process-math">\(\hat{p}\text{,}\)</span> find <span class="process-math">\(z^*\text{,}\)</span> and construct the interval.</div>  <div class="para" id="p-1154">Interpret the confidence interval in the context of the problem.</div></section><section class="subsection" id="subsec-interpreting-ci"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span>
+</h3>
+<div class="para" id="p-1155">When interpreting a confidence interval, note that the statement is always about the population parameter (considering all members of the population), not about individual observations or future point estimates. A confidence interval only provides a plausible range for population parameters.</div>
+<div class="para" id="p-1156">Remember that the methods discussed apply only to sampling error, not to bias. If a data set is collected in a way that systematically under-estimates or over-estimates the population parameter, these techniques will not address that problem.</div></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-point-estimates.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-hypothesis-testing.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

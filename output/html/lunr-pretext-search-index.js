@@ -3912,8 +3912,80 @@ var ptx_lunr_docs = [
   "url": "sec-point-estimates.html",
   "type": "Section",
   "number": "5.1",
-  "title": "Point estimates and sampling variability",
-  "body": " Point estimates and sampling variability  Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.  [Content for point estimates section - full conversion from LaTeX sections needed]  "
+  "title": "Point Estimates and Sampling Variability",
+  "body": " Point Estimates and Sampling Variability   Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.    Point Estimates and Error  Suppose a poll suggested the US President's approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population. This entire-population response proportion is generally referred to as the parameter of interest .  When the parameter is a proportion, it is often denoted by , and we often refer to the sample proportion as (pronounced p-hat ). Unless we collect responses from every individual in the population, remains unknown, and we use as our estimate of . The difference we observe from the poll versus the parameter is called the error in the estimate.  Generally, the error consists of two aspects: sampling error and bias .     Sampling error , sometimes called sampling uncertainty , describes how much an estimate will tend to vary from one sample to the next. For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. The sample size is often represented by the letter .       Bias describes a systematic tendency to over- or under-estimate the true population value. We try to minimize bias through thoughtful data collection procedures.      Understanding the Variability of a Point Estimate  To understand how a sample proportion behaves, consider a scenario where the proportion of American adults who support expanding solar energy is . If we were to take a poll of 1000 American adults on this topic, how close might we expect the sample proportion to be to 0.88?  We can simulate responses we would get from a simple random sample of 1000 American adults through the following steps:   Create a set of entries representing all American adults, where 88% say \"support\" and 12% say \"not\".  Mix up the entries and pull out 1000 entries to represent our sample.  Compute the fraction that say \"support\".   If we conduct this simulation 10,000 times, we create a sampling distribution of the sample proportions. This distribution has important characteristics:   Center: The center of the distribution equals the population proportion.  Spread: The standard deviation is called the standard error (SE) .  Shape: The distribution is approximately normal (bell-shaped).    Sampling distributions are never observed in practice, but we keep them in mind as they help us understand and characterize the point estimates we do observe.     Central Limit Theorem    When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:   The sample size is typically considered sufficiently large when and , which is called the success-failure condition .    The Central Limit Theorem is incredibly important and provides a foundation for much of statistics. Be mindful of the two technical conditions: the observations must be independent, and the sample size must be sufficiently large.    Applying the Central Limit Theorem to Real-World Settings  When we don't know the population proportion and must use in place of , we use the substitution approximation (also called the plug-in principle ). This allows us to estimate the standard error:   We also use in place of when checking the success-failure condition in practical applications where we don't know the true population proportion.    Extending the Framework for Other Statistics  The strategy of using a sample statistic to estimate a parameter is quite common and can be applied to other statistics besides a proportion. For instance, to estimate the average salary for graduates from a particular college, we could survey a random sample of recent graduates and use the sample mean to estimate the population mean .  The principles and general ideas are the same across different contexts, even if the details change. While this chapter emphasizes a single proportion context, these methods will be applied to many different contexts throughout this book.   "
+},
+{
+  "id": "p-1123",
+  "level": "2",
+  "url": "sec-point-estimates.html#p-1123",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "point estimate parameter of interest "
+},
+{
+  "id": "p-1124",
+  "level": "2",
+  "url": "sec-point-estimates.html#p-1124",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "error "
+},
+{
+  "id": "p-1125",
+  "level": "2",
+  "url": "sec-point-estimates.html#p-1125",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sampling error bias "
+},
+{
+  "id": "definition-1",
+  "level": "2",
+  "url": "sec-point-estimates.html#definition-1",
+  "type": "Definition",
+  "number": "5.1.1",
+  "title": "",
+  "body": "   Sampling error , sometimes called sampling uncertainty , describes how much an estimate will tend to vary from one sample to the next. For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. The sample size is often represented by the letter .   "
+},
+{
+  "id": "definition-2",
+  "level": "2",
+  "url": "sec-point-estimates.html#definition-2",
+  "type": "Definition",
+  "number": "5.1.2",
+  "title": "",
+  "body": "   Bias describes a systematic tendency to over- or under-estimate the true population value. We try to minimize bias through thoughtful data collection procedures.   "
+},
+{
+  "id": "p-1130",
+  "level": "2",
+  "url": "sec-point-estimates.html#p-1130",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "sampling distribution "
+},
+{
+  "id": "thm-central-limit-theorem",
+  "level": "2",
+  "url": "sec-point-estimates.html#thm-central-limit-theorem",
+  "type": "Theorem",
+  "number": "5.1.3",
+  "title": "",
+  "body": "  When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:   The sample size is typically considered sufficiently large when and , which is called the success-failure condition .   "
+},
+{
+  "id": "p-1135",
+  "level": "2",
+  "url": "sec-point-estimates.html#p-1135",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "substitution approximation "
 },
 {
   "id": "sec-confidence-intervals",
@@ -3921,8 +3993,44 @@ var ptx_lunr_docs = [
   "url": "sec-confidence-intervals.html",
   "type": "Section",
   "number": "5.2",
-  "title": "Confidence Intervals",
-  "body": " Confidence Intervals  [Content for confidence intervals section - full conversion from LaTeX sections needed]  "
+  "title": "Confidence Intervals for a Proportion",
+  "body": " Confidence Intervals for a Proportion   The sample proportion provides a single plausible value for the population proportion . However, the sample proportion isn't perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.    Capturing the Population Parameter  A confidence interval is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.    Constructing a 95% Confidence Interval  Our sample proportion is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.  In a normal distribution, 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be 95% confident that the interval captures the population proportion:   When we say we are 95% confident, we mean: suppose we took many samples and built a 95% confidence interval from each. Then about 95% of those intervals would contain the parameter, .    A 95% confidence interval for a parameter is constructed as:   This confidence interval accounts for sampling error but not bias.      Changing the Confidence Level  We can create confidence intervals with different confidence levels. For example, to create a 99% confidence interval, we use 2.58 instead of 1.96:   The choice of critical value depends on the desired confidence level. To find for any confidence level, we select it so that the area between and in the standard normal distribution corresponds to the confidence level.    For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.      In a confidence interval, is called the margin of error .      Confidence Interval Procedure for a Single Proportion    Prepare  Identify and , and determine what confidence level you wish to use.    Check  Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.    Calculate  If the conditions hold, compute using , find , and construct the interval.    Conclude  Interpret the confidence interval in the context of the problem.      Interpreting Confidence Intervals  When interpreting a confidence interval, note that the statement is always about the population parameter (considering all members of the population), not about individual observations or future point estimates. A confidence interval only provides a plausible range for population parameters.   Remember that the methods discussed apply only to sampling error, not to bias. If a data set is collected in a way that systematically under-estimates or over-estimates the population parameter, these techniques will not address that problem.    "
+},
+{
+  "id": "p-1140",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#p-1140",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "confidence interval "
+},
+{
+  "id": "definition-3",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#definition-3",
+  "type": "Definition",
+  "number": "5.2.1",
+  "title": "",
+  "body": "  A 95% confidence interval for a parameter is constructed as:   This confidence interval accounts for sampling error but not bias.   "
+},
+{
+  "id": "definition-4",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#definition-4",
+  "type": "Definition",
+  "number": "5.2.2",
+  "title": "",
+  "body": "  For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.   "
+},
+{
+  "id": "definition-5",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#definition-5",
+  "type": "Definition",
+  "number": "5.2.3",
+  "title": "",
+  "body": "  In a confidence interval, is called the margin of error .   "
 },
 {
   "id": "sec-hypothesis-testing",
@@ -3930,8 +4038,62 @@ var ptx_lunr_docs = [
   "url": "sec-hypothesis-testing.html",
   "type": "Section",
   "number": "5.3",
-  "title": "Hypothesis Testing",
-  "body": " Hypothesis Testing  [Content for hypothesis testing section - full conversion from LaTeX sections needed]  "
+  "title": "Hypothesis Testing for a Proportion",
+  "body": " Hypothesis Testing for a Proportion   The hypothesis testing framework is used to rigorously evaluate competing ideas and claims. In this section, we'll explore how to formally test claims about population proportions using data from samples.    Hypothesis Testing Framework  In hypothesis testing, we consider two competing ideas:   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested.  The alternative hypothesis ( ) represents an alternative claim under consideration and is often represented by a range of possible parameter values.   Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence. Even if we fail to reject the null hypothesis, we typically do not accept it as true; failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.    The null value is the value of the parameter under the null hypothesis. It is common to label the null value with the same symbol as the parameter but with a subscript 0. For example, if the null hypothesis is , then the null value is .      Testing Hypotheses Using Confidence Intervals  We can use confidence intervals to evaluate hypothesis tests. If the null value falls within the confidence interval, we cannot say the null value is implausible. In this case, we cannot reject the null hypothesis. If the null value falls outside the confidence interval, it is implausible and we reject the null hypothesis.    Decision Errors in Hypothesis Testing  Hypothesis tests are not flawless: we can make an incorrect decision based on the data.    A Type 1 Error is rejecting the null hypothesis when is actually true.      A Type 2 Error is failing to reject the null hypothesis when the alternative is actually true.    If we reduce how often we make one type of error, we generally make more of the other type.    The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .      Formal Testing Using P-values    The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value and evaluate the hypotheses.    When evaluating hypotheses for proportions using the p-value method, we use the null value (not ) when checking the success-failure condition and computing the standard error:    When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value instead of using the sample proportion. We're supposing the null hypothesis is true, which is different from the confidence interval approach.     Prepare  Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .    Check  Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.    Calculate  If the conditions hold, compute the standard error using , compute the Z-score, and identify the p-value.    Conclude  Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.      When the p-value is less than the significance level , we reject and report that the data provide strong evidence supporting the alternative hypothesis.  When the p-value is greater than , we do not reject , and we report that we do not have sufficient evidence to reject the null hypothesis.      Choosing a Significance Level  Choosing a significance level for a test is important in many contexts. The traditional level is , but it can be helpful to adjust the significance level based on the application.   If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).  If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).    "
+},
+{
+  "id": "definition-6",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-6",
+  "type": "Definition",
+  "number": "5.3.1",
+  "title": "",
+  "body": "  The null value is the value of the parameter under the null hypothesis. It is common to label the null value with the same symbol as the parameter but with a subscript 0. For example, if the null hypothesis is , then the null value is .   "
+},
+{
+  "id": "definition-7",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-7",
+  "type": "Definition",
+  "number": "5.3.2",
+  "title": "",
+  "body": "  A Type 1 Error is rejecting the null hypothesis when is actually true.   "
+},
+{
+  "id": "definition-8",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-8",
+  "type": "Definition",
+  "number": "5.3.3",
+  "title": "",
+  "body": "  A Type 2 Error is failing to reject the null hypothesis when the alternative is actually true.   "
+},
+{
+  "id": "definition-9",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-9",
+  "type": "Definition",
+  "number": "5.3.4",
+  "title": "",
+  "body": "  The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .   "
+},
+{
+  "id": "definition-10",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-10",
+  "type": "Definition",
+  "number": "5.3.5",
+  "title": "",
+  "body": "  The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value and evaluate the hypotheses.   "
+},
+{
+  "id": "definition-11",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#definition-11",
+  "type": "Definition",
+  "number": "5.3.6",
+  "title": "",
+  "body": "  When the p-value is less than the significance level , we reject and report that the data provide strong evidence supporting the alternative hypothesis.  When the p-value is greater than , we do not reject , and we report that we do not have sufficient evidence to reject the null hypothesis.   "
 },
 {
   "id": "sec-ch05-review",
@@ -3939,8 +4101,8 @@ var ptx_lunr_docs = [
   "url": "sec-ch05-review.html",
   "type": "Section",
   "number": "5.4",
-  "title": "Review Exercises",
-  "body": " Review Exercises  [Review exercises - full conversion from LaTeX sections needed]  "
+  "title": "Chapter 5 Review Exercises",
+  "body": " Chapter 5 Review Exercises  Additional exercises for practicing the concepts covered in this chapter are available in the accompanying exercise materials. These exercises cover parameter identification, point estimates, confidence intervals, and hypothesis testing for proportions.  "
 },
 {
   "id": "appendix-data-sets",

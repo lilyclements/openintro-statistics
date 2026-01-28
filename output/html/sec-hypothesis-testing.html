@@ -8,7 +8,7 @@
 <html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Hypothesis Testing</title>
+<title>Hypothesis Testing for a Proportion</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -397,10 +397,37 @@ true);
 <li>
 <div class="toc-item"><a href="ch-foundations-for-inference.html" class="internal"><span class="codenumber">5</span> <span class="title">Foundations for Inference</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point estimates and sampling variability</span></a></div></li>
-<li><div class="toc-item"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence Intervals</span></a></div></li>
-<li class="active"><div class="toc-item"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing</span></a></div></li>
-<li><div class="toc-item"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Review Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-point-estimates.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Point Estimates and Sampling Variability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-point-estimates-error" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Point Estimates and Error</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-variability-point-estimate" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Understanding the Variability of a Point Estimate</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to Real-World Settings</span></a></div></li>
+<li><div class="toc-item"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Extending the Framework for Other Statistics</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-confidence-intervals.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Confidence Intervals for a Proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-capturing-parameter" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Capturing the Population Parameter</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-changing-confidence" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-ci-procedure" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Confidence Interval Procedure for a Single Proportion</span></a></div></li>
+<li><div class="toc-item"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-hypothesis-testing.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Hypothesis Testing for a Proportion</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-ht-framework" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Hypothesis Testing Framework</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-ht-confidence-intervals" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Testing Hypotheses Using Confidence Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision Errors in Hypothesis Testing</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
+<li><div class="toc-item"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Choosing a Significance Level</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chapter 5 Review Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -415,9 +442,63 @@ true);
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-hypothesis-testing"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Hypothesis Testing</span>
+<span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Hypothesis Testing for a Proportion</span>
 </h2>
-<div class="para" id="p-1125">[Content for hypothesis testing section - full conversion from LaTeX sections needed]</div></section></div>
+<section class="introduction" id="introduction-21"><div class="para" id="p-1157">The hypothesis testing framework is used to rigorously evaluate competing ideas and claims. In this section, we’ll explore how to formally test claims about population proportions using data from samples.</div></section><section class="subsection" id="subsec-ht-framework"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.1</span> <span class="title">Hypothesis Testing Framework</span>
+</h3>
+<div class="para" id="p-1158">In hypothesis testing, we consider two competing ideas:</div>
+<ul class="disc">
+<li id="li-373"><div class="para" id="p-derived-li-373">The <dfn class="terminology">null hypothesis</dfn> (<span class="process-math">\(H_0\)</span>) often represents a skeptical perspective or a claim to be tested.</div></li>
+<li id="li-374"><div class="para" id="p-derived-li-374">The <dfn class="terminology">alternative hypothesis</dfn> (<span class="process-math">\(H_A\)</span>) represents an alternative claim under consideration and is often represented by a range of possible parameter values.</div></li>
+</ul>
+<div class="para" id="p-1159">Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence. Even if we fail to reject the null hypothesis, we typically do not accept it as true; failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.</div>
+<article class="definition definition-like" id="definition-6"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1160">The <dfn class="terminology">null value</dfn> is the value of the parameter under the null hypothesis. It is common to label the null value with the same symbol as the parameter but with a subscript 0. For example, if the null hypothesis is <span class="process-math">\(p = 0.5\text{,}\)</span> then the null value is <span class="process-math">\(p_0 = 0.5\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsec-ht-confidence-intervals"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.2</span> <span class="title">Testing Hypotheses Using Confidence Intervals</span>
+</h3>
+<div class="para" id="p-1161">We can use confidence intervals to evaluate hypothesis tests. If the null value falls within the confidence interval, we cannot say the null value is implausible. In this case, we cannot reject the null hypothesis. If the null value falls outside the confidence interval, it is implausible and we reject the null hypothesis.</div></section><section class="subsection" id="subsec-decision-errors"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.3</span> <span class="title">Decision Errors in Hypothesis Testing</span>
+</h3>
+<div class="para" id="p-1162">Hypothesis tests are not flawless: we can make an incorrect decision based on the data.</div>
+<article class="definition definition-like" id="definition-7"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1163">A <dfn class="terminology">Type 1 Error</dfn> is rejecting the null hypothesis when <span class="process-math">\(H_0\)</span> is actually true.</div></article><article class="definition definition-like" id="definition-8"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1164">A <dfn class="terminology">Type 2 Error</dfn> is failing to reject the null hypothesis when the alternative is actually true.</div></article><div class="para" id="p-1165">If we reduce how often we make one type of error, we generally make more of the other type.</div>
+<article class="definition definition-like" id="definition-9"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1166">The <dfn class="terminology">significance level</dfn> <span class="process-math">\(\alpha\)</span> indicates how often we incorrectly reject <span class="process-math">\(H_0\)</span> when it is true. The traditional significance level is <span class="process-math">\(\alpha = 0.05\text{.}\)</span>
+</div></article></section><section class="subsection" id="subsec-p-values"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.4</span> <span class="title">Formal Testing Using P-values</span>
+</h3>
+<article class="definition definition-like" id="definition-10"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.5</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1167">The <dfn class="terminology">p-value</dfn> is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value and evaluate the hypotheses.</div></article><div class="para" id="p-1168">When evaluating hypotheses for proportions using the p-value method, we use the null value <span class="process-math">\(p_0\)</span> (not <span class="process-math">\(\hat{p}\)</span>) when checking the success-failure condition and computing the standard error:</div>
+<div class="displaymath process-math" id="md-52">
+\begin{gather*}
+\end{gather*}
+</div>
+<div class="para" id="p-1169">When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value <span class="process-math">\(p_0\)</span> instead of using the sample proportion. We’re supposing the null hypothesis is true, which is different from the confidence interval approach.</div> <div class="para" id="p-1170">Identify the parameter of interest, list hypotheses, identify the significance level, and identify <span class="process-math">\(\hat{p}\)</span> and <span class="process-math">\(n\text{.}\)</span>
+</div>  <div class="para" id="p-1171">Verify conditions to ensure <span class="process-math">\(\hat{p}\)</span> is nearly normal under <span class="process-math">\(H_0\text{.}\)</span> For one-proportion hypothesis tests, use the null value to check the success-failure condition.</div>  <div class="para" id="p-1172">If the conditions hold, compute the standard error using <span class="process-math">\(p_0\text{,}\)</span> compute the Z-score, and identify the p-value.</div>  <div class="para" id="p-1173">Evaluate the hypothesis test by comparing the p-value to <span class="process-math">\(\alpha\text{,}\)</span> and provide a conclusion in the context of the problem.</div>
+<article class="definition definition-like" id="definition-11"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.6</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-1174">When the p-value is less than the significance level <span class="process-math">\(\alpha\text{,}\)</span> we reject <span class="process-math">\(H_0\)</span> and report that the data provide strong evidence supporting the alternative hypothesis.</div> <div class="para" id="p-1175">When the p-value is greater than <span class="process-math">\(\alpha\text{,}\)</span> we do not reject <span class="process-math">\(H_0\text{,}\)</span> and we report that we do not have sufficient evidence to reject the null hypothesis.</div></article></section><section class="subsection" id="subsec-significance-level"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.5</span> <span class="title">Choosing a Significance Level</span>
+</h3>
+<div class="para" id="p-1176">Choosing a significance level for a test is important in many contexts. The traditional level is <span class="process-math">\(\alpha = 0.05\text{,}\)</span> but it can be helpful to adjust the significance level based on the application.</div>
+<ul class="disc">
+<li id="li-375"><div class="para" id="p-derived-li-375">If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).</div></li>
+<li id="li-376"><div class="para" id="p-derived-li-376">If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).</div></li>
+</ul></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-confidence-intervals.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-ch05-review.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
