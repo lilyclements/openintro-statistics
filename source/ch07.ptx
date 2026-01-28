@@ -4,17 +4,1027 @@
   <title>Inference for numerical data</title>
 
   <introduction>
-    <p>
-      This chapter covers inference methods for means and numerical data.
-    </p>
-    <p>
-      <alert>Content to be converted from ch_inference_for_means/TeX/</alert>
-    </p>
+    <p>Chapter \ref{ch_foundations_for_inf</p>
+    <p>introduced a framework for statistical inference based on confidence intervals and hypotheses using the normal distribution for sample proportions. In this chapter, we encounter several new point estimates and a couple new distributions. In each case, the inference ideas remain the same: determine which point estimate or test statistic is useful, identify an appropriate distribution for the point estimate or test statistic, and apply the ideas of inference.}</p>
   </introduction>
 
-  <section xml:id="sec-one-mean">
-    <title>Inference for a single mean</title>
-    <p>Content to be converted from LaTeX source.</p>
+  <section xml:id="oneSampleMeansWithTDistribution">
+    <title>One-sample means with the <m>\pmb{\MakeLowercase{t}}</m>-distribution</title>
+
+    <subsection xml:id="x_bar_conditions">
+      <title>The sampling distribution of <m>\pmb{\bar{x}}</m></title>
+      <dl>
+        <li>
+          <title>Independence.</title>
+        <p>The sample observations must be independent, The most common way to satisfy this condition is when the sample is a simple random sample from the population. If the data come from a random process, analogous to rolling a die, this would also satisfy the independence condition.</p>
+        </li>
+        <li>
+          <title>Normality.</title>
+        <p>When a sample is small, we also require that the sample observations come from a normally distributed population. We can relax this condition more and more for larger and larger sample sizes. This condition is obviously vague, making it difficult to evaluate, so next we introduce a couple rules of thumb to make checking this condition easier.</p>
+        </li>
+      </dl>
+      <assemblage>
+        <p>how to perform the normality check} There is no perfect way to check the normality condition, so instead we use two rules of thumb: %,</p>
+        <dl>
+          <li>
+            <title><m>\mathbf{n < 30}</m>:</title>
+          <p>If the sample size $n$ is less than 30 and there are no clear outliers in the data, then we typically assume the data come from a nearly normal distribution to satisfy the condition.</p>
+          </li>
+          <li>
+            <title><m>\mathbf{n \geq 30}</m>:</title>
+          <p>If the sample size $n$ is at least 30 and there are no \emph{particularly extreme} outliers, then we typically assume the sampling distribution of $\bar{x}$ is nearly normal, even if the underlying distribution of individual observations is not.</p>
+          </li>
+        </dl>
+      </assemblage>
+
+      <p>In this first course in statistics, you aren't expected to develop perfect judgement on the normality condition. However, you are expected to be able to handle clear cut cases based on the rules of thumb.\footnote{More nuanced guidelines would consider further relaxing the <em>particularly extreme outlier</em> check when the sample size is very large. However, we'll leave further discussion here to a future course.}</p>
+      <example xml:id="">
+        <p>that come from simple random samples from different populations. Their sample sizes are <m>n_1 = 15</m> and <m>n_2 = 50</m>. \begin{center}</p>
+        <figure xml:id="fig-outliers_and_ss_condition">
+          <caption>Two histograms are shown, one for "Sample 1 Observations" and one for "Sample 2 Observations". The histogram for Sample 1 Observations has values ranging from 0 to 7 with a bin width of 1 for a total of 7 bins with frequencies of 2, 1, 4, 3, 2, 0, and 3. The histogram for Sample 2 Observations has values ranging from 0 to 22, with a bin width of 1. Most of the data is located near zero, with half of the observations located in the bin from 0 to 1. There is only non-zero bin beyond 5, which appears to have a height of 1 and is the bin from 21 to 22.</caption>
+          <image source="ch_inference_for_means/figures/outliers_and_ss_condition"/>
+        </figure>
+
+        <p>\end{center} Are the independence and normality conditions met in each case?} % Each samples is from a simple random sample of its respective population, so the independence condition is satisfied. Let's next check the normality condition for each using the rule of thumb.</p>
+        <p>The first sample has fewer than 30 observations, so we are watching for any clear outliers. None are present; while there is a small gap in the histogram between 5 and 6, this gap is small and 20 percent of the observations in this small sample are represented in that far right bar of the histogram, so we can hardly call these clear outliers. With no clear outliers, the normality condition is reasonably met.</p>
+        <p>The second sample has a sample size greater than 30 and includes an outlier that appears to be roughly 5 times further from the center of the distribution than the next furthest observation. This is an example of a particularly extreme outlier, so the normality condition would not be satisfied.</p>
+      </example>
+
+      <p>In practice, it's typical to also do a mental check to evaluate whether we have reason to believe the underlying population would have moderate skew (if <m>n < 30</m>) or have particularly extreme outliers (<m>n \geq 30</m>) beyond what we observe in the data. For example, consider the number of followers for each individual account on Twitter, and then imagine this distribution. The large majority of accounts have built up a couple thousand followers or fewer, while a relatively tiny fraction have amassed tens of millions of followers, meaning the distribution is extremely skewed. When we know the data come from such an extremely skewed distribution, it takes some effort to understand what sample size is large enough for the normality condition to be satisfied.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Introducing the <m>\pmb{t}</m>-distribution</title>
+      <p>The extra thick tails of the <m>t</m>-distribution are exactly the correction needed to resolve the problem of using <m>s</m> in place of <m>\sigma</m> in the <m>SE</m> calculation.</p>
+      <figure xml:id="tDistCompareToNormalDist">
+        <caption>A standard normal distribution and a t-distribution are shown. The t-distribution also has a bell-shape, but it is more sharply peaked than the normal distribution and also has thicker tails than the normal distribution. For example, the is a sizable fraction of the distribution – perhaps 5 percent for this particular t-distribution – that extends below -3 and above positive 3, while the normal distribution is very close to zero when looking below -3 or above positive 3.</caption>
+        <image source="ch_inference_for_means/figures/tDistCompareToNormalDist"/>
+      </figure>
+
+      <p>The <m>t</m>-distribution is always centered at zero and has a single parameter: degrees of freedom. The \termsub{degrees of freedom (<m>\pmb{df}</m>)} {degrees of freedom (<m>df</m>)!<m>t</m>-distribution} describes the precise form of the bell-shaped <m>t</m>-distribution. Several <m>t</m>-distributions are shown in <xref ref="tDistConvergeToNormalDist"/> in comparison to the normal distribution.</p>
+      <p>In general, we'll use a <m>t</m>-distribution with <m>df = n - 1</m> to model the sample mean when the sample size is <m>n</m>. That is, when we have more observations, the degrees of freedom will be larger and the <m>t</m>-distribution will look more like the standard normal distribution; when the degrees of freedom is about 30 or more, the <m>t</m>-distribution is nearly indistinguishable from the normal distribution.</p>
+      <figure xml:id="tDistConvergeToNormalDist">
+        <caption>Four t-distributions with degrees of freedom of 1, 2, 4, and 8 are shown along with a normal distribution on the same plot. The larger the degrees of freedom, the more closely the t-distribution aligns with the normal distribution, meaning that the shape of the peak becomes less sharp and the less "thick" the distributions tails appear.</caption>
+        <image source="ch_inference_for_means/figures/tDistConvergeToNormalDist"/>
+      </figure>
+
+      <assemblage>
+        <p>(<m>\pmb{\MakeLowercase{df}}</m>)} The degrees of freedom describes the shape of the <m>t</m>-distribution. The larger the degrees of freedom, the more closely the distribution approximates the normal model.</p>
+        <p>When modeling <m>\bar{x}</m> using the <m>t</m>-distribution, use <m>df = n - 1</m>.</p>
+      </assemblage>
+
+      <p>The <m>t</m>-distribution allows us greater flexibility than the normal distribution when analyzing numerical data. In practice, it's common to use statistical software, such as R, Python, or SAS for these analyses. Alternatively, a graphing calculator or a <term><m>\pmb{t}</m>-table</term> may be used; the <m>t</m>-table is similar to the normal distribution table, and it may be found in Appendix <xref ref="tDistributionTable"/>, which includes usage instructions and examples for those who wish to use this option. No matter the approach you choose, apply your method using the examples below to confirm your working understanding of the <m>t</m>-distribution.</p>
+      <example xml:id="">
+        <p>with 18 degrees of freedom falls below -2.10?} Just like a normal probability problem, we first draw the picture in <xref ref="tDistDF18LeftTail2Point10"/> and shade the area below -2.10. Using statistical software, we can obtain a precise value: 0.0250.</p>
+      </example>
+
+      <figure xml:id="tDistDF18LeftTail2Point10">
+        <caption>A t-distribution with 18 degrees of freedom is shown, where the region below -2.10 is shaded and appears to represent very roughly 2 percent to 5 percent of the distribution. For the most part, when the degrees of freedom are larger than about 10, like in this case, the differences between the t-distribution and the normal distribution are visually subtle, even if the distinction remains important for our calculations.</caption>
+        <image source="ch_inference_for_means/figures/tDistDF18LeftTail2Point10"/>
+      </figure>
+
+      <example xml:id="">
+        <p>is shown in the left panel of <xref ref="tDistDF20RightTail1Point65"/>. Estimate the proportion of the distribution falling above 1.65.} With a normal distribution, this would correspond to about 0.05, so we should expect the <m>t</m>-distribution to give us a value in this neighborhood. Using statistical software: 0.0573.</p>
+      </example>
+
+      <figure xml:id="tDistDF20RightTail1Point65">
+        <caption>Two t-distributions are shown on two separate plots. The first plot shows a t-distribution with 20 degrees of freedom with the region above positive 1.65 is shaded, which appears to be very roughly 5 percent of the total distribution area. The second plot shows a t-distribution with 2 degrees of freedom with the region below -3 and above positive 3 shaded. Because the degrees of freedom are so small, the tails are much thicker in this distribution, and its center is also more sharply peaked. Each of these tails appears to represent very roughly 2 percent to 5 percent of the area under this distribution.</caption>
+        <image source="ch_inference_for_means/figures/tDistDF20RightTail1Point65"/>
+      </figure>
+
+      <example xml:id="">
+        <p>is shown in the right panel of <xref ref="tDistDF20RightTail1Point65"/>. Estimate the proportion of the distribution falling more than 3 units from the mean (above or below).} With so few degrees of freedom, the <m>t</m>-distribution will give a more notably different value than the normal distribution. Under a normal distribution, the area would be about 0.003 using the 68-95-99.7 rule. For a <m>t</m>-distribution with <m>df = 2</m>, the area in both tails beyond 3 units totals 0.0955. This area is dramatically different than what we obtain from the normal distribution.</p>
+      </example>
+
+      <p>\footnotetext{We want to find the shaded area <em>above</em> -1.79 (we leave the picture to you). The lower tail area has an area of 0.0447, so the upper area would have an area of <m>1 - 0.0447 = 0.9553</m>.}</p>
+  </subsection>
+
+    <subsection xml:id="rissosDolphin">
+      <title>One sample <m>\pmb{t}</m>-confidence intervals</title>
+      <p>\end{minipage}  \end{figure} \captionsetup{width=\mycaptionwidth}</p>
+      <p>We will identify a confidence interval for the average mercury content in dolphin muscle using a sample of 19 Risso's dolphins from the Taiji area in Japan. The data are summarized in <xref ref="summaryStatsOfHgInMuscleOfRissosDolphins"/>. The minimum and maximum observed values can be used to evaluate whether or not there are clear outliers.</p>
+      <figure xml:id="summaryStatsOfHgInMuscleOfRissosDolphins">
+      </figure>
+
+      <example xml:id="">
+        <p>normality conditions satisfied for this data set?} The observations are a simple random sample, therefore independence is reasonable. The summary statistics in <xref ref="summaryStatsOfHgInMuscleOfRissosDolphins"/> do not suggest any clear outliers, since all observations are within 2.5 standard deviations of the mean. Based on this evidence, the normality condition seems reasonable.</p>
+      </example>
+
+      <p>In the normal model, we used <m>z^{\star}</m> and the standard error to determine the width of a confidence interval. We revise the confidence interval formula slightly when using the <m>t</m>-distribution:</p>
+      <me>&\text{point estimate} \ \pm\  t^{\star}_{df} \times SE &&\to &&\bar{x} \ \pm\  t^{\star}_{df} \times \frac{s}{\sqrt{n}}</me>
+      <example xml:id="">
+      </example>
+
+      <p>The value <m>t^{\star}_{df}</m> is a cutoff we obtain based on the confidence level and the <m>t</m>-distribution with <m>df</m> degrees of freedom. That cutoff is found in the same way as with a normal distribution: we find <m>t^{\star}_{df}</m> such that the fraction of the <m>t</m>-distribution with <m>df</m> degrees of freedom within a distance <m>t^{\star}_{df}</m> of 0 matches the confidence level of interest.</p>
+      <example xml:id="">
+        <p>degrees of freedom? Find <m>t^{\star}_{df}</m> for this degrees of freedom and the confidence level of 95 percent} The degrees of freedom is easy to calculate: <m>df = n - 1 = 18</m>.</p>
+        <p>Using statistical software, we find the cutoff where the upper tail is equal to 2.5 percent: <m>t^{\star}_{18} = 2.10</m>. The area below -2.10 will also be equal to 2.5 percent. That is, 95 percent of the <m>t</m>-distribution with <m>df = 18</m> lies within 2.10 units of 0.</p>
+      </example>
+
+      <example xml:id="">
+        <p>for the average mercury content in Risso's dolphins.} We can construct the confidence interval as</p>
+        <me>\bar{x} \ \pm\  t^{\star}_{18} \times SE \quad \to \quad 4.4 \ \pm\  2.10 \times 0.528 \quad \to \quad (3.29, 5.51)</me>
+        <p>We are 95 percent confident the average mercury content of muscles in Risso's dolphins is between 3.29 and 5.51 <m>\mu</m>g/wet gram, which is considered extremely high.</p>
+      </example>
+
+      <assemblage>
+        <me>&\text{point estimate} \ \pm\  t^{\star}_{df} \times SE &&\to &&\bar{x} \ \pm\  t^{\star}_{df} \times \frac{s}{\sqrt{n}}</me>
+        <p>where <m>\bar{x}</m> is the sample mean, <m>t^{\star}_{df}</m> corresponds to the confidence level and degrees of freedom <m>df</m>, and <m>SE</m> is the standard error as estimated by the sample.</p>
+      </assemblage>
+
+      <p>\footnotetext{The sample size is under 30, so we check for obvious outliers: since all observations are within 2 standard deviations of the mean, there are no such clear outliers.}</p>
+      <example xml:id="">
+        <p>Degrees of freedom: <m>df = n - 1 = 14</m>.</p>
+        <p>Since the goal is a 90 percent confidence interval, we choose <m>t_{14}^{\star}</m> so that the two-tail area is 0.1: <m>t^{\star}_{14} = 1.76</m>.</p>
+      </example>
+
+      <assemblage>
+        <title>Confidence interval for a single mean</title>
+        <p>Once you've determined a one-mean confidence interval would be helpful for an application, there are four steps to constructing the interval:</p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+          <p>Identify $\bar{x}$, $s$, $n$, and determine what confidence level you wish to use.</p>
+          </li>
+          <li>
+            <title>Check.</title>
+          <p>Verify the conditions to ensure $\bar{x}$ is nearly normal.</p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+          <p>If the conditions hold, compute $SE$, find $t_{df}^{\star}$, and construct the interval.</p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+          <p>Interpret the confidence interval in the context of the problem.</p>
+          </li>
+        </dl>
+      </assemblage>
+
+      <p>\footnotetext{ $\bar{x} \ \pm\ t^{\star}_{14} \times SE \ \to\ 0.287 \ \pm\ 1.76 \times 0.0178 \ \to\ (0.256, 0.318)$. We are 90 percent confident that the average mercury content of croaker white fish (Pacific) is between 0.256 and 0.318 ppm.}</p>
+      <p>\footnotetext{ No, a confidence interval only provides a range of plausible values for a population parameter, in this case the population mean. It does not describe what we might observe for individual observations.}</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>One sample <m>\pmb{t}</m>-tests</title>
+      <figure xml:id="run10SampTimeHistogram">
+        <caption>A histogram of \var{time</caption>
+      </figure>
+
+      <p>When completing a hypothesis test for the one-sample mean, the process is nearly identical to completing a hypothesis test for a single proportion. First, we find the Z-score using the observed value, null value, and standard error; however, we call it a <term>T-score</term> since we use a <m>t</m>-distribution for calculating the tail area. Then we find the p-value using the same ideas we used previously: find the one-tail area under the sampling distribution, and double it.</p>
+      <example xml:id="">
+        <p>and normality conditions satisfied, we can proceed with a hypothesis test using the <m>t</m>-distribution. The sample mean and sample standard deviation of the sample of \cherryblossomn{} runners from the 2017 Cherry Blossom Race are \cherryblossommean{} and \cherryblossomsd{} minutes, respectively. Recall that the sample size is 100 and the average run time in 2006 was \cherryblossomnull{} minutes. Find the test statistic and p-value. What is your conclusion?}</p>
+        <p>To find the test statistic (T-score), we first must determine the standard error:</p>
+        <me>SE = \cherryblossomsd{} / \sqrt{\cherryblossomn{}} = \cherryblossomse{}</me>
+        <p>Now we can compute the <em>T-score</em> using the sample mean (\cherryblossommean{}), null value (\cherryblossomnull{}), and <m>SE</m>:</p>
+        <me>T = \frac{\cherryblossommean{} - \cherryblossomnull{}} {\cherryblossomse{}} = \cherryblossomz{}</me>
+        <p>For <m>df = \cherryblossomn{} - 1 = 99</m>, we can determine using statistical software (or a <m>t</m>-table) that the one-tail area is 0.01, which we double to get the p-value: 0.02.</p>
+        <p>Because the p-value is smaller than 0.05, we reject the null hypothesis. That is, the data provide strong evidence that the average run time for the Cherry Blossom Run in 2017 is different than the 2006 average. Since the observed value is above the null value and we have rejected the null hypothesis, we would conclude that runners in the race were slower on average in 2017 than in 2006.</p>
+      </example>
+
+      <assemblage>
+        <title>Hypothesis testing for a single mean</title>
+        <p>Once you've determined a one-mean hypothesis test is the correct procedure, there are four steps to completing the test:</p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+          <p>Identify the parameter of interest, list out hypotheses, identify the significance level, and identify $\bar{x}$, $s$, and $n$.</p>
+          </li>
+          <li>
+            <title>Check.</title>
+          <p>Verify conditions to ensure $\bar{x}$ is nearly normal.</p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+          <p>If the conditions hold, compute $SE$, compute the T-score, and identify the p-value.</p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+          <p>Evaluate the hypothesis test by comparing the p-value to $\alpha$, and provide a conclusion in the context of the problem.</p>
+          </li>
+        </dl>
+      </assemblage>
+
+      <p>\CalculatorVideos{confidence intervals and hypothesis tests for a single mean}</p>
+      <p>\begin{parts}</p>
+      <li>
+        <p><m>n = 6</m>, CL = 90 percent</p>
+      </li>
+      <li>
+        <p><m>n = 21</m>, CL = 98 percent</p>
+      </li>
+      <li>
+        <p><m>n = 29</m>, CL = 95 percent</p>
+      </li>
+      <li>
+        <p><m>n = 12</m>, CL = 99 percent</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\end{center} }{}</p>
+      <p>\hline n & <m>\bar{x}</m> & s & min & max \\ \hline 25 & 7.73 & 0.77 & 6.17 & 9.78 \\ \hline \end{tabular} \end{center}</p>
+      <p>\begin{parts}</p>
+      <li>
+        <p>Write the hypotheses in symbols and in words.</p>
+      </li>
+      <li>
+        <p>Check conditions, then calculate the test statistic, <m>T</m>, and the associated degrees of freedom.</p>
+      </li>
+      <li>
+        <p>Find and interpret the p-value in this context. Drawing a picture may be helpful.</p>
+      </li>
+      <li>
+        <p>What is the conclusion of the hypothesis test?</p>
+      </li>
+      <li>
+        <p>If you were to construct a 90 percent confidence interval that corresponded to this hypothesis test, would you expect 8 hours to be in the interval?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\end{center} \end{minipage} \begin{minipage}[c]{0.23\textwidth} \begin{center} \begin{tabular}{l|r l} Min & 147.2 \\ Q1 & 163.8 \\ Median & 170.3 \\ Mean & 171.1 \\ SD & 9.4 \\ Q3 & 177.8 \\ Max & 198.1 \\ \end{tabular} \end{center} \end{minipage} \begin{parts}</p>
+      <li>
+        <p>What is the point estimate for the average height of active individuals? What about the median?</p>
+      </li>
+      <li>
+        <p>What is the point estimate for the standard deviation of the heights of active individuals? What about the IQR?</p>
+      </li>
+      <li>
+        <p>Is a person who is 1m 80cm (180 cm) tall considered unusually tall? And is a person who is 1m 55cm (155cm) considered unusually short? Explain your reasoning.</p>
+      </li>
+      <li>
+        <p>The researchers take another random sample of physically active individuals. Would you expect the mean and the standard deviation of this new sample to be the ones given above? Explain your reasoning.</p>
+      </li>
+      <li>
+        <p>The sample means obtained are point estimates for the mean height of all active individuals, if the sample of individuals is equivalent to a simple random sample. What measure do we use to quantify the variability of such an estimate? Compute this quantity using the data from the original sample under the condition that the data are a simple random sample.</p>
+      </li>
+      <p>\end{parts} }{}</p>
+  </subsection>
+  </section>
+
+  <section xml:id="pairedData">
+    <title>Paired data</title>
+
+    <p>We sampled 201 UCLA courses. Of those, 68 required books could be found on Amazon. A portion of the data set from these courses is shown in <xref ref="textbooksDF"/>, where prices are in US dollars.</p>
+    <figure xml:id="textbooksDF">
+      <caption>Four cases of the \data{textbooks</caption>
+    </figure>
+
+    <subsection xml:id="">
+      <title>Paired observations</title>
+      <p>Each textbook has two corresponding prices in the data set: one for the UCLA Bookstore and one for Amazon. When two sets of observations have this special correspondence, they are said to be <term>paired</term>.</p>
+      <assemblage>
+        <title>Paired data</title>
+        <p>Two sets of observations are <em>paired</em> if each observation in one set has a special correspondence or connection with exactly one observation in the other data set.</p>
+      </assemblage>
+
+      <p>To analyze paired data, it is often useful to look at the difference in outcomes of each pair of observations. In the textbook data, we look at the differences in prices, which is represented as the \var{price_difference} variable in the data set. Here the differences are taken as</p>
+      <me>\text{UCLA Bookstore price} - \text{Amazon price}</me>
+      <p>It is important that we always subtract using a consistent order; here Amazon prices are always subtracted from UCLA prices. The first difference shown in <xref ref="textbooksDF"/> is computed as <m>47.97 - 47.45 = 0.52</m>. Similarly, the second difference is computed as <m>14.26 - 13.55 = 0.71</m>, and the third is <m>13.50 - 12.53 = 0.97</m>. A histogram of the differences is shown in <xref ref="diffInTextbookPricesF18"/>. Using differences between paired observations is a common and useful way to analyze paired data.</p>
+      <figure xml:id="diffInTextbookPricesF18">
+      </figure>
+
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Inference for paired data</title>
+      <p>To analyze a paired data set, we simply analyze the differences. We can use the same <m>t</m>-distribution techniques we applied in <xref ref="oneSampleMeansWithTDistribution"/>.</p>
+      <figure xml:id="textbooksSummaryStats">
+        <caption>Summary statistics for the 68{</caption>
+      </figure>
+
+      <example xml:id="">
+        <p>to determine whether, on average, there is a difference between Amazon's price for a book and the UCLA bookstore's price. Also, check the conditions for whether we can move forward with the test using the <m>t</m>-distribution.} % We are considering two scenarios: there is no difference or there is some difference in average prices.</p>
+        <ul>
+          <li>
+            <p>[<m>H_0</m>:] <m>\mu_{\text{\emph{diff}}} = 0</m>. There is no difference in the average textbook price.</p>
+          </li>
+          <li>
+            <p>[<m>H_A</m>:] <m>\mu_{\text{\emph{diff}}} \neq 0</m>. There is a difference in average prices.</p>
+          </li>
+        </ul>
+        <p>Next, we check the independence and normality conditions. The observations are based on a simple random sample, so independence is reasonable. While there are some outliers, <m>n = 68</m> and none of the outliers are particularly extreme, so the normality of <m>\bar{x}</m> is satisfied. With these conditions satisfied, we can move forward with the <m>t</m>-distribution.</p>
+      </example>
+
+      <example xml:id="">
+        <p>in <xref ref="htSetupTextbookPriceDiff"/>.}  To compute the test compute the standard error associated with <m>\bar{x}_{\text{\emph{diff}}}</m> using the standard deviation of the differences (<m>s_{_{\text{\emph{diff}}}} = 13.42</m>) and the number of differences (<m>n_{_{\text{\emph{diff}}}} = 68</m>):</p>
+        <me>SE_{\bar{x}_{\text{\emph{diff}}}} = \frac{s_{\text{\emph{diff}}}}{\sqrt{n_{\text{\emph{diff}}}}} = \frac{\uclabookSD{}}{\sqrt{\uclabookN{}}} = \uclabookSE{}</me>
+        <p>The test statistic is the T-score of <m>\bar{x}_{\text{\emph{diff}}}</m> under the null condition that the actual mean difference is 0:</p>
+        <me>T = \frac{\bar{x}_{\text{\emph{diff}}} - 0} {SE_{\bar{x}_{\text{\emph{diff}}}}} = \frac{\uclabookM{} - 0}{\uclabookSE{}} = 2.20</me>
+        <p>To visualize the p-value, the sampling distribution of <m>\bar{x}_{\text{\emph{diff}}}</m> is drawn as though <m>H_0</m> is true, and the p-value is represented by the two shaded tails: \begin{center} \Figures[A bell-shaped distribution is shown, with a center of mu-sub-0, which has a value of 0. The area under the distribution above x-bar-sub-diff equals 3.58 is shaded, as is the corresponding tail below -3.58.]{0.53}{textbooksF18}{textbooksF18HTTails} \end{center} The degrees of freedom is <m>df = 68 - 1 = 67</m>. Using statistical software, we find the one-tail area of 0.0156. Doubling this area gives the p-value: 0.0312.</p>
+        <p>Because the p-value is less than 0.05, we reject the null hypothesis. Amazon prices are, on average, lower than the UCLA Bookstore prices for UCLA courses.</p>
+      </example>
+
+      <p>\footnotetext{Conditions have already verified and the standard error computed in <xref ref="htSetupTextbookPriceDiff"/>. To find the interval, identify <m>t^{\star}_{67}</m> using statistical software or the <m>t</m>-table (<m>t^{\star}_{67} = 2.00</m>), and plug it, the point estimate, and the standard error into the confidence interval formula:</p>
+      <me>\text{point estimate} \ \pm\ z^{\star} \times SE \quad\to\quad \uclabookM{} \ \pm\ 2.00 \times \uclabookSE{} \quad\to\quad (0.32, 6.84)</me>
+      <p>We are 95 percent confident that Amazon is, on average, between <m>0.32 and \</m>6.84 less expensive than the UCLA Bookstore for UCLA course books.}</p>
+      <p>\footnotetext{The average price difference is only mildly useful for this question. Examine the distribution shown in <xref ref="diffInTextbookPricesF18"/>. There are certainly a handful of cases where Amazon prices are far below the UCLA Bookstore's, which suggests it is worth checking Amazon (and probably other online sites) before purchasing. However, in many cases the Amazon price is above what the UCLA Bookstore charges, and most of the time the price isn't that different. Ultimately, if getting a book immediately from the bookstore is notably more convenient, e.g. to get started on reading or homework, it's likely a good idea to go with the UCLA Bookstore unless the price difference on a specific book happens to be quite large.</p>
+      <p>For reference, this is a very different result from what we (the authors) had seen in a similar data set from 2010. At that time, Amazon prices were almost uniformly lower than those of the UCLA Bookstore's and by a large margin, making the case to use Amazon over the UCLA Bookstore quite compelling at that time. Now we frequently check multiple websites to find the best price.}</p>
+      <p>\end{minipage} }{}</p>
+      <p>\FigureFullPath[A histogram is shown for "Difference in scores (read minus write)", which is centered at approximately zero and is roughly bell-shaped with values ranging from -25 to positive 25.]{0.54}{ch_inference_for_means/figures/eoce/hs_beyond_1/hs_beyond_diff_hist.pdf} \end{center} \begin{parts}</p>
+      <li>
+        <p>Is there a clear difference in the average reading and writing scores?</p>
+      </li>
+      <li>
+        <p>Are the reading and writing scores of each student independent of each other?</p>
+      </li>
+      <li>
+        <p>Create hypotheses appropriate for the following research question: is there an evident difference in the average scores of students in the reading and writing exam? % is there evidence that students on average perform differently on the reading and writing exam?</p>
+      </li>
+      <li>
+        <p>Check the conditions required to complete this test.</p>
+      </li>
+      <li>
+        <p>The average observed difference in scores is <m>\bar{x}_{read-write} = -0.545</m>, and the standard deviation of the differences is 8.887 points. Do these data provide convincing evidence of a difference between the average scores on the two exams?</p>
+      </li>
+      <li>
+        <p>What type of error might we have made? Explain what the error means in the context of the application.</p>
+      </li>
+      <li>
+        <p>Based on the results of this hypothesis test, would you expect a confidence interval for the average difference between the reading and writing scores to include 0? Explain your reasoning.</p>
+      </li>
+      <p>\end{parts} }{}</p>
+  </subsection>
+  </section>
+
+  <section xml:id="differenceOfTwoMeans">
+    <title>Difference of two means</title>
+
+    <p>We apply these methods in three contexts: determining whether stem cells can improve heart function, exploring the relationship between pregnant womens' smoking habits and birth weights of newborns, and exploring whether there is statistically significant evidence that one variation of an exam is harder than another variation. This section is motivated by questions like "Is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke?"</p>
+    <subsection xml:id="">
+      <title>Confidence interval for a difference of means</title>
+      <p>Does treatment using embryonic stem cells (ESCs) help improve heart function following a heart attack? <xref ref="statsSheepEscStudy"/> contains summary statistics for an experiment to test ESCs in sheep that had a heart attack. Each of these sheep was randomly assigned to the ESC or control group, and the change in their hearts' pumping capacity was measured in the study. <xref ref="stemCellTherapyForHearts"/> provides histograms of the two data sets. A positive value corresponds to increased pumping capacity, which generally suggests a stronger recovery. Our goal will be to identify a 95 percent confidence interval for the effect of ESCs on the change in heart pumping capacity relative to the control group.</p>
+      <figure xml:id="statsSheepEscStudy">
+        <caption>Summary statistics of the embryonic stem cell study.</caption>
+      </figure>
+
+      <p>The point estimate of the difference in the heart pumping variable is straightforward to find: it is the difference in the sample means.</p>
+      <me>\bar{x}_{esc} - \bar{x}_{control}\ =\ 3.50 - (-4.33)\ =\ 7.83</me>
+      <p>For the question of whether we can model this difference using a <m>t</m>-distribution, we'll need to check new conditions. Like the 2-proportion cases, we will require a more robust version of independence so we are confident the two groups are also independent. Secondly, we also check for normality in each group separately, which in practice is a check for outliers.</p>
+      <assemblage>
+        <ul>
+          <li>
+            <p><em>Independence, extended.</em> The data are independent within and between the two groups, e.g. the data come from independent random samples or from a randomized experiment.</p>
+          </li>
+          <li>
+            <p><em>Normality.</em> We check the outliers rules of thumb for each group separately.</p>
+          </li>
+        </ul>
+        <p>The standard error may be computed as</p>
+        <me>SE%_{\bar{x}_{1} - \bar{x}_{2}} = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \index{standard error (SE)!difference in means}</me>
+        <p>The official formula for the degrees of freedom is quite complex %\footnotemark{} and is generally computed using software, so instead you may use the smaller of <m>n_1 - 1</m> and <m>n_2 - 1</m> for the degrees of freedom if software isn't readily available.</p>
+      </assemblage>
+
+      <example xml:id="">
+        <p>inference using the point estimate, <m>\bar{x}_{esc} - \bar{x}_{control} = 7.83</m>?} First, we check for independence. Because the sheep were randomized into the groups, independence within and between groups is satisfied.</p>
+        <p>With both conditions met, we can use the <m>t</m>-distribution to model the difference of sample means.</p>
+      </example>
+
+      <figure xml:id="stemCellTherapyForHearts">
+        <caption>Two histograms are shown, one for "Embryonic stem cell transplant" and one for "Control (no treatment)". The data for the first histogram for the treatment group are roughly centered at about 3 percent, with values ranging from about -5 percent to positive 15 percent. The data for the second histogram, which represents the control group, is approximately centered at -3 percent, with values ranging from -10 percent to about positive 2 percent.</caption>
+        <image source="ch_inference_for_means/figures/stemCellTherapyForHearts"/>
+      </figure>
+
+      <p>As with the one-sample case, we always compute the standard error using sample standard deviations rather than population standard deviations:</p>
+      <me>SE%_{\bar{x}_{esc} - \bar{x}_{control}} = \sqrt{\frac{s_{esc}^2}{n_{esc}} + \frac{s_{control}^2}{n_{control}}} = \sqrt{\frac{5.17^2}{9} + \frac{2.76^2}{9}} = 1.95</me>
+      <p>Generally, we use statistical software to find the appropriate degrees of freedom, or if software isn't available, we can use the smaller of <m>n_1 - 1</m> and <m>n_2 - 1</m> for the degrees of freedom, e.g. if using a <m>t</m>-table to find tail areas. For transparency in the Examples and Guided Practice, we'll use the latter approach for finding <m>df</m>; in the case of the ESC example, this means we'll use <m>df = 8</m>.</p>
+      <example xml:id="">
+        <p>effect of ESCs on the change in heart pumping capacity of sheep after they've suffered a heart attack.} We will use the sample difference and the standard error that we computed earlier calculations:</p>
+        <me>\bar{x}_{esc} - \bar{x}_{control} = 7.83 && SE = \sqrt{\frac{5.17^2}{9} + \frac{2.76^2}{9}} = 1.95</me>
+        <p>Using <m>df = 8</m>, we can identify the critical value of <m>t^{\star}_{8} = 2.31</m> for a 95 percent confidence interval. Finally, we can enter the values into the confidence interval formula:</p>
+        <me>\text{point estimate} \ \pm\ t^{\star} \times SE \quad\rightarrow\quad 7.83 \ \pm\ 2.31\times 1.95 \quad\rightarrow\quad (3.32, 12.34)</me>
+        <p>We are 95 percent confident that embryonic stem cells improve the heart's pumping function in sheep that have suffered a heart attack by 3.32 percent to 12.34 percent.</p>
+      </example>
+
+      <dl>
+        <li>
+          <title>Prepare.</title>
+        <p>Retrieve critical contextual information, and if appropriate, set up hypotheses.</p>
+        </li>
+        <li>
+          <title>Check.</title>
+        <p>Ensure the required conditions are reasonably satisfied.</p>
+        </li>
+        <li>
+          <title>Calculate.</title>
+        <p>Find the standard error, and then construct a confidence interval, or if conducting a hypothesis test, find a test statistic and p-value.</p>
+        </li>
+        <li>
+          <title>Conclude.</title>
+        <p>Interpret the results in the context of the application.</p>
+        </li>
+      </dl>
+      <p>The details change a little from one setting to the next, but this general approach remain the same.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Hypothesis tests for the difference of two means</title>
+      <p>A data set called \data{ncbirths} represents a random sample of 150 cases of mothers and their newborns in North Carolina over a year. Four cases from this data set are represented in <xref ref="babySmokeDF"/>. We are particularly interested in two variables: \var{weight} and \var{smoke}. The \var{weight} variable represents the weights of the newborns and the \var{smoke} variable describes which mothers smoked during pregnancy. We would like to know, is there convincing evidence that newborns from mothers who smoke have a different average birth weight than newborns from mothers who don't smoke? We will use the North Carolina sample to try to answer this question. The smoking group includes 50 cases and the nonsmoking group contains 100 cases.</p>
+      <figure xml:id="babySmokeDF">
+        <caption>Four cases from the \data{ncbirths</caption>
+      </figure>
+
+      <example xml:id="">
+        <p>whether there is a relationship between a mother smoking and average birth weight.} % The null hypothesis represents the case of no difference between the groups.</p>
+        <ul>
+          <li>
+            <p>[<m>H_0</m>:] There is no difference in average birth weight for newborns from mothers who did and did not smoke. In statistical notation: <m>\mu_{n} - \mu_{s} = 0</m>, where <m>\mu_{n}</m> represents non-smoking mothers and <m>\mu_s</m> represents mothers who smoked.</p>
+          </li>
+          <li>
+            <p>[<m>H_A</m>:] There is some difference in average newborn weights from mothers who did and did not smoke (<m>\mu_{n} - \mu_{s} \neq 0</m>).</p>
+          </li>
+        </ul>
+      </example>
+
+      <p>We check the two conditions necessary to model the difference in sample means using the <m>t</m>-distribution.</p>
+      <ul>
+        <li>
+          <p>Because the data come from a simple random sample, the observations are independent, both within and between samples.</p>
+        </li>
+        <li>
+          <p>With both data sets over 30 observations, we inspect the data in <xref ref="babySmokePlotOfTwoGroupsToExamineSkew"/> for any particularly extreme outliers and find none.</p>
+        </li>
+      </ul>
+      <p>Since both conditions are satisfied, the difference in sample means may be modeled using a <m>t</m>-distribution.</p>
+      <figure xml:id="babySmokePlotOfTwoGroupsToExamineSkew">
+        <caption>Two histograms are shown for "Newborn Weights, in pounds", one for "Mothers Who Smoked" and one for "Mothers Who Did Not Smoke". The histogram for "Mothers Who Smoked" is centered at about 7 and is left-skewed, with values ranging from about 1 pound to 10 pounds. The histogram for "Mothers Who Did Not Smoke" is centered at about 7.5 and is left-skewed, with values ranging from about 1 pound to 11 pounds.</caption>
+        <image source="ch_inference_for_means/figures/babySmokePlotOfTwoGroupsToExamineSkew"/>
+      </figure>
+
+      <li>
+        <p>What is the point estimate of the population difference, <m>\mu_{n} - \mu_{s}</m>?</p>
+      </li>
+      <li>
+        <p>Compute the standard error of the point estimate from part (a).</p>
+      </li>
+    </ol>
+    <p>\end{nexercise} \end{exercisewrap} \footnotetext{(a) The difference in sample means is an appropriate point estimate: <m>\bar{x}_{n} - \bar{x}_{s} = 0.40</m>. (b) The standard error of the estimate can be calculated using the standard error formula:</p>
+    <me>SE = \sqrt{\frac{\sigma_n^2}{n_n} + \frac{\sigma_s^2}{n_s}} \approx \sqrt{\frac{s_n^2}{n_n} + \frac{s_s^2}{n_s}} = \sqrt{\frac{1.60^2}{100} + \frac{1.43^2}{50}} = 0.26</me>
+    <figure xml:id="SumStatsBirthWeightNewbornsSmoke">
+      <caption>Summary statistics for the \data{ncbirths</caption>
+    </figure>
+
+    <example xml:id="">
+      <p>hypothesis test started in <xref ref="babySmokeHTForWeight"/> and Guided Practice <xref ref="babySmokeCalcForWeight"/>. Use a significance level of <m>\alpha=0.05</m>. For reference, <m>\bar{x}_{n} - \bar{x}_{s} = 0.40</m>, <m>SE = 0.26</m>, and the sample sizes were <m>n_n = 100</m> and <m>n_s = 50</m>.} % We can find the test statistic for this test using the values from Guided Practice <xref ref="babySmokeCalcForWeight"/>:</p>
+      <me>T = \frac{\ 0.40 - 0\ }{0.26} = 1.54</me>
+      <p>The p-value is represented by the two shaded tails in the following plot: \begin{center}</p>
+      <figure xml:id="fig-distOfDiffOfSampleMeansForBWOfBabySmokeData">
+        <caption>A bell-shaped curve that resembles a normal distribution is shown centered at "mu-sub-n minus mu-sub-s equals 0". The upper tail is shaded above a value marked as "observed difference", and the corresponding lower tail is also shaded. These tails together appear to represent about 10 percent to 15 percent of the area under the distribution.</caption>
+        <image source="ch_inference_for_means/figures/distOfDiffOfSampleMeansForBWOfBabySmokeData"/>
+      </figure>
+
+      <p>\end{center} We find the single tail area using software (or the <m>t</m>-table in Appendix <xref ref="tDistributionTable"/>). We'll use the smaller of <m>n_n - 1 = 99</m> and <m>n_s - 1 = 49</m> as the degrees of freedom: <m>df = 49</m>. The one tail area is 0.065; doubling this value gives the two-tail area and p-value, 0.135.</p>
+      <p>The p-value is larger than the significance value, 0.05, so we do not reject the null hypothesis. There is insufficient evidence to say there is a difference in average birth weight of newborns from North Carolina mothers who did smoke during pregnancy and newborns from North Carolina mothers who did not smoke during pregnancy.</p>
+    </example>
+
+    <p>\footnotetext{It is possible that there is a difference but we did not detect it. If there is a difference, we made a Type 2 Error.}</p>
+    <p>\footnotetext{We could have collected more data. If the sample sizes are larger, we tend to have a better shot at finding a difference if one exists. In fact, this is exactly what we would find if we examined a larger data set!}</p>
+    <p>Public service announcement: while we have used this relatively small data set as an example, larger data sets show that women who smoke tend to have smaller newborns. In fact, some in the tobacco industry actually had the audacity to tout that as a <em>benefit</em> of smoking: \begin{quotation} % \emph{It's true. The babies born from women who smoke are smaller, but they're just as healthy as the babies born from women who do not smoke. And some women would prefer having smaller babies.} \\[2mm] \indent\indent\indent\indent\indent\indent% - Joseph Cullman, Philip Morris' Chairman of the Board \\ \indent\indent\indent\indent\indent\indent% {\color{white}...}on CBS' <em>Face the Nation</em>, Jan 3, 1971 \end{quotation} Fact check: the babies from women who smoke are not actually as healthy as the babies from women who do not smoke.\footnote{You can watch an episode of John Oliver on <em>Last Week Tonight</em> to explore the present day offenses of the tobacco industry. Please be aware that there is some adult language: youtu.be/6UsHHOCH4q8.}</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Case study: two versions of a course exam</title>
+      <p>An instructor decided to run two slight variations of the same exam. Prior to passing out the exams, she shuffled the exams together to ensure each student received a random version. Summary statistics for how students performed on these two exams are shown in <xref ref="summaryStatsForTwoVersionsOfExams"/>. Anticipating complaints from students who took Version B, she would like to evaluate whether the difference observed in the groups is so large that it provides convincing evidence that Version B was more difficult (on average) than Version A.</p>
+      <figure xml:id="summaryStatsForTwoVersionsOfExams">
+        <caption>Summary statistics of scores for each exam version.</caption>
+      </figure>
+
+      <p>\footnotetext{<m>H_0</m>: the exams are equally difficult, on average. <m>\mu_A - \mu_B = 0</m>. <m>H_A</m>: one exam was more difficult than the other, on average. <m>\mu_A - \mu_B \neq 0</m>.}</p>
+      <li>
+        <p>Does it seem reasonable that the scores are independent?</p>
+      </li>
+      <li>
+        <p>Any concerns about outliers?</p>
+      </li>
+    </ol>
+    <p>\end{nexercise} \end{exercisewrap} \footnotetext{(a) Since the exams were shuffled, the "treatment" in this case was randomly assigned, so independence within and between groups is satisfied. (b) The summary statistics suggest the data are roughly symmetric about the mean, and the min/max values don't suggest any outliers of concern.}</p>
+    <p>After verifying the conditions for each sample and confirming the samples are independent of each other, we are ready to conduct the test using the <m>t</m>-distribution. In this case, we are estimating the true difference in average test scores using the sample data, so the point estimate is <m>\bar{x}_A - \bar{x}_B = 5.3</m>. The standard error of the estimate can be calculated as</p>
+    <me>SE = \sqrt{\frac{s_A^2}{n_A} + \frac{s_B^2}{n_B}} = \sqrt{\frac{14^2}{30} + \frac{20^2}{27}} = 4.62</me>
+    <p>Finally, we construct the test statistic:</p>
+    <me>T = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{(79.4-74.1) - 0}{4.62} = 1.15</me>
+    <p>If we have a computer handy, we can identify the degrees of freedom as 45.97. Otherwise we use the smaller of <m>n_1-1</m> and <m>n_2-1</m>: <m>df=26</m>.</p>
+    <figure xml:id="pValueOfTwoTailAreaOfExamVersionsWhereDFIs26">
+      <caption>A t-distribution with 26 degrees of freedom is shown along with the p-value from the exam example represented as shaded area. The t-distribution shown is centered at zero, and the upper tail area above T equals 1.15 is shaded along with the area below about -1.15. These shaded tail areas appear to represent roughly 25 percent of the distribution.</caption>
+      <image source="ch_inference_for_means/figures/pValueOfTwoTailAreaOfExamVersionsWhereDFIs26"/>
+    </figure>
+
+    <example xml:id="">
+      <p>In Guided Practice <xref ref="htSetupForEvaluatingTwoExamVersions"/>, we specified that we would use <m>\alpha = 0.01</m>. Since the p-value is larger than <m>\alpha</m>, we do not reject the null hypothesis. That is, the data do not convincingly show that one exam version is more difficult than the other, and the teacher should not be convinced that she should add points to the Version B exam scores.</p>
+    </example>
+
+  </subsection>
+
+    <subsection xml:id="pooledStandardDeviations">
+      <title>Pooled standard deviation estimate (special topic)</title>
+      <p>Occasionally, two populations will have standard deviations that are so similar that they can be treated as identical. For example, historical data or a well-understood biological mechanism may justify this strong assumption. In such cases, we can make the <m>t</m>-distribution approach slightly more precise by using a pooled standard deviation.</p>
+      <p>The <term>pooled standard deviation</term> of two groups is a way to use data from both samples to better estimate the standard deviation and standard error. If <m>s_1^{}</m> and <m>s_2^{}</m> are the standard deviations of groups 1 and 2 and there are very good reasons to believe that the population standard deviations are equal, then we can obtain an improved estimate of the group variances by pooling their data:</p>
+      <me>s_{pooled}^2 = \frac{s_1^2\times (n_1-1) + s_2^2\times (n_2-1)}{n_1 + n_2 - 2}</me>
+      <p>where <m>n_1</m> and <m>n_2</m> are the sample sizes, as before. To use this new statistic, we substitute <m>s_{pooled}^2</m> in place of <m>s_1^2</m> and <m>s_2^2</m> in the standard error formula, and we use an updated formula for the degrees of freedom:</p>
+      <me>df = n_1 + n_2 - 2</me>
+      <p>The benefits of pooling the standard deviation are realized through obtaining a better estimate of the standard deviation for each group and using a larger degrees of freedom parameter for the <m>t</m>-distribution. Both of these changes may permit a more accurate model of the sampling distribution of <m>\bar{x}_1 - \bar{x}_2</m>, if the standard deviations of the two groups are indeed equal.</p>
+      <assemblage>
+        <p>{Pool standard deviations only after careful consideration} A pooled standard deviation is only appropriate when background research indicates the population standard deviations are nearly equal. When the sample size is large and the condition may be adequately checked with data, the benefits of pooling the standard deviations greatly diminishes.</p>
+      </assemblage>
+
+      <li>
+        <p>Are there any underlying structures in these data that should be considered in an analysis? Explain.</p>
+      </li>
+      <li>
+        <p>What are the hypotheses for evaluating whether the number of people out on Friday the 6<m>^{\text{th}}</m> is different than the number out on Friday the 13<m>^{\text{th}}</m>?</p>
+      </li>
+      <li>
+        <p>Check conditions to carry out the hypothesis test from part (b).</p>
+      </li>
+      <li>
+        <p>Calculate the test statistic and the p-value.</p>
+      </li>
+      <li>
+        <p>What is the conclusion of the hypothesis test?</p>
+      </li>
+      <li>
+        <p>Interpret the p-value in this context.</p>
+      </li>
+      <li>
+        <p>What type of error might have been made in the conclusion of your test? Explain.</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\hline & 0.99 carats & 1 carat\\ \hline Mean & <m>44.51 & \</m>56.81 \\ SD & <m>13.32 &\</m>16.13 \\ n &23 & 23 \\ \hline \end{tabular} \end{minipage}% \begin{minipage}[c]{0.43\textwidth} \begin{center} \FigureFullPath[Side-by-side box plot for "Point price, in dollars". The two categories shown are for "0.99 carats" and "1 carat" diamonds. The 0.99 carat diamonds have their box running from about <m>36 to \</m>57, a median of about <m>49, and the whiskers spanning about \</m>19 to <m>62. The 1 carat diamonds have their box running from about \</m>48 to <m>72, a median of about \</m>55, and the whiskers spanning about <m>34 to \</m>72.]{0.875}{ch_inference_for_means/figures/eoce/diamonds_1/diamonds_box.pdf} \end{center} \end{minipage} }{}</p>
+      <p>\begin{parts}</p>
+      <li>
+        <p>Conduct a hypothesis test to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</p>
+      </li>
+      <li>
+        <p>Calculate a 95 percent confidence interval for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</p>
+      </li>
+      <li>
+        <p>The conclusion of the original study states, "Friday 13th is unlucky for some. The risk of hospital admission as a result of a transport accident may be increased by as much as 52 percent. Staying at home is recommended." Do you agree with this statement? Explain your reasoning.</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\hline & 0.99 carats & 1 carat\\ \hline Mean & <m>44.51 & \</m>56.81 \\ SD & <m>13.32 &\</m>16.13 \\ n &23 & 23 \\ \hline \end{tabular} \end{center} }{}</p>
+      <p>\end{center} \end{minipage} \begin{minipage}[c]{0.35\textwidth} {\footnotesize\begin{tabular}{l c c c} \hline & Mean & SD & n \\ \hline casein & 323.58 & 64.43 & 12 \\ horsebean & 160.20 & 38.63 & 10 \\ linseed & 218.75 & 52.24 & 12 \\ meatmeal & 276.91 & 64.90 & 11 \\ soybean & 246.43 & 54.13 & 14 \\ sunflower & 328.92 & 48.84 & 12 \\ \hline \end{tabular}} \end{minipage}</p>
+      <p>\begin{parts}</p>
+      <li>
+        <p>Describe the distributions of weights of chickens that were fed linseed and horsebean.</p>
+      </li>
+      <li>
+        <p>Do these data provide strong evidence that the average weights of chickens that were fed linseed and horsebean are different? Use a 5 percent significance level.</p>
+      </li>
+      <li>
+        <p>What type of error might we have committed? Explain.</p>
+      </li>
+      <li>
+        <p>Would your conclusion change if we used <m>\alpha = 0.01</m>?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\hline & \multicolumn{2}{c}{City MPG} \\ \hline & Automatic & Manual \\ Mean & 16.12 & 19.85 \\ SD & 3.58 & 4.51 \\ n & 26 & 26 \\ \hline & \\ & \\ \end{tabular} \end{center} \end{minipage} \begin{minipage}[c]{0.6\textwidth} \begin{center} \FigureFullPath[A side-by-side box plot is shown for "City MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 14 to 19, has a median of about 16, and its whiskers extending down to about 7 and up to about 24. The "manual" box plot has its box spanning approximately 18 to 24, has a median of about 21, and its whiskers extending down to about 8 and up to about 31.]{0.7}{ch_inference_for_means/figures/eoce/fuel_eff_city/fuel_eff_city_box.pdf} \end{center} \end{minipage} }{}</p>
+      <p>\hline & \multicolumn{2}{c}{Hwy MPG} \\ \hline & Automatic & Manual \\ Mean & 22.92 & 27.88 \\ SD & 5.29 & 5.01 \\ n & 26 & 26 \\ \hline & \\ & \\ \end{tabular} \end{center} \end{minipage} \begin{minipage}[c]{0.6\textwidth} \begin{center} \FigureFullPath[A side-by-side box plot is shown for "Highway MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 20 to 26, has a median of about 23, and its whiskers extending down to about 14 and up to about 34. The "manual" box plot has its box spanning approximately 26 to 32, has a median of about 29, and its whiskers extending down to about 17 and up to about 38.]{0.7}{ch_inference_for_means/figures/eoce/fuel_eff_hway/fuel_eff_hway_box.pdf} \end{center} \end{minipage} }{}</p>
+      <li>
+        <p>Four hours of sensory restriction plus a 15 minute "therapeutic" tape advising that professional help is available.</p>
+      </li>
+      <li>
+        <p>Four hours of sensory restriction plus a 15 minute "emotionally neutral" tape on training hunting dogs.</p>
+      </li>
+      <li>
+        <p>Four hours of sensory restriction but no taped message.</p>
+      </li>
+    </ol>
+    <p>Forty-two subjects were randomly assigned to these treatment groups, and an MMPI test was administered before and after the treatment. Distributions of the differences between pre and post treatment scores (pre - post) are shown below, along with some sample statistics. Use this information to independently test the effectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret results in the context of the data.\footfullcite{data:prison}</p>
+    <p>\begin{center} \FigureFullPath[Three box plots are shown for Treatments 1, 2, and 3. The box plot for "Treatment 1" is slightly right skewed with values ranging from about -10 to about positive 40, and this distribution has one borderline outlier between 30 and 40. The box plot for "Treatment 2" is about symmetric with values ranging from about -20 to about positive 20. The box plot for "Treatment 3" is left skewed with values ranging from about -30 to about positive 10.]{}{ch_inference_for_means/figures/eoce/prison_isolation_T/prison_isolation_hist} \\ <m>\:</m> \\ \begin{tabular}{l r r r r } \hline & Tr 1 & Tr 2 & Tr 3 \\ \hline Mean & 6.21 & 2.86 & -3.21 \\ SD & 12.3 & 7.94 & 8.57 \\ n & 14 & 14 & 14 \\ \hline \end{tabular} \end{center} }{}</p>
+  </subsection>
+  </section>
+
+  <section xml:id="PowerForDifferenceOfTwoMeans">
+    <title>Power calculations for a difference of means</title>
+
+    <ul>
+      <li>
+        <p>We want to collect enough data that we can detect important effects.</p>
+      </li>
+      <li>
+        <p>Collecting data can be expensive, and in experiments involving people, there may be some risk to patients.</p>
+      </li>
+    </ul>
+    <p>In this section, we focus on the context of a clinical trial, which is a health-related experiment where the subject are people, and we will determine an appropriate sample size where we can be 80 percent sure that we would detect any practically important effects.\footnote{Even though we don't cover it explicitly, similar sample size planning is also helpful for observational studies.}</p>
+    <subsection xml:id="">
+      <title>Going through the motions of a test</title>
+      <p>We're going to go through the motions of a hypothesis test. This will help us frame our calculations for determining an appropriate sample size for the study.</p>
+      <example xml:id="">
+        <p>a new drug for lowering blood pressure, and they are preparing a clinical trial (experiment) to test the drug's effectiveness. They recruit people who are taking a particular standard blood pressure medication. People in the control group will continue to take their current medication through generic-looking pills to ensure blinding. Write down the hypotheses for a two-sided hypothesis test in this context.} Generally, clinical trials use a two-sided alternative hypothesis, so below are suitable hypotheses for this context:</p>
+        <dl>
+          <li>
+            <title><m>H_0</m>:</title>
+          <p>The new drug performs exactly as well as the standard medication. \\ $\mu_{trmt} - \mu_{ctrl} = 0$.</p>
+          </li>
+          <li>
+            <title><m>H_A</m>:</title>
+          <p>The new drug's performance differs from the standard medication. \\ $\mu_{trmt} - \mu_{ctrl} \neq 0$.</p>
+          </li>
+        </dl>
+      </example>
+
+      <example xml:id="">
+        <p>trial on patients with systolic blood pressures between 140 and 180 mmHg. Suppose previously published studies suggest that the standard deviation of the patients' blood pressures will be about 12 mmHg and the distribution of patient blood pressures will be approximately symmetric.\footnotemark{} If we had 100 patients per group, what would be the approximate standard error for <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m>?} The standard error is calculated as follows:</p>
+        <me>SE_{\bar{x}_{trmt} - \bar{x}_{ctrl}} = \sqrt{\frac{s_{trmt}^2}{n_{trmt}} + \frac{s_{ctrl}^2}{n_{ctrl}}} = \sqrt{\frac{12^2}{100} + \frac{12^2}{100}} = 1.70</me>
+        <p>This may be an imperfect estimate of <m>SE_{\bar{x}_{trmt} - \bar{x}_{ctrl}}</m>, since the standard deviation estimate we used may not be perfectly correct for this group of patients. However, it is sufficient for our purposes.</p>
+      </example>
+
+      <p>\footnotetext{In this particular study, we'd generally measure each patient's blood pressure at the beginning and end of the study, and then the outcome measurement for the study would be the average change in blood pressure. That is, both <m>\mu_{trmt}</m> and <m>\mu_{ctrl}</m> would represent average differences. This is what you might think of as a 2-sample paired testing structure, and we'd analyze it exactly just like a hypothesis test for a difference in the average change for patients. In the calculations we perform here, we'll suppose that 12 mmHg is the predicted standard deviation of a patient's blood pressure difference over the course of the study.}</p>
+      <example xml:id="">
+      </example>
+
+      <example xml:id="">
+        <dl>
+          <li>
+            <title>Lower 2.5 percent:</title>
+          <p>For the normal model, this is 1.96 standard errors below~0, so any difference smaller than $-1.96 \times 1.70 = -3.332$~mmHg.</p>
+          </li>
+          <li>
+            <title>Upper 2.5 percent:</title>
+          <p>For the normal model, this is 1.96 standard errors above~0, so any difference larger than $1.96 \times 1.70 = 3.332$~mmHg.</p>
+          </li>
+        </dl>
+        <p>The boundaries of these <term>rejection regions</term> are shown below: \begin{center} \Figures[A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".]{0.93}{power_null_0_1-7}{power_null_B_0_1-7_with_rejection_region} \end{center}</p>
+      </example>
+
+      <p>Next, we'll perform some hypothetical calculations to determine the probability we reject the null hypothesis, if the alternative hypothesis were actually true.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title></title>
+      <p>{Computing the power for a 2-sample test}</p>
+      <p>When planning a study, we want to know how likely we are to detect an effect we care about. In other words, if there is a real effect, and that effect is large enough that it has practical value, then what's the probability that we detect that effect? This probability is called the <term>power</term>, and we can compute it for different sample sizes or for different <em>effect sizes</em>.</p>
+      <p>We first determine what is a practically significant result. Suppose that the company researchers care about finding any effect on blood pressure that is 3 mmHg or larger vs the standard medication. Here, 3 mmHg is the minimum <term>effect size</term> of interest, and we want to know how likely we are to detect this size of an effect in the study.</p>
+      <example xml:id="">
+        <p>100 patients per treatment group and the new drug reduces blood pressure by an additional 3 mmHg relative to the standard medication. What is the probability that we detect a drop?} % Before we even do any calculations, notice that if <m>\bar{x}_{trmt} - \bar{x}_{ctrl} = -3</m> mmHg, there wouldn't even be sufficient evidence to reject <m>H_0</m>. That's not a good sign.</p>
+        <p>To calculate the probability that we will reject <m>H_0</m>, we need to determine a few things:</p>
+        <ul>
+          <li>
+            <p>The sampling distribution for <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> when the true difference is -3 mmHg. This is the same as the null distribution, except it is shifted to the left by 3:</p>
+          </li>
+          <p>\begin{center} \Figures[A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.]{0.87}{power_null_0_1-7} {power_null_C_0_1-7_with_alt_at_3} \end{center}</p>
+          <li>
+            <p>The rejection regions, which are outside of the dotted lines above.</p>
+          </li>
+          <li>
+            <p>The fraction of the distribution that falls in the rejection region.</p>
+          </li>
+        </ul>
+        <p>In short, we need to calculate the probability that <m>x < -3.332</m> for a normal distribution with mean -3 and standard deviation 1.7. To do so, we first shade the area we want to calculate: \begin{center} \Figures[A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.]{0.93}{power_null_0_1-7} {power_null_D_0_1-7_with_alt_at_3_and_shaded} \end{center} We'll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We'll start by calculating the Z-score and find the tail area using either statistical software or the probability table:</p>
+        <me>Z = \frac{-3.332 - (-3)}{1.7} = -0.20 \qquad \to \qquad 0.42</me>
+        <p>The power for the test is about 42 percent when <m>\mu_{trmt} - \mu_{ctrl} = -3</m> and each group has a sample size of 100.</p>
+      </example>
+
+      <p>In <xref ref="PowerFor100AtNeg3"/>, we ignored the upper rejection region in the calculation, which was in the opposite direction of the hypothetical truth, i.e. -3. The reasoning? There wouldn't be any value in rejecting the null hypothesis and concluding there was an increase when in fact there was a decrease.</p>
+      <p>We've also used a normal distribution instead of the <m>t</m>-distribution. This is a convenience, and if the sample size is too small, we'd need to revert back to using the <m>t</m>-distribution. We'll discuss this a bit further at the end of this section.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Determining a proper sample size</title>
+      <p>In the last example, we found that if we have a sample size of 100 in each group, we can only detect an effect size of 3 mmHg with a probability of about 0.42. Suppose the researchers moved forward and only used 100 patients per group, and the data did not support the alternative hypothesis, i.e. the researchers did not reject <m>H_0</m>. This is a very bad situation to be in for a few reasons:</p>
+      <ul>
+        <li>
+          <p>In the back of the researchers' minds, they'd all be wondering, <em>maybe there is a real and meaningful difference, but we weren't able to detect it with such a small sample</em>.</p>
+        </li>
+        <li>
+          <p>The company probably invested hundreds of millions of dollars in developing the new drug, so now they are left with great uncertainty about its potential since the experiment didn't have a great shot at detecting effects that could still be important.</p>
+        </li>
+        <li>
+          <p>Patients were subjected to the drug, and we can't even say with much certainty that the drug doesn't help (or harm) patients.</p>
+        </li>
+        <li>
+          <p>Another clinical trial may need to be run to get a more conclusive answer as to whether the drug does hold any practical value, and conducting a second clinical trial may take years and many millions of dollars.</p>
+        </li>
+      </ul>
+      <p>We want to avoid this situation, so we need to determine an appropriate sample size to ensure we can be pretty confident that we'll detect any effects that are practically important. As mentioned earlier, a change of 3 mmHg was deemed to be the minimum difference that was practically important. As a first step, we could calculate power for several different sample sizes. For instance, let's try 500 patients per group.</p>
+      <li>
+        <p>Determine the standard error (recall that the standard deviation for patients was expected to be about 12 mmHg).</p>
+      </li>
+      <li>
+        <p>Identify the null distribution and rejection regions.</p>
+      </li>
+      <li>
+        <p>Identify the alternative distribution when <m>\mu_{trmt} - \mu_{ctrl} = -3</m>.</p>
+      </li>
+      <li>
+        <p>Compute the probability we reject the null hypothesis.</p>
+      </li>
+    </ol>
+    <p>\end{nexercise} \end{exercisewrap} \footnotetext{(a) The standard error is given as <m>SE = \sqrt{\frac{12^2}{500} + \frac{12^2}{500}} = 0.76</m>.\\ (b) &amp; (c) The null distribution, rejection boundaries, and alternative distribution are shown below: \\ \indent% \Figures[A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95 percent of the distribution.]{0.7}{power_null_0_0-76} {power_null_0_0-76_with_alt_at_3_and_shaded} \\ The rejection regions are the areas on the outside of the two dotted lines and are at <m>\pm 0.76 \times 1.96 = \pm 1.49</m>. \\ (d) The area of the alternative distribution where <m>\mu_{trmt} - \mu_{ctrl} = -3</m> has been shaded. We compute the Z-score and find the tail area: <m>Z = \frac{-1.49 - (-3)}{0.76} = 1.99 \to 0.977</m>. With 500 patients per group, we would be about 97.7 percent sure (or more) that we'd detect any effects that are at least 3 mmHg in size.}</p>
+    <p>The researchers decided 3 mmHg was the minimum difference that was practically important, and with a sample size of 500, we can be very certain (97.7 percent or better) that we will detect any such difference. We now have moved to another extreme where we are exposing an unnecessary number of patients to the new drug in the clinical trial. Not only is this ethically questionable, but it would also cost a lot more money than is necessary to be quite sure we'd detect any important effects.</p>
+    <p>The most common practice is to identify the sample size where the power is around 80 percent, and sometimes 90 percent. Other values may be reasonable for a specific context, but 80 percent and 90 percent are most commonly targeted as a good balance between high power and not exposing too many patients to a new treatment (or wasting too much money).</p>
+    <p>We could compute the power of the test at several other possible sample sizes until we find one that's close to 80 percent, but there's a better way. We should solve the problem backwards.</p>
+    <example xml:id="sample_size_for_80_percent_power">
+      <title>What sample size will lead to a power of 80 percent? Use <m>\alpha = 0.05</m>.</title>
+      <p>We'll assume we have a large enough sample that the normal distribution is a good approximation for the test statistic, since the normal distribution and the <m>t</m>-distribution look almost identical when the degrees of freedom are moderately large (e.g. <m>df \geq 30</m>). If that doesn't turn out to be true, then we'd need to make a correction.</p>
+      <p>We start by identifying the Z-score that would give us a lower tail of 80 percent. For a moderately large sample size per group, the Z-score for a lower tail of 80 percent would be about <m>Z = 0.84</m>. \begin{center}</p>
+      <figure xml:id="fig-power_best_sample_size">
+        <caption>A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80 percent of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".</caption>
+        <image source="ch_inference_for_means/figures/power_best_sample_size"/>
+      </figure>
+
+      <p>\end{center} Additionally, the rejection region extends <m>1.96\times SE</m> from the center of the null distribution for <m>\alpha = 0.05</m>. This allows us to calculate the target distance between the center of the null and alternative distributions in terms of the standard error:</p>
+      <me>0.84 \times SE + 1.96 \times SE = 2.8 \times SE</me>
+      <p>In our example, we want the distance between the null and alternative distributions' centers to equal the minimum effect size of interest, 3 mmHg, which allows us to set up an equation between this difference and the standard error:</p>
+      <md>
+        <mrow>3 &= 2.8 \times SE</mrow>
+        <mrow>3 &= 2.8 \times \sqrt{\frac{12^2}{n} + \frac{12^2}{n}}</mrow>
+        <mrow>n &= \frac{2.8^2}{3^2} \times \left( 12^2 + 12^2 \right) = 250.88</mrow>
+      </md>
+      <p>We should target 251 patients per group in order to achieve 80 percent power at the 0.05 significance level for this context.</p>
+    </example>
+
+    <p>The standard error difference of <m>2.8 \times SE</m> is specific to a context where the targeted power is 80 percent and the significance level is <m>\alpha = 0.05</m>. If the targeted power is 90 percent or if we use a different significance level, then we'll use something a little different than <m>2.8 \times SE</m>.</p>
+    <p>Had the suggested sample size been relatively small – roughly 30 or smaller – it would have been a good idea to rework the calculations using the degrees of fredom for the smaller sample size under that initial sample size. That is, we would have revised the 0.84 and 1.96 values based on degrees of freedom implied by the initial sample size. The revised sample size target would generally have then been a little larger.</p>
+    <p>\footnotetext{First, find the Z-score such that 90 percent of the distribution is below it: <m>Z = 1.28</m>. Next, find the cutoffs for the rejection regions: <m>\pm 2.58</m>. Then the difference in centers should be about <m>1.28 \times SE + 2.58 \times SE = 3.86 \times SE</m>.}</p>
+    <p>\footnotetext{Answers will vary, but here are a few important considerations:</p>
+    <ul>
+      <li>
+        <p>Whether there is any risk to patients in the study.</p>
+      </li>
+      <li>
+        <p>The cost of enrolling more patients.</p>
+      </li>
+      <li>
+        <p>The potential downside of not detecting an effect of interest.</p>
+      </li>
+    </ul>
+    <figure xml:id="power_curve_neg-3">
+    </figure>
+
+    <p>Power calculations for expensive or risky experiments are critical. However, what about experiments that are inexpensive and where the ethical considerations are minimal? For example, if we are doing final testing on a new feature on a popular website, how would our sample size considerations change? As before, we'd want to make sure the sample is big enough. However, suppose the feature has undergone some testing and is known to perform well (e.g. the website's users seem to enjoy the feature). Then it may be reasonable to run a larger experiment if there's value from having a more precise estimate of the feature's effect, such as helping guide the development of the next useful feature.</p>
+  </subsection>
+  </section>
+
+  <section xml:id="anovaAndRegrWithCategoricalVariables">
+    <title>Comparing many means with ANOVA</title>
+
+    <subsection xml:id="">
+      <title>Core ideas of ANOVA</title>
+      <p>In this section, we will learn a new method called <term>analysis of variance (ANOVA)</term> and a new test statistic called <m>F</m>. ANOVA uses a single hypothesis test to check whether the means across many groups are equal:</p>
+      <ul>
+        <li>
+          <p>[<m>H_0</m>:] The mean outcome is the same across all groups. In statistical notation, <m>\mu_1 = \mu_2 = \cdots = \mu_k</m> where <m>\mu_i</m> represents the mean of the outcome for observations in category <m>i</m>.</p>
+        </li>
+        <li>
+          <p>[<m>H_A</m>:] At least one mean is different.</p>
+        </li>
+      </ul>
+      <p>Generally we must check three conditions on the data before performing ANOVA:</p>
+      <ul>
+        <li>
+          <p>the observations are independent within and across groups,</p>
+        </li>
+        <li>
+          <p>the data within each group are nearly normal, and</p>
+        </li>
+        <li>
+          <p>the variability across the groups is about equal.</p>
+        </li>
+      </ul>
+      <p>When these three conditions are met, we may perform an ANOVA to determine whether the data provide strong evidence against the null hypothesis that all the <m>\mu_i</m> are equal.</p>
+      <example xml:id="">
+        <p>lectures of the same introductory course each semester because of high demand. Consider a statistics department that runs three lectures of an introductory statistics course. We might like to determine whether there are statistically significant differences in first exam scores in these three classes (<m>A</m>, <m>B</m>, and <m>C</m>). Describe appropriate hypotheses to determine whether there are any differences between the three classes.} % The hypotheses may be written in the following form:</p>
+        <ul>
+          <li>
+            <p>[<m>H_0</m>:] The average score is identical in all lectures. Any observed difference is due to chance. Notationally, we write <m>\mu_A=\mu_B=\mu_C</m>.</p>
+          </li>
+          <li>
+            <p>[<m>H_A</m>:] The average score varies by class. We would reject the null hypothesis in favor of the alternative hypothesis if there were larger differences among the class averages than what we might expect from chance alone.</p>
+          </li>
+        </ul>
+      </example>
+
+      <p>Strong evidence favoring the alternative hypothesis in ANOVA is described by unusually large differences among the group means. We will soon learn that assessing the variability of the group means relative to the variability among individual observations within each group is key to ANOVA's success.</p>
+      <example xml:id="">
+        <title>Examine Figure \ref{toyANOVA</title>
+        <p>Compare groups I, II, and III. Can you visually determine if the differences in the group centers is due to chance or not? Now compare groups IV, V, and VI. Do these differences appear to be due to chance?} Any real difference in the means of groups I, II, and III is difficult to discern, because the data within each group are very volatile relative to any differences in the average outcome. On the other hand, it appears there are differences in the centers of groups IV, V, and VI. For instance, group V appears to have a higher mean than that of the other two groups. Investigating groups IV, V, and VI, we see the differences in the groups' centers are noticeable because those differences are large \emph{relative to the variability in the individual observations within each group}.</p>
+      </example>
+
+      <figure xml:id="toyANOVA">
+        <caption>Side-by-side dot plot for the outcomes for six groups.</caption>
+        <image source="ch_inference_for_means/figures/toyANOVA"/>
+      </figure>
+
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Is batting performance related to player position in MLB?</title>
+      <p>We would like to discern whether there are real differences between the batting performance of baseball players according to their position: outfielder ("OF"), infielder ("IF"), and catcher ("C"). We will use a data set called \data{bat18, which includes batting records of 429 Major League Baseball (MLB) players from the 2018 season who had at least 100 at bats. Six of the 429 cases represented in \data{bat18 are shown in <xref ref="mlbBat18DataMatrix"/>, and descriptions for each variable are provided in <xref ref="mlbBat18Variables"/>. The measure we will use for the player batting performance (the outcome variable) is on-base percentage (\var{OBP}). The on-base percentage roughly represents the fraction of the time a player successfully gets on base or hits a home run.</p>
+      <figure xml:id="mlbBat18DataMatrix">
+        <caption>Six cases from the \data{bat18{</caption>
+      </figure>
+
+      <figure xml:id="mlbBat18Variables">
+      </figure>
+
+      <p>\footnotetext{<m>H_0</m>: The average on-base percentage is equal across the three positions. <m>H_A</m>: The average on-base percentage varies across some (or all) groups.}</p>
+      <example xml:id="">
+        <p>into three groups: outfield ("OF"), infield ("IF"), and catcher ("C"). What would be an appropriate point estimate of the on-base percentage by outfielders, <m>\mu_{"OF"}</m>?} A good estimate of the on-base percentage by outfielders would be the sample average of \var{OBP} for just those players whose position is outfield: <m>\bar{x}_{OF} = 0.320</m>.</p>
+      </example>
+
+      <figure xml:id="mlbHRPerABSummaryTable">
+        <caption>Summary statistics of on-base percentage, split by player position.</caption>
+      </figure>
+
+      <figure xml:id="mlbANOVABoxPlot">
+      </figure>
+
+      <example xml:id="">
+        <p>is between the catcher and the outfielder positions. Consider again the original hypotheses:</p>
+        <ul>
+          <li>
+            <p>[<m>H_0</m>:] <m>\mu_{\resp{OF}} = \mu_{\resp{IF}} = \mu_{\resp{C}}</m></p>
+          </li>
+          <li>
+            <p>[<m>H_A</m>:] The average on-base percentage (<m>\mu_i</m>) varies across some (or all) groups.</p>
+          </li>
+        </ul>
+        <p>Why might it be inappropriate to run the test by simply estimating whether the difference of <m>\mu_{\var{C}}</m> and <m>\mu_{"OF"}</m> is statistically significant at a 0.05 significance level?} % The primary issue here is that we are inspecting the data before picking the groups that will be compared. It is inappropriate to examine all data by eye (informal testing) and only afterwards decide which parts to formally test. This is called <term>data snooping</term> or <term>data fishing</term>. Naturally, we would pick the groups with the large differences for the formal test, and this would leading to an inflation in the Type 1 Error rate. To understand this better, let's consider a slightly different problem.</p>
+        <p>Suppose we are to measure the aptitude for students in 20 classes in a large elementary school at the beginning of the year. In this school, all students are randomly assigned to classrooms, so any differences we observe between the classes at the start of the year are completely due to chance. However, with so many groups, we will probably observe a few groups that look rather different from each other. If we select only these classes that look so different and then perform a formal test, we will probably make the wrong conclusion that the assignment wasn't random. While we might only formally test differences for a few pairs of classes, we informally evaluated the other classes by eye before choosing the most extreme cases for a comparison.</p>
+      </example>
+
+      <p>For additional information on the ideas expressed in <xref ref="multCompExIncDiscOfClassrooms"/>, we recommend reading about the <term>prosecutor's fallacy</term>.\footnote{See, for example, \oiRedirect{textbook-prosecutors_fallacy} {statmodeling.stat.columbia.edu/2007/05/18/the_prosecutors}.}</p>
+      <p>In the next section we will learn how to use the <m>F</m> statistic and ANOVA to test whether observed differences in sample means could have happened just by chance even if there was no difference in the respective population means.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Analysis of variance (ANOVA) and the <m>\pmb{F}</m>-test</title>
+      <p>The method of analysis of variance in this context focuses on answering one question: is the variability in the sample means so large that it seems unlikely to be from chance alone? This question is different from earlier testing procedures since we will <em>simultaneously</em> consider many groups, and evaluate whether their sample means differ more than we would expect from natural variation. We call this variability the <term>mean square between groups (<m>MSG</m>)</term>, and it has an associated degrees of freedom, <m>df_{G} = k - 1</m> when there are <m>k</m> groups. The <m>MSG</m> can be thought of as a scaled variance formula for means. If the null hypothesis is true, any variation in the sample means is due to chance and shouldn't be too large. Details of <m>MSG</m> calculations are provided in the footnote.\footnote{Let <m>\bar{x}</m> represent the mean of outcomes across all groups. Then the mean square between groups is computed as</p>
+      <me>MSG = \frac{1}{df_{G}}SSG = \frac{1}{k-1}\sum_{i=1}^{k} n_{i} \left(\bar{x}_{i} - \bar{x}\right)^2</me>
+      <p>where <m>SSG</m> is called the <term>sum of squares between groups</term> and <m>n_{i}</m> is the sample size of group <m>i</m>.} However, we typically use software for these computations.</p>
+      <p>The mean square between the groups is, on its own, quite useless in a hypothesis test. We need a benchmark value for how much variability should be expected among the sample means if the null hypothesis is true. To this end, we compute a pooled variance estimate, often abbreviated as the <term>mean square error (<m>MSE</m>)</term>, which has an associated degrees of freedom value <m>df_E = n - k</m>. It is helpful to think of <m>MSE</m> as a measure of the variability within the groups. Details of the computations of the <m>MSE</m> and a link to an extra online section for ANOVA calculations are provided in the footnote\footnote{Let <m>\bar{x}</m> represent the mean of outcomes across all groups. Then the <term>sum of squares total (<m>SST</m>)</term> is computed as</p>
+      <me>SST = \sum_{i=1}^{n} \left(x_{i} - \bar{x}\right)^2</me>
+      <p>where the sum is over all observations in the data set. Then we compute the <term>sum of squared errors (<m>SSE</m>)</term> in one of two equivalent ways:</p>
+      <md>
+        <mrow>SSE &= SST - SSG</mrow>
+        <mrow>&= (n_1-1)s_1^2 + (n_2-1)s_2^2 + \cdots + (n_k-1)s_k^2</mrow>
+      </md>
+      <p>where <m>s_i^2</m> is the sample variance (square of the standard deviation) of the residuals in group <m>i</m>. Then the <m>MSE</m> is the standardized form of <m>SSE</m>: <m>MSE = \frac{1}{df_{E}}SSE</m>.</p>
+      <p>When the null hypothesis is true, any differences among the sample means are only due to chance, and the <m>MSG</m> and <m>MSE</m> should be about equal. As a test statistic for ANOVA, we examine the fraction of <m>MSG</m> and <m>MSE</m>:</p>
+      <me>F = \frac{MSG}{MSE}</me>
+      <p>The <m>MSG</m> represents a measure of the between-group variability, and <m>MSE</m> measures the variability within each of the groups.</p>
+      <p>\footnotetext{There are <m>k = 3</m> groups, so <m>df_{G} = k - 1 = 2</m>. There are <m>n = n_1 + n_2 + n_3 = 429</m> total observations, so <m>df_{E} = n - k = 426</m>. Then the <m>F</m> statistic is computed as the ratio of <m>MSG</m> and <m>MSE</m>: $F = \frac{MSG}{MSE} = \frac{0.00803}{0.00158} = 5.082 \approx 5.077$. (<m>F = 5.077</m> was computed by using values for <m>MSG</m> and <m>MSE</m> that were not rounded.)}</p>
+      <p>We can use the <m>F</m> statistic to evaluate the hypotheses in what is called an <term><m>\pmb{F}</m>-test</term>. A p-value can be computed from the <m>F</m> statistic using an <m>F</m> distribution, which has two associated parameters: <m>df_{1}</m> and <m>df_{2}</m>. For the <m>F</m> statistic in ANOVA, <m>df_{1} = df_{G}</m> and <m>df_{2} = df_{E}</m>. An <m>F</m> distribution with 2 and 426 degrees of freedom, corresponding to the <m>F</m> statistic for the baseball hypothesis test, is shown in <xref ref="fDist2And423Shaded"/>.</p>
+      <figure xml:id="fDist2And423Shaded">
+        <caption>An <m>F</m> distribution with <m>df_1=2</m> and <m>df_2=426</m>.</caption>
+      </figure>
+
+      <p>The larger the observed variability in the sample means (<m>MSG</m>) relative to the within-group observations (<m>MSE</m>), the larger <m>F</m> will be and the stronger the evidence against the null hypothesis. Because larger values of <m>F</m> represent stronger evidence against the null hypothesis, we use the upper tail of the distribution to compute a p-value.</p>
+      <assemblage>
+        <title>The $\pmb{F</title>
+      </assemblage>
+
+      <example xml:id="">
+        <p>the shaded area in <xref ref="fDist2And423Shaded"/> is equal to about 0.0066. Does this provide strong evidence against the null hypothesis?} The p-value is smaller than 0.05, indicating the evidence is strong enough to reject the null hypothesis at a significance level of 0.05. That is, the data provide strong evidence that the average on-base percentage varies by player's primary field position.</p>
+      </example>
+
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Reading an ANOVA table from software</title>
+      <p>The calculations required to perform an ANOVA by hand are tedious and prone to human error. For these reasons, it is common to use statistical software to calculate the <m>F</m> statistic and p-value.</p>
+      <p>An ANOVA can be summarized in a table very similar to that of a regression summary, which we will see in Chapters <xref ref="linRegrForTwoVar"/> and <xref ref="multipleAndLogisticRegression"/>. <xref ref="anovaSummaryTableForOBPAgainstPosition"/> shows an ANOVA summary to test whether the mean of on-base percentage varies by player positions in the MLB. Many of these values should look familiar; in particular, the <m>F</m>-test statistic and p-value can be retrieved from the last two columns.</p>
+      <figure xml:id="anovaSummaryTableForOBPAgainstPosition">
+      </figure>
+
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Graphical diagnostics for an ANOVA analysis</title>
+      <p>There are three conditions we must check for an ANOVA analysis: all observations must be independent, the data in each group must be nearly normal, and the variance within each group must be approximately equal.</p>
+      <dl>
+        <li>
+          <title>Independence.</title>
+        <p>If the data are a simple random sample, this condition is satisfied. For processes and experiments, carefully consider whether the data may be independent (e.g. no pairing). For example, in the MLB data, the data were not sampled. However, there are not obvious reasons why independence would not hold for most or all observations.</p>
+        </li>
+        <li>
+          <title>Approximately normal.</title>
+        <p>As with one- and two-sample testing for means, the normality assumption is especially important when the sample size is quite small when it is ironically difficult to check for non-normality. A histogram of the observations from each group is shown in Figure~\ref{mlbANOVADiagNormalityGroups}. Since each of the groups we're considering have relatively large sample sizes, what we're looking for are major outliers. None are apparent, so this conditions is reasonably met.</p>
+        </li>
+        <figure xml:id="mlbANOVADiagNormalityGroups">
+          <caption>Histograms of OBP for each field position.</caption>
+        </figure>
+
+        <li>
+          <title>Constant variance.</title>
+        <p>The last assumption is that the variance in the groups is about equal from one group to the next. This assumption can be checked by examining a side-by-side box plot of the outcomes across the groups, as in Figure~\vref{mlbANOVABoxPlot}. In this case, the variability is similar in the three groups but not identical. We see in Table~\vref{mlbHRPerABSummaryTable} that the standard deviation doesn't vary much from one group to the next.</p>
+        </li>
+      </dl>
+      <assemblage>
+        <title>Diagnostics for an ANOVA analysis</title>
+        <p>Independence is always important to an ANOVA analysis. The normality condition is very important when the sample sizes for each group are relatively small. The constant variance condition is especially important when the sample sizes differ between groups.</p>
+      </assemblage>
+
+  </subsection>
+
+    <subsection xml:id="multipleComparisonsAndControllingTheType1ErrorRate">
+      <title>Multiple comparisons and controlling Type 1 Error rate</title>
+      <p>When we reject the null hypothesis in an ANOVA analysis, we might wonder, which of these groups have different means? To answer this question, we compare the means of each possible pair of groups. For instance, if there are three groups and there is strong evidence that there are some differences in the group means, there are three comparisons to make: group 1 to group 2, group 1 to group 3, and group 2 to group 3. These comparisons can be accomplished using a two-sample <m>t</m>-test, but we use a modified significance level and a pooled estimate of the standard deviation across groups. Usually this pooled standard deviation can be found in the ANOVA table, e.g. along the bottom of <xref ref="anovaSummaryTableForOBPAgainstPosition"/>.</p>
+      <example xml:id="">
+        <p>Example \vref{firstExampleForThreeStatisticsClassesAndANOVA} discussed three statistics lectures, all taught during the same semester. <xref ref="summaryStatisticsForClassTestData"/> shows summary statistics for these three courses, and a side-by-side box plot of the data is shown in <xref ref="classDataSBSBoxPlot"/>. We would like to conduct an ANOVA for these data. Do you see any deviations from the three conditions for ANOVA?} In this case (like many others) it is difficult to check independence in a rigorous way. Instead, the best we can do is use common sense to consider reasons the assumption of independence may not hold. For instance, the independence assumption may not be reasonable if there is a star teaching assistant that only half of the students may access; such a scenario would divide a class into two subgroups. No such situations were evident for these particular data, and we believe that independence is acceptable.</p>
+        <p>The distributions in the side-by-side box plot appear to be roughly symmetric and show no noticeable outliers.</p>
+        <p>The box plots show approximately equal variability, which can be verified in <xref ref="summaryStatisticsForClassTestData"/>, supporting the constant variance assumption.</p>
+      </example>
+
+      <figure xml:id="summaryStatisticsForClassTestData">
+      </figure>
+
+      <figure xml:id="classDataSBSBoxPlot">
+      </figure>
+
+      <p>\footnotetext{The p-value of the test is 0.0330, less than the default significance level of 0.05. Therefore, we reject the null hypothesis and conclude that the difference in the average midterm scores are not due to chance.}</p>
+      <figure xml:id="anovaSummaryTableForMidtermData">
+        <caption>ANOVA summary table for the midterm data.</caption>
+      </figure>
+
+      <p>There is strong evidence that the different means in each of the three classes is not simply due to chance. We might wonder, which of the classes are actually different? As discussed in earlier chapters, a two-sample <m>t</m>-test could be used to test for differences in each possible pair of groups. However, one pitfall was discussed in Example \vref{multCompExIncDiscOfClassrooms}: when we run so many tests, the Type 1 Error rate increases. This issue is resolved by using a modified significance level.</p>
+      <assemblage>
+        <p>correction for <m>\pmb{\alpha}</m>} The scenario of testing many pairs of groups is called <term>multiple comparisons</term>. The <term>Bonferroni correction</term> suggests that a more stringent significance level is more appropriate for these tests:</p>
+        <me>\alpha^{\star} = \alpha / K</me>
+        <p>where <m>K</m> is the number of comparisons being considered (formally or informally). If there are <m>k</m> groups, then usually all possible pairs are compared and <m>K=\frac{k(k-1)}{2}</m>.</p>
+      </assemblage>
+
+      <example xml:id="">
+        <p>Practice <xref ref="exerExaminingAnovaSummaryTableForMidtermData"/>, you found strong evidence of differences in the average midterm grades between the three lectures. Complete the three possible pairwise comparisons using the Bonferroni correction and report any differences.} % We use a modified significance level of <m>\alpha^{\star} = 0.05 / 3 = 0.0167</m>. Additionally, we use the pooled estimate of the standard deviation: <m>s_{pooled}=13.61</m> on <m>df=161</m>, which is provided in the ANOVA summary table.</p>
+        <p>Lecture A versus Lecture B: The estimated difference and standard error are, respectively,</p>
+        <me>\bar{x}_A - \bar{x}_{B} &= 75.1 - 72 = 3.1 &&SE = \sqrt{\frac{13.61^2}{58} + \frac{13.61^2}{55}} = 2.56</me>
+        <p>(See Section \vref{pooledStandardDeviations} for additional details.) This results in a T-score of 1.21 on <m>df = 161</m> (we use the <m>df</m> associated with <m>s_{pooled}</m>). Statistical software was used to precisely identify the two-sided p-value since the modified significance level of 0.0167 is not found in the <m>t</m>-table. The p-value (0.228) is larger than <m>\alpha^*=0.0167</m>, so there is not strong evidence of a difference in the means of lectures A and B.</p>
+        <p>Lecture A versus Lecture C: The estimated difference and standard error are 3.8 and 2.61, respectively. This results in a <m>T</m> score of 1.46 on <m>df = 161</m> and a two-sided p-value of 0.1462. This p-value is larger than <m>\alpha^*</m>, so there is not strong evidence of a difference in the means of lectures A and C.</p>
+        <p>Lecture B versus Lecture C: The estimated difference and standard error are 6.9 and 2.65, respectively. This results in a <m>T</m> score of 2.60 on <m>df = 161</m> and a two-sided p-value of 0.0102. This p-value is smaller than <m>\alpha^*</m>. Here we find strong evidence of a difference in the means of lectures B and C.</p>
+      </example>
+
+      <me>\mu_A &\stackrel{?}{=} \mu_B &\mu_A &\stackrel{?}{=} \mu_C &\mu_B &\neq \mu_C</me>
+      <p>The midterm mean in lecture A is not statistically distinguishable from those of lectures B or C. However, there is strong evidence that lectures B and C are different. In the first two pairwise comparisons, we did not have sufficient evidence to reject the null hypothesis. Recall that failing to reject <m>H_0</m> does not imply <m>H_0</m> is true.</p>
+      <assemblage>
+        <title>Reject $\pmb{H_0</title>
+        <p>but find no differences in group means} It is possible to reject the null hypothesis using ANOVA and then to not subsequently identify differences in the pairwise comparisons. However, <em>this does not invalidate the ANOVA conclusion</em>. It only means we have not been able to successfully identify which specific groups differ in their means.</p>
+      </assemblage>
+
+      <p>The ANOVA procedure examines the big picture: it considers all groups simultaneously to decipher whether there is evidence that some difference exists. Even if the test indicates that there is strong evidence of differences in group means, identifying with high confidence a specific difference as statistically significant is more difficult.</p>
+      <p>Consider the following analogy: we observe a Wall Street firm that makes large quantities of money based on predicting mergers. Mergers are generally difficult to predict, and if the prediction success rate is extremely high, that may be considered sufficiently strong evidence to warrant investigation by the Securities and Exchange Commission (SEC). While the SEC may be quite certain that there is insider trading taking place at the firm, the evidence against any single trader may not be very strong. It is only when the SEC considers all the data that they identify the pattern. This is effectively the strategy of ANOVA: stand back and consider all the groups simultaneously.</p>
+      <p>\hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline feed & 5 & 231,129.16 & 46,225.83 & 15.36 & 0.0000 \\ Residuals & 65 & 195,556.02 & 3,008.55 & & \\ \hline \end{tabular} \end{center} Conduct a hypothesis test to determine if these data provide convincing evidence that the average weight of chicks varies across some (or all) groups. Make sure to check relevant conditions. Figures and summary statistics are shown below.</p>
+      <p>\begin{minipage}[c]{0.65\textwidth} \begin{center} \FigureFullPath[A side-by-side box plot is shown for "Weight, in grams" for several feed types. The width of the data range for each feed type spans about 150 grams. However, they are centered at different locations: about 325 for "casein", about 150 for "horsebean", about 225 for "linseed", about 275 for "meatmeal", about 250 for "soybean", and about 325 for "sunflower".]{}{ch_inference_for_means/figures/eoce/chick_wts_anova/chick_wts_box.pdf} \end{center} \end{minipage} \begin{minipage}[c]{0.35\textwidth} {\footnotesize\begin{tabular}{l c c c} \hline & Mean & SD & n \\ \hline casein & 323.58 & 64.43 & 12 \\ horsebean & 160.20 & 38.63 & 10 \\ linseed & 218.75 & 52.24 & 12 \\ meatmeal & 276.91 & 64.90 & 11 \\ soybean & 246.43 & 54.13 & 14 \\ sunflower & 328.92 & 48.84 & 12 \\ \hline \end{tabular}} \end{minipage} }{}</p>
+      <p>\begin{center} \begin{tabular}{l r r r r r r} & \multicolumn{5}{c}{<em>Caffeinated coffee consumption</em>} \\ \cline{2-6} & <m>\le</m> 1 cup/week & 2-6 cups/week & 1 cup/day & 2-3 cups/day & <m>\ge</m> 4 cups/day & Total \\ \hline Mean & 18.7 & 19.6 & 19.3 & 18.9 & 17.5 \\ SD & 21.1 & 25.5 & 22.5 & 22.0 & 22.0 \\ n & 12,215 & 6,617 & 17,234 & 12,290 & 2,383 & 50,739 \\ \hline \end{tabular} \end{center} \end{adjustwidth}</p>
+      <p>\begin{parts}</p>
+      <li>
+        <p>Write the hypotheses for evaluating if the average physical activity level varies among the different levels of coffee consumption.</p>
+      </li>
+      <li>
+        <p>Check conditions and describe any assumptions you must make to proceed with the test.</p>
+      </li>
+      <li>
+        <p>Below is part of the output associated with this test. Fill in the empty cells.</p>
+      </li>
+      <p>\begin{center} \begin{tabular}{lrrrrr} \hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline coffee & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 0.0003 \\ Residuals & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 25,564,819 & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & & \\ \hline Total & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 25,575,327 \end{tabular} \end{center}</p>
+      <li>
+        <p>What is the conclusion of the test?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\hline & Sec 1 & Sec 2 & Sec 3 & Sec 4 & Sec 5 & Sec 6 & Sec 7 & Sec 8 \\ \hline <m>n_i</m> & 33 & 19 & 10 & 29 & 33 & 10 & 32 & 31 \\ <m>\bar{x}_i</m> & 92.94 & 91.11 & 91.80 & 92.45 & 89.30 & 88.30 & 90.12 & 93.35 \\ <m>s_i</m> & 4.21 & 5.58 & 3.43 & 5.92 & 9.32 & 7.27 & 6.93 & 4.57 \\ \hline \end{tabular} \end{center} The ANOVA output below can be used to test for differences between the average scores from the different discussion sections. \begin{center} \begin{tabular}{lrrrrr} \hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline section & 7 & 525.01 & 75.00 & 1.87 & 0.0767 \\ Residuals & 189 & 7584.11 & 40.13 & & \\ \hline \end{tabular} \end{center} Conduct a hypothesis test to determine if these data provide convincing evidence that the average score varies across some (or all) groups. Check conditions and describe any assumptions you must make to proceed with the test. }{}</p>
+      <p>\end{center} \begin{center} \begin{tabular}{lrrrrr} \hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline major & 2 & 0.03 & 0.015 & 0.185 & 0.8313 \\ Residuals & 195 & 15.77 & 0.081 & & \\ \hline \end{tabular} \end{center} \begin{parts}</p>
+      <li>
+        <p>Write the hypotheses for testing for a difference between average GPA across majors.</p>
+      </li>
+      <li>
+        <p>What is the conclusion of the hypothesis test?</p>
+      </li>
+      <li>
+        <p>How many students answered these questions on the survey, i.e. what is the sample size?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>& \multicolumn{5}{c}{<em>Educational attainment</em>} \\ \cline{2-6} & Less than HS & HS & Jr Coll & Bachelor's & Graduate & Total \\ \hline Mean & 38.67 & 39.6 & 41.39 & 42.55 & 40.85 & 40.45 \\ SD & 15.81 & 14.97 & 18.1 & 13.62 & 15.51 & 15.17 \\ n & 121 & 546 & 97 & 253 & 155 & 1,172 \\ \hline \end{tabular}</p>
+      <p>\FigureFullPath[Side-by-side box plot for "Hours worked per week" for five different levels of education. "Less than High School" has a box from about 31 to 46, a median of 40, and whiskers that extend down to 9 and up to 69. "High School" has a box from about 32 to 48, a median of 41, and whiskers that extend down to 33 and up to 49. "Junior College" has a box from about 31 to 50, a median of 42, and whiskers that extend down to 0 and up to 49. "Bachelor's" has a box from about 42 to 50, a median of 42, and whiskers that extend down to 31 and up to 62. "Graduate" has a box from about 38 to 48, a median of 42, and whiskers that extend down to 20 and up to 72. All boxes have a few points extending beyond the whiskers, with the exception of Bachelor's, which has a large number of points below the lower whisker extending close to 0.]{0.78}{ch_inference_for_means/figures/eoce/work_hours_education/work_hours_education.pdf} \end{center} \begin{parts}</p>
+      <li>
+        <p>Write hypotheses for evaluating whether the average number of hours worked varies across the five groups.</p>
+      </li>
+      <li>
+        <p>Check conditions and describe any assumptions you must make to proceed with the test.</p>
+      </li>
+      <li>
+        <p>Below is part of the output associated with this test. Fill in the empty cells.</p>
+      </li>
+      <p>\begin{center} \begin{tabular}{lrrrrr} \hline & Df & Sum Sq & Mean Sq & F-value & Pr(<m>></m>F) \\ \hline degree & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 501.54 & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 0.0682 \\ Residuals & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & 267,382 & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} & & \\ \hline Total & \fbox{\textcolor{white}{{\footnotesize XXXXX}}} &\fbox{\textcolor{white}{{\footnotesize XXXXX}}} \end{tabular} \end{center}</p>
+      <li>
+        <p>What is the conclusion of the test?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\end{center} \begin{center} \begin{tabular}{lrrrrr} \hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline education & 4 & 4142.09 & 1035.52 & 1.26 & 0.2846 \\ Residuals & 794 & 653047.83 & 822.48 & & \\ \hline \end{tabular} \end{center} \begin{parts}</p>
+      <li>
+        <p>Write the hypotheses for testing for a difference between the average number of hours spent on child care across educational attainment levels.</p>
+      </li>
+      <li>
+        <p>What is the conclusion of the hypothesis test?</p>
+      </li>
+      <p>\end{parts} }{}</p>
+      <p>\hline & Df & Sum Sq & Mean Sq & F value & Pr(<m>></m>F) \\ \hline treatment & 2 & 639.48 & 319.74 & 3.33 & 0.0461 \\ Residuals & 39 & 3740.43 & 95.91 & & \\ \hline \multicolumn{6}{r}{<m>s_{pooled} = 9.793</m> on <m>df=39</m>} \end{tabular} \end{center} \begin{parts}</p>
+      <li>
+        <p>What are the hypotheses?</p>
+      </li>
+      <li>
+        <p>What is the conclusion of the test? Use a 5 percent significance level.</p>
+      </li>
+      <li>
+        <p>If in part (<xref ref="prison_isolation_anova_test_conclusion"/>) you determined that the test is significant, conduct pairwise tests to determine which groups are different from each other. If you did not reject the null hypothesis in part (<xref ref="prison_isolation_anova_test_conclusion"/>), recheck your answer. Summary statistics for each group are provided below.</p>
+      </li>
+      <p>\begin{center} \begin{tabular}{l r r r r } \hline & Tr 1 & Tr 2 & Tr 3 \\ \hline Mean & 6.21 & 2.86 & -3.21 \\ SD & 12.3 & 7.94 & 8.57 \\ n & 14 & 14 & 14 \\ \hline \end{tabular} \end{center} \end{parts} }{}</p>
+  </subsection>
   </section>
 
 </chapter>

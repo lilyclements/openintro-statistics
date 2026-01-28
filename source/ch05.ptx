@@ -1,271 +1,690 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<chapter xml:id="ch-foundations-inference" xmlns:xi="http://www.w3.org/2001/XInclude">
+<chapter xml:id="ch-foundations-for-inference" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Foundations for inference</title>
 
   <introduction>
-    <p>
-      Statistical inference is primarily concerned with understanding and quantifying 
-      the uncertainty of parameter estimates. While the equations and details change 
-      depending on the setting, the foundations for inference are the same throughout 
-      all of statistics.
-    </p>
-    <p>
-      We start with a familiar topic: the idea of using a sample proportion to estimate 
-      a population proportion. Next, we create what's called a confidence interval, 
-      which is a range of plausible values where we may find the true population value. 
-      Finally, we introduce the hypothesis testing framework, which allows us to formally 
-      evaluate claims about the population.
-    </p>
+    <p>Statistical inference is primarily concerned with understanding and quantifying the uncertainty of parameter estimates. While the equations and details change depending on the setting, the foundations for inference are the same throughout all of statistics.</p>
+    <p>% We start with a familiar topic: the idea of using a sample proportion to estimate a population proportion. Next, we create what's called a <em><term>confidence interval</term></em>, which is a range of plausible values where we may find the true population value. Finally, we introduce the <em>hypothesis testing framework</em>, which allows us to formally evaluate claims about the population, such as whether a survey provides strong evidence that a candidate has the support of a majority of the voting population.</p>
   </introduction>
 
-  <!-- Section 5.1: Point estimates and sampling variability -->
-  <section xml:id="sec-point-estimates">
+  <section xml:id="pointEstimates">
     <title>Point estimates and sampling variability</title>
 
-    <introduction>
-      <p>
-        Companies such as Pew Research frequently conduct polls as a way to understand 
-        the state of public opinion or knowledge on many topics, including politics, 
-        scientific understanding, brand recognition, and more. The ultimate goal in 
-        taking a poll is generally to use the responses to estimate the opinion or 
-        knowledge of the broader population.
-      </p>
-    </introduction>
-
-    <subsection xml:id="subsec-point-estimates-error">
+    <p>Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.</p>
+    <subsection xml:id="">
       <title>Point estimates and error</title>
-      <p>
-        Suppose a poll suggested the US President's approval rating is 45%. We would 
-        consider 45% to be a point estimate of the approval rating we might see if 
-        we collected responses from the entire population.
-      </p>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>Suppose a poll suggested the US President's approval rating is 45 percent. We would consider 45 percent to be a <term>point estimate</term> of the approval rating we might see if we collected responses from the entire population. This entire-population response proportion is generally referred to as the <term>parameter</term> of interest. When the parameter is a proportion, it is often denoted by <m>p</m>, and we often refer to the sample proportion as <m>\hat{p}</m> (pronounced <em>p-hat</em>\footnote{Not to be confused with <em>phat</em>, the slang term used for something cool, like this book.}). Unless we collect responses from every individual in the population, <m>p</m> remains unknown, and we use <m>\hat{p}</m> as our estimate of <m>p</m>. The difference we observe from the poll versus the parameter is called the <term>error</term> in the estimate. Generally, the error consists of two aspects: sampling error and bias.</p>
+  </subsection>
 
-    <subsection xml:id="subsec-understanding-variability">
+    <subsection xml:id="simulationForUnderstandingVariabilitySection">
       <title>Understanding the variability of a point estimate</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>Suppose the proportion of American adults who support the expansion of solar energy is <m>p = \pewsolarparprop{}</m>, which is our parameter of interest.\footnote{We haven't actually conducted a census to measure this value perfectly. However, a very large sample has suggested the actual level of support is about \pewsolarparpercent{}.} If we were to take a poll of \pewsolarpollsize{} American adults on this topic, the estimate would not be perfect, but how close might we expect the sample proportion in the poll would be to \pewsolarparpercent{}? We want to understand, \emph{how does the sample proportion <m>\hat{p}</m> behave when the true population proportion is \pewsolarparprop{}}.\footnote{\pewsolarparpercent{} written as a proportion would be \pewsolarparprop{}. It is common to switch between proportion and percent. However, formulas presented in this book always refer to the proportion, not the percent.} Let's find out! We can simulate responses we would get from a simple random sample of 1000 American adults, which is only possible because we know the actual support for expanding solar energy is \pewsolarparprop{}. Here's how we might go about constructing such a simulation:</p>
+      <ol>
+        <li>
+          <p>There were about 250 million American adults in 2018. On 250 million pieces of paper, write "support" on \pewsolarparpercent{} of them and "not" on the other \pewsolarparpercentcomplement{}.</p>
+        </li>
+        <li>
+          <p>Mix up the pieces of paper and pull out \pewsolarpollsize{} pieces to represent our sample of \pewsolarpollsize{} American adults.</p>
+        </li>
+        <li>
+          <p>Compute the fraction of the sample that say "support".</p>
+        </li>
+      </ol>
+      <p>Any volunteers to conduct this simulation? Probably not. Running this simulation with 250 million pieces of paper would be time-consuming and very costly, but we can simulate it using computer code; we've written a short program in <xref ref="solarPollSimulationCodeR"/> in case you are curious what the computer code looks like. In this simulation, the sample gave a point estimate of <m>\hat{p}_1 = 0.894</m>. We know the population proportion for the simulation was <m>p = \pewsolarparprop{}</m>, so we know the estimate had an error of <m>0.894 - \pewsolarparprop{} = \text{+0.014}</m>.</p>
+      <figure xml:id="solarPollSimulationCodeR">
+      </figure>
 
-    <subsection xml:id="subsec-central-limit-theorem">
-      <title>Central Limit Theorem</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>One simulation isn't enough to get a great sense of the distribution of estimates we might expect in the simulation, so we should run more simulations. In a second simulation, we get <m>\hat{p}_2 = 0.885</m>, which has an error of +0.005. In another, <m>\hat{p}_3 = 0.878</m> for an error of -0.002. And in another, an estimate of <m>\hat{p}_4 = 0.859</m> with an error of -0.021. With the help of a computer, we've run the simulation 10,000 times and created a histogram of the results from all 10,000 simulations in <xref ref="sampling_10k_prop_88p"/>. This distribution of sample proportions is called a <term>sampling distribution</term>. We can characterize this sampling distribution as follows:</p>
+      <dl>
+        <li>
+          <title>Center.</title>
+        <p>The center of the distribution is $\bar{x}_{\hat{p}} = \pewsolarparprop{}0$, which is the same as the parameter. Notice that the simulation mimicked a simple random sample of the population, which is a straightforward sampling strategy that helps avoid sampling bias. %    That~is, we see that the sample proportion is an %    \termsub{unbiased estimate}{unbiased} %    of the population proportion.</p>
+        </li>
+        <li>
+          <title>Spread.</title>
+        <p>The standard deviation of the distribution is $s_{\hat{p}} = \pewsolarpollse{}$. When we're talking about a sampling distribution or the variability of a point estimate, we typically use the term \termsub{standard error}{standard error (SE)} rather than \emph{standard deviation}, and the notation $SE_{\hat{p}}$ is used for the standard error associated with the sample proportion.</p>
+        </li>
+        <li>
+          <title>Shape.</title>
+        <p>The distribution is symmetric and bell-shaped, and it \emph{resembles a normal distribution}.</p>
+        </li>
+      </dl>
+      <p>These findings are encouraging! When the population proportion is <m>p = \pewsolarparprop{}</m> and the sample size is <m>n = \pewsolarpollsize{}</m>, the sample proportion <m>\hat{p}</m> tends to give a pretty good estimate of the population proportion. We also have the interesting observation that the histogram resembles a normal distribution.</p>
+      <figure xml:id="sampling_10k_prop_887p">
+        <caption>A histogram is shown for 10,000 sample proportions where each sample is taken from a population where the population proportion is \pewsolarparprop{} and the sample size is <m>n = \pewsolarpollsize{}</m>. The distribution is bell-shaped (appears nearly normal), is centered at 0.88 and has a standard deviation of about 0.01.</caption>
+        <image source="ch_foundations_for_inf/figures/sampling_10k_prop_88p"/>
+      </figure>
 
-      <example xml:id="ex-clt-proportions">
-        <title>Central Limit Theorem for proportions</title>
-        <statement>
-          <p>
-            Describe the sampling distribution for the sample proportion when 
-            sampling from a population where the true proportion is 0.3.
-          </p>
-        </statement>
-        <solution>
-          <p>To be converted from LaTeX source.</p>
-        </solution>
+      <assemblage>
+        <p>never observed, but we keep them in mind} In real-world applications, we never actually observe the sampling distribution, yet it is useful to always think of a point estimate as coming from such a hypothetical distribution. Understanding the sampling distribution will help us characterize and make sense of the point estimates that we do observe.</p>
+      </assemblage>
+
+      <example xml:id="">
+        <p>would you guess that the standard error for <m>\hat{p}</m> would be larger or smaller than when we used <m>n = \pewsolarpollsize{}</m>?}  Intuitively, it seems like more data is better than less data, and generally that is correct! The typical error when <m>p = \pewsolarparprop{}</m> and <m>n = 50</m> would be larger than the error we would expect when <m>n = \pewsolarpollsize{}</m>.</p>
       </example>
 
-      <figure xml:id="fig-clt-prop-grid">
-        <caption>Sampling distributions showing Central Limit Theorem</caption>
-        <image source="ch_foundations_for_inf/figures/clt_prop_grid"/>
-      </figure>
-    </subsection>
+  </subsection>
 
-    <subsection xml:id="subsec-applying-clt">
-      <title>Applying the Central Limit Theorem to proportions</title>
-      <p>To be converted from LaTeX source.</p>
+    <subsection xml:id="">
+      <title>Central Limit Theorem</title>
+      <p>The distribution in <xref ref="sampling_10k_prop_88p"/> looks an awful lot like a normal distribution. That is no anomaly; it is the result of a general principle called the  <term>Central Limit Theorem</term>.</p>
+      <assemblage>
+        <title>Central Limit Theorem and the success-failure condition</title>
+        <p>When observations are independent and the sample size is sufficiently large, the sample proportion <m>\hat{p}</m> will tend to follow a normal distribution with the following mean and standard error:%\footnotemark{}</p>
+        <me>\mu_{\hat{p}} &= p &SE_{\hat{p}} &= \sqrt{\frac{p (1 - p)}{n}}</me>
+        <p>In order for the Central Limit Theorem to hold, the sample size is typically considered sufficiently large when <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>, which is called the <term>success-failure condition</term>.</p>
+      </assemblage>
 
-      <figure xml:id="fig-p-hat-from-53-59">
-        <caption>Sampling distribution of sample proportion</caption>
-        <image source="ch_foundations_for_inf/figures/p-hat_from_53_and_59_computation"/>
-      </figure>
-    </subsection>
+      <p>The Central Limit Theorem is incredibly important, and it provides a foundation for much of statistics. As we begin applying the Central Limit Theorem, be mindful of the two technical conditions: the observations must be independent, and the sample size must be sufficiently large such that <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>.</p>
+      <example xml:id="">
+        <p>error of <m>\hat{p}</m> using simulated data when <m>p = \pewsolarparprop{}</m> and <m>n = \pewsolarpollsize{}</m>. Confirm that the Central Limit Theorem applies and the sampling distribution is approximately normal.}</p>
+        <dl>
+          <li>
+            <title>Independence.</title>
+          <p>There are $n = \pewsolarpollsize{}$ observations for each sample proportion $\hat{p}$, and each of those observations are independent draws. \emph{The most common way for observations to be considered independent is if they are from a simple random sample.} \index{independent} \index{independence} \index{Central Limit Theorem!independence}</p>
+          </li>
+          <li>
+            <title>Success-failure condition.</title>
+          <p>We can confirm the sample size is sufficiently large by checking the success-failure condition and confirming the two calculated values are greater than~10:</p>
+          </li>
+          <me>np &= \pewsolarpollsize{} \times \pewsolarparprop{} = \pewsolarpollexpcount{} \geq 10 &n(1-p) &= \pewsolarpollsize{} \times (1 - \pewsolarparprop{}) = \pewsolarpollexpcountcomplement{} \geq 10</me>
+        </dl>
+        <p>The independence and success-failure conditions are both satisfied, so the Central Limit Theorem applies, and it's reasonable to model <m>\hat{p}</m> using a normal distribution.</p>
+      </example>
 
-    <subsection xml:id="subsec-clt-details">
+      <assemblage>
+        <title>How to verify sample observations are independent</title>
+        <p>Subjects in an experiment are considered independent if they undergo random assignment to the treatment groups.</p>
+        <p>If the observations are from a simple random sample, then they are independent.</p>
+        <p>If a sample is from a seemingly random process, e.g. an occasional error on an assembly line, checking independence is more difficult. In this case, use your best judgement.</p>
+      </assemblage>
+
+      <p>An additional condition that is sometimes added for samples from a population is that they are no larger than 10 percent of the population. When the sample exceeds 10 percent of the population size, the methods we discuss tend to overestimate the sampling error slightly versus what we would get using more advanced methods.\footnote{For example, we could use what's called the <term>finite population correction factor</term>: if the sample is of size <m>n</m> and the population size is <m>N</m>, then we can multiply the typical standard error formula by <m>\sqrt{\frac{N-n}{N-1}}</m> to obtain a smaller, more precise estimate of the actual standard error. When <m>n < 0.1 \times N</m>, this correction factor is relatively small.} This is very rarely an issue, and when it is an issue, our methods tend to be conservative, so we consider this additional check as optional.</p>
+      <example xml:id="">
+        <p>of <m>\hat{p}</m> when <m>p = \pewsolarparprop{}</m> and <m>n = \pewsolarpollsize{}</m>, according to the Central Limit Theorem.} The mean of the <m>\hat{p}</m>'s is simply the population proportion: <m>\mu_{\hat{p}} = \pewsolarparprop{}</m>.</p>
+        <p>The calculation of the standard error of <m>\hat{p}</m> uses the following formula:</p>
+        <me>SE_{\hat{p}} = \sqrt{\frac{p (1 - p)}{n}} = \sqrt{\frac{\pewsolarparprop{} (1 - \pewsolarparprop{})} {\pewsolarpollsize{}}} = \pewsolarpollse{}</me>
+      </example>
+
+      <example xml:id="">
+        <figure xml:id="fig-p-hat_from_86_and_90">
+          <caption>A normal distribution centered at 0.88 with a standard deviation of 0.01 is shown, where the region between 0.86 and 0.90 has been shaded.</caption>
+          <image source="ch_foundations_for_inf/figures/p-hat_from_86_and_90"/>
+        </figure>
+
+        <p>\end{center} With <m>\mu_{\hat{p}} = \pewsolarparprop{}</m> and <m>SE_{\hat{p}} = \pewsolarpollse{}</m>, we can compute the Z-score for both the left and right cutoffs:</p>
+        <me>Z_{0.86} &= \frac{0.86 - \pewsolarparprop{}}{\pewsolarpollse{}} = -2 &Z_{0.90} &= \frac{0.90 - \pewsolarparprop{}}{\pewsolarpollse{}} = 2</me>
+        <p>We can use either statistical software, a graphing calculator, or a table to find the areas to the tails, and in any case we will find that they are each 0.0228. The total tail areas are <m>2 \times 0.0228 = 0.0456</m>, which leaves the shaded area of 0.9544. That is, about 95.44 percent of the sampling distribution in <xref ref="sampling_10k_prop_88p"/> is within <m>\pm0.02</m> of the population proportion, <m>p = \pewsolarparprop{}</m>.</p>
+      </example>
+
+      <p>\end{nexercise} \end{exercisewrap} \footnotetext{Since the sample size <m>n</m> is in the denominator (on the bottom) of the fraction, a bigger sample size means the entire expression when calculated will tend to be smaller. That is, a larger sample size would correspond to a smaller standard error.}</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title></title>
+      <p>a real-world setting}</p>
+      <p>We do not actually know the population proportion unless we conduct an expensive poll of all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on poll conducted by Pew Research of \pewsolarpollsize{} American adults that found <m>\hat{p} = \pewsolarpollprop{}</m> of them favored expanding solar energy. The researchers might have wondered: does the sample proportion from the poll approximately follow a normal distribution? We can check the conditions from the Central Limit Theorem:</p>
+      <dl>
+        <li>
+          <title>Independence.</title>
+        <p>The poll is a simple random sample of American adults, which means that the observations are independent.</p>
+        </li>
+        <li>
+          <title>Success-failure condition.</title>
+        <p>To check this condition, we need the population proportion, $p$, to check if both $np$ and $n(1-p)$ are greater than 10. However, we do not actually know $p$, which is exactly why the pollsters would take a sample! In cases like these, we often use $\hat{p}$ as our next best way to check the success-failure condition:</p>
+        </li>
+        <me>n\hat{p} &= \pewsolarpollsize{} \times \pewsolarpollprop{} = \pewsolarpollcount{} &n (1 - \hat{p}) &= \pewsolarpollsize{} \times (1 - \pewsolarpollprop{}) = \pewsolarpollcountcomplement{}</me>
+        <p>The sample proportion <m>\hat{p}</m> acts as a reasonable substitute for <m>p</m> during this check, and each value in this case is well above the minimum of 10.</p>
+      </dl>
+      <p>This <term>substitution approximation</term> of using <m>\hat{p}</m> in place of <m>p</m> is also useful when computing the standard error of the sample proportion:</p>
+      <me>SE_{\hat{p}} = \sqrt{\frac{p (1 - p)}{n}} \approx \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}} = \sqrt{\frac{\pewsolarpollprop{} (1 - \pewsolarpollprop{})}{\pewsolarpollsize{}}} = \pewsolarpollse{}</me>
+      <p>This substitution technique is sometimes referred to as the "<term>plug-in principle</term>". In this case, <m>SE_{\hat{p}}</m> didn't change enough to be detected using only 3 decimal places versus when we completed the calculation with \pewsolarparprop{} earlier. The computed standard error tends to be reasonably stable even when observing slightly different proportions in one sample or another.</p>
+  </subsection>
+
+    <subsection xml:id="">
       <title>More details regarding the Central Limit Theorem</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <blockquote>
+        <p>When observations are independent and the sample size is sufficiently large, the distribution of <m>\hat{p}</m> resembles a normal distribution with</p>
+        <me>\mu_{\hat{p}} &= p &SE_{\hat{p}} &= \sqrt{\frac{p (1 - p)}{n}}</me>
+        <p>The sample size is considered sufficiently large when <m>n p \geq 10</m> and <m>n (1 - p) \geq 10</m>. }\end{quote} In this section, we'll explore the success-failure condition and seek to better understand the Central Limit Theorem.</p>
+        <p>An interesting question to answer is, \emph{what happens when <m>np < 10</m> or <m>n(1-p) < 10</m>?} As we did in <xref ref="simulationForUnderstandingVariabilitySection"/>, we can simulate drawing samples of different sizes where, say, the true proportion is <m>p = 0.25</m>. Here's a sample of size 10: \begin{center} no, no, yes, yes, no, no, no, no, no, no \end{center} In this sample, we observe a sample proportion of yeses of <m>\hat{p} = \frac{2}{10} = 0.2</m>. We can simulate many such proportions to understand the sampling distribution of <m>\hat{p}</m> when <m>n = 10</m> and <m>p = 0.25</m>, which we've plotted in <xref ref="sampling_10_prop_25p"/> alongside a normal distribution with the same mean and variability. These distributions have a number of important differences.</p>
+        <figure xml:id="sampling_10_prop_25p">
+          <caption>Left: simulations of $\hat{p</caption>
+          <image source="ch_foundations_for_inf/figures/sampling_10_prop_25p"/>
+        </figure>
 
-    <subsection xml:id="subsec-extending-framework">
+        <figure xml:id="clt_prop_grid_1">
+        </figure>
+
+        <figure xml:id="clt_prop_grid_2">
+        </figure>
+
+        <p>\begin{center} \begin{tabular}{lccc} \hline & Unimodal? & Smooth? & Symmetric? \\ \hline Normal: <m>N(0.25, 0.14)</m> & \highlightO{Yes} & \highlightO{Yes} & \highlightO{Yes} \\ <m>n = 10</m>, <m>p = 0.25</m> & \highlightO{Yes} & \highlightT{No} & \highlightT{No} \\ \hline \end{tabular} \end{center} Notice that the success-failure condition was not satisfied when <m>n = 10</m> and <m>p = 0.25</m>:</p>
+        <me>n p = 10 \times 0.25 = 2.5 && n (1 - p) = 10 \times 0.75 = 7.5</me>
+        <p>This single sampling distribution does not show that the success-failure condition is the perfect guideline, but we have found that the guideline did correctly identify that a normal distribution might not be appropriate.</p>
+        <p>We can complete several additional simulations, shown in Figures <xref ref="clt_prop_grid_1"/> and <xref ref="clt_prop_grid_2"/>, and we can see some trends:</p>
+        <ol>
+          <li>
+            <p>When either <m>np</m> or <m>n(1 - p)</m> is small, the distribution is more <term>discrete</term>, i.e. <em>not continuous</em>.</p>
+          </li>
+          <li>
+            <p>When <m>np</m> or <m>n(1-p)</m> is smaller than 10, the skew in the distribution is more noteworthy.</p>
+          </li>
+          <li>
+            <p>The larger both <m>np</m> <em>and</em> <m>n(1 - p)</m>, the more normal the distribution. This may be a little harder to see for the larger sample size in these plots as the variability also becomes much smaller.</p>
+          </li>
+          <li>
+            <p>When <m>np</m> and <m>n(1 - p)</m> are both very large, the distribution's discreteness is hardly evident, and the distribution looks much more like a normal distribution.</p>
+          </li>
+        </ol>
+        <p>So far we've only focused on the skew and discreteness of the distributions. We haven't considered how the mean and standard error of the distributions change. Take a moment to look back at the graphs, and pay attention to three things:</p>
+        <ol>
+          <li>
+            <p>The centers of the distribution are always at the population proportion, <m>p</m>, that was used to generate the simulation. Because the sampling distribution of <m>\hat{p}</m> is always centered at the population parameter <m>p</m>, it means the sample proportion <m>\hat{p}</m> is <term>unbiased</term> when the data are independent and drawn from such a population.</p>
+          </li>
+          <li>
+            <p>For a particular population proportion <m>p</m>, the variability in the sampling distribution decreases as the sample size <m>n</m> becomes larger. This will likely align with your intuition: an estimate based on a larger sample size will tend to be more accurate.</p>
+          </li>
+          <li>
+            <p>For a particular sample size, the variability will be largest when <m>p = 0.5</m>. The differences may be a little subtle, so take a close look. This reflects the role of the proportion <m>p</m> in the standard error formula: <m>SE = \sqrt{\frac{p (1 - p)}{n}}</m>. The standard error is largest when <m>p = 0.5</m>.</p>
+          </li>
+        </ol>
+        <p>At no point will the distribution of <m>\hat{p}</m> look <em>perfectly</em> normal, since <m>\hat{p}</m> will always take discrete values (<m>x / n</m>). It is always a matter of degree, and we will use the standard success-failure condition with minimums of 10 for <m>np</m> and <m>n (1 - p)</m> as our guideline within this book.</p>
+  </subsection>
+
+    <subsection xml:id="">
       <title>Extending the framework for other statistics</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>The strategy of using a sample statistic to estimate a parameter is quite common, and it's a strategy that we can apply to other statistics besides a proportion. For instance, if we want to estimate the average salary for graduates from a particular college, we could survey a random sample of recent graduates; in that example, we'd be using a sample mean <m>\bar{x}</m> to estimate the population mean <m>\mu</m> for all graduates. As another example, if we want to estimate the difference in product prices for two websites, we might take a random sample of products available on both sites, check the prices on each, and then compute the average difference; this strategy certainly would give us some idea of the actual difference through a point estimate.</p>
+      <p>While this chapter emphasizes a single proportion context, we'll encounter many different contexts throughout this book where these methods will be applied. The principles and general ideas are the same, even if the details change a little. We've also sprinkled some other contexts into the exercises to help you start thinking about how the ideas generalize.</p>
+  </subsection>
   </section>
 
-  <!-- Section 5.2: Confidence intervals -->
-  <section xml:id="sec-confidence-intervals">
+  <section xml:id="confidenceIntervals">
     <title>Confidence intervals for a proportion</title>
 
-    <introduction>
-      <p>
-        A point estimate provides a single plausible value for a parameter. However, 
-        a point estimate is rarely perfect; usually there is some error in the estimate. 
-        Instead of supplying just a point estimate, a confidence interval provides a 
-        plausible range of values for the parameter.
-      </p>
-    </introduction>
-
-    <subsection xml:id="subsec-capturing-parameter">
+    <p>The sample proportion <m>\hat{p}</m> provides a single plausible value for the population proportion <m>p</m>. However, the sample proportion isn't perfect and will have some <em>standard error</em> associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible <em>range of values</em> instead of supplying just the point estimate.</p>
+    <subsection xml:id="">
       <title>Capturing the population parameter</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>Using only a point estimate is like fishing in a murky lake with a spear. We can throw a spear where we saw a fish, but we will probably miss. On the other hand, if we toss a net in that area, we have a good chance of catching the fish. A <term>confidence interval</term> is like fishing with a net, and it represents a range of plausible values where we are likely to find the population parameter.</p>
+      <p>If we report a point estimate <m>\hat{p}</m>, we probably will not hit the exact population proportion. On the other hand, if we report a range of plausible values, representing a confidence interval, we have a good shot at capturing the parameter.</p>
+      <p>\footnotetext{If we want to be more certain we will capture the fish, we might use a wider net. Likewise, we use a wider confidence interval if we want to be more certain that we capture the parameter.}</p>
+  </subsection>
 
-      <figure xml:id="fig-95-percent-ci">
-        <caption>95% confidence interval illustration</caption>
+    <subsection xml:id="">
+      <title>Constructing a 95\% confidence interval</title>
+      <p>Our sample proportion <m>\hat{p}</m> is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.</p>
+      <p>The standard error represents the standard deviation of the point estimate, and when the Central Limit Theorem conditions are satisfied, the point estimate closely follows a normal distribution. In a normal distribution, 95 percent of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be \termsub{95 percent confident} {confident!95 percent confident} that the interval captures the population proportion:</p>
+      <md>
+        <mrow>\text{point estimate}\ &\pm\ 1.96 \times SE</mrow>
+        <mrow>\hat{p}\ &\pm\ 1.96 \times \sqrt{\frac{p (1 - p)}{n}}</mrow>
+      </md>
+      <p>But what does "95 percent confident" mean? Suppose we took many samples and built a 95 percent confidence interval from each. Then about 95 percent of those intervals would contain the parameter, <m>p</m>. <xref ref="95PercentConfidenceInterval"/> shows the process of creating 25 intervals from 25 samples from the simulation in <xref ref="simulationForUnderstandingVariabilitySection"/>, where 24 of the resulting confidence intervals contain the simulation's population proportion of <m>p = \pewsolarparprop{}</m>, and one interval does not.</p>
+      <figure xml:id="95PercentConfidenceInterval">
+        <caption>Twenty-five point estimates and confidence intervals from the simulations in <xref ref="simulationForUnderstandingVariabilitySection"/> are shown. These intervals are shown relative to the population proportion p equals \pewsolarparprop{}. The point estimates vary around the true population proportion of 0.88, but most of their confidence intervals overlap the value p equals 0.88. One of the 25 intervals does not have a confidence interval that overlaps the population proportion, and this interval has been bolded. We might say that this confidence interval did not "capture" the parameter p equals 0.88.</caption>
         <image source="ch_foundations_for_inf/figures/95PercentConfidenceInterval"/>
       </figure>
-    </subsection>
 
-    <subsection xml:id="subsec-constructing-95-ci">
-      <title>Constructing a 95% confidence interval</title>
-      <p>To be converted from LaTeX source.</p>
-
-      <example xml:id="ex-construct-ci">
-        <title>Constructing a confidence interval</title>
-        <statement>
-          <p>
-            In a poll of 1000 registered voters, 540 say they will vote for 
-            Candidate A. Construct a 95% confidence interval for the proportion 
-            of all registered voters who will vote for Candidate A.
-          </p>
-        </statement>
-        <solution>
-          <p>To be converted from LaTeX source.</p>
-        </solution>
+      <example xml:id="">
+        <title>In Figure \ref{95PercentConfidenceInterval</title>
+        <p>one interval does not contain <m>p = \pewsolarparprop{}</m>. Does this imply that the population proportion used in the simulation could not have been <m>p = \pewsolarparprop{}</m>?} Just as some observations naturally occur more than 1.96 standard deviations from the mean, some point estimates will be more than 1.96 standard errors from the parameter of interest. A confidence interval only provides a plausible range of values. While we might say other values are implausible based on the data, this does not mean they are impossible.</p>
       </example>
 
-      <figure xml:id="fig-choosing-z-for-ci">
-        <caption>Choosing the z-value for confidence intervals</caption>
+      <assemblage>
+        <title>95 percent confidence interval for a parameter</title>
+        <p>When the distribution of a point estimate qualifies for the Central Limit Theorem and therefore closely follows a normal distribution, we can construct a 95 percent confidence interval as</p>
+        <me>\text{point estimate} &\pm 1.96 \times SE</me>
+      </assemblage>
+
+      <example xml:id="">
+        <title>In Section \ref{pointEstimates</title>
+        <p>a Pew Research poll where \pewsolarpollpercent{} of a random sample of \pewsolarpollsize{} American adults supported expanding the role of solar power. Compute and interpret a 95 percent confidence interval for the population proportion.} We earlier confirmed that <m>\hat{p}</m> follows a normal distribution and has a standard error of <m>SE_{\hat{p}} = \pewsolarpollse{}</m>. To compute the 95 percent confidence interval, plug the point estimate <m>\hat{p} = \pewsolarpollprop{}</m> and standard error into the 95 percent confidence interval formula:</p>
+        <me>\hat{p} \pm 1.96 \times SE_{\hat{p}} \quad\to\quad \pewsolarpollprop{} \pm 1.96 \times \pewsolarpollse{} \quad\to\quad (0.8674, 0.9066)</me>
+        <p>We are 95 percent confident that the actual proportion of American adults who support expanding solar power is between 86.7 percent and 90.7 percent. (It's common to round to the nearest percentage point or nearest tenth of a percentage point when reporting a confidence interval.)</p>
+      </example>
+
+  </subsection>
+
+    <subsection xml:id="changingTheConfidenceLevelSection">
+      <title>Changing the confidence level</title>
+      <p>Suppose we want to consider confidence intervals where the confidence level is higher than 95 percent, such as a confidence level of 99 percent. Think back to the analogy about trying to catch a fish: if we want to be more sure that we will catch the fish, we should use a wider net. To create a 99 percent confidence level, we must also widen our 95 percent interval. On the other hand, if we want an interval with lower confidence, such as 90 percent, we could use a slightly narrower interval than our original 95 percent interval.</p>
+      <p>The 95 percent confidence interval structure provides guidance in how to make intervals with different confidence levels. The general 95 percent confidence interval for a point estimate that follows a normal distribution is \begin{eqnarray*} \text{point estimate}\ \pm\ 1.96 \times SE \end{eqnarray*} There are three components to this interval: the point estimate, "1.96", and the standard error. The choice of <m>1.96\times SE</m> was based on capturing 95 percent of the data since the estimate is within 1.96 standard errors of the parameter about 95 percent of the time. The choice of 1.96 corresponds to a 95 percent confidence level.</p>
+      <p>\footnotetext{This is equivalent to asking how often the Z-score will be larger than -2.58 but less than 2.58. For a picture, see <xref ref="choosingZForCI"/>. To determine this probability, we can use statistical software, a calculator, or a table to look up -2.58 and 2.58 for a normal distribution: 0.0049 and 0.9951. Thus, there is a <m>0.9951-0.0049 \approx 0.99</m> probability that an unobserved normal random variable <m>X</m> will be within 2.58 standard deviations of <m>\mu</m>.}</p>
+      <p>Guided Practice <xref ref="leadInForMakingA99PercentCIExercise"/> highlights that 99 percent of the time a normal random variable will be within 2.58 standard deviations of the mean. To create a 99 percent confidence interval, change 1.96 in the 95 percent confidence interval formula to be <m>2.58</m>. That is, the formula for a 99 percent confidence interval is</p>
+      <me>\text{point estimate}\ \pm\ 2.58 \times SE</me>
+      <figure xml:id="choosingZForCI">
+        <caption>The area between -$z^{\star</caption>
         <image source="ch_foundations_for_inf/figures/choosingZForCI"/>
       </figure>
-    </subsection>
 
-    <subsection xml:id="subsec-changing-confidence-level">
-      <title>Changing the confidence level</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>This approach – using the Z-scores in the normal model to compute confidence levels – is appropriate when a point estimate such as <m>\hat{p}</m> is associated with a normal distribution. For some other point estimates, a normal model is not a good fit; in these cases, we'll use alternative distributions that better represent the sampling distribution.</p>
+      <assemblage>
+        <title>Confidence interval using any confidence level</title>
+        <p>If a point estimate closely follows a normal model with standard error <m>SE</m>, then a confidence interval for the population parameter is</p>
+        <me>\text{point estimate}\ \pm\ z^{\star} \times SE</me>
+        <p>where <m>z^{\star}</m> corresponds to the confidence level selected.</p>
+      </assemblage>
 
-    <subsection xml:id="subsec-more-case-studies-ci">
+      <assemblage>
+        <title>Margin of error</title>
+      </assemblage>
+
+      <example xml:id="">
+        <me>\hat{p}\ \pm\ 1.6449 \times SE_{\hat{p}} \quad\to\quad 0.887\ \pm\ 1.65 \times 0.0100 \quad\to\quad (0.8705, 0.9034)</me>
+        <p>That is, we are 90 percent confident that 87.1 percent to 90.3 percent of American adults supported the expansion of solar power in 2018.</p>
+      </example>
+
+      <assemblage>
+        <title>Confidence interval for a single proportion</title>
+        <p>Once you've determined a one-proportion confidence interval would be helpful for an application, there are four steps to constructing the interval:</p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+          <p>Identify $\hat{p}$ and $n$, and determine what confidence level you wish to use.</p>
+          </li>
+          <li>
+            <title>Check.</title>
+          <p>Verify the conditions to ensure $\hat{p}$ is nearly normal. For one-proportion confidence intervals, use $\hat{p}$ in place of $p$ to check the success-failure condition.</p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+          <p>If the conditions hold, compute $SE$ using $\hat{p}$, find $z^{\star}$, and construct the interval.</p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+          <p>Interpret the confidence interval in the context of the problem.</p>
+          </li>
+        </dl>
+      </assemblage>
+
+      <p>} \onepropconfintsummary{}</p>
+  </subsection>
+
+    <subsection xml:id="">
       <title>More case studies</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>In New York City on October 23rd, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York/The Wall Street Journal/Marist Poll found that \wsjebolapollpercent{} percent of New Yorkers favored a "mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient". This poll included responses of \wsjebolapollsizecomma{} New York adults between Oct 26th and 28th, 2014.</p>
+      <example xml:id="">
+        <p>and is it reasonable to use a normal distribution to model that point estimate?} The point estimate, based on a sample of size <m>n = \wsjebolapollsize{}</m>, is <m>\hat{p} = \wsjebolapollprop{}</m>. To check whether <m>\hat{p}</m> can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition (<m>\wsjebolapollsize{} \times \hat{p} \approx \wsjebolapollcount{}</m> and $\wsjebolapollsize{} \times (1 - \hat{p}) \approx \wsjebolapollcountcomplement{}$, both easily greater than 10). With the conditions met, we are assured that the sampling distribution of <m>\hat{p}</m> can be reasonably modeled using a normal distribution.</p>
+      </example>
 
-    <subsection xml:id="subsec-interpreting-ci">
+      <example xml:id="">
+        <me>SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{\wsjebolapollprop{} (1 - \wsjebolapollprop{})}{\wsjebolapollsize{}}} = \wsjebolapollse{}</me>
+      </example>
+
+      <example xml:id="">
+        <p>the proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient.} % Using the standard error <m>SE = 0.012</m> from <xref ref="seOfPropOfNYEbolaSurvey"/>, the point estimate \wsjebolapollprop{}, and <m>z^{\star} = 1.96</m> for a 95 percent confidence level, the confidence interval is \begin{eqnarray*} \text{point estimate} \ \pm\ z^{\star} \times SE \quad\to\quad \wsjebolapollprop{} \ \pm\ 1.96\times \wsjebolapollse{} \quad\to\quad (0.796, 0.844) \end{eqnarray*} We are 95 percent confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and 0.844.</p>
+      </example>
+
+      <p>\footnotetext{(a) If we took many such samples and computed a 95 percent confidence interval for each, then about 95 percent of those intervals would contain the actual proportion of New York adults who supported a quarantine for anyone who has come into contact with an Ebola patient. \\ (b) Not necessarily. The poll was taken at a time where there was a huge public safety concern. Now that people have had some time to step back, they may have changed their opinions. We would need to run a new poll if we wanted to get an estimate of the current proportion of New York adults who would support such a quarantine period.}</p>
+      <p>\footnotetext{(a) The survey was a random sample and counts are both <m>\geq 10</m> ($\pewwindpollsize{} \times \pewwindpollprop{} = \pewwindpollcount{}$ and $\pewwindpollsize{} \times \pewwindpollpropcomplement{} = \pewwindpollcountcomplement$), so independence and the success-failure condition are satisfied, and <m>\hat{p} = \pewwindpollprop{}</m> can be modeled using a normal distribution. \\ (b) Guided Practice <xref ref="pew_wind_turbine_support_normal_dist_gp"/> confirmed that <m>\hat{p}</m> closely follows a normal distribution, so we can use the C.I. formula:</p>
+      <me>\text{point estimate} \pm z^{\star} \times SE</me>
+      <p>In this case, the point estimate is <m>\hat{p} = \pewwindpollprop{}</m>. For a 99 percent confidence interval, <m>z^{\star} = 2.58</m>. Computing the standard error: $SE_{\hat{p}} = \sqrt{\frac{\pewwindpollprop{}(1 - \pewwindpollprop{})} {\pewwindpollsize{}}} = \pewwindpollse{}$. Finally, we compute the interval as $\pewwindpollprop{} \pm 2.58 \times \pewwindpollse{} \to (0.8186, 0.8774)$. It is also important to <em>always</em> provide an interpretation for the interval: we are 99 percent confident the proportion of American adults that support expanding the use of wind turbines in 2018 is between 81.9 percent and 87.7 percent.}</p>
+      <p>We can also construct confidence intervals for other parameters, such as a population mean. In these cases, a confidence interval would be computed in a similar way to that of a single proportion: a point estimate plus/minus some margin of error. We'll dive into these details in later chapters.</p>
+  </subsection>
+
+    <subsection xml:id="interpretingCIs">
       <title>Interpreting confidence intervals</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>In each of the examples, we described the confidence intervals by putting them into the context of the data and also using somewhat formal language:</p>
+      <dl>
+        <li>
+          <title>Solar.</title>
+        <p>We are 90\% confident that 87.1\% to 90.4\% of American adults support the expansion of solar power in 2018.</p>
+        </li>
+        <li>
+          <title>Ebola.</title>
+        <p>We are 95\% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 0.796 and 0.844.</p>
+        </li>
+        <li>
+          <title>Wind Turbine.</title>
+        <p>We are 99\% confident the proportion of Americans adults that support expanding the use of wind turbines is between 81.9\% and 87.7\% in 2018.</p>
+        </li>
+      </dl>
+      <p>First, notice that the statements are always about the population parameter, which considers <em>all</em> American adults for the energy polls or <em>all</em> New York adults for the quarantine poll.</p>
+      <p>We also avoided another common mistake: <em>incorrect</em> language might try to describe the confidence interval as capturing the population parameter with a certain probability. Making a probability interpretation is a common error: while it might be useful to think of it as a probability, the confidence level only quantifies how plausible it is that the parameter is in the given interval.</p>
+      <p>Another important consideration of confidence intervals is that they are <em>only about the population parameter</em>. A confidence interval says nothing about individual observations or point estimates. Confidence intervals only provide a plausible range for population parameters.</p>
+      <p>Lastly, keep in mind the methods we discussed only apply to sampling error, not to bias. If a data set is collected in a way that will tend to systematically under-estimate (or over-estimate) the population parameter, the techniques we have discussed will not address that problem. Instead, we rely on careful data collection procedures to help protect against bias in the examples we have considered, which is a common practice employed by data scientists to combat bias.</p>
+      <p>\footnotetext{ No, a confidence interval only provides a range of plausible values for a parameter, not future point estimates.}</p>
+      <p>\CalculatorVideos{confidence intervals for a single proportion}</p>
+  </subsection>
   </section>
 
-  <!-- Section 5.3: Hypothesis testing -->
-  <section xml:id="sec-hypothesis-testing">
+  <section xml:id="hypothesisTesting">
     <title>Hypothesis testing for a proportion</title>
 
-    <introduction>
-      <p>
-        Confidence intervals are useful for estimating parameters, but they are not 
-        the only way to make use of sample data. In this section we introduce 
-        hypothesis testing, which is a formal technique for making decisions based 
-        on data and evaluating claims about a population.
-      </p>
-    </introduction>
-
-    <subsection xml:id="subsec-ht-framework">
+    <p>The following question comes from a book written by Hans Rosling, Anna Rosling R{ö}nnlund, and Ola Rosling called <em>\oiRedirect{amazon_factfulness</em>{Factfulness}}:</p>
+    <blockquote>
+      <p>{\em How many of the world's 1 year old children today have been vaccinated against some disease:</p>
+      <ol>
+        <li>
+          <p>20 percent</p>
+        </li>
+        <li>
+          <p>50 percent</p>
+        </li>
+        <li>
+          <p>80 percent</p>
+        </li>
+      </ol>
+    </blockquote>
+    <p>Write down what your answer (or guess), and when you're ready, find the answer in the footnote.\footnote{The correct answer is (c): 80 percent of the world's 1 year olds have been vaccinated against some disease.}</p>
+    <p>In this section, we'll be exploring how people with a 4-year college degree perform on this and other world health questions as we learn about hypothesis tests, which are a framework used to rigorously evaluate competing ideas and claims.</p>
+    <subsection xml:id="">
       <title>Hypothesis testing framework</title>
-      <p>To be converted from LaTeX source.</p>
+      <p>We’re interested in understanding how much people know about world health and development. If we take a multiple choice world health question, then we might like to understand if</p>
+      <dl>
+        <li>
+          <title><m>\mathbf{H_0}</m>:</title>
+        <p>People never learn these particular topics and their responses are simply equivalent to random guesses.</p>
+        </li>
+        <li>
+          <title><m>\mathbf{H_A}</m>:</title>
+        <p>People have knowledge that helps them do better than random guessing, or perhaps, they have false knowledge that leads them to actually do worse than random guessing.</p>
+        </li>
+      </dl>
+      <p>These competing ideas are called <term>hypotheses</term>. We call <m>H_0</m> the null hypothesis and <m>H_A</m> the alternative hypothesis. When there is a subscript 0 like in <m>H_0</m>, data scientists pronounce it as "nought" (e.g. <m>H_0</m> is pronounced "H-nought").</p>
+      <assemblage>
+        <title>Null and alternative hypotheses</title>
+        <p>The <term>null hypothesis (<m>H_0</m>)</term> often represents a skeptical perspective or a claim to be tested. The <term>alternative hypothesis (<m>H_A</m>)</term> represents an alternative claim under consideration and is often represented by a range of possible parameter values.</p>
+        <p>Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence.</p>
+      </assemblage>
 
-      <example xml:id="ex-jury-selection">
-        <title>Jury selection</title>
-        <statement>
-          <p>
-            In a particular county, 80% of registered voters are white. A jury 
-            of 12 people is selected, and only 8 are white. Does this provide 
-            evidence of discrimination in jury selection?
-          </p>
-        </statement>
-        <solution>
-          <p>To be converted from LaTeX source.</p>
-        </solution>
+      <p>The null hypothesis often represents a skeptical position or a perspective of "no difference". In our first example, we'll consider whether the typical person does any different than random guessing on Roslings' question about infant vaccinations.</p>
+      <p>The alternative hypothesis generally represents a new or stronger perspective. In the case of the question about infant vaccinations, it would certainly be interesting to learn whether people do better than random guessing, since that would mean that the typical person knows something about world health statistics. It would also be very interesting if we learned that people do <em>worse</em> than random guessing, which would suggest people believe incorrect information about world health.</p>
+      <p>The hypothesis testing framework is a very general tool, and we often use it without a second thought. If a person makes a somewhat unbelievable claim, we are initially skeptical. However, if there is sufficient evidence that supports the claim, we set aside our skepticism and reject the null hypothesis in favor of the alternative. The hallmarks of hypothesis testing are also found in the US court system.</p>
+      <p>\footnotetext{The jury considers whether the evidence is so convincing (strong) that there is no reasonable doubt regarding the person's guilt; in such a case, the jury rejects innocence (the null hypothesis) and concludes the defendant is guilty (alternative hypothesis).}</p>
+      <p>Jurors examine the evidence to see whether it convincingly shows a defendant is guilty. Even if the jurors leave unconvinced of guilt beyond a reasonable doubt, this does not mean they believe the defendant is innocent. This is also the case with hypothesis testing: \emph{even if we fail to reject the null hypothesis, we typically do not accept the null hypothesis as true}. Failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.</p>
+      <p>When considering Roslings' question about infant vaccination, the null hypothesis represents the notion that the people we will be considering – college-educated adults – are as accurate as random guessing. That is, the proportion <m>p</m> of respondents who pick the correct answer, that 80 percent of 1 year olds have been vaccinated against some disease, is about 33.3 percent (or 1-in-3 if wanting to be perfectly precise). The alternative hypothesis is that this proportion is something other than 33.3 percent. While it's helpful to write these hypotheses in words, it can be useful to write them using mathematical notation:</p>
+      <dl>
+        <li>
+          <title><m>H_0</m>:</title>
+        <p>$p = 0.333$</p>
+        </li>
+        <li>
+          <title><m>H_A</m>:</title>
+        <p>$p \neq 0.333$</p>
+        </li>
+      </dl>
+      <p>In this hypothesis setup, we want to make a conclusion about the population parameter <m>p</m>. The value we are comparing the parameter to is called the <term>null value</term>, which in this case is 0.333. It's common to label the null value with the same symbol as the parameter but with a subscript `0'. That is, in this case, the null value is <m>p_0 = 0.333</m> (pronounced "p-nought equals 0.333").</p>
+      <example xml:id="">
+        <p>proportion of people who get the correct answer is <em>exactly</em> 33.3 percent. If we don't believe the null hypothesis, should we simply reject it?} No. While we may not buy into the notion that the proportion is exactly 33.3 percent, the hypothesis testing framework requires that there be strong evidence before we reject the null hypothesis and conclude something more interesting.</p>
+        <p>After all, even if we don't believe the proportion is <em>exactly</em> 33.3 percent, that doesn't really tell us anything useful! We would still be stuck with the original question: do people do better or worse than random guessing on Roslings' question? Without data that strongly points in one direction or the other, it is both uninteresting and pointless to reject <m>H_0</m>.</p>
       </example>
 
-      <figure xml:id="fig-juror-ht-pvalue">
-        <caption>P-value for jury selection hypothesis test</caption>
-        <image source="ch_foundations_for_inf/figures/jurorHTPValueShown"/>
-      </figure>
-    </subsection>
+      <p>\footnotetext{The null hypothesis (<m>H_0</m>) in this case is the declaration of <em>no difference</em>: the drugs are equally effective. The alternative hypothesis (<m>H_A</m>) is that the new drug performs differently than the original, i.e. it could perform better or worse.}</p>
+  </subsection>
 
-    <subsection xml:id="subsec-testing-using-ci">
+    <subsection xml:id="utilizingOurCI">
       <title>Testing hypotheses using confidence intervals</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
-
-    <subsection xml:id="subsec-decision-errors">
-      <title>Decision errors</title>
-      <p>To be converted from LaTeX source.</p>
-
-      <table xml:id="table-decision-errors">
-        <title>Types of errors in hypothesis testing</title>
-        <tabular>
-          <row header="yes">
-            <cell></cell>
-            <cell>H<m>_0</m> true</cell>
-            <cell>H<m>_A</m> true</cell>
-          </row>
-          <row>
-            <cell>Reject H<m>_0</m></cell>
-            <cell>Type I Error</cell>
-            <cell>Correct decision</cell>
-          </row>
-          <row>
-            <cell>Fail to reject H<m>_0</m></cell>
-            <cell>Correct decision</cell>
-            <cell>Type II Error</cell>
-          </row>
-        </tabular>
-      </table>
-    </subsection>
-
-    <subsection xml:id="subsec-formal-testing-pvalues">
-      <title>Formal testing using p-values</title>
-      <p>To be converted from LaTeX source.</p>
-
-      <example xml:id="ex-pvalue-computation">
-        <title>Computing a p-value</title>
-        <statement>
-          <p>
-            A poll of 500 voters finds that 270 support a particular policy. 
-            Test whether this provides evidence that more than half of all 
-            voters support the policy.
-          </p>
-        </statement>
-        <solution>
-          <p>To be converted from LaTeX source.</p>
-        </solution>
+      <p>We will use the \data{rosling_responses} data set to evaluate the hypothesis test evaluating whether college-educated adults who get the question about infant vaccination correct is different from 33.3 percent. This data set summarizes the answers of \roslingAsize{} college-educated adults. Of these \roslingAsize{} adults, \roslingApercent{} percent of respondents got the question correct that 80 percent of 1 year olds have been vaccinated against some disease.</p>
+      <p>Up until now, our discussion has been philosophical. However, now that we have data, we might ask ourselves: does the data provide strong evidence that the proportion of all college-educated adults who would answer this question correctly is different than 33.3 percent?</p>
+      <p>We learned in <xref ref="pointEstimates"/> that there is fluctuation from one sample to another, and it is unlikely that our sample proportion, <m>\hat{p}</m>, will exactly equal <m>p</m>, but we want to make a conclusion about <m>p</m>. We have a nagging concern: is this deviation of \roslingApercent{} percent from 33.3 percent simply due to chance, or does the data provide strong evidence that the population proportion is different from 33.3 percent?</p>
+      <p>In <xref ref="confidenceIntervals"/>, we learned how to quantify the uncertainty in our estimate using confidence intervals. The same method for measuring variability can be useful for the hypothesis test.</p>
+      <example xml:id="">
+        <p>a confidence interval for <m>p</m> using the sample data, and if so, construct a 95 percent confidence interval.} The conditions are met for <m>\hat{p}</m> to be approximately normal: the data come from a simple random sample (satisfies independence), and <m>n\hat{p} = \roslingAcount</m> and <m>n(1 - \hat{p}) = \roslingAcountcomplement</m> are both at least 10 (success-failure condition).</p>
+        <p>To construct the confidence interval, we will need to identify the point estimate (<m>\hat{p} = \roslingAprop</m>), the critical value for the 95 percent confidence level (<m>z^{\star} = 1.96</m>), and the standard error of <m>\hat{p}</m> (<m>SE_{\hat{p}} = \sqrt{\hat{p}(1 - \hat{p}) / n} = \roslingAse</m>). With those pieces, the confidence interval for <m>p</m> can be constructed:</p>
+        <md>
+          <mrow>&\hat{p} \pm z^{\star} \times SE_{\hat{p}}</mrow>
+          <mrow>&\roslingAprop \pm 1.96 \times \roslingAse</mrow>
+          <mrow>&(0.122, 0.358)</mrow>
+        </md>
+        <p>We are 95 percent confident that the proportion of all college-educated adults to correctly answer this particular question about infant vaccination is between 12.2 percent and 35.8 percent.</p>
       </example>
 
-      <figure xml:id="fig-normal-dist-pvalue">
-        <caption>Computing p-value from normal distribution</caption>
+      <p>Because the null value in the hypothesis test is <m>p_0 = 0.333</m>, which falls within the range of plausible values from the confidence interval, we cannot say the null value is implausible.\footnote{Arguably this method is slightly imprecise. As we'll see in a few pages, the standard error is often computed slightly differently in the context of a hypothesis test for a proportion.} That is, the data do not provide sufficient evidence to reject the notion that the performance of college-educated adults was different than random guessing, and we do not reject the null hypothesis, <m>H_0</m>.</p>
+      <example xml:id="">
+        <p>college-educated adults simply guessed on the infant vaccination question.} While we failed to reject <m>H_0</m>, that does not necessarily mean the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of \roslingAsize{}.</p>
+      </example>
+
+      <assemblage>
+        <title>Double negatives can sometimes be used in statistics</title>
+        <p>In many statistical explanations, we use double negatives. For instance, we might say that the null hypothesis is <em>not implausible</em> or we <em>failed to reject</em> the null hypothesis. Double negatives are used to communicate that while we are not rejecting a position, we are also not saying it is correct.</p>
+      </assemblage>
+
+      <p>There are 2 billion children in the world today aged 0-15 years old, how many children will there be in year 2100 according to the United Nations?</p>
+      <ol>
+        <li>
+          <p>4 billion.</p>
+        </li>
+        <li>
+          <p>3 billion.</p>
+        </li>
+        <li>
+          <p>2 billion.</p>
+        </li>
+      </ol>
+      <p>}\end{quote} Set up appropriate hypotheses to evaluate whether college-educated adults are better than random guessing on this question. Also, see if you can guess the correct answer before checking the answer in the footnote!\footnotemark \end{nexercise} \end{exercisewrap} \footnotetext{% The appropriate hypotheses are:</p>
+      <p>The correct answer to the question is 2 billion. While the world population is projected to increase, the average age is also expected to rise. That is, the majority of the population growth will happen in older age groups, meaning people are projected to live longer in the future across much of the world.}</p>
+      <p>\footnotetext{We check both conditions, which are satisfied, so it is reasonable to use a normal distribution for <m>\hat{p}</m>: \\ <alert>Independence.</alert> Since the data are from a simple random sample, the observations are independent. \\ <alert>Success-failure.</alert> We'll use <m>\hat{p}</m> in place of <m>p</m> to check: <m>n\hat{p} = \roslingBcount</m> and <m>n(1 - \hat{p}) = \roslingBcountcomplement</m>. Both are greater than 10, so the success-failure condition is satisfied.}</p>
+      <example xml:id="">
+        <p>fraction of college-educated adults who answered the children-in-2100 question correctly, and evaluate the hypotheses in Guided Practice <xref ref="roslingB_hypothesis_setup"/>.} To compute the standard error, we'll again use <m>\hat{p}</m> in place of <m>p</m> for the calculation:</p>
+        <me>SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} = \sqrt{\frac{\roslingBprop{}(1 - \roslingBprop{})} {\roslingBsize{}}} = \roslingBse{}</me>
+        <p>In Guided Practice <xref ref="roslingB_normality"/>, we found that <m>\hat{p}</m> can be modeled using a normal distribution, which ensures a 95 percent confidence interval may be accurately constructed as</p>
+        <me>\hat{p}~\pm~z^{\star} \times SE \quad\to\quad \roslingBprop{}~\pm~1.96 \times \roslingBse{} \quad\to\quad (0.103, 0.195)</me>
+        <p>Because the null value, <m>p_0 = 0.333</m>, is not in the confidence interval, a population proportion of 0.333 is implausible and we reject the null hypothesis. That is, the data provide statistically significant evidence that the actual proportion of college adults who get the children-in-2100 question correct is different from random guessing. Because the entire 95 percent confidence interval is below 0.333, we can conclude college-educated adults do <em>worse</em> than random guessing on this question.</p>
+        <p>One subtle consideration is that we used a 95 percent confidence interval. What if we had used a 99 percent confidence level? Or even a 99.9 percent confidence level? It's possible to come to a different conclusion if using a different confidence level. Therefore, when we make a conclusion based on confidence interval, we should also be sure it is clear what confidence level we used.</p>
+      </example>
+
+      <p>The worse-than-random performance on this last question is not a fluke: there are many such world health questions where people do worse than random guessing. In general, the answers suggest that people tend to be more pessimistic about progress than reality suggests. This topic is discussed in much greater detail in the Roslings' book, <em>\oiRedirect{amazon_factfulness</em>{Factfulness}}.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Decision errors</title>
+      <p>Hypothesis tests are not flawless: we can make an incorrect decision in a statistical hypothesis test based on the data. For example, in the court system innocent people are sometimes wrongly convicted and the guilty sometimes walk free. One key distinction with statistical hypothesis tests is that we have the tools necessary to probabilistically quantify how often we make errors in our conclusions.</p>
+      <p>Recall that there are two competing hypotheses: the null and the alternative. In a hypothesis test, we make a statement about which one might be true, but we might choose incorrectly. There are four possible scenarios, which are summarized in <xref ref="fourHTScenarios"/>.</p>
+      <figure xml:id="fourHTScenarios">
+        <caption>Four different scenarios for hypothesis tests.</caption>
+      </figure>
+
+      <p>A <term>Type 1 Error</term> is rejecting the null hypothesis when <m>H_0</m> is actually true. A <term>Type 2 Error</term> is failing to reject the null hypothesis when the alternative is actually true.</p>
+      <p>\footnotetext{If the court makes a Type 1 Error, this means the defendant is innocent (<m>H_0</m> true) but wrongly convicted. Note that a Type 1 Error is only possible if we've rejected the null hypothesis.</p>
+      <p>A Type 2 Error means the court failed to reject <m>H_0</m> (i.e. failed to convict the person) when she was in fact guilty (<m>H_A</m> true). Note that a Type 2 Error is only possible if we have failed to reject the null hypothesis.}</p>
+      <example xml:id="">
+        <p>in US courts? What influence would this have on the Type 2 Error rate?} % To lower the Type 1 Error rate, we might raise our standard for conviction from "beyond a reasonable doubt" to "beyond a conceivable doubt" so fewer people would be wrongly convicted. However, this would also make it more difficult to convict the people who are actually guilty, so we would make more Type 2 Errors.</p>
+      </example>
+
+      <p>\footnotetext{To lower the Type 2 Error rate, we want to convict more guilty people. We could lower the standards for conviction from "beyond a reasonable doubt" to "beyond a little doubt". Lowering the bar for guilt will also result in more wrongful convictions, raising the Type 1 Error rate.}</p>
+      <p>Exercises <xref ref="whatAreTheErrorTypesInUSCourts"/>-<xref ref="howToReduceType2ErrorsInUSCourts"/> provide an important lesson: if we reduce how often we make one type of error, we generally make more of the other type.</p>
+      <p>Hypothesis testing is built around rejecting or failing to reject the null hypothesis. That is, we do not reject <m>H_0</m> unless we have strong evidence. But what precisely does <em>strong evidence</em> mean? As a general rule of thumb, for those cases where the null hypothesis is actually true, we do not want to incorrectly reject <m>H_0</m> more than 5 percent of the time. This corresponds to a <term>significance level</term>% of 0.05. That is, if the null hypothesis is true, the significance level indicates how often the data lead us to incorrectly reject <m>H_0</m>. We often write the significance level using <m>\alpha</m> (the Greek letter <em>alpha</em>): <m>\alpha = 0.05</m>. We discuss the appropriateness of different significance levels in <xref ref="significanceLevel"/>.</p>
+      <p>If we use a 95 percent confidence interval to evaluate a hypothesis test and the null hypothesis happens to be true, we will make an error whenever the point estimate is at least 1.96 standard errors away from the population parameter. This happens about 5 percent of the time (2.5 percent in each tail). Similarly, using a 99 percent confidence interval to evaluate a hypothesis is equivalent to a significance level of <m>\alpha = 0.01</m>.</p>
+      <p>A confidence interval is very helpful in determining whether or not to reject the null hypothesis. However, the confidence interval approach isn't always sustainable. In several sections, we will encounter situations where a confidence interval cannot be constructed. For example, if we wanted to evaluate the hypothesis that several proportions are equal, it isn't clear how to construct and compare many confidence intervals altogether.</p>
+      <p>Next we will introduce a statistic called the <em>p-value</em> to help us expand our statistical toolkit, which will enable us to both better understand the strength of evidence and work in more complex data scenarios in later sections.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Formal testing using p-values</title>
+      <p>The p-value is a way of quantifying the strength of the evidence against the null hypothesis and in favor of the alternative hypothesis. Statistical hypothesis testing typically uses the p-value method rather than making a decision based on confidence intervals.</p>
+      <assemblage>
+        <title>p-value</title>
+        <p>The <term>p-value</term> is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, in this section the sample proportion, to help compute the p-value and evaluate the hypotheses.</p>
+      </assemblage>
+
+      <example xml:id="">
+        <p>\pewcoalpollsize{} American adults whether they supported the increased usage of coal to produce energy. Set up hypotheses to evaluate whether a majority of American adults support or oppose the increased usage of coal.} The uninteresting result is that there is no majority either way: half of Americans support and the other half oppose expanding the use of coal to produce energy. The alternative hypothesis would be that there is a majority support or oppose (though we do not known which one!) expanding the use of coal. If <m>p</m> represents the proportion supporting, then we can write the hypotheses as</p>
+        <dl>
+          <li>
+            <title><m>H_0</m>:</title>
+          <p>$p = 0.5$</p>
+          </li>
+          <li>
+            <title><m>H_A</m>:</title>
+          <p>$p \neq 0.5$</p>
+          </li>
+        </dl>
+        <p>In this case, the null value is <m>p_0 = 0.5</m>.</p>
+      </example>
+
+      <p>When evaluating hypotheses for proportions using the p-value method, we will slightly modify how we check the success-failure condition and compute the standard error for the single proportion case. These changes aren't dramatic, but pay close attention to how we use the null value, <m>p_0</m>.</p>
+      <example xml:id="">
+        <p>\pewcoalpollpercent{} of American adults support increased usage of coal. We now wonder, does \pewcoalpollpercent{} represent a real difference from the null hypothesis of 50 percent? What would the sampling distribution of <m>\hat{p}</m> look like if the null hypothesis were true?} If the null hypothesis were true, the population proportion would be the null value, 0.5. We previously learned that the sampling distribution of <m>\hat{p}</m> will be normal when two conditions are met:</p>
+        <dl>
+          <li>
+            <title>Independence.</title>
+          <p>The poll was based on a simple random sample, so independence is satisfied.</p>
+          </li>
+          <li>
+            <title>Success-failure.</title>
+          <p>Based on the poll's sample size of $n = \pewcoalpollsize{}$, the success-failure condition is met, since</p>
+          </li>
+          <me>np ~ \stackrel{H_0}{=} ~ \pewcoalpollsize{} \times \pewcoalpollnullvalue{} = 500 \qquad\qquad n (1 - p) ~ \stackrel{H_0}{=} ~ \pewcoalpollsize{} \times (1 - \pewcoalpollnullvalue{}) = 500</me>
+          <p>are both at least 10. Note that the success-failure condition was checked using the null value, <m>p_0 = 0.5</m>; this is the first procedural difference from confidence intervals.</p>
+        </dl>
+        <p>If the null hypothesis were true, the sampling distribution indicates that a sample proportion based on <m>n = \pewcoalpollsize{}</m> observations would be normally distributed. Next, we can compute the standard error, where we will again use the null value <m>p_0 = 0.5</m> in the calculation:</p>
+        <me>SE_{\hat{p}} = \sqrt{\frac{p (1 - p)}{n}} \quad \stackrel{H_0}{=} \quad \sqrt{\frac{\pewcoalpollnullvalue{} \times (1 - \pewcoalpollnullvalue{})}{\pewcoalpollsize{}}} = \pewcoalpollnullse{}</me>
+        <p>This marks the other procedural difference from confidence intervals: since the sampling distribution is determined under the null proportion, the null value <m>p_0</m> was used for the proportion in the calculation rather than <m>\hat{p}</m>.</p>
+        <p>Ultimately, if the null hypothesis were true, then the sample proportion should follow a normal distribution with mean \pewcoalpollnullvalue{} and a standard error of \pewcoalpollnullse{}. This distribution is shown in <xref ref="normal_dist_mean_500_se_016"/>.</p>
+      </example>
+
+      <figure xml:id="normal_dist_mean_500_se_016">
+        <caption>A normal distribution centered at 0.5 with a standard deviation of 0.016 is shown. Additionally, an annotation is located at 0.37 that states, "Observed p-hat equals 0.37".</caption>
         <image source="ch_foundations_for_inf/figures/normal_dist_mean_500_se_016"/>
       </figure>
-    </subsection>
 
-    <subsection xml:id="subsec-choosing-significance-level">
-      <title>Choosing a significance level</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <assemblage>
+        <p>In a hypothesis test with a p-value, we are supposing the null hypothesis is true, which is a different mindset than when we compute a confidence interval. This is why we use <m>p_0</m> instead of <m>\hat{p}</m> when we check conditions and compute the standard error in this context.</p>
+      </assemblage>
 
-    <subsection xml:id="subsec-statistical-vs-practical">
-      <title>Statistical significance versus practical significance</title>
-      <p>To be converted from LaTeX source.</p>
-    </subsection>
+      <p>When we identify the sampling distribution under the null hypothesis, it has a special name: the <term>null distribution</term>. The p-value represents the probability of the observed <m>\hat{p}</m>, or a <m>\hat{p}</m> that is more extreme, if the null hypothesis were true. To find the p-value, we generally find the null distribution, and then we find a tail area in that distribution corresponding to our point estimate.</p>
+      <example xml:id="">
+        <p>determine the chance of finding <m>\hat{p}</m> at least as far into the tails as \pewcoalpollprop{} under the null distribution, which is a normal distribution with mean <m>\mu = \pewcoalpollnullvalue{}</m> and <m>SE = \pewcoalpollnullse{}</m>.} This is a normal probability problem where <m>x = \pewcoalpollprop{}</m>. First, we draw a simple graph to represent the situation, similar to what is shown in <xref ref="normal_dist_mean_500_se_016"/>. Since <m>\hat{p}</m> is so far out in the tail, we know the tail area is going to be very small. To find it, we start by computing the Z-score using the mean of 0.5 and the standard error of \pewcoalpollnullse{}:</p>
+        <me>Z = \frac{\pewcoalpollprop{} - 0.5}{\pewcoalpollnullse{}} = -8.125</me>
+        <p>We can use software to find the tail area: <m>2.2 \times 10^{-16}</m> (0.00000000000000022). If using the normal probability table in Appendix <xref ref="normalProbabilityTable"/>, we'd find that <m>Z = -8.125</m> is off the table, so we would use the smallest area listed: 0.0002.</p>
+        <p>The potential <m>\hat{p}</m>'s in the upper tail beyond \pewcoalpollpropcomplement{}, which are shown in <xref ref="normal_dist_mean_500_se_016_with_upper"/>, also represent observations at least as extreme as the observed value of \pewcoalpollprop{}. To account for these values that are also more extreme under the hypothesis setup, we double the lower tail to get an estimate of the p-value: <m>4.4 \times 10^{-16}</m> (or if using the table method, 0.0004).</p>
+        <p>The p-value represents the probability of observing such an extreme sample proportion by chance, if the null hypothesis were true.</p>
+      </example>
 
-    <subsection xml:id="subsec-one-sided-tests">
-      <title>One-sided hypothesis tests (special topic)</title>
-      <p>To be converted from LaTeX source.</p>
-
-      <figure xml:id="fig-business-one-sided">
-        <caption>One-sided hypothesis test illustration</caption>
-        <image source="ch_foundations_for_inf/figures/business_one_sided_20_21-p_value"/>
+      <figure xml:id="normal_dist_mean_500_se_016_with_upper">
       </figure>
-    </subsection>
+
+      <example xml:id="">
+        <p>p-value of <m>4.4 \times 10^{-16}</m>? Use the standard significance level of <m>\alpha = 0.05</m>.} If the null hypothesis were true, there's only an incredibly small chance of observing such an extreme deviation of <m>\hat{p}</m> from 0.5. This means one of the following must be true:</p>
+        <ol>
+          <li>
+            <p>The null hypothesis is true, and we just happened to observe something so extreme that it only happens about once in every 23 quadrillion times (1 quadrillion = 1 million <m>\times</m> 1 billion).</p>
+          </li>
+          <li>
+            <p>The alternative hypothesis is true, which would be consistent with observing a sample proportion far from 0.5.</p>
+          </li>
+        </ol>
+        <p>The first scenario is laughably improbable, while the second scenario seems much more plausible.</p>
+        <p>Formally, when we evaluate a hypothesis test, we compare the p-value to the significance level, which in this case is <m>\alpha = 0.05</m>. Since the p-value is less than <m>\alpha</m>, we reject the null hypothesis. That is, the data provide strong evidence against <m>H_0</m>. The data indicate the direction of the difference: a majority of Americans do not support expanding the use of coal-powered energy.</p>
+      </example>
+
+      <assemblage>
+        <title>Compare the p-value to $\pmb{\alpha</title>
+        <p>evaluate <m>\pmb{H_0}</m>} When the p-value is less than the significance level, <m>\alpha</m>, reject <m>H_0</m>. We would report a conclusion that the data provide strong evidence supporting the alternative hypothesis. \\[2mm] When the p-value is greater than <m>\alpha</m>, do not reject <m>H_0</m>, and report that we do not have sufficient evidence to reject the null hypothesis. \\[2mm] In either case, it is important to describe the conclusion in the context of the data.</p>
+      </assemblage>
+
+      <p>\footnotetext{We would like to understand if a majority supports or opposes, or ultimately, if there is no difference. If <m>p</m> is the proportion of Americans who support nuclear arms reduction, then <m>H_0</m>: <m>p = 0.50</m> and <m>H_A</m>: <m>p \neq 0.50</m>.}</p>
+      <example xml:id="">
+        <p>\gallupnucleararmspollsize{} US adults in March 2013 show that \gallupnucleararmspollpercent{} percent support nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5 percent significance level?} First, check conditions:</p>
+        <dl>
+          <li>
+            <title>Independence.</title>
+          <p>The poll was of a simple random sample of US adults, meaning the observations are independent.</p>
+          </li>
+          <li>
+            <title>Success-failure.</title>
+          <p>In a one-proportion hypothesis test, this condition is checked using the null proportion, which is $p_0 = \gallupnucleararmspollnullvalue{}$ in this context: $n p_0 = n (1 - p_0) = \gallupnucleararmspollsize{} \times \gallupnucleararmspollnullvalue{} = \gallupnucleararmspollnullcount{} \geq 10$.</p>
+          </li>
+        </dl>
+        <p>With these conditions verified, we can model <m>\hat{p}</m> using a normal model.</p>
+        <p>Next the standard error can be computed. The null value <m>p_0</m> is used again here, because this is a hypothesis test for a single proportion.</p>
+        <me>SE_{\hat{p}} = \sqrt{\frac{p_0 (1 - p_0)}{n}} = \sqrt{\frac{\gallupnucleararmspollnullvalue{} (1 - \gallupnucleararmspollnullvalue{})} {\gallupnucleararmspollsize{}}} = \gallupnucleararmspollnullse{}</me>
+        <p>Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:</p>
+        <me>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{\gallupnucleararmspollprop{} - 0.50} {\gallupnucleararmspollnullse{}} = 3.85</me>
+        <p>It's generally helpful to draw null distribution and the tail areas of interest for computing the p-value: \begin{center} \Figures[A normal distribution centered at 0.5 is shown, which has a standard deviation of about 0.0156. Two tails several standard deviations away from the center are emphasized. The first, at and above 0.56, is annotated with the text "upper tail". The second, which appears to be at and below 0.44, is annotated with the text "lower tail".]{0.48}{nuclearArmsReduction}{nuclearArmsReductionPValue} \end{center} The upper tail area is about 0.0001, and we double this tail area to get the p-value: 0.0002. Because the p-value is smaller than 0.05, we reject <m>H_0</m>. The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.</p>
+      </example>
+
+      <assemblage>
+        <title>Hypothesis testing for a single proportion</title>
+        <p>Once you've determined a one-proportion hypothesis test is the correct procedure, there are four steps to completing the test:</p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+          <p>Identify the parameter of interest, list hypotheses, identify the significance level, and identify $\hat{p}$ and $n$.</p>
+          </li>
+          <li>
+            <title>Check.</title>
+          <p>Verify conditions to ensure $\hat{p}$ is nearly normal under $H_0$. For one-proportion hypothesis tests, use the null value to check the success-failure condition.</p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+          <p>If the conditions hold, compute the standard error, again using $p_0$, compute the Z-score, and identify the p-value.</p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+          <p>Evaluate the hypothesis test by comparing the p-value to $\alpha$, and provide a conclusion in the context of the problem.</p>
+          </li>
+        </dl>
+      </assemblage>
+
+      <p>} \oneprophtsummary{}</p>
+      <p>\CalculatorVideos{hypothesis tests for a single proportion}</p>
+  </subsection>
+
+    <subsection xml:id="significanceLevel">
+      <title>Choosing a significance level</title>
+      <p>Choosing a significance level for a test is important in many contexts, and the traditional level is <m>\alpha = 0.05</m>. However, it can be helpful to adjust the significance level based on the application. We may select a level that is smaller or larger than 0.05 depending on the consequences of any conclusions reached from the test.</p>
+      <p>If making a Type 1 Error is dangerous or especially costly, we should choose a small significance level (e.g. 0.01). Under this scenario we want to be very cautious about rejecting the null hypothesis, so we demand very strong evidence favoring <m>H_A</m> before we would reject <m>H_0</m>.</p>
+      <p>If a Type 2 Error is relatively more dangerous or much more costly than a Type 1 Error, then we might choose a higher significance level (e.g. 0.10). Here we want to be cautious about failing to reject <m>H_0</m> when the alternative hypothesis is actually true.</p>
+      <p>Additionally, if the cost of collecting data is small relative to the cost of a Type 2 Error, then it may also be a good strategy to collect more data. Under this strategy, the Type 2 Error can be reduced while not affecting the Type 1 Error rate. Of course, collecting extra data is often costly, so there is typically a cost-benefit analysis to be considered.</p>
+      <example xml:id="">
+        <p>to a new, higher quality piece of equipment that constructs vehicle door hinges. They figure that they will save money in the long run if this new machine produces hinges that have flaws less than \doorhingeflawrate{} percent of the time. However, if the hinges are flawed more than \doorhingeflawrate{} percent of the time, they wouldn't get a good enough return-on-investment from the new piece of equipment, and they would lose money. Is there good reason to modify the significance level in such a hypothesis test?} The null hypothesis would be that the rate of flawed hinges is \doorhingeflawrate{} percent, while the alternative is that it the rate is different than \doorhingeflawrate{} percent. This decision is just one of many that have a marginal impact on the car and company. A significance level of 0.05 seems reasonable since neither a Type 1 or Type 2 Error should be dangerous or (relatively) much more expensive.</p>
+      </example>
+
+      <example xml:id="">
+        <p>a slightly more expensive supplier for parts related to safety, not door hinges. If the durability of these safety components is shown to be better than the current supplier, they will switch manufacturers. Is there good reason to modify the significance level in such an evaluation?} The null hypothesis would be that the suppliers' parts are equally reliable. Because safety is involved, the car company should be eager to switch to the slightly more expensive manufacturer (reject <m>H_0</m>), even if the evidence of increased safety is only moderately strong. A slightly larger significance level, such as <m>\alpha=0.10</m>, might be appropriate.</p>
+      </example>
+
+      <p>\footnotetext{Here the null hypothesis is that the part is not broken, and the alternative is that it is broken. If we don't have sufficient evidence to reject <m>H_0</m>, we would not replace the part. It sounds like failing to fix the part if it is broken (<m>H_0</m> false, <m>H_A</m> true) is not very problematic, and replacing the part is expensive. Thus, we should require very strong evidence against <m>H_0</m> before we replace the part. Choose a small significance level, such as <m>\alpha=0.01</m>.}</p>
+      <assemblage>
+        <title>Why is 0.05 the default?</title>
+        <p>The <m>\alpha = 0.05</m> threshold is most common. But why? Maybe the standard level should be smaller, or perhaps larger. If you're a little puzzled, you're reading with an extra critical eye – good job! We've made a 5-minute task to help clarify <em>why 0.05</em>: \begin{center} www.openintro.org/why05 \end{center}</p>
+      </assemblage>
+
+  </subsection>
+
+    <subsection xml:id="">
+      <title>Statistical significance versus practical significance</title>
+      <p>When the sample size becomes larger, point estimates become more precise and any real differences in the mean and null value become easier to detect and recognize. Even a very small difference would likely be detected if we took a large enough sample. Sometimes researchers will take such large samples that even the slightest difference is detected, even differences where there is no practical value. In such cases, we still say the difference is <term>statistically significant</term>, but it is not <term>practically significant</term>. For example, an online experiment might identify that placing additional ads on a movie review website statistically significantly increases viewership of a TV show by 0.001 percent, but this increase might not have any practical value.</p>
+      <p>One role of a data scientist in conducting a study often includes planning the size of the study. The data scientist might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain other information, such as a very rough estimate of the true proportion <m>p</m>, so that she could roughly estimate the standard error. From here, she can suggest a sample size that is sufficiently large that, if there is a real difference that is meaningful, we could detect it. While larger sample sizes may still be used, these calculations are especially helpful when considering costs or potential risks, such as possible health impacts to volunteers in a medical study.</p>
+  </subsection>
+
+    <subsection xml:id="">
+      <title>One-sided hypothesis tests (special topic)</title>
+      <p>So far we've only considered what are called \term{two-sided hypothesis tests}, where we care about detecting whether <m>p</m> is either above or below some null value <m>p_0</m>. There is a second type of hypothesis test called a <term>one-sided hypothesis test</term>. For a one-sided hypothesis test, the hypotheses take one of the following forms:</p>
+      <ol>
+        <li>
+          <p>There's only value in detecting if the population parameter is <em>less than</em> some value <m>p_0</m>. In this case, the alternative hypothesis is written as <m>p < p_0</m> for some null value <m>p_0</m>.</p>
+        </li>
+        <li>
+          <p>There's only value in detecting if the population parameter is <em>more than</em> some value <m>p_0</m>: In this case, the alternative hypothesis is written as <m>p > p_0</m>.</p>
+        </li>
+      </ol>
+      <p>While we adjust the form of the alternative hypothesis, we continue to write the null hypothesis using an equals-sign in the one-sided hypothesis test case.</p>
+      <p>In the entire hypothesis testing procedure, there is only one difference in evaluating a one-sided hypothesis test vs a two-sided hypothesis test: how to compute the p-value. In a one-sided hypothesis test, we compute the p-value as the tail area in the \emph{direction of the alternative hypothesis only}, meaning it is represented by a single tail area. Herein lies the reason why one-sided tests are sometimes interesting: if we don't have to double the tail area to get the p-value, then the p-value is smaller and the level of evidence required to identify an interesting finding in the direction of the alternative hypothesis goes down. However, one-sided tests aren't all sunshine and rainbows: the heavy price paid is that any interesting findings in the opposite direction must be disregarded.</p>
+      <example xml:id="">
+        <p>In <xref ref="basicExampleOfStentsAndStrokes"/>, we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?}  Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.</p>
+      </example>
+
+      <p>When might a one-sided test be appropriate to use? <em>Very rarely.</em> Should you ever find yourself considering using a one-sided test, carefully answer the following question:</p>
+      <blockquote>
+        <p>What would I, or others, conclude if the data happens to go clearly in the opposite direction than my alternative hypothesis? }\end{quote} If you or others would find any value in making a conclusion about the data that goes in the opposite direction of a one-sided test, then a two-sided hypothesis test should actually be used. These considerations can be subtle, so exercise caution. We will only apply two-sided tests in the rest of this book.</p>
+        <example xml:id="">
+          <p>Why can't we simply run a one-sided test that goes in the direction of the data?} We've been building a careful framework that controls for the Type 1 Error, which is the significance level <m>\alpha</m> in a hypothesis test. We'll use the <m>\alpha = 0.05</m> below to keep things simple.</p>
+          <p>Imagine we could pick the one-sided test after we saw the data. What will go wrong?</p>
+          <ul>
+            <li>
+              <p>If <m>\hat{p}</m> is <em>smaller</em> than the null value, then a one-sided test where <m>p < p_0</m> would mean that any observation in the <em>lower</em> 5 percent tail of the null distribution would lead to us rejecting <m>H_0</m>.</p>
+            </li>
+            <li>
+              <p>If <m>\hat{p}</m> is <em>larger</em> than the null value, then a one-sided test where <m>p > p_0</m> would mean that any observation in the <em>upper</em> 5 percent tail of the null distribution would lead to us rejecting <m>H_0</m>.</p>
+            </li>
+          </ul>
+          <p>Then if <m>H_0</m> were true, there's a 10 percent chance of being in one of the two tails, so our testing error is actually <m>\alpha = 0.10</m>, not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.</p>
+        </example>
+
+  </subsection>
   </section>
 
 </chapter>
