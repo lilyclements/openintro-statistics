@@ -633,7 +633,7 @@
       </assemblage>
       
       <p>
-        In Example<nbsp/><xref ref="condFormammogramStudySummaryTableNormalInference"/>, the pooled proportion was used to check the success-failure condition.<fn>For an example of a two-proportion hypothesis test that does not require the success-failure condition to be met, see Section<nbsp/><xref ref="caseStudyMalariaVaccine"/>.</fn> In the next example, we see the second place where the pooled proportion comes into play: the standard error calculation.
+        In Example<nbsp/><xref ref="condFormammogramStudySummaryTableNormalInference"/>, the pooled proportion was used to check the success-failure condition.<fn>For an example of a two-proportion hypothesis test that does not require the success-failure condition to be met, see Section<nbsp/><xref ref="sec-malaria-vaccine"/>.</fn> In the next example, we see the second place where the pooled proportion comes into play: the standard error calculation.
       </p>
       
       <example xml:id="ex-mammogram-se">
@@ -774,7 +774,7 @@
       <title>Examining the standard error formula (special topic)</title>
       
       <p>
-        This subsection covers more theoretical topics that offer deeper insights into the origins of the standard error formula for the difference of two proportions. Ultimately, all of the standard error formulas we encounter in this chapter and in Chapter<nbsp/><xref ref="ch_inference_for_means"/> can be derived from the probability principles of Section<nbsp/><xref ref="randomVariablesSection"/>.
+        This subsection covers more theoretical topics that offer deeper insights into the origins of the standard error formula for the difference of two proportions. Ultimately, all of the standard error formulas we encounter in this chapter and in Chapter<nbsp/><xref ref="ch-inference-for-means"/> can be derived from the probability principles of Section<nbsp/><xref ref="sec-random-variables"/>.
       </p>
       
       <p>
@@ -796,7 +796,7 @@
       <exercise xml:id="derivingSEForDiffOfTwoMeansExercise">
         <statement>
           <p>
-            Prerequisite: Section<nbsp/><xref ref="randomVariablesSection"/>. We can rewrite the equation above in a different way:
+            Prerequisite: Section<nbsp/><xref ref="sec-random-variables"/>. We can rewrite the equation above in a different way:
           </p>
           <me>
             SE_{\hat{p}_{1} - \hat{p}_{2}}^2 = SE_{\hat{p}_1}^2 + SE_{\hat{p}_2}^2
@@ -1079,12 +1079,12 @@
       <example xml:id="ex-chi-square-area-6-25-df3">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove6Point25WithDF3.pdf"/> shows a chi-square distribution with 3 degrees of freedom and an upper shaded tail starting at 6.25. Find the shaded area.
+            <xref ref="chiSquareAreaAbove6Point25WithDF3"/> shows a chi-square distribution with 3 degrees of freedom and an upper shaded tail starting at 6.25. Find the shaded area.
           </p>
         </statement>
         <solution>
           <p>
-            Using statistical software or a graphing calculator, we can find that the upper tail area for a chi-square distribution with 3 degrees of freedom (<m>df</m>) and a cutoff of 6.25 is 0.1001. That is, the shaded upper tail of <xref ref="chiSquareAreaAbove6Point25WithDF3.pdf"/> has area 0.1.
+            Using statistical software or a graphing calculator, we can find that the upper tail area for a chi-square distribution with 3 degrees of freedom (<m>df</m>) and a cutoff of 6.25 is 0.1001. That is, the shaded upper tail of <xref ref="chiSquareAreaAbove6Point25WithDF3"/> has area 0.1.
           </p>
         </solution>
       </example>
@@ -1093,14 +1093,14 @@
         <caption>Six chi-square distributions with shaded upper tails.</caption>
         
         <sidebyside widths="48% 48%">
-          <figure xml:id="chiSquareAreaAbove6Point25WithDF3.pdf">
+          <figure xml:id="chiSquareAreaAbove6Point25WithDF3">
             <caption>Chi-square distribution with 3 degrees of freedom, area above 6.25 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove6Point25WithDF3.pdf" width="100%">
               <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 6.25 shaded. This region appears to be about 10% of the area under the curve.</description>
             </image>
           </figure>
           
-          <figure xml:id="chiSquareAreaAbove4Point3WithDF2.pdf">
+          <figure xml:id="chiSquareAreaAbove4Point3WithDF2">
             <caption>2 degrees of freedom, area above 4.3 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove4Point3WithDF2.pdf" width="100%">
               <description>A chi-square distribution with 2 degrees of freedom is shown, with the area above 4.3 shaded. This region appears to be about 10% of the area under the curve.</description>
@@ -1109,14 +1109,14 @@
         </sidebyside>
         
         <sidebyside widths="48% 48%">
-          <figure xml:id="chiSquareAreaAbove5Point1WithDF5.pdf">
+          <figure xml:id="chiSquareAreaAbove5Point1WithDF5">
             <caption>5 degrees of freedom, area above 5.1 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove5Point1WithDF5.pdf" width="100%">
               <description>A chi-square distribution with 5 degrees of freedom is shown, with the area above 5.1 shaded. This region appears to be very roughly 50% of the area under the curve.</description>
             </image>
           </figure>
           
-          <figure xml:id="chiSquareAreaAbove11Point7WithDF7.pdf">
+          <figure xml:id="chiSquareAreaAbove11Point7WithDF7">
             <caption>7 degrees of freedom, area above 11.7 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove11Point7WithDF7.pdf" width="100%">
               <description>A chi-square distribution with 7 degrees of freedom is shown, with the area above 11.7 shaded. This region appears to be about 15% of the area under the curve.</description>
@@ -1125,14 +1125,14 @@
         </sidebyside>
         
         <sidebyside widths="48% 48%">
-          <figure xml:id="chiSquareAreaAbove10WithDF4.pdf">
+          <figure xml:id="chiSquareAreaAbove10WithDF4">
             <caption>4 degrees of freedom, area above 10 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove10WithDF4.pdf" width="100%">
               <description>A chi-square distribution with 4 degrees of freedom is shown, with the area above 10 shaded. This region appears to be about 5% of the area under the curve.</description>
             </image>
           </figure>
           
-          <figure xml:id="chiSquareAreaAbove9Point21WithDF3.pdf">
+          <figure xml:id="chiSquareAreaAbove9Point21WithDF3">
             <caption>3 degrees of freedom, area above 9.21 shaded.</caption>
             <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove9Point21WithDF3.pdf" width="100%">
               <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 9.21 shaded. This region appears to be about 3% of the area under the curve.</description>
@@ -1144,12 +1144,12 @@
       <example xml:id="ex-chi-square-area-4-3-df2">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove4Point3WithDF2.pdf"/> shows the upper tail of a chi-square distribution with 2 degrees of freedom. The bound for this upper tail is at 4.3. Find the tail area.
+            <xref ref="chiSquareAreaAbove4Point3WithDF2"/> shows the upper tail of a chi-square distribution with 2 degrees of freedom. The bound for this upper tail is at 4.3. Find the tail area.
           </p>
         </statement>
         <solution>
           <p>
-            Using software, we can find that the tail area shaded in <xref ref="chiSquareAreaAbove4Point3WithDF2.pdf"/> to be 0.1165. If using a table, we would only be able to find a range of values for the tail area: between 0.1 and 0.2.
+            Using software, we can find that the tail area shaded in <xref ref="chiSquareAreaAbove4Point3WithDF2"/> to be 0.1165. If using a table, we would only be able to find a range of values for the tail area: between 0.1 and 0.2.
           </p>
         </solution>
       </example>
@@ -1157,7 +1157,7 @@
       <example xml:id="ex-chi-square-area-5-1-df5">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove5Point1WithDF5.pdf"/> shows an upper tail for a chi-square distribution with 5 degrees of freedom and a cutoff of 5.1. Find the tail area.
+            <xref ref="chiSquareAreaAbove5Point1WithDF5"/> shows an upper tail for a chi-square distribution with 5 degrees of freedom and a cutoff of 5.1. Find the tail area.
           </p>
         </statement>
         <solution>
@@ -1170,7 +1170,7 @@
       <exercise xml:id="ex-chi-square-area-11-7-df7">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove11Point7WithDF7.pdf"/> shows a cutoff of 11.7 on a chi-square distribution with 7 degrees of freedom. Find the area of the upper tail.
+            <xref ref="chiSquareAreaAbove11Point7WithDF7"/> shows a cutoff of 11.7 on a chi-square distribution with 7 degrees of freedom. Find the area of the upper tail.
           </p>
         </statement>
         <solution>
@@ -1183,7 +1183,7 @@
       <exercise xml:id="ex-chi-square-area-10-df4">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove10WithDF4.pdf"/> shows a cutoff of 10 on a chi-square distribution with 4 degrees of freedom. Find the area of the upper tail.
+            <xref ref="chiSquareAreaAbove10WithDF4"/> shows a cutoff of 10 on a chi-square distribution with 4 degrees of freedom. Find the area of the upper tail.
           </p>
         </statement>
         <solution>
@@ -1196,7 +1196,7 @@
       <exercise xml:id="ex-chi-square-area-9-21-df3">
         <statement>
           <p>
-            <xref ref="chiSquareAreaAbove9Point21WithDF3.pdf"/> shows a cutoff of 9.21 with a chi-square distribution with 3 df. Find the area of the upper tail.
+            <xref ref="chiSquareAreaAbove9Point21WithDF3"/> shows a cutoff of 9.21 with a chi-square distribution with 3 df. Find the area of the upper tail.
           </p>
         </statement>
         <solution>
