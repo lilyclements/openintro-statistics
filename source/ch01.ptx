@@ -2307,28 +2307,52 @@ study?
       <title>Reducing bias in human experiments</title>
 
       <p>
-        To avoid placebo and observer effects, patients are blinded to treatment via placebos; double-blind designs also blind caregivers/researchers interacting with patients.
+        Randomized experiments are the gold standard for data collection, but they do not ensure an unbiased perspective into the cause and effect relationship in all cases. Human studies are perfect examples where bias can unintentionally arise. Here we reconsider a study where a new drug was used to treat heart attack patients. In particular, researchers wanted to know if the drug reduced deaths in patients.
+      </p>
+
+      <p>
+        These researchers designed a randomized experiment because they wanted to draw causal conclusions about the drug's effect. Study volunteers<fn>Human subjects are often called <term>patients</term>, <term>volunteers</term>, or <term>study participants</term>.</fn> were randomly placed into two study groups. One group, the <term>treatment group</term>, received the drug. The other group, called the <term>control group</term>, did not receive any drug treatment.
+      </p>
+
+      <p>
+        Put yourself in the place of a person in the study. If you are in the treatment group, you are given a fancy new drug that you anticipate will help you. On the other hand, a person in the other group doesn't receive the drug and sits idly, hoping her participation doesn't increase her risk of death. These perspectives suggest there are actually two effects: the one of interest is the effectiveness of the drug, and the second is an emotional effect that is difficult to quantify.
+      </p>
+
+      <p>
+        Researchers aren't usually interested in the emotional effect, which might bias the study. To circumvent this problem, researchers do not want patients to know which group they are in. When researchers keep the patients uninformed about their treatment, the study is said to be <term>blind</term>. But there is one problem: if a patient doesn't receive a treatment, she will know she is in the control group. The solution to this problem is to give fake treatments to patients in the control group. A fake treatment is called a <term>placebo</term>, and an effective placebo is the key to making a study truly blind. A classic example of a placebo is a sugar pill that is made to look like the actual treatment pill. Often times, a placebo results in a slight but real improvement in patients. This effect has been dubbed the <term>placebo effect</term>.
+      </p>
+
+      <p>
+        The patients are not the only ones who should be blinded: doctors and researchers can accidentally bias a study. When a doctor knows a patient has been given the real treatment, she might inadvertently give that patient more attention or care than a patient that she knows is on the placebo. To guard against this bias, which again has been found to have a measurable effect in some instances, most modern studies employ a <term>double-blind</term> setup where doctors or researchers who interact with patients are, just like the patients, unaware of who is or is not receiving the treatment.<fn>There are always some researchers involved in the study who do know which patients are receiving which treatment. However, they do not interact with the study's patients and do not tell the blinded health care professionals who is receiving which treatment.</fn>
       </p>
 
       <exercise xml:id="gp-stents-blinding" divisional="hint">
         <title>Blinding in the stent study</title>
         <statement>
-          <p>Was the stent study an experiment? Was it blind or double-blind?</p>
+          <p>Look back to the study in <xref ref="sec-stents-strokes"/> where researchers were testing whether stents were effective at reducing strokes in at-risk patients. Is this an experiment? Was the study blinded? Was it double-blinded?</p>
         </statement>
         <solution>
-          <p>It was an experiment (researchers assigned treatments). It was not blind, so not double-blind.</p>
+          <p>The researchers assigned the patients into their treatment groups, so this study was an experiment. However, the patients could distinguish what treatment they received, so this study was not blind. The study could not be double-blind since it was not blind.</p>
         </solution>
       </exercise>
 
       <exercise xml:id="gp-sham-surgery" divisional="hint">
         <title>Placebos via sham surgery</title>
         <statement>
-          <p>Could the stent study have used a placebo? What would it look like?</p>
+          <p>For the study in <xref ref="sec-stents-strokes"/>, could the researchers have employed a placebo? If so, what would that placebo have looked like?</p>
         </statement>
         <solution>
-          <p>A sham surgery—performing surgical steps without implanting the stent—could serve as a placebo, though with ethical considerations.</p>
+          <p>Ultimately, can we make patients think they got treated from a surgery? In fact, we can, and some experiments use what's called a <term>sham surgery</term>. In a sham surgery, the patient does undergo surgery, but the patient does not receive the full treatment, though they will still get a placebo effect.</p>
         </solution>
       </exercise>
+
+      <p>
+        You may have many questions about the ethics of sham surgeries to create a placebo after reading the previous exercise. These questions may have even arisen in your mind in the general experiment context, where a possibly helpful treatment was withheld from individuals in the control group; the main difference is that a sham surgery tends to create additional risk, while withholding a treatment only maintains a person's risk.
+      </p>
+
+      <p>
+        There are always multiple viewpoints of experiments and placebos, and rarely is it obvious which is ethically <q>correct</q>. For instance, is it ethical to use a sham surgery when it creates a risk to the patient? However, if we don't use sham surgeries, we may promote the use of a costly treatment that has no real effect; if this happens, money and other resources will be diverted away from other treatments that are known to be helpful. Ultimately, this is a difficult situation where we cannot perfectly protect both the patients who have volunteered for the study and the patients who may benefit (or not) from the treatment in the future.
+      </p>
     </subsection>
 
     <exercises>
