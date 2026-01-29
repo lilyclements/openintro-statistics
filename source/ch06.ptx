@@ -13,332 +13,1525 @@
     </p>
   </introduction>
   
-  <!-- Section 7.1: Inference for a single proportion -->
-  <section xml:id="sec-single-proportion">
-    <title>Inference for a Single Proportion</title>
+  <!-- Section 6.1: Inference for a single proportion -->
+  <section xml:id="singleProportion">
+    <title>Inference for a single proportion</title>
     
     <introduction>
       <p>
-        We encountered inference methods for a single proportion in Chapter 5, exploring point
-        estimates, confidence intervals, and hypothesis tests. In this section, we'll review these
-        topics and also learn how to choose an appropriate sample size when collecting data for
-        single proportion contexts.
+        We encountered inference methods for a single proportion in Chapter<nbsp/>5, exploring point estimates, confidence intervals, and hypothesis tests. In this section, we'll do a review of these topics and also how to choose an appropriate sample size when collecting data for single proportion contexts.
       </p>
     </introduction>
     
     <subsection xml:id="subsec-sample-prop-normal">
-      <title>Identifying When the Sample Proportion is Nearly Normal</title>
+      <title>Identifying when the sample proportion is nearly normal</title>
       
       <p>
-        A sample proportion <m>\hat{p}</m> can be modeled using a normal distribution when the
-        sample observations are independent and the sample size is sufficiently large.
+        A sample proportion <m>\hat{p}</m> can be modeled using a normal distribution when the sample observations are independent and the sample size is sufficiently large.
       </p>
       
       <assemblage xml:id="assem-sampling-dist-p-hat">
-        <title>Sampling Distribution of <m>\hat{p}</m></title>
+        <title>Sampling distribution of <m>\hat{p}</m></title>
         <p>
-          The sampling distribution for <m>\hat{p}</m> based on a sample of size <m>n</m> from
-          a population with a true proportion <m>p</m> is nearly normal when:
+          The sampling distribution for <m>\hat{p}</m> based on a sample of size <m>n</m> from a population with a true proportion <m>p</m> is nearly normal when:
         </p>
         <ol>
-          <li>The sample's observations are independent, e.g., are from a simple random sample.</li>
-          <li>We expect to see at least 10 successes and 10 failures in the sample, i.e.,
-              <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>. This is called the
-              <term>success-failure condition</term>.</li>
+          <li>The sample's observations are independent, e.g. are from a simple random sample.</li>
+          <li>We expected to see at least 10 successes and 10 failures in the sample, i.e. <m>np \geq 10</m> and <m>n(1-p) \geq 10</m>. This is called the <term>success-failure condition</term>.</li>
         </ol>
         <p>
-          When these conditions are met, the sampling distribution of <m>\hat{p}</m> is nearly
-          normal with mean <m>p</m> and standard error <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>.
+          When these conditions are met, then the sampling distribution of <m>\hat{p}</m> is nearly normal with mean <m>p</m> and standard error <m>SE = \sqrt{\frac{p(1-p)}{n}}</m>.
         </p>
       </assemblage>
       
       <p>
-        Typically we don't know the true proportion <m>p</m>, so we substitute some value to check
-        conditions and estimate the standard error. For confidence intervals, the sample proportion
-        <m>\hat{p}</m> is used to check the success-failure condition and compute the standard error.
-        For hypothesis tests, typically the null value (the proportion claimed in the null hypothesis)
-        is used in place of <m>p</m>.
+        Typically we don't know the true proportion <m>p</m>, so we substitute some value to check conditions and estimate the standard error. For confidence intervals, the sample proportion <m>\hat{p}</m> is used to check the success-failure condition and compute the standard error. For hypothesis tests, typically the null value<mdash/>that is, the proportion claimed in the null hypothesis<mdash/>is used in place of <m>p</m>.
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-ci-for-proportion">
-      <title>Confidence Intervals for a Proportion</title>
+    <subsection xml:id="confIntForPropSection">
+      <title>Confidence intervals for a proportion</title>
       
       <p>
-        A confidence interval provides a range of plausible values for the parameter <m>p</m>, and
-        when <m>\hat{p}</m> can be modeled using a normal distribution, the confidence interval for
-        <m>p</m> takes the form:
+        A confidence interval provides a range of plausible values for the parameter <m>p</m>, and when <m>\hat{p}</m> can be modeled using a normal distribution, the confidence interval for <m>p</m> takes the form
       </p>
+      <me>
+        \hat{p} \pm z^{\star} \times SE
+      </me>
       
-      <md>
-        \hat{p} \pm z^* \times SE
-      </md>
+      <example xml:id="ex-payday-normal-check">
+        <statement>
+          <p>
+            A simple random sample of 826 payday loan borrowers was surveyed to better understand their interests around regulation and costs. 70% of the responses supported new regulations on payday lenders. Is it reasonable to model <m>\hat{p} = 0.70</m> using a normal distribution?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The data are a random sample, so the observations are independent and representative of the population of interest.
+          </p>
+          <p>
+            We also must check the success-failure condition, which we do using <m>\hat{p}</m> in place of <m>p</m> when computing a confidence interval:
+          </p>
+          <md>
+            <mrow>\text{Support: } n p \amp \approx 826 \times 0.70 = 578</mrow>
+            <mrow>\text{Not: } n (1 - p) \amp \approx 826 \times (1 - 0.70) = 248</mrow>
+          </md>
+          <p>
+            Since both values are at least 10, we can use the normal distribution to model <m>\hat{p}</m>.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="seOfPropOfPDBorrowersSupportReg">
+        <statement>
+          <p>
+            Estimate the standard error of <m>\hat{p} = 0.70</m>. Because <m>p</m> is unknown and the standard error is for a confidence interval, use <m>\hat{p}</m> in place of <m>p</m> in the formula.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>SE = \sqrt{\frac{p(1-p)}{n}} \approx \sqrt{\frac{0.70 (1 - 0.70)}{826}} = 0.016</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example xml:id="ex-payday-ci">
+        <statement>
+          <p>
+            Construct a 95% confidence interval for <m>p</m>, the proportion of payday borrowers who support increased regulation for payday lenders.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using the point estimate 0.70, <m>z^{\star} = 1.96</m> for a 95% confidence interval, and the standard error <m>SE = 0.016</m> from Guided Practice<nbsp/><xref ref="seOfPropOfPDBorrowersSupportReg"/>, the confidence interval is
+          </p>
+          <md>
+            <mrow>\text{point estimate} \pm z^{\star} \times SE \amp \to 0.70 \pm 1.96 \times 0.016</mrow>
+            <mrow>\amp \to (0.669, 0.731)</mrow>
+          </md>
+          <p>
+            We are 95% confident that the true proportion of payday borrowers who supported regulation at the time of the poll was between 0.669 and 0.731.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        where <m>z^*</m> is chosen to correspond to the confidence level, and the standard error is
-        computed as <m>SE = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</m>.
+        For additional one-proportion confidence interval examples, see Section<nbsp/>5.2.
       </p>
-      
-      <assemblage xml:id="assem-ci-single-proportion">
-        <title>Constructing a Confidence Interval for a Single Proportion</title>
-        <p>
-          Once you've determined that the sampling distribution for <m>\hat{p}</m> is nearly normal,
-          a confidence interval for the population proportion <m>p</m> is:
-        </p>
-        <md>
-          \hat{p} \pm z^* \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-        </md>
-        <p>
-          where <m>z^*</m> corresponds to the confidence level.
-        </p>
-      </assemblage>
     </subsection>
     
-    <subsection xml:id="subsec-ht-single-proportion">
-      <title>Hypothesis Testing for a Proportion</title>
+    <subsection xml:id="htForPropSection">
+      <title>Hypothesis testing for a proportion</title>
       
       <p>
-        When testing hypotheses about a population proportion, we use the hypothesized value
-        <m>p_0</m> (from the null hypothesis) to check conditions and compute the standard error.
+        One possible regulation for payday lenders is that they would be required to do a credit check and evaluate debt payments against the borrower's finances. We would like to know: would borrowers support this form of regulation?
       </p>
+      
+      <exercise xml:id="paydayCC_hypotheses_gp">
+        <statement>
+          <p>
+            Set up hypotheses to evaluate whether borrowers have a majority support or majority opposition for this type of regulation.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>H_0</m>: <m>p = 0.50</m>. <m>H_A</m>: <m>p \neq 0.50</m>.
+          </p>
+        </solution>
+      </exercise>
       
       <p>
-        <alert>Test statistic for a single proportion:</alert>
+        To apply the normal distribution framework in the context of a hypothesis test for a proportion, the independence and success-failure conditions must be satisfied. In a hypothesis test, the success-failure condition is checked using the null proportion: we verify <m>np_0</m> and <m>n(1-p_0)</m> are at least 10, where <m>p_0</m> is the null value.
       </p>
       
-      <md>
-        Z = \frac{\hat{p} - p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}
-      </md>
+      <exercise xml:id="paydayCC_conditions_gp">
+        <statement>
+          <p>
+            Do payday loan borrowers support a regulation that would require lenders to pull their credit report and evaluate their debt payments? From a random sample of 826 borrowers, 51% said they would support such a regulation. Is it reasonable to model <m>\hat{p} = 0.51</m> using a normal distribution for a hypothesis test here?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Independence holds since the poll is based on a random sample. The success-failure condition also holds, which is checked using the null value (<m>p_0 = 0.5</m>) from <m>H_0</m>: <m>np_0 = 826 \times 0.5 = 413</m>, <m>n(1 - p_0) = 826 \times 0.5 = 413</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example xml:id="ex-payday-ht">
+        <statement>
+          <p>
+            Using the hypotheses and data from Guided Practice<nbsp/><xref ref="paydayCC_hypotheses_gp"/> and<nbsp/><xref ref="paydayCC_conditions_gp"/>, evaluate whether the poll provides convincing evidence that a majority of payday loan borrowers support a new regulation that would require lenders to pull credit reports and evaluate debt payments.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            With hypotheses already set up and conditions checked, we can move onto calculations. The standard error in the context of a one-proportion hypothesis test is computed using the null value, <m>p_0</m>:
+          </p>
+          <me>
+            SE = \sqrt{\frac{p_0 (1 - p_0)}{n}} = \sqrt{\frac{0.5 (1 - 0.5)}{826}} = 0.017
+          </me>
+          <p>
+            A picture of the normal model is shown below with the p-value represented by the shaded region.
+          </p>
+          <figure xml:id="fig-paydayCC-norm-pvalue">
+            <caption>A normal distribution is shown with a center of 0.5 and a standard deviation of 0.017. Two tails are shaded: The region above 0.51 and a region in the corresponding lower tail. Visually, it looks like a little over half of the area under the normal curve is shaded.</caption>
+            <image source="ch_inference_for_props/paydayCC_norm_pvalue.pdf" width="50%"/>
+          </figure>
+          <p>
+            Based on the normal model, the test statistic can be computed as the Z-score of the point estimate:
+          </p>
+          <me>
+            Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{0.51 - 0.50}{0.017} = 0.59
+          </me>
+          <p>
+            The single tail area is 0.2776, and the p-value, represented by both tail areas together, is 0.5552. Because the p-value is larger than 0.05, we do not reject <m>H_0</m>. The poll does not provide convincing evidence that a majority of payday loan borrowers support or oppose regulations around credit checks and evaluation of debt payments.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        When the null hypothesis is true and the conditions are satisfied, <m>Z</m> follows a
-        standard normal distribution.
+        For additional one-proportion hypothesis test examples, see Section<nbsp/>5.3.
       </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-conditions-not-met">
+      <title>When one or more conditions aren't met</title>
       
-      <important>
-        <p>
-          <alert>Key Difference:</alert> For confidence intervals, use <m>\hat{p}</m> in the standard
-          error. For hypothesis tests, use <m>p_0</m> in the standard error.
-        </p>
-      </important>
+      <p>
+        We've spent a lot of time discussing conditions for when <m>\hat{p}</m> can be reasonably modeled by a normal distribution. What happens when the success-failure condition fails? What about when the independence condition fails? In either case, the general ideas of confidence intervals and hypothesis tests remain the same, but the strategy or technique used to generate the interval or p-value change.
+      </p>
+      <p>
+        When the success-failure condition isn't met for a hypothesis test, we can simulate the null distribution of <m>\hat{p}</m> using the null value, <m>p_0</m>. The simulation concept is similar to the ideas used in the malaria case study presented in Section<nbsp/>5.1, and an online section outlines this strategy: <url href="http://www.openintro.org/r?go=stat_sim_prop_ht">www.openintro.org/r?go=stat_sim_prop_ht</url>
+      </p>
+      <p>
+        For a confidence interval when the success-failure condition isn't met, we can use what's called the <term>Clopper-Pearson interval</term>. The details are beyond the scope of this book. However, there are many internet resources covering this topic.
+      </p>
+      <p>
+        The independence condition is a more nuanced requirement. When it isn't met, it is important to understand how and why it isn't met. For example, if we took a cluster sample (see Section<nbsp/>1.3), suitable statistical methods are available but would be beyond the scope of even most second or third courses in statistics. On the other hand, we'd be stretched to find any method that we could confidently apply to correct the inherent biases of data from a convenience sample.
+      </p>
+      <p>
+        While this book is scoped to well-constrained statistical problems, do remember that this is just the first book in what is a large library of statistical methods that are suitable for a very wide range of data and contexts.
+      </p>
     </subsection>
     
     <subsection xml:id="subsec-choosing-sample-size">
-      <title>Choosing a Sample Size When Estimating a Proportion</title>
+      <title>Choosing a sample size when estimating a proportion</title>
       
       <p>
-        When planning a study, we often want to know: How many observations do we need to achieve a
-        desired margin of error? The margin of error in a confidence interval is <m>ME = z^* \times SE</m>.
+        When collecting data, we choose a sample size suitable for the purpose of the study. Often times this means choosing a sample size large enough that the <term>margin of error</term><mdash/>which is the part we add and subtract from the point estimate in a confidence interval<mdash/>is sufficiently small that the sample is useful. For example, our task might be to find a sample size <m>n</m> so that the sample proportion is within <m>\pm 0.04</m> of the actual proportion in a 95% confidence interval.
       </p>
+      
+      <example xml:id="ex-football-stadium-sample-size">
+        <statement>
+          <p>
+            A university newspaper is conducting a survey to determine what fraction of students support a $200 per year increase in fees to pay for a new football stadium. How big of a sample is required to ensure the margin of error is smaller than 0.04 using a 95% confidence level?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The margin of error for a sample proportion is
+          </p>
+          <me>
+            z^{\star} \sqrt{\frac{p (1 - p)}{n}}
+          </me>
+          <p>
+            Our goal is to find the smallest sample size <m>n</m> so that this margin of error is smaller than 0.04. For a 95% confidence level, the value <m>z^{\star}</m> corresponds to 1.96:
+          </p>
+          <me>
+            1.96\times \sqrt{\frac{p(1-p)}{n}} \ \lt \ 0.04
+          </me>
+          <p>
+            There are two unknowns in the equation: <m>p</m> and <m>n</m>. If we have an estimate of <m>p</m>, perhaps from a prior survey, we could enter in that value and solve for <m>n</m>. If we have no such estimate, we must use some other value for <m>p</m>. It turns out that the margin of error is largest when <m>p</m> is 0.5, so we typically use this <em>worst case value</em> if no estimate of the proportion is available:
+          </p>
+          <md>
+            <mrow>1.96\times \sqrt{\frac{0.5(1-0.5)}{n}} \amp \ \lt \ 0.04</mrow>
+            <mrow>1.96^2\times \frac{0.5(1-0.5)}{n} \amp \ \lt \ 0.04^2</mrow>
+            <mrow>1.96^2\times \frac{0.5(1-0.5)}{0.04^2} \amp \ \lt \ n</mrow>
+            <mrow>600.25 \amp \ \lt \ n</mrow>
+          </md>
+          <p>
+            We would need over 600.25 participants, which means we need 601 participants or more, to ensure the sample proportion is within 0.04 of the true proportion with 95% confidence.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        Solving for <m>n</m> in the margin of error formula:
+        When an estimate of the proportion is available, we use it in place of the worst case proportion value, 0.5.
       </p>
       
-      <md>
-        ME = z^* \sqrt{\frac{p(1-p)}{n}} \quad\Rightarrow\quad n = \frac{z^{*2} \cdot p(1-p)}{ME^2}
-      </md>
+      <exercise xml:id="tire_failure_rate_3_samp_size_calc">
+        <statement>
+          <p>
+            A manager is about to oversee the mass production of a new tire model in her factory, and she would like to estimate what proportion of these tires will be rejected through quality control. The quality control team has monitored the last three tire models produced by the factory, failing 1.7% of tires in the first model, 6.2% of the second model, and 1.3% of the third model. The manager would like to examine enough tires to estimate the failure rate of the new tire model to within about 1% with a 90% confidence level. There are three different failure rates to choose from. Perform the sample size computation for each separately, and identify three sample sizes to consider.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            For a 90% confidence interval, <m>z^{\star} = 1.6449</m>, and since an estimate of the proportion 0.017 is available, we'll use it in the margin of error formula:
+          </p>
+          <md>
+            <mrow>1.6449\times \sqrt{\frac{0.017(1-0.017)}{n}} \amp \ \lt \ 0.01</mrow>
+            <mrow>\frac{0.017(1-0.017)}{n} \amp \ \lt \ \left(\frac{0.01}{1.6449}\right)^2</mrow>
+            <mrow>452.15 \amp \ \lt \ n</mrow>
+          </md>
+          <p>
+            For sample size calculations, we always round up, so the first tire model suggests 453 tires would be sufficient.
+          </p>
+          <p>
+            A similar computation can be accomplished using 0.062 and 0.013 for <m>p</m>, and you should verify that using these proportions results in minimum sample sizes of 1574 and 348 tires, respectively.
+          </p>
+        </solution>
+      </exercise>
       
-      <p>
-        Since we don't know <m>p</m> before collecting data, we can:
-      </p>
+      <example xml:id="ex-tire-failure-choice">
+        <statement>
+          <p>
+            The sample sizes vary widely in Guided Practice<nbsp/><xref ref="tire_failure_rate_3_samp_size_calc"/>. Which of the three would you suggest using? What would influence your choice?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We could examine which of the old models is most like the new model, then choose the corresponding sample size. Or if two of the previous estimates are based on small samples while the other is based on a larger sample, we might consider the value corresponding to the larger sample. There are also other reasonable approaches.
+          </p>
+          <p>
+            Also observe that the success-failure condition would need to be checked in the final sample. For instance, if we sampled <m>n = 1584</m> tires and found a failure rate of 0.5%, the normal approximation would not be reasonable, and we would require more advanced statistical methods for creating the confidence interval.
+          </p>
+        </solution>
+      </example>
       
-      <ol>
-        <li>Use a guess for <m>p</m> based on a previous study or pilot data.</li>
-        <li>Use <m>p = 0.5</m>, which gives the most conservative (largest) sample size, since
-            <m>p(1-p)</m> is maximized when <m>p = 0.5</m>.</li>
-      </ol>
+      <exercise xml:id="ex-payday-monthly-poll">
+        <statement>
+          <p>
+            Suppose we want to continually track the support of payday borrowers for regulation on lenders, where we would conduct a new poll every month. Running such frequent polls is expensive, so we decide a wider margin of error of 5% for each individual survey would be acceptable. Based on the original sample of borrowers where 70% supported some form of regulation, how big should our monthly sample be for a margin of error of 0.05 with 95% confidence?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We complete the same computations as before, except now we use 0.70 instead of 0.5 for <m>p</m>:
+          </p>
+          <md>
+            <mrow>1.96\times \sqrt{\frac{p(1-p)}{n}} \amp \approx 1.96\times \sqrt{\frac{0.70(1-0.70)}{n}} \leq 0.05</mrow>
+            <mrow>n \amp \geq 322.7</mrow>
+          </md>
+          <p>
+            A sample size of 323 or more would be reasonable. (Reminder: always round up for sample size calculations!) Given that we plan to track this poll over time, we also may want to periodically repeat these calculations to ensure that we're being thoughtful in our sample size recommendations in case the baseline rate fluctuates.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
+    
   </section>
   
   <!-- Section 7.2: Difference of two proportions -->
-  <section xml:id="sec-difference-two-proportions">
-    <title>Difference of Two Proportions</title>
+  <section xml:id="differenceOfTwoProportions">
+    <title>Difference of two proportions</title>
     
     <introduction>
       <p>
-        We now consider a different scenario: comparing proportions from two independent groups.
-        For example, we might compare the proportion of patients who recover in a treatment group
-        versus a control group, or compare the proportion of voters supporting a candidate across
-        two different regions.
+        We would like to extend the methods from Section<nbsp/><xref ref="singleProportion"/> to apply confidence intervals and hypothesis tests to differences in population proportions: <m>p_1 - p_2</m>. In our investigations, we'll identify a reasonable point estimate of <m>p_1 - p_2</m> based on the sample, and you may have already guessed its form: <m>\hat{p}_1 - \hat{p}_2</m>. Next, we'll apply the same processes we used in the single-proportion context: we verify that the point estimate can be modeled using a normal distribution, we compute the estimate's standard error, and we apply our inferential framework.
       </p>
     </introduction>
     
-    <subsection xml:id="subsec-sampling-dist-diff-props">
-      <title>Sampling Distribution of a Difference of Proportions</title>
+    <subsection xml:id="subsec-sampling-dist-diff-two-props">
+      <title>Sampling distribution of the difference of two proportions</title>
       
       <p>
-        When we have two independent samples, we're often interested in the difference between
-        sample proportions: <m>\hat{p}_1 - \hat{p}_2</m>. This difference estimates the difference
-        in population proportions: <m>p_1 - p_2</m>.
+        Like with <m>\hat{p}</m>, the difference of two sample proportions <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when certain conditions are met. First, we require a broader independence condition, and secondly, the success-failure condition must be met by both groups.
       </p>
       
-      <theorem xml:id="thm-diff-proportions">
-        <title>Sampling Distribution of <m>\hat{p}_1 - \hat{p}_2</m></title>
-        <statement>
-          <p>
-            When the following conditions are satisfied, the sampling distribution of
-            <m>\hat{p}_1 - \hat{p}_2</m> is nearly normal with:
-          </p>
-          <md>
-            \text{Mean} = p_1 - p_2 \qquad SE = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
-          </md>
-          <p>
-            <alert>Conditions:</alert>
-          </p>
-          <ol>
-            <li><alert>Independence:</alert> The data in each group must be independent, and the
-                two groups must be independent of each other.</li>
-            <li><alert>Success-failure condition:</alert> The success-failure condition must hold
-                for each sample: <m>n_1p_1 \geq 10</m>, <m>n_1(1-p_1) \geq 10</m>,
-                <m>n_2p_2 \geq 10</m>, and <m>n_2(1-p_2) \geq 10</m>.</li>
-          </ol>
-        </statement>
-      </theorem>
-    </subsection>
-    
-    <subsection xml:id="subsec-ci-diff-proportions">
-      <title>Confidence Interval for <m>p_1 - p_2</m></title>
-      
-      <p>
-        A confidence interval for the difference <m>p_1 - p_2</m> is:
-      </p>
-      
-      <md>
-        (\hat{p}_1 - \hat{p}_2) \pm z^* \times SE
-      </md>
-      
-      <p>
-        where the standard error is:
-      </p>
-      
-      <md>
-        SE = \sqrt{\frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2}}
-      </md>
-      
-      <p>
-        Note that we use the sample proportions <m>\hat{p}_1</m> and <m>\hat{p}_2</m> in the
-        standard error formula.
-      </p>
-    </subsection>
-    
-    <subsection xml:id="subsec-ht-diff-proportions">
-      <title>Hypothesis Test for <m>H_0: p_1 = p_2</m></title>
-      
-      <p>
-        When testing <m>H_0: p_1 = p_2</m> (or equivalently, <m>H_0: p_1 - p_2 = 0</m>), we use a
-        <term>pooled proportion</term> to compute the standard error.
-      </p>
-      
-      <definition xml:id="def-pooled-proportion">
-        <statement>
-          <p>
-            The <term>pooled proportion</term> is used when testing the null hypothesis that two
-            proportions are equal:
-          </p>
-          <md>
-            \hat{p}_{pool} = \frac{\text{total number of successes}}{\text{total number of observations}} = \frac{x_1 + x_2}{n_1 + n_2}
-          </md>
-          <p>
-            where <m>x_1</m> and <m>x_2</m> are the number of successes in each sample.
-          </p>
-        </statement>
-      </definition>
-      
-      <p>
-        The test statistic is:
-      </p>
-      
-      <md>
-        Z = \frac{(\hat{p}_1 - \hat{p}_2) - 0}{\sqrt{\hat{p}_{pool}(1-\hat{p}_{pool})\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}
-      </md>
-      
-      <important>
+      <assemblage xml:id="assem-sampling-dist-p1-p2">
+        <title>Conditions for the sampling distribution of <m>\hat{p}_1 - \hat{p}_2</m> to be normal</title>
         <p>
-          <alert>Remember:</alert> Use the pooled proportion in the standard error for hypothesis
-          tests, but use the individual sample proportions for confidence intervals.
+          The difference <m>\hat{p}_1 - \hat{p}_2</m> can be modeled using a normal distribution when
         </p>
-      </important>
+        <ul>
+          <li>
+            <em>Independence, extended.</em> The data are independent within and between the two groups. Generally this is satisfied if the data come from two independent random samples or if the data come from a randomized experiment.
+          </li>
+          <li>
+            <em>Success-failure condition.</em> The success-failure condition holds for both groups, where we check successes and failures in each group separately.
+          </li>
+        </ul>
+        <p>
+          When these conditions are satisfied, the standard error of <m>\hat{p}_1 - \hat{p}_2</m> is
+        </p>
+        <me>
+          SE = \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}
+        </me>
+        <p>
+          where <m>p_1</m> and <m>p_2</m> represent the population proportions, and <m>n_1</m> and <m>n_2</m> represent the sample sizes.
+        </p>
+      </assemblage>
     </subsection>
+    
+    <subsection xml:id="confIntForPropDiffSection">
+      <title>Confidence intervals for <m>p_1 - p_2</m></title>
+      
+      <p>
+        We can apply the generic confidence interval formula for a difference of two proportions, where we use <m>\hat{p}_1 - \hat{p}_2</m> as the point estimate and substitute the <m>SE</m> formula:
+      </p>
+      <md>
+        <mrow>\text{point estimate} \pm z^{\star} \times SE \amp \to \hat{p}_1 - \hat{p}_2 \pm z^{\star} \times \sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}</mrow>
+      </md>
+      <p>
+        We can also follow the same Prepare, Check, Calculate, Conclude steps for computing a confidence interval or completing a hypothesis test. The details change a little, but the general approach remain the same. Think about these steps when you apply statistical methods.
+      </p>
+      
+      <example xml:id="ex-cpr-check-conditions">
+        <statement>
+          <p>
+            We consider an experiment for patients who underwent cardiopulmonary resuscitation (CPR) for a heart attack and were subsequently admitted to a hospital. These patients were randomly divided into a treatment group where they received a blood thinner or the control group where they did not receive a blood thinner. The outcome variable of interest was whether the patients survived for at least 24 hours. The results are shown in <xref ref="resultsForCPRStudyInSmallSampleSection"/>. Check whether we can model the difference in sample proportions using the normal distribution.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We first check for independence: since this is a randomized experiment, this condition is satisfied.
+          </p>
+          <p>
+            Next, we check the success-failure condition for each group. We have at least 10 successes and 10 failures in each experiment arm (11, 14, 39, 26), so this condition is also satisfied.
+          </p>
+          <p>
+            With both conditions satisfied, the difference in sample proportions can be reasonably modeled using a normal distribution for these data.
+          </p>
+        </solution>
+      </example>
+      
+      <table xml:id="resultsForCPRStudyInSmallSampleSection">
+        <title>Results for the CPR study. Patients in the treatment group were given a blood thinner, and patients in the control group were not.</title>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell>Survived</cell>
+            <cell>Died</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Control</cell>
+            <cell>11</cell>
+            <cell>39</cell>
+            <cell>50</cell>
+          </row>
+          <row>
+            <cell>Treatment</cell>
+            <cell>14</cell>
+            <cell>26</cell>
+            <cell>40</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Total</cell>
+            <cell>25</cell>
+            <cell>65</cell>
+            <cell>90</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <example xml:id="ex-cpr-ci">
+        <statement>
+          <p>
+            Create and interpret a 90% confidence interval of the difference for the survival rates in the CPR study.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We'll use <m>p_t</m> for the survival rate in the treatment group and <m>p_c</m> for the control group:
+          </p>
+          <md>
+            <mrow>\hat{p}_{t} - \hat{p}_{c} = \frac{14}{40} - \frac{11}{50} = 0.35 - 0.22 = 0.13</mrow>
+          </md>
+          <p>
+            We use the standard error formula provided on page<nbsp/><xref ref="assem-sampling-dist-p1-p2"/>. As with the one-sample proportion case, we use the sample estimates of each proportion in the formula in the confidence interval context:
+          </p>
+          <md>
+            <mrow>SE \approx \sqrt{\frac{0.35 (1 - 0.35)}{40} + \frac{0.22 (1 - 0.22)}{50}} = 0.095</mrow>
+          </md>
+          <p>
+            For a 90% confidence interval, we use <m>z^{\star} = 1.6449</m>:
+          </p>
+          <md>
+            <mrow>\text{point estimate} \pm z^{\star} \times SE \amp \to 0.13 \pm 1.6449 \times  0.095</mrow>
+            <mrow>\amp \to (-0.026, 0.286)</mrow>
+          </md>
+          <p>
+            We are 90% confident that blood thinners have a difference of -2.6% to +28.6% percentage point impact on survival rate for patients who are like those in the study. Because 0% is contained in the interval, we do not have enough information to say whether blood thinners help or harm heart attack patients who have been admitted after they have undergone CPR.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="ex-fish-oil-ci">
+        <statement>
+          <p>
+            A 5-year experiment was conducted to evaluate the effectiveness of fish oils on reducing cardiovascular events, where each subject was randomized into one of two treatment groups. We'll consider heart attack outcomes in these patients:
+          </p>
+          <table>
+            <tabular>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>heart attack</cell>
+                <cell>no event</cell>
+                <cell>Total</cell>
+              </row>
+              <row>
+                <cell>fish oil</cell>
+                <cell>145</cell>
+                <cell>12788</cell>
+                <cell>12933</cell>
+              </row>
+              <row>
+                <cell>placebo</cell>
+                <cell>200</cell>
+                <cell>12738</cell>
+                <cell>12938</cell>
+              </row>
+            </tabular>
+          </table>
+          <p>
+            Create a 95% confidence interval for the effect of fish oils on heart attacks for patients who are well-represented by those in the study. Also interpret the interval in the context of the study.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Because the patients were randomized, the subjects are independent, both within and between the two groups. The success-failure condition is also met for both groups as all counts are at least 10. This satisfies the conditions necessary to model the difference in proportions using a normal distribution.
+          </p>
+          <p>
+            Compute the sample proportions (<m>\hat{p}_{\text{fish oil}} = 0.0112</m>, <m>\hat{p}_{\text{placebo}} = 0.0155</m>), point estimate of the difference (<m>0.0112 - 0.0155 = -0.0043</m>), and standard error (<m>SE = \sqrt{\frac{0.0112 \times 0.9888}{12933} + \frac{0.0155 \times 0.9845}{12938}} = 0.00145</m>). Next, plug the values into the general formula for a confidence interval, where we'll use a 95% confidence level with <m>z^{\star} = 1.96</m>:
+          </p>
+          <md>
+            <mrow>-0.0043 \pm 1.96 \times 0.00145 \to (-0.0071, -0.0015)</mrow>
+          </md>
+          <p>
+            We are 95% confident that fish oils decreases heart attacks by 0.15 to 0.71 percentage points (off of a baseline of about 1.55%) over a 5-year period for subjects who are similar to those in the study. Because the interval is entirely below 0, the data provide strong evidence that fish oil supplements reduce heart attacks in patients like those in the study.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="htForPropDiffSection">
+      <title>Hypothesis tests for the difference of two proportions</title>
+      
+      <p>
+        A mammogram is an X-ray procedure used to check for breast cancer. Whether mammograms should be used is part of a controversial discussion, and it's the topic of our next example where we learn about 2-proportion hypothesis tests when <m>H_0</m> is <m>p_1 - p_2 = 0</m> (or equivalently, <m>p_1 = p_2</m>).
+      </p>
+      
+      <p>
+        A 30-year study was conducted with nearly 90,000 female participants. During a 5-year screening period, each woman was randomized to one of two groups: in the first group, women received regular mammograms to screen for breast cancer, and in the second group, women received regular non-mammogram breast cancer exams. No intervention was made during the following 25 years of the study, and we'll consider death resulting from breast cancer over the full 30-year period. Results from the study are summarized in <xref ref="mammogramStudySummaryTable"/>.
+      </p>
+      
+      <p>
+        If mammograms are much more effective than non-mammogram breast cancer exams, then we would expect to see additional deaths from breast cancer in the control group. On the other hand, if mammograms are not as effective as regular breast cancer exams, we would expect to see an increase in breast cancer deaths in the mammogram group.
+      </p>
+      
+      <table xml:id="mammogramStudySummaryTable">
+        <title>Summary results for breast cancer study.</title>
+        <tabular>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell colspan="2" halign="center">Death from breast cancer?</cell>
+          </row>
+          <row bottom="minor">
+            <cell></cell>
+            <cell></cell>
+            <cell>Yes</cell>
+            <cell>No</cell>
+          </row>
+          <row>
+            <cell>Mammogram</cell>
+            <cell></cell>
+            <cell>500</cell>
+            <cell>44,425</cell>
+          </row>
+          <row>
+            <cell>Control</cell>
+            <cell></cell>
+            <cell>505</cell>
+            <cell>44,405</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <exercise xml:id="ex-mammogram-experiment">
+        <statement>
+          <p>
+            Is this study an experiment or an observational study?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This is an experiment. Patients were randomized to receive mammograms or a standard breast cancer exam. We will be able to make causal conclusions based on this study.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="htFormammogramStudySummaryTable">
+        <statement>
+          <p>
+            Set up hypotheses to test whether there was a difference in breast cancer deaths in the mammogram and control groups.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>H_0</m>: the breast cancer death rate for patients screened using mammograms is the same as the breast cancer death rate for patients in the control, <m>p_{mgm} - p_{ctrl} = 0</m>.
+          </p>
+          <p>
+            <m>H_A</m>: the breast cancer death rate for patients screened using mammograms is different than the breast cancer death rate for patients in the control, <m>p_{mgm} - p_{ctrl} \neq 0</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        In Example<nbsp/><xref ref="condFormammogramStudySummaryTableNormalInference"/>, we will check the conditions for using a normal distribution to analyze the results of the study. The details are very similar to that of confidence intervals. However, when the null hypothesis is that <m>p_1 - p_2 = 0</m>, we use a special proportion called the <term>pooled proportion</term> to check the success-failure condition:
+      </p>
+      <md>
+        <mrow>\hat{p}_{\textit{pooled}} \amp = \frac{\text{\# of patients who died from breast cancer in the entire study}}{\text{\# of patients in the entire study}}</mrow>
+        <mrow>\amp = \frac{500 + 505}{500 + \text{44,425} + 505 + \text{44,405}}</mrow>
+        <mrow>\amp = 0.0112</mrow>
+      </md>
+      <p>
+        This proportion is an estimate of the breast cancer death rate across the entire study, and it's our best estimate of the proportions <m>p_{mgm}</m> and <m>p_{ctrl}</m> <em>if the null hypothesis is true that <m>p_{mgm} = p_{ctrl}</m></em>. We will also use this pooled proportion when computing the standard error.
+      </p>
+      
+      <example xml:id="condFormammogramStudySummaryTableNormalInference">
+        <statement>
+          <p>
+            Is it reasonable to model the difference in proportions using a normal distribution in this study?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Because the patients are randomized, they can be treated as independent, both within and between groups. We also must check the success-failure condition for each group. Under the null hypothesis, the proportions <m>p_{mgm}</m> and <m>p_{ctrl}</m> are equal, so we check the success-failure condition with our best estimate of these values under <m>H_0</m>, the pooled proportion from the two samples, <m>\hat{p}_{\textit{pooled}} = 0.0112</m>:
+          </p>
+          <md>
+            <mrow>\hat{p}_{\textit{pooled}} \times n_{mgm} \amp = 0.0112 \times \text{44,925} = 503</mrow>
+            <mrow>(1 - \hat{p}_{\textit{pooled}}) \times n_{mgm} \amp = 0.9888 \times \text{44,925} = \text{44,422}</mrow>
+            <mrow>\hat{p}_{\textit{pooled}} \times n_{ctrl} \amp = 0.0112 \times \text{44,910} = 503</mrow>
+            <mrow>(1 - \hat{p}_{\textit{pooled}}) \times n_{ctrl} \amp = 0.9888 \times \text{44,910} = \text{44,407}</mrow>
+          </md>
+          <p>
+            The success-failure condition is satisfied since all values are at least 10. With both conditions satisfied, we can safely model the difference in proportions using a normal distribution.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage xml:id="assem-pooled-proportion">
+        <title>Use the pooled proportion when <m>H_0</m> is <m>p_1 - p_2 = 0</m></title>
+        <p>
+          When the null hypothesis is that the proportions are equal, use the pooled proportion (<m>\hat{p}_{\textit{pooled}}</m>) to verify the success-failure condition and estimate the standard error:
+        </p>
+        <me>
+          \hat{p}_{\textit{pooled}} = \frac{\text{number of ``successes''}}{\text{number of cases}} = \frac{\hat{p}_1 n_1 + \hat{p}_2 n_2}{n_1 + n_2}
+        </me>
+        <p>
+          Here <m>\hat{p}_1 n_1</m> represents the number of successes in sample 1 since
+        </p>
+        <me>
+          \hat{p}_1 = \frac{\text{number of successes in sample 1}}{n_1}
+        </me>
+        <p>
+          Similarly, <m>\hat{p}_2 n_2</m> represents the number of successes in sample 2.
+        </p>
+      </assemblage>
+      
+      <p>
+        In Example<nbsp/><xref ref="condFormammogramStudySummaryTableNormalInference"/>, the pooled proportion was used to check the success-failure condition.<fn>For an example of a two-proportion hypothesis test that does not require the success-failure condition to be met, see Section<nbsp/><xref ref="caseStudyMalariaVaccine"/>.</fn> In the next example, we see the second place where the pooled proportion comes into play: the standard error calculation.
+      </p>
+      
+      <example xml:id="ex-mammogram-se">
+        <statement>
+          <p>
+            Compute the point estimate of the difference in breast cancer death rates in the two groups, and use the pooled proportion <m>\hat{p}_{\textit{pooled}} = 0.0112</m> to calculate the standard error.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The point estimate of the difference in breast cancer death rates is
+          </p>
+          <md>
+            <mrow>\hat{p}_{mgm} - \hat{p}_{ctrl} \amp = \frac{500}{500 + 44,425} - \frac{505}{505 + 44,405}</mrow>
+            <mrow>\amp = 0.01113 - 0.01125</mrow>
+            <mrow>\amp = -0.00012</mrow>
+          </md>
+          <p>
+            The breast cancer death rate in the mammogram group was 0.012% less than in the control group. Next, the standard error is calculated <em>using the pooled proportion</em>, <m>\hat{p}_{\textit{pooled}}</m>:
+          </p>
+          <md>
+            <mrow>SE = \sqrt{\frac{\hat{p}_{\textit{pooled}}(1-\hat{p}_{\textit{pooled}})}{n_{mgm}} + \frac{\hat{p}_{\textit{pooled}}(1-\hat{p}_{\textit{pooled}})}{n_{ctrl}}} = 0.00070</mrow>
+          </md>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-mammogram-ht">
+        <statement>
+          <p>
+            Using the point estimate <m>\hat{p}_{mgm} - \hat{p}_{ctrl} = -0.00012</m> and standard error <m>SE = 0.00070</m>, calculate a p-value for the hypothesis test and write a conclusion.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Just like in past tests, we first compute a test statistic and draw a picture:
+          </p>
+          <md>
+            <mrow>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{-0.00012 - 0}{0.00070} = -0.17</mrow>
+          </md>
+          <figure xml:id="mammogramPValue">
+            <caption>A normal distribution is shown centered at 0 with a standard deviation of 0.0007. The lower tail is shaded below -0.00012 and the upper tail is shaded above 0.00012. Visually, it looks like very roughly 90% of the area under the normal distribution is shaded.</caption>
+            <image source="ch_inference_for_props/mammograms/mammogramPValue.pdf" width="45%"/>
+          </figure>
+          <p>
+            The lower tail area is 0.4325, which we double to get the p-value: 0.8650. Because this p-value is larger than 0.05, we do not reject the null hypothesis. That is, the difference in breast cancer death rates is reasonably explained by chance, and we do not observe benefits or harm from mammograms relative to a regular breast exam.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        Can we conclude that mammograms have no benefits or harm? Here are a few considerations to keep in mind when reviewing the mammogram study as well as any other medical study:
+      </p>
+      <ul>
+        <li>
+          We do not reject the null hypothesis, which means we don't have sufficient evidence to conclude that mammograms reduce or increase breast cancer deaths.
+        </li>
+        <li>
+          If mammograms are helpful or harmful, the data suggest the effect isn't very large.
+        </li>
+        <li>
+          Are mammograms more or less expensive than a non-mammogram breast exam? If one option is much more expensive than the other and doesn't offer clear benefits, then we should lean towards the less expensive option.
+        </li>
+        <li>
+          The study's authors also found that mammograms led to overdiagnosis of breast cancer, which means some breast cancers were found (or thought to be found) but that these cancers would not cause symptoms during patients' lifetimes. That is, something else would kill the patient before breast cancer symptoms appeared. This means some patients may have been treated for breast cancer unnecessarily, and this treatment is another cost to consider. It is also important to recognize that overdiagnosis can cause unnecessary physical or emotional harm to patients.
+        </li>
+      </ul>
+      <p>
+        These considerations highlight the complexity around medical care and treatment recommendations. Experts and medical boards who study medical treatments use considerations like those above to provide their best recommendation based on the current evidence.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-more-2prop-ht">
+      <title>More on 2-proportion hypothesis tests (special topic)</title>
+      
+      <p>
+        When we conduct a 2-proportion hypothesis test, usually <m>H_0</m> is <m>p_1 - p_2 = 0</m>. However, there are rare situations where we want to check for some difference in <m>p_1</m> and <m>p_2</m> that is some value other than 0. For example, maybe we care about checking a null hypothesis where <m>p_1 - p_2 = 0.1</m>. In contexts like these, we generally use <m>\hat{p}_1</m> and <m>\hat{p}_2</m> to check the success-failure condition and construct the standard error.
+      </p>
+      
+      <exercise xml:id="carWheelBladeManufacturer">
+        <statement>
+          <p>
+            A quadcopter company is considering a new manufacturer for rotor blades. The new manufacturer would be more expensive, but they claim their higher-quality blades are more reliable, with 3% more blades passing inspection than their competitor. Set up appropriate hypotheses for the test.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>H_0</m>: The higher-quality blades will pass inspection 3% more frequently than the standard-quality blades. <m>p_{highQ} - p_{standard} = 0.03</m>.
+          </p>
+          <p>
+            <m>H_A</m>: The higher-quality blades will pass inspection some amount different than 3% more often than the standard-quality blades. <m>p_{highQ} - p_{standard} \neq 0.03</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <figure xml:id="quadcopter_david_j">
+        <caption>A Phantom quadcopter. Photo by David J (http://flic.kr/p/oiWLNu). CC-BY 2.0 license. This photo has been cropped and a border has been added.</caption>
+        <image source="ch_inference_for_props/quadcopter/quadcopter_david_j.jpg" width="60%"/>
+      </figure>
+      
+      <example xml:id="qualityCtrlEngHypothesisEval">
+        <statement>
+          <p>
+            The quality control engineer from Guided Practice<nbsp/><xref ref="carWheelBladeManufacturer"/> collects a sample of blades, examining 1000 blades from each company, and she finds that 899 blades pass inspection from the current supplier and 958 pass inspection from the prospective supplier. Using these data, evaluate the hypotheses from Guided Practice<nbsp/><xref ref="carWheelBladeManufacturer"/> with a significance level of 5%.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            First, we check the conditions. The sample is not necessarily random, so to proceed we must assume the blades are all independent; for this sample we will suppose this assumption is reasonable, but the engineer would be more knowledgeable as to whether this assumption is appropriate. The success-failure condition also holds for each sample. Thus, the difference in sample proportions, <m>0.958 - 0.899 = 0.059</m>, can be said to come from a nearly normal distribution.
+          </p>
+          <p>
+            The standard error is computed using the two sample proportions since we do not use a pooled proportion for this context:
+          </p>
+          <md>
+            <mrow>SE = \sqrt{\frac{0.958(1-0.958)}{1000} + \frac{0.899(1-0.899)}{1000}} = 0.0114</mrow>
+          </md>
+          <p>
+            In this hypothesis test, because the null is that <m>p_1 - p_2 = 0.03</m>, the sample proportions were used for the standard error calculation rather than a pooled proportion.
+          </p>
+          <p>
+            Next, we compute the test statistic and use it to find the p-value, which is depicted in <xref ref="bladesTwoSampleHTPValueQC"/>.
+          </p>
+          <md>
+            <mrow>Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{0.059 - 0.03}{0.0114} = 2.54</mrow>
+          </md>
+          <p>
+            Using a standard normal distribution for this test statistic, we identify the right tail area as 0.006, and we double it to get the p-value: 0.012. We reject the null hypothesis because 0.012 is less than 0.05. Since we observed a larger-than-3% increase in blades that pass inspection, we have statistically significant evidence that the higher-quality blades pass inspection <em>more than</em> 3% as often as the currently used blades, exceeding the company's claims.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="bladesTwoSampleHTPValueQC">
+        <caption>Distribution of the test statistic if the null hypothesis was true. The p-value is represented by the shaded areas.</caption>
+        <image source="ch_inference_for_props/bladesTwoSampleHTPValueQC.pdf" width="45%"/>
+      </figure>
+    </subsection>
+    
+    <subsection xml:id="subsec-se-formula-special">
+      <title>Examining the standard error formula (special topic)</title>
+      
+      <p>
+        This subsection covers more theoretical topics that offer deeper insights into the origins of the standard error formula for the difference of two proportions. Ultimately, all of the standard error formulas we encounter in this chapter and in Chapter<nbsp/><xref ref="ch_inference_for_means"/> can be derived from the probability principles of Section<nbsp/><xref ref="randomVariablesSection"/>.
+      </p>
+      
+      <p>
+        The formula for the standard error of the difference in two proportions can be deconstructed into the formulas for the standard errors of the individual sample proportions. Recall that the standard error of the individual sample proportions <m>\hat{p}_1</m> and <m>\hat{p}_2</m> are
+      </p>
+      <md>
+        <mrow>SE_{\hat{p}_1} = \sqrt{\frac{{p}_1 (1 - {p}_1)}{n_1}} \qquad SE_{\hat{p}_2} = \sqrt{\frac{{p}_2 (1 - {p}_2)}{n_2}}</mrow>
+      </md>
+      <p>
+        The standard error of the difference of two sample proportions can be deconstructed from the standard errors of the separate sample proportions:
+      </p>
+      <md>
+        <mrow>SE_{\hat{p}_{1} - \hat{p}_{2}} = \sqrt{SE_{\hat{p}_1}^2 + SE_{\hat{p}_2}^2} = \sqrt{\frac{{p}_1 (1 - {p}_1)}{n_1} + \frac{{p}_2 (1 - {p}_2)}{n_2}}</mrow>
+      </md>
+      <p>
+        This special relationship follows from probability theory.
+      </p>
+      
+      <exercise xml:id="derivingSEForDiffOfTwoMeansExercise">
+        <statement>
+          <p>
+            Prerequisite: Section<nbsp/><xref ref="randomVariablesSection"/>. We can rewrite the equation above in a different way:
+          </p>
+          <me>
+            SE_{\hat{p}_{1} - \hat{p}_{2}}^2 = SE_{\hat{p}_1}^2 + SE_{\hat{p}_2}^2
+          </me>
+          <p>
+            Explain where this formula comes from using the formula for the variability of the sum of two random variables.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The standard error squared represents the variance of the estimate. If <m>X</m> and <m>Y</m> are two random variables with variances <m>\sigma_x^2</m> and <m>\sigma_y^2</m>, then the variance of <m>X - Y</m> is <m>\sigma_x^2 + \sigma_y^2</m>. Likewise, the variance corresponding to <m>\hat{p}_1 - \hat{p}_2</m> is <m>\sigma_{\hat{p}_1}^2 + \sigma_{\hat{p}_2}^2</m>. Because <m>\sigma_{\hat{p}_1}^2</m> and <m>\sigma_{\hat{p}_2}^2</m> are just another way of writing <m>SE_{\hat{p}_1}^2</m> and  <m>SE_{\hat{p}_2}^2</m>, the variance associated with <m>\hat{p}_1 - \hat{p}_2</m> may be written as <m>SE_{\hat{p}_1}^2 + SE_{\hat{p}_2}^2</m>.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
   </section>
   
   <!-- Section 7.3: Testing for goodness of fit using chi-square -->
-  <section xml:id="sec-chi-square-gof">
-    <title>Testing for Goodness of Fit Using Chi-Square</title>
+  <section xml:id="oneWayChiSquare">
+    <title>Testing for goodness of fit using chi-square</title>
     
     <introduction>
       <p>
-        Sometimes we want to evaluate whether the observed distribution of a categorical variable
-        matches a hypothesized distribution. For example: Does the distribution of blood types in a
-        sample match the known distribution in the general population? Do observed frequencies of
-        outcomes match those expected if a die is fair? These questions can be answered using a
-        <term>chi-square goodness of fit test</term>.
+        In this section, we develop a method for assessing a null model when the data are binned. This technique is commonly used in two circumstances:
+      </p>
+      <ul>
+        <li>Given a sample of cases that can be classified into several groups, determine if the sample is representative of the general population.</li>
+        <li>Evaluate whether data resemble a particular distribution, such as a normal distribution or a geometric distribution.</li>
+      </ul>
+      <p>
+        Each of these scenarios can be addressed using the same statistical test: a chi-square test.
+      </p>
+      <p>
+        In the first case, we consider data from a random sample of 275 jurors in a small county. Jurors identified their racial group, as shown in <xref ref="juryRepresentationAndCityRepresentationForRace"/>, and we would like to determine if these jurors are racially representative of the population. If the jury is representative of the population, then the proportions in the sample should roughly reflect the population of eligible jurors, i.e. registered voters.
+      </p>
+      
+      <table xml:id="juryRepresentationAndCityRepresentationForRace">
+        <title>Representation by race in a city's juries and population.</title>
+        <tabular>
+          <row bottom="minor">
+            <cell>Race</cell>
+            <cell></cell>
+            <cell>White</cell>
+            <cell>Black</cell>
+            <cell>Hispanic</cell>
+            <cell>Other</cell>
+            <cell></cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Representation in juries</cell>
+            <cell></cell>
+            <cell>205</cell>
+            <cell>26</cell>
+            <cell>25</cell>
+            <cell>19</cell>
+            <cell></cell>
+            <cell>275</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Registered voters</cell>
+            <cell></cell>
+            <cell>0.72</cell>
+            <cell>0.07</cell>
+            <cell>0.12</cell>
+            <cell>0.09</cell>
+            <cell></cell>
+            <cell>1.00</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>
+        While the proportions in the juries do not precisely represent the population proportions, it is unclear whether these data provide convincing evidence that the sample is not representative. If the jurors really were randomly sampled from the registered voters, we might expect small differences due to chance. However, unusually large differences may provide convincing evidence that the juries were not representative.
+      </p>
+      
+      <p>
+        A second application, assessing the fit of a distribution, is presented at the end of this section. Daily stock returns from the S&amp;P500 for 25 years are used to assess whether stock activity each day is independent of the stock's behavior on previous days.
+      </p>
+      
+      <p>
+        In these problems, we would like to examine all bins simultaneously, not simply compare one or two bins at a time, which will require us to develop a new test statistic.
       </p>
     </introduction>
     
-    <subsection xml:id="subsec-gof-test-intro">
-      <title>Goodness of Fit Test</title>
+    <subsection xml:id="subsec-test-statistic-one-way">
+      <title>Creating a test statistic for one-way tables</title>
       
-      <p>
-        In a goodness of fit test, we compare observed counts to expected counts under a null
-        hypothesis. The test statistic measures how far the observed counts are from the expected counts.
-      </p>
-      
-      <definition xml:id="def-chi-square-statistic">
+      <example xml:id="ex-expected-juror-white-black">
         <statement>
           <p>
-            The <term>chi-square test statistic</term> for goodness of fit is:
-          </p>
-          <md>
-            \chi^2 = \sum \frac{(\text{observed} - \text{expected})^2}{\text{expected}} = \sum \frac{(O - E)^2}{E}
-          </md>
-          <p>
-            where the sum is taken over all categories.
+            Of the people in the city, 275 served on a jury. If the individuals are randomly selected to serve on a jury, about how many of the 275 people would we expect to be White? How many would we expect to be Black?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            About 72% of the population is White, so we would expect about 72% of the jurors to be White: <m>0.72\times 275 = 198</m>.
+          </p>
+          <p>
+            Similarly, we would expect about 7% of the jurors to be Black, which would correspond to about <m>0.07\times 275 = 19.25</m> Black jurors.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="ex-expected-juror-hispanic-other">
+        <statement>
+          <p>
+            Twelve percent of the population is Hispanic and 9% represent other races. How many of the 275 jurors would we expect to be Hispanic or from another race? Answers can be found in <xref ref="expectedJuryRepresentationIfNoBias"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Hispanic: <m>0.12 \times 275 = 33</m>. Other: <m>0.09 \times 275 = 24.75</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <table xml:id="expectedJuryRepresentationIfNoBias">
+        <title>Actual and expected make-up of the jurors.</title>
+        <tabular>
+          <row bottom="minor">
+            <cell>Race</cell>
+            <cell></cell>
+            <cell>White</cell>
+            <cell>Black</cell>
+            <cell>Hispanic</cell>
+            <cell>Other</cell>
+            <cell></cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Observed data</cell>
+            <cell></cell>
+            <cell>205</cell>
+            <cell>26</cell>
+            <cell>25</cell>
+            <cell>19</cell>
+            <cell></cell>
+            <cell>275</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Expected counts</cell>
+            <cell></cell>
+            <cell>198</cell>
+            <cell>19.25</cell>
+            <cell>33</cell>
+            <cell>24.75</cell>
+            <cell></cell>
+            <cell>275</cell>
+          </row>
+        </tabular>
+      </table>
       
       <p>
-        The chi-square statistic measures the total deviation between observed and expected counts.
-        Large values of <m>\chi^2</m> indicate a poor fit between the data and the null hypothesis.
+        The sample proportion represented from each race among the 275 jurors was not a precise match for any ethnic group. While some sampling variation is expected, we would expect the sample proportions to be fairly similar to the population proportions if there is no bias on juries. We need to test whether the differences are strong enough to provide convincing evidence that the jurors are not a random sample. These ideas can be organized into hypotheses:
+      </p>
+      <ul>
+        <li><m>H_0</m>: The jurors are a random sample, i.e. there is no racial bias in who serves on a jury, and the observed counts reflect natural sampling fluctuation.</li>
+        <li><m>H_A</m>: The jurors are not randomly sampled, i.e. there is racial bias in juror selection.</li>
+      </ul>
+      <p>
+        To evaluate these hypotheses, we quantify how different the observed counts are from the expected counts. Strong evidence for the alternative hypothesis would come in the form of unusually large deviations in the groups from what would be expected based on sampling variation alone.
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-chi-square-distribution">
-      <title>The Chi-Square Distribution</title>
+    <subsection xml:id="chiSquareTestStatistic">
+      <title>The chi-square test statistic</title>
       
       <p>
-        When the sample size is large enough, the chi-square test statistic follows a
-        <term>chi-square distribution</term>.
+        In previous hypothesis tests, we constructed a test statistic of the following form:
+      </p>
+      <me>
+        \frac{\text{point estimate} - \text{null value}}{\text{SE of point estimate}}
+      </me>
+      <p>
+        This construction was based on (1) identifying the difference between a point estimate and an expected value if the null hypothesis was true, and (2) standardizing that difference using the standard error of the point estimate. These two ideas will help in the construction of an appropriate test statistic for count data.
       </p>
       
-      <definition xml:id="def-chi-square-dist">
-        <statement>
-          <p>
-            The <term>chi-square distribution</term> is a right-skewed distribution that starts at
-            zero. It has one parameter: <term>degrees of freedom (df)</term>. For a goodness of fit
-            test with <m>k</m> categories:
-          </p>
-          <md>
-            df = k - 1
-          </md>
-        </statement>
-      </definition>
-      
       <p>
-        <alert>Conditions for the chi-square goodness of fit test:</alert>
+        Our strategy will be to first compute the difference between the observed counts and the counts we would expect if the null hypothesis was true, then we will standardize the difference:
       </p>
-      
-      <ol>
-        <li><alert>Independence:</alert> The observations must be independent.</li>
-        <li><alert>Sample size:</alert> Each expected count must be at least 5.</li>
-      </ol>
-      
+      <me>
+        Z_{1} = \frac{\text{observed White count} - \text{null White count}}{\text{SE of observed White count}}
+      </me>
       <p>
-        The p-value for a chi-square test is always found in the upper tail of the chi-square
-        distribution, since large values of <m>\chi^2</m> provide evidence against <m>H_0</m>.
+        The standard error for the point estimate of the count in binned data is the square root of the count under the null.<fn>Using some of the rules learned in earlier chapters, we might think that the standard error would be <m>np(1-p)</m>, where <m>n</m> is the sample size and <m>p</m> is the proportion in the population. This would be correct if we were looking only at one count. However, we are computing many standardized differences and adding them together. It can be shown<mdash/>though not here<mdash/>that the square root of the count is a better way to standardize the count differences.</fn> Therefore:
+      </p>
+      <me>
+        Z_1 = \frac{205 - 198}{\sqrt{198}} = 0.50
+      </me>
+      <p>
+        The fraction is very similar to previous test statistics: first compute a difference, then standardize it. These computations should also be completed for the Black, Hispanic, and other groups:
+      </p>
+      <md>
+        <mrow>\text{Black} \qquad Z_2 \amp = \frac{26-19.25}{\sqrt{19.25}}=1.54</mrow>
+        <mrow>\text{Hispanic} \qquad Z_3 \amp = \frac{25-33}{\sqrt{33}}=-1.39</mrow>
+        <mrow>\text{Other} \qquad Z_4 \amp = \frac{19-24.75}{\sqrt{24.75}}=-1.16</mrow>
+      </md>
+      <p>
+        We would like to use a single test statistic to determine if these four standardized differences are irregularly far from zero. That is, <m>Z_1</m>, <m>Z_2</m>, <m>Z_3</m>, and <m>Z_4</m> must be combined somehow to help determine if they<mdash/>as a group<mdash/>tend to be unusually far from zero. A first thought might be to take the absolute value of these four standardized differences and add them up:
+      </p>
+      <me>
+        |Z_1| + |Z_2| + |Z_3| + |Z_4| = 4.58
+      </me>
+      <p>
+        Indeed, this does give one number summarizing how far the actual counts are from what was expected. However, it is more common to add the squared values:
+      </p>
+      <me>
+        Z_1^2 + Z_2^2 + Z_3^2 + Z_4^2 = 5.89
+      </me>
+      <p>
+        Squaring each standardized difference before adding them together does two things:
+      </p>
+      <ul>
+        <li>Any standardized difference that is squared will now be positive.</li>
+        <li>Differences that already look unusual<mdash/>e.g. a standardized difference of 2.5<mdash/>will become much larger after being squared.</li>
+      </ul>
+      <p>
+        The test statistic <m>X^2</m>, which is the sum of the <m>Z^2</m> values, is generally used for these reasons. We can also write an equation for <m>X^2</m> using the observed counts and null counts:
+      </p>
+      <me>
+        X^2 = \frac{(\text{observed count}_1 - \text{null count}_1)^2}{\text{null count}_1} + \dots + \frac{(\text{observed count}_4 - \text{null count}_4)^2}{\text{null count}_4}
+      </me>
+      <p>
+        The final number <m>X^2</m> summarizes how strongly the observed counts tend to deviate from the null counts. In Section<nbsp/><xref ref="pValueForAChiSquareTest"/>, we will see that if the null hypothesis is true, then <m>X^2</m> follows a new distribution called a <em>chi-square distribution</em>. Using this distribution, we will be able to obtain a p-value to evaluate the hypotheses.
       </p>
     </subsection>
+    
+    <subsection xml:id="subsec-chi-square-dist-areas">
+      <title>The chi-square distribution and finding areas</title>
+      
+      <p>
+        The <term>chi-square distribution</term> is sometimes used to characterize data sets and statistics that are always positive and typically right skewed. Recall a normal distribution had two parameters<mdash/>mean and standard deviation<mdash/>that could be used to describe its exact characteristics. The chi-square distribution has just one parameter called <term>degrees of freedom (df)</term>, which influences the shape, center, and spread of the distribution.
+      </p>
+      
+      <exercise xml:id="exerChiSquareDistributionDescriptionWithMoreDOF">
+        <statement>
+          <p>
+            <xref ref="chiSquareDistributionWithInceasingDF"/> shows three chi-square distributions.
+          </p>
+          <p>
+            (a) How does the center of the distribution change when the degrees of freedom is larger?
+          </p>
+          <p>
+            (b) What about the variability (spread)?
+          </p>
+          <p>
+            (c) How does the shape change?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            (a) The center becomes larger. If took a careful look, we could see that the mean of each distribution is equal to the distribution's degrees of freedom.
+          </p>
+          <p>
+            (b) The variability increases as the degrees of freedom increases.
+          </p>
+          <p>
+            (c) The distribution is very strongly skewed for <m>df=2</m>, and then the distributions become more symmetric for the larger degrees of freedom <m>df=4</m> and <m>df=9</m>. We would see this trend continue if we examined distributions with even more larger degrees of freedom.
+          </p>
+        </solution>
+      </exercise>
+      
+      <figure xml:id="chiSquareDistributionWithInceasingDF">
+        <caption>Three chi-square distributions with varying degrees of freedom.</caption>
+        <image source="ch_inference_for_props/figures/chiSquareDistributionWithInceasingDF/chiSquareDistributionWithInceasingDF.pdf" width="80%">
+          <description>Three chi-square distributions are shown with degrees of freedom 2, 4, and 9 on the same plot. The horizontal axis ranges from 0 to 25<mdash/>recall that the chi-square distributions never take values smaller than 0. The chi-square distribution with 2 degrees of freedom starts at a peak at zero and then quickly declines more than halfway by the value of 2 and trails off after a value of about 5. The chi-square distribution with 4 degrees of freedom starts at 0 and quickly rises to a peak at about 2, before gradually declining and then more steeply declining starting at 3, before starting to flatten at about 5 or 6. The distribution has fallen very close to the horizontal axis by a value of 10. The chi-square distribution with 9 degrees of freedom starts at zero before gradually rising up to a peak at about 7 before declining again and trailing off between at around 15.</description>
+        </image>
+      </figure>
+      
+      <p>
+        <xref ref="chiSquareDistributionWithInceasingDF"/> and Guided Practice<nbsp/><xref ref="exerChiSquareDistributionDescriptionWithMoreDOF"/> demonstrate three general properties of chi-square distributions as the degrees of freedom increases: the distribution becomes more symmetric, the center moves to the right, and the variability inflates.
+      </p>
+      
+      <p>
+        Our principal interest in the chi-square distribution is the calculation of p-values, which (as we have seen before) is related to finding the relevant area in the tail of a distribution. The most common ways to do this are using computer software, using a graphing calculator, or using a table. For folks wanting to use the table option, we provide an outline of how to read the chi-square table in Appendix<nbsp/>C, which is also where you may find the table. For the examples below, use your preferred approach to confirm you get the same answers.
+      </p>
+      
+      <example xml:id="ex-chi-square-area-6-25-df3">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove6Point25WithDF3.pdf"/> shows a chi-square distribution with 3 degrees of freedom and an upper shaded tail starting at 6.25. Find the shaded area.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using statistical software or a graphing calculator, we can find that the upper tail area for a chi-square distribution with 3 degrees of freedom (<m>df</m>) and a cutoff of 6.25 is 0.1001. That is, the shaded upper tail of <xref ref="chiSquareAreaAbove6Point25WithDF3.pdf"/> has area 0.1.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="arrayOfFigureAreasForChiSquareDistribution">
+        <caption>Six chi-square distributions with shaded upper tails.</caption>
+        
+        <sidebyside widths="48% 48%">
+          <figure xml:id="chiSquareAreaAbove6Point25WithDF3.pdf">
+            <caption>Chi-square distribution with 3 degrees of freedom, area above 6.25 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove6Point25WithDF3.pdf" width="100%">
+              <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 6.25 shaded. This region appears to be about 10% of the area under the curve.</description>
+            </image>
+          </figure>
+          
+          <figure xml:id="chiSquareAreaAbove4Point3WithDF2.pdf">
+            <caption>2 degrees of freedom, area above 4.3 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove4Point3WithDF2.pdf" width="100%">
+              <description>A chi-square distribution with 2 degrees of freedom is shown, with the area above 4.3 shaded. This region appears to be about 10% of the area under the curve.</description>
+            </image>
+          </figure>
+        </sidebyside>
+        
+        <sidebyside widths="48% 48%">
+          <figure xml:id="chiSquareAreaAbove5Point1WithDF5.pdf">
+            <caption>5 degrees of freedom, area above 5.1 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove5Point1WithDF5.pdf" width="100%">
+              <description>A chi-square distribution with 5 degrees of freedom is shown, with the area above 5.1 shaded. This region appears to be very roughly 50% of the area under the curve.</description>
+            </image>
+          </figure>
+          
+          <figure xml:id="chiSquareAreaAbove11Point7WithDF7.pdf">
+            <caption>7 degrees of freedom, area above 11.7 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove11Point7WithDF7.pdf" width="100%">
+              <description>A chi-square distribution with 7 degrees of freedom is shown, with the area above 11.7 shaded. This region appears to be about 15% of the area under the curve.</description>
+            </image>
+          </figure>
+        </sidebyside>
+        
+        <sidebyside widths="48% 48%">
+          <figure xml:id="chiSquareAreaAbove10WithDF4.pdf">
+            <caption>4 degrees of freedom, area above 10 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove10WithDF4.pdf" width="100%">
+              <description>A chi-square distribution with 4 degrees of freedom is shown, with the area above 10 shaded. This region appears to be about 5% of the area under the curve.</description>
+            </image>
+          </figure>
+          
+          <figure xml:id="chiSquareAreaAbove9Point21WithDF3.pdf">
+            <caption>3 degrees of freedom, area above 9.21 shaded.</caption>
+            <image source="ch_inference_for_props/figures/arrayOfFigureAreasForChiSquareDistribution/chiSquareAreaAbove9Point21WithDF3.pdf" width="100%">
+              <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 9.21 shaded. This region appears to be about 3% of the area under the curve.</description>
+            </image>
+          </figure>
+        </sidebyside>
+      </figure>
+      
+      <example xml:id="ex-chi-square-area-4-3-df2">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove4Point3WithDF2.pdf"/> shows the upper tail of a chi-square distribution with 2 degrees of freedom. The bound for this upper tail is at 4.3. Find the tail area.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using software, we can find that the tail area shaded in <xref ref="chiSquareAreaAbove4Point3WithDF2.pdf"/> to be 0.1165. If using a table, we would only be able to find a range of values for the tail area: between 0.1 and 0.2.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-chi-square-area-5-1-df5">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove5Point1WithDF5.pdf"/> shows an upper tail for a chi-square distribution with 5 degrees of freedom and a cutoff of 5.1. Find the tail area.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using software, we would obtain a tail area of 0.4038. If using the table in Appendix<nbsp/>C, we would have identified that the tail area is larger than 0.3 but not be able to give the precise value.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="ex-chi-square-area-11-7-df7">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove11Point7WithDF7.pdf"/> shows a cutoff of 11.7 on a chi-square distribution with 7 degrees of freedom. Find the area of the upper tail.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The area is 0.1109. If using a table, we would identify that it falls between 0.1 and 0.2.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="ex-chi-square-area-10-df4">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove10WithDF4.pdf"/> shows a cutoff of 10 on a chi-square distribution with 4 degrees of freedom. Find the area of the upper tail.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Precise value: 0.0404. If using the table: between 0.02 and 0.05.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="ex-chi-square-area-9-21-df3">
+        <statement>
+          <p>
+            <xref ref="chiSquareAreaAbove9Point21WithDF3.pdf"/> shows a cutoff of 9.21 with a chi-square distribution with 3 df. Find the area of the upper tail.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Precise value: 0.0266. If using the table: between 0.02 and 0.05.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="pValueForAChiSquareTest">
+      <title>Finding a p-value for a chi-square distribution</title>
+      
+      <p>
+        In Section<nbsp/><xref ref="chiSquareTestStatistic"/>, we identified a new test statistic (<m>X^2</m>) within the context of assessing whether there was evidence of racial bias in how jurors were sampled. The null hypothesis represented the claim that jurors were randomly sampled and there was no racial bias. The alternative hypothesis was that there was racial bias in how the jurors were sampled.
+      </p>
+      
+      <p>
+        We determined that a large <m>X^2</m> value would suggest strong evidence favoring the alternative hypothesis: that there was racial bias. However, we could not quantify what the chance was of observing such a large test statistic (<m>X^2=5.89</m>) if the null hypothesis actually was true. This is where the chi-square distribution becomes useful. If the null hypothesis was true and there was no racial bias, then <m>X^2</m> would follow a chi-square distribution, with three degrees of freedom in this case. Under certain conditions, the statistic <m>X^2</m> follows a chi-square distribution with <m>k - 1</m> degrees of freedom, where <m>k</m> is the number of bins.
+      </p>
+      
+      <example xml:id="ex-juror-df">
+        <statement>
+          <p>
+            How many categories were there in the juror example? How many degrees of freedom should be associated with the chi-square distribution used for <m>X^2</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            In the jurors example, there were <m>k=4</m> categories: White, Black, Hispanic, and other. According to the rule above, the test statistic <m>X^2</m> should then follow a chi-square distribution with <m>k-1 = 3</m> degrees of freedom if <m>H_0</m> is true.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        Just like we checked sample size conditions to use a normal distribution in earlier sections, we must also check a sample size condition to safely apply the chi-square distribution for <m>X^2</m>. Each expected count must be at least 5. In the juror example, the expected counts were 198, 19.25, 33, and 24.75, all easily above 5, so we can apply the chi-square model to the test statistic, <m>X^2=5.89</m>.
+      </p>
+      
+      <example xml:id="ex-juror-pvalue">
+        <statement>
+          <p>
+            If the null hypothesis is true, the test statistic <m>X^2=5.89</m> would be closely associated with a chi-square distribution with three degrees of freedom. Using this distribution and test statistic, identify the p-value.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The chi-square distribution and p-value are shown in <xref ref="jurorHTPValueShown"/>. Because larger chi-square values correspond to stronger evidence against the null hypothesis, we shade the upper tail to represent the p-value. Using statistical software (or the table in Appendix<nbsp/>C), we can determine that the area is 0.1171. Generally we do not reject the null hypothesis with such a large p-value. In other words, the data do not provide convincing evidence of racial bias in the juror selection.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="jurorHTPValueShown">
+        <caption>The p-value for the juror hypothesis test is shaded in the chi-square distribution with <m>df=3</m>.</caption>
+        <image source="ch_inference_for_props/figures/jurorHTPValueShown/jurorHTPValueShown.pdf" width="55%">
+          <description>A chi-square distribution with 3 degrees of freedom is shown, with the area above 5.89 shaded. This region appears to be about 10% of the area under the curve.</description>
+        </image>
+      </figure>
+      
+      <assemblage xml:id="assem-chi-square-one-way">
+        <title>Chi-square test for one-way table</title>
+        <p>
+          Suppose we are to evaluate whether there is convincing evidence that a set of observed counts <m>O_1</m>, <m>O_2</m>, ..., <m>O_k</m> in <m>k</m> categories are unusually different from what might be expected under a null hypothesis. Call the <em>expected counts</em> that are based on the null hypothesis <m>E_1</m>, <m>E_2</m>, ..., <m>E_k</m>. If each expected count is at least 5 and the null hypothesis is true, then the test statistic below follows a chi-square distribution with <m>k-1</m> degrees of freedom:
+        </p>
+        <me>
+          X^2 = \frac{(O_1 - E_1)^2}{E_1} + \frac{(O_2 - E_2)^2}{E_2} + \cdots + \frac{(O_k - E_k)^2}{E_k}
+        </me>
+        <p>
+          The p-value for this test statistic is found by looking at the upper tail of this chi-square distribution. We consider the upper tail because larger values of <m>X^2</m> would provide greater evidence against the null hypothesis.
+        </p>
+      </assemblage>
+      
+      <assemblage xml:id="assem-chi-square-conditions">
+        <title>Conditions for the chi-square test</title>
+        <p>
+          There are two conditions that must be checked before performing a chi-square test:
+        </p>
+        <dl>
+          <li>
+            <title>Independence.</title>
+            <p>Each case that contributes a count to the table must be independent of all the other cases in the table.</p>
+          </li>
+          <li>
+            <title>Sample size / distribution.</title>
+            <p>Each particular scenario (i.e. cell count) must have at least 5 expected cases.</p>
+          </li>
+        </dl>
+        <p>
+          Failing to check conditions may affect the test's error rates.
+        </p>
+      </assemblage>
+      
+      <p>
+        When examining a table with just two bins, pick a single bin and use the one-proportion methods introduced in Section<nbsp/><xref ref="singleProportion"/>.
+      </p>
+    </subsection>
+    
+    <subsection xml:id="subsec-goodness-of-fit-distribution">
+      <title>Evaluating goodness of fit for a distribution</title>
+      
+      <p>
+        Section<nbsp/>3.5 would be useful background reading for this example, but it is not a prerequisite.
+      </p>
+      
+      <p>
+        We can apply the chi-square testing framework to the second problem in this section: evaluating whether a certain statistical model fits a data set. Daily stock returns from the S&amp;P500 for 10 years can be used to assess whether stock activity each day is independent of the stock's behavior on previous days. This sounds like a very complex question, and it is, but a chi-square test can be used to study the problem. We will label each day as Up or Down (D) depending on whether the market was up or down that day. For example, consider the following changes in price, their new labels of up and down, and then the number of days that must be observed before each Up day:
+      </p>
+      
+      <table xml:id="tab-sp500-example-sequence">
+        <title>Example sequence of daily price changes and waiting times.</title>
+        <tabular>
+          <row>
+            <cell>Change in price</cell>
+            <cell></cell>
+            <cell>2.52</cell>
+            <cell>-1.46</cell>
+            <cell>0.51</cell>
+            <cell>-4.07</cell>
+            <cell>3.36</cell>
+            <cell>1.10</cell>
+            <cell>-5.46</cell>
+            <cell>-1.03</cell>
+            <cell>-2.99</cell>
+            <cell>1.71</cell>
+          </row>
+          <row>
+            <cell>Outcome</cell>
+            <cell></cell>
+            <cell>Up</cell>
+            <cell>D</cell>
+            <cell>Up</cell>
+            <cell>D</cell>
+            <cell>Up</cell>
+            <cell>Up</cell>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell>Up</cell>
+          </row>
+          <row>
+            <cell>Days to Up</cell>
+            <cell></cell>
+            <cell>1</cell>
+            <cell>-</cell>
+            <cell>2</cell>
+            <cell>-</cell>
+            <cell>2</cell>
+            <cell>1</cell>
+            <cell>-</cell>
+            <cell>-</cell>
+            <cell>-</cell>
+            <cell>4</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>
+        If the days really are independent, then the number of days until a positive trading day should follow a geometric distribution. The geometric distribution describes the probability of waiting for the <m>k^{th}</m> trial to observe the first success. Here each up day (Up) represents a success, and down (D) days represent failures. In the data above, it took only one day until the market was up, so the first wait time was 1 day. It took two more days before we observed our next Up trading day, and two more for the third Up day. We would like to determine if these counts (1, 2, 2, 1, 4, and so on) follow the geometric distribution. <xref ref="sAndP500TimeToPosTrade"/> shows the number of waiting days for a positive trading day during 10 years for the S&amp;P500.
+      </p>
+      
+      <table xml:id="sAndP500TimeToPosTrade">
+        <title>Observed distribution of the waiting time until a positive trading day for the S&amp;P500.</title>
+        <tabular>
+          <row bottom="minor">
+            <cell>Days</cell>
+            <cell></cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+            <cell>7+</cell>
+            <cell></cell>
+            <cell>Total</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Observed</cell>
+            <cell></cell>
+            <cell>717</cell>
+            <cell>369</cell>
+            <cell>155</cell>
+            <cell>69</cell>
+            <cell>28</cell>
+            <cell>14</cell>
+            <cell>10</cell>
+            <cell></cell>
+            <cell>1362</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>
+        We consider how many days one must wait until observing an Up day on the S&amp;P500 stock index. If the stock activity was independent from one day to the next and the probability of a positive trading day was constant, then we would expect this waiting time to follow a <em>geometric distribution</em>. We can organize this into a hypothesis framework:
+      </p>
+      <ul>
+        <li><m>H_0</m>: The stock market being up or down on a given day is independent from all other days. We will consider the number of days that pass until an Up day is observed. Under this hypothesis, the number of days until an Up day should follow a geometric distribution.</li>
+        <li><m>H_A</m>: The stock market being up or down on a given day is not independent from all other days. Since we know the number of days until an Up day would follow a geometric distribution under the null, we look for deviations from the geometric distribution, which would support the alternative hypothesis.</li>
+      </ul>
+      <p>
+        There are important implications in our result for stock traders: if information from past trading days is useful in telling what will happen today, that information may provide an advantage over other traders.
+      </p>
+      
+      <p>
+        We consider data for the S&amp;P500 and summarize the waiting times in <xref ref="sAndP500TimeToPosTrade2"/> and <xref ref="geomFitEvaluationForSP500"/>. The S&amp;P500 was positive on 54.5% of those days.
+      </p>
+      
+      <table xml:id="sAndP500TimeToPosTrade2">
+        <title>Distribution of the waiting time until a positive trading day. The expected counts based on the geometric model are shown in the last row. To find each expected count, we identify the probability of waiting <m>D</m> days based on the geometric model (<m>P(D) = (1-0.545)^{D-1}(0.545)</m>) and multiply by the total number of streaks, 1362. For example, waiting for three days occurs under the geometric model about <m>0.455^2\times 0.545 = 0.1128 = 11.28\%</m> of the time, which corresponds to <m>0.1128 \times 1362 = 154</m> streaks.</title>
+        <tabular>
+          <row bottom="minor">
+            <cell>Days</cell>
+            <cell></cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+            <cell>7+</cell>
+            <cell></cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Observed</cell>
+            <cell></cell>
+            <cell>717</cell>
+            <cell>369</cell>
+            <cell>155</cell>
+            <cell>69</cell>
+            <cell>28</cell>
+            <cell>14</cell>
+            <cell>10</cell>
+            <cell></cell>
+            <cell>1362</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Geometric Model</cell>
+            <cell></cell>
+            <cell>743</cell>
+            <cell>338</cell>
+            <cell>154</cell>
+            <cell>70</cell>
+            <cell>32</cell>
+            <cell>14</cell>
+            <cell>12</cell>
+            <cell></cell>
+            <cell>1362</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <figure xml:id="geomFitEvaluationForSP500">
+        <caption>Side-by-side bar plot of the observed and expected counts for each waiting time.</caption>
+        <image source="ch_inference_for_props/figures/geomFitEvaluationForSP500/geomFitEvaluationForSP500.pdf" width="85%">
+          <description>A side-by-side bar plot is shown for the variable "Wait Until Positive Day", where the two groups shown for the bars are "Observed counts" and "Expected counts". The horizontal axis shows values 1, 2, 3, 4, 5, 6, and "7+". The bar heights highest for "1" at roughly 715 for Observed and 740 for Expected. The bar heights for "2" are about half as high as at "1", with values of about 370 for Observed and 340 for Expected. The bar heights for "3" are about another half has high at about 150 for each for observed and expected. The values at 5, 6, and 7+ are all relatively small, at or below about 30.</description>
+        </image>
+      </figure>
+      
+      <p>
+        Because applying the chi-square framework requires expected counts to be at least 5, we have <em>binned</em> together all the cases where the waiting time was at least 7 days to ensure each expected count is well above this minimum. The actual data, shown in the <em>Observed</em> row in <xref ref="sAndP500TimeToPosTrade2"/>, can be compared to the expected counts from the <em>Geometric Model</em> row. The method for computing expected counts is discussed in <xref ref="sAndP500TimeToPosTrade2"/>. In general, the expected counts are determined by (1) identifying the null proportion associated with each bin, then (2) multiplying each null proportion by the total count to obtain the expected counts. That is, this strategy identifies what proportion of the total count we would expect to be in each bin.
+      </p>
+      
+      <example xml:id="ex-sp500-deviations">
+        <statement>
+          <p>
+            Do you notice any unusually large deviations in the graph? Can you tell if these deviations are due to chance just by looking?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            It is not obvious whether differences in the observed counts and the expected counts from the geometric distribution are significantly different. That is, it is not clear whether these deviations might be due to chance or whether they are so strong that the data provide convincing evidence against the null hypothesis. However, we can perform a chi-square test using the counts in <xref ref="sAndP500TimeToPosTrade2"/>.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="ex-sp500-chi-square-calc">
+        <statement>
+          <p>
+            <xref ref="sAndP500TimeToPosTrade2"/> provides a set of count data for waiting times (<m>O_1=717</m>, <m>O_2=369</m>, ...) and expected counts under the geometric distribution (<m>E_1=743</m>, <m>E_2=338</m>, ...). Compute the chi-square test statistic, <m>X^2</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>X^2 = \frac{(717-743)^2}{743} + \frac{(369-338)^2}{338} + \cdots + \frac{(10-12)^2}{12} = 4.61</m>
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="ex-sp500-df">
+        <statement>
+          <p>
+            Because the expected counts are all at least 5, we can safely apply the chi-square distribution to <m>X^2</m>. However, how many degrees of freedom should we use?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            There are <m>k = 7</m> groups, so we use <m>df = k - 1 = 6</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example xml:id="DNRejectGeomModelForSP500">
+        <statement>
+          <p>
+            If the observed counts follow the geometric model, then the chi-square test statistic <m>X^2 = 4.61</m> would closely follow a chi-square distribution with <m>df = 6</m>. Using this information, compute a p-value.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <xref ref="geomFitPValueForSP500"/> shows the chi-square distribution, cutoff, and the shaded p-value. Using software, we can find the p-value: 0.5951. Ultimately, we do not have sufficient evidence to reject the notion that the wait times follow a geometric distribution for the last 10 years of data for the S&amp;P500, i.e. we cannot reject the notion that trading days are independent.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="geomFitPValueForSP500">
+        <caption>Chi-square distribution with 6 degrees of freedom. The p-value for the stock analysis is shaded.</caption>
+        <image source="ch_inference_for_props/figures/geomFitPValueForSP500/geomFitPValueForSP500.pdf" width="74%">
+          <description>A chi-square distribution with 6 degrees of freedom is shown, with the area above 4.61 shaded. This region appears to be about 60% of the area under the curve.</description>
+        </image>
+      </figure>
+      
+      <example xml:id="ex-sp500-interpretation">
+        <statement>
+          <p>
+            In Example<nbsp/><xref ref="DNRejectGeomModelForSP500"/>, we did not reject the null hypothesis that the trading days are independent during the last 10 years of data. Why is this so important?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            It may be tempting to think the market is "due" for an Up day if there have been several consecutive days where it has been down. However, we haven't found strong evidence that there's any such property where the market is "due" for a correction. At the very least, the analysis suggests any dependence between days is very weak.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+    
   </section>
   
   <!-- Section 7.4: Testing for independence in two-way tables -->
