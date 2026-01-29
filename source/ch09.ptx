@@ -666,81 +666,1113 @@
         Adjusted <m>R^2</m> could have been used in Chapter 7. However, when there is only <m>k = 1</m> predictor, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.
       </p>
     </subsection>
+    
+    <exercises xml:id="exercises-multiple-regression-intro">
+      
+      <exercise xml:id="exer-baby-weights-smoke">
+        <title>Baby weights, Part I</title>
+        <statement>
+          <p>
+            The Child Health and Development Studies investigate a range of topics. One study considered all pregnancies between 1960 and 1967 among women in the Kaiser Foundation Health Plan in the San Francisco East Bay area. Here, we study the relationship between smoking and weight of the baby. The variable <c>smoke</c> is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, based on the smoking status of the mother.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>123.05</cell>
+              <cell>0.65</cell>
+              <cell>189.60</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>smoke</cell>
+              <cell>-8.94</cell>
+              <cell>1.03</cell>
+              <cell>-8.65</cell>
+              <cell>0.0000</cell>
+            </row>
+          </tabular>
+          <p>
+            The variability within the smokers and non-smokers are about equal and the distributions are symmetric. With these conditions satisfied, it is reasonable to apply the model. (Note that we don't need to check linearity since the predictor has only two levels.)
+          </p>
+          <p>
+            <ol marker="a.">
+              <li><p>Write the equation of the regression model.</p></li>
+              <li><p>Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers.</p></li>
+              <li><p>Is there a statistically significant relationship between the average birth weight and smoking?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-baby-weights-parity">
+        <title>Baby weights, Part II</title>
+        <statement>
+          <p>
+            <xref ref="exer-baby-weights-smoke"/> introduces a data set on birth weight of babies. Another variable we consider is <c>parity</c>, which is 1 if the child is the first born, and 0 otherwise. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, from <c>parity</c>.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>120.07</cell>
+              <cell>0.60</cell>
+              <cell>199.94</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>parity</cell>
+              <cell>-1.93</cell>
+              <cell>1.19</cell>
+              <cell>-1.62</cell>
+              <cell>0.1052</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Write the equation of the regression model.</p></li>
+              <li><p>Interpret the slope in this context, and calculate the predicted birth weight of first borns and others.</p></li>
+              <li><p>Is there a statistically significant relationship between the average birth weight and parity?</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-baby-weights-mlr">
+        <title>Baby weights, Part III</title>
+        <statement>
+          <p>
+            We considered the variables <c>smoke</c> and <c>parity</c>, one at a time, in modeling birth weights of babies in <xref ref="exer-baby-weights-smoke"/> and <xref ref="exer-baby-weights-parity"/>. A more realistic approach to modeling infant weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in days (<c>gestation</c>), mother's age in years (<c>age</c>), mother's height in inches (<c>height</c>), and mother's pregnancy weight in pounds (<c>weight</c>). Below are three observations from this data set.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>bwt</cell>
+              <cell>gestation</cell>
+              <cell>parity</cell>
+              <cell>age</cell>
+              <cell>height</cell>
+              <cell>weight</cell>
+              <cell>smoke</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>120</cell>
+              <cell>284</cell>
+              <cell>0</cell>
+              <cell>27</cell>
+              <cell>62</cell>
+              <cell>100</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>113</cell>
+              <cell>282</cell>
+              <cell>0</cell>
+              <cell>33</cell>
+              <cell>64</cell>
+              <cell>135</cell>
+              <cell>0</cell>
+            </row>
+            <row>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+            </row>
+            <row>
+              <cell>1236</cell>
+              <cell>117</cell>
+              <cell>297</cell>
+              <cell>0</cell>
+              <cell>38</cell>
+              <cell>65</cell>
+              <cell>129</cell>
+              <cell>0</cell>
+            </row>
+          </tabular>
+          <p>
+            The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables included in the data set.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-80.41</cell>
+              <cell>14.35</cell>
+              <cell>-5.60</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>gestation</cell>
+              <cell>0.44</cell>
+              <cell>0.03</cell>
+              <cell>15.26</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>parity</cell>
+              <cell>-3.33</cell>
+              <cell>1.13</cell>
+              <cell>-2.95</cell>
+              <cell>0.0033</cell>
+            </row>
+            <row>
+              <cell>age</cell>
+              <cell>-0.01</cell>
+              <cell>0.09</cell>
+              <cell>-0.10</cell>
+              <cell>0.9170</cell>
+            </row>
+            <row>
+              <cell>height</cell>
+              <cell>1.15</cell>
+              <cell>0.21</cell>
+              <cell>5.63</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>weight</cell>
+              <cell>0.05</cell>
+              <cell>0.03</cell>
+              <cell>1.99</cell>
+              <cell>0.0471</cell>
+            </row>
+            <row>
+              <cell>smoke</cell>
+              <cell>-8.40</cell>
+              <cell>0.95</cell>
+              <cell>-8.81</cell>
+              <cell>0.0000</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Write the equation of the regression model that includes all of the variables.</p></li>
+              <li><p>Interpret the slopes of <c>gestation</c> and <c>age</c> in this context.</p></li>
+              <li><p>The coefficient for <c>parity</c> is different than in the linear model shown in <xref ref="exer-baby-weights-parity"/>. Why might there be a difference?</p></li>
+              <li><p>Calculate the residual for the first observation in the data set.</p></li>
+              <li><p>The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 1,236 observations in the data set.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-absenteeism">
+        <title>Absenteeism, Part I</title>
+        <statement>
+          <p>
+            Researchers interested in the relationship between absenteeism from school and certain demographic characteristics of children collected data from 146 randomly sampled students in rural New South Wales, Australia, in a particular school year. Below are three observations from this data set.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>eth</cell>
+              <cell>sex</cell>
+              <cell>lrn</cell>
+              <cell>days</cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>0</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>11</cell>
+            </row>
+            <row>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+              <cell><m>\vdots</m></cell>
+            </row>
+            <row>
+              <cell>146</cell>
+              <cell>1</cell>
+              <cell>0</cell>
+              <cell>0</cell>
+              <cell>37</cell>
+            </row>
+          </tabular>
+          <p>
+            The summary table below shows the results of a linear regression model for predicting the average number of days absent based on ethnic background (<c>eth</c>: 0 - aboriginal, 1 - not aboriginal), sex (<c>sex</c>: 0 - female, 1 - male), and learner status (<c>lrn</c>: 0 - average learner, 1 - slow learner).
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>18.93</cell>
+              <cell>2.57</cell>
+              <cell>7.37</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>eth</cell>
+              <cell>-9.11</cell>
+              <cell>2.60</cell>
+              <cell>-3.51</cell>
+              <cell>0.0000</cell>
+            </row>
+            <row>
+              <cell>sex</cell>
+              <cell>3.10</cell>
+              <cell>2.64</cell>
+              <cell>1.18</cell>
+              <cell>0.2411</cell>
+            </row>
+            <row>
+              <cell>lrn</cell>
+              <cell>2.15</cell>
+              <cell>2.65</cell>
+              <cell>0.81</cell>
+              <cell>0.4177</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Write the equation of the regression model.</p></li>
+              <li><p>Interpret each one of the slopes in this context.</p></li>
+              <li><p>Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school.</p></li>
+              <li><p>The variance of the residuals is 240.57, and the variance of the number of absent days for all students in the data set is 264.17. Calculate the <m>R^2</m> and the adjusted <m>R^2</m>. Note that there are 146 observations in the data set.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-gpa">
+        <title>GPA</title>
+        <statement>
+          <p>
+            A survey of 55 Duke University students asked about their GPA, number of hours they study at night, number of nights they go out, and their gender. Summary output of the regression model is shown below. Note that male is coded as 1.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>3.45</cell>
+              <cell>0.35</cell>
+              <cell>9.85</cell>
+              <cell>0.00</cell>
+            </row>
+            <row>
+              <cell>studyweek</cell>
+              <cell>0.00</cell>
+              <cell>0.00</cell>
+              <cell>0.27</cell>
+              <cell>0.79</cell>
+            </row>
+            <row>
+              <cell>sleepnight</cell>
+              <cell>0.01</cell>
+              <cell>0.05</cell>
+              <cell>0.11</cell>
+              <cell>0.91</cell>
+            </row>
+            <row>
+              <cell>outnight</cell>
+              <cell>0.05</cell>
+              <cell>0.05</cell>
+              <cell>1.01</cell>
+              <cell>0.32</cell>
+            </row>
+            <row>
+              <cell>gender</cell>
+              <cell>-0.08</cell>
+              <cell>0.12</cell>
+              <cell>-0.68</cell>
+              <cell>0.50</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Calculate a 95% confidence interval for the coefficient of gender in the model, and interpret it in the context of the data.</p></li>
+              <li><p>Would you expect a 95% confidence interval for the slope of the remaining variables to include 0? Explain.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-cherry-trees">
+        <title>Cherry trees</title>
+        <statement>
+          <p>
+            Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet.
+          </p>
+          <tabular>
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Estimate</cell>
+              <cell>Std. Error</cell>
+              <cell>t value</cell>
+              <cell>Pr(<m>></m>|t|)</cell>
+            </row>
+            <row>
+              <cell>(Intercept)</cell>
+              <cell>-57.99</cell>
+              <cell>8.64</cell>
+              <cell>-6.71</cell>
+              <cell>0.00</cell>
+            </row>
+            <row>
+              <cell>height</cell>
+              <cell>0.34</cell>
+              <cell>0.13</cell>
+              <cell>2.61</cell>
+              <cell>0.01</cell>
+            </row>
+            <row>
+              <cell>diameter</cell>
+              <cell>4.71</cell>
+              <cell>0.26</cell>
+              <cell>17.82</cell>
+              <cell>0.00</cell>
+            </row>
+          </tabular>
+          <p>
+            <ol marker="a.">
+              <li><p>Calculate a 95% confidence interval for the coefficient of height, and interpret it in the context of the data.</p></li>
+              <li><p>One tree in this sample is 79 feet tall, has a diameter of 11.3 inches, and is 24.2 cubic feet in volume. Determine if the model overestimates or underestimates the volume of this tree, and by how much.</p></li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+      
+    </exercises>
   </section>
   
   <!-- Section 9.2: Model selection -->
   <section xml:id="sec-model-selection">
     <title>Model Selection</title>
     
-    <introduction>
-      <p>
-        With multiple regression, we have the flexibility to include many predictors, but we must
-        decide which variables to include in our model. Including too many variables can lead to
-        overfitting, while including too few may leave out important information.
-      </p>
-    </introduction>
+    <p>
+      The best model is not always the most complicated. Sometimes including variables that are not evidently important can actually reduce the accuracy of predictions. In this section, we discuss model selection strategies, which will help us eliminate variables from the model that are found to be less important. It's common (and hip, at least in the statistical world) to refer to models that have undergone such variable pruning as <term>parsimonious</term>.
+    </p>
     
-    <subsection xml:id="subsec-r-squared-adjusted">
-      <title>R-squared and Adjusted R-squared</title>
+    <p>
+      In practice, the model that includes all available explanatory variables is often referred to as the <term>full model</term>. The full model may not be the best model, and if it isn't, we want to identify a smaller model that is preferable.
+    </p>
+    
+    <subsection xml:id="subsec-identifying-variables">
+      <title>Identifying variables in the model that may not be helpful</title>
       
       <p>
-        Recall that <m>R^2</m> represents the proportion of variation in the response variable that
-        is explained by the predictors. However, <m>R^2</m> increases whenever we add a new variable,
-        even if that variable is not truly helpful.
+        Adjusted <m>R^2</m> describes the strength of a model fit, and it is a useful tool for evaluating which predictors are adding value to the model, where <em>adding value</em> means they are (likely) improving the accuracy in predicting future outcomes.
       </p>
       
-      <definition xml:id="def-adjusted-r-squared">
+      <p>
+        Let's consider two models, which are shown in <xref ref="fig-loans-full-model-selection"/> and <xref ref="fig-loans-model-all-but-issued"/>. The first table summarizes the full model since it includes all predictors, while the second does not include the <c>issued</c> variable.
+      </p>
+      
+      <figure xml:id="fig-loans-full-model-selection">
+        <caption>The fit for the full regression model, including the adjusted <m>R^2</m>.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>1.9251</cell>
+            <cell>0.2102</cell>
+            <cell>9.16</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (source_only)</cell>
+            <cell>0.9750</cell>
+            <cell>0.0991</cell>
+            <cell>9.83</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (verified)</cell>
+            <cell>2.5374</cell>
+            <cell>0.1172</cell>
+            <cell>21.65</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>debt_to_income</cell>
+            <cell>0.0211</cell>
+            <cell>0.0029</cell>
+            <cell>7.18</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>credit_util</cell>
+            <cell>4.8959</cell>
+            <cell>0.1619</cell>
+            <cell>30.24</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>bankruptcy</cell>
+            <cell>0.3864</cell>
+            <cell>0.1324</cell>
+            <cell>2.92</cell>
+            <cell>0.0035</cell>
+          </row>
+          <row>
+            <cell>term</cell>
+            <cell>0.1537</cell>
+            <cell>0.0039</cell>
+            <cell>38.96</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>issued (Jan2018)</cell>
+            <cell>0.0276</cell>
+            <cell>0.1081</cell>
+            <cell>0.26</cell>
+            <cell>0.7981</cell>
+          </row>
+          <row>
+            <cell>issued (Mar2018)</cell>
+            <cell>-0.0397</cell>
+            <cell>0.1065</cell>
+            <cell>-0.37</cell>
+            <cell>0.7093</cell>
+          </row>
+          <row>
+            <cell>credit_checks</cell>
+            <cell>0.2282</cell>
+            <cell>0.0182</cell>
+            <cell>12.51</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell halign="left" colspan="3"><m>R_{adj}^2 = 0.25843</m></cell>
+            <cell halign="right" colspan="2"><m>df=9990</m></cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <figure xml:id="fig-loans-model-all-but-issued">
+        <caption>The fit for the regression model after dropping the <c>issued</c> variable.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>1.9213</cell>
+            <cell>0.1982</cell>
+            <cell>9.69</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (source_only)</cell>
+            <cell>0.9740</cell>
+            <cell>0.0991</cell>
+            <cell>9.83</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (verified)</cell>
+            <cell>2.5355</cell>
+            <cell>0.1172</cell>
+            <cell>21.64</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>debt_to_income</cell>
+            <cell>0.0211</cell>
+            <cell>0.0029</cell>
+            <cell>7.19</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>credit_util</cell>
+            <cell>4.8958</cell>
+            <cell>0.1619</cell>
+            <cell>30.25</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>bankruptcy</cell>
+            <cell>0.3869</cell>
+            <cell>0.1324</cell>
+            <cell>2.92</cell>
+            <cell>0.0035</cell>
+          </row>
+          <row>
+            <cell>term</cell>
+            <cell>0.1537</cell>
+            <cell>0.0039</cell>
+            <cell>38.97</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>credit_checks</cell>
+            <cell>0.2283</cell>
+            <cell>0.0182</cell>
+            <cell>12.51</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell halign="left" colspan="3"><m>R_{adj}^2 = 0.25854</m></cell>
+            <cell halign="right" colspan="2"><m>df=9992</m></cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <example xml:id="ex-which-model-better">
+        <title>Which of the two models is better?</title>
         <statement>
           <p>
-            <term>Adjusted R-squared</term> is a modified version of <m>R^2</m> that accounts for
-            the number of predictors in the model:
-            <me>
-              R^2_{adj} = 1 - \frac{SSE/(n-k-1)}{SST/(n-1)}
-            </me>
-            where <m>n</m> is the number of observations and <m>k</m> is the number of predictors.
+            Which of the two models is better?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            We compare the adjusted <m>R^2</m> of each model to determine which to choose. Since the first model has an <m>R^2_{adj}</m> smaller than the <m>R^2_{adj}</m> of the second model, we prefer the second model to the first.
+          </p>
+        </solution>
+      </example>
       
       <p>
-        Adjusted <m>R^2</m> can decrease if we add a variable that does not improve the model
-        sufficiently to offset the penalty for adding parameters.
+        Will the model without <c>issued</c> be better than the model with <c>issued</c>? We cannot know for sure, but based on the adjusted <m>R^2</m>, this is our best assessment.
       </p>
     </subsection>
     
-    <subsection xml:id="subsec-variable-selection">
-      <title>Variable Selection Strategies</title>
+    <subsection xml:id="subsec-two-model-selection-strategies">
+      <title>Two model selection strategies</title>
       
       <p>
-        Several approaches exist for selecting which variables to include in a multiple regression
-        model:
+        Two common strategies for adding or removing variables in a multiple regression model are called <em>backward elimination</em> and <em>forward selection</em>. These techniques are often referred to as <term>stepwise</term> model selection strategies, because they add or delete one variable at a time as they <q>step</q> through the candidate predictors.
       </p>
       
-      <ul>
-        <li>
+      <p>
+        <term>Backward elimination</term> starts with the model that includes all potential predictor variables. Variables are eliminated one-at-a-time from the model until we cannot improve the adjusted <m>R^2</m>. The strategy within each elimination step is to eliminate the variable that leads to the largest improvement in adjusted <m>R^2</m>.
+      </p>
+      
+      <example xml:id="ex-loans-backward-elim">
+        <title>Backward elimination with the loans data</title>
+        <statement>
           <p>
-            <term>Backward elimination:</term> Start with all variables and remove the least
-            significant one at each step.
+            Results corresponding to the <em>full model</em> for the <c>loans</c> data are shown in <xref ref="fig-loans-full-model-selection"/>. How should we proceed under the backward elimination strategy?
           </p>
-        </li>
-        <li>
+        </statement>
+        <solution>
           <p>
-            <term>Forward selection:</term> Start with no variables and add the most significant
-            one at each step.
+            Our baseline adjusted <m>R^2</m> from the full model is <m>R^2_{adj} = 0.25843</m>, and we need to determine whether dropping a predictor will improve the adjusted <m>R^2</m>. To check, we fit models that each drop a different predictor, and we record the adjusted <m>R^2</m>:
           </p>
-        </li>
-        <li>
+          <tabular halign="center">
+            <row>
+              <cell>Exclude...</cell>
+              <cell><c>income_ver</c></cell>
+              <cell><c>debt_to_income</c></cell>
+              <cell><c>credit_util</c></cell>
+              <cell><c>bankruptcy</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.22380</m></cell>
+              <cell><m>R^2_{adj} = 0.25468</m></cell>
+              <cell><m>R^2_{adj} = 0.19063</m></cell>
+              <cell><m>R^2_{adj} = 0.25787</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><c>term</c></cell>
+              <cell><c>issued</c></cell>
+              <cell><c>credit_checks</c></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.14581</m></cell>
+              <cell><m>R^2_{adj} = 0.25854</m></cell>
+              <cell><m>R^2_{adj} = 0.24689</m></cell>
+              <cell></cell>
+            </row>
+          </tabular>
           <p>
-            <term>Stepwise selection:</term> A combination of forward and backward approaches.
+            The model without <c>issued</c> has the highest adjusted <m>R^2</m> of 0.25854, higher than the adjusted <m>R^2</m> for the full model. Because eliminating <c>issued</c> leads to a model with a higher adjusted <m>R^2</m>, we drop <c>issued</c> from the model.
           </p>
-        </li>
-        <li>
           <p>
-            <term>Best subset selection:</term> Evaluate all possible combinations of predictors.
+            Since we eliminated a predictor from the model in the first step, we see whether we should eliminate any additional predictors. Our baseline adjusted <m>R^2</m> is now <m>R^2_{adj} = 0.25854</m>. We now fit new models, which consider eliminating each of the remaining predictors in addition to <c>issued</c>:
           </p>
-        </li>
-      </ul>
+          <tabular halign="center">
+            <row>
+              <cell>Exclude <c>issued</c> and...</cell>
+              <cell><c>income_ver</c></cell>
+              <cell><c>debt_to_income</c></cell>
+              <cell><c>credit_util</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.22395</m></cell>
+              <cell><m>R^2_{adj} = 0.25479</m></cell>
+              <cell><m>R^2_{adj} = 0.19074</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><c>bankruptcy</c></cell>
+              <cell><c>term</c></cell>
+              <cell><c>credit_checks</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.25798</m></cell>
+              <cell><m>R^2_{adj} = 0.14592</m></cell>
+              <cell><m>R^2_{adj} = 0.24701</m></cell>
+            </row>
+          </tabular>
+          <p>
+            None of these models lead to an improvement in adjusted <m>R^2</m>, so we do not eliminate any of the remaining predictors. That is, after backward elimination, we are left with the model that keeps all predictors except <c>issued</c>, which we can summarize using the coefficients from <xref ref="fig-loans-model-all-but-issued"/>:
+            <md>
+              <mrow>\widehat{\text{rate}} \amp = 1.921 + 0.974 \times \mathbb{1}_{\text{income\_ver = source\_only}} + 2.535 \times \mathbb{1}_{\text{income\_ver = verified}}</mrow>
+              <mrow>\amp \qquad + 0.021 \times \text{debt\_to\_income} + 4.896 \times \text{credit\_util} + 0.387 \times \text{bankruptcy}</mrow>
+              <mrow>\amp \qquad + 0.154 \times \text{term} + 0.228 \times \text{credit\_checks}</mrow>
+            </md>
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        The <term>forward selection</term> strategy is the reverse of the backward elimination technique. Instead of eliminating variables one-at-a-time, we add variables one-at-a-time until we cannot find any variables that improve the model (as measured by adjusted <m>R^2</m>).
+      </p>
+      
+      <example xml:id="ex-loans-forward-selection">
+        <title>Forward selection with the loans data</title>
+        <statement>
+          <p>
+            Construct a model for the <c>loans</c> data set using the forward selection strategy.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We start with the model that includes no variables. Then we fit each of the possible models with just one variable. That is, we fit the model including just <c>income_ver</c>, then the model including just <c>debt_to_income</c>, then a model with just <c>credit_util</c>, and so on. Then we examine the adjusted <m>R^2</m> for each of these models:
+          </p>
+          <tabular halign="center">
+            <row>
+              <cell>Add...</cell>
+              <cell><c>income_ver</c></cell>
+              <cell><c>debt_to_income</c></cell>
+              <cell><c>credit_util</c></cell>
+              <cell><c>bankruptcy</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.05926</m></cell>
+              <cell><m>R^2_{adj} = 0.01946</m></cell>
+              <cell><m>R^2_{adj} = 0.06452</m></cell>
+              <cell><m>R^2_{adj} = 0.00222</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><c>term</c></cell>
+              <cell><c>issued</c></cell>
+              <cell><c>credit_checks</c></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.12855</m></cell>
+              <cell><m>R^2_{adj} = 0.00018</m></cell>
+              <cell><m>R^2_{adj} = 0.01711</m></cell>
+              <cell></cell>
+            </row>
+          </tabular>
+          <p>
+            In this first step, we compare the adjusted <m>R^2</m> against a baseline model that has no predictors. The no-predictors model always has <m>R_{adj}^2 = 0</m>. The model with one predictor that has the largest adjusted <m>R^2</m> is the model with the <c>term</c> predictor, and because this adjusted <m>R^2</m> is larger than the adjusted <m>R^2</m> from the model with no predictors (<m>R_{adj}^2 = 0</m>), we will add this variable to our model.
+          </p>
+          <p>
+            We repeat the process again, this time considering 2-predictor models where one of the predictors is <c>term</c> and with a new baseline of <m>R^2_{adj} = 0.12855</m>:
+          </p>
+          <tabular halign="center">
+            <row>
+              <cell>Add <c>term</c> and...</cell>
+              <cell><c>income_ver</c></cell>
+              <cell><c>debt_to_income</c></cell>
+              <cell><c>credit_util</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.16851</m></cell>
+              <cell><m>R^2_{adj} = 0.14368</m></cell>
+              <cell><m>R^2_{adj} = 0.20046</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><c>bankruptcy</c></cell>
+              <cell><c>issued</c></cell>
+              <cell><c>credit_checks</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.13070</m></cell>
+              <cell><m>R^2_{adj} = 0.12840</m></cell>
+              <cell><m>R^2_{adj} = 0.14294</m></cell>
+            </row>
+          </tabular>
+          <p>
+            The best second predictor, <c>credit_util</c>, has a higher adjusted <m>R^2</m> (0.20046) than the baseline (0.12855), so we also add <c>credit_util</c> to the model.
+          </p>
+          <p>
+            Since we have again added a variable to the model, we continue and see whether it would be beneficial to add a third variable:
+          </p>
+          <tabular halign="center">
+            <row>
+              <cell>Add <c>term</c>, <c>credit_util</c>, and...</cell>
+              <cell><c>income_ver</c></cell>
+              <cell><c>debt_to_income</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.24183</m></cell>
+              <cell><m>R^2_{adj} = 0.20810</m></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell></cell>
+              <cell></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><c>bankruptcy</c></cell>
+              <cell><c>issued</c></cell>
+              <cell><c>credit_checks</c></cell>
+            </row>
+            <row>
+              <cell></cell>
+              <cell><m>R^2_{adj} = 0.20169</m></cell>
+              <cell><m>R^2_{adj} = 0.20031</m></cell>
+              <cell><m>R^2_{adj} = 0.21629</m></cell>
+            </row>
+          </tabular>
+          <p>
+            The model adding <c>income_ver</c> improved adjusted <m>R^2</m> (0.24183 from 0.20046), so we add <c>income_ver</c> to the model.
+          </p>
+          <p>
+            We continue on in this way, next adding <c>debt_to_income</c>, then <c>credit_checks</c>, and <c>bankruptcy</c>. At this point, we come again to the <c>issued</c> variable: adding this variable leads to <m>R_{adj}^2 = 0.25843</m>, while keeping all the other variables but excluding <c>issued</c> leads to a higher <m>R_{adj}^2 = 0.25854</m>. This means we do not add <c>issued</c>. In this example, we have arrived at the same model that we identified from backward elimination.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage xml:id="assem-model-selection-strategies">
+        <title>Model selection strategies</title>
+        <p>
+          Backward elimination begins with the model having the largest number of predictors and eliminates variables one-by-one until we are satisfied that all remaining variables are important to the model. Forward selection starts with no variables included in the model, then it adds in variables according to their importance until no other important variables are found.
+        </p>
+      </assemblage>
+      
+      <p>
+        Backward elimination and forward selection sometimes arrive at different final models. If trying both techniques and this happens, it's common to choose the model with the larger <m>R_{adj}^2</m>.
+      </p>
     </subsection>
+    
+    <subsection xml:id="subsec-pvalue-approach">
+      <title>The p-value approach, an alternative to adjusted <m>R^2</m></title>
+      
+      <p>
+        The p-value may be used as an alternative to <m>R_{adj}^2</m> for model selection:
+      </p>
+      
+      <dl>
+        <li>
+          <title>Backward elimination with the p-value approach</title>
+          <p>
+            In backward elimination, we would identify the predictor corresponding to the largest p-value. If the p-value is above the significance level, usually <m>\alpha = 0.05</m>, then we would drop that variable, refit the model, and repeat the process. If the largest p-value is less than <m>\alpha = 0.05</m>, then we would not eliminate any predictors and the current model would be our best-fitting model.
+          </p>
+        </li>
+        <li>
+          <title>Forward selection with the p-value approach</title>
+          <p>
+            In forward selection with p-values, we reverse the process. We begin with a model that has no predictors, then we fit a model for each possible predictor, identifying the model where the corresponding predictor's p-value is smallest. If that p-value is smaller than <m>\alpha = 0.05</m>, we add it to the model and repeat the process, considering whether to add more variables one-at-a-time. When none of the remaining predictors can be added to the model and have a p-value less than 0.05, then we stop adding variables and the current model would be our best-fitting model.
+          </p>
+        </li>
+      </dl>
+      
+      <exercise xml:id="exer-pvalue-backward-elim">
+        <statement>
+          <p>
+            Examine <xref ref="fig-loans-model-all-but-issued"/>, which considers the model including all variables except the variable for the month the loan was issued. If we were using the p-value approach with backward elimination and we were considering this model, which of these variables would be up for elimination? Would we drop that variable, or would we keep it in the model?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The <c>bankruptcy</c> predictor is up for elimination since it has the largest p-value. However, since that p-value is smaller than 0.05, we would still keep it in the model.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        While the adjusted <m>R^2</m> and p-value approaches are similar, they sometimes lead to different models, with the <m>R_{adj}^2</m> approach tending to include more predictors in the final model.
+      </p>
+      
+      <assemblage xml:id="assem-adjusted-r2-vs-pvalue">
+        <title>Adjusted <m>R^2</m> vs p-value approach</title>
+        <p>
+          When the sole goal is to improve prediction accuracy, use <m>R_{adj}^2</m>. This is commonly the case in machine learning applications.
+        </p>
+        <p>
+          When we care about understanding which variables are statistically significant predictors of the response, or if there is interest in producing a simpler model at the potential cost of a little prediction accuracy, then the p-value approach is preferred.
+        </p>
+      </assemblage>
+      
+      <p>
+        Regardless of whether you use <m>R_{adj}^2</m> or the p-value approach, or if you use the backward elimination of forward selection strategy, our job is not done after variable selection. We must still verify the model conditions are reasonable.
+      </p>
+    </subsection>
+    
+    <exercises xml:id="exercises-model-selection">
+      
+      <exercise xml:id="exer-baby-weights-backward">
+        <title>Baby weights, Part IV</title>
+        <statement>
+          <p>
+            <xref ref="exer-baby-weights-mlr"/> considers a model that predicts a newborn's weight using several predictors (gestation length, parity, age of mother, height of mother, weight of mother, smoking status of mother). The table below shows the adjusted R-squared for the full model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.
+          </p>
+          <tabular halign="center">
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Model</cell>
+              <cell>Adjusted <m>R^2</m></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>Full model</cell>
+              <cell>0.2541</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>No gestation</cell>
+              <cell>0.1031</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>No parity</cell>
+              <cell>0.2492</cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell>No age</cell>
+              <cell>0.2547</cell>
+            </row>
+            <row>
+              <cell>5</cell>
+              <cell>No height</cell>
+              <cell>0.2311</cell>
+            </row>
+            <row>
+              <cell>6</cell>
+              <cell>No weight</cell>
+              <cell>0.2536</cell>
+            </row>
+            <row>
+              <cell>7</cell>
+              <cell>No smoking status</cell>
+              <cell>0.2072</cell>
+            </row>
+          </tabular>
+          <p>
+            Which, if any, variable should be removed from the model first?
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-absenteeism-backward">
+        <title>Absenteeism, Part II</title>
+        <statement>
+          <p>
+            <xref ref="exer-absenteeism"/> considers a model that predicts the number of days absent using three predictors: ethnic background (<c>eth</c>), gender (<c>sex</c>), and learner status (<c>lrn</c>). The table below shows the adjusted R-squared for the model as well as adjusted R-squared values for all models we evaluate in the first step of the backwards elimination process.
+          </p>
+          <tabular halign="center">
+            <row bottom="medium">
+              <cell></cell>
+              <cell>Model</cell>
+              <cell>Adjusted <m>R^2</m></cell>
+            </row>
+            <row>
+              <cell>1</cell>
+              <cell>Full model</cell>
+              <cell>0.0701</cell>
+            </row>
+            <row>
+              <cell>2</cell>
+              <cell>No ethnicity</cell>
+              <cell>-0.0033</cell>
+            </row>
+            <row>
+              <cell>3</cell>
+              <cell>No sex</cell>
+              <cell>0.0676</cell>
+            </row>
+            <row>
+              <cell>4</cell>
+              <cell>No learner status</cell>
+              <cell>0.0723</cell>
+            </row>
+          </tabular>
+          <p>
+            Which, if any, variable should be removed from the model first?
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-baby-weights-forward">
+        <title>Baby weights, Part V</title>
+        <statement>
+          <p>
+            <xref ref="exer-baby-weights-mlr"/> provides regression output for the full model (including all explanatory variables available in the data set) for predicting birth weight of babies. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?
+          </p>
+          <tabular halign="center">
+            <row bottom="medium">
+              <cell>variable</cell>
+              <cell>gestation</cell>
+              <cell>parity</cell>
+              <cell>age</cell>
+              <cell>height</cell>
+              <cell>weight</cell>
+              <cell>smoke</cell>
+            </row>
+            <row>
+              <cell>p-value</cell>
+              <cell><m>2.2 \times 10^{-16}</m></cell>
+              <cell>0.1052</cell>
+              <cell>0.2375</cell>
+              <cell><m>2.97 \times 10^{-12}</m></cell>
+              <cell><m>8.2 \times 10^{-8}</m></cell>
+              <cell><m>2.2 \times 10^{-16}</m></cell>
+            </row>
+            <row>
+              <cell><m>R_{adj}^2</m></cell>
+              <cell>0.1657</cell>
+              <cell>0.0013</cell>
+              <cell>0.0003</cell>
+              <cell>0.0386</cell>
+              <cell>0.0229</cell>
+              <cell>0.0569</cell>
+            </row>
+          </tabular>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-absenteeism-forward">
+        <title>Absenteeism, Part III</title>
+        <statement>
+          <p>
+            <xref ref="exer-absenteeism"/> provides regression output for the full model, including all explanatory variables available in the data set, for predicting the number of days absent from school. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted <m>R^2</m> of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?
+          </p>
+          <tabular halign="center">
+            <row bottom="medium">
+              <cell>variable</cell>
+              <cell>ethnicity</cell>
+              <cell>sex</cell>
+              <cell>learner status</cell>
+            </row>
+            <row>
+              <cell>p-value</cell>
+              <cell>0.0007</cell>
+              <cell>0.3142</cell>
+              <cell>0.5870</cell>
+            </row>
+            <row>
+              <cell><m>R_{adj}^2</m></cell>
+              <cell>0.0714</cell>
+              <cell>0.0001</cell>
+              <cell>0</cell>
+            </row>
+          </tabular>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-movie-lovers-pval">
+        <title>Movie lovers, Part I</title>
+        <statement>
+          <p>
+            Suppose a social scientist is interested in studying what makes audiences love or hate a movie. She collects a random sample of movies (genre, length, cast, director, budget, etc.) as well as a measure of the success of the movie (score on a film review aggregator website). If as part of her research she is interested in finding out which variables are significant predictors of movie success, what type of model selection method should she use?
+          </p>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exer-movie-lovers-adjrsq">
+        <title>Movie lovers, Part II</title>
+        <statement>
+          <p>
+            Suppose an online media streaming company is interested in building a movie recommendation system. The website maintains data on the movies in their database (genre, length, cast, director, budget, etc.) and additionally collects data from their subscribers (demographic information, previously watched movies, how they rated previously watched movies, etc.). The recommendation system will be deemed successful if subscribers actually watch, and rate highly, the movies recommended to them. Should the company use the adjusted <m>R^2</m> or the p-value approach in selecting variables for their recommendation system?
+          </p>
+        </statement>
+      </exercise>
+      
+    </exercises>
   </section>
   
   <!-- Section 9.3: Checking model assumptions -->
