@@ -1343,48 +1343,162 @@
     <title>Types of outliers in linear regression</title>
     
     <p>
-      In linear regression, we need to be aware of unusual observations that may influence the regression line or our interpretation of it.
+      In this section, we identify criteria for determining which outliers are important and influential. Outliers in regression are observations that fall far from the cloud of points. These points are especially important because they can have a strong influence on the least squares line.
     </p>
 
-    <definition xml:id="def-outlier-in-regression">
-      <title>Outlier</title>
+    <example xml:id="outlierPlotsExample">
       <statement>
         <p>
-          An <term>outlier</term> in regression is a point that does not fit the overall pattern of the data. It has a large residual.
+          There are six plots shown in <xref ref="outlierPlots"/> along with the least squares line and residual plots. For each scatterplot and residual plot pair, identify the outliers and note how they influence the least squares line. Recall that an outlier is any point that doesn't appear to belong with the vast majority of the other points.
         </p>
       </statement>
-    </definition>
-
-    <definition xml:id="def-leverage">
-      <title>High Leverage Point</title>
-      <statement>
+      <solution>
         <p>
-          A point is said to have <term>high leverage</term> if it is extreme in the <m>x</m> direction. Points with high leverage have the potential to influence the slope of the regression line.
+          <ol>
+            <li>
+              <p>
+                There is one outlier far from the other points, though it only appears to slightly influence the line.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is one outlier on the right, though it is quite close to the least squares line, which suggests it wasn't very influential.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is one point far away from the cloud, and this outlier appears to pull the least squares line up on the right; examine how the line around the primary cloud doesn't appear to fit very well.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is a primary cloud and then a small secondary cloud of four outliers. The secondary cloud appears to be influencing the line somewhat strongly, making the least square line fit poorly almost everywhere. There might be an interesting explanation for the dual clouds, which is something that could be investigated.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is no obvious trend in the main cloud of points and the outlier on the right appears to largely control the slope of the least squares line.
+              </p>
+            </li>
+            <li>
+              <p>
+                There is one outlier far from the cloud. However, it falls quite close to the least squares line and does not appear to be very influential.
+              </p>
+            </li>
+          </ol>
         </p>
-      </statement>
-    </definition>
+      </solution>
+    </example>
 
-    <definition xml:id="def-influential-point">
-      <title>Influential Point</title>
-      <statement>
-        <p>
-          An <term>influential point</term> is a point that, if removed, would substantially change the slope of the regression line. Influential points typically have both high leverage and are outliers.
-        </p>
-      </statement>
-    </definition>
+    <figure xml:id="outlierPlots">
+      <caption>Six plots, each with a least squares line and residual plot. All data sets have at least one outlier.</caption>
+      <image source="ch_regr_simple_linear/figures/outlierPlots/outlierPlots" width="90%">
+        <description>Six scatterplots, each with a least squares line and residual plot. All data sets have at least one outlier. (1) A clear positive upward trend is evident in the points with a regression line overlaying these points, but one point is shown deviating substantially from the line about one-third of the way from the left side of the plot and far below the other points. (2) A slight downward trend is evident in the points on the left half of the plot with a regression line overlaying these points and extending to a single point on the far right of the plot that is also very close to the regression line. (3) A positive upward trend is evident for points shown on the left two-thirds of the plot with a regression line overlaying these points, but a single point is shown on the far right and lying substantially above the line. This one point appears to be "pulling" the regression line up on the right, making the line fit the rest of the data less well. (4) Most of the data is shown in the left two-thirds of the plot with a clear downward, linear trend. A cluster of 4 points is shown on the far right but deviating notably above the trend of the other points. The regression line fit to the data shows it largely "trying" to fit the bulk of the data on the left but being "pulled" upward on the right towards the cluster of points deviating from the linear trend. (5) A large cluster of points is shown on the far bottom-left, and there is no apparent trend in this large cluster. A single point is shown on the far upper-right. A regression line is fit to the data with a line extending from the cluster on the bottom-left and trending upwards near the single point on the upper right. (6) A clear downward trend is evident in the points on the right two-thirds of the plot with a regression line overlaying these points and extending to a single point on the far left of the plot that is also very close to the regression line.</description>
+      </image>
+    </figure>
 
-    <note>
-      <title>Dealing with Unusual Observations</title>
+    <p>
+      Examine the residual plots in <xref ref="outlierPlots"/>. You will probably find that there is some trend in the main clouds of (3) and (4). In these cases, the outliers influenced the slope of the least squares lines. In (5), data with no clear trend were assigned a line with a large trend simply due to one outlier (!).
+    </p>
+
+    <assemblage xml:id="leverage-box">
+      <title>Leverage</title>
       <p>
-        When encountering unusual observations:
-        <ul>
-          <li>Investigate whether there is an error in data entry or measurement</li>
-          <li>Consider whether the observation belongs to a different population</li>
-          <li>Assess the impact on the regression by fitting the model with and without the point</li>
-          <li>Report findings both with and without influential points when appropriate</li>
-        </ul>
+        Points that fall horizontally away from the center of the cloud tend to pull harder on the line, so we call them points with <term>high leverage</term>.
       </p>
-    </note>
+    </assemblage>
+
+    <p>
+      Points that fall horizontally far from the line are points of high leverage; these points can strongly influence the slope of the least squares line. If one of these high leverage points does appear to actually invoke its influence on the slope of the line<mdash/>as in cases (3), (4), and (5) of <xref ref="outlierPlotsExample"/><mdash/>then we call it an <term>influential point</term>. Usually we can say a point is influential if, had we fitted the line without it, the influential point would have been unusually far from the least squares line.
+    </p>
+
+    <p>
+      It is tempting to remove outliers. Don't do this without a very good reason. Models that ignore exceptional (and interesting) cases often perform poorly. For instance, if a financial firm ignored the largest market swings<mdash/>the <q>outliers</q><mdash/>they would soon go bankrupt by making poorly thought-out investments.
+    </p>
+
+    <exercises>
+      <title>Section Exercises</title>
+
+      <exercise xml:id="outliers_1">
+        <title>Outliers, Part I</title>
+        <statement>
+          <p>
+            Identify the outliers in the scatterplots shown below, and determine what type of outliers they are. Explain your reasoning.
+          </p>
+          <sidebyside widths="30% 30% 30%">
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_1/outliers_1_influential">
+              <description>Most of the data is shown in the left third of the plot with a clear downward, linear trend extending from from the upper-left corner of the plot and to the bottom of the plot only a third of the way from the left side of the plot. A single point is shown on the bottom-right of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: On the furthest left portion, the line is below the points, crosses over the trend of the bulk of the data, then lies above the remainder of the bulk of the data. If it were shown fully, it would extend well below the single point on the bottom-right.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_1/outliers_2_leverage">
+              <description>A clear downward trend is evident in the points on the left third of the plot with a regression line overlaying these points and extending to a single point on the far bottom right of the plot that is also almost exactly on the regression line.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_1/outliers_3_outlier">
+              <description>A downward trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="outliers_2">
+        <title>Outliers, Part II</title>
+        <statement>
+          <p>
+            Identify the outliers in the scatterplots shown below and determine what type of outliers they are. Explain your reasoning.
+          </p>
+          <sidebyside widths="30% 30% 30%">
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_2/outliers_1_influential">
+              <description>Most of the data is shown in the right half of the plot with a clear upward, linear trend extending from from the bottom-center and extending to the upper-right corner of the plot. A single point is shown on the upper-left of the plot. A regression line is fit to the data, but it does not fit the bulk of the data well: Focusing first on the bulk of points at the bottom center of the plot, the regression line is well above these points, crosses over the trend of the bulk of the data about 25% from the right of the plot, then lies below the remainder of the bulk of the data in the upper-right. If it were shown fully, the regression line would extend well below the single point on the upper-left.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_2/outliers_2_influential">
+              <description>A clear upward trend is evident in the points on the right half of the plot with a regression line approximately overlaying these points and extending towards a single point on the far bottom left of the plot, but the regression line is notably higher than this single point, which would have by far the largest residual (in absolute value) of all other points shown in the plot. Close inspection of the regression line fit over the bulk of points, it appears to be partially misfitting that data, "pulled" down on the left side.</description>
+            </image>
+            <image source="ch_regr_simple_linear/figures/eoce/outliers_2/outliers_3_outlier">
+              <description>An upper trend is evident in the bulk of the points with an overlaid regression line. A single point is shown far above the regression line at the center-top of the plot.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="urban_homeowners_outlier">
+        <title>Urban homeowners, Part I</title>
+        <statement>
+          <p>
+            The scatterplot below shows the percent of families who own their home vs. the percent of the population living in urban areas. There are 52 observations, each corresponding to a state in the US. Puerto Rico and District of Columbia are also included.
+          </p>
+          <sidebyside widths="50% 45%">
+            <stack>
+              <p>
+                <ol marker="a.">
+                  <li>
+                    <p>
+                      Describe the relationship between the percent of families who own their home and the percent of the population living in urban areas.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      The outlier at the bottom right corner is District of Columbia, where 100% of the population is considered urban. What type of an outlier is this observation?
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </stack>
+            <image source="ch_regr_simple_linear/figures/eoce/urban_homeowners_outlier/urban_homeowners_outlier">
+              <description>A scatterplot is shown with about 50 points. The horizontal axis is for "Percent Urban Population" and has values ranging from 40% to 100%. The vertical axis is for "Percent Own Their Home" with values ranging from about 40% to about 75%. About 10 points have Urban Population with values smaller than 60%, and these have Homeownership rates between 65% and 75%, with most of those points above 70%. About 20 points have Urban Population with values between 60% and 70%, and these have Homeownership rates between 62% and 75%. About 20 points have Urban Population with values greater than 70%, and these have Homeownership rates between 55% and 73%, with one exception of a point with 100% urban population that has a homeownership rate of about 43%.</description>
+            </image>
+          </sidebyside>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="crawling_babies_outlier">
+        <title>Crawling babies, Part II</title>
+        <statement>
+          <p>
+            Exercise <xref ref="crawling_babies_corr_units"/> introduces data on the average monthly temperature during the month babies first try to crawl (about 6 months after birth) and the average first crawling age for babies born in a given month. A scatterplot of these two variables reveals a potential outlying month when the average temperature is about 53°F and average crawling age is about 28.5 weeks. Does this point have high leverage? Is it an influential point?
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
   </section>
 
   <!-- Section 8.4: Inference for linear regression -->
