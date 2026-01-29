@@ -118,7 +118,7 @@
       
       <p>
         Rolling a die or flipping a coin is a seemingly random process and each gives rise to an outcome: 
-        Roll a die <m>\\rightarrow</m> 1, 2, 3, 4, 5, or 6; Flip a coin <m>\\rightarrow</m> H or T.
+        Roll a die <m>\rightarrow</m> 1, 2, 3, 4, 5, or 6; Flip a coin <m>\rightarrow</m> H or T.
       </p>
 
       <assemblage xml:id="def-probability">
@@ -135,36 +135,36 @@
       </p>
 
       <p>
-        Probability can be illustrated by rolling a die many times. Let <m>\\hat{p}_n</m> be the proportion 
+        Probability can be illustrated by rolling a die many times. Let <m>\hat{p}_n</m> be the proportion 
         of outcomes that are 1 after the first <m>n</m> rolls. As the number of rolls increases, 
-        <m>\\hat{p}_n</m> will converge to the probability of rolling a 1, <m>p = 1/6</m>. 
+        <m>\hat{p}_n</m> will converge to the probability of rolling a 1, <m>p = 1/6</m>. 
         <xref ref="fig-die-prop"/> shows this convergence for 100,000 die rolls. The tendency of 
-        <m>\\hat{p}_n</m> to stabilize around <m>p</m> is described by the <term>Law of Large Numbers</term>.
+        <m>\hat{p}_n</m> to stabilize around <m>p</m> is described by the <term>Law of Large Numbers</term>.
       </p>
 
       <figure xml:id="fig-die-prop">
         <caption>The fraction of die rolls that are 1 at each stage in a simulation. The proportion tends to 
-          get closer to the probability <m>1/6 \\approx 0.167</m> as the number of rolls increases.</caption>
+          get closer to the probability <m>1/6 \approx 0.167</m> as the number of rolls increases.</caption>
         <image source="ch_probability/figures/dieProp"/>
       </figure>
 
       <assemblage xml:id="law-large-numbers">
         <title>Law of Large Numbers</title>
         <p>
-          As more observations are collected, the proportion <m>\\hat{p}_n</m> of occurrences with a 
+          As more observations are collected, the proportion <m>\hat{p}_n</m> of occurrences with a 
           particular outcome converges to the probability <m>p</m> of that outcome.
         </p>
       </assemblage>
 
       <p>
         Occasionally the proportion will veer off from the probability and appear to defy the Law of Large 
-        Numbers, as <m>\\hat{p}_n</m> does many times in <xref ref="fig-die-prop"/>. However, these 
+        Numbers, as <m>\hat{p}_n</m> does many times in <xref ref="fig-die-prop"/>. However, these 
         deviations become smaller as the number of rolls increases.
       </p>
 
       <p>
         Above we write <m>p</m> as the probability of rolling a 1. We can also write this probability as
-        <me>P(\\text{rolling a 1})</me>
+        <me>P(\text{rolling a 1})</me>
         As we become more comfortable with this notation, we will abbreviate it further. For instance, if 
         it is clear that the process is <q>rolling a die</q>, we could abbreviate <m>P(</m>rolling a 1<m>)</m> 
         as <m>P(1)</m>.
@@ -214,12 +214,12 @@
       <p>
         Calculating the probability of disjoint outcomes is easy. When rolling a die, the outcomes 1 and 2 are disjoint, 
         and we compute the probability that one of these outcomes will occur by adding their separate probabilities:
-        <me>P(\\text{1 or 2}) = P(\\text{1})+P(\\text{2}) = 1/6 + 1/6 = 1/3</me>
+        <me>P(\text{1 or 2}) = P(\text{1})+P(\text{2}) = 1/6 + 1/6 = 1/3</me>
         What about the probability of rolling a 1, 2, 3, 4, 5, or 6? Here again, all of the outcomes are disjoint so we 
         add the probabilities:
         <md>
-          <mrow>P(\\text{1 or 2 or 3 or 4 or 5 or 6}) \\amp= P(\\text{1})+P(\\text{2}) + P(\\text{3})+P(\\text{4}) + P(\\text{5})+P(\\text{6})</mrow>
-          <mrow>\\amp= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1</mrow>
+          <mrow>P(\text{1 or 2 or 3 or 4 or 5 or 6}) \amp= P(\text{1})+P(\text{2}) + P(\text{3})+P(\text{4}) + P(\text{5})+P(\text{6})</mrow>
+          <mrow>\amp= 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 = 1</mrow>
         </md>
         The <term>Addition Rule</term> guarantees the accuracy of this approach when the outcomes are disjoint.
       </p>
@@ -228,10 +228,10 @@
         <title>Addition Rule of disjoint outcomes</title>
         <p>
           If <m>A_1</m> and <m>A_2</m> represent two disjoint outcomes, then the probability that one of them occurs is given by
-          <me>P(A_1\\text{ or } A_2) = P(A_1) + P(A_2)</me>
+          <me>P(A_1\text{ or } A_2) = P(A_1) + P(A_2)</me>
           If there are many disjoint outcomes <m>A_1</m>, <ellipsis />, <m>A_k</m>, then the probability that one of these 
           outcomes will occur is
-          <me>P(A_1) + P(A_2) + \\cdots + P(A_k)</me>
+          <me>P(A_1) + P(A_2) + \cdots + P(A_k)</me>
         </p>
       </assemblage>
 
@@ -245,7 +245,7 @@
         <solution>
           <p>
             (a) The random process is a die roll, and at most one of these outcomes can come up. This means they are disjoint 
-            outcomes. (b) <m>P(</m>1 or 4 or 5<m>) = P(1)+P(4)+P(5) = \\frac{1}{6} + \\frac{1}{6} + \\frac{1}{6} = \\frac{3}{6} = \\frac{1}{2}</m>
+            outcomes. (b) <m>P(</m>1 or 4 or 5<m>) = P(1)+P(4)+P(5) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} = \frac{3}{6} = \frac{1}{2}</m>
           </p>
         </solution>
       </exercise>
@@ -267,8 +267,8 @@
         </statement>
         <solution>
           <p>
-            (a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: <m>\\frac{4789}{10000} = 0.479</m>. 
-            Own: <m>\\frac{1353}{10000} = 0.135</m>. (c) <m>P(</m>mortgage or own<m>) = P(</m>mortgage<m>) + P(</m>own<m>) = 0.479 + 0.135 = 0.614</m>.
+            (a) Yes. Each loan is categorized in only one level of homeownership. (b) Mortgage: <m>\frac{4789}{10000} = 0.479</m>. 
+            Own: <m>\frac{1353}{10000} = 0.135</m>. (c) <m>P(</m>mortgage or own<m>) = P(</m>mortgage<m>) + P(</m>own<m>) = 0.479 + 0.135 = 0.614</m>.
           </p>
         </solution>
       </exercise>
@@ -276,7 +276,7 @@
       <p>
         Data scientists rarely work with individual outcomes and instead consider <em>sets</em> or <em>collections</em> of outcomes. 
         Let <m>A</m> represent the event where a die roll results in 1 or 2 and <m>B</m> represent the event that the die roll is 
-        a 4 or a 6. We write <m>A</m> as the set of outcomes <m>\\{1, 2\\}</m> and <m>B=\\{4, 6\\}</m>. These sets are commonly called 
+        a 4 or a 6. We write <m>A</m> as the set of outcomes <m>\{1, 2\}</m> and <m>B=\{4, 6\}</m>. These sets are commonly called 
         <term>events</term>. Because <m>A</m> and <m>B</m> have no elements in common, they are disjoint events. <m>A</m> and 
         <m>B</m> are represented in <xref ref="fig-disjoint-sets"/>.
       </p>
@@ -290,7 +290,7 @@
       <p>
         The Addition Rule applies to both disjoint outcomes and disjoint events. The probability that one of the disjoint events 
         <m>A</m> or <m>B</m> occurs is the sum of the separate probabilities:
-        <me>P(A\\text{ or }B) = P(A) + P(B) = 1/3 + 1/3 = 2/3</me>
+        <me>P(A\text{ or }B) = P(A) + P(B) = 1/3 + 1/3 = 2/3</me>
       </p>
 
       <exercise xml:id="ex-verify-prob-a-b">
@@ -302,7 +302,7 @@
         </statement>
         <solution>
           <p>
-            (a) <m>P(A) = P(</m>1 or 2<m>) = P(1) + P(2) = \\frac{1}{6} + \\frac{1}{6} = \\frac{2}{6} = \\frac{1}{3}</m>. 
+            (a) <m>P(A) = P(</m>1 or 2<m>) = P(1) + P(2) = \frac{1}{6} + \frac{1}{6} = \frac{2}{6} = \frac{1}{3}</m>. 
             (b) Similarly, <m>P(B) = 1/3</m>.
           </p>
         </solution>
@@ -332,7 +332,7 @@
         </statement>
         <solution>
           <p>
-            Since <m>B</m> and <m>D</m> are disjoint events, use the Addition Rule: <m>P(B</m> or <m>D) = P(B) + P(D) = \\frac{1}{3} + \\frac{1}{3} = \\frac{2}{3}</m>.
+            Since <m>B</m> and <m>D</m> are disjoint events, use the Addition Rule: <m>P(B</m> or <m>D) = P(B) + P(D) = \frac{1}{3} + \frac{1}{3} = \frac{2}{3}</m>.
           </p>
         </solution>
       </exercise>
