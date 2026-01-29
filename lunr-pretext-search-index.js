@@ -4843,31 +4843,247 @@ var ptx_lunr_docs = [
   "body": " Chapter Review   Summary  In this chapter, we extended regression methods to handle multiple predictors and binary response variables. Key concepts include:    Multiple regression allows us to model relationships with multiple predictors    Adjusted R-squared helps balance model complexity with explanatory power    Residual diagnostics are essential for checking model assumptions    Logistic regression is appropriate when the response is binary    Odds ratios provide an intuitive way to interpret logistic regression coefficients      Terms  Adjusted R-squared, Backward elimination, Forward selection, Indicator variable, Logistic function, Logistic regression, Log-odds, Multiple regression, Odds ratio, Reference level, Residual diagnostics, Stepwise selection, Variable selection   "
 },
 {
-  "id": "appendix-data-sets",
+  "id": "solutions-ch01",
   "level": "1",
-  "url": "appendix-data-sets.html",
-  "type": "Appendix",
-  "number": "A",
-  "title": "Data Sets",
-  "body": " Data Sets  This appendix contains descriptions of the data sets used throughout the textbook. (To be populated with converted data descriptions)  "
+  "url": "solutions-ch01.html",
+  "type": "Section",
+  "number": "A.1",
+  "title": "Introduction to Data",
+  "body": " Introduction to Data   Exercise 1    Treatment: .  Control: .  A higher percentage of patients in the treatment group were pain free 24 hours after receiving acupuncture.  It is possible that the observed difference between the two group percentages is due to chance.      Exercise 3    Is there an association between air pollution exposure and preterm births?  143,196 births in Southern California between 1989 and 1993.  Measurements of carbon monoxide, nitrogen dioxide, ozone, and particulate matter less than (PM ) collected at air-quality-monitoring stations as well as length of gestation. Continuous numerical variables.      Exercise 5    Does explicitly telling children not to cheat affect their likelihood to cheat?  160 children between the ages of 5 and 15.  Four variables: (1) age (numerical, continuous), (2) sex (categorical), (3) whether they were an only child or not (categorical), (4) whether they cheated or not (categorical).      Exercise 7  Explanatory: acupuncture or not. Response: if the patient was pain free or not.    Exercise 9    .  Four continuous numerical variables: sepal length, sepal width, petal length, and petal width.  One categorical variable, species, with three levels: setosa , versicolor , and virginica .      Exercise 11    Airport ownership status (public\/private), airport usage status (public\/private), latitude, and longitude.  Airport ownership status: categorical, not ordinal. Airport usage status: categorical, not ordinal. Latitude: numerical, continuous. Longitude: numerical, continuous.      Exercise 13    Population: all births, sample: 143,196 births between 1989 and 1993 in Southern California.  If births in this time span at the geography can be considered to be representative of all births, then the results are generalizable to the population of Southern California. However, since the study is observational the findings cannot be used to establish causal relationships.      Exercise 15    Population: all asthma patients aged 18-69 who rely on medication for asthma treatment. Sample: 600 such patients.  If the patients in this sample, who are likely not randomly sampled, can be considered to be representative of all asthma patients aged 18-69 who rely on medication for asthma treatment, then the results are generalizable to the population defined above. Additionally, since the study is experimental, the findings can be used to establish causal relationships.      Exercise 17    Observation.  Variable.  Sample statistic (mean).  Population parameter (mean).      Exercise 19    Observational.  Use stratified sampling to randomly sample a fixed number of students, say 10, from each section for a total sample size of 40 students.      Note: Additional solutions for Chapter 1 exercises 21-43 would continue here in the complete version.   "
 },
 {
-  "id": "appendix-tables",
+  "id": "solutions-ch02",
   "level": "1",
-  "url": "appendix-tables.html",
-  "type": "Appendix",
-  "number": "B",
-  "title": "Statistical Tables",
-  "body": " Statistical Tables  This appendix contains statistical tables including z-table, t-table, and chi-square table. (To be populated with converted tables)  "
+  "url": "solutions-ch02.html",
+  "type": "Section",
+  "number": "A.2",
+  "title": "Summarizing Data",
+  "body": " Summarizing Data   Exercise 1    Positive association: mammals with longer gestation periods tend to live longer as well.  Association would still be positive.  No, they are not independent. See part (a).      Exercise 5    Population mean, ; sample mean, .  Population mean, ; sample mean, .      Exercise 7  Any 10 employees whose average number of days off is between the minimum and the mean number of days off for the entire workforce at this plant.    Exercise 9    Dist 2 has a higher mean since , and a higher standard deviation since 20 is further from the rest of the data than 13.  Dist 1 has a higher mean since , and Dist 2 has a higher standard deviation since -40 is farther away from the rest of the data than -20.  Dist 2 has a higher mean since all values in this distribution are higher than those in Dist 1, but both distributions have the same standard deviation since they are equally variable around their respective means.  Both distributions have the same mean since they're both centered at 300, but Dist 2 has a higher standard deviation since the observations are farther from the mean than in Dist 1.      Exercise 11    About 30.  Since the distribution is right skewed the mean is higher than the median.  Q1: between 15 and 20, Q3: between 35 and 40, IQR: about 20.  Values that are considered to be unusually low or high lie more than away from the quartiles. Upper fence: ; Lower fence: ; The lowest AQI recorded is not lower than 5 and the highest AQI recorded is not higher than 65, which are both within the fences. Therefore none of the days in this sample would be considered to have an unusually low or high AQI.      Note: Additional solutions for Chapter 2 exercises 13-33 would continue here in the complete version.   "
 },
 {
-  "id": "backmatter-4",
+  "id": "solutions-ch03",
   "level": "1",
-  "url": "backmatter-4.html",
-  "type": "Appendix",
-  "number": "C",
-  "title": "Selected Solutions",
-  "body": " Selected Solutions  "
+  "url": "solutions-ch03.html",
+  "type": "Section",
+  "number": "A.3",
+  "title": "Probability",
+  "body": " Probability   Exercise 1    False. These are independent trials.  False. There are red face cards.  True. A card cannot be both a face card and an ace.      Exercise 3    10 tosses. Fewer tosses mean more variability in the sample fraction of heads, meaning there's a better chance of getting at least 60% heads.  100 tosses. More flips means the observed proportion of heads would often be closer to the average, 0.50, and therefore also above 0.40.  100 tosses. With more flips, the observed proportion of heads would often be closer to the average, 0.50.  10 tosses. Fewer flips would increase variability in the fraction of tosses that are heads.      Exercise 5    = 0.00098.  = 0.00098.  .      Exercise 7    No, there are voters who are both independent and swing voters.  Venn diagram would show two overlapping circles for \"Independent\" and \"Swing\" voters, with 24% only Independent, 12% only Swing, and 11% both.  Each Independent voter is either a swing voter or not. Since 35% of voters are Independents and 11% are both Independent and swing voters, the other 24% must not be swing voters.  0.47.      Note: Additional solutions for Chapter 3 exercises 9-41 would continue here in the complete version.   "
+},
+{
+  "id": "solutions-ch04",
+  "level": "1",
+  "url": "solutions-ch04.html",
+  "type": "Section",
+  "number": "A.4",
+  "title": "Distributions of Random Variables",
+  "body": " Distributions of Random Variables   Note: Solutions for Chapter 4 exercises would be included here in the complete version.   "
+},
+{
+  "id": "solutions-ch05",
+  "level": "1",
+  "url": "solutions-ch05.html",
+  "type": "Section",
+  "number": "A.5",
+  "title": "Foundations for Inference",
+  "body": " Foundations for Inference   Note: Solutions for Chapter 5 exercises would be included here in the complete version.   "
+},
+{
+  "id": "solutions-ch06",
+  "level": "1",
+  "url": "solutions-ch06.html",
+  "type": "Section",
+  "number": "A.6",
+  "title": "Inference for Categorical Data",
+  "body": " Inference for Categorical Data   Note: Solutions for Chapter 6 exercises would be included here in the complete version.   "
+},
+{
+  "id": "solutions-ch07",
+  "level": "1",
+  "url": "solutions-ch07.html",
+  "type": "Section",
+  "number": "A.7",
+  "title": "Inference for Numerical Data",
+  "body": " Inference for Numerical Data   Note: Solutions for Chapter 7 exercises would be included here in the complete version.   "
+},
+{
+  "id": "solutions-ch08",
+  "level": "1",
+  "url": "solutions-ch08.html",
+  "type": "Section",
+  "number": "A.8",
+  "title": "Introduction to Linear Regression",
+  "body": " Introduction to Linear Regression   Note: Solutions for Chapter 8 exercises would be included here in the complete version.   "
+},
+{
+  "id": "solutions-ch09",
+  "level": "1",
+  "url": "solutions-ch09.html",
+  "type": "Section",
+  "number": "A.9",
+  "title": "Multiple and Logistic Regression",
+  "body": " Multiple and Logistic Regression   Note: Solutions for Chapter 9 exercises would be included here in the complete version.   "
+},
+{
+  "id": "data-ch01",
+  "level": "1",
+  "url": "data-ch01.html",
+  "type": "Section",
+  "number": "B.1",
+  "title": "Introduction to Data",
+  "body": " Introduction to Data    stent30, stent365  The stent data is split across two data sets, one for days 0-30 results and one for days 0-365 results.  Chimowitz MI, Lynn MJ, Derdeyn CP, et al. 2011. Stenting versus Aggressive Medical Therapy for Intracranial Arterial Stenosis. New England Journal of Medicine 365:993-1003. Article . NY Times article: Coverage .    loan50, loans_full_schema  This data comes from Lending Club ( lendingclub.com ), which provides a large set of data on the people who received loans through their platform. The data used in the textbook comes from a sample of the loans made in Q1 (Jan, Feb, March) 2018.    county, county_complete  These data come from several government sources. For those variables included in the county data set, only the most recent data is reported, as of what was available in late 2018. Data prior to 2011 is all from census.gov , where the specific Quick Facts page providing the data is no longer available. The more recent data comes from USDA (ers.usda.gov) , Bureau of Labor Statistics (bls.gov\/lau) , SAIPE (census.gov\/did\/www\/saipe) , and American Community Survey (census.gov\/programs-surveys\/acs) .    Nurses' Health Study  For more information on this data set, see www.channing.harvard.edu\/nhs     Anturane Reinfarction Trial  The study we had in mind when discussing the simple randomization (no blocking) study was Anturane Reinfarction Trial Research Group. 1980. Sulfinpyrazone in the prevention of sudden death after myocardial infarction. New England Journal of Medicine 302(5):250-256.    "
+},
+{
+  "id": "data-ch02",
+  "level": "1",
+  "url": "data-ch02.html",
+  "type": "Section",
+  "number": "B.2",
+  "title": "Summarizing Data",
+  "body": " Summarizing Data    loan50, county  These data sets are described in the Introduction to Data section .    malaria  Lyke et al. 2017. PfSPZ vaccine induces strain-transcending T cells and durable protection against heterologous controlled human malaria infection. PNAS 114(10):2711-2716. Article     "
+},
+{
+  "id": "data-ch03",
+  "level": "1",
+  "url": "data-ch03.html",
+  "type": "Section",
+  "number": "B.3",
+  "title": "Probability",
+  "body": " Probability    loan50, county  These data sets are described in the Introduction to Data section .    playing_cards  Data set describing the 52 cards in a standard deck.    family_college  Simulated data based on real population summaries at nces.ed.gov\/pubs2001\/2001126.pdf .    smallpox  Fenner F. 1988. Smallpox and Its Eradication (History of International Public Health, No. 6). Geneva: World Health Organization. ISBN 92-4-156110-6.    Mammogram screening, probabilities  The probabilities reported were obtained using studies reported at www.breastcancer.org and www.ncbi.nlm.nih.gov\/pmc\/articles\/PMC1173421 .    Jose campus visits, probabilities  This example was made up.    Course material purchases and probabilities  This example was made up.    Auctions for TV and toaster  This example was made up.    stocks_18  Monthly returns for Caterpillar, Exxon Mobil Corp, and Google for November 2015 to October 2018.    fcid  This sample can be considered a simple random sample from the US population. It relies on the USDA Food Commodity Intake Database.    "
+},
+{
+  "id": "data-ch04",
+  "level": "1",
+  "url": "data-ch04.html",
+  "type": "Section",
+  "number": "B.4",
+  "title": "Distributions",
+  "body": " Distributions    SAT and ACT score distributions  The SAT score data comes from the 2018 distribution, which is provided at College Board Report . The ACT score data is available at ACT Report . We also acknowledge that the actual ACT score distribution is not nearly normal. However, since the topic is very accessible, we decided to keep the context and examples.    Male heights  The distribution is based on the USDA Food Commodity Intake Database.    possum  The distribution parameters are based on a sample of possums from Australia and New Guinea. The original source of this data is as follows. Lindenmayer DB, et al. 1995. Morphological variation among colonies of the mountain brushtail possum, Trichosurus caninus Ogilby (Phalangeridae: Marsupiala) . Australian Journal of Zoology 43: 449-458.    Exceeding insurance deductible  These statistics were made up but are possible values one might observe for low-deductible plans.    Smoking friends  Unfortunately, we don't currently have additional information on the source for the 30% statistic, so don't consider this one as fact since we cannot verify it was from a reputable source.    US smoking rate  The 15% smoking rate in the US figure is close to the value from the Centers for Disease Control and Prevention website, which reports a value of 14% as of the 2017 estimate: CDC Report     Football kicker  This example was made up.    Heart attack admissions  This example was made up, though the heart attack admissions are realistic for some hospitals.    ami_occurrences  This is a simulated data set but resembles actual AMI data for New York City based on typical AMI incidence rates.    "
+},
+{
+  "id": "data-ch05",
+  "level": "1",
+  "url": "data-ch05.html",
+  "type": "Section",
+  "number": "B.5",
+  "title": "Foundations for Inference",
+  "body": " Foundations for Inference    pew_energy_2018  The actual data has more observations than were referenced in this chapter. That is, we used a subsample since it helped smooth some of the examples to have a bit more variability. The pew_energy_2018 data set represents the full data set for each of the different energy source questions, which covers solar, wind, offshore drilling, hydraulic fracturing, and nuclear energy. The statistics used to construct the data are from the following page: Pew Research Report     ebola_survey  In New York City on October 23rd, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a \"mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient\". This poll included responses of 1,042 New York adults between Oct 26th and 28th, 2014. Poll ID NY141026 on maristpoll.marist.edu.    Rosling questions  We noted much smaller samples than the Roslings' describe in their book, Factfulness . The samples we describe are similar but not the same as the actual rates. For more information, check out the book, Factfulness .    nuclear_survey  A simple random sample of 1,028 US adults in March 2013 found that 56% of US adults support nuclear arms reduction. Gallup Poll     Car manufacturing  This example was made up.    stent30, stent365  These data sets are described in the Introduction to Data section .    "
+},
+{
+  "id": "data-ch06",
+  "level": "1",
+  "url": "data-ch06.html",
+  "type": "Section",
+  "number": "B.6",
+  "title": "Inference for Proportions",
+  "body": " Inference for Proportions    Payday loans  The statistics come from the following source: Pew Trusts Report     Tire factory  This example was made up.    cpr  Böttiger et al. Efficacy and safety of thrombolytic therapy after initially unsuccessful cardiopulmonary resuscitation: a prospective clinical trial . The Lancet, 2001.    fish_oil_18  Manson JE, et al. 2018. Marine n-3 Fatty Acids and Prevention of Cardiovascular Disease and Cancer. NEJMoa1811403.    mammogram  Miller AB. 2014. Twenty five year follow-up for breast cancer incidence and mortality of the Canadian National Breast Screening Study: randomised screening trial . BMJ 2014;348:g366.    drone_blades  The quality control data set for quadcopter drone blades is a made-up data set for an example. We provide the simulated data in the drone_blades data set.    jury  The jury data set for examining discrimination is a made-up data set for an example. We provide the simulated data in the jury data set.    sp500_1950_2018  Data is sourced from finance.yahoo.com .    ask  Minson JA, Ruedy NE, Schweitzer ME. There is such a thing as a stupid question: Question disclosure in strategic communication . Available at opim.wharton.upenn.edu\/DPlab\/papers\/workingPapers.    diabetes2  Zeitler P, et al. 2012. A Clinical Trial to Maintain Glycemic Control in Youth with Type 2 Diabetes . N Engl J Med.    "
+},
+{
+  "id": "data-ch07",
+  "level": "1",
+  "url": "data-ch07.html",
+  "type": "Section",
+  "number": "B.7",
+  "title": "Inference for Means",
+  "body": " Inference for Means    Risso's dolphins  Endo T and Haraguchi K. 2009. High mercury levels in hair samples from residents of Taiji, a Japanese whaling town . Marine Pollution Bulletin 60(5):743-747.  Taiji was featured in the movie The Cove , and it is a significant source of dolphin and whale meat in Japan. Thousands of dolphins pass through the Taiji area annually, and we assume these 19 dolphins reasonably represent a simple random sample from those dolphins.    Croaker white fish  Source: FDA Mercury in Fish     run17  Source: www.cherryblossom.org     textbooks, ucla_textbooks_f18  Data were collected by OpenIntro staff in 2010 and again in 2018. For the 2018 sample, we sampled 201 UCLA courses. Of those, 68 required books that could be found on Amazon.    stem_cells  Menard C, et al. 2005. Transplantation of cardiac-committed mouse embryonic stem cells to infarcted sheep myocardium: a preclinical study. The Lancet: 366:9490, p1005-1012.    ncbirths  Birth records released by North Carolina in 2004. Unfortunately, we don't currently have additional information on the source for this data set.    Exam versions  This example was made up.    Blood pressure statistics  The blood pressure standard deviation for patients with blood pressure ranging from 140 to 180 mmHg is guessed and may be a little (but likely not dramatically) imprecise from what we'd observe in actual data.    toy_anova  Data used for toy ANOVA example, where this data was made up.    mlb_players_18  Data were retrieved from mlb.mlb.com\/stats . Only players with at least 100 at bats were considered during the analysis.    classdata  This example was made up.    "
+},
+{
+  "id": "data-ch08",
+  "level": "1",
+  "url": "data-ch08.html",
+  "type": "Section",
+  "number": "B.8",
+  "title": "Simple Linear Regression",
+  "body": " Simple Linear Regression    simulated_scatter  Fake data used for various plots and examples throughout the chapter.    possum  This data set is described in the Distributions section .    elmhurst  These data were sampled from a table of data for all freshman from the 2011 class at Elmhurst College that accompanied an article titled What Students Really Pay to Go to College published online by The Chronicle of Higher Education : Article Link .    mariokart  Auction data from Ebay (ebay.com) for the game Mario Kart for the Nintendo Wii. This data set was collected in early October, 2009.    midterms_house  Data was retrieved from Wikipedia.    "
+},
+{
+  "id": "data-ch09",
+  "level": "1",
+  "url": "data-ch09.html",
+  "type": "Section",
+  "number": "B.9",
+  "title": "Multiple and Logistic Regression",
+  "body": " Multiple and Logistic Regression    loans_full_schema  This data set is described in the Introduction to Data section .    mariokart  This data set is described in the Simple Linear Regression section .    resume  Bertrand M, Mullainathan S. 2004. Are Emily and Greg More Employable than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination . The American Economic Review 94:4 (991-1013). www.nber.org\/papers\/w9873   We did omit discussion of some structure in the data for the analysis presented: the experiment design included blocking, where typically four resumes were sent to each job: one for each inferred race\/sex combination (as inferred based on the first name). We did not worry about this blocking aspect, since accounting for the blocking would reduce the standard error without notably changing the point estimates for the race and sex variables versus the analysis performed in the section. That is, the most interesting conclusions in the study are unaffected even when completing a more sophisticated analysis.    "
+},
+{
+  "id": "normal-probability-table",
+  "level": "1",
+  "url": "normal-probability-table.html",
+  "type": "Section",
+  "number": "C.1",
+  "title": "Normal Probability Table",
+  "body": " Normal Probability Table  A normal probability table may be used to find percentiles of a normal distribution using a Z-score, or vice-versa. Such a table lists Z-scores and the corresponding percentiles.  When using a normal probability table to find a percentile for (rounded to two decimals), identify the proper row in the normal probability table up through the first decimal, and then determine the column representing the second decimal value. The intersection of this row and column is the percentile of the observation. For instance, the percentile of is shown in row and column : 0.6736, or the percentile.   Normal Probability Table for Positive Z-scores    Z  0.00  0.01  0.02  0.03  0.04  0.05  0.06  0.07  0.08  0.09    0.0  0.5000  0.5040  0.5080  0.5120  0.5160  0.5199  0.5239  0.5279  0.5319  0.5359    0.1  0.5398  0.5438  0.5478  0.5517  0.5557  0.5596  0.5636  0.5675  0.5714  0.5753    0.2  0.5793  0.5832  0.5871  0.5910  0.5948  0.5987  0.6026  0.6064  0.6103  0.6141    0.3  0.6179  0.6217  0.6255  0.6293  0.6331  0.6368  0.6406  0.6443  0.6480  0.6517    0.4  0.6554  0.6591  0.6628  0.6664  0.6700  0.6736  0.6772  0.6808  0.6844  0.6879    0.5  0.6915  0.6950  0.6985  0.7019  0.7054  0.7088  0.7123  0.7157  0.7190  0.7224    0.6  0.7257  0.7291  0.7324  0.7357  0.7389  0.7422  0.7454  0.7486  0.7517  0.7549    0.7  0.7580  0.7611  0.7642  0.7673  0.7704  0.7734  0.7764  0.7794  0.7823  0.7852    0.8  0.7881  0.7910  0.7939  0.7967  0.7995  0.8023  0.8051  0.8078  0.8106  0.8133    0.9  0.8159  0.8186  0.8212  0.8238  0.8264  0.8289  0.8315  0.8340  0.8365  0.8389    1.0  0.8413  0.8438  0.8461  0.8485  0.8508  0.8531  0.8554  0.8577  0.8599  0.8621    1.1  0.8643  0.8665  0.8686  0.8708  0.8729  0.8749  0.8770  0.8790  0.8810  0.8830    1.2  0.8849  0.8869  0.8888  0.8907  0.8925  0.8944  0.8962  0.8980  0.8997  0.9015    1.3  0.9032  0.9049  0.9066  0.9082  0.9099  0.9115  0.9131  0.9147  0.9162  0.9177    1.4  0.9192  0.9207  0.9222  0.9236  0.9251  0.9265  0.9279  0.9292  0.9306  0.9319    1.5  0.9332  0.9345  0.9357  0.9370  0.9382  0.9394  0.9406  0.9418  0.9429  0.9441    1.6  0.9452  0.9463  0.9474  0.9484  0.9495  0.9505  0.9515  0.9525  0.9535  0.9545    1.7  0.9554  0.9564  0.9573  0.9582  0.9591  0.9599  0.9608  0.9616  0.9625  0.9633    1.8  0.9641  0.9649  0.9656  0.9664  0.9671  0.9678  0.9686  0.9693  0.9699  0.9706    1.9  0.9713  0.9719  0.9726  0.9732  0.9738  0.9744  0.9750  0.9756  0.9761  0.9767    2.0  0.9772  0.9778  0.9783  0.9788  0.9793  0.9798  0.9803  0.9808  0.9812  0.9817    2.1  0.9821  0.9826  0.9830  0.9834  0.9838  0.9842  0.9846  0.9850  0.9854  0.9857    2.2  0.9861  0.9864  0.9868  0.9871  0.9875  0.9878  0.9881  0.9884  0.9887  0.9890    2.3  0.9893  0.9896  0.9898  0.9901  0.9904  0.9906  0.9909  0.9911  0.9913  0.9916    2.4  0.9918  0.9920  0.9922  0.9925  0.9927  0.9929  0.9931  0.9932  0.9934  0.9936    2.5  0.9938  0.9940  0.9941  0.9943  0.9945  0.9946  0.9948  0.9949  0.9951  0.9952    2.6  0.9953  0.9955  0.9956  0.9957  0.9959  0.9960  0.9961  0.9962  0.9963  0.9964    2.7  0.9965  0.9966  0.9967  0.9968  0.9969  0.9970  0.9971  0.9972  0.9973  0.9974    2.8  0.9974  0.9975  0.9976  0.9977  0.9977  0.9978  0.9979  0.9979  0.9980  0.9981    2.9  0.9981  0.9982  0.9982  0.9983  0.9984  0.9984  0.9985  0.9985  0.9986  0.9986    3.0  0.9987  0.9987  0.9987  0.9988  0.9988  0.9989  0.9989  0.9989  0.9990  0.9990    3.1  0.9990  0.9991  0.9991  0.9991  0.9992  0.9992  0.9992  0.9992  0.9993  0.9993    3.2  0.9993  0.9993  0.9994  0.9994  0.9994  0.9994  0.9994  0.9995  0.9995  0.9995    3.3  0.9995  0.9995  0.9995  0.9996  0.9996  0.9996  0.9996  0.9996  0.9996  0.9997    3.4  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9998      Note: For , the probability is greater than or equal to . For negative Z-scores, use the symmetry of the normal distribution: .  "
+},
+{
+  "id": "normal-probability-table-2",
+  "level": "2",
+  "url": "normal-probability-table.html#normal-probability-table-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "normal probability table "
+},
+{
+  "id": "z-table-positive",
+  "level": "2",
+  "url": "normal-probability-table.html#z-table-positive",
+  "type": "Figure",
+  "number": "C.1.1",
+  "title": "",
+  "body": " Normal Probability Table for Positive Z-scores    Z  0.00  0.01  0.02  0.03  0.04  0.05  0.06  0.07  0.08  0.09    0.0  0.5000  0.5040  0.5080  0.5120  0.5160  0.5199  0.5239  0.5279  0.5319  0.5359    0.1  0.5398  0.5438  0.5478  0.5517  0.5557  0.5596  0.5636  0.5675  0.5714  0.5753    0.2  0.5793  0.5832  0.5871  0.5910  0.5948  0.5987  0.6026  0.6064  0.6103  0.6141    0.3  0.6179  0.6217  0.6255  0.6293  0.6331  0.6368  0.6406  0.6443  0.6480  0.6517    0.4  0.6554  0.6591  0.6628  0.6664  0.6700  0.6736  0.6772  0.6808  0.6844  0.6879    0.5  0.6915  0.6950  0.6985  0.7019  0.7054  0.7088  0.7123  0.7157  0.7190  0.7224    0.6  0.7257  0.7291  0.7324  0.7357  0.7389  0.7422  0.7454  0.7486  0.7517  0.7549    0.7  0.7580  0.7611  0.7642  0.7673  0.7704  0.7734  0.7764  0.7794  0.7823  0.7852    0.8  0.7881  0.7910  0.7939  0.7967  0.7995  0.8023  0.8051  0.8078  0.8106  0.8133    0.9  0.8159  0.8186  0.8212  0.8238  0.8264  0.8289  0.8315  0.8340  0.8365  0.8389    1.0  0.8413  0.8438  0.8461  0.8485  0.8508  0.8531  0.8554  0.8577  0.8599  0.8621    1.1  0.8643  0.8665  0.8686  0.8708  0.8729  0.8749  0.8770  0.8790  0.8810  0.8830    1.2  0.8849  0.8869  0.8888  0.8907  0.8925  0.8944  0.8962  0.8980  0.8997  0.9015    1.3  0.9032  0.9049  0.9066  0.9082  0.9099  0.9115  0.9131  0.9147  0.9162  0.9177    1.4  0.9192  0.9207  0.9222  0.9236  0.9251  0.9265  0.9279  0.9292  0.9306  0.9319    1.5  0.9332  0.9345  0.9357  0.9370  0.9382  0.9394  0.9406  0.9418  0.9429  0.9441    1.6  0.9452  0.9463  0.9474  0.9484  0.9495  0.9505  0.9515  0.9525  0.9535  0.9545    1.7  0.9554  0.9564  0.9573  0.9582  0.9591  0.9599  0.9608  0.9616  0.9625  0.9633    1.8  0.9641  0.9649  0.9656  0.9664  0.9671  0.9678  0.9686  0.9693  0.9699  0.9706    1.9  0.9713  0.9719  0.9726  0.9732  0.9738  0.9744  0.9750  0.9756  0.9761  0.9767    2.0  0.9772  0.9778  0.9783  0.9788  0.9793  0.9798  0.9803  0.9808  0.9812  0.9817    2.1  0.9821  0.9826  0.9830  0.9834  0.9838  0.9842  0.9846  0.9850  0.9854  0.9857    2.2  0.9861  0.9864  0.9868  0.9871  0.9875  0.9878  0.9881  0.9884  0.9887  0.9890    2.3  0.9893  0.9896  0.9898  0.9901  0.9904  0.9906  0.9909  0.9911  0.9913  0.9916    2.4  0.9918  0.9920  0.9922  0.9925  0.9927  0.9929  0.9931  0.9932  0.9934  0.9936    2.5  0.9938  0.9940  0.9941  0.9943  0.9945  0.9946  0.9948  0.9949  0.9951  0.9952    2.6  0.9953  0.9955  0.9956  0.9957  0.9959  0.9960  0.9961  0.9962  0.9963  0.9964    2.7  0.9965  0.9966  0.9967  0.9968  0.9969  0.9970  0.9971  0.9972  0.9973  0.9974    2.8  0.9974  0.9975  0.9976  0.9977  0.9977  0.9978  0.9979  0.9979  0.9980  0.9981    2.9  0.9981  0.9982  0.9982  0.9983  0.9984  0.9984  0.9985  0.9985  0.9986  0.9986    3.0  0.9987  0.9987  0.9987  0.9988  0.9988  0.9989  0.9989  0.9989  0.9990  0.9990    3.1  0.9990  0.9991  0.9991  0.9991  0.9992  0.9992  0.9992  0.9992  0.9993  0.9993    3.2  0.9993  0.9993  0.9994  0.9994  0.9994  0.9994  0.9994  0.9995  0.9995  0.9995    3.3  0.9995  0.9995  0.9995  0.9996  0.9996  0.9996  0.9996  0.9996  0.9996  0.9997    3.4  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9997  0.9998    "
+},
+{
+  "id": "t-probability-table",
+  "level": "1",
+  "url": "t-probability-table.html",
+  "type": "Section",
+  "number": "C.2",
+  "title": "<span class=\"process-math\">\\(t\\)<\/span>-Probability Table",
+  "body": " -Probability Table  A -probability table may be used to find tail areas of a -distribution using a T-score, or vice-versa. Such a table lists T-scores and the corresponding percentiles. Each row in the -table represents a -distribution with different degrees of freedom. The columns correspond to tail probabilities.   -Distribution Table    one tail  0.100  0.050  0.025  0.010  0.005    two tails  0.200  0.100  0.050  0.020  0.010    df 1  3.08  6.31  12.71  31.82  63.66    2  1.89  2.92  4.30  6.96  9.92    3  1.64  2.35  3.18  4.54  5.84    4  1.53  2.13  2.78  3.75  4.60    5  1.48  2.02  2.57  3.36  4.03    6  1.44  1.94  2.45  3.14  3.71    7  1.41  1.89  2.36  3.00  3.50    8  1.40  1.86  2.31  2.90  3.36    9  1.38  1.83  2.26  2.82  3.25    10  1.37  1.81  2.23  2.76  3.17    15  1.34  1.75  2.13  2.60  2.95    20  1.33  1.72  2.09  2.53  2.85    25  1.32  1.71  2.06  2.49  2.79    30  1.31  1.70  2.04  2.46  2.75    40  1.30  1.68  2.02  2.42  2.70    50  1.30  1.68  2.01  2.40  2.68    60  1.30  1.67  2.00  2.39  2.66    80  1.29  1.66  1.99  2.37  2.64    100  1.29  1.66  1.98  2.36  2.63    200  1.29  1.65  1.97  2.35  2.60    500  1.28  1.65  1.96  2.33  2.59     1.28  1.64  1.96  2.33  2.58     "
+},
+{
+  "id": "t-probability-table-2",
+  "level": "2",
+  "url": "t-probability-table.html#t-probability-table-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "-probability table "
+},
+{
+  "id": "t-table",
+  "level": "2",
+  "url": "t-probability-table.html#t-table",
+  "type": "Figure",
+  "number": "C.2.1",
+  "title": "",
+  "body": " -Distribution Table    one tail  0.100  0.050  0.025  0.010  0.005    two tails  0.200  0.100  0.050  0.020  0.010    df 1  3.08  6.31  12.71  31.82  63.66    2  1.89  2.92  4.30  6.96  9.92    3  1.64  2.35  3.18  4.54  5.84    4  1.53  2.13  2.78  3.75  4.60    5  1.48  2.02  2.57  3.36  4.03    6  1.44  1.94  2.45  3.14  3.71    7  1.41  1.89  2.36  3.00  3.50    8  1.40  1.86  2.31  2.90  3.36    9  1.38  1.83  2.26  2.82  3.25    10  1.37  1.81  2.23  2.76  3.17    15  1.34  1.75  2.13  2.60  2.95    20  1.33  1.72  2.09  2.53  2.85    25  1.32  1.71  2.06  2.49  2.79    30  1.31  1.70  2.04  2.46  2.75    40  1.30  1.68  2.02  2.42  2.70    50  1.30  1.68  2.01  2.40  2.68    60  1.30  1.67  2.00  2.39  2.66    80  1.29  1.66  1.99  2.37  2.64    100  1.29  1.66  1.98  2.36  2.63    200  1.29  1.65  1.97  2.35  2.60    500  1.28  1.65  1.96  2.33  2.59     1.28  1.64  1.96  2.33  2.58    "
+},
+{
+  "id": "chi-square-probability-table",
+  "level": "1",
+  "url": "chi-square-probability-table.html",
+  "type": "Section",
+  "number": "C.3",
+  "title": "Chi-Square Probability Table",
+  "body": " Chi-Square Probability Table  A chi-square probability table may be used to find tail areas of a chi-square distribution. When using a chi-square table, we examine a particular row for distributions with different degrees of freedom, and we identify a range for the area (e.g. 0.025 to 0.05). Note that the chi-square table provides upper tail values, which is different than the normal and -distribution tables.   Chi-Square Probability Table    Upper tail  0.3  0.2  0.1  0.05  0.02  0.01  0.005  0.001    df 1  1.07  1.64  2.71  3.84  5.41  6.63  7.88  10.83    2  2.41  3.22  4.61  5.99  7.82  9.21  10.60  13.82    3  3.66  4.64  6.25  7.81  9.84  11.34  12.84  16.27    4  4.88  5.99  7.78  9.49  11.67  13.28  14.86  18.47    5  6.06  7.29  9.24  11.07  13.39  15.09  16.75  20.52    6  7.23  8.56  10.64  12.59  15.03  16.81  18.55  22.46    7  8.38  9.80  12.02  14.07  16.62  18.48  20.28  24.32    8  9.52  11.03  13.36  15.51  18.17  20.09  21.95  26.12    9  10.66  12.24  14.68  16.92  19.68  21.67  23.59  27.88    10  11.78  13.44  15.99  18.31  21.16  23.21  25.19  29.59    15  17.32  19.31  22.31  25.00  28.26  30.58  32.80  37.70    20  22.77  25.04  28.41  31.41  35.02  37.57  39.99  45.31    25  28.17  30.68  34.38  37.65  41.57  44.31  46.93  52.62    30  33.53  36.25  40.26  43.77  47.96  50.89  53.67  59.70    40  44.16  47.27  51.81  55.76  60.44  63.69  66.77  73.40    50  54.72  58.16  63.17  67.50  72.61  76.15  79.49  86.66    60  65.23  68.97  74.40  79.08  84.58  88.38  91.95  99.61    80  86.12  90.41  96.58  101.88  108.07  112.33  116.32  124.84    100  106.91  111.67  118.50  124.34  131.14  135.81  140.17  149.45     "
+},
+{
+  "id": "chi-square-probability-table-2",
+  "level": "2",
+  "url": "chi-square-probability-table.html#chi-square-probability-table-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "chi-square probability table "
+},
+{
+  "id": "chi-square-table",
+  "level": "2",
+  "url": "chi-square-probability-table.html#chi-square-table",
+  "type": "Figure",
+  "number": "C.3.1",
+  "title": "",
+  "body": " Chi-Square Probability Table    Upper tail  0.3  0.2  0.1  0.05  0.02  0.01  0.005  0.001    df 1  1.07  1.64  2.71  3.84  5.41  6.63  7.88  10.83    2  2.41  3.22  4.61  5.99  7.82  9.21  10.60  13.82    3  3.66  4.64  6.25  7.81  9.84  11.34  12.84  16.27    4  4.88  5.99  7.78  9.49  11.67  13.28  14.86  18.47    5  6.06  7.29  9.24  11.07  13.39  15.09  16.75  20.52    6  7.23  8.56  10.64  12.59  15.03  16.81  18.55  22.46    7  8.38  9.80  12.02  14.07  16.62  18.48  20.28  24.32    8  9.52  11.03  13.36  15.51  18.17  20.09  21.95  26.12    9  10.66  12.24  14.68  16.92  19.68  21.67  23.59  27.88    10  11.78  13.44  15.99  18.31  21.16  23.21  25.19  29.59    15  17.32  19.31  22.31  25.00  28.26  30.58  32.80  37.70    20  22.77  25.04  28.41  31.41  35.02  37.57  39.99  45.31    25  28.17  30.68  34.38  37.65  41.57  44.31  46.93  52.62    30  33.53  36.25  40.26  43.77  47.96  50.89  53.67  59.70    40  44.16  47.27  51.81  55.76  60.44  63.69  66.77  73.40    50  54.72  58.16  63.17  67.50  72.61  76.15  79.49  86.66    60  65.23  68.97  74.40  79.08  84.58  88.38  91.95  99.61    80  86.12  90.41  96.58  101.88  108.07  112.33  116.32  124.84    100  106.91  111.67  118.50  124.34  131.14  135.81  140.17  149.45    "
 },
 {
   "id": "backmatter-5",
