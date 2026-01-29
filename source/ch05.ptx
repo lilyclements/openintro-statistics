@@ -917,6 +917,7 @@ sum(sampled_entries == "support") / 1000
             based on the data, this does not mean they are impossible.
           </p>
         </solution>
+      </example>
     </subsection>
     
     <subsection xml:id="subsec-95-ci">
@@ -1427,95 +1428,6 @@ sum(sampled_entries == "support") / 1000
           </li>
         </dl>
       </assemblage>
-          </ol>
-        </statement>
-        <solution>
-          <ol>
-            <li>
-              <p>
-                The point estimate, based on a sample of size <m>n = 1042</m>, is
-                <m>\hat{p} = 0.82</m>. To check whether <m>\hat{p}</m> can be reasonably
-                modeled using a normal distribution, we check independence (the poll is
-                based on a simple random sample) and the success-failure condition:
-                <md>
-                  <mrow>n\hat{p} \amp= 1042 \times 0.82 = 854 \geq 10 \checkmark</mrow>
-                  <mrow>n(1-\hat{p}) \amp= 1042 \times 0.18 = 188 \geq 10 \checkmark</mrow>
-                </md>
-                With the conditions met, we can model <m>\hat{p}</m> using a normal
-                distribution.
-              </p>
-            </li>
-            <li>
-              <p>
-                Using the substitution approximation <m>p \approx \hat{p} = 0.82</m>:
-                <md>
-                  <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
-                  <mrow>\amp= \sqrt{\frac{0.82 \times 0.18}{1042}}</mrow>
-                  <mrow>\amp= 0.012</mrow>
-                </md>
-              </p>
-            </li>
-            <li>
-              <p>
-                Using <m>SE = 0.012</m>, <m>\hat{p} = 0.82</m>, and <m>z^* = 1.96</m>:
-                <md>
-                  <mrow>0.82 \pm 1.96 \times 0.012 \amp= 0.82 \pm 0.024</mrow>
-                  <mrow>\amp= (0.796, 0.844)</mrow>
-                </md>
-                <strong>Interpretation:</strong> We are 95% confident that between 79.6%
-                and 84.4% of New York adults in October 2014 supported a quarantine for
-                anyone who had come into contact with an Ebola patient.
-              </p>
-            </li>
-          </ol>
-        </solution>
-      </example>
-      
-      <exercise xml:id="ex-wind-turbines-guided">
-        <title>Wind turbine support</title>
-        <statement>
-          <p>
-            In the same Pew Research poll about solar energy, they also inquired about
-            other forms of energy, and 84.8% of the 1,000 respondents supported expanding
-            the use of wind turbines.
-          </p>
-          <ol>
-            <li>Is it reasonable to model the proportion of US adults who support expanding
-                wind turbines using a normal distribution?</li>
-            <li>Create a 99% confidence interval for the level of American support for
-                expanding the use of wind turbines for power generation.</li>
-          </ol>
-        </statement>
-        <hint>
-          <p>
-            For part (b), recall that for a 99% confidence interval, <m>z^* = 2.58</m>.
-          </p>
-        </hint>
-        <answer>
-          <ol>
-            <li>
-              <p>
-                Yes. The survey was a random sample and the success-failure counts are
-                both <m>\geq 10</m>: <m>n\hat{p} = 1000 \times 0.848 = 848</m> and
-                <m>n(1-\hat{p}) = 1000 \times 0.152 = 152</m>.
-              </p>
-            </li>
-            <li>
-              <p>
-                The standard error is:
-                <me>SE = \sqrt{\frac{0.848 \times 0.152}{1000}} = 0.0114</me>
-                The 99% confidence interval is:
-                <md>
-                  <mrow>0.848 \pm 2.58 \times 0.0114 \amp= 0.848 \pm 0.029</mrow>
-                  <mrow>\amp= (0.819, 0.877)</mrow>
-                </md>
-                We are 99% confident that between 81.9% and 87.7% of American adults
-                support expanding the use of wind turbines.
-              </p>
-            </li>
-          </ol>
-        </answer>
-      </exercise>
     </subsection>
     
     <subsection xml:id="subsec-interpreting-cis">
