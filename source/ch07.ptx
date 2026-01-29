@@ -2184,75 +2184,805 @@
         </p>
       </assemblage>
     </subsection>
-  </section>
-  
-  <!-- Section 6.4: Power calculations for difference of means -->
-  <section xml:id="sec-power-calculations">
-    <title>Power Calculations for a Difference of Means</title>
-    
-    <introduction>
-      <p>
-        When planning a study, researchers often want to know: How large should my sample be to
-        detect a meaningful effect? This question relates to the concept of <term>statistical power</term>.
-      </p>
-    </introduction>
-    
-    <subsection xml:id="subsec-statistical-power">
-      <title>Understanding Statistical Power</title>
+<exercises>
+      <title>Exercises</title>
       
-      <definition xml:id="def-power">
+      <!-- Exercise 23 -->
+      <exercise xml:id="friday_13th_traffic">
+        <title>Friday the 13<m>^{\text{th}}</m>, Part I</title>
         <statement>
           <p>
-            The <term>power</term> of a hypothesis test is the probability that the test correctly
-            rejects a false null hypothesis. In other words, it's the probability of detecting an
-            effect when one truly exists.
+            In the early 1990's, researchers in the UK collected data on traffic flow, number of shoppers, and traffic accident related emergency room admissions on Friday the 13<m>^{\text{th}}</m> and the previous Friday, Friday the 6<m>^{\text{th}}</m>. The histograms below show the distribution of number of cars passing by a specific intersection on Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m> for many such date pairs. Also given are some sample statistics, where the difference is the number of cars on the 6th minus the number of cars on the 13th.
           </p>
-          <md>
-            \text{Power} = 1 - P(\text{Type 2 Error}) = 1 - \beta
-          </md>
+          
+          <!-- TODO: Add figure - Three histograms showing Friday 6th, Friday 13th, and Difference distributions
+               Alt text: Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging from 110,000 to 140,000. The second histogram is for "Friday the 13th", which also has values ranging from 110,000 to 140,000. The third histogram is for "Difference", with values ranging from 0 to 5,000. While the first two distributions are relatively uniform across the range, the last distribution has most of its distribution ranging between 0 and 3,000, with one observation in the 4,000 to 5,000 bin.
+               Source: ch_inference_for_means/figures/eoce/friday_13th_traffic/friday_13th_traffic_hist -->
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>6<m>^{\text{th}}</m></cell>
+              <cell>13<m>^{\text{th}}</m></cell>
+              <cell>Diff.</cell>
+            </row>
+            <row>
+              <cell><m>\bar{x}</m></cell>
+              <cell>128,385</cell>
+              <cell>126,550</cell>
+              <cell>1,835</cell>
+            </row>
+            <row>
+              <cell><m>s</m></cell>
+              <cell>7,259</cell>
+              <cell>7,664</cell>
+              <cell>1,176</cell>
+            </row>
+            <row>
+              <cell><m>n</m></cell>
+              <cell>10</cell>
+              <cell>10</cell>
+              <cell>10</cell>
+            </row>
+          </tabular>
+          
+          <p>
+            <ol marker="a.">
+              <li>Are there any underlying structures in these data that should be considered in an analysis? Explain.</li>
+              <li>What are the hypotheses for evaluating whether the number of people out on Friday the 6<m>^{\text{th}}</m> is different than the number out on Friday the 13<m>^{\text{th}}</m>?</li>
+              <li>Check conditions to carry out the hypothesis test from part (b).</li>
+              <li>Calculate the test statistic and the p-value.</li>
+              <li>What is the conclusion of the hypothesis test?</li>
+              <li>Interpret the p-value in this context.</li>
+              <li>What type of error might have been made in the conclusion of your test? Explain.</li>
+            </ol>
+          </p>
         </statement>
-      </definition>
+      </exercise>
       
-      <p>
-        Power depends on several factors:
-      </p>
+      <!-- Exercise 24 -->
+      <exercise xml:id="diamonds_1">
+        <title>Diamonds, Part I</title>
+        <statement>
+          <p>
+            Prices of diamonds are determined by what is known as the 4 Cs: cut, clarity, color, and carat weight. The prices of diamonds go up as the carat weight increases, but the increase is not smooth. For example, the difference between the size of a 0.99 carat diamond and a 1 carat diamond is undetectable to the naked human eye, but the price of a 1 carat diamond tends to be much higher than the price of a 0.99 diamond. In this question we use two random samples of diamonds, 0.99 carats and 1 carat, each sample of size 23, and compare the average prices of the diamonds. In order to be able to compare equivalent units, we first divide the price for each diamond by 100 times its weight in carats. That is, for a 0.99 carat diamond, we divide the price by 99. For a 1 carat diamond, we divide the price by 100. The distributions and some sample statistics are shown below.
+          </p>
+          
+          <p>
+            Conduct a hypothesis test to evaluate if there is a difference between the average standardized prices of 0.99 and 1 carat diamonds. Make sure to state your hypotheses clearly, check relevant conditions, and interpret your results in context of the data.
+          </p>
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>0.99 carats</cell>
+              <cell>1 carat</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>$44.51</cell>
+              <cell>$56.81</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>$13.32</cell>
+              <cell>$16.13</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>23</cell>
+              <cell>23</cell>
+            </row>
+          </tabular>
+          
+          <!-- TODO: Add figure - Side-by-side box plot for diamond prices
+               Alt text: Side-by-side box plot for "Point price, in dollars". The two categories shown are for "0.99 carats" and "1 carat" diamonds. The 0.99 carat diamonds have their box running from about $36 to $57, a median of about $49, and the whiskers spanning about $19 to $62. The 1 carat diamonds have their box running from about $48 to $72, a median of about $55, and the whiskers spanning about $34 to $72.
+               Source: ch_inference_for_means/figures/eoce/diamonds_1/diamonds_box.pdf -->
+        </statement>
+      </exercise>
       
-      <ul>
-        <li>The <alert>significance level</alert> <m>\alpha</m> (lower <m>\alpha</m> means lower power)</li>
-        <li>The <alert>effect size</alert> (larger effects are easier to detect)</li>
-        <li>The <alert>sample size</alert> (larger samples provide more power)</li>
-        <li>The <alert>variability</alert> in the data (less variability means more power)</li>
-      </ul>
+      <!-- Exercise 25 -->
+      <exercise xml:id="friday_13th_accident">
+        <title>Friday the 13<m>^{\text{th}}</m>, Part II</title>
+        <statement>
+          <p>
+            The Friday the <m>13^{\text{th}}</m> study reported in Exercise<nbsp/><xref ref="friday_13th_traffic"/> also provides data on traffic accident related emergency room admissions. The distributions of these counts from Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m> are shown below for six such paired dates along with summary statistics. You may assume that conditions for inference are met.
+          </p>
+          
+          <!-- TODO: Add figure - Three histograms for accident admissions
+               Alt text: Three histograms are shown. The first histogram is for "Friday the 6th", which has values ranging across 3 to 12. The second histogram is for "Friday the 13th", which has values ranging from 4 to 14. The third histogram is for "Difference", with values ranging from -8 to positive 2.
+               Source: ch_inference_for_means/figures/eoce/friday_13th_accident/friday_13th_accident_hist -->
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>6<m>^{\text{th}}</m></cell>
+              <cell>13<m>^{\text{th}}</m></cell>
+              <cell>diff</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>7.5</cell>
+              <cell>10.83</cell>
+              <cell>-3.33</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>3.33</cell>
+              <cell>3.6</cell>
+              <cell>3.01</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+            </row>
+          </tabular>
+          
+          <p>
+            <ol marker="a.">
+              <li>Conduct a hypothesis test to evaluate if there is a difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</li>
+              <li>Calculate a 95% confidence interval for the difference between the average numbers of traffic accident related emergency room admissions between Friday the 6<m>^{\text{th}}</m> and Friday the 13<m>^{\text{th}}</m>.</li>
+              <li>The conclusion of the original study states, "Friday 13th is unlucky for some. The risk of hospital admission as a result of a transport accident may be increased by as much as 52%. Staying at home is recommended." Do you agree with this statement? Explain your reasoning.</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
       
-      <p>
-        Researchers typically aim for a power of 0.80 or higher, meaning an 80% chance of detecting
-        a true effect.
-      </p>
-    </subsection>
-    
-    <subsection xml:id="subsec-sample-size-determination">
-      <title>Sample Size Determination</title>
+      <!-- Exercise 26 -->
+      <exercise xml:id="diamonds_2">
+        <title>Diamonds, Part II</title>
+        <statement>
+          <p>
+            In Exercise<nbsp/><xref ref="diamonds_1"/>, we discussed diamond prices (standardized by weight) for diamonds with weights 0.99 carats and 1 carat. See the table for summary statistics, and then construct a 95% confidence interval for the average difference between the standardized prices of 0.99 and 1 carat diamonds. You may assume the conditions for inference are met.
+          </p>
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>0.99 carats</cell>
+              <cell>1 carat</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>$44.51</cell>
+              <cell>$56.81</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>$13.32</cell>
+              <cell>$16.13</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>23</cell>
+              <cell>23</cell>
+            </row>
+          </tabular>
+        </statement>
+      </exercise>
       
-      <p>
-        Power calculations can be used to determine the necessary sample size for a study. The
-        process involves specifying:
-      </p>
+      <!-- Exercise 27 -->
+      <exercise xml:id="chick_wts_linseed_horsebean">
+        <title>Chicken diet and weight, Part I</title>
+        <statement>
+          <p>
+            Chicken farming is a multi-billion dollar industry, and any methods that increase the growth rate of young chicks can reduce consumer costs while increasing company profits, possibly by millions of dollars. An experiment was conducted to measure and compare the effectiveness of various feed supplements on the growth rate of chickens. Newly hatched chicks were randomly allocated into six groups, and each group was given a different feed supplement. Below are some summary statistics from this data set along with box plots showing the distribution of weights by feed type.
+          </p>
+          
+          <!-- TODO: Add figure - Side-by-side box plots for chicken weights by feed type
+               Alt text: A side-by-side box plot is shown for "Weight, in grams" for several feed types. The width of the data range for each feed type spans about 150 grams. However, they are centered at different locations: about 325 for "casein", about 150 for "horsebean", about 225 for "linseed", about 275 for "meatmeal", about 250 for "soybean", and about 325 for "sunflower".
+               Source: ch_inference_for_means/figures/eoce/chick_wts_linseed_horsebean/chick_wts_box.pdf -->
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>Mean</cell>
+              <cell>SD</cell>
+              <cell>n</cell>
+            </row>
+            <row>
+              <cell>casein</cell>
+              <cell>323.58</cell>
+              <cell>64.43</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>horsebean</cell>
+              <cell>160.20</cell>
+              <cell>38.63</cell>
+              <cell>10</cell>
+            </row>
+            <row>
+              <cell>linseed</cell>
+              <cell>218.75</cell>
+              <cell>52.24</cell>
+              <cell>12</cell>
+            </row>
+            <row>
+              <cell>meatmeal</cell>
+              <cell>276.91</cell>
+              <cell>64.90</cell>
+              <cell>11</cell>
+            </row>
+            <row>
+              <cell>soybean</cell>
+              <cell>246.43</cell>
+              <cell>54.13</cell>
+              <cell>14</cell>
+            </row>
+            <row>
+              <cell>sunflower</cell>
+              <cell>328.92</cell>
+              <cell>48.84</cell>
+              <cell>12</cell>
+            </row>
+          </tabular>
+          
+          <p>
+            <ol marker="a.">
+              <li>Describe the distributions of weights of chickens that were fed linseed and horsebean.</li>
+              <li>Do these data provide strong evidence that the average weights of chickens that were fed linseed and horsebean are different? Use a 5% significance level.</li>
+              <li>What type of error might we have committed? Explain.</li>
+              <li>Would your conclusion change if we used <m>\alpha = 0.01</m>?</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
       
-      <ol>
-        <li>The desired significance level <m>\alpha</m></li>
-        <li>The desired power (typically 0.80)</li>
-        <li>The minimum effect size you want to detect</li>
-        <li>An estimate of the population standard deviation</li>
-      </ol>
+      <!-- Exercise 28 -->
+      <exercise xml:id="fuel_eff_city">
+        <title>Fuel efficiency of manual and automatic cars, Part I</title>
+        <statement>
+          <p>
+            Each year the US Environmental Protection Agency (EPA) releases fuel economy data on cars manufactured in that year. Below are summary statistics on fuel efficiency (in miles/gallon) from random samples of cars with manual and automatic transmissions. Do these data provide strong evidence of a difference between the average fuel efficiency of cars with manual and automatic transmissions in terms of their average city mileage? Assume that conditions for inference are satisfied.
+          </p>
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>City MPG</cell>
+              <cell></cell>
+            </row>
+            <row header="yes">
+              <cell></cell>
+              <cell>Automatic</cell>
+              <cell>Manual</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>16.12</cell>
+              <cell>19.85</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>3.58</cell>
+              <cell>4.51</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>26</cell>
+              <cell>26</cell>
+            </row>
+          </tabular>
+          
+          <!-- TODO: Add figure - Side-by-side box plot for city MPG
+               Alt text: A side-by-side box plot is shown for "City MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 14 to 19, has a median of about 16, and its whiskers extending down to about 7 and up to about 24. The "manual" box plot has its box spanning approximately 18 to 24, has a median of about 21, and its whiskers extending down to about 8 and up to about 31.
+               Source: ch_inference_for_means/figures/eoce/fuel_eff_city/fuel_eff_city_box.pdf -->
+        </statement>
+      </exercise>
       
-      <p>
-        With these inputs, statistical software or formulas can calculate the required sample size
-        for each group. Adequate planning using power calculations helps ensure studies are neither
-        underpowered (unable to detect real effects) nor wastefully large.
-      </p>
-    </subsection>
+      <!-- Exercise 29 -->
+      <exercise xml:id="chick_wts_casein_soybean">
+        <title>Chicken diet and weight, Part II</title>
+        <statement>
+          <p>
+            Casein is a common weight gain supplement for humans. Does it have an effect on chickens? Using data provided in Exercise<nbsp/><xref ref="chick_wts_linseed_horsebean"/>, test the hypothesis that the average weight of chickens that were fed casein is different than the average weight of chickens that were fed soybean. If your hypothesis test yields a statistically significant result, discuss whether or not the higher average weight of chickens can be attributed to the casein diet. Assume that conditions for inference are satisfied.
+          </p>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 30 -->
+      <exercise xml:id="fuel_eff_hway">
+        <title>Fuel efficiency of manual and automatic cars, Part II</title>
+        <statement>
+          <p>
+            The table provides summary statistics on highway fuel economy of the same 52 cars from Exercise<nbsp/><xref ref="fuel_eff_city"/>. Use these statistics to calculate a 98% confidence interval for the difference between average highway mileage of manual and automatic cars, and interpret this interval in the context of the data.
+          </p>
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>Hwy MPG</cell>
+              <cell></cell>
+            </row>
+            <row header="yes">
+              <cell></cell>
+              <cell>Automatic</cell>
+              <cell>Manual</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>22.92</cell>
+              <cell>27.88</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>5.29</cell>
+              <cell>5.01</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>26</cell>
+              <cell>26</cell>
+            </row>
+          </tabular>
+          
+          <!-- TODO: Add figure - Side-by-side box plot for highway MPG
+               Alt text: A side-by-side box plot is shown for "Highway MPG" for "automatic" and "manual" cars. The "automatic" box plot has its box spanning approximately 20 to 26, has a median of about 23, and its whiskers extending down to about 14 and up to about 34. The "manual" box plot has its box spanning approximately 26 to 32, has a median of about 29, and its whiskers extending down to about 17 and up to about 38.
+               Source: ch_inference_for_means/figures/eoce/fuel_eff_hway/fuel_eff_hway_box.pdf -->
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 31 -->
+      <exercise xml:id="prison_isolation_T">
+        <title>Prison isolation experiment, Part I</title>
+        <statement>
+          <p>
+            Subjects from Central Prison in Raleigh, NC, volunteered for an experiment involving an "isolation" experience. The goal of the experiment was to find a treatment that reduces subjects' psychopathic deviant T scores. This score measures a person's need for control or their rebellion against control, and it is part of a commonly used mental health test called the Minnesota Multiphasic Personality Inventory (MMPI) test. The experiment had three treatment groups:
+          </p>
+          
+          <p>
+            <ol marker="1.">
+              <li>Four hours of sensory restriction plus a 15 minute "therapeutic" tape advising that professional help is available.</li>
+              <li>Four hours of sensory restriction plus a 15 minute "emotionally neutral" tape on training hunting dogs.</li>
+              <li>Four hours of sensory restriction but no taped message.</li>
+            </ol>
+          </p>
+          
+          <p>
+            Forty-two subjects were randomly assigned to these treatment groups, and an MMPI test was administered before and after the treatment. Distributions of the differences between pre and post treatment scores (pre - post) are shown below, along with some sample statistics. Use this information to independently test the effectiveness of each treatment. Make sure to clearly state your hypotheses, check conditions, and interpret results in the context of the data.
+          </p>
+          
+          <!-- TODO: Add figure - Three box plots for treatment differences
+               Alt text: Three box plots are shown for Treatments 1, 2, and 3. The box plot for "Treatment 1" is slightly right skewed with values ranging from about -10 to about positive 40, and this distribution has one borderline outlier between 30 and 40. The box plot for "Treatment 2" is about symmetric with values ranging from about -20 to about positive 20. The box plot for "Treatment 3" is left skewed with values ranging from about -30 to about positive 10.
+               Source: ch_inference_for_means/figures/eoce/prison_isolation_T/prison_isolation_hist -->
+          
+          <tabular>
+            <row header="yes">
+              <cell></cell>
+              <cell>Tr 1</cell>
+              <cell>Tr 2</cell>
+              <cell>Tr 3</cell>
+            </row>
+            <row>
+              <cell>Mean</cell>
+              <cell>6.21</cell>
+              <cell>2.86</cell>
+              <cell>-3.21</cell>
+            </row>
+            <row>
+              <cell>SD</cell>
+              <cell>12.3</cell>
+              <cell>7.94</cell>
+              <cell>8.57</cell>
+            </row>
+            <row>
+              <cell>n</cell>
+              <cell>14</cell>
+              <cell>14</cell>
+              <cell>14</cell>
+            </row>
+          </tabular>
+        </statement>
+      </exercise>
+      
+      <!-- Exercise 32 -->
+      <exercise xml:id="tf_compare_means">
+        <title>True / False: comparing means</title>
+        <statement>
+          <p>
+            Determine if the following statements are true or false, and explain your reasoning for statements you identify as false.
+          </p>
+          
+          <p>
+            <ol marker="a.">
+              <li>When comparing means of two samples where <m>n_1 = 20</m> and <m>n_2 = 40</m>, we can use the normal model for the difference in means since <m>n_2 \ge 30</m>.</li>
+              <li>As the degrees of freedom increases, the <m>t</m>-distribution approaches normality.</li>
+              <li>We use a pooled standard error for calculating the standard error of the difference between means when sample sizes of groups are equal to each other.</li>
+            </ol>
+          </p>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
+
+  <section xml:id="PowerForDifferenceOfTwoMeans">
+  <title>Power calculations for a difference of means</title>
   
+  <introduction>
+    <p>
+      Often times in experiment planning, there are two competing considerations:
+      <ul>
+        <li>
+          <p>We want to collect enough data that we can detect important effects.</p>
+        </li>
+        <li>
+          <p>Collecting data can be expensive, and in experiments involving people, there may be some risk to patients.</p>
+        </li>
+      </ul>
+      In this section, we focus on the context of a clinical trial, which is a health-related experiment where the subject are people, and we will determine an appropriate sample size where we can be 80% sure that we would detect any practically important effects.<fn>Even though we don't cover it explicitly, similar sample size planning is also helpful for observational studies.</fn>
+    </p>
+  </introduction>
+  
+  <subsection xml:id="going-through-the-motions-of-a-test">
+    <title>Going through the motions of a test</title>
+    
+    <p>
+      We're going to go through the motions of a hypothesis test. This will help us frame our calculations for determining an appropriate sample size for the study.
+    </p>
+    
+    <example>
+      <statement>
+        <p>
+          Suppose a pharmaceutical company has developed a new drug for lowering blood pressure, and they are preparing a clinical trial (experiment) to test the drug's effectiveness. They recruit people who are taking a particular standard blood pressure medication. People in the control group will continue to take their current medication through generic-looking pills to ensure blinding. Write down the hypotheses for a two-sided hypothesis test in this context.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Generally, clinical trials use a two-sided alternative hypothesis, so below are suitable hypotheses for this context:
+          <dl>
+            <li>
+              <title><m>H_0</m>:</title>
+              <p>The new drug performs exactly as well as the standard medication. <m>\mu_{trmt} - \mu_{ctrl} = 0</m>.</p>
+            </li>
+            <li>
+              <title><m>H_A</m>:</title>
+              <p>The new drug's performance differs from the standard medication. <m>\mu_{trmt} - \mu_{ctrl} \neq 0</m>.</p>
+            </li>
+          </dl>
+        </p>
+      </solution>
+    </example>
+    
+    <example>
+      <statement>
+        <p>
+          The researchers would like to run the clinical trial on patients with systolic blood pressures between 140 and 180<nbsp/>mmHg. Suppose previously published studies suggest that the standard deviation of the patients' blood pressures will be about 12<nbsp/>mmHg and the distribution of patient blood pressures will be approximately symmetric.<fn>In this particular study, we'd generally measure each patient's blood pressure at the beginning and end of the study, and then the outcome measurement for the study would be the average change in blood pressure. That is, both <m>\mu_{trmt}</m> and <m>\mu_{ctrl}</m> would represent average differences. This is what you might think of as a 2-sample paired testing structure, and we'd analyze it exactly just like a hypothesis test for a difference in the average change for patients. In the calculations we perform here, we'll suppose that 12<nbsp/>mmHg is the predicted standard deviation of a patient's blood pressure difference over the course of the study.</fn> If<nbsp/>we had 100 patients per group, what would be the approximate standard error for <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The standard error is calculated as follows:
+          <md>
+            <mrow>
+              SE_{\bar{x}_{trmt} - \bar{x}_{ctrl}}
+              \amp = \sqrt{\frac{s_{trmt}^2}{n_{trmt}} + \frac{s_{ctrl}^2}{n_{ctrl}}}
+            </mrow>
+            <mrow>
+              \amp = \sqrt{\frac{12^2}{100} + \frac{12^2}{100}}
+            </mrow>
+            <mrow>
+              \amp = 1.70
+            </mrow>
+          </md>
+          This may be an imperfect estimate of <m>SE_{\bar{x}_{trmt} - \bar{x}_{ctrl}}</m>, since the standard deviation estimate we used may not be perfectly correct for this group of patients. However, it is sufficient for our purposes.
+        </p>
+      </solution>
+    </example>
+    
+    <example>
+      <statement>
+        <p>
+          What does the null distribution of <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> look like?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The degrees of freedom are greater than 30, so the distribution of <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> will be approximately normal. The standard deviation of this distribution (the standard error) would be about 1.70, and under the null hypothesis, its mean would be 0.
+        </p>
+        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". 
+        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution".
+        Source files: power_null_0_1-7.pdf, power_null_A_0_1-7.pdf -->
+      </solution>
+    </example>
+    
+    <example>
+      <statement>
+        <p>
+          For what values of <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> would we reject the null hypothesis?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For <m>\alpha = 0.05</m>, we would reject <m>H_0</m> if the difference is in the lower 2.5% or upper 2.5% tail:
+          <dl>
+            <li>
+              <title>Lower 2.5%:</title>
+              <p>For the normal model, this is 1.96 standard errors below<nbsp/>0, so any difference smaller than <m>-1.96 \times 1.70 = -3.332</m><nbsp/>mmHg.</p>
+            </li>
+            <li>
+              <title>Upper 2.5%:</title>
+              <p>For the normal model, this is 1.96 standard errors above<nbsp/>0, so any difference larger than <m>1.96 \times 1.70 = 3.332</m><nbsp/>mmHg.</p>
+            </li>
+          </dl>
+          The boundaries of these <term>rejection regions</term> are shown below:
+        </p>
+        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".
+        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". Three regions are labeled: the region between about -3.3 and positive 3.3 is labeled as "Do not reject H-sub-0", while the two regions on either side of this central region are labeled with "Reject H-sub-zero".
+        Source files: power_null_0_1-7.pdf, power_null_B_0_1-7_with_rejection_region.pdf -->
+      </solution>
+    </example>
+    
+    <p>
+      Next, we'll perform some hypothetical calculations to determine the probability we reject the null hypothesis, if the alternative hypothesis were actually true.
+    </p>
+  </subsection>
+  
+  <subsection xml:id="computing-the-power-for-a-2-sample-test">
+    <title>Computing the power for a 2-sample test</title>
+    
+    <p>
+      When planning a study, we want to know how likely we are to detect an effect we care about. In<nbsp/>other words, if there is a real effect, and that effect is large enough that it has practical value, then what's the probability that we detect that effect? This probability is called the <term>power</term>, and we can compute it for different sample sizes or for different <em>effect sizes</em>.
+    </p>
+    
+    <p>
+      We first determine what is a practically significant result. Suppose that the company researchers care about finding any effect on blood pressure that is 3<nbsp/>mmHg or larger vs the standard medication. Here, 3<nbsp/>mmHg is the minimum <term>effect size</term> of interest, and we want to know how likely we are to detect this size of an effect in the study.
+    </p>
+    
+    <example xml:id="PowerFor100AtNeg3">
+      <statement>
+        <p>
+          Suppose we decided to move forward with 100 patients per treatment group and the new drug reduces blood pressure by an additional 3<nbsp/>mmHg relative to the standard medication. What is the probability that we detect a drop?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Before we even do any calculations, notice that if <m>\bar{x}_{trmt} - \bar{x}_{ctrl} = -3</m><nbsp/>mmHg, there wouldn't even be sufficient evidence to reject <m>H_0</m>. That's not a good sign.
+        </p>
+        
+        <p>
+          To calculate the probability that we will reject <m>H_0</m>, we need to determine a few things:
+          <ul>
+            <li>
+              <p>The sampling distribution for <m>\bar{x}_{trmt} - \bar{x}_{ctrl}</m> when the true difference is -3<nbsp/>mmHg. This is the same as the null distribution, except it is shifted to the left by<nbsp/>3:</p>
+              <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.
+              Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown.
+              Source files: power_null_0_1-7.pdf, power_null_C_0_1-7_with_alt_at_3.pdf -->
+            </li>
+            <li>
+              <p>The rejection regions, which are outside of the dotted lines above.</p>
+            </li>
+            <li>
+              <p>The fraction of the distribution that falls in the rejection region.</p>
+            </li>
+          </ul>
+          In short, we need to calculate the probability that <m>x \lt -3.332</m> for a normal distribution with mean -3 and standard deviation<nbsp/>1.7. To do so, we first shade the area we want to calculate:
+        </p>
+        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.
+        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.6. The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.6, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The lines demarking the "reject" regions and the "do-not-reject" regions from an earlier plot are also shown, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -3.2 is shaded, representing just under half of that distribution.
+        Source files: power_null_0_1-7.pdf, power_null_D_0_1-7_with_alt_at_3_and_shaded.pdf -->
+        
+        <p>
+          We'll use a normal approximation, which is good approximation when the degrees of freedom is about 30 or more. We'll start by calculating the Z-score and find the tail area using either statistical software or the probability table:
+          <md>
+            <mrow>
+              Z = \frac{-3.332 - (-3)}{1.7} = -0.20 \qquad \to \qquad 0.42
+            </mrow>
+          </md>
+          The power for the test is about 42% when <m>\mu_{trmt} - \mu_{ctrl} = -3</m> and each group has a sample size of<nbsp/>100.
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      In <xref ref="PowerFor100AtNeg3">Example</xref>, we ignored the upper rejection region in the calculation, which was in the opposite direction of the hypothetical truth, i.e. -3. The reasoning? There wouldn't be any value in rejecting the null hypothesis and concluding there was an increase when in fact there was a decrease.
+    </p>
+    
+    <p>
+      We've also used a normal distribution instead of the <m>t</m>-distribution. This is a convenience, and if the sample size is too small, we'd need to revert back to using the <m>t</m>-distribution. We'll discuss this a bit further at the end of this section.
+    </p>
+  </subsection>
+  
+  <subsection xml:id="determining-a-proper-sample-size">
+    <title>Determining a proper sample size</title>
+    
+    <p>
+      In the last example, we found that if we have a sample size of 100 in each group, we can only detect an effect size of 3<nbsp/>mmHg with a probability of about 0.42. Suppose the researchers moved forward and only used 100 patients per group, and the data did not support the alternative hypothesis, i.e. the researchers did not reject <m>H_0</m>. This is a very bad situation to be in for a few reasons:
+      <ul>
+        <li>
+          <p>In the back of the researchers' minds, they'd all be wondering, <em>maybe there is a real and meaningful difference, but we weren't able to detect it with such a small sample</em>.</p>
+        </li>
+        <li>
+          <p>The company probably invested hundreds of millions of dollars in developing the new drug, so now they are left with great uncertainty about its potential since the experiment didn't have a great shot at detecting effects that could still be important.</p>
+        </li>
+        <li>
+          <p>Patients were subjected to the drug, and we can't even say with much certainty that the drug doesn't help (or harm) patients.</p>
+        </li>
+        <li>
+          <p>Another clinical trial may need to be run to get a more conclusive answer as to whether the drug does hold any practical value, and conducting a second clinical trial may take years and many millions of dollars.</p>
+        </li>
+      </ul>
+      We want to avoid this situation, so we need to determine an appropriate sample size to ensure we can be pretty confident that we'll detect any effects that are practically important. As mentioned earlier, a change of 3<nbsp/>mmHg was deemed to be the minimum difference that was practically important. As<nbsp/>a first step, we could calculate power for several different sample sizes. For instance, let's try 500 patients per group.
+    </p>
+    
+    <exercise>
+      <statement>
+        <p>
+          Calculate the power to detect a change of -3<nbsp/>mmHg when using a sample size of 500 per group.
+          <ol>
+            <li>
+              <p>Determine the standard error (recall that the standard deviation for patients was expected to be about 12<nbsp/>mmHg).</p>
+            </li>
+            <li>
+              <p>Identify the null distribution and rejection regions.</p>
+            </li>
+            <li>
+              <p>Identify the alternative distribution when <m>\mu_{trmt} - \mu_{ctrl} = -3</m>.</p>
+            </li>
+            <li>
+              <p>Compute the probability we reject the null hypothesis.</p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          (a) The standard error is given as <m>SE = \sqrt{\frac{12^2}{500} + \frac{12^2}{500}} = 0.76</m>.
+        </p>
+        <p>
+          (b)<nbsp/><ampersand/><nbsp/>(c)<nbsp/>The null distribution, rejection boundaries, and alternative distribution are shown below:
+        </p>
+        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95% of the distribution.
+        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 0.76 (note that this is a much smaller than in earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 0.76, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". The overlap of these two normal distributions is much smaller than in the last plot. Lines are shown demarking "reject" regions for the null distribution are shown at about -1.5 and positive 1.5, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 95% of the distribution.
+        Source files: power_null_0_0-76.pdf, power_null_0_0-76_with_alt_at_3_and_shaded.pdf -->
+        <p>
+          The rejection regions are the areas on the outside of the two dotted lines and are at <m>\pm 0.76 \times 1.96 = \pm 1.49</m>.
+        </p>
+        <p>
+          (d)<nbsp/>The area of the alternative distribution where <m>\mu_{trmt} - \mu_{ctrl} = -3</m> has been shaded. We compute the Z-score and find the tail area: <m>Z = \frac{-1.49 - (-3)}{0.76} = 1.99 \to 0.977</m>. With 500 patients per group, we would be about 97.7% sure (or<nbsp/>more) that we'd detect any effects that are at least 3<nbsp/>mmHg in size.
+        </p>
+      </solution>
+    </exercise>
+    
+    <p>
+      The researchers decided 3<nbsp/>mmHg was the minimum difference that was practically important, and with a sample size of<nbsp/>500, we can be very certain (97.7% or better) that we will detect any such difference. We now have moved to another extreme where we are exposing an unnecessary number of patients to the new drug in the clinical trial. Not only is this ethically questionable, but it would also cost a lot more money than is necessary to be quite sure we'd detect any important effects.
+    </p>
+    
+    <p>
+      The most common practice is to identify the sample size where the power is around 80%, and sometimes 90%. Other values may be reasonable for a specific context, but 80% and 90% are most commonly targeted as a good balance between high power and not exposing too many patients to a new treatment (or wasting too much money).
+    </p>
+    
+    <p>
+      We could compute the power of the test at several other possible sample sizes until we find one that's close to<nbsp/>80%, but there's a better way. We should solve the problem backwards.
+    </p>
+    
+    <example xml:id="sample_size_for_80_percent_power">
+      <statement>
+        <p>
+          What sample size will lead to a power of 80%? Use <m>\alpha = 0.05</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We'll assume we have a large enough sample that the normal distribution is a good approximation for the test statistic, since the normal distribution and the <m>t</m>-distribution look almost identical when the degrees of freedom are moderately large (e.g. <m>df \geq 30</m>). If that doesn't turn out to be true, then we'd need to make a correction.
+        </p>
+        
+        <p>
+          We start by identifying the Z-score that would give us a lower tail of 80%. For a moderately large sample size per group, the Z-score for a lower tail of 80% would be about <m>Z = 0.84</m>.
+        </p>
+        <!-- TODO: Figure - A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80% of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".
+        Alt-text from LaTeX: A normal distribution is shown for "x-bar-sub-treatment minus x-bar-sub-control", where the distribution is centered at zero and has a standard deviation of about 1.1 (note that this is different than earlier plots). The distribution is labeled as "Null distribution". A second normal distribution is also shown centered at -3 with a standard deviation of about 1.1, and this distribution is labeled "Distribution with mu-sub-treatment minus mu-sub-control equals -3". Lines are shown demarking "reject" regions for the null distribution are shown at about -2.2 and positive 2.2, and the region of the second distribution centered at -3 that is below the lower demarkation line at about -1.5 is shaded, representing a bit over 80% of the distribution. The distance from 0 to the rejection region line at 2.2 is labeled "1.96 times SE", and the distance between the rejection region line and -3 is labeled "0.84 times SE".
+        Source file: power_best_sample_size.pdf -->
+        
+        <p>
+          Additionally, the rejection region extends <m>1.96\times SE</m> from the center of the null distribution for <m>\alpha = 0.05</m>. This allows us to calculate the target distance between the center of the null and alternative distributions in terms of the standard error:
+          <md>
+            <mrow>
+              0.84 \times SE + 1.96 \times SE = 2.8 \times SE
+            </mrow>
+          </md>
+          In our example, we want the distance between the null and alternative distributions' centers to equal the minimum effect size of interest, 3<nbsp/>mmHg, which allows us to set up an equation between this difference and the standard error:
+          <md>
+            <mrow>
+              3 \amp = 2.8 \times SE
+            </mrow>
+            <mrow>
+              3 \amp = 2.8 \times \sqrt{\frac{12^2}{n} + \frac{12^2}{n}}
+            </mrow>
+            <mrow>
+              n \amp = \frac{2.8^2}{3^2} \times \left( 12^2 + 12^2 \right) = 250.88
+            </mrow>
+          </md>
+          We should target 251 patients per group in order to achieve 80% power at the 0.05 significance level for this context.
+        </p>
+      </solution>
+    </example>
+    
+    <p>
+      The standard error difference of <m>2.8 \times SE</m> is specific to a context where the targeted power is 80% and the significance level is <m>\alpha = 0.05</m>. If the targeted power is 90% or if we use a different significance level, then we'll use something a little different than <m>2.8 \times SE</m>.
+    </p>
+    
+    <p>
+      Had the suggested sample size been relatively small -- roughly 30 or smaller -- it would have been a good idea to rework the calculations using the degrees of fredom for the smaller sample size under that initial sample size. That is, we would have revised the 0.84 and 1.96 values based on degrees of freedom implied by the initial sample size. The revised sample size target would generally have then been a little larger.
+    </p>
+    
+    <exercise>
+      <statement>
+        <p>
+          Suppose the targeted power was 90% and we were using <m>\alpha = 0.01</m>. How many standard errors should separate the centers of the null and alternative distribution, where the alternative distribution is centered at the minimum effect size of interest?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First, find the Z-score such that 90% of the distribution is below it: <m>Z = 1.28</m>. Next, find the cutoffs for the rejection regions: <m>\pm 2.58</m>. Then the difference in centers should be about <m>1.28 \times SE + 2.58 \times SE = 3.86 \times SE</m>.
+        </p>
+      </solution>
+    </exercise>
+    
+    <exercise>
+      <statement>
+        <p>
+          What are some considerations that are important in determining what the power should be for an experiment?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Answers will vary, but here are a few important considerations:
+          <ul>
+            <li>
+              <p>Whether there is any risk to patients in the study.</p>
+            </li>
+            <li>
+              <p>The cost of enrolling more patients.</p>
+            </li>
+            <li>
+              <p>The potential downside of not detecting an effect of interest.</p>
+            </li>
+          </ul>
+        </p>
+      </solution>
+    </exercise>
+    
+    <p>
+      <xref ref="power_curve_neg-3">Figure</xref> shows the power for sample sizes from 20<nbsp/>patients to 5,000<nbsp/>patients when <m>\alpha = 0.05</m> and the true difference is -3. This curve was constructed by writing a program to compute the power for many different sample sizes.
+    </p>
+    
+    <figure xml:id="power_curve_neg-3">
+      <!-- TODO: Figure - A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.
+      Alt-text from LaTeX: A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.
+      Source files: power_curve.pdf, power_curve_neg-3.pdf -->
+      <caption>
+        The curve shows the power for different sample sizes in the context of the blood pressure example when the true difference is<nbsp/>-3. Having more than about 250 to 350 observations doesn't provide much additional value in detecting an effect when <m>\alpha = 0.05</m>.
+      </caption>
+    </figure>
+    
+    <p>
+      Power calculations for expensive or risky experiments are critical. However, what about experiments that are inexpensive and where the ethical considerations are minimal? For example, if we are doing final testing on a new feature on a popular website, how would our sample size considerations change? As before, we'd want to make sure the sample is big enough. However, suppose the feature has undergone some testing and is known to perform well (e.g.<nbsp/>the website's users seem to enjoy the feature). Then it may be reasonable to run a larger experiment if there's value from having a more precise estimate of the feature's effect, such as helping guide the development of the next useful feature.
+    </p>
+  </subsection>
+  
+  <exercises>
+    <title>Exercises</title>
+    
+    <exercise xml:id="increase_corn_yield">
+      <statement>
+        <p>
+          <em>Increasing corn yield.</em> A large farm wants to try out a new type of fertilizer to evaluate whether it will improve the farm's corn production. The land is broken into plots that produce an average of 1,215 pounds of corn with a standard deviation of 94 pounds per plot. The owner is interested in detecting any average difference of at least 40 pounds per plot. How many plots of land would be needed for the experiment if the desired power level is 90%? Use <m>\alpha = 0.05</m>. Assume each plot of land gets treated with either the current fertilizer or the new fertilizer.
+        </p>
+      </statement>
+    </exercise>
+    
+    <exercise xml:id="email_outreach_efforts">
+      <statement>
+        <p>
+          <em>Email outreach efforts.</em> A medical research group is recruiting people to complete short surveys about their medical history. For example, one survey asks for information on a person's family history in regards to cancer. Another survey asks about what topics were discussed during the person's last visit to a hospital. So far, as people sign up, they complete an average of just 4<nbsp/>surveys, and the standard deviation of the number of surveys is about<nbsp/>2.2. The research group wants to try a new interface that they think will encourage new enrollees to complete more surveys, where they will randomize each enrollee to either get the new interface or the current interface. How many new enrollees do they need for each interface to detect an effect size of 0.5 surveys per enrollee, if the desired power level is 80%? Use <m>\alpha = 0.05</m>.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>
   <!-- Section 6.5: Comparing many means with ANOVA -->
   <section xml:id="sec-anova">
     <title>Comparing Many Means with ANOVA</title>
