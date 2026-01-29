@@ -1424,7 +1424,7 @@
     <title>Sampling principles and strategies</title>
     <introduction>
       <p>
-        The first step in research is to pose a clear question, then decide what subjects to study and how to collect reliable data. Careful sampling is essential for trustworthy conclusions.
+        The first step in conducting research is to identify topics or questions that are to be investigated. A clearly laid out research question is helpful in identifying what subjects or cases should be studied and what variables are important. It is also important to consider <em>how</em> data are collected so that they are reliable and help achieve the research goals.
       </p>
     </introduction>
 
@@ -1432,25 +1432,41 @@
       <title>Populations and samples</title>
 
       <p>
-        Each research question targets a population. Often it is too expensive to measure every case, so we select a sample—a subset of the population—to estimate the quantity of interest.
+        Consider the following three research questions:
       </p>
-
-      <example xml:id="ex-population-examples">
-        <title>Identifying populations</title>
-        <statement>
+      <ol>
+        <li>
           <p>
-            Consider: (1) the average mercury content in Atlantic swordfish, (2) the average time to degree for Duke undergrads in the last 5 years, (3) whether a new drug reduces deaths in patients with severe heart disease. Each has a population and cases; samples are used to estimate population features.
+            What is the average mercury content in swordfish in the Atlantic Ocean?
           </p>
-        </statement>
-      </example>
+        </li>
+        <li>
+          <p>
+            Over the last 5 years, what is the average time to complete a degree for Duke undergrads?
+          </p>
+        </li>
+        <li>
+          <p>
+            Does a new drug reduce the number of deaths in patients with severe heart disease?
+          </p>
+        </li>
+      </ol>
+      
+      <p>
+        Each research question refers to a target <term>population</term>. In the first question, the target population is all swordfish in the Atlantic ocean, and each fish represents a case. Often times, it is too expensive to collect data for every case in a population. Instead, a sample is taken. A <term>sample</term> represents a subset of the cases and is often a small fraction of the population. For instance, 60 swordfish (or some other number) in the population might be selected, and this sample data may be used to provide an estimate of the population average and answer the research question.
+      </p>
 
       <exercise xml:id="gp-population-identification" divisional="hint">
         <title>Identifying populations</title>
         <statement>
-          <p>For questions (2) and (3) above, identify the target population and what represents a single case.</p>
+          <p>
+            For the second and third questions above, identify the target population and what represents an individual case.
+          </p>
         </statement>
         <solution>
-          <p>Graduated Duke undergrads in the last five years; each graduate is a case. People with severe heart disease; each patient is a case.</p>
+          <p>
+            (2) The first question is only relevant to students who complete their degree; the average cannot be computed using a student who never finished her degree. Thus, only Duke undergrads who graduated in the last five years represent cases in the population under consideration. Each such student is an individual case. (3) A person with severe heart disease represents a case. The population includes all people with severe heart disease.
+          </p>
         </solution>
       </exercise>
     </subsection>
@@ -1459,32 +1475,64 @@
       <title>Anecdotal evidence</title>
 
       <p>
-        Conclusions based on a few striking cases—anecdotal evidence—may not represent the population. Such cases are memorable but rarely typical.
+        Consider the following possible responses to the three research questions:
+      </p>
+      <ol>
+        <li>
+          <p>
+            A man on the news got mercury poisoning from eating swordfish, so the average mercury concentration in swordfish must be dangerously high.
+          </p>
+        </li>
+        <li>
+          <p>
+            I met two students who took more than 7 years to graduate from Duke, so it must take longer to graduate at Duke than at many other colleges.
+          </p>
+        </li>
+        <li>
+          <p>
+            My friend's dad had a heart attack and died after they gave him a new heart disease drug, so the drug must not work.
+          </p>
+        </li>
+      </ol>
+      
+      <p>
+        Each conclusion is based on data. However, there are two problems. First, the data only represent one or two cases. Second, and more importantly, it is unclear whether these cases are actually representative of the population. Data collected in this haphazard fashion are called <term>anecdotal evidence</term>.
       </p>
 
       <figure xml:id="fig-mn-winter">
-        <caption>Anecdotal evidence can mislead</caption>
+        <caption>
+          In February 2010, some media pundits cited one large snow storm as valid evidence against global warming. As comedian Jon Stewart pointed out, <q>It's one storm, in one region, of one country.</q>
+        </caption>
         <image source="ch_intro_to_data/figures/mnWinter/mnWinter.JPG" width="60%">
-          <description>Snowy trees after a storm; one storm in one region says little about global climate.</description>
+          <description>A wintery scene, where the trees are covered in snow, and there are large piles of snow on the sides of the roads.</description>
         </image>
       </figure>
 
-      <onebox>
-        <p>Be cautious with anecdotal evidence: it may be true but not representative.</p>
-      </onebox>
+      <assemblage>
+        <title>Anecdotal evidence</title>
+        <p>
+          Be careful of data collected in a haphazard fashion. Such evidence may be true and verifiable, but it may only represent extraordinary cases.
+        </p>
+      </assemblage>
+
+      <p>
+        Anecdotal evidence typically is composed of unusual cases that we recall based on their striking characteristics. For instance, we are more likely to remember the two people we met who took 7 years to graduate than the six others who graduated in four years. Instead of looking at the most unusual cases, we should examine a sample of many cases that represent the population.
+      </p>
     </subsection>
 
     <subsection xml:id="subsec-sampling-population">
       <title>Sampling from a population</title>
 
       <p>
-        We typically use a random sample to avoid bias. In a simple random sample each case has equal chance of selection and selection of one case gives no information about others.
+        We might try to estimate the time to graduation for Duke undergraduates in the last 5 years by collecting a sample of students. All graduates in the last 5 years represent the <em>population</em>, and graduates who are selected for review are collectively called the <em>sample</em>. In general, we always seek to <em>randomly</em> select a sample from a population. The most basic type of random selection is equivalent to how raffles are conducted. For example, in selecting graduates, we could write each graduate's name on a raffle ticket and draw 100 tickets. The selected names would represent a random sample of 100 graduates. We pick samples randomly to reduce the chance we introduce biases.
       </p>
 
       <figure xml:id="fig-pop-to-sample">
-        <caption>Selecting a random sample</caption>
+        <caption>
+          In this graphic, five graduates are randomly selected from the population to be included in the sample.
+        </caption>
         <image source="ch_intro_to_data/figures/popToSample/popToSampleGraduates.pdf" width="55%">
-          <description>Randomly selecting cases from a population to form a sample.</description>
+          <description>Graphic showing a larger circle on the left for all graduates and a smaller circle on the right for sample. Five graduates are randomly selected with arrows showing the selection.</description>
         </image>
       </figure>
 
@@ -1492,36 +1540,55 @@
         <title>Unintentional bias</title>
         <statement>
           <p>
-            Letting a nutrition major hand-pick graduates might overrepresent health-related fields. Hand selection risks bias even when unintended.
+            Suppose we ask a student who happens to be majoring in nutrition to select several graduates for the study. What kind of students do you think she might collect? Do you think her sample would be representative of all graduates?
+          </p>
+          <p>
+            Perhaps she would pick a disproportionate number of graduates from health-related fields. Or perhaps her selection would be a good representation of the population. When selecting samples by hand, we run the risk of picking a <term>biased</term> sample, even if their bias isn't intended.
           </p>
         </statement>
       </example>
 
       <figure xml:id="fig-pop-to-sub-sample">
-        <caption>Biased selection</caption>
+        <caption>
+          Asked to pick a sample of graduates, a nutrition major might inadvertently pick a disproportionate number of graduates from health-related majors.
+        </caption>
         <image source="ch_intro_to_data/figures/popToSample/popToSubSampleGraduates.pdf" width="55%">
-          <description>Sampling only from a subset (e.g., health-related majors) introduces bias.</description>
+          <description>Graphic showing sampling only from a subset (health-related fields) introduces bias.</description>
         </image>
       </figure>
 
       <p>
-        Non-response can also bias results: if only a fraction respond, the sample may not represent the population.
+        If someone was permitted to pick and choose exactly which graduates were included in the sample, it is entirely possible that the sample could be skewed to that person's interests, which may be entirely unintentional. This introduces <term>bias</term> into a sample. Sampling randomly helps resolve this problem. The most basic random sample is called a <term>simple random sample</term>, and which is equivalent to using a raffle to select cases. This means that each case in the population has an equal chance of being included and there is no implied connection between the cases in the sample.
+      </p>
+
+      <p>
+        The act of taking a simple random sample helps minimize bias. However, bias can crop up in other ways. Even when people are picked at random, e.g. for surveys, caution must be exercised if the <term>non-response rate</term> is high. For instance, if only 30% of the people randomly sampled for a survey actually respond, then it is unclear whether the results are <term>representative</term> of the entire population. This <term>non-response bias</term> can skew results.
       </p>
 
       <figure xml:id="fig-survey-sample">
-        <caption>Effect of non-response</caption>
+        <caption>
+          Due to the possibility of non-response, surveys studies may only reach a certain group within the population. It is difficult, and often times impossible, to completely fix this problem.
+        </caption>
         <image source="ch_intro_to_data/figures/popToSample/surveySample.pdf" width="55%">
-          <description>Surveys may only capture a subset of the intended population.</description>
+          <description>Graphic showing a population of interest with a smaller circle representing the population actually sampled, from which a sample is drawn.</description>
         </image>
       </figure>
+
+      <p>
+        Another common downfall is a <term>convenience sample</term>, where individuals who are easily accessible are more likely to be included in the sample. For instance, if a political survey is done by stopping people walking in the Bronx, this will not represent all of New York City. It is often difficult to discern what sub-population a convenience sample represents.
+      </p>
 
       <exercise xml:id="gp-online-reviews" divisional="hint">
         <title>Interpreting online reviews</title>
         <statement>
-          <p>Product ratings online come from those who choose to post. If 50% of reviews are negative, does that imply 50% of buyers are dissatisfied?</p>
+          <p>
+            We can easily access ratings for products, sellers, and companies through websites. These ratings are based only on those people who go out of their way to provide a rating. If 50% of online reviews for a product are negative, do you think this means that 50% of buyers are dissatisfied with the product?
+          </p>
         </statement>
         <solution>
-          <p>Likely not; reviewers are self-selected and may be more motivated when dissatisfied, creating negative bias.</p>
+          <p>
+            Answers will vary. From our own anecdotal experiences, we believe people tend to rant more about products that fell below expectations than rave about those that perform as expected. For this reason, we suspect there is a negative bias in product ratings on sites like Amazon. However, since our experiences may not be representative, we also keep an open mind.
+          </p>
         </solution>
       </exercise>
     </subsection>
@@ -1530,21 +1597,56 @@
       <title>Observational studies</title>
 
       <p>
-        Observational data arise without assigning treatments. They can show association but cannot alone establish causation due to possible confounding variables.
+        Data where no treatment has been explicitly applied (or explicitly withheld) is called <term>observational data</term>. For instance, the loan data and county data described in <xref ref="sec-data-basics"/> are both examples of observational data. Making causal conclusions based on experiments is often reasonable. However, making the same causal conclusions based on observational data can be treacherous and is not recommended. Thus, observational studies are generally only sufficient to show associations or form hypotheses that we later check using experiments.
       </p>
 
       <exercise xml:id="gp-sunscreen-confounding" divisional="hint">
         <title>Sunscreen and skin cancer</title>
         <statement>
-          <p>Suppose an observational study finds sunscreen use associated with higher skin cancer. Does sunscreen cause cancer?</p>
+          <p>
+            Suppose an observational study tracked sunscreen use and skin cancer, and it was found that the more sunscreen someone used, the more likely the person was to have skin cancer. Does this mean sunscreen <em>causes</em> skin cancer?
+          </p>
         </statement>
         <solution>
-          <p>No. Sun exposure confounds: more sun leads to both more sunscreen and higher cancer risk.</p>
+          <p>
+            No. See the paragraph following the exercise for an explanation.
+          </p>
         </solution>
       </exercise>
 
       <p>
-        Confounding variables affect both explanatory and response variables. Observational studies may be prospective (following subjects forward) or retrospective (using past records).
+        Some previous research tells us that using sunscreen actually reduces skin cancer risk, so maybe there is another variable that can explain this hypothetical association between sunscreen usage and skin cancer. One important piece of information that is absent is sun exposure. If someone is out in the sun all day, she is more likely to use sunscreen <em>and</em> more likely to get skin cancer. Exposure to the sun is unaccounted for in the simple investigation.
+      </p>
+
+      <figure xml:id="fig-sun-causes-cancer">
+        <caption>
+          Sun exposure is a confounding variable that is associated with both sunscreen use and skin cancer.
+        </caption>
+        <image source="ch_intro_to_data/figures/variables/sunCausesCancer.pdf" width="55%">
+          <description>Diagram showing three boxes in a triangle: sun exposure at the top with arrows pointing to use sunscreen and skin cancer below, with a question mark on a lighter arrow between use sunscreen and skin cancer.</description>
+        </image>
+      </figure>
+
+      <p>
+        Sun exposure is what is called a <term>confounding variable</term>,<fn>Also called a <term>lurking variable</term>, <term>confounding factor</term>, or a <term>confounder</term>.</fn> which is a variable that is correlated with both the explanatory and response variables. While one method to justify making causal conclusions from observational studies is to exhaust the search for confounding variables, there is no guarantee that all confounding variables can be examined or measured.
+      </p>
+
+      <exercise xml:id="gp-multiunit-ownership" divisional="hint">
+        <title>Confounding in county data</title>
+        <statement>
+          <p>
+            Figure <xref ref="fig-multiunit-homeownership"/> shows a negative association between the homeownership rate and the percentage of multi-unit structures in a county. However, it is unreasonable to conclude that there is a causal relationship between the two variables. Suggest a variable that might explain the negative relationship.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Answers will vary. Population density may be important. If a county is very dense, then this may require a larger fraction of residents to live in multi-unit structures. Additionally, the high density may contribute to increases in property value, making homeownership infeasible for many residents.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        Observational studies come in two forms: prospective and retrospective studies. A <term>prospective study</term> identifies individuals and collects information as events unfold. For instance, medical researchers may identify and follow a group of patients over many years to assess the possible influences of behavior on cancer risk. One example of such a study is The Nurses' Health Study, started in 1976 and expanded in 1989. This prospective study recruits registered nurses and then collects data from them using questionnaires. <term>Retrospective studies</term> collect data after events have taken place, e.g. researchers may review past events in medical records. Some data sets may contain both prospectively- and retrospectively-collected variables.
       </p>
     </subsection>
 
@@ -1552,40 +1654,74 @@
       <title>Four sampling methods</title>
 
       <p>
-        Randomness underlies most statistical methods. Common designs:
+        Almost all statistical methods are based on the notion of implied randomness. If observational data are not collected in a random framework from a population, these statistical methods<mdash/>the estimates and errors associated with the estimates<mdash/>are not reliable. Here we consider four random sampling techniques: simple, stratified, cluster, and multistage sampling. <xref ref="fig-simple-stratified"/> and <xref ref="fig-cluster-multistage"/> provide graphical representations of these techniques.
       </p>
-      <ul>
-        <li><p><term>Simple random sample:</term> every case equally likely, independent selection.</p></li>
-        <li><p><term>Stratified sample:</term> divide into similar strata, then sample within each.</p></li>
-        <li><p><term>Cluster sample:</term> divide into clusters, sample clusters, include all cases in chosen clusters.</p></li>
-        <li><p><term>Multistage sample:</term> sample clusters, then sample within clusters.</p></li>
-      </ul>
 
       <figure xml:id="fig-simple-stratified">
-        <caption>Simple random vs. stratified sampling</caption>
-        <image source="ch_intro_to_data/figures/samplingMethodsFigure/samplingMethodsFigure.pdf" width="80%">
-          <description>Comparison of selecting individuals directly versus sampling within strata.</description>
+        <caption>
+          Examples of simple random and stratified sampling. In the top panel, simple random sampling was used to randomly select the 18 cases. In the bottom panel, stratified sampling was used: cases were grouped into strata, then simple random sampling was employed within each stratum.
+        </caption>
+        <image source="ch_intro_to_data/figures/samplingMethodsFigure/simple_stratified.pdf" width="80%">
+          <description>Two figures showing simple random sampling (top) with 18 randomly selected points, and stratified sampling (bottom) with 6 strata and 3 points selected from each stratum.</description>
         </image>
       </figure>
 
+      <p>
+        <term>Simple random sampling</term> is probably the most intuitive form of random sampling. Consider the salaries of Major League Baseball (MLB) players, where each player is a member of one of the league's 30 teams. To take a simple random sample of 120 baseball players and their salaries, we could write the names of that season's several hundreds of players onto slips of paper, drop the slips into a bucket, shake the bucket around until we are sure the names are all mixed up, then draw out slips until we have the sample of 120 players. In general, a sample is referred to as <q>simple random</q> if each case in the population has an equal chance of being included in the final sample <em>and</em> knowing that a case is included in a sample does not provide useful information about which other cases are included.
+      </p>
+
+      <p>
+        <term>Stratified sampling</term> is a divide-and-conquer sampling strategy. The population is divided into groups called <term>strata</term>. The strata are chosen so that similar cases are grouped together, then a second sampling method, usually simple random sampling, is employed within each stratum. In the baseball salary example, the teams could represent the strata, since some teams have a lot more money (up to 4 times as much!). Then we might randomly sample 4 players from each team for a total of 120 players.
+      </p>
+
+      <p>
+        Stratified sampling is especially useful when the cases in each stratum are very similar with respect to the outcome of interest. The downside is that analyzing data from a stratified sample is a more complex task than analyzing data from a simple random sample. The analysis methods introduced in this book would need to be extended to analyze data collected using stratified sampling.
+      </p>
+
+      <example xml:id="ex-stratified-advantage">
+        <title>Benefits of stratified sampling</title>
+        <statement>
+          <p>
+            Why would it be good for cases within each stratum to be very similar?
+          </p>
+          <p>
+            We might get a more stable estimate for the subpopulation in a stratum if the cases are very similar, leading to more precise estimates within each group. When we combine these estimates into a single estimate for the full population, that population estimate will tend to be more precise since each individual group estimate is itself more precise.
+          </p>
+        </statement>
+      </example>
+
+      <p>
+        In a <term>cluster sample</term>, we break up the population into many groups, called <term>clusters</term>. Then we sample a fixed number of clusters and include all observations from each of those clusters in the sample. A <term>multistage sample</term> is like a cluster sample, but rather than keeping all observations in each cluster, we collect a random sample within each selected cluster.
+      </p>
+
       <figure xml:id="fig-cluster-multistage">
-        <caption>Cluster and multistage sampling</caption>
-        <image source="ch_intro_to_data/figures/samplingMethodsFigure/samplingMethodsFigure.pdf" width="80%">
-          <description>Sampling entire clusters or sampling within selected clusters.</description>
+        <caption>
+          Examples of cluster and multistage sampling. In the top panel, cluster sampling was used: data were binned into nine clusters, three of these clusters were sampled, and all observations within these three cluster were included in the sample. In the bottom panel, multistage sampling was used, which differs from cluster sampling only in that we randomly select a subset of each cluster to be included in the sample rather than measuring every case in each sampled cluster.
+        </caption>
+        <image source="ch_intro_to_data/figures/samplingMethodsFigure/cluster_multistage.pdf" width="80%">
+          <description>Two figures showing cluster sampling (top) with all observations from selected clusters, and multistage sampling (bottom) with random samples from within selected clusters.</description>
         </image>
       </figure>
+
+      <p>
+        Sometimes cluster or multistage sampling can be more economical than the alternative sampling techniques. Also, unlike stratified sampling, these approaches are most helpful when there is a lot of case-to-case variability within a cluster but the clusters themselves don't look very different from one another. For example, if neighborhoods represented clusters, then cluster or multistage sampling work best when the neighborhoods are very diverse. A downside of these methods is that more advanced techniques are typically required to analyze the data, though the methods in this book can be extended to handle such data.
+      </p>
 
       <example xml:id="ex-malaria-sampling">
         <title>Choosing a sampling design</title>
         <statement>
           <p>
-            Estimating malaria rate across 30 similar villages: cluster or multistage sampling (select villages, then people) is cost-effective and yields reliable estimates with appropriate analysis.
+            Suppose we are interested in estimating the malaria rate in a densely tropical portion of rural Indonesia. We learn that there are 30 villages in that part of the Indonesian jungle, each more or less similar to the next. Our goal is to test 150 individuals for malaria. What sampling method should be employed?
+          </p>
+          <p>
+            A simple random sample would likely draw individuals from all 30 villages, which could make data collection extremely expensive. Stratified sampling would be a challenge since it is unclear how we would build strata of similar individuals. However, cluster sampling or multistage sampling seem like very good ideas. If we decided to use multistage sampling, we might randomly select half of the villages, then randomly select 10 people from each. This would probably reduce our data collection costs substantially in comparison to a simple random sample, and the cluster sample would still give us reliable information, even if we would need to analyze the data with slightly more advanced methods than we discuss in this book.
           </p>
         </statement>
       </example>
     </subsection>
 
-    <exercises>
+
+        <exercises>
       <title>Exercises</title>
 
       <exercise xml:id="scope_airpoll">
