@@ -4426,7 +4426,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.1",
   "title": "Point Estimates and Sampling Variability",
-  "body": " Point Estimates and Sampling Variability   Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.    Point Estimates and Error  Suppose a poll suggested the US President's approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population. This entire-population response proportion is generally referred to as the parameter of interest .  When the parameter is a proportion, it is often denoted by , and we often refer to the sample proportion as (pronounced p-hat ). Unless we collect responses from every individual in the population, remains unknown, and we use as our estimate of . The difference we observe from the poll versus the parameter is called the error in the estimate.  Generally, the error consists of two aspects: sampling error and bias .     Sampling error , sometimes called sampling uncertainty , describes how much an estimate will tend to vary from one sample to the next. For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. The sample size is often represented by the letter .       Bias describes a systematic tendency to over- or under-estimate the true population value. We try to minimize bias through thoughtful data collection procedures.      Understanding the Variability of a Point Estimate  To understand how a sample proportion behaves, consider a scenario where the proportion of American adults who support expanding solar energy is . If we were to take a poll of 1000 American adults on this topic, how close might we expect the sample proportion to be to 0.88?  We can simulate responses we would get from a simple random sample of 1000 American adults through the following steps:   Create a set of entries representing all American adults, where 88% say \"support\" and 12% say \"not\".  Mix up the entries and pull out 1000 entries to represent our sample.  Compute the fraction that say \"support\".   If we conduct this simulation 10,000 times, we create a sampling distribution of the sample proportions. This distribution has important characteristics:   Center: The center of the distribution equals the population proportion.  Spread: The standard deviation is called the standard error (SE) .  Shape: The distribution is approximately normal (bell-shaped).    Sampling distributions are never observed in practice, but we keep them in mind as they help us understand and characterize the point estimates we do observe.     Central Limit Theorem    When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:   The sample size is typically considered sufficiently large when and , which is called the success-failure condition .    The Central Limit Theorem is incredibly important and provides a foundation for much of statistics. Be mindful of the two technical conditions: the observations must be independent, and the sample size must be sufficiently large.    Applying the Central Limit Theorem to Real-World Settings  When we don't know the population proportion and must use in place of , we use the substitution approximation (also called the plug-in principle ). This allows us to estimate the standard error:   We also use in place of when checking the success-failure condition in practical applications where we don't know the true population proportion.    Extending the Framework for Other Statistics  The strategy of using a sample statistic to estimate a parameter is quite common and can be applied to other statistics besides a proportion. For instance, to estimate the average salary for graduates from a particular college, we could survey a random sample of recent graduates and use the sample mean to estimate the population mean .  The principles and general ideas are the same across different contexts, even if the details change. While this chapter emphasizes a single proportion context, these methods will be applied to many different contexts throughout this book.   "
+  "body": " Point Estimates and Sampling Variability   Companies such as Pew Research frequently conduct polls as a way to understand the state of public opinion or knowledge on many topics, including politics, scientific understanding, brand recognition, and more. The ultimate goal in taking a poll is generally to use the responses to estimate the opinion or knowledge of the broader population.    Point Estimates and Error  Suppose a poll suggested the US President's approval rating is 45%. We would consider 45% to be a point estimate of the approval rating we might see if we collected responses from the entire population. This entire-population response proportion is generally referred to as the parameter of interest .  When the parameter is a proportion, it is often denoted by , and we often refer to the sample proportion as (pronounced p-hat ). Unless we collect responses from every individual in the population, remains unknown, and we use as our estimate of . The difference we observe from the poll versus the parameter is called the error in the estimate.  Generally, the error consists of two aspects: sampling error and bias .     Sampling error , sometimes called sampling uncertainty , describes how much an estimate will tend to vary from one sample to the next. For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. The sample size is often represented by the letter .       Bias describes a systematic tendency to over- or under-estimate the true population value. We try to minimize bias through thoughtful data collection procedures.      Understanding the Variability of a Point Estimate  To understand how a sample proportion behaves, consider a scenario where the proportion of American adults who support expanding solar energy is . If we were to take a poll of 1000 American adults on this topic, how close might we expect the sample proportion to be to 0.88?  We can simulate responses we would get from a simple random sample of 1000 American adults through the following steps:   Create a set of entries representing all American adults, where 88% say \"support\" and 12% say \"not\".  Mix up the entries and pull out 1000 entries to represent our sample.  Compute the fraction that say \"support\".   If we conduct this simulation 10,000 times, we create a sampling distribution of the sample proportions. shows a histogram of the results from such a simulation.   A histogram of 10,000 sample proportions, where each sample includes 1,000 respondents from a population where .   Histogram showing distribution of sample proportions centered at 0.88    This distribution has important characteristics:   Center: The center of the distribution equals the population proportion, .  Spread: The standard deviation, which describes the typical deviation from the mean, is called the standard error (SE) . For this simulation, .  Shape: The distribution is approximately normal (bell-shaped).    Standard error versus standard deviation  The term standard error refers to the standard deviation associated with an estimate. It describes the typical deviation we expect to see in estimates from one sample to another. The term standard deviation refers to the variability in the data or population.    shows the normal approximation to the sampling distribution, illustrating that about 95% of the sample proportions fall within 2 standard errors of the true proportion.   The sampling distribution from , shown with its mean and standard error, and the normal curve.   Normal distribution with shaded middle region showing 95% of values     Sampling distributions are never observed in practice, but we keep them in mind as they help us understand and characterize the point estimates we do observe.    Effect of smaller sample size   If we used a much smaller sample size of , would you guess that the standard error for would be larger or smaller than when we used ?    Intuitively, it seems like more data is better than less data, and generally that is correct! The typical error when and would be larger than the error we would expect when .  This highlights an important property we will see again and again: a bigger sample tends to provide a more precise point estimate than a smaller sample.      Central Limit Theorem  The examples in the previous subsection highlight three important properties of the sampling distribution of a sample proportion:   The mean of the sampling distribution is .  The standard deviation of the sampling distribution, called the standard error, can be calculated as .  When the sample size is sufficiently large, the sampling distribution is approximately normal.    Central Limit Theorem for proportions   When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:     The Central Limit Theorem is incredibly important and provides a foundation for much of statistics. Be mindful of the two technical conditions:   Independence : The observations must be independent. This is satisfied for a random sample from a population.  Success-failure condition : The sample size must be sufficiently large. We consider the sample size large enough when and .   It's important to understand what happens when these conditions are not met. shows what happens when the success-failure condition is violated. The distribution on the left is from simulations when and . Notice that , which is less than 10, so the success-failure condition is not met. The distribution is noticeably skewed and does not resemble a normal distribution. The distribution on the right shows a normal distribution with the same mean and standard deviation for comparison - the fit is poor, highlighting why the success-failure condition is important.   Left: 10,000 simulations of when and . The success-failure condition is not met ( ), resulting in a skewed distribution. Right: A normal distribution with the same mean (0.25) and standard deviation (0.137) for comparison.   Two side-by-side plots showing a skewed sampling distribution when success-failure condition fails versus a normal curve     Confirming the Central Limit Theorem applies   Earlier we estimated the mean and standard error of using simulated data when and . Confirm that the Central Limit Theorem applies and the sampling distribution is approximately normal.       Independence. There are observations for each sample proportion , and each of those observations are independent draws. The most common way for observations to be considered independent is if they are from a simple random sample.     Success-failure condition. We can confirm the sample size is sufficiently large by checking the success-failure condition and confirming the two calculated values are greater than 10:     The independence and success-failure conditions are both satisfied, so the Central Limit Theorem applies, and it's reasonable to model using a normal distribution.     Computing mean and standard error   Compute the theoretical mean and standard error of when and , according to the Central Limit Theorem.    The mean of is simply the population proportion:   The standard error of is calculated using:      Normal probability for sample proportion   Estimate how frequently the sample proportion should be within 0.02 (2%) of the population value, . Based on the previous examples, we know that the distribution is approximately .    We would like to understand the fraction of 's between 0.86 and 0.90. With and , we can compute the Z-score for both the left and right cutoffs:   We can use either statistical software, a graphing calculator, or a table to find the areas in the tails, and in any case we will find that they are each 0.0228. The total tail areas are , which leaves the shaded area of 0.9544. That is, about 95.44% of the sampling distribution is within of the population proportion, .     shows how the sampling distribution changes with different values of and . Notice that:   Larger sample sizes produce narrower, more precise distributions.  The distribution becomes more symmetric when is near 0.5.  All distributions are centered at their respective values.    Sampling distributions for different values of and with smaller sample sizes. Rows represent . Columns represent and .   Grid of sampling distributions showing effect of sample size and proportion for n=10 and n=25     Sampling distributions for different values of and with larger sample sizes. Rows represent . Columns represent . Notice that as sample size increases, the distributions become more symmetric and closely resemble the normal distribution, with smaller standard deviations.   Grid of sampling distributions showing effect of sample size and proportion for n=50, n=100, and n=250, demonstrating convergence to normal distribution      Applying the Central Limit Theorem to Real-World Settings  In practice, we don't know the population proportion , which creates a challenge: we can't calculate the standard error exactly because it requires . However, we can use the substitution approximation (also called the plug-in principle ) where we use in place of :   This approximation works well when the sample size is reasonably large. We also use in place of when checking the success-failure condition in real applications.   Conditions for using the Central Limit Theorem for proportions  To apply the Central Limit Theorem for a sample proportion, the following conditions should be met:   Independence : The observations are independent, typically satisfied by random sampling or random assignment.  Success-failure condition : We expect at least 10 successes and 10 failures in our sample: and .      Extending the Framework for Other Statistics  The strategy of using a sample statistic to estimate a parameter is quite common and can be applied to other statistics besides a proportion. For instance, to estimate the average salary for graduates from a particular college, we could survey a random sample of recent graduates and use the sample mean to estimate the population mean .  The principles and general ideas are the same across different contexts:   A point estimate from a sample is used to estimate an unknown parameter.  The sampling distribution describes how the estimate varies from sample to sample.  The standard error quantifies the typical deviation in the estimates.  Under certain conditions, the Central Limit Theorem tells us the sampling distribution is approximately normal.   While this chapter emphasizes a single proportion context, these methods will be applied to many different contexts throughout this book.    Section 5.1 Exercises    For each of the following situations, state whether the parameter of interest is a mean or a proportion. It may be helpful to examine whether individual responses are numerical or categorical.   In a survey, one hundred college students are asked how many hours per week they spend on the Internet.  In a survey, one hundred college students are asked: \"What percentage of the time you spend on the Internet is part of your course work?\"  In a survey, one hundred college students are asked whether or not they cited information from Wikipedia in their papers.  In a survey, one hundred college students are asked what percentage of their total weekly spending is on alcoholic beverages.  In a sample of one hundred recent college graduates, it is found that 85 percent expect to get a job within one year of their graduation date.       For each of the following situations, state whether the parameter of interest is a mean or a proportion.   A poll shows that 64% of Americans personally worry a great deal about federal spending and the budget deficit.  A survey reports that local TV news has shown a 17% increase in revenue within a two year period while newspaper revenues decreased by 6.4% during this time period.  In a survey, high school and college students are asked whether or not they use geolocation services on their smart phones.  In a survey, smart phone users are asked whether or not they use a web-based taxi service.  In a survey, smart phone users are asked how many times they used a web-based taxi service over the last year.       As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.   What population is under consideration in the data set?  What parameter is being estimated?  What is the point estimate for the parameter?  What is the name of the statistic we use to measure the uncertainty of the point estimate?  Compute this value for this context.  The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week?  Suppose the true population value was found to be 10%. If we use this proportion to recompute the value in part (e) using instead of , does the resulting value change much?       In a random sample of 765 adults in the United States, 322 say they could not cover a $400 unexpected expense without borrowing money or going into debt.   What population is under consideration in the data set?  What parameter is being estimated?  What is the point estimate for the parameter?  What is the name of the statistic we use to measure the uncertainty of the point estimate?  Compute the value from part (d) for this context.  A cable news pundit thinks the value is actually 50%. Should she be surprised by the data?  Suppose the true population value was found to be 40%. If we use this proportion to recompute the value in part (e) using instead of , does the resulting value change much?       A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.   What is this distribution called?  Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.  If the proportions are distributed around 8%, what is the variability of the distribution?  What is the formal name of the value you computed in (c)?  Suppose the researchers' budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 800 observations?       Of all freshman at a large college, 16% made the dean's list in the current year. As part of a class project, students randomly sample 40 students and check if those students made the list. They repeat this 1,000 times and build a distribution of sample proportions.   What is this distribution called?  Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.  Calculate the variability of this distribution.  What is the formal name of the value you computed in (c)?  Suppose the students decide to sample again, this time collecting 90 students per sample, and they again collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 40 observations?      "
 },
 {
   "id": "subsec-point-estimates-error-2",
@@ -4456,18 +4456,18 @@ var ptx_lunr_docs = [
   "body": "sampling error bias "
 },
 {
-  "id": "subsec-point-estimates-error-5",
+  "id": "def-sampling-error",
   "level": "2",
-  "url": "sec-point-estimates.html#subsec-point-estimates-error-5",
+  "url": "sec-point-estimates.html#def-sampling-error",
   "type": "Definition",
   "number": "5.1.1",
   "title": "",
   "body": "   Sampling error , sometimes called sampling uncertainty , describes how much an estimate will tend to vary from one sample to the next. For instance, the estimate from one sample might be 1% too low while in another it may be 3% too high. The sample size is often represented by the letter .   "
 },
 {
-  "id": "subsec-point-estimates-error-6",
+  "id": "def-bias",
   "level": "2",
-  "url": "sec-point-estimates.html#subsec-point-estimates-error-6",
+  "url": "sec-point-estimates.html#def-bias",
   "type": "Definition",
   "number": "5.1.2",
   "title": "",
@@ -4483,13 +4483,103 @@ var ptx_lunr_docs = [
   "body": "sampling distribution "
 },
 {
+  "id": "fig-sampling-distribution-solar",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-sampling-distribution-solar",
+  "type": "Figure",
+  "number": "5.1.3",
+  "title": "",
+  "body": " A histogram of 10,000 sample proportions, where each sample includes 1,000 respondents from a population where .   Histogram showing distribution of sample proportions centered at 0.88   "
+},
+{
+  "id": "note-standard-error-vs-sd-2",
+  "level": "2",
+  "url": "sec-point-estimates.html#note-standard-error-vs-sd-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "standard error standard deviation "
+},
+{
+  "id": "fig-normal-approximation-solar",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-normal-approximation-solar",
+  "type": "Figure",
+  "number": "5.1.4",
+  "title": "",
+  "body": " The sampling distribution from , shown with its mean and standard error, and the normal curve.   Normal distribution with shaded middle region showing 95% of values   "
+},
+{
+  "id": "ex-smaller-sample-size",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-smaller-sample-size",
+  "type": "Example",
+  "number": "5.1.5",
+  "title": "Effect of smaller sample size.",
+  "body": " Effect of smaller sample size   If we used a much smaller sample size of , would you guess that the standard error for would be larger or smaller than when we used ?    Intuitively, it seems like more data is better than less data, and generally that is correct! The typical error when and would be larger than the error we would expect when .  This highlights an important property we will see again and again: a bigger sample tends to provide a more precise point estimate than a smaller sample.   "
+},
+{
   "id": "thm-central-limit-theorem",
   "level": "2",
   "url": "sec-point-estimates.html#thm-central-limit-theorem",
   "type": "Theorem",
-  "number": "5.1.3",
+  "number": "5.1.6",
+  "title": "Central Limit Theorem for proportions.",
+  "body": " Central Limit Theorem for proportions   When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:    "
+},
+{
+  "id": "fig-sampling-10-prop-25",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-sampling-10-prop-25",
+  "type": "Figure",
+  "number": "5.1.7",
   "title": "",
-  "body": "  When observations are independent and the sample size is sufficiently large, the sample proportion will tend to follow a normal distribution with:   The sample size is typically considered sufficiently large when and , which is called the success-failure condition .   "
+  "body": " Left: 10,000 simulations of when and . The success-failure condition is not met ( ), resulting in a skewed distribution. Right: A normal distribution with the same mean (0.25) and standard deviation (0.137) for comparison.   Two side-by-side plots showing a skewed sampling distribution when success-failure condition fails versus a normal curve   "
+},
+{
+  "id": "ex-confirm-clt-applies",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-confirm-clt-applies",
+  "type": "Example",
+  "number": "5.1.8",
+  "title": "Confirming the Central Limit Theorem applies.",
+  "body": " Confirming the Central Limit Theorem applies   Earlier we estimated the mean and standard error of using simulated data when and . Confirm that the Central Limit Theorem applies and the sampling distribution is approximately normal.       Independence. There are observations for each sample proportion , and each of those observations are independent draws. The most common way for observations to be considered independent is if they are from a simple random sample.     Success-failure condition. We can confirm the sample size is sufficiently large by checking the success-failure condition and confirming the two calculated values are greater than 10:     The independence and success-failure conditions are both satisfied, so the Central Limit Theorem applies, and it's reasonable to model using a normal distribution.   "
+},
+{
+  "id": "ex-se-calculation",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-se-calculation",
+  "type": "Example",
+  "number": "5.1.9",
+  "title": "Computing mean and standard error.",
+  "body": " Computing mean and standard error   Compute the theoretical mean and standard error of when and , according to the Central Limit Theorem.    The mean of is simply the population proportion:   The standard error of is calculated using:    "
+},
+{
+  "id": "ex-normal-prob-sample-prop",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-normal-prob-sample-prop",
+  "type": "Example",
+  "number": "5.1.10",
+  "title": "Normal probability for sample proportion.",
+  "body": " Normal probability for sample proportion   Estimate how frequently the sample proportion should be within 0.02 (2%) of the population value, . Based on the previous examples, we know that the distribution is approximately .    We would like to understand the fraction of 's between 0.86 and 0.90. With and , we can compute the Z-score for both the left and right cutoffs:   We can use either statistical software, a graphing calculator, or a table to find the areas in the tails, and in any case we will find that they are each 0.0228. The total tail areas are , which leaves the shaded area of 0.9544. That is, about 95.44% of the sampling distribution is within of the population proportion, .   "
+},
+{
+  "id": "fig-clt-grid",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-clt-grid",
+  "type": "Figure",
+  "number": "5.1.11",
+  "title": "",
+  "body": " Sampling distributions for different values of and with smaller sample sizes. Rows represent . Columns represent and .   Grid of sampling distributions showing effect of sample size and proportion for n=10 and n=25   "
+},
+{
+  "id": "fig-clt-grid-2",
+  "level": "2",
+  "url": "sec-point-estimates.html#fig-clt-grid-2",
+  "type": "Figure",
+  "number": "5.1.12",
+  "title": "",
+  "body": " Sampling distributions for different values of and with larger sample sizes. Rows represent . Columns represent . Notice that as sample size increases, the distributions become more symmetric and closely resemble the normal distribution, with smaller standard deviations.   Grid of sampling distributions showing effect of sample size and proportion for n=50, n=100, and n=250, demonstrating convergence to normal distribution   "
 },
 {
   "id": "subsec-clt-real-world-2",
@@ -4501,13 +4591,67 @@ var ptx_lunr_docs = [
   "body": "substitution approximation "
 },
 {
+  "id": "ex-identify-parameter-1",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-identify-parameter-1",
+  "type": "Exercise",
+  "number": "5.1.6.1",
+  "title": "",
+  "body": "  For each of the following situations, state whether the parameter of interest is a mean or a proportion. It may be helpful to examine whether individual responses are numerical or categorical.   In a survey, one hundred college students are asked how many hours per week they spend on the Internet.  In a survey, one hundred college students are asked: \"What percentage of the time you spend on the Internet is part of your course work?\"  In a survey, one hundred college students are asked whether or not they cited information from Wikipedia in their papers.  In a survey, one hundred college students are asked what percentage of their total weekly spending is on alcoholic beverages.  In a sample of one hundred recent college graduates, it is found that 85 percent expect to get a job within one year of their graduation date.    "
+},
+{
+  "id": "ex-identify-parameter-2",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-identify-parameter-2",
+  "type": "Exercise",
+  "number": "5.1.6.2",
+  "title": "",
+  "body": "  For each of the following situations, state whether the parameter of interest is a mean or a proportion.   A poll shows that 64% of Americans personally worry a great deal about federal spending and the budget deficit.  A survey reports that local TV news has shown a 17% increase in revenue within a two year period while newspaper revenues decreased by 6.4% during this time period.  In a survey, high school and college students are asked whether or not they use geolocation services on their smart phones.  In a survey, smart phone users are asked whether or not they use a web-based taxi service.  In a survey, smart phone users are asked how many times they used a web-based taxi service over the last year.    "
+},
+{
+  "id": "ex-quality-control",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-quality-control",
+  "type": "Exercise",
+  "number": "5.1.6.3",
+  "title": "",
+  "body": "  As part of a quality control process for computer chips, an engineer at a factory randomly samples 212 chips during a week of production to test the current rate of chips with severe defects. She finds that 27 of the chips are defective.   What population is under consideration in the data set?  What parameter is being estimated?  What is the point estimate for the parameter?  What is the name of the statistic we use to measure the uncertainty of the point estimate?  Compute this value for this context.  The historical rate of defects is 10%. Should the engineer be surprised by the observed rate of defects during the current week?  Suppose the true population value was found to be 10%. If we use this proportion to recompute the value in part (e) using instead of , does the resulting value change much?    "
+},
+{
+  "id": "ex-unexpected-expense",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-unexpected-expense",
+  "type": "Exercise",
+  "number": "5.1.6.4",
+  "title": "",
+  "body": "  In a random sample of 765 adults in the United States, 322 say they could not cover a $400 unexpected expense without borrowing money or going into debt.   What population is under consideration in the data set?  What parameter is being estimated?  What is the point estimate for the parameter?  What is the name of the statistic we use to measure the uncertainty of the point estimate?  Compute the value from part (d) for this context.  A cable news pundit thinks the value is actually 50%. Should she be surprised by the data?  Suppose the true population value was found to be 40%. If we use this proportion to recompute the value in part (e) using instead of , does the resulting value change much?    "
+},
+{
+  "id": "ex-repeated-water-samples",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-repeated-water-samples",
+  "type": "Exercise",
+  "number": "5.1.6.5",
+  "title": "",
+  "body": "  A nonprofit wants to understand the fraction of households that have elevated levels of lead in their drinking water. They expect at least 5% of homes will have elevated levels of lead, but not more than about 30%. They randomly sample 800 homes and work with the owners to retrieve water samples, and they compute the fraction of these homes with elevated lead levels. They repeat this 1,000 times and build a distribution of sample proportions.   What is this distribution called?  Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.  If the proportions are distributed around 8%, what is the variability of the distribution?  What is the formal name of the value you computed in (c)?  Suppose the researchers' budget is reduced, and they are only able to collect 250 observations per sample, but they can still collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 800 observations?    "
+},
+{
+  "id": "ex-repeated-student-samples",
+  "level": "2",
+  "url": "sec-point-estimates.html#ex-repeated-student-samples",
+  "type": "Exercise",
+  "number": "5.1.6.6",
+  "title": "",
+  "body": "  Of all freshman at a large college, 16% made the dean's list in the current year. As part of a class project, students randomly sample 40 students and check if those students made the list. They repeat this 1,000 times and build a distribution of sample proportions.   What is this distribution called?  Would you expect the shape of this distribution to be symmetric, right skewed, or left skewed? Explain your reasoning.  Calculate the variability of this distribution.  What is the formal name of the value you computed in (c)?  Suppose the students decide to sample again, this time collecting 90 students per sample, and they again collect 1,000 samples. They build a new distribution of sample proportions. How will the variability of this new distribution compare to the variability of the distribution when each sample contained 40 observations?    "
+},
+{
   "id": "sec-confidence-intervals",
   "level": "1",
   "url": "sec-confidence-intervals.html",
   "type": "Section",
   "number": "5.2",
   "title": "Confidence Intervals for a Proportion",
-  "body": " Confidence Intervals for a Proportion   The sample proportion provides a single plausible value for the population proportion . However, the sample proportion isn't perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.    Capturing the Population Parameter  A confidence interval is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.    Constructing a 95% Confidence Interval  Our sample proportion is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.  In a normal distribution, 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be 95% confident that the interval captures the population proportion:   When we say we are 95% confident, we mean: suppose we took many samples and built a 95% confidence interval from each. Then about 95% of those intervals would contain the parameter, .    A 95% confidence interval for a parameter is constructed as:   This confidence interval accounts for sampling error but not bias.      Changing the Confidence Level  We can create confidence intervals with different confidence levels. For example, to create a 99% confidence interval, we use 2.58 instead of 1.96:   The choice of critical value depends on the desired confidence level. To find for any confidence level, we select it so that the area between and in the standard normal distribution corresponds to the confidence level.    For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.      In a confidence interval, is called the margin of error .      Confidence Interval Procedure for a Single Proportion    Prepare  Identify and , and determine what confidence level you wish to use.    Check  Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.    Calculate  If the conditions hold, compute using , find , and construct the interval.    Conclude  Interpret the confidence interval in the context of the problem.      Interpreting Confidence Intervals  When interpreting a confidence interval, note that the statement is always about the population parameter (considering all members of the population), not about individual observations or future point estimates. A confidence interval only provides a plausible range for population parameters.   Remember that the methods discussed apply only to sampling error, not to bias. If a data set is collected in a way that systematically under-estimates or over-estimates the population parameter, these techniques will not address that problem.    "
+  "body": " Confidence Intervals for a Proportion   The sample proportion provides a single plausible value for the population proportion . However, the sample proportion isn't perfect and will have some standard error associated with it. When stating an estimate for the population proportion, it is better practice to provide a plausible range of values instead of supplying just the point estimate.    Capturing the Population Parameter  A confidence interval is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.  If we took many samples and built a confidence interval from each sample using the same method, we'd expect that some of the intervals would contain the parameter and some wouldn't. A 95% confidence interval means that if we were to repeat the process many times, about 95% of the intervals would contain the true parameter.   25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion .   Visualization of 25 confidence intervals, most containing the true parameter      Constructing a 95% Confidence Interval  Our sample proportion is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.  In a normal distribution, approximately 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion:    95% Confidence Interval for a proportion   A 95% confidence interval for a population proportion is:   where .  This confidence interval accounts for sampling error but not bias.     95% CI for solar energy support   In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.    First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition: Both are greater than 10, so the conditions are met.  The standard error is:   The 95% confidence interval is:    Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.      Changing the Confidence Level  We can create confidence intervals with different confidence levels. The multiplier we use depends on how confident we want to be:   Common confidence levels and corresponding values    Confidence Level  value    90%  1.65    95%  1.96    99%  2.58      General form of a confidence interval   For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.     Margin of Error   In a confidence interval, is called the margin of error . It represents how far above and below the point estimate the confidence interval extends.     The area between and in the standard normal distribution for common confidence levels.   Normal curve showing z-star values for different confidence levels     90% CI for solar energy support   Use the data from to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution. We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): .  The 90% confidence interval can then be computed as:    Interpretation: We are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.      Confidence Interval Procedure for a Single Proportion   Four-step confidence interval procedure   Prepare: Identify and , and determine what confidence level you wish to use.  Check: Verify the conditions to ensure is nearly normal. For one-proportion confidence intervals, use in place of to check the success-failure condition.  Calculate: If the conditions hold, compute using , find , and construct the interval.  Conclude: Interpret the confidence interval in the context of the problem.      More Case Studies  Let's apply the confidence interval procedure to two more real-world examples to solidify our understanding.   Ebola quarantine support in New York   In New York City on October 23, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a \"mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient.\" This poll included responses of 1,042 New York adults between October 26-28, 2014.   What is the point estimate, and is it reasonable to use a normal distribution to model it?  Estimate the standard error of .  Construct a 95% confidence interval for the proportion of New York adults who supported the quarantine policy.       The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition: With the conditions met, we can model using a normal distribution.    Using the substitution approximation :     Using , , and :  Interpretation: We are 95% confident that between 79.6% and 84.4% of New York adults in October 2014 supported a quarantine for anyone who had come into contact with an Ebola patient.       Wind turbine support   In the same Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.     For part (b), recall that for a 99% confidence interval, .      Yes. The survey was a random sample and the success-failure counts are both : and .    The standard error is: The 99% confidence interval is: We are 99% confident that between 81.9% and 87.7% of American adults support expanding the use of wind turbines.        Interpreting Confidence Intervals  When interpreting a confidence interval, remember:   The statement is about the population parameter , not about individual observations or future samples.  A 95% confidence interval means that if we repeated the sampling process many times, about 95% of the intervals would contain the true parameter.  We don't know if our particular interval contains the parameter, but we can be 95% confident that it does.    Remember that these methods only address sampling error, not bias. If data is collected in a way that systematically under- or over-estimates the population parameter, these techniques will not fix that problem.     Interpreting Confidence Intervals  When we interpret confidence intervals, we must be careful to use precise language. In each of the examples, we described the confidence intervals by putting them into the context of the data:   Solar. We are 90% confident that 87.1% to 90.3% of American adults support the expansion of solar power in 2018.  Ebola. We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 79.6% and 84.4%.   Notice that the statements are always about the population parameter , which considers all American adults for the energy polls or all New York adults for the quarantine poll.   Common mistakes when interpreting confidence intervals   Mistake 1: Probability interpretation. A confidence interval does not mean there's a 95% probability the parameter is in the interval. The parameter is fixed; either it's in the interval or it's not. The 95% refers to the long-run success rate of the method, not the probability for any particular interval.   Mistake 2: About the sample. A confidence interval is only about the population parameter, not about individual observations or the sample proportion. It says nothing about where future point estimates will fall.     Section 5.2 Exercises    In response to the Ebola outbreak in 2014, a poll found that 82% of 1,042 American adults supported mandatory quarantine for anyone who had contact with an Ebola patient. Construct and interpret a 95% confidence interval for the proportion of all American adults who supported this policy.      In a survey of 1,000 adults, 848 supported expanding the use of wind energy. Construct and interpret a 99% confidence interval for the proportion of all adults who support expanding wind energy.      In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.      A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.      In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.  If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.  The poll provides statistically significant evidence (at the level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.  Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.       A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of .  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.       A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size.       The General Social Survey asked the question: \"For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?\" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.   Interpret this interval in context of the data.  What does \"95% confident\" mean? Explain in the context of the application.  Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?  If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.       A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.   Check any conditions required for constructing a confidence interval.  Compute the standard error.  Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).       A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.     "
 },
 {
   "id": "subsec-capturing-parameter-2",
@@ -4519,31 +4663,193 @@ var ptx_lunr_docs = [
   "body": "confidence interval "
 },
 {
-  "id": "subsec-95-ci-6",
+  "id": "fig-25-confidence-intervals",
   "level": "2",
-  "url": "sec-confidence-intervals.html#subsec-95-ci-6",
-  "type": "Definition",
+  "url": "sec-confidence-intervals.html#fig-25-confidence-intervals",
+  "type": "Figure",
   "number": "5.2.1",
   "title": "",
-  "body": "  A 95% confidence interval for a parameter is constructed as:   This confidence interval accounts for sampling error but not bias.   "
+  "body": " 25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion .   Visualization of 25 confidence intervals, most containing the true parameter   "
 },
 {
-  "id": "subsec-changing-confidence-5",
+  "id": "def-95-ci",
   "level": "2",
-  "url": "sec-confidence-intervals.html#subsec-changing-confidence-5",
+  "url": "sec-confidence-intervals.html#def-95-ci",
   "type": "Definition",
   "number": "5.2.2",
-  "title": "",
-  "body": "  For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.   "
+  "title": "95% Confidence Interval for a proportion.",
+  "body": " 95% Confidence Interval for a proportion   A 95% confidence interval for a population proportion is:   where .  This confidence interval accounts for sampling error but not bias.   "
 },
 {
-  "id": "subsec-changing-confidence-6",
+  "id": "ex-solar-95-ci",
   "level": "2",
-  "url": "sec-confidence-intervals.html#subsec-changing-confidence-6",
-  "type": "Definition",
+  "url": "sec-confidence-intervals.html#ex-solar-95-ci",
+  "type": "Example",
   "number": "5.2.3",
+  "title": "95% CI for solar energy support.",
+  "body": " 95% CI for solar energy support   In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.    First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition: Both are greater than 10, so the conditions are met.  The standard error is:   The 95% confidence interval is:    Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.   "
+},
+{
+  "id": "table-z-star-values",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#table-z-star-values",
+  "type": "Table",
+  "number": "5.2.4",
+  "title": "Common confidence levels and corresponding <span class=\"process-math\">\\(z^*\\)<\/span> values",
+  "body": " Common confidence levels and corresponding values    Confidence Level  value    90%  1.65    95%  1.96    99%  2.58    "
+},
+{
+  "id": "def-general-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#def-general-ci",
+  "type": "Definition",
+  "number": "5.2.5",
+  "title": "General form of a confidence interval.",
+  "body": " General form of a confidence interval   For a point estimate that closely follows a normal model with standard error , a confidence interval for the population parameter is:   where corresponds to the confidence level selected.   "
+},
+{
+  "id": "def-margin-of-error",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#def-margin-of-error",
+  "type": "Definition",
+  "number": "5.2.6",
+  "title": "Margin of Error.",
+  "body": " Margin of Error   In a confidence interval, is called the margin of error . It represents how far above and below the point estimate the confidence interval extends.   "
+},
+{
+  "id": "fig-choosing-z-star",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#fig-choosing-z-star",
+  "type": "Figure",
+  "number": "5.2.7",
   "title": "",
-  "body": "  In a confidence interval, is called the margin of error .   "
+  "body": " The area between and in the standard normal distribution for common confidence levels.   Normal curve showing z-star values for different confidence levels   "
+},
+{
+  "id": "ex-solar-90-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-solar-90-ci",
+  "type": "Example",
+  "number": "5.2.8",
+  "title": "90% CI for solar energy support.",
+  "body": " 90% CI for solar energy support   Use the data from to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.    We first find such that 90% of the distribution falls between and in the standard normal distribution. We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): .  The 90% confidence interval can then be computed as:    Interpretation: We are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.   "
+},
+{
+  "id": "ex-ebola-quarantine",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-ebola-quarantine",
+  "type": "Example",
+  "number": "5.2.9",
+  "title": "Ebola quarantine support in New York.",
+  "body": " Ebola quarantine support in New York   In New York City on October 23, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York\/The Wall Street Journal\/Marist Poll found that 82% of New Yorkers favored a \"mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient.\" This poll included responses of 1,042 New York adults between October 26-28, 2014.   What is the point estimate, and is it reasonable to use a normal distribution to model it?  Estimate the standard error of .  Construct a 95% confidence interval for the proportion of New York adults who supported the quarantine policy.       The point estimate, based on a sample of size , is . To check whether can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition: With the conditions met, we can model using a normal distribution.    Using the substitution approximation :     Using , , and :  Interpretation: We are 95% confident that between 79.6% and 84.4% of New York adults in October 2014 supported a quarantine for anyone who had come into contact with an Ebola patient.     "
+},
+{
+  "id": "ex-wind-turbines-guided",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-wind-turbines-guided",
+  "type": "Checkpoint",
+  "number": "5.2.10",
+  "title": "Wind turbine support.",
+  "body": " Wind turbine support   In the same Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.   Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?  Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.     For part (b), recall that for a 99% confidence interval, .      Yes. The survey was a random sample and the success-failure counts are both : and .    The standard error is: The 99% confidence interval is: We are 99% confident that between 81.9% and 87.7% of American adults support expanding the use of wind turbines.     "
+},
+{
+  "id": "subsec-interpreting-cis-5",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#subsec-interpreting-cis-5",
+  "type": "Warning",
+  "number": "5.2.11",
+  "title": "Common mistakes when interpreting confidence intervals.",
+  "body": " Common mistakes when interpreting confidence intervals   Mistake 1: Probability interpretation. A confidence interval does not mean there's a 95% probability the parameter is in the interval. The parameter is fixed; either it's in the interval or it's not. The 95% refers to the long-run success rate of the method, not the probability for any particular interval.   Mistake 2: About the sample. A confidence interval is only about the population parameter, not about individual observations or the sample proportion. It says nothing about where future point estimates will fall.  "
+},
+{
+  "id": "ex-ebola-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-ebola-ci",
+  "type": "Exercise",
+  "number": "5.2.8.1",
+  "title": "",
+  "body": "  In response to the Ebola outbreak in 2014, a poll found that 82% of 1,042 American adults supported mandatory quarantine for anyone who had contact with an Ebola patient. Construct and interpret a 95% confidence interval for the proportion of all American adults who supported this policy.   "
+},
+{
+  "id": "ex-wind-turbines-99-ci",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-wind-turbines-99-ci",
+  "type": "Exercise",
+  "number": "5.2.8.2",
+  "title": "",
+  "body": "  In a survey of 1,000 adults, 848 supported expanding the use of wind energy. Construct and interpret a 99% confidence interval for the proportion of all adults who support expanding wind energy.   "
+},
+{
+  "id": "ex-chronic-illness-intro",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-chronic-illness-intro",
+  "type": "Exercise",
+  "number": "5.2.8.3",
+  "title": "",
+  "body": "  In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.   "
+},
+{
+  "id": "ex-twitter-users-intro",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-twitter-users-intro",
+  "type": "Exercise",
+  "number": "5.2.8.4",
+  "title": "",
+  "body": "  A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.   "
+},
+{
+  "id": "ex-chronic-illness-tf",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-chronic-illness-tf",
+  "type": "Exercise",
+  "number": "5.2.8.5",
+  "title": "",
+  "body": "  In 2013, the Pew Research Foundation reported that \"45% of U.S. adults report that they live with one or more chronic conditions\", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.  If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.  The poll provides statistically significant evidence (at the level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.  Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.    "
+},
+{
+  "id": "ex-twitter-users-tf",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-twitter-users-tf",
+  "type": "Exercise",
+  "number": "5.2.8.6",
+  "title": "",
+  "body": "  A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.   The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of .  Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.  If we want to reduce the standard error of the estimate, we should collect less data.  If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.    "
+},
+{
+  "id": "ex-er-wait-intro",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-er-wait-intro",
+  "type": "Exercise",
+  "number": "5.2.8.7",
+  "title": "",
+  "body": "  A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.   We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.  We are 95% confident that the average waiting time of all patients at this hospital's emergency room is between 128 and 147 minutes.  95% of random samples have a sample mean between 128 and 147 minutes.  A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.  The margin of error is 9.5 and the sample mean is 137.5.  In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size.    "
+},
+{
+  "id": "ex-mental-health",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-mental-health",
+  "type": "Exercise",
+  "number": "5.2.8.8",
+  "title": "",
+  "body": "  The General Social Survey asked the question: \"For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?\" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.   Interpret this interval in context of the data.  What does \"95% confident\" mean? Explain in the context of the application.  Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?  If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.    "
+},
+{
+  "id": "ex-website-registration",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-website-registration",
+  "type": "Exercise",
+  "number": "5.2.8.9",
+  "title": "",
+  "body": "  A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.   Check any conditions required for constructing a confidence interval.  Compute the standard error.  Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).    "
+},
+{
+  "id": "ex-store-coupon",
+  "level": "2",
+  "url": "sec-confidence-intervals.html#ex-store-coupon",
+  "type": "Exercise",
+  "number": "5.2.8.10",
+  "title": "",
+  "body": "  A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they'd received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they'd received in the mail.   "
 },
 {
   "id": "sec-hypothesis-testing",
@@ -4552,61 +4858,313 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.3",
   "title": "Hypothesis Testing for a Proportion",
-  "body": " Hypothesis Testing for a Proportion   The hypothesis testing framework is used to rigorously evaluate competing ideas and claims. In this section, we'll explore how to formally test claims about population proportions using data from samples.    Hypothesis Testing Framework  In hypothesis testing, we consider two competing ideas:   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested.  The alternative hypothesis ( ) represents an alternative claim under consideration and is often represented by a range of possible parameter values.   Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence. Even if we fail to reject the null hypothesis, we typically do not accept it as true; failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.    The null value is the value of the parameter under the null hypothesis. It is common to label the null value with the same symbol as the parameter but with a subscript 0. For example, if the null hypothesis is , then the null value is .      Testing Hypotheses Using Confidence Intervals  We can use confidence intervals to evaluate hypothesis tests. If the null value falls within the confidence interval, we cannot say the null value is implausible. In this case, we cannot reject the null hypothesis. If the null value falls outside the confidence interval, it is implausible and we reject the null hypothesis.    Decision Errors in Hypothesis Testing  Hypothesis tests are not flawless: we can make an incorrect decision based on the data.    A Type 1 Error is rejecting the null hypothesis when is actually true.      A Type 2 Error is failing to reject the null hypothesis when the alternative is actually true.    If we reduce how often we make one type of error, we generally make more of the other type.    The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .      Formal Testing Using P-values    The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value and evaluate the hypotheses.    When evaluating hypotheses for proportions using the p-value method, we use the null value (not ) when checking the success-failure condition and computing the standard error:    When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value instead of using the sample proportion. We're supposing the null hypothesis is true, which is different from the confidence interval approach.     Prepare  Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .    Check  Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.    Calculate  If the conditions hold, compute the standard error using , compute the Z-score, and identify the p-value.    Conclude  Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.      When the p-value is less than the significance level , we reject and report that the data provide strong evidence supporting the alternative hypothesis.  When the p-value is greater than , we do not reject , and we report that we do not have sufficient evidence to reject the null hypothesis.      Choosing a Significance Level  Choosing a significance level for a test is important in many contexts. The traditional level is , but it can be helpful to adjust the significance level based on the application.   If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).  If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).    "
+  "body": " Hypothesis Testing for a Proportion   The hypothesis testing framework is used to rigorously evaluate competing ideas and claims. In this section, we'll explore how to formally test claims about population proportions using data from samples.    Hypothesis Testing Framework  In hypothesis testing, we consider two competing hypotheses:   Null Hypothesis   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested. It typically represents a position of no difference or no effect.     Alternative Hypothesis   The alternative hypothesis ( ) represents an alternative claim under consideration. It is often represented by a range of possible parameter values and is what the researcher hopes to show evidence for.    Our job as data scientists is to play the role of a skeptic: before we buy into the alternative hypothesis, we need to see strong supporting evidence. Even if we fail to reject the null hypothesis, we typically do not accept it as true; failing to find strong evidence for the alternative hypothesis is not equivalent to accepting the null hypothesis.   Null Value   The null value is the value of the parameter under the null hypothesis. It is common to label the null value with a subscript 0. For example, if the null hypothesis is , then the null value is .     Setting up hypotheses for coal energy   Pew Research asked a random sample of 1,000 American adults whether they supported the increased usage of coal to produce energy. Set up hypotheses to evaluate whether a majority of American adults support or oppose the increased usage of coal.    The uninteresting result is that there is no majority either way: half support and half oppose. The alternative hypothesis would be that there is a majority support or oppose (though we don't know which).  If represents the proportion supporting, we write the hypotheses as:   In this case, the null value is . This is a two-sided test because the alternative hypothesis includes values both less than and greater than 0.5.      Testing Hypotheses Using Confidence Intervals  We can use confidence intervals to evaluate hypothesis tests. If the null value falls within the confidence interval, we cannot say the null value is implausible, so we cannot reject the null hypothesis. If the null value falls outside the confidence interval, it is implausible and we reject the null hypothesis.   Testing coal hypothesis using confidence interval   In the Pew Research poll, 370 out of 1,000 respondents (37%) supported expanding coal energy. Does this provide evidence that a majority opposes coal energy expansion? Use a 95% confidence interval.    First, construct a 95% confidence interval:   The null value is not in this interval (34.0% to 40.0%). Therefore, we reject the null hypothesis. We have strong evidence that a majority of American adults oppose expanding coal energy production.     Infant vaccination knowledge using CI   The Rosling Foundation studies public knowledge about global health and development. In one study, 50 college-educated adults were asked: \"What percentage of 1-year-old children in the world today have been vaccinated against some disease?\" The choices were: (A) 20%, (B) 50%, or (C) 80%. Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).  If respondents were simply guessing among the three options, we would expect about 33.3% to get it right by chance. Does the data provide strong evidence that college-educated adults perform differently than random guessing? Test using a 95% confidence interval.    First, check conditions. The data come from a simple random sample (independence), and and (success-failure). Conditions are met.  Calculate the standard error:   Construct the 95% confidence interval:   The null value is (33.3%), which falls within the confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the null hypothesis. The data do not provide sufficient evidence that college-educated adults perform differently than random guessing on this question.   Important note: Failing to reject does not mean we've proven the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50 respondents.      Decision Errors in Hypothesis Testing  Hypothesis tests are not flawless: we can make an incorrect decision based on the data.   Type 1 Error   A Type 1 Error is rejecting the null hypothesis when is actually true. This is a false positive.     Type 2 Error   A Type 2 Error is failing to reject the null hypothesis when the alternative hypothesis is actually true. This is a false negative.     Four possible outcomes in hypothesis testing     is true  is true    Reject  Type 1 Error  Correct Decision    Do not reject  Correct Decision  Type 2 Error     If we reduce how often we make one type of error, we generally make more of the other type. The balance is controlled by the significance level.   Significance Level   The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .      Formal Testing Using P-values   P-value   The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value.    When evaluating hypotheses for proportions using the p-value method, we use the null value (not ) when checking the success-failure condition and computing the standard error:    When using the p-value method to evaluate a hypothesis test, check the success-failure condition using the null value instead of using the sample proportion. We're supposing the null hypothesis is true, which is different from the confidence interval approach.   To compute a p-value:   Calculate the Z-score (standardized test statistic):  Find the probability of observing a Z-score at least as extreme as the one calculated, using the standard normal distribution.  For a two-sided test, double the tail probability.    P-value for coal energy test   Using the coal energy data ( , ), compute the p-value for testing versus .    First, check conditions using :   Calculate the standard error using :   Compute the Z-score:   This is an extremely large Z-score in magnitude. The probability of observing a Z-score this extreme (in either tail) is essentially 0. Therefore, .  Since the p-value is much less than 0.05, we reject . We have extremely strong evidence that a majority of American adults oppose expanding coal energy production.     Nuclear arms reduction support   A Gallup poll conducted in March 2013 found that 56% of a simple random sample of 1,028 US adults supported nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?    Set up hypotheses. We want to test whether a majority (more than 50%) support nuclear arms reduction:    Check conditions:    Independence: The poll was a simple random sample, so observations are independent.  Success-failure: Using the null proportion : .    Calculate: Compute the standard error using :   Calculate the test statistic:   For this two-sided test, we need to find the probability in both tails. A Z-score of 3.85 is extremely large. Looking at a standard normal table, the upper tail area is approximately 0.0001. Doubling this for the two-sided test: .   Conclude: Since , we reject . The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.     The sampling distribution centered at the null value for the nuclear arms test. The tails beyond the observed proportion show the p-value.   Normal distribution centered at 0.5 showing tail areas for nuclear arms test     The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.   Normal distribution showing extremely small tail areas for coal test     Four-step hypothesis test procedure   Prepare: Identify the parameter of interest, list hypotheses, identify the significance level, and identify and .  Check: Verify conditions to ensure is nearly normal under . For one-proportion hypothesis tests, use the null value to check the success-failure condition.  Calculate: If the conditions hold, compute the standard error using , compute the Z-score, and identify the p-value.  Conclude: Evaluate the hypothesis test by comparing the p-value to , and provide a conclusion in the context of the problem.    Decision rule:   If , reject and conclude there is strong evidence for .  If , do not reject and conclude there is insufficient evidence for .     Choosing a Significance Level  Choosing a significance level for a test is important in many contexts. The traditional level is , but it can be helpful to adjust the significance level based on the application:   If making a Type 1 Error is dangerous or especially costly, choose a small significance level (e.g., 0.01).  If a Type 2 Error is relatively more dangerous or costly, choose a higher significance level (e.g., 0.10).   For medical testing, we might use to reduce false positives. For preliminary screening, we might use to catch more potential cases.    One-Sided Hypothesis Tests (Special Topic)  So far we've only considered what are called two-sided hypothesis tests , where we care about detecting whether is either above or below some null value . There is a second type of hypothesis test called a one-sided hypothesis test .  For a one-sided hypothesis test, the hypotheses take one of the following forms:   There's only value in detecting if the population parameter is less than some value . In this case, the alternative hypothesis is written as for some null value .  There's only value in detecting if the population parameter is more than some value : In this case, the alternative hypothesis is written as .   While we adjust the form of the alternative hypothesis, we continue to write the null hypothesis using an equals-sign in the one-sided hypothesis test case.  In the entire hypothesis testing procedure, there is only one difference in evaluating a one-sided hypothesis test vs a two-sided hypothesis test: how to compute the p-value. In a one-sided hypothesis test, we compute the p-value as the tail area in the direction of the alternative hypothesis only , meaning it is represented by a single tail area. Herein lies the reason why one-sided tests are sometimes interesting: if we don't have to double the tail area to get the p-value, then the p-value is smaller and the level of evidence required to identify an interesting finding in the direction of the alternative hypothesis goes down. However, one-sided tests aren't all sunshine and rainbows: the heavy price paid is that any interesting findings in the opposite direction must be disregarded.    In Section , we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?    Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.    This example highlights that using a one-sided hypothesis creates a risk of overlooking data supporting the opposite conclusion. We could have made a similar error when reviewing the Roslings' question data in this section; if we had a pre-conceived notion that college-educated people wouldn't do worse than random guessing and so used a one-sided test, we would have missed the really interesting finding that many people have incorrect knowledge about global public health.  When might a one-sided test be appropriate to use? Very rarely. Should you ever find yourself considering using a one-sided test, carefully answer the following question:    What would I, or others, conclude if the data happens to go clearly in the opposite direction than my alternative hypothesis?    If you or others would find any value in making a conclusion about the data that goes in the opposite direction of a one-sided test, then a two-sided hypothesis test should actually be used. These considerations can be subtle, so exercise caution. We will only apply two-sided tests in the rest of this book.    Why can't we simply run a one-sided test that goes in the direction of the data?    We've been building a careful framework that controls for the Type 1 Error, which is the significance level in a hypothesis test. We'll use the below to keep things simple.  Imagine we could pick the one-sided test after we saw the data. What will go wrong?   If is smaller than the null value, then a one-sided test where would mean that any observation in the lower 5% tail of the null distribution would lead to us rejecting .  If is larger than the null value, then a one-sided test where would mean that any observation in the upper 5% tail of the null distribution would lead to us rejecting .   Then if were true, there's a 10% chance of being in one of the two tails, so our testing error is actually , not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.     Use one-sided tests only when you have a strong reason to care about deviations in only one direction. If you're unsure, use a two-sided test.     Statistical Significance versus Practical Significance  When the sample size becomes larger, point estimates become more precise and any real differences in the mean and null value become easier to detect and recognize. Even a very small difference would likely be detected if we took a large enough sample. Sometimes researchers will take such large samples that even the slightest difference is detected, even differences where there is no practical value. In such cases, we still say the difference is statistically significant , but it is not practically significant .  For example, an online experiment might identify that placing additional ads on a movie review website statistically significantly increases viewership of a TV show by 0.001%, but this increase might not have any practical value.  One role of a data scientist in conducting a study often includes planning the size of the study. The data scientist might first consult experts or scientific literature to learn what would be the smallest meaningful difference from the null value. She also would obtain other information, such as a very rough estimate of the true proportion , so that she could roughly estimate the standard error. From here, she can suggest a sample size that is sufficiently large that, if there is a real difference that is meaningful, we could detect it. While larger sample sizes may still be used, these calculations are especially helpful when considering costs or potential risks, such as possible health impacts to volunteers in a medical study.    Section 5.3 Exercises    A Gallup poll of 1,028 adults found that 56% favored a nuclear arms reduction treaty. Does this provide strong evidence that a majority of American adults favor such a treaty? Conduct a hypothesis test using .      Consider a hypothesis test for whether a new vaccine is effective at reducing infection rates compared to a placebo. Describe what a Type 1 Error and a Type 2 Error would mean in this context, and discuss which might be more serious.      Write the null and alternative hypotheses in words and then symbols for each of the following situations.   A tutoring company would like to understand if most students tend to improve their grades (or not) after they use their services. They sample 200 of the students who used their service in the past year and ask them if their grades have improved or declined from the previous year.  Employers at a firm are worried about the effect of March Madness, a basketball championship held each spring in the US, on employee productivity. They estimate that on a regular business day employees spend on average 15 minutes of company time checking personal email, making personal phone calls, etc. They also collect data on how much company time employees spend on such non-business activities during March Madness. They want to determine if these data provide convincing evidence that employee productivity changed during March Madness.       Write the null and alternative hypotheses in words and using symbols for each of the following situations.   Since 2008, chain restaurants in California have been required to display calorie counts of each menu item. Prior to menus displaying calorie counts, the average calorie intake of diners at a restaurant was 1100 calories. After calorie counts started to be displayed on menus, a nutritionist collected data on the number of calories consumed at this restaurant from a random sample of diners. Do these data provide convincing evidence of a difference in the average calorie intake of diners at this restaurant?  The state of Wisconsin would like to understand the fraction of its adult residents that consumed alcohol in the last year, specifically if the rate is different from the national rate of 70%. To help them answer this question, they conduct a random sample of 852 residents and ask them about their alcohol consumption.       A study suggests that 60% of college students spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.       A study suggests that 25% of 25 year olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 25 year olds in census data with size 776, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see.       Teens were surveyed about cyberbullying, and 54% to 64% reported experiencing cyberbullying (95% confidence interval). Answer the following questions based on this interval.   A newspaper claims that a majority of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  A researcher conjectured that 70% of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the researcher from part (b) would be supported based on a 90% confidence interval?       The ER wait time exercise provides a 95% confidence interval for the mean waiting time at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this interval.   A local newspaper claims that the average waiting time at this ER exceeds 3 hours. Is this claim supported by the confidence interval? Explain your reasoning.  The Dean of Medicine at this hospital claims the average wait time is 2.2 hours. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the Dean from part (b) would be supported based on a 99% confidence interval?       Do a majority of US adults believe raising the minimum wage will help the economy, or is there a majority who do not believe this? A Rasmussen Reports survey of a random sample of 1,000 US adults found that 42% believe it will help the economy. Conduct an appropriate hypothesis test to help answer the research question.      400 students were randomly sampled from a large university, and 289 said they did not get enough sleep. Conduct a hypothesis test to check whether this represents a statistically significant difference from 50%, and use a significance level of 0.01.      You are given the following hypotheses:   We know the sample size is 90. For what sample proportion would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.      You are given the following hypotheses:   We know that the sample size is 1,429. For what sample proportion would the p-value be equal to 0.01? Assume that all conditions necessary for inference are satisfied.      A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome of body pain, and was prescribed anti-depressants. Being the skeptic that she is, Diana didn't initially believe that anti-depressants would help her symptoms. However after a couple months of being on the medication she decides that the anti-depressants are working, because she feels like her symptoms are in fact getting better.   Write the hypotheses in words for Diana's skeptical position when she started taking the anti-depressants.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?       In each part below, there is a value of interest and two scenarios (I and II). For each part, report if the value of interest is larger under scenario I, scenario II, or whether the value is equal under the scenarios.   The standard error of when (I) or (II) .  The margin of error of a confidence interval when the confidence level is (I) 90% or (II) 80%.  The p-value for a Z-statistic of 2.5 calculated based on a (I) sample with or based on a (II) sample with .  The probability of making a Type 2 Error when the alternative hypothesis is true and the significance level is (I) 0.05 or (II) 0.10.      "
 },
 {
-  "id": "subsec-ht-framework-5",
+  "id": "def-null-hypothesis",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-ht-framework-5",
+  "url": "sec-hypothesis-testing.html#def-null-hypothesis",
   "type": "Definition",
   "number": "5.3.1",
-  "title": "",
-  "body": "  The null value is the value of the parameter under the null hypothesis. It is common to label the null value with the same symbol as the parameter but with a subscript 0. For example, if the null hypothesis is , then the null value is .   "
+  "title": "Null Hypothesis.",
+  "body": " Null Hypothesis   The null hypothesis ( ) often represents a skeptical perspective or a claim to be tested. It typically represents a position of no difference or no effect.   "
 },
 {
-  "id": "subsec-decision-errors-3",
+  "id": "def-alternative-hypothesis",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-decision-errors-3",
+  "url": "sec-hypothesis-testing.html#def-alternative-hypothesis",
   "type": "Definition",
   "number": "5.3.2",
-  "title": "",
-  "body": "  A Type 1 Error is rejecting the null hypothesis when is actually true.   "
+  "title": "Alternative Hypothesis.",
+  "body": " Alternative Hypothesis   The alternative hypothesis ( ) represents an alternative claim under consideration. It is often represented by a range of possible parameter values and is what the researcher hopes to show evidence for.   "
 },
 {
-  "id": "subsec-decision-errors-4",
+  "id": "def-null-value",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-decision-errors-4",
+  "url": "sec-hypothesis-testing.html#def-null-value",
   "type": "Definition",
   "number": "5.3.3",
-  "title": "",
-  "body": "  A Type 2 Error is failing to reject the null hypothesis when the alternative is actually true.   "
+  "title": "Null Value.",
+  "body": " Null Value   The null value is the value of the parameter under the null hypothesis. It is common to label the null value with a subscript 0. For example, if the null hypothesis is , then the null value is .   "
 },
 {
-  "id": "subsec-decision-errors-6",
+  "id": "ex-coal-hypotheses",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-decision-errors-6",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#ex-coal-hypotheses",
+  "type": "Example",
   "number": "5.3.4",
-  "title": "",
-  "body": "  The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .   "
+  "title": "Setting up hypotheses for coal energy.",
+  "body": " Setting up hypotheses for coal energy   Pew Research asked a random sample of 1,000 American adults whether they supported the increased usage of coal to produce energy. Set up hypotheses to evaluate whether a majority of American adults support or oppose the increased usage of coal.    The uninteresting result is that there is no majority either way: half support and half oppose. The alternative hypothesis would be that there is a majority support or oppose (though we don't know which).  If represents the proportion supporting, we write the hypotheses as:   In this case, the null value is . This is a two-sided test because the alternative hypothesis includes values both less than and greater than 0.5.   "
 },
 {
-  "id": "subsec-p-values-2",
+  "id": "ex-coal-ci-test",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-p-values-2",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#ex-coal-ci-test",
+  "type": "Example",
   "number": "5.3.5",
-  "title": "",
-  "body": "  The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value and evaluate the hypotheses.   "
+  "title": "Testing coal hypothesis using confidence interval.",
+  "body": " Testing coal hypothesis using confidence interval   In the Pew Research poll, 370 out of 1,000 respondents (37%) supported expanding coal energy. Does this provide evidence that a majority opposes coal energy expansion? Use a 95% confidence interval.    First, construct a 95% confidence interval:   The null value is not in this interval (34.0% to 40.0%). Therefore, we reject the null hypothesis. We have strong evidence that a majority of American adults oppose expanding coal energy production.   "
 },
 {
-  "id": "subsec-p-values-7",
+  "id": "ex-rosling-infant-vaccination",
   "level": "2",
-  "url": "sec-hypothesis-testing.html#subsec-p-values-7",
-  "type": "Definition",
+  "url": "sec-hypothesis-testing.html#ex-rosling-infant-vaccination",
+  "type": "Example",
   "number": "5.3.6",
+  "title": "Infant vaccination knowledge using CI.",
+  "body": " Infant vaccination knowledge using CI   The Rosling Foundation studies public knowledge about global health and development. In one study, 50 college-educated adults were asked: \"What percentage of 1-year-old children in the world today have been vaccinated against some disease?\" The choices were: (A) 20%, (B) 50%, or (C) 80%. Only 12 out of 50 respondents (24%) chose the correct answer (C: 80%).  If respondents were simply guessing among the three options, we would expect about 33.3% to get it right by chance. Does the data provide strong evidence that college-educated adults perform differently than random guessing? Test using a 95% confidence interval.    First, check conditions. The data come from a simple random sample (independence), and and (success-failure). Conditions are met.  Calculate the standard error:   Construct the 95% confidence interval:   The null value is (33.3%), which falls within the confidence interval of 12.2% to 35.8%. Therefore, we cannot reject the null hypothesis. The data do not provide sufficient evidence that college-educated adults perform differently than random guessing on this question.   Important note: Failing to reject does not mean we've proven the null hypothesis is true. Perhaps there was an actual difference, but we were not able to detect it with the relatively small sample of 50 respondents.   "
+},
+{
+  "id": "def-type-1-error",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#def-type-1-error",
+  "type": "Definition",
+  "number": "5.3.7",
+  "title": "Type 1 Error.",
+  "body": " Type 1 Error   A Type 1 Error is rejecting the null hypothesis when is actually true. This is a false positive.   "
+},
+{
+  "id": "def-type-2-error",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#def-type-2-error",
+  "type": "Definition",
+  "number": "5.3.8",
+  "title": "Type 2 Error.",
+  "body": " Type 2 Error   A Type 2 Error is failing to reject the null hypothesis when the alternative hypothesis is actually true. This is a false negative.   "
+},
+{
+  "id": "table-decision-errors",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#table-decision-errors",
+  "type": "Table",
+  "number": "5.3.9",
+  "title": "Four possible outcomes in hypothesis testing",
+  "body": " Four possible outcomes in hypothesis testing     is true  is true    Reject  Type 1 Error  Correct Decision    Do not reject  Correct Decision  Type 2 Error    "
+},
+{
+  "id": "def-significance-level",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#def-significance-level",
+  "type": "Definition",
+  "number": "5.3.10",
+  "title": "Significance Level.",
+  "body": " Significance Level   The significance level  indicates how often we incorrectly reject when it is true. The traditional significance level is .   "
+},
+{
+  "id": "def-p-value",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#def-p-value",
+  "type": "Definition",
+  "number": "5.3.11",
+  "title": "P-value.",
+  "body": " P-value   The p-value is the probability of observing data at least as favorable to the alternative hypothesis as our current data set, if the null hypothesis were true. We typically use a summary statistic of the data, such as the sample proportion, to help compute the p-value.   "
+},
+{
+  "id": "ex-coal-p-value",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-coal-p-value",
+  "type": "Example",
+  "number": "5.3.12",
+  "title": "P-value for coal energy test.",
+  "body": " P-value for coal energy test   Using the coal energy data ( , ), compute the p-value for testing versus .    First, check conditions using :   Calculate the standard error using :   Compute the Z-score:   This is an extremely large Z-score in magnitude. The probability of observing a Z-score this extreme (in either tail) is essentially 0. Therefore, .  Since the p-value is much less than 0.05, we reject . We have extremely strong evidence that a majority of American adults oppose expanding coal energy production.   "
+},
+{
+  "id": "ex-nuclear-arms-reduction",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-nuclear-arms-reduction",
+  "type": "Example",
+  "number": "5.3.13",
+  "title": "Nuclear arms reduction support.",
+  "body": " Nuclear arms reduction support   A Gallup poll conducted in March 2013 found that 56% of a simple random sample of 1,028 US adults supported nuclear arms reduction. Does this provide convincing evidence that a majority of Americans supported nuclear arms reduction at the 5% significance level?    Set up hypotheses. We want to test whether a majority (more than 50%) support nuclear arms reduction:    Check conditions:    Independence: The poll was a simple random sample, so observations are independent.  Success-failure: Using the null proportion : .    Calculate: Compute the standard error using :   Calculate the test statistic:   For this two-sided test, we need to find the probability in both tails. A Z-score of 3.85 is extremely large. Looking at a standard normal table, the upper tail area is approximately 0.0001. Doubling this for the two-sided test: .   Conclude: Since , we reject . The poll provides convincing evidence that a majority of Americans supported nuclear arms reduction efforts in March 2013.   "
+},
+{
+  "id": "fig-nuclear-arms-p-value",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#fig-nuclear-arms-p-value",
+  "type": "Figure",
+  "number": "5.3.14",
   "title": "",
-  "body": "  When the p-value is less than the significance level , we reject and report that the data provide strong evidence supporting the alternative hypothesis.  When the p-value is greater than , we do not reject , and we report that we do not have sufficient evidence to reject the null hypothesis.   "
+  "body": " The sampling distribution centered at the null value for the nuclear arms test. The tails beyond the observed proportion show the p-value.   Normal distribution centered at 0.5 showing tail areas for nuclear arms test   "
+},
+{
+  "id": "fig-coal-p-value",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#fig-coal-p-value",
+  "type": "Figure",
+  "number": "5.3.15",
+  "title": "",
+  "body": " The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.   Normal distribution showing extremely small tail areas for coal test   "
+},
+{
+  "id": "subsec-one-sided-tests-2",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-one-sided-tests-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "two-sided hypothesis tests one-sided hypothesis test "
+},
+{
+  "id": "ex-stents-two-sided-important",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-stents-two-sided-important",
+  "type": "Example",
+  "number": "5.3.16",
+  "title": "",
+  "body": "  In Section , we encountered an example where doctors were interested in determining whether stents would help people who had a high risk of stroke. The researchers believed the stents would help. Unfortunately, the data showed the opposite: patients who received stents actually did worse. Why was using a two-sided test so important in this context?    Before the study, researchers had reason to believe that stents would help patients since existing research suggested stents helped in patients with heart attacks. It would surely have been tempting to use a one-sided test in this situation, and had they done this, they would have limited their ability to identify potential harm to patients.   "
+},
+{
+  "id": "ex-why-not-choose-direction-after",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-why-not-choose-direction-after",
+  "type": "Example",
+  "number": "5.3.17",
+  "title": "",
+  "body": "  Why can't we simply run a one-sided test that goes in the direction of the data?    We've been building a careful framework that controls for the Type 1 Error, which is the significance level in a hypothesis test. We'll use the below to keep things simple.  Imagine we could pick the one-sided test after we saw the data. What will go wrong?   If is smaller than the null value, then a one-sided test where would mean that any observation in the lower 5% tail of the null distribution would lead to us rejecting .  If is larger than the null value, then a one-sided test where would mean that any observation in the upper 5% tail of the null distribution would lead to us rejecting .   Then if were true, there's a 10% chance of being in one of the two tails, so our testing error is actually , not 0.05. That is, not being careful about when to use one-sided tests effectively undermines the methods we're working so hard to develop and utilize.   "
+},
+{
+  "id": "subsec-one-sided-tests-13",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-one-sided-tests-13",
+  "type": "Warning",
+  "number": "5.3.18",
+  "title": "",
+  "body": " Use one-sided tests only when you have a strong reason to care about deviations in only one direction. If you're unsure, use a two-sided test.  "
+},
+{
+  "id": "subsec-statistical-vs-practical-2",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#subsec-statistical-vs-practical-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "statistically significant practically significant "
+},
+{
+  "id": "ex-nuclear-arms",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-nuclear-arms",
+  "type": "Exercise",
+  "number": "5.3.8.1",
+  "title": "",
+  "body": "  A Gallup poll of 1,028 adults found that 56% favored a nuclear arms reduction treaty. Does this provide strong evidence that a majority of American adults favor such a treaty? Conduct a hypothesis test using .   "
+},
+{
+  "id": "ex-type-errors-vaccine",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-type-errors-vaccine",
+  "type": "Exercise",
+  "number": "5.3.8.2",
+  "title": "",
+  "body": "  Consider a hypothesis test for whether a new vaccine is effective at reducing infection rates compared to a placebo. Describe what a Type 1 Error and a Type 2 Error would mean in this context, and discuss which might be more serious.   "
+},
+{
+  "id": "ex-identify-hypotheses-1",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-identify-hypotheses-1",
+  "type": "Exercise",
+  "number": "5.3.8.3",
+  "title": "",
+  "body": "  Write the null and alternative hypotheses in words and then symbols for each of the following situations.   A tutoring company would like to understand if most students tend to improve their grades (or not) after they use their services. They sample 200 of the students who used their service in the past year and ask them if their grades have improved or declined from the previous year.  Employers at a firm are worried about the effect of March Madness, a basketball championship held each spring in the US, on employee productivity. They estimate that on a regular business day employees spend on average 15 minutes of company time checking personal email, making personal phone calls, etc. They also collect data on how much company time employees spend on such non-business activities during March Madness. They want to determine if these data provide convincing evidence that employee productivity changed during March Madness.    "
+},
+{
+  "id": "ex-identify-hypotheses-2",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-identify-hypotheses-2",
+  "type": "Exercise",
+  "number": "5.3.8.4",
+  "title": "",
+  "body": "  Write the null and alternative hypotheses in words and using symbols for each of the following situations.   Since 2008, chain restaurants in California have been required to display calorie counts of each menu item. Prior to menus displaying calorie counts, the average calorie intake of diners at a restaurant was 1100 calories. After calorie counts started to be displayed on menus, a nutritionist collected data on the number of calories consumed at this restaurant from a random sample of diners. Do these data provide convincing evidence of a difference in the average calorie intake of diners at this restaurant?  The state of Wisconsin would like to understand the fraction of its adult residents that consumed alcohol in the last year, specifically if the rate is different from the national rate of 70%. To help them answer this question, they conduct a random sample of 852 residents and ask them about their alcohol consumption.    "
+},
+{
+  "id": "ex-online-communication",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-online-communication",
+  "type": "Exercise",
+  "number": "5.3.8.5",
+  "title": "",
+  "body": "  A study suggests that 60% of college students spend 10 or more hours per week communicating with others online. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. You randomly sample 160 students from your dorm and find that 70% spent 10 or more hours a week communicating with others online. A friend of yours, who offers to help you with the hypothesis test, comes up with the following set of hypotheses. Indicate any errors you see.    "
+},
+{
+  "id": "ex-married-at-25",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-married-at-25",
+  "type": "Exercise",
+  "number": "5.3.8.6",
+  "title": "",
+  "body": "  A study suggests that 25% of 25 year olds have gotten married. You believe that this is incorrect and decide to collect your own sample for a hypothesis test. From a random sample of 25 year olds in census data with size 776, you find that 24% of them are married. A friend of yours offers to help you with setting up the hypothesis test and comes up with the following hypotheses. Indicate any errors you see.    "
+},
+{
+  "id": "ex-cyberbullying-rates",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-cyberbullying-rates",
+  "type": "Exercise",
+  "number": "5.3.8.7",
+  "title": "",
+  "body": "  Teens were surveyed about cyberbullying, and 54% to 64% reported experiencing cyberbullying (95% confidence interval). Answer the following questions based on this interval.   A newspaper claims that a majority of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  A researcher conjectured that 70% of teens have experienced cyberbullying. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the researcher from part (b) would be supported based on a 90% confidence interval?    "
+},
+{
+  "id": "ex-er-wait-ci-ht",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-er-wait-ci-ht",
+  "type": "Exercise",
+  "number": "5.3.8.8",
+  "title": "",
+  "body": "  The ER wait time exercise provides a 95% confidence interval for the mean waiting time at an emergency room (ER) of (128 minutes, 147 minutes). Answer the following questions based on this interval.   A local newspaper claims that the average waiting time at this ER exceeds 3 hours. Is this claim supported by the confidence interval? Explain your reasoning.  The Dean of Medicine at this hospital claims the average wait time is 2.2 hours. Is this claim supported by the confidence interval? Explain your reasoning.  Without actually calculating the interval, determine if the claim of the Dean from part (b) would be supported based on a 99% confidence interval?    "
+},
+{
+  "id": "ex-minimum-wage-1",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-minimum-wage-1",
+  "type": "Exercise",
+  "number": "5.3.8.9",
+  "title": "",
+  "body": "  Do a majority of US adults believe raising the minimum wage will help the economy, or is there a majority who do not believe this? A Rasmussen Reports survey of a random sample of 1,000 US adults found that 42% believe it will help the economy. Conduct an appropriate hypothesis test to help answer the research question.   "
+},
+{
+  "id": "ex-getting-enough-sleep",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-getting-enough-sleep",
+  "type": "Exercise",
+  "number": "5.3.8.10",
+  "title": "",
+  "body": "  400 students were randomly sampled from a large university, and 289 said they did not get enough sleep. Conduct a hypothesis test to check whether this represents a statistically significant difference from 50%, and use a significance level of 0.01.   "
+},
+{
+  "id": "ex-working-backwards-1",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-working-backwards-1",
+  "type": "Exercise",
+  "number": "5.3.8.11",
+  "title": "",
+  "body": "  You are given the following hypotheses:   We know the sample size is 90. For what sample proportion would the p-value be equal to 0.05? Assume that all conditions necessary for inference are satisfied.   "
+},
+{
+  "id": "ex-working-backwards-2",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-working-backwards-2",
+  "type": "Exercise",
+  "number": "5.3.8.12",
+  "title": "",
+  "body": "  You are given the following hypotheses:   We know that the sample size is 1,429. For what sample proportion would the p-value be equal to 0.01? Assume that all conditions necessary for inference are satisfied.   "
+},
+{
+  "id": "ex-testing-fibromyalgia",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-testing-fibromyalgia",
+  "type": "Exercise",
+  "number": "5.3.8.13",
+  "title": "",
+  "body": "  A patient named Diana was diagnosed with Fibromyalgia, a long-term syndrome of body pain, and was prescribed anti-depressants. Being the skeptic that she is, Diana didn't initially believe that anti-depressants would help her symptoms. However after a couple months of being on the medication she decides that the anti-depressants are working, because she feels like her symptoms are in fact getting better.   Write the hypotheses in words for Diana's skeptical position when she started taking the anti-depressants.  What is a Type 1 Error in this context?  What is a Type 2 Error in this context?    "
+},
+{
+  "id": "ex-which-is-higher",
+  "level": "2",
+  "url": "sec-hypothesis-testing.html#ex-which-is-higher",
+  "type": "Exercise",
+  "number": "5.3.8.14",
+  "title": "",
+  "body": "  In each part below, there is a value of interest and two scenarios (I and II). For each part, report if the value of interest is larger under scenario I, scenario II, or whether the value is equal under the scenarios.   The standard error of when (I) or (II) .  The margin of error of a confidence interval when the confidence level is (I) 90% or (II) 80%.  The p-value for a Z-statistic of 2.5 calculated based on a (I) sample with or based on a (II) sample with .  The probability of making a Type 2 Error when the alternative hypothesis is true and the significance level is (I) 0.05 or (II) 0.10.    "
 },
 {
   "id": "sec-ch05-review",
@@ -4615,7 +5173,43 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "5.4",
   "title": "Chapter 5 Review Exercises",
-  "body": " Chapter 5 Review Exercises  Additional exercises for practicing the concepts covered in this chapter are available in the accompanying exercise materials. These exercises cover parameter identification, point estimates, confidence intervals, and hypothesis testing for proportions.  "
+  "body": " Chapter 5 Review Exercises  This chapter introduced the foundational concepts of statistical inference:   Point estimates provide single best guesses for population parameters, but come with sampling error.  Confidence intervals provide a range of plausible values for parameters, accounting for sampling variability.  Hypothesis tests allow us to formally evaluate claims about population parameters using sample data.   These methods all rely on the Central Limit Theorem, which tells us that sample proportions follow an approximately normal distribution when certain conditions are met. The same framework extends to other parameters beyond proportions.   Review Exercises    A university wants to estimate the proportion of its students who are satisfied with campus dining options. A random sample of 500 students finds that 340 are satisfied.   Calculate a 90% confidence interval for the true proportion of satisfied students.  Interpret this interval in context.  Would a 95% confidence interval be wider or narrower? Why?       A political candidate claims that more than 60% of voters in a district support her platform. A poll of 400 randomly selected voters finds that 252 support her platform.   Set up appropriate hypotheses to test the candidate's claim.  Calculate the p-value for this test.  What conclusion would you draw at the level?       Explain the difference between a confidence interval and a hypothesis test. When would you use each method?      A researcher wants to estimate a population proportion with a margin of error no larger than 3% at the 95% confidence level. What sample size is required? (Hint: Use for the most conservative estimate.)     "
+},
+{
+  "id": "sec-ch05-review-5-2",
+  "level": "2",
+  "url": "sec-ch05-review.html#sec-ch05-review-5-2",
+  "type": "Exercise",
+  "number": "5.4.1",
+  "title": "",
+  "body": "  A university wants to estimate the proportion of its students who are satisfied with campus dining options. A random sample of 500 students finds that 340 are satisfied.   Calculate a 90% confidence interval for the true proportion of satisfied students.  Interpret this interval in context.  Would a 95% confidence interval be wider or narrower? Why?    "
+},
+{
+  "id": "sec-ch05-review-5-3",
+  "level": "2",
+  "url": "sec-ch05-review.html#sec-ch05-review-5-3",
+  "type": "Exercise",
+  "number": "5.4.2",
+  "title": "",
+  "body": "  A political candidate claims that more than 60% of voters in a district support her platform. A poll of 400 randomly selected voters finds that 252 support her platform.   Set up appropriate hypotheses to test the candidate's claim.  Calculate the p-value for this test.  What conclusion would you draw at the level?    "
+},
+{
+  "id": "sec-ch05-review-5-4",
+  "level": "2",
+  "url": "sec-ch05-review.html#sec-ch05-review-5-4",
+  "type": "Exercise",
+  "number": "5.4.3",
+  "title": "",
+  "body": "  Explain the difference between a confidence interval and a hypothesis test. When would you use each method?   "
+},
+{
+  "id": "sec-ch05-review-5-5",
+  "level": "2",
+  "url": "sec-ch05-review.html#sec-ch05-review-5-5",
+  "type": "Exercise",
+  "number": "5.4.4",
+  "title": "",
+  "body": "  A researcher wants to estimate a population proportion with a margin of error no larger than 3% at the 95% confidence level. What sample size is required? (Hint: Use for the most conservative estimate.)   "
 },
 {
   "id": "sec-single-proportion",

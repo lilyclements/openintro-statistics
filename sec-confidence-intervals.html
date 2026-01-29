@@ -348,6 +348,7 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-central-limit-theorem" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Central Limit Theorem</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-clt-real-world" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Applying the Central Limit Theorem to Real-World Settings</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-point-estimates.html#subsec-extending-framework" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Extending the Framework for Other Statistics</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-point-estimates.html#sec-point-estimates-8" class="internal"><span class="codenumber">5.1.6</span> <span class="title">Section 5.1 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section contains-active">
@@ -357,7 +358,10 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-95-ci" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Constructing a 95% Confidence Interval</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-changing-confidence" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Changing the Confidence Level</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-ci-procedure" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Confidence Interval Procedure for a Single Proportion</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-more-case-studies" class="internal"><span class="codenumber">5.2.5</span> <span class="title">More Case Studies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-ci" class="internal"><span class="codenumber">5.2.6</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-confidence-intervals.html#subsec-interpreting-cis" class="internal"><span class="codenumber">5.2.7</span> <span class="title">Interpreting Confidence Intervals</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-confidence-intervals.html#sec-confidence-intervals-10" class="internal"><span class="codenumber">5.2.8</span> <span class="title">Section 5.2 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -368,9 +372,15 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-decision-errors" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Decision Errors in Hypothesis Testing</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-p-values" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Formal Testing Using P-values</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-significance-level" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Choosing a Significance Level</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-one-sided-tests" class="internal"><span class="codenumber">5.3.6</span> <span class="title">One-Sided Hypothesis Tests (Special Topic)</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#subsec-statistical-vs-practical" class="internal"><span class="codenumber">5.3.7</span> <span class="title">Statistical Significance versus Practical Significance</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-hypothesis-testing.html#sec-hypothesis-testing-10" class="internal"><span class="codenumber">5.3.8</span> <span class="title">Section 5.3 Exercises</span></a></div></li>
 </ul>
 </li>
-<li class="toc-item toc-section"><div class="toc-title-box"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chapter 5 Review Exercises</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ch05-review.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Chapter 5 Review Exercises</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ch05-review.html#sec-ch05-review-5" class="internal"><span class="codenumber">5.4</span> <span class="title">Review Exercises</span></a></div></li></ul>
+</li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -595,76 +605,432 @@ true);
 </h3>
 <div class="para" id="subsec-capturing-parameter-2">A <dfn class="terminology">confidence interval</dfn> is a range of plausible values where we are likely to find the population parameter. Using a confidence interval is like fishing with a net instead of a spear: we have a good chance of catching the fish.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-capturing-parameter-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 5.2.1: Capturing the Population Parameter"><a href="#subsec-capturing-parameter" title="Copy heading and permalink for Subsection 5.2.1: Capturing the Population Parameter" aria-label="Copy heading and permalink for Subsection 5.2.1: Capturing the Population Parameter">🔗</a></div></section><section class="subsection" id="subsec-95-ci"><h3 class="heading hide-type">
+<div class="para" id="subsec-capturing-parameter-3">If we took many samples and built a confidence interval from each sample using the same method, we’d expect that some of the intervals would contain the parameter and some wouldn’t. A <em class="emphasis">95% confidence interval</em> means that if we were to repeat the process many times, about 95% of the intervals would contain the true parameter.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-capturing-parameter-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-25-confidence-intervals"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/images/ch_foundations_for_inf/figures/95PercentConfidenceInterval/95PercentConfidenceInterval.pdf" class="contained" alt="Visualization of 25 confidence intervals, most containing the true parameter"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Figure 5.2.1"><a href="#fig-25-confidence-intervals" title="Copy heading and permalink for Figure 5.2.1" aria-label="Copy heading and permalink for Figure 5.2.1">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Subsection 5.2.1: Capturing the Population Parameter"><a href="#subsec-capturing-parameter" title="Copy heading and permalink for Subsection 5.2.1: Capturing the Population Parameter" aria-label="Copy heading and permalink for Subsection 5.2.1: Capturing the Population Parameter">🔗</a></div></section><section class="subsection" id="subsec-95-ci"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Constructing a 95% Confidence Interval</span>
 </h3>
 <div class="para" id="subsec-95-ci-2">Our sample proportion <span class="process-math">\(\hat{p}\)</span> is the most plausible value of the population proportion, so it makes sense to build a confidence interval around this point estimate. The standard error provides a guide for how large we should make the confidence interval.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-95-ci-3">In a normal distribution, 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion to be 95% confident that the interval captures the population proportion:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-95-ci-3">In a normal distribution, approximately 95% of the data is within 1.96 standard deviations of the mean. Using this principle, we can construct a confidence interval that extends 1.96 standard errors from the sample proportion:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="displaymath process-math" id="subsec-95-ci-4">
-\begin{equation*}
-\text{point estimate} \pm 1.96 \times SE = \hat{p} \pm 1.96 \times \sqrt{\frac{p(1-p)}{n}}
-\end{equation*}
+\begin{align*}
+\text{95% CI} \amp= \text{point estimate} \pm 1.96 \times SE\\
+\amp= \hat{p} \pm 1.96 \times \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+\end{align*}
 </div>
-<div class="para" id="subsec-95-ci-5">When we say we are 95% confident, we mean: suppose we took many samples and built a 95% confidence interval from each. Then about 95% of those intervals would contain the parameter, <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="definition definition-like" id="subsec-95-ci-6"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<article class="definition definition-like" id="def-95-ci"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">95% Confidence Interval for a proportion.</span>
 </h4>
-<div class="para" id="subsec-95-ci-6-1-1">A <dfn class="terminology">95% confidence interval</dfn> for a parameter is constructed as:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="def-95-ci-2-1">A 95% confidence interval for a population proportion is:<div class="autopermalink" data-description="Paragraph"><a href="#def-95-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="displaymath process-math" id="subsec-95-ci-6-1-2">
+<div class="displaymath process-math" id="def-95-ci-2-2">
 \begin{equation*}
-\text{point estimate} \pm 1.96 \times SE
+\hat{p} \pm 1.96 \times SE_{\hat{p}}
 \end{equation*}
 </div>
-<div class="para" id="subsec-95-ci-6-1-3">This confidence interval accounts for sampling error but not bias.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-95-ci-6-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="def-95-ci-2-3">where <span class="process-math">\(SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#def-95-ci-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="para" id="def-95-ci-2-4">This confidence interval accounts for sampling error but not bias.<div class="autopermalink" data-description="Paragraph"><a href="#def-95-ci-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 5.2.1"><a href="#subsec-95-ci-6" title="Copy heading and permalink for Definition 5.2.1" aria-label="Copy heading and permalink for Definition 5.2.1">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.2.2: Constructing a 95% Confidence Interval"><a href="#subsec-95-ci" title="Copy heading and permalink for Subsection 5.2.2: Constructing a 95% Confidence Interval" aria-label="Copy heading and permalink for Subsection 5.2.2: Constructing a 95% Confidence Interval">🔗</a></div></section><section class="subsection" id="subsec-changing-confidence"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Definition 5.2.2: 95% Confidence Interval for a proportion"><a href="#def-95-ci" title="Copy heading and permalink for Definition 5.2.2: 95% Confidence Interval for a proportion" aria-label="Copy heading and permalink for Definition 5.2.2: 95% Confidence Interval for a proportion">🔗</a></div></article><details id="ex-solar-95-ci" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">95% CI for solar energy support.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-solar-95-ci-2-1">In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported expanding the use of solar energy. Compute and interpret a 95% confidence interval for the population proportion.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-solar-95-ci-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-solar-95-ci-3-1">
+<div class="para">First, we verify the conditions. The observations are from a random sample, so they are independent. We check the success-failure condition:</div>
+<div class="displaymath process-math" id="ex-solar-95-ci-3-1-1">
+\begin{align*}
+n\hat{p} \amp= 1000 \times 0.887 = 887 \geq 10\\
+n(1-\hat{p}) \amp= 1000 \times 0.113 = 113 \geq 10
+\end{align*}
+</div>
+<div class="para">Both are greater than 10, so the conditions are met.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-solar-95-ci-3-2">
+<div class="para">The standard error is:</div>
+<div class="displaymath process-math" id="ex-solar-95-ci-3-2-1">
+\begin{align*}
+SE_{\hat{p}} \amp= \sqrt{\frac{0.887 \times 0.113}{1000}}\\
+\amp= 0.0101
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-solar-95-ci-3-3">
+<div class="para">The 95% confidence interval is:</div>
+<div class="displaymath process-math" id="ex-solar-95-ci-3-3-1">
+\begin{align*}
+0.887 \pm 1.96 \times 0.0101 \amp= 0.887 \pm 0.0198\\
+\amp= (0.8672, 0.9068)
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-solar-95-ci-3-4">Interpretation: We are 95% confident that between 86.7% and 90.7% of American adults support expanding the use of solar energy.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-95-ci-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.3.1"><a href="#ex-solar-95-ci-3" title="Copy heading and permalink for Solution 5.2.3.1" aria-label="Copy heading and permalink for Solution 5.2.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.2.3: 95% CI for solar energy support"><a href="#ex-solar-95-ci" title="Copy heading and permalink for Example 5.2.3: 95% CI for solar energy support" aria-label="Copy heading and permalink for Example 5.2.3: 95% CI for solar energy support">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.2.2: Constructing a 95% Confidence Interval"><a href="#subsec-95-ci" title="Copy heading and permalink for Subsection 5.2.2: Constructing a 95% Confidence Interval" aria-label="Copy heading and permalink for Subsection 5.2.2: Constructing a 95% Confidence Interval">🔗</a></div></section><section class="subsection" id="subsec-changing-confidence"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Changing the Confidence Level</span>
 </h3>
-<div class="para" id="subsec-changing-confidence-2">We can create confidence intervals with different confidence levels. For example, to create a 99% confidence interval, we use 2.58 instead of 1.96:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-changing-confidence-2">We can create confidence intervals with different confidence levels. The multiplier we use depends on how confident we want to be:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="displaymath process-math" id="subsec-changing-confidence-3">
-\begin{equation*}
-\text{point estimate} \pm 2.58 \times SE
-\end{equation*}
-</div>
-<div class="para" id="subsec-changing-confidence-4">The choice of critical value depends on the desired confidence level. To find <span class="process-math">\(z^*\)</span> for any confidence level, we select it so that the area between <span class="process-math">\(-z^*\)</span> and <span class="process-math">\(z^*\)</span> in the standard normal distribution corresponds to the confidence level.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="definition definition-like" id="subsec-changing-confidence-5"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<figure class="table table-like" id="table-z-star-values"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Common confidence levels and corresponding <span class="process-math">\(z^*\)</span> values<div class="autopermalink" data-description="Table 5.2.4: Common confidence levels and corresponding z^* values"><a href="#table-z-star-values" title="Copy heading and permalink for Table 5.2.4: Common confidence levels and corresponding z^* values" aria-label="Copy heading and permalink for Table 5.2.4: Common confidence levels and corresponding z^* values">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b0 r0 l0 t0 lines">Confidence Level</th>
+<th scope="col" class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(z^*\)</span> value</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">90%</td>
+<td class="l m b0 r0 l0 t0 lines">1.65</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">95%</td>
+<td class="l m b0 r0 l0 t0 lines">1.96</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">99%</td>
+<td class="l m b0 r0 l0 t0 lines">2.58</td>
+</tr>
+</table></div></figure><article class="definition definition-like" id="def-general-ci"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">General form of a confidence interval.</span>
 </h4>
-<div class="para" id="subsec-changing-confidence-5-1-1">For a point estimate that closely follows a normal model with standard error <span class="process-math">\(SE\text{,}\)</span> a confidence interval for the population parameter is:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="def-general-ci-2-1">For a point estimate that closely follows a normal model with standard error <span class="process-math">\(SE\text{,}\)</span> a confidence interval for the population parameter is:<div class="autopermalink" data-description="Paragraph"><a href="#def-general-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="displaymath process-math" id="subsec-changing-confidence-5-1-2">
+<div class="displaymath process-math" id="def-general-ci-2-2">
 \begin{equation*}
 \text{point estimate} \pm z^* \times SE
 \end{equation*}
 </div>
-<div class="para" id="subsec-changing-confidence-5-1-3">where <span class="process-math">\(z^*\)</span> corresponds to the confidence level selected.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-5-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="def-general-ci-2-3">where <span class="process-math">\(z^*\)</span> corresponds to the confidence level selected.<div class="autopermalink" data-description="Paragraph"><a href="#def-general-ci-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 5.2.2"><a href="#subsec-changing-confidence-5" title="Copy heading and permalink for Definition 5.2.2" aria-label="Copy heading and permalink for Definition 5.2.2">🔗</a></div></article><article class="definition definition-like" id="subsec-changing-confidence-6"><h4 class="heading">
-<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<div class="autopermalink" data-description="Definition 5.2.5: General form of a confidence interval"><a href="#def-general-ci" title="Copy heading and permalink for Definition 5.2.5: General form of a confidence interval" aria-label="Copy heading and permalink for Definition 5.2.5: General form of a confidence interval">🔗</a></div></article><article class="definition definition-like" id="def-margin-of-error"><h4 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Margin of Error.</span>
 </h4>
-<div class="para" id="subsec-changing-confidence-6-1-1">In a confidence interval, <span class="process-math">\(z^* \times SE\)</span> is called the <dfn class="terminology">margin of error</dfn>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-changing-confidence-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="def-margin-of-error-2-1">In a confidence interval, <span class="process-math">\(z^* \times SE\)</span> is called the <dfn class="terminology">margin of error</dfn>. It represents how far above and below the point estimate the confidence interval extends.<div class="autopermalink" data-description="Paragraph"><a href="#def-margin-of-error-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Definition 5.2.3"><a href="#subsec-changing-confidence-6" title="Copy heading and permalink for Definition 5.2.3" aria-label="Copy heading and permalink for Definition 5.2.3">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.2.3: Changing the Confidence Level"><a href="#subsec-changing-confidence" title="Copy heading and permalink for Subsection 5.2.3: Changing the Confidence Level" aria-label="Copy heading and permalink for Subsection 5.2.3: Changing the Confidence Level">🔗</a></div></section><section class="subsection" id="subsec-ci-procedure"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Definition 5.2.6: Margin of Error"><a href="#def-margin-of-error" title="Copy heading and permalink for Definition 5.2.6: Margin of Error" aria-label="Copy heading and permalink for Definition 5.2.6: Margin of Error">🔗</a></div></article><figure class="figure figure-like" id="fig-choosing-z-star"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/images/ch_foundations_for_inf/figures/choosingZForCI/choosingZForCI.pdf" class="contained" alt="Normal curve showing z-star values for different confidence levels"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The area between <span class="process-math">\(-z^*\)</span> and <span class="process-math">\(z^*\)</span> in the standard normal distribution for common confidence levels.<div class="autopermalink" data-description="Figure 5.2.7"><a href="#fig-choosing-z-star" title="Copy heading and permalink for Figure 5.2.7" aria-label="Copy heading and permalink for Figure 5.2.7">🔗</a></div></figcaption></figure><details id="ex-solar-90-ci" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">90% CI for solar energy support.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-solar-90-ci-2-1">Use the data from <a href="sec-confidence-intervals.html#ex-solar-95-ci" class="xref" data-knowl="./knowl/xref/ex-solar-95-ci.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 5.2.3: 95% CI for solar energy support">Example 5.2.3</a> to create a 90% confidence interval for the proportion of American adults that support expanding the use of solar power. We have already verified conditions for normality.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-90-ci-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-solar-90-ci-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-solar-90-ci-3-1">We first find <span class="process-math">\(z^*\)</span> such that 90% of the distribution falls between <span class="process-math">\(-z^*\)</span> and <span class="process-math">\(z^*\)</span> in the standard normal distribution. We can do this using a graphing calculator, statistical software, or a probability table by looking for an upper tail of 5% (the other 5% is in the lower tail): <span class="process-math">\(z^* = 1.65\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-90-ci-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ex-solar-90-ci-3-2">
+<div class="para">The 90% confidence interval can then be computed as:</div>
+<div class="displaymath process-math" id="ex-solar-90-ci-3-2-1">
+\begin{align*}
+\hat{p} \pm 1.65 \times SE_{\hat{p}} \amp= 0.887 \pm 1.65 \times 0.0100\\
+\amp= 0.887 \pm 0.0165\\
+\amp= (0.8705, 0.9034)
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-90-ci-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ex-solar-90-ci-3-3">Interpretation: We are 90% confident that 87.1% to 90.3% of American adults supported the expansion of solar power in 2018.<div class="autopermalink" data-description="Paragraph"><a href="#ex-solar-90-ci-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.2.8.1"><a href="#ex-solar-90-ci-3" title="Copy heading and permalink for Solution 5.2.8.1" aria-label="Copy heading and permalink for Solution 5.2.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.2.8: 90% CI for solar energy support"><a href="#ex-solar-90-ci" title="Copy heading and permalink for Example 5.2.8: 90% CI for solar energy support" aria-label="Copy heading and permalink for Example 5.2.8: 90% CI for solar energy support">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.2.3: Changing the Confidence Level"><a href="#subsec-changing-confidence" title="Copy heading and permalink for Subsection 5.2.3: Changing the Confidence Level" aria-label="Copy heading and permalink for Subsection 5.2.3: Changing the Confidence Level">🔗</a></div></section><section class="subsection" id="subsec-ci-procedure"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Confidence Interval Procedure for a Single Proportion</span>
-</h3> <div class="para" id="subsec-ci-procedure-2-1-2">Identify <span class="process-math">\(\hat{p}\)</span> and <span class="process-math">\(n\text{,}\)</span> and determine what confidence level you wish to use.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ci-procedure-2-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="subsec-ci-procedure-2-2-2">Verify the conditions to ensure <span class="process-math">\(\hat{p}\)</span> is nearly normal. For one-proportion confidence intervals, use <span class="process-math">\(\hat{p}\)</span> in place of <span class="process-math">\(p\)</span> to check the success-failure condition.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ci-procedure-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="subsec-ci-procedure-2-3-2">If the conditions hold, compute <span class="process-math">\(SE\)</span> using <span class="process-math">\(\hat{p}\text{,}\)</span> find <span class="process-math">\(z^*\text{,}\)</span> and construct the interval.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ci-procedure-2-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>  <div class="para" id="subsec-ci-procedure-2-4-2">Interpret the confidence interval in the context of the problem.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-ci-procedure-2-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion"><a href="#subsec-ci-procedure" title="Copy heading and permalink for Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion" aria-label="Copy heading and permalink for Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion">🔗</a></div></section><section class="subsection" id="subsec-interpreting-ci"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpreting Confidence Intervals</span>
 </h3>
-<div class="para" id="subsec-interpreting-ci-2">When interpreting a confidence interval, note that the statement is always about the population parameter (considering all members of the population), not about individual observations or future point estimates. A confidence interval only provides a plausible range for population parameters.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-ci-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="assemblage assemblage-like" id="ci-procedure"><h4 class="heading"><span class="title">Four-step confidence interval procedure.</span></h4>
+<div class="autopermalink" data-description="Assemblage: Four-step confidence interval procedure"><a href="#ci-procedure" title="Copy heading and permalink for Assemblage: Four-step confidence interval procedure" aria-label="Copy heading and permalink for Assemblage: Four-step confidence interval procedure">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion"><a href="#subsec-ci-procedure" title="Copy heading and permalink for Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion" aria-label="Copy heading and permalink for Subsection 5.2.4: Confidence Interval Procedure for a Single Proportion">🔗</a></div></section><section class="subsection" id="subsec-more-case-studies"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More Case Studies</span>
+</h3>
+<div class="para" id="subsec-more-case-studies-2">Let’s apply the confidence interval procedure to two more real-world examples to solidify our understanding.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-more-case-studies-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-interpreting-ci-3-1">Remember that the methods discussed apply only to sampling error, not to bias. If a data set is collected in a way that systematically under-estimates or over-estimates the population parameter, these techniques will not address that problem.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-ci-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<details id="ex-ebola-quarantine" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Ebola quarantine support in New York.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-ebola-quarantine-2-1">In New York City on October 23, 2014, a doctor who had recently been treating Ebola patients in Guinea went to the hospital with a slight fever and was subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York/The Wall Street Journal/Marist Poll found that 82% of New Yorkers favored a "mandatory 21-day quarantine for anyone who has come in contact with an Ebola patient." This poll included responses of 1,042 New York adults between October 26-28, 2014.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ebola-quarantine-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="decimal" id="ex-ebola-quarantine-2-2">
+<li id="ex-ebola-quarantine-2-2-1">
+<div class="para" id="p-derived-ex-ebola-quarantine-2-2-1">What is the point estimate, and is it reasonable to use a normal distribution to model it?</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-ebola-quarantine-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-ebola-quarantine-2-2-2">
+<div class="para" id="p-derived-ex-ebola-quarantine-2-2-2">Estimate the standard error of <span class="process-math">\(\hat{p} = 0.82\text{.}\)</span>
 </div>
-<div class="autopermalink" data-description="Subsection 5.2.5: Interpreting Confidence Intervals"><a href="#subsec-interpreting-ci" title="Copy heading and permalink for Subsection 5.2.5: Interpreting Confidence Intervals" aria-label="Copy heading and permalink for Subsection 5.2.5: Interpreting Confidence Intervals">🔗</a></div></section><div class="autopermalink" data-description="Section 5.2: Confidence Intervals for a Proportion"><a href="#sec-confidence-intervals" title="Copy heading and permalink for Section 5.2: Confidence Intervals for a Proportion" aria-label="Copy heading and permalink for Section 5.2: Confidence Intervals for a Proportion">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-ebola-quarantine-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-ebola-quarantine-2-2-3">
+<div class="para" id="p-derived-ex-ebola-quarantine-2-2-3">Construct a 95% confidence interval for the proportion of New York adults who supported the quarantine policy.</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-ebola-quarantine-2-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="solutions"><details id="ex-ebola-quarantine-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<ol class="decimal" id="ex-ebola-quarantine-3-1">
+<li id="ex-ebola-quarantine-3-1-1">
+<div class="para logical" id="ex-ebola-quarantine-3-1-1-1">
+<div class="para">The point estimate, based on a sample of size <span class="process-math">\(n = 1042\text{,}\)</span> is <span class="process-math">\(\hat{p} = 0.82\text{.}\)</span> To check whether <span class="process-math">\(\hat{p}\)</span> can be reasonably modeled using a normal distribution, we check independence (the poll is based on a simple random sample) and the success-failure condition:</div>
+<div class="displaymath process-math" id="ex-ebola-quarantine-3-1-1-1-4">
+\begin{align*}
+n\hat{p} \amp= 1042 \times 0.82 = 854 \geq 10 \checkmark\\
+n(1-\hat{p}) \amp= 1042 \times 0.18 = 188 \geq 10 \checkmark
+\end{align*}
+</div>
+<div class="para">With the conditions met, we can model <span class="process-math">\(\hat{p}\)</span> using a normal distribution.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ebola-quarantine-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#ex-ebola-quarantine-3-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="ex-ebola-quarantine-3-1-2">
+<div class="para logical" id="ex-ebola-quarantine-3-1-2-1">
+<div class="para">Using the substitution approximation <span class="process-math">\(p \approx \hat{p} = 0.82\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ebola-quarantine-3-1-2-1-2">
+\begin{align*}
+SE_{\hat{p}} \amp= \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\\
+\amp= \sqrt{\frac{0.82 \times 0.18}{1042}}\\
+\amp= 0.012
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ebola-quarantine-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#ex-ebola-quarantine-3-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="ex-ebola-quarantine-3-1-3">
+<div class="para logical" id="ex-ebola-quarantine-3-1-3-1">
+<div class="para">Using <span class="process-math">\(SE = 0.012\text{,}\)</span> <span class="process-math">\(\hat{p} = 0.82\text{,}\)</span> and <span class="process-math">\(z^* = 1.96\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="ex-ebola-quarantine-3-1-3-1-4">
+\begin{align*}
+0.82 \pm 1.96 \times 0.012 \amp= 0.82 \pm 0.024\\
+\amp= (0.796, 0.844)
+\end{align*}
+</div>
+<div class="para">Interpretation: We are 95% confident that between 79.6% and 84.4% of New York adults in October 2014 supported a quarantine for anyone who had come into contact with an Ebola patient.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-ebola-quarantine-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#ex-ebola-quarantine-3-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 5.2.9.1"><a href="#ex-ebola-quarantine-3" title="Copy heading and permalink for Solution 5.2.9.1" aria-label="Copy heading and permalink for Solution 5.2.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 5.2.9: Ebola quarantine support in New York"><a href="#ex-ebola-quarantine" title="Copy heading and permalink for Example 5.2.9: Ebola quarantine support in New York" aria-label="Copy heading and permalink for Example 5.2.9: Ebola quarantine support in New York">🔗</a></div></article></details><details id="ex-wind-turbines-guided" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Wind turbine support.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="ex-wind-turbines-guided-2-1">In the same Pew Research poll about solar energy, they also inquired about other forms of energy, and 84.8% of the 1,000 respondents supported expanding the use of wind turbines.<div class="autopermalink" data-description="Paragraph"><a href="#ex-wind-turbines-guided-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="decimal" id="ex-wind-turbines-guided-2-2">
+<li id="ex-wind-turbines-guided-2-2-1">
+<div class="para" id="p-derived-ex-wind-turbines-guided-2-2-1">Is it reasonable to model the proportion of US adults who support expanding wind turbines using a normal distribution?</div>
+<div class="autopermalink" data-description="Item 5.2.10.1"><a href="#ex-wind-turbines-guided-2-2-1" title="Copy heading and permalink for Item 5.2.10.1" aria-label="Copy heading and permalink for Item 5.2.10.1">🔗</a></div>
+</li>
+<li id="ex-wind-turbines-guided-2-2-2">
+<div class="para" id="p-derived-ex-wind-turbines-guided-2-2-2">Create a 99% confidence interval for the level of American support for expanding the use of wind turbines for power generation.</div>
+<div class="autopermalink" data-description="Item 5.2.10.2"><a href="#ex-wind-turbines-guided-2-2-2" title="Copy heading and permalink for Item 5.2.10.2" aria-label="Copy heading and permalink for Item 5.2.10.2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="ex-wind-turbines-guided-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="ex-wind-turbines-guided-3-1">For part (b), recall that for a 99% confidence interval, <span class="process-math">\(z^* = 2.58\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-wind-turbines-guided-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.2.10.1"><a href="#ex-wind-turbines-guided-3" title="Copy heading and permalink for Hint 5.2.10.1" aria-label="Copy heading and permalink for Hint 5.2.10.1">🔗</a></div>
+</div></details><details id="ex-wind-turbines-guided-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Answer</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="answer solution-like knowl__content">
+<ol class="decimal" id="ex-wind-turbines-guided-4-1">
+<li id="ex-wind-turbines-guided-4-1-1">
+<div class="para" id="ex-wind-turbines-guided-4-1-1-1">Yes. The survey was a random sample and the success-failure counts are both <span class="process-math">\(\geq 10\text{:}\)</span> <span class="process-math">\(n\hat{p} = 1000 \times 0.848 = 848\)</span> and <span class="process-math">\(n(1-\hat{p}) = 1000 \times 0.152 = 152\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-wind-turbines-guided-4-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.10.1"><a href="#ex-wind-turbines-guided-4-1-1" title="Copy heading and permalink for Item 5.2.10.1" aria-label="Copy heading and permalink for Item 5.2.10.1">🔗</a></div>
+</li>
+<li id="ex-wind-turbines-guided-4-1-2">
+<div class="para logical" id="ex-wind-turbines-guided-4-1-2-1">
+<div class="para">The standard error is:</div>
+<div class="displaymath process-math" id="ex-wind-turbines-guided-4-1-2-1-1">
+\begin{equation*}
+SE = \sqrt{\frac{0.848 \times 0.152}{1000}} = 0.0114
+\end{equation*}
+</div>
+<div class="para">The 99% confidence interval is:</div>
+<div class="displaymath process-math" id="ex-wind-turbines-guided-4-1-2-1-2">
+\begin{align*}
+0.848 \pm 2.58 \times 0.0114 \amp= 0.848 \pm 0.029\\
+\amp= (0.819, 0.877)
+\end{align*}
+</div>
+<div class="para">We are 99% confident that between 81.9% and 87.7% of American adults support expanding the use of wind turbines.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-wind-turbines-guided-4-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.2.10.2"><a href="#ex-wind-turbines-guided-4-1-2" title="Copy heading and permalink for Item 5.2.10.2" aria-label="Copy heading and permalink for Item 5.2.10.2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Answer 5.2.10.1"><a href="#ex-wind-turbines-guided-4" title="Copy heading and permalink for Answer 5.2.10.1" aria-label="Copy heading and permalink for Answer 5.2.10.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.2.10: Wind turbine support"><a href="#ex-wind-turbines-guided" title="Copy heading and permalink for Checkpoint 5.2.10: Wind turbine support" aria-label="Copy heading and permalink for Checkpoint 5.2.10: Wind turbine support">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 5.2.5: More Case Studies"><a href="#subsec-more-case-studies" title="Copy heading and permalink for Subsection 5.2.5: More Case Studies" aria-label="Copy heading and permalink for Subsection 5.2.5: More Case Studies">🔗</a></div></section><section class="subsection" id="subsec-interpreting-ci"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpreting Confidence Intervals</span>
+</h3>
+<div class="para" id="subsec-interpreting-ci-2">When interpreting a confidence interval, remember:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-ci-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="subsec-interpreting-ci-3">
+<li id="subsec-interpreting-ci-3-1">
+<div class="para" id="p-derived-subsec-interpreting-ci-3-1">The statement is about the <em class="emphasis">population parameter</em>, not about individual observations or future samples.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-interpreting-ci-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-interpreting-ci-3-2">
+<div class="para" id="p-derived-subsec-interpreting-ci-3-2">A 95% confidence interval means that if we repeated the sampling process many times, about 95% of the intervals would contain the true parameter.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-interpreting-ci-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-interpreting-ci-3-3">
+<div class="para" id="p-derived-subsec-interpreting-ci-3-3">We don’t know if our particular interval contains the parameter, but we can be 95% confident that it does.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-interpreting-ci-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="subsec-interpreting-ci-4-1">Remember that these methods only address sampling error, not bias. If data is collected in a way that systematically under- or over-estimates the population parameter, these techniques will not fix that problem.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-ci-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 5.2.6: Interpreting Confidence Intervals"><a href="#subsec-interpreting-ci" title="Copy heading and permalink for Subsection 5.2.6: Interpreting Confidence Intervals" aria-label="Copy heading and permalink for Subsection 5.2.6: Interpreting Confidence Intervals">🔗</a></div></section><section class="subsection" id="subsec-interpreting-cis"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpreting Confidence Intervals</span>
+</h3>
+<div class="para" id="subsec-interpreting-cis-2">When we interpret confidence intervals, we must be careful to use precise language. In each of the examples, we described the confidence intervals by putting them into the context of the data:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-cis-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="subsec-interpreting-cis-3">
+<li id="subsec-interpreting-cis-3-1">
+<div class="para" id="p-derived-subsec-interpreting-cis-3-1">Solar. We are 90% confident that 87.1% to 90.3% of American adults support the expansion of solar power in 2018.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-interpreting-cis-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="subsec-interpreting-cis-3-2">
+<div class="para" id="p-derived-subsec-interpreting-cis-3-2">Ebola. We are 95% confident that the proportion of New York adults in October 2014 who supported a quarantine for anyone who had come into contact with an Ebola patient was between 79.6% and 84.4%.</div>
+<div class="autopermalink" data-description="Item"><a href="#subsec-interpreting-cis-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="subsec-interpreting-cis-4">Notice that the statements are always about the <em class="emphasis">population parameter</em>, which considers all American adults for the energy polls or all New York adults for the quarantine poll.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-cis-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="warning remark-like" id="subsec-interpreting-cis-5"><h4 class="heading">
+<span class="type">Warning</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Common mistakes when interpreting confidence intervals.</span>
+</h4>
+<div class="para" id="subsec-interpreting-cis-5-2">Mistake 1: Probability interpretation. A confidence interval does not mean there’s a 95% probability the parameter is in the interval. The parameter is fixed; either it’s in the interval or it’s not. The 95% refers to the long-run success rate of the method, not the probability for any particular interval.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-cis-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-interpreting-cis-5-3">Mistake 2: About the sample. A confidence interval is only about the population parameter, not about individual observations or the sample proportion. It says nothing about where future point estimates will fall.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-interpreting-cis-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Warning 5.2.11: Common mistakes when interpreting confidence intervals"><a href="#subsec-interpreting-cis-5" title="Copy heading and permalink for Warning 5.2.11: Common mistakes when interpreting confidence intervals" aria-label="Copy heading and permalink for Warning 5.2.11: Common mistakes when interpreting confidence intervals">🔗</a></div></article><div class="autopermalink" data-description="Subsection 5.2.7: Interpreting Confidence Intervals"><a href="#subsec-interpreting-cis" title="Copy heading and permalink for Subsection 5.2.7: Interpreting Confidence Intervals" aria-label="Copy heading and permalink for Subsection 5.2.7: Interpreting Confidence Intervals">🔗</a></div></section><section class="exercises" id="sec-confidence-intervals-10"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.2.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Section 5.2 Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ex-ebola-ci"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-ebola-ci-1-1">In response to the Ebola outbreak in 2014, a poll found that 82% of 1,042 American adults supported mandatory quarantine for anyone who had contact with an Ebola patient. Construct and interpret a 95% confidence interval for the proportion of all American adults who supported this policy.<div class="autopermalink" data-description="Paragraph"><a href="#ex-ebola-ci-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8.1"><a href="#ex-ebola-ci" title="Copy heading and permalink for Exercise 5.2.8.1" aria-label="Copy heading and permalink for Exercise 5.2.8.1">🔗</a></div></article><article class="exercise exercise-like" id="ex-wind-turbines-99-ci"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-wind-turbines-99-ci-1-1">In a survey of 1,000 adults, 848 supported expanding the use of wind energy. Construct and interpret a 99% confidence interval for the proportion of all adults who support expanding wind energy.<div class="autopermalink" data-description="Paragraph"><a href="#ex-wind-turbines-99-ci-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8.2"><a href="#ex-wind-turbines-99-ci" title="Copy heading and permalink for Exercise 5.2.8.2" aria-label="Copy heading and permalink for Exercise 5.2.8.2">🔗</a></div></article><article class="exercise exercise-like" id="ex-chronic-illness-intro"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-chronic-illness-intro-1-1">In 2013, the Pew Research Foundation reported that "45% of U.S. adults report that they live with one or more chronic conditions". However, this value was based on a sample, so it may not be a perfect estimate for the population parameter of interest on its own. The study reported a standard error of about 1.2%, and a normal model may reasonably be used in this setting. Create a 95% confidence interval for the proportion of U.S. adults who live with one or more chronic conditions. Also interpret the confidence interval in the context of the study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-chronic-illness-intro-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8.3"><a href="#ex-chronic-illness-intro" title="Copy heading and permalink for Exercise 5.2.8.3" aria-label="Copy heading and permalink for Exercise 5.2.8.3">🔗</a></div></article><article class="exercise exercise-like" id="ex-twitter-users-intro"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-twitter-users-intro-1-1">A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter. The standard error for this estimate was 2.4%, and a normal distribution may be used to model the sample proportion. Construct a 99% confidence interval for the fraction of U.S. adult Twitter users who get some news on Twitter, and interpret the confidence interval in context.<div class="autopermalink" data-description="Paragraph"><a href="#ex-twitter-users-intro-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8.4"><a href="#ex-twitter-users-intro" title="Copy heading and permalink for Exercise 5.2.8.4" aria-label="Copy heading and permalink for Exercise 5.2.8.4">🔗</a></div></article><article class="exercise exercise-like" id="ex-chronic-illness-tf"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-chronic-illness-tf-1-1">In 2013, the Pew Research Foundation reported that "45% of U.S. adults report that they live with one or more chronic conditions", and the standard error for this estimate is 1.2%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.<div class="autopermalink" data-description="Paragraph"><a href="#ex-chronic-illness-tf-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-chronic-illness-tf-1-2">
+<li id="ex-chronic-illness-tf-1-2-1">
+<div class="para" id="p-derived-ex-chronic-illness-tf-1-2-1">We can say with certainty that the confidence interval from the chronic illness exercise contains the true percentage of U.S. adults who suffer from a chronic illness.</div>
+<div class="autopermalink" data-description="Item 5.2.8.5.a"><a href="#ex-chronic-illness-tf-1-2-1" title="Copy heading and permalink for Item 5.2.8.5.a" aria-label="Copy heading and permalink for Item 5.2.8.5.a">🔗</a></div>
+</li>
+<li id="ex-chronic-illness-tf-1-2-2">
+<div class="para" id="p-derived-ex-chronic-illness-tf-1-2-2">If we repeated this study 1,000 times and constructed a 95% confidence interval for each study, then approximately 950 of those confidence intervals would contain the true fraction of U.S. adults who suffer from chronic illnesses.</div>
+<div class="autopermalink" data-description="Item 5.2.8.5.b"><a href="#ex-chronic-illness-tf-1-2-2" title="Copy heading and permalink for Item 5.2.8.5.b" aria-label="Copy heading and permalink for Item 5.2.8.5.b">🔗</a></div>
+</li>
+<li id="ex-chronic-illness-tf-1-2-3">
+<div class="para" id="p-derived-ex-chronic-illness-tf-1-2-3">The poll provides statistically significant evidence (at the <span class="process-math">\(\alpha = 0.05\)</span> level) that the percentage of U.S. adults who suffer from chronic illnesses is below 50%.</div>
+<div class="autopermalink" data-description="Item 5.2.8.5.c"><a href="#ex-chronic-illness-tf-1-2-3" title="Copy heading and permalink for Item 5.2.8.5.c" aria-label="Copy heading and permalink for Item 5.2.8.5.c">🔗</a></div>
+</li>
+<li id="ex-chronic-illness-tf-1-2-4">
+<div class="para" id="p-derived-ex-chronic-illness-tf-1-2-4">Since the standard error is 1.2%, only 1.2% of people in the study communicated uncertainty about their answer.</div>
+<div class="autopermalink" data-description="Item 5.2.8.5.d"><a href="#ex-chronic-illness-tf-1-2-4" title="Copy heading and permalink for Item 5.2.8.5.d" aria-label="Copy heading and permalink for Item 5.2.8.5.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.8.5"><a href="#ex-chronic-illness-tf" title="Copy heading and permalink for Exercise 5.2.8.5" aria-label="Copy heading and permalink for Exercise 5.2.8.5">🔗</a></div></article><article class="exercise exercise-like" id="ex-twitter-users-tf"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-twitter-users-tf-1-1">A poll conducted in 2013 found that 52% of U.S. adult Twitter users get at least some news on Twitter, and the standard error for this estimate was 2.4%. Identify each of the following statements as true or false. Provide an explanation to justify each of your answers.<div class="autopermalink" data-description="Paragraph"><a href="#ex-twitter-users-tf-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-twitter-users-tf-1-2">
+<li id="ex-twitter-users-tf-1-2-1">
+<div class="para" id="p-derived-ex-twitter-users-tf-1-2-1">The data provide statistically significant evidence that more than half of U.S. adult Twitter users get some news through Twitter. Use a significance level of <span class="process-math">\(\alpha = 0.01\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Item 5.2.8.6.a"><a href="#ex-twitter-users-tf-1-2-1" title="Copy heading and permalink for Item 5.2.8.6.a" aria-label="Copy heading and permalink for Item 5.2.8.6.a">🔗</a></div>
+</li>
+<li id="ex-twitter-users-tf-1-2-2">
+<div class="para" id="p-derived-ex-twitter-users-tf-1-2-2">Since the standard error is 2.4%, we can conclude that 97.6% of all U.S. adult Twitter users were included in the study.</div>
+<div class="autopermalink" data-description="Item 5.2.8.6.b"><a href="#ex-twitter-users-tf-1-2-2" title="Copy heading and permalink for Item 5.2.8.6.b" aria-label="Copy heading and permalink for Item 5.2.8.6.b">🔗</a></div>
+</li>
+<li id="ex-twitter-users-tf-1-2-3">
+<div class="para" id="p-derived-ex-twitter-users-tf-1-2-3">If we want to reduce the standard error of the estimate, we should collect less data.</div>
+<div class="autopermalink" data-description="Item 5.2.8.6.c"><a href="#ex-twitter-users-tf-1-2-3" title="Copy heading and permalink for Item 5.2.8.6.c" aria-label="Copy heading and permalink for Item 5.2.8.6.c">🔗</a></div>
+</li>
+<li id="ex-twitter-users-tf-1-2-4">
+<div class="para" id="p-derived-ex-twitter-users-tf-1-2-4">If we construct a 90% confidence interval for the percentage of U.S. adult Twitter users who get some news through Twitter, this confidence interval will be wider than a corresponding 99% confidence interval.</div>
+<div class="autopermalink" data-description="Item 5.2.8.6.d"><a href="#ex-twitter-users-tf-1-2-4" title="Copy heading and permalink for Item 5.2.8.6.d" aria-label="Copy heading and permalink for Item 5.2.8.6.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.8.6"><a href="#ex-twitter-users-tf" title="Copy heading and permalink for Exercise 5.2.8.6" aria-label="Copy heading and permalink for Exercise 5.2.8.6">🔗</a></div></article><article class="exercise exercise-like" id="ex-er-wait-intro"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-er-wait-intro-1-1">A hospital administrator hoping to improve wait times decides to estimate the average emergency room waiting time at her hospital. She collects a simple random sample of 64 patients and determines the time (in minutes) between when they checked in to the ER until they were first seen by a doctor. A 95% confidence interval based on this sample is (128 minutes, 147 minutes), which is based on the normal model for the mean. Determine whether the following statements are true or false, and explain your reasoning.<div class="autopermalink" data-description="Paragraph"><a href="#ex-er-wait-intro-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-er-wait-intro-1-2">
+<li id="ex-er-wait-intro-1-2-1">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-1">We are 95% confident that the average waiting time of these 64 emergency room patients is between 128 and 147 minutes.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.a"><a href="#ex-er-wait-intro-1-2-1" title="Copy heading and permalink for Item 5.2.8.7.a" aria-label="Copy heading and permalink for Item 5.2.8.7.a">🔗</a></div>
+</li>
+<li id="ex-er-wait-intro-1-2-2">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-2">We are 95% confident that the average waiting time of all patients at this hospital’s emergency room is between 128 and 147 minutes.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.b"><a href="#ex-er-wait-intro-1-2-2" title="Copy heading and permalink for Item 5.2.8.7.b" aria-label="Copy heading and permalink for Item 5.2.8.7.b">🔗</a></div>
+</li>
+<li id="ex-er-wait-intro-1-2-3">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-3">95% of random samples have a sample mean between 128 and 147 minutes.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.c"><a href="#ex-er-wait-intro-1-2-3" title="Copy heading and permalink for Item 5.2.8.7.c" aria-label="Copy heading and permalink for Item 5.2.8.7.c">🔗</a></div>
+</li>
+<li id="ex-er-wait-intro-1-2-4">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-4">A 99% confidence interval would be narrower than the 95% confidence interval since we need to be more sure of our estimate.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.d"><a href="#ex-er-wait-intro-1-2-4" title="Copy heading and permalink for Item 5.2.8.7.d" aria-label="Copy heading and permalink for Item 5.2.8.7.d">🔗</a></div>
+</li>
+<li id="ex-er-wait-intro-1-2-5">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-5">The margin of error is 9.5 and the sample mean is 137.5.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.e"><a href="#ex-er-wait-intro-1-2-5" title="Copy heading and permalink for Item 5.2.8.7.e" aria-label="Copy heading and permalink for Item 5.2.8.7.e">🔗</a></div>
+</li>
+<li id="ex-er-wait-intro-1-2-6">
+<div class="para" id="p-derived-ex-er-wait-intro-1-2-6">In order to decrease the margin of error of a 95% confidence interval to half of what it is now, we would need to double the sample size.</div>
+<div class="autopermalink" data-description="Item 5.2.8.7.f"><a href="#ex-er-wait-intro-1-2-6" title="Copy heading and permalink for Item 5.2.8.7.f" aria-label="Copy heading and permalink for Item 5.2.8.7.f">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.8.7"><a href="#ex-er-wait-intro" title="Copy heading and permalink for Exercise 5.2.8.7" aria-label="Copy heading and permalink for Exercise 5.2.8.7">🔗</a></div></article><article class="exercise exercise-like" id="ex-mental-health"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-mental-health-1-1">The General Social Survey asked the question: "For how many days during the past 30 days was your mental health, which includes stress, depression, and problems with emotions, not good?" Based on responses from 1,151 US residents, the survey reported a 95% confidence interval of 3.40 to 4.24 days in 2010.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mental-health-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-mental-health-1-2">
+<li id="ex-mental-health-1-2-1">
+<div class="para" id="p-derived-ex-mental-health-1-2-1">Interpret this interval in context of the data.</div>
+<div class="autopermalink" data-description="Item 5.2.8.8.a"><a href="#ex-mental-health-1-2-1" title="Copy heading and permalink for Item 5.2.8.8.a" aria-label="Copy heading and permalink for Item 5.2.8.8.a">🔗</a></div>
+</li>
+<li id="ex-mental-health-1-2-2">
+<div class="para" id="p-derived-ex-mental-health-1-2-2">What does "95% confident" mean? Explain in the context of the application.</div>
+<div class="autopermalink" data-description="Item 5.2.8.8.b"><a href="#ex-mental-health-1-2-2" title="Copy heading and permalink for Item 5.2.8.8.b" aria-label="Copy heading and permalink for Item 5.2.8.8.b">🔗</a></div>
+</li>
+<li id="ex-mental-health-1-2-3">
+<div class="para" id="p-derived-ex-mental-health-1-2-3">Suppose the researchers think a 99% confidence level would be more appropriate for this interval. Will this new interval be smaller or wider than the 95% confidence interval?</div>
+<div class="autopermalink" data-description="Item 5.2.8.8.c"><a href="#ex-mental-health-1-2-3" title="Copy heading and permalink for Item 5.2.8.8.c" aria-label="Copy heading and permalink for Item 5.2.8.8.c">🔗</a></div>
+</li>
+<li id="ex-mental-health-1-2-4">
+<div class="para" id="p-derived-ex-mental-health-1-2-4">If a new survey were to be done with 500 Americans, do you think the standard error of the estimate would be larger, smaller, or about the same.</div>
+<div class="autopermalink" data-description="Item 5.2.8.8.d"><a href="#ex-mental-health-1-2-4" title="Copy heading and permalink for Item 5.2.8.8.d" aria-label="Copy heading and permalink for Item 5.2.8.8.d">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.8.8"><a href="#ex-mental-health" title="Copy heading and permalink for Exercise 5.2.8.8" aria-label="Copy heading and permalink for Exercise 5.2.8.8">🔗</a></div></article><article class="exercise exercise-like" id="ex-website-registration"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-website-registration-1-1">A website is trying to increase registration for first-time visitors, exposing 1% of these visitors to a new site design. Of 752 randomly sampled visitors over a month who saw the new design, 64 registered.<div class="autopermalink" data-description="Paragraph"><a href="#ex-website-registration-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <ol class="lower-alpha lower-alpha-level-1" id="ex-website-registration-1-2">
+<li id="ex-website-registration-1-2-1">
+<div class="para" id="p-derived-ex-website-registration-1-2-1">Check any conditions required for constructing a confidence interval.</div>
+<div class="autopermalink" data-description="Item 5.2.8.9.a"><a href="#ex-website-registration-1-2-1" title="Copy heading and permalink for Item 5.2.8.9.a" aria-label="Copy heading and permalink for Item 5.2.8.9.a">🔗</a></div>
+</li>
+<li id="ex-website-registration-1-2-2">
+<div class="para" id="p-derived-ex-website-registration-1-2-2">Compute the standard error.</div>
+<div class="autopermalink" data-description="Item 5.2.8.9.b"><a href="#ex-website-registration-1-2-2" title="Copy heading and permalink for Item 5.2.8.9.b" aria-label="Copy heading and permalink for Item 5.2.8.9.b">🔗</a></div>
+</li>
+<li id="ex-website-registration-1-2-3">
+<div class="para" id="p-derived-ex-website-registration-1-2-3">Construct and interpret a 90% confidence interval for the fraction of first-time visitors of the site who would register under the new design (assuming stable behaviors by new visitors over time).</div>
+<div class="autopermalink" data-description="Item 5.2.8.9.c"><a href="#ex-website-registration-1-2-3" title="Copy heading and permalink for Item 5.2.8.9.c" aria-label="Copy heading and permalink for Item 5.2.8.9.c">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Exercise 5.2.8.9"><a href="#ex-website-registration" title="Copy heading and permalink for Exercise 5.2.8.9" aria-label="Copy heading and permalink for Exercise 5.2.8.9">🔗</a></div></article><article class="exercise exercise-like" id="ex-store-coupon"><h4 class="heading"><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<div class="para" id="ex-store-coupon-1-1">A store randomly samples 603 shoppers over the course of a year and finds that 142 of them made their visit because of a coupon they’d received in the mail. Construct a 95% confidence interval for the fraction of all shoppers during the year whose visit was because of a coupon they’d received in the mail.<div class="autopermalink" data-description="Paragraph"><a href="#ex-store-coupon-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.2.8.10"><a href="#ex-store-coupon" title="Copy heading and permalink for Exercise 5.2.8.10" aria-label="Copy heading and permalink for Exercise 5.2.8.10">🔗</a></div></article><div class="autopermalink" data-description="Exercises 5.2.8: Section 5.2 Exercises"><a href="#sec-confidence-intervals-10" title="Copy heading and permalink for Exercises 5.2.8: Section 5.2 Exercises" aria-label="Copy heading and permalink for Exercises 5.2.8: Section 5.2 Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 5.2: Confidence Intervals for a Proportion"><a href="#sec-confidence-intervals" title="Copy heading and permalink for Section 5.2: Confidence Intervals for a Proportion" aria-label="Copy heading and permalink for Section 5.2: Confidence Intervals for a Proportion">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-point-estimates.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-hypothesis-testing.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
