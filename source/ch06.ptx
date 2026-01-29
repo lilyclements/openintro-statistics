@@ -1705,7 +1705,7 @@
           To identify the expected count for the <m>i^{th}</m> row and <m>j^{th}</m> column, compute
         </p>
         <me>
-          \text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row $i$ total}) \times (\text{column $j$ total})}{\text{table total}}
+          \text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row }i\text{ total}) \times (\text{column }j\text{ total})}{\text{table total}}
         </me>
       </assemblage>
     </subsection>
@@ -1734,7 +1734,7 @@
       </me>
       
       <p>
-        Just like before, this test statistic follows a chi-square distribution. However, the degrees of freedom are computed a little differently for a two-way table.<fn>Recall: in the one-way table, the degrees of freedom was the number of cells minus 1.</fn> For two way tables, the degrees of freedom is equal to
+        Just like before, this test statistic follows a chi-square distribution. However, the degrees of freedom are computed a little differently for a two-way table.<fn>Recall: in the one-way table, the degrees of freedom was the number of cells minus 1.</fn> For two-way tables, the degrees of freedom is equal to
       </p>
       
       <me>
