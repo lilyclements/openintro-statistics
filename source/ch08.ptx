@@ -1763,7 +1763,7 @@
           </p>
           <sidebyside widths="40% 55%">
             <image source="ch_regr_simple_linear/figures/eoce/body_measurements_weight_height_inf/body_measurements_weight_height">
-              <description>A scatterplot is shown with around 500 points. The horizontal axis is for "Height, in centimeters" and takes values between about 150 to 200 centimeters. The vertical axis is for "Weight, in kilograms" and takes values between about 40 to 120 centimeters. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about than 196cm, and these have weights of about 85 and 95 kilograms.</description>
+              <description>A scatterplot is shown with around 500 points. The horizontal axis is for "Height, in centimeters" and takes values between about 150 to 200 centimeters. The vertical axis is for "Weight, in kilograms" and takes values between about 40 to 120 kilograms. For heights smaller than about 160 centimeters, weights mostly range between 45 and 70 kilograms. For heights between 160 and 175 centimeters, weights mostly range between 55 and 80 kilograms. For heights between 175 and 185 centimeters, weights mostly range between 65 and 90 kilograms. For heights between 185 and 195 centimeters, where there are fewer points, weights mostly range between 80 and 95 kilograms. There are two points with heights at about 196cm, and these have weights of about 85 and 95 kilograms.</description>
             </image>
             <tabular>
               <row bottom="major">
@@ -1808,7 +1808,7 @@
           </p>
           <sidebyside widths="40% 55%">
             <image source="ch_regr_simple_linear/figures/eoce/beer_blood_alcohol_inf/beer_blood_alcohol">
-              <description>A scatterplot is shown with around 15 points. The horizontal axis is for "Cans of beer" and takes values between about 1 and 9. The vertical axis is for "Blood Alcohol Concentration (BAC), in grams per deciliter" and takes values between about 0.01 to 0.2 centimeters. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.</description>
+              <description>A scatterplot is shown with around 15 points. The horizontal axis is for "Cans of beer" and takes values between about 1 and 9. The vertical axis is for "Blood Alcohol Concentration (BAC), in grams per deciliter" and takes values between about 0.01 to 0.2. The point at 1 can of beer is at 0.01 BAC, lower than any other values. For the four points at 2 and 3 cans of beer, BAC ranges from 0.02 to 0.07. For the six points at 4 and 5 cans of beer, BAC ranges from 0.05 to 0.10. Two points are at 7 cans of beer and have BAC of 0.09 and 0.10. There is a single point for 8 cans of beer, which has a BAC of 0.12, and one last point at 9 cans of beer, which has a BAC of about 0.19.</description>
             </image>
             <tabular>
               <row bottom="major">
@@ -1901,7 +1901,7 @@
           </p>
           <figure>
             <image source="ch_regr_simple_linear/figures/eoce/urban_homeowners_cond/urban_homeowners_cond" width="50%">
-              <description>A scatterplot is shown. The horizontal axis represents "Husband's Age (in years)" with values ranging from about 20 to 65. The vertical axis represents "Wife's Age (in years)" with values ranging from about 18 to 65. When husband age is between 20 and 30, wife age mostly ranges from 18 to about 30. When husband age is between 30 and 40, wife age mostly ranges from 23 to about 40. When husband age is between 40 and 50, wife age mostly ranges from 35 to about 50. When husband age is between 50 and 60, wife age mostly ranges from 45 to about 60. When husband age is larger than 60, wife age mostly ranges from 55 to about 65.</description>
+              <description>A scatterplot showing the relationship between percent of the population living in urban areas (horizontal axis) and the percent of families that own their home (vertical axis), excluding District of Columbia. The scatterplot shows data points scattered with an apparent trend, along with a corresponding residual plot to assess the fit of a linear model.</description>
             </image>
           </figure>
           <p>
