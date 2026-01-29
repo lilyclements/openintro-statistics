@@ -646,7 +646,11 @@ def create_pretext_chapter():
 
 # Main execution
 if __name__ == '__main__':
-    output_file = r'C:\Users\lclem\OneDrive\Documents\GitHub\PreTeXt books\OpenIntro Statistics\openintro-statistics-1\source\ch05.ptx'
+    import os
+    # Get the script directory and navigate to the source directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    output_file = os.path.join(project_root, 'source', 'ch05.ptx')
     
     pretext_content = create_pretext_chapter()
     
