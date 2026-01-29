@@ -2730,9 +2730,106 @@ public.<fn>Citation: pierson2017large</fn>
 The following is an excerpt from a summary table created based off of the data 
 collected as part of this project.
           </p>
-          <p>
-            [Table omitted - see LaTeX source]
-          </p>
+          <table xml:id="table-stanford-open-policing">
+            <title>Stanford Open Policing data excerpt</title>
+            <tabular halign="left">
+              <row header="yes" bottom="medium">
+                <cell>County</cell>
+                <cell>State</cell>
+                <cell>Driver's race</cell>
+                <cell>No. of stops per year</cell>
+                <cell colspan="2">% of stopped</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell></cell>
+                <cell>cars searched</cell>
+                <cell>drivers arrested</cell>
+              </row>
+              <row>
+                <cell>Apache County</cell>
+                <cell>Arizona</cell>
+                <cell>Black</cell>
+                <cell>266</cell>
+                <cell>0.08</cell>
+                <cell>0.02</cell>
+              </row>
+              <row>
+                <cell>Apache County</cell>
+                <cell>Arizona</cell>
+                <cell>Hispanic</cell>
+                <cell>1008</cell>
+                <cell>0.05</cell>
+                <cell>0.02</cell>
+              </row>
+              <row>
+                <cell>Apache County</cell>
+                <cell>Arizona</cell>
+                <cell>White</cell>
+                <cell>6322</cell>
+                <cell>0.02</cell>
+                <cell>0.01</cell>
+              </row>
+              <row>
+                <cell>Cochise County</cell>
+                <cell>Arizona</cell>
+                <cell>Black</cell>
+                <cell>1169</cell>
+                <cell>0.05</cell>
+                <cell>0.01</cell>
+              </row>
+              <row>
+                <cell>Cochise County</cell>
+                <cell>Arizona</cell>
+                <cell>Hispanic</cell>
+                <cell>9453</cell>
+                <cell>0.04</cell>
+                <cell>0.01</cell>
+              </row>
+              <row>
+                <cell>Cochise County</cell>
+                <cell>Arizona</cell>
+                <cell>White</cell>
+                <cell>10826</cell>
+                <cell>0.02</cell>
+                <cell>0.01</cell>
+              </row>
+              <row>
+                <cell><m>\cdots</m></cell>
+                <cell><m>\cdots</m></cell>
+                <cell><m>\cdots</m></cell>
+                <cell><m>\cdots</m></cell>
+                <cell><m>\cdots</m></cell>
+                <cell><m>\cdots</m></cell>
+              </row>
+              <row>
+                <cell>Wood County</cell>
+                <cell>Wisconsin</cell>
+                <cell>Black</cell>
+                <cell>16</cell>
+                <cell>0.24</cell>
+                <cell>0.10</cell>
+              </row>
+              <row>
+                <cell>Wood County</cell>
+                <cell>Wisconsin</cell>
+                <cell>Hispanic</cell>
+                <cell>27</cell>
+                <cell>0.04</cell>
+                <cell>0.03</cell>
+              </row>
+              <row bottom="medium">
+                <cell>Wood County</cell>
+                <cell>Wisconsin</cell>
+                <cell>White</cell>
+                <cell>1157</cell>
+                <cell>0.03</cell>
+                <cell>0.03</cell>
+              </row>
+            </tabular>
+          </table>
           <ol marker="a">
             <li>
               <p>
@@ -2768,9 +2865,44 @@ launches in the US by the type of launching agency and
 the outcome of the launch (success or
 failure).<fn>Citation: data:spacelaunches</fn>
           </p>
-          <p>
-            [Table omitted - see LaTeX source]
-          </p>
+          <table xml:id="table-space-launches">
+            <title>Space launches by agency type and era</title>
+            <tabular>
+              <row header="yes" bottom="medium">
+                <cell></cell>
+                <cell colspan="2" halign="center">1957 - 1999</cell>
+                <cell colspan="2" halign="center">2000 - 2018</cell>
+              </row>
+              <row header="yes" bottom="medium">
+                <cell></cell>
+                <cell>Failure</cell>
+                <cell>Success</cell>
+                <cell>Failure</cell>
+                <cell>Success</cell>
+              </row>
+              <row>
+                <cell>Private</cell>
+                <cell>13</cell>
+                <cell>295</cell>
+                <cell>10</cell>
+                <cell>562</cell>
+              </row>
+              <row>
+                <cell>State</cell>
+                <cell>281</cell>
+                <cell>3751</cell>
+                <cell>33</cell>
+                <cell>711</cell>
+              </row>
+              <row bottom="medium">
+                <cell>Startup</cell>
+                <cell>-</cell>
+                <cell>-</cell>
+                <cell>5</cell>
+                <cell>65</cell>
+              </row>
+            </tabular>
+          </table>
           <ol marker="a">
             <li>
               <p>
