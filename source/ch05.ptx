@@ -828,11 +828,14 @@ sum(sampled_entries == "support") / 1000
     
     <introduction>
       <p>
-        The sample proportion <m>\hat{p}</m> provides a single plausible value for the
-        population proportion <m>p</m>. However, the sample proportion isn't perfect and
-        will have some standard error associated with it. When stating an estimate for the
-        population proportion, it is better practice to provide a plausible range of values
-        instead of supplying just the point estimate.
+        The sample proportion <m>\hat{p}</m> provides a single plausible value
+        for the population proportion <m>p</m>. However, the sample proportion
+        isn't perfect and will have some <em>standard error</em>
+        associated with it.
+        When stating an estimate for the population  proportion,
+        it is better practice to provide a plausible
+        <em>range of values</em> instead of supplying just the point
+        estimate.
       </p>
     </introduction>
     
@@ -840,98 +843,175 @@ sum(sampled_entries == "support") / 1000
       <title>Capturing the Population Parameter</title>
       
       <p>
-        A <term>confidence interval</term> is a range of plausible values where we are
-        likely to find the population parameter. Using a confidence interval is like fishing
-        with a net instead of a spear: we have a good chance of catching the fish.
+        Using only a point estimate is like fishing in a murky
+        lake with a spear. We can throw a spear where we
+        saw a fish, but we will probably miss. On the other hand,
+        if we toss a net in that area, we have a good chance of
+        catching the fish.
+        A <term>confidence interval</term> is like fishing with a net,
+        and it represents a range of plausible values where we
+        are likely to find the population parameter.
       </p>
       
       <p>
-        If we took many samples and built a confidence interval from each sample using the
-        same method, we'd expect that some of the intervals would contain the parameter and
-        some wouldn't. A <em>95% confidence interval</em> means that if we were to repeat
-        the process many times, about 95% of the intervals would contain the true parameter.
+        If we report a point estimate <m>\hat{p}</m>, we probably
+        will not hit the exact population proportion. On the
+        other hand, if we report a range of plausible values,
+        representing a confidence interval,
+        we have a good shot at capturing the parameter.
       </p>
       
+      <exercise>
+        <statement>
+          <p>
+            If we want to be very certain we capture the population
+            proportion in an interval, should we use a wider interval
+            or a smaller interval?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If we want to be more
+            certain we will capture the fish, we might use a
+            wider net. Likewise, we use a wider confidence interval
+            if we want to be more certain that we capture the
+            parameter.
+          </p>
+        </solution>
+      </exercise>
+      
       <figure xml:id="fig-25-confidence-intervals">
-        <caption>25 confidence intervals constructed from 25 different samples. The red intervals do not contain the true population proportion <m>p</m>.</caption>
+        <caption>Twenty-five point estimates and confidence
+            intervals from the simulations in
+            <xref ref="subsec-variability-point-estimate"/>.
+            These intervals are shown relative to the population
+            proportion <m>p = 0.88</m>.
+            Only 1 of these 25
+            intervals did not capture the population
+            proportion, and this interval has been bolded.</caption>
         <image source="images/ch_foundations_for_inf/figures/95PercentConfidenceInterval/95PercentConfidenceInterval.pdf" width="75%">
-          <description>Visualization of 25 confidence intervals, most containing the true parameter</description>
+          <description>Twenty-five point estimates and confidence intervals from the simulations are shown. These intervals are shown relative to the population proportion p equals 0.88. The point estimates vary around the true population proportion of 0.88, but most of their confidence intervals overlap the value p equals 0.88. One of the 25 intervals does not have a confidence interval that overlaps the population proportion, and this interval has been bolded. We might say that this confidence interval did not capture the parameter p equals 0.88.</description>
         </image>
       </figure>
+      
+      <example xml:id="ex-interval-doesnt-contain-p">
+        <title>Interpreting when an interval doesn't capture the parameter</title>
+        <statement>
+          <p>
+            In <xref ref="fig-25-confidence-intervals"/>,
+            one interval does not contain <m>p = 0.88</m>.
+            Does this imply that the population proportion used
+            in the simulation could not have been
+            <m>p = 0.88</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Just as some observations naturally
+            occur more than 1.96 standard deviations
+            from the mean, some point estimates will be more than
+            1.96 standard errors from the parameter of interest.
+            A confidence interval only provides a plausible range
+            of values.
+            While we might say other values are implausible
+            based on the data, this does not mean they are impossible.
+          </p>
+        </solution>
     </subsection>
     
     <subsection xml:id="subsec-95-ci">
       <title>Constructing a 95% Confidence Interval</title>
       
       <p>
-        Our sample proportion <m>\hat{p}</m> is the most plausible value of the population
-        proportion, so it makes sense to build a confidence interval around this point estimate.
-        The standard error provides a guide for how large we should make the confidence interval.
+        Our sample proportion <m>\hat{p}</m> is the most plausible
+        value of the population proportion, so it makes sense
+        to build a confidence interval around this point estimate.
+        The standard error provides a guide for how
+        large we should make the confidence interval.
       </p>
       
       <p>
-        In a normal distribution, approximately 95% of the data is within 1.96 standard
-        deviations of the mean. Using this principle, we can construct a confidence interval
-        that extends 1.96 standard errors from the sample proportion:
+        The standard error represents the standard deviation
+        of the point estimate, and when the Central
+        Limit Theorem conditions are satisfied,
+        the point estimate closely follows a normal distribution.
+        In a normal distribution, 95% of
+        the data is within 1.96 standard deviations of the mean.
+        Using this principle, we can construct a confidence
+        interval that extends 1.96 standard errors from the sample
+        proportion to be <term>95% confident</term>
+        that the interval captures the population proportion:
       </p>
       
       <md>
-        <mrow>\text{95% CI} \amp= \text{point estimate} \pm 1.96 \times SE</mrow>
-        <mrow>\amp= \hat{p} \pm 1.96 \times \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+        <mrow>\text{point estimate}\ \amp\pm\ 1.96 \times SE</mrow>
+        <mrow>\hat{p}\ \amp\pm\ 1.96 \times \sqrt{\frac{p (1 - p)}{n}}</mrow>
       </md>
       
-      <definition xml:id="def-95-ci">
-        <title>95% Confidence Interval for a proportion</title>
-        <statement>
-          <p>
-            A 95% confidence interval for a population proportion is:
-          </p>
-          <me>\hat{p} \pm 1.96 \times SE_{\hat{p}}</me>
-          <p>
-            where <m>SE_{\hat{p}} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</m>.
-          </p>
-          <p>
-            This confidence interval accounts for sampling error but not bias.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        But what does <q>95% confident</q> mean? Suppose we took
+        many samples and built a 95% confidence interval from
+        each. Then about 95% of those intervals would
+        contain the parameter, <m>p</m>.
+        <xref ref="fig-25-confidence-intervals"/> shows the
+        process of creating 25 intervals from 25 samples
+        from the simulation in
+        <xref ref="subsec-variability-point-estimate"/>,
+        where 24 of the resulting confidence intervals contain
+        the simulation's population proportion of
+        <m>p = 0.88</m>, and one interval does not.
+      </p>
+      
+      <assemblage xml:id="def-95-ci">
+        <title>95% confidence interval for a parameter</title>
+        <p>
+          When the distribution of a point estimate qualifies for
+          the Central Limit Theorem and
+          therefore closely follows a normal distribution,
+          we can construct a 95% confidence interval as
+        </p>
+        <md>
+          <mrow>\text{point estimate} \amp\pm 1.96 \times SE</mrow>
+        </md>
+      </assemblage>
       
       <example xml:id="ex-solar-95-ci">
         <title>95% CI for solar energy support</title>
         <statement>
           <p>
-            In a Pew Research poll, 887 out of 1000 American adults (88.7%) supported
-            expanding the use of solar energy. Compute and interpret a 95% confidence
-            interval for the population proportion.
+            In <xref ref="sec-point-estimates"/> we learned about
+            a Pew Research poll where
+            88.7% of a random sample of
+            1,000 American adults
+            supported expanding the role of solar power.
+            Compute and
+            interpret a 95% confidence interval for the population
+            proportion.
           </p>
         </statement>
         <solution>
           <p>
-            First, we verify the conditions. The observations are from a random sample,
-            so they are independent. We check the success-failure condition:
-            <md>
-              <mrow>n\hat{p} \amp= 1000 \times 0.887 = 887 \geq 10</mrow>
-              <mrow>n(1-\hat{p}) \amp= 1000 \times 0.113 = 113 \geq 10</mrow>
-            </md>
-            Both are greater than 10, so the conditions are met.
+            We earlier confirmed that <m>\hat{p}</m> follows a normal
+            distribution and has a standard error of
+            <m>SE_{\hat{p}} = 0.0100</m>.
+            To compute the 95% confidence interval, plug the
+            point estimate <m>\hat{p} = 0.887</m> and
+            standard error into the 95% confidence interval formula:
           </p>
+          <md>
+            <mrow>\hat{p} \pm 1.96 \times SE_{\hat{p}}
+              \amp\quad\to\quad
+              0.887 \pm 1.96 \times 0.0100</mrow>
+            <mrow>\amp\quad\to\quad
+              (0.8674, 0.9066)</mrow>
+          </md>
           <p>
-            The standard error is:
-            <md>
-              <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{0.887 \times 0.113}{1000}}</mrow>
-              <mrow>\amp= 0.0101</mrow>
-            </md>
-          </p>
-          <p>
-            The 95% confidence interval is:
-            <md>
-              <mrow>0.887 \pm 1.96 \times 0.0101 \amp= 0.887 \pm 0.0198</mrow>
-              <mrow>\amp= (0.8672, 0.9068)</mrow>
-            </md>
-          </p>
-          <p>
-            <strong>Interpretation:</strong> We are 95% confident that between 86.7% and
-            90.7% of American adults support expanding the use of solar energy.
+            We are 95% confident that the actual proportion of
+            American adults who support expanding solar power is
+            between 86.7% and 90.7%.
+            (It's common to round to the nearest percentage point
+            or nearest tenth of a percentage point when reporting
+            a confidence interval.)
           </p>
         </solution>
       </example>
@@ -941,140 +1021,412 @@ sum(sampled_entries == "support") / 1000
       <title>Changing the Confidence Level</title>
       
       <p>
-        We can create confidence intervals with different confidence levels. The multiplier
-        we use depends on how confident we want to be:
+        Suppose we want to consider confidence intervals where the confidence
+        level is higher than 95%, such as a confidence
+        level of 99%. Think back to the analogy about trying to catch a fish:
+        if we want to be more sure that we will catch the fish, we should use
+        a wider net. To create a 99% confidence level, we must also widen our
+        95% interval. On the other hand, if we want an interval with lower
+        confidence, such as 90%, we could use a slightly narrower
+        interval than our original 95% interval.
       </p>
       
-      <table xml:id="table-z-star-values">
-        <title>Common confidence levels and corresponding <m>z^*</m> values</title>
-        <tabular>
-          <row header="yes">
-            <cell>Confidence Level</cell>
-            <cell><m>z^*</m> value</cell>
-          </row>
-          <row>
-            <cell>90%</cell>
-            <cell>1.65</cell>
-          </row>
-          <row>
-            <cell>95%</cell>
-            <cell>1.96</cell>
-          </row>
-          <row>
-            <cell>99%</cell>
-            <cell>2.58</cell>
-          </row>
-        </tabular>
-      </table>
+      <p>
+        The 95% confidence interval structure provides guidance in
+        how to make intervals with different confidence levels.
+        The general 95% confidence interval for a point estimate
+        that follows a normal distribution is
+      </p>
+      <md>
+        <mrow>\text{point estimate}\ \amp\pm\ 1.96 \times SE</mrow>
+      </md>
+      <p>
+        There are three components to this interval: the point estimate,
+        <q>1.96</q>, and the standard error. The choice of <m>1.96\times SE</m> was
+        based on capturing 95% of the data since the estimate is within
+        1.96 standard errors of the parameter about 95% of the time.
+        The choice of 1.96 corresponds to a 95% confidence level.
+      </p>
       
-      <definition xml:id="def-general-ci">
-        <title>General form of a confidence interval</title>
+      <exercise>
         <statement>
           <p>
-            For a point estimate that closely follows a normal model with standard error
-            <m>SE</m>, a confidence interval for the population parameter is:
-          </p>
-          <me>\text{point estimate} \pm z^* \times SE</me>
-          <p>
-            where <m>z^*</m> corresponds to the confidence level selected.
+            If <m>X</m> is a normally distributed random variable, what is the
+            probability of the value <m>X</m> being
+            within 2.58 standard deviations of the mean?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            This is equivalent to asking how often the
+            Z-score will be larger than -2.58 but less than 2.58.
+            For a picture, see <xref ref="fig-choosing-z-star"/>.
+            To determine this probability, we can use statistical software,
+            a calculator, or a table to look up -2.58 and 2.58 for
+            a normal distribution: 0.0049 and 0.9951.
+            Thus, there is a <m>0.9951-0.0049 \approx 0.99</m> probability
+            that an unobserved normal random variable
+            <m>X</m> will be within 2.58 standard deviations of <m>\mu</m>.
+          </p>
+        </solution>
+      </exercise>
       
-      <definition xml:id="def-margin-of-error">
-        <title>Margin of Error</title>
-        <statement>
-          <p>
-            In a confidence interval, <m>z^* \times SE</m> is called the <term>margin of error</term>.
-            It represents how far above and below the point estimate the confidence interval extends.
-          </p>
-        </statement>
-      </definition>
+      <p>
+        This exercise highlights
+        that 99% of the time a normal random variable will be within
+        2.58 standard deviations of the mean.
+        To create a 99% confidence interval, change 1.96 in the 95%
+        confidence interval formula to be 2.58.
+        That is, the formula
+        for a 99% confidence interval is
+      </p>
+      <md>
+        <mrow>\text{point estimate}\ \amp\pm\ 2.58 \times SE</mrow>
+      </md>
       
       <figure xml:id="fig-choosing-z-star">
-        <caption>The area between <m>-z^*</m> and <m>z^*</m> in the standard normal distribution for common confidence levels.</caption>
+        <caption>The area between <m>-z^{\star}</m> and <m>z^{\star}</m> increases as
+            <m>z^{\star}</m> becomes larger. If the confidence level is 99%,
+            we choose <m>z^{\star}</m> such that 99% of a normal
+            normal distribution is between <m>-z^{\star}</m> and <m>z^{\star}</m>,
+            which corresponds to 0.5%
+            in the lower tail and 0.5% in the upper tail:
+            <m>z^{\star}=2.58</m>.</caption>
         <image source="images/ch_foundations_for_inf/figures/choosingZForCI/choosingZForCI.pdf" width="70%">
-          <description>Normal curve showing z-star values for different confidence levels</description>
+          <description>A standard normal distribution is shown, where standard is the term used to indicate that the normal distribution is centered at 0 and has a standard deviation of 1. Portions of the normal distribution have been shaded. First, the central 95% portion of the distribution has been shaded in a dark blue, and this region has an annotation stating 95%, extends from -1.96 to 1.96. Recall that the value of 1.96 closely matches our 68-95-99.7 rule for the normal distribution, which had stated that about 95% of the area under the normal distribution lied within 2 standard deviations of the mean. Second, a slightly broader region of the normal distribution is shaded, in this case from about -2.5 to positive 2.5, and this has an annotation stating, 99%, extends -2.58 to 2.58. The values described here -- 1.96 and 2.58 -- are the z-star values that we would use for 95% and 99% confidence intervals, respectively.</description>
         </image>
       </figure>
+      
+      <p>
+        This approach -- using the Z-scores in the
+        normal model to compute confidence levels --
+        is appropriate when a point estimate such as <m>\hat{p}</m>
+        is associated with a normal distribution.
+        For some other point estimates, a normal model is not a good fit;
+        in these cases, we'll use alternative distributions that better
+        represent the sampling distribution.
+      </p>
+      
+      <assemblage xml:id="def-general-ci">
+        <title>Confidence interval using any confidence level</title>
+        <p>
+          If a point estimate closely follows a normal model
+          with standard error <m>SE</m>, then a confidence interval
+          for the population parameter is
+        </p>
+        <md>
+          <mrow>\text{point estimate}\ \amp\pm\ z^{\star} \times SE</mrow>
+        </md>
+        <p>
+          where <m>z^{\star}</m> corresponds to the confidence
+          level selected.
+        </p>
+      </assemblage>
+      
+      <p>
+        <xref ref="fig-choosing-z-star"/> provides a picture of how to identify
+        <m>z^{\star}</m> based on a confidence level. We select <m>z^{\star}</m>
+        so that the area between <m>-z^{\star}</m> and <m>z^{\star}</m> in the
+        standard normal distribution,
+        <m>N(0, 1)</m>, corresponds to the confidence level.
+      </p>
+      
+      <assemblage xml:id="def-margin-of-error">
+        <title>Margin of error</title>
+        <p>
+          In a confidence interval, <m>z^{\star}\times SE</m> is called the
+          <term>margin of error</term>.
+        </p>
+      </assemblage>
       
       <example xml:id="ex-solar-90-ci">
         <title>90% CI for solar energy support</title>
         <statement>
           <p>
-            Use the data from <xref ref="ex-solar-95-ci"/> to create a 90% confidence
-            interval for the proportion of American adults that support expanding the use
-            of solar power. We have already verified conditions for normality.
+            Use the data in
+            <xref ref="ex-solar-95-ci"/> to
+            create a 90% confidence interval for the proportion of American
+            adults that support expanding the use of solar power.
+            We have already verified conditions for normality.
           </p>
         </statement>
         <solution>
           <p>
-            We first find <m>z^*</m> such that 90% of the distribution falls between
-            <m>-z^*</m> and <m>z^*</m> in the standard normal distribution. We can do
-            this using a graphing calculator, statistical software, or a probability table
-            by looking for an upper tail of 5% (the other 5% is in the lower tail):
-            <m>z^* = 1.65</m>.
+            We first find <m>z^{\star}</m> such that 90% of the distribution falls
+            between <m>-z^{\star}</m> and <m>z^{\star}</m> in the
+            standard normal distribution, <m>N(\mu = 0, \sigma = 1)</m>.
+            We can do this using a graphing calculator,
+            statistical software, or a probability table by looking for an
+            upper tail of 5% (the other 5% is in the lower tail):
+            <m>z^{\star}=1.65</m>.
+            The 90% confidence interval can then be computed as
           </p>
+          <md>
+            <mrow>\hat{p}\ \amp\pm\ 1.6449 \times SE_{\hat{p}}</mrow>
+            <mrow>\amp\quad\to\quad 0.887\ \pm\ 1.65 \times 0.0100</mrow>
+            <mrow>\amp\quad\to\quad (0.8705, 0.9034)</mrow>
+          </md>
           <p>
-            The 90% confidence interval can then be computed as:
-            <md>
-              <mrow>\hat{p} \pm 1.65 \times SE_{\hat{p}} \amp= 0.887 \pm 1.65 \times 0.0100</mrow>
-              <mrow>\amp= 0.887 \pm 0.0165</mrow>
-              <mrow>\amp= (0.8705, 0.9034)</mrow>
-            </md>
-          </p>
-          <p>
-            <strong>Interpretation:</strong> We are 90% confident that 87.1% to 90.3% of
-            American adults supported the expansion of solar power in 2018.
+            That is, we are 90% confident that 87.1% to 90.3% of American
+            adults supported the expansion of solar power in 2018.
           </p>
         </solution>
       </example>
-    </subsection>
-    
-    <subsection xml:id="subsec-ci-procedure">
-      <title>Confidence Interval Procedure for a Single Proportion</title>
-      
-      <assemblage xml:id="ci-procedure">
-        <title>Four-step confidence interval procedure</title>
-        <ol>
-          <li><strong>Prepare:</strong> Identify <m>\hat{p}</m> and <m>n</m>, and determine
-              what confidence level you wish to use.</li>
-          <li><strong>Check:</strong> Verify the conditions to ensure <m>\hat{p}</m> is
-              nearly normal. For one-proportion confidence intervals, use <m>\hat{p}</m>
-              in place of <m>p</m> to check the success-failure condition.</li>
-          <li><strong>Calculate:</strong> If the conditions hold, compute <m>SE</m> using
-              <m>\hat{p}</m>, find <m>z^*</m>, and construct the interval.</li>
-          <li><strong>Conclude:</strong> Interpret the confidence interval in the context
-              of the problem.</li>
-        </ol>
-      </assemblage>
     </subsection>
     
     <subsection xml:id="subsec-more-case-studies">
       <title>More Case Studies</title>
       
       <p>
-        Let's apply the confidence interval procedure to two more real-world examples
-        to solidify our understanding.
+        In New York City on October 23rd, 2014, a doctor who had recently been
+        treating Ebola patients in Guinea went to the hospital with a slight fever
+        and was subsequently diagnosed with Ebola. Soon thereafter,
+        an NBC 4 New York/The Wall Street Journal/Marist Poll found that
+        82% of New Yorkers favored a <q>mandatory 21-day
+        quarantine for anyone who has come in contact with an Ebola
+        patient</q>. This poll included responses
+        of 1,042 New York adults between
+        Oct 26th and 28th, 2014.
       </p>
       
-      <example xml:id="ex-ebola-quarantine">
-        <title>Ebola quarantine support in New York</title>
+      <example>
         <statement>
           <p>
-            In New York City on October 23, 2014, a doctor who had recently been treating
-            Ebola patients in Guinea went to the hospital with a slight fever and was
-            subsequently diagnosed with Ebola. Soon thereafter, an NBC 4 New York/The Wall
-            Street Journal/Marist Poll found that 82% of New Yorkers favored a "mandatory
-            21-day quarantine for anyone who has come in contact with an Ebola patient."
-            This poll included responses of 1,042 New York adults between October 26-28, 2014.
+            What is the point estimate in this case,
+            and is it reasonable to
+            use a normal distribution to model that point estimate?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The point estimate, based on a sample of size <m>n = 1042</m>,
+            is <m>\hat{p} = 0.82</m>.
+            To check whether <m>\hat{p}</m> can be reasonably
+            modeled using a normal distribution, we check independence
+            (the poll is based on a simple random sample) and the
+            success-failure condition
+            (<m>1042 \times \hat{p} \approx 854</m>
+            and <m>1042 \times (1 - \hat{p})
+                \approx 188</m>,
+            both easily greater than 10).
+            With the conditions met, we are assured
+            that the sampling distribution of <m>\hat{p}</m> can be
+            reasonably modeled using a normal distribution.
+          </p>
+        </solution>
+      </example>
+      
+      <example>
+        <statement>
+          <p>
+            Estimate the standard error of
+            <m>\hat{p} = 0.82</m> from the Ebola survey.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We'll use the substitution approximation of
+            <m>p \approx \hat{p} = 0.82</m> to compute
+            the standard error:
+          </p>
+          <md>
+            <mrow>SE_{\hat{p}}
+              \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
+            <mrow>\amp\approx \sqrt{\frac{0.82
+                (1 - 0.82)}{1042}}</mrow>
+            <mrow>\amp= 0.012</mrow>
+          </md>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-ci-ny-ebola-quarantine">
+        <statement>
+          <p>
+            Construct a 95% confidence interval for <m>p</m>,
+            the proportion of New York adults who supported a quarantine
+            for anyone who has come into contact with an Ebola patient.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using the standard error <m>SE = 0.012</m> from
+            the previous example,
+            the point estimate 0.82, and <m>z^{\star} = 1.96</m>
+            for a 95% confidence level, the confidence interval is
+          </p>
+          <md>
+            <mrow>\text{point estimate} \ \amp\pm\ z^{\star} \times SE</mrow>
+            <mrow>\amp\quad\to\quad 0.82 \ \pm\ 1.96\times 0.012</mrow>
+            <mrow>\amp\quad\to\quad (0.796, 0.844)</mrow>
+          </md>
+          <p>
+            We are 95% confident that the proportion of New York adults
+            in October 2014 who supported a quarantine for anyone who had come
+            into contact with an Ebola patient was between 0.796 and 0.844.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise>
+        <statement>
+          <p>
+            Answer the following two questions about the confidence interval
+            from the example above:
           </p>
           <ol>
-            <li>What is the point estimate, and is it reasonable to use a normal distribution
-                to model it?</li>
-            <li>Estimate the standard error of <m>\hat{p} = 0.82</m>.</li>
-            <li>Construct a 95% confidence interval for the proportion of New York adults
-                who supported the quarantine policy.</li>
+            <li>
+              What does 95% confident mean in this context?
+            </li>
+            <li>
+              Do you think the confidence interval is still valid
+              for the opinions of New Yorkers today?
+            </li>
+          </ol>
+        </statement>
+        <solution>
+          <ol>
+            <li>
+              <p>
+                If we took many such samples and computed
+                a 95% confidence interval for each, then about 95% of those
+                intervals would contain the actual proportion of New York
+                adults who supported a quarantine for anyone who has come into
+                contact with an Ebola patient.
+              </p>
+            </li>
+            <li>
+              <p>
+                Not necessarily. The poll was taken at a
+                time where there was a huge public safety concern.
+                Now that people have had some time to step back,
+                they may have changed their opinions.
+                We would need to run a new poll if we wanted to get an
+                estimate of the current proportion of New York adults who
+                would support such a quarantine period.
+              </p>
+            </li>
+          </ol>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="ex-pew-wind-turbine-support">
+        <statement>
+          <p>
+            In the Pew Research poll about solar energy, they
+            also inquired about other forms of energy,
+            and 84.8% of the 1,000
+            respondents supported expanding the use of wind
+            turbines.
+          </p>
+          <ol>
+            <li>
+              Is it reasonable to model the proportion
+              of US adults who support expanding wind turbines
+              using a normal distribution?
+            </li>
+            <li>
+              Create a 99% confidence interval for the level of American
+              support for expanding the use of wind turbines for power
+              generation.
+            </li>
+          </ol>
+        </statement>
+        <solution>
+          <ol>
+            <li>
+              <p>
+                The survey was a random sample
+                and counts are both <m>\geq 10</m>
+                (<m>1000 \times 0.848
+                  = 848</m>
+                and <m>1000 \times 0.152
+                  = 152</m>),
+                so independence and the success-failure condition
+                are satisfied, and
+                <m>\hat{p} = 0.848</m> can be
+                modeled using a normal distribution.
+              </p>
+            </li>
+            <li>
+              <p>
+                We already confirmed that <m>\hat{p}</m> closely follows
+                a normal distribution, so we can use the C.I. formula:
+              </p>
+              <md>
+                <mrow>\text{point estimate} \amp\pm z^{\star} \times SE</mrow>
+              </md>
+              <p>
+                In this case, the point estimate is
+                <m>\hat{p} = 0.848</m>.
+                For a 99% confidence interval, <m>z^{\star} = 2.58</m>.
+                Computing the standard error:
+                <m>SE_{\hat{p}}
+                  = \sqrt{\frac{0.848(1 - 0.848)}
+                      {1000}}
+                  = 0.0114</m>.
+                Finally, we compute the interval as
+                <m>0.848 \pm 2.58 \times 0.0114
+                  \to (0.8186,   0.8774)</m>.
+                It is also important to <em>always</em> provide an interpretation
+                for the interval: we are 99% confident the proportion of
+                American adults that support expanding the use of wind
+                turbines in 2018 is between 81.9% and 87.7%.
+              </p>
+            </li>
+          </ol>
+        </solution>
+      </exercise>
+      
+      <p>
+        We can also construct confidence intervals for other
+        parameters, such as a population mean.
+        In these cases, a confidence interval would be computed
+        in a similar way to that of a single proportion:
+        a point estimate plus/minus some margin of error.
+        We'll dive into these details in later chapters.
+      </p>
+      
+      <assemblage xml:id="ci-procedure">
+        <title>Confidence interval for a single proportion</title>
+        <p>
+          Once you've determined a one-proportion confidence interval
+          would be helpful for an application,
+          there are four steps to constructing the interval:
+        </p>
+        <dl>
+          <li>
+            <title>Prepare.</title>
+            <p>
+              Identify <m>\hat{p}</m> and <m>n</m>, and determine what
+              confidence level you wish to use.
+            </p>
+          </li>
+          <li>
+            <title>Check.</title>
+            <p>
+              Verify the conditions to ensure <m>\hat{p}</m>
+              is nearly normal.
+              For one-proportion confidence intervals,
+              use <m>\hat{p}</m> in place of <m>p</m> to check
+              the success-failure condition.
+            </p>
+          </li>
+          <li>
+            <title>Calculate.</title>
+            <p>
+              If the conditions hold, compute <m>SE</m> using <m>\hat{p}</m>,
+              find <m>z^{\star}</m>, and construct the interval.
+            </p>
+          </li>
+          <li>
+            <title>Conclude.</title>
+            <p>
+              Interpret the confidence interval in the context
+              of the problem.
+            </p>
+          </li>
+        </dl>
+      </assemblage>
           </ol>
         </statement>
         <solution>
@@ -1166,68 +1518,96 @@ sum(sampled_entries == "support") / 1000
       </exercise>
     </subsection>
     
-    <subsection xml:id="subsec-interpreting-ci">
-      <title>Interpreting Confidence Intervals</title>
-      
-      <p>
-        When interpreting a confidence interval, remember:
-      </p>
-      
-      <ul>
-        <li>The statement is about the <em>population parameter</em>, not about individual
-            observations or future samples.</li>
-        <li>A 95% confidence interval means that if we repeated the sampling process many
-            times, about 95% of the intervals would contain the true parameter.</li>
-        <li>We don't know if our particular interval contains the parameter, but we can
-            be 95% confident that it does.</li>
-      </ul>
-      
-      <important>
-        <p>
-          Remember that these methods only address sampling error, not bias. If data is
-          collected in a way that systematically under- or over-estimates the population
-          parameter, these techniques will not fix that problem.
-        </p>
-      </important>
-    </subsection>
-    
     <subsection xml:id="subsec-interpreting-cis">
       <title>Interpreting Confidence Intervals</title>
       
       <p>
-        When we interpret confidence intervals, we must be careful to use precise language.
-        In each of the examples, we described the confidence intervals by putting them into
-        the context of the data:
+        In each of the examples, we described the confidence
+        intervals by putting them into the context of the data and also
+        using somewhat formal language:
       </p>
-      
-      <ul>
-        <li><strong>Solar.</strong> We are 90% confident that 87.1% to 90.3% of American
-            adults support the expansion of solar power in 2018.</li>
-        <li><strong>Ebola.</strong> We are 95% confident that the proportion of New York
-            adults in October 2014 who supported a quarantine for anyone who had come into
-            contact with an Ebola patient was between 79.6% and 84.4%.</li>
-      </ul>
+      <dl>
+        <li>
+          <title>Solar.</title>
+          <p>
+            We are 90% confident that 87.1% to 90.4% of
+            American adults support the expansion of solar power in 2018.
+          </p>
+        </li>
+        <li>
+          <title>Ebola.</title>
+          <p>
+            We are 95% confident that the proportion
+            of New York adults in October 2014 who supported a quarantine
+            for anyone who had come into contact with an Ebola patient was
+            between 0.796 and 0.844.
+          </p>
+        </li>
+        <li>
+          <title>Wind Turbine.</title>
+          <p>
+            We are 99% confident the proportion of
+            Americans adults that support expanding the use of wind
+            turbines is between 81.9% and 87.7% in 2018.
+          </p>
+        </li>
+      </dl>
+      <p>
+        First, notice that the statements are always about the population
+        parameter, which considers <em>all</em> American adults for the
+        energy polls or <em>all</em> New York adults for the quarantine poll.
+      </p>
       
       <p>
-        Notice that the statements are always about the <em>population parameter</em>, which
-        considers all American adults for the energy polls or all New York adults for the
-        quarantine poll.
+        We also avoided another common mistake:
+        <em>incorrect</em> language might try to describe the confidence interval
+        as capturing the population parameter with a certain probability.
+        Making a probability interpretation is a common error:
+        while it might be useful to think of it as a probability,
+        the confidence level only quantifies how plausible
+        it is that the parameter is in the given interval.
       </p>
       
-      <warning>
-        <title>Common mistakes when interpreting confidence intervals</title>
-        <p>
-          <strong>Mistake 1: Probability interpretation.</strong> A confidence interval does
-          not mean there's a 95% probability the parameter is in the interval. The parameter
-          is fixed; either it's in the interval or it's not. The 95% refers to the long-run
-          success rate of the method, not the probability for any particular interval.
-        </p>
-        <p>
-          <strong>Mistake 2: About the sample.</strong> A confidence interval is only about
-          the population parameter, not about individual observations or the sample
-          proportion. It says nothing about where future point estimates will fall.
-        </p>
-      </warning>
+      <p>
+        Another important consideration of confidence intervals is that they
+        are <em>only about the population parameter</em>.
+        A confidence interval says nothing about individual
+        observations or point estimates.
+        Confidence intervals only provide a plausible range for
+        population parameters.
+      </p>
+      
+      <p>
+        Lastly, keep in mind the methods we discussed only apply
+        to sampling error, not to bias.
+        If a data set is collected in a way that will tend to
+        systematically under-estimate
+        (or over-estimate) the population parameter, the techniques
+        we have discussed will not address that problem.
+        Instead, we rely on careful data collection procedures to
+        help protect against bias in the examples we have considered,
+        which is a common practice employed by data scientists
+        to combat bias.
+      </p>
+      
+      <exercise>
+        <statement>
+          <p>
+            Consider the 90% confidence interval for the solar
+            energy survey: 87.1% to 90.4%.
+            If we ran the survey again, can we say that we're
+            90% confident that the new survey's proportion
+            will be between 87.1% and 90.4%?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            No, a confidence interval only provides a range of plausible
+            values for a parameter,
+            not future point estimates.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
     
     <exercises>
