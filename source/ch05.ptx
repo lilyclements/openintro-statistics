@@ -399,7 +399,60 @@ sum(sampled_entries == "support") / 1000
         </statement>
       </exercise>
     </subsection>
-    
+
+    <subsection xml:id="subsec-clt-real-world">
+      <title>Applying the Central Limit Theorem to a real-world setting</title>
+      
+      <p>
+        We do not actually know the population proportion unless we conduct an expensive poll of
+        all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on poll
+        conducted by Pew Research of 1000 American adults that found <m>\hat{p} = 0.887</m>
+        of them favored expanding solar energy. The researchers might have wondered: does the
+        sample proportion from the poll approximately follow a normal distribution? We can check
+        the conditions from the Central Limit Theorem:
+      </p>
+      
+      <ol>
+        <li>
+          <p>
+            <strong>Independence.</strong> The poll is a simple random sample of American adults,
+            which means that the observations are independent.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Success-failure condition.</strong> To check this condition, we need the
+            population proportion, <m>p</m>, to check if both <m>np</m> and <m>n(1-p)</m> are
+            greater than 10. However, we do not actually know <m>p</m>, which is exactly why the
+            pollsters would take a sample! In cases like these, we often use <m>\hat{p}</m> as
+            our next best way to check the success-failure condition:
+            <md>
+              <mrow>n\hat{p} \amp= 1000 \times 0.887 = 887</mrow>
+              <mrow>n(1-\hat{p}) \amp= 1000 \times (1 - 0.887) = 113</mrow>
+            </md>
+            The sample proportion <m>\hat{p}</m> acts as a reasonable substitute for <m>p</m>
+            during this check, and each value in this case is well above the minimum of 10.
+          </p>
+        </li>
+      </ol>
+      
+      <p>
+        This <term>substitution approximation</term> of using <m>\hat{p}</m> in place of
+        <m>p</m> is also useful when computing the standard error of the sample proportion:
+        <md>
+          <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
+          <mrow>\amp\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
+          <mrow>\amp= \sqrt{\frac{0.887 \times (1 - 0.887)}{1000}}</mrow>
+          <mrow>\amp= 0.010</mrow>
+        </md>
+        This substitution technique is sometimes referred to as the <q>plug-in principle</q>.
+        In this case, <m>SE_{\hat{p}}</m> didn't change enough to be detected using only 3
+        decimal places versus when we completed the calculation with 0.88 earlier. The computed
+        standard error tends to be reasonably stable even when observing slightly different
+        proportions in one sample or another.
+      </p>
+    </subsection>
+
     <subsection xml:id="subsec-more-details-clt">
       <title>More details regarding the Central Limit Theorem</title>
       
@@ -600,60 +653,7 @@ sum(sampled_entries == "support") / 1000
         of 10 for <m>np</m> and <m>n(1-p)</m> as our guideline within this book.
       </p>
     </subsection>
-    
-    <subsection xml:id="subsec-clt-real-world">
-      <title>Applying the Central Limit Theorem to a real-world setting</title>
-      
-      <p>
-        We do not actually know the population proportion unless we conduct an expensive poll of
-        all individuals in the population. Our earlier value of <m>p = 0.88</m> was based on poll
-        conducted by Pew Research of 1000 American adults that found <m>\hat{p} = 0.887</m>
-        of them favored expanding solar energy. The researchers might have wondered: does the
-        sample proportion from the poll approximately follow a normal distribution? We can check
-        the conditions from the Central Limit Theorem:
-      </p>
-      
-      <ol>
-        <li>
-          <p>
-            <strong>Independence.</strong> The poll is a simple random sample of American adults,
-            which means that the observations are independent.
-          </p>
-        </li>
-        <li>
-          <p>
-            <strong>Success-failure condition.</strong> To check this condition, we need the
-            population proportion, <m>p</m>, to check if both <m>np</m> and <m>n(1-p)</m> are
-            greater than 10. However, we do not actually know <m>p</m>, which is exactly why the
-            pollsters would take a sample! In cases like these, we often use <m>\hat{p}</m> as
-            our next best way to check the success-failure condition:
-            <md>
-              <mrow>n\hat{p} \amp= 1000 \times 0.887 = 887</mrow>
-              <mrow>n(1-\hat{p}) \amp= 1000 \times (1 - 0.887) = 113</mrow>
-            </md>
-            The sample proportion <m>\hat{p}</m> acts as a reasonable substitute for <m>p</m>
-            during this check, and each value in this case is well above the minimum of 10.
-          </p>
-        </li>
-      </ol>
-      
-      <p>
-        This <term>substitution approximation</term> of using <m>\hat{p}</m> in place of
-        <m>p</m> is also useful when computing the standard error of the sample proportion:
-        <md>
-          <mrow>SE_{\hat{p}} \amp= \sqrt{\frac{p(1-p)}{n}}</mrow>
-          <mrow>\amp\approx \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</mrow>
-          <mrow>\amp= \sqrt{\frac{0.887 \times (1 - 0.887)}{1000}}</mrow>
-          <mrow>\amp= 0.010</mrow>
-        </md>
-        This substitution technique is sometimes referred to as the <q>plug-in principle</q>.
-        In this case, <m>SE_{\hat{p}}</m> didn't change enough to be detected using only 3
-        decimal places versus when we completed the calculation with 0.88 earlier. The computed
-        standard error tends to be reasonably stable even when observing slightly different
-        proportions in one sample or another.
-      </p>
-    </subsection>
-    
+        
     <subsection xml:id="subsec-extending-framework">
       <title>Extending the framework for other statistics</title>
       
@@ -682,6 +682,7 @@ sum(sampled_entries == "support") / 1000
       <title>Section 5.1 Exercises</title>
       
       <exercise xml:id="ex-identify-parameter-1">
+        <title>Identify the parameter, Part I</title>
         <statement>
           <p>
             For each of the following situations, state whether the parameter of interest
@@ -704,6 +705,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-identify-parameter-2">
+       <title>Identify the parameter, Part II</title>
         <statement>
           <p>
             For each of the following situations, state whether the parameter of interest
@@ -726,6 +728,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
       
       <exercise xml:id="ex-quality-control">
+       <title>Quality control</title>
         <statement>
           <p>
             As part of a quality control process for computer chips, an engineer at a
@@ -750,6 +753,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-unexpected-expense">
+       <title>Unexpected expense</title>
         <statement>
           <p>
             In a random sample of 765 adults in the United States, 322 say they could not
@@ -772,6 +776,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-repeated-water-samples">
+       <title>Repeated water samples</title>
         <statement>
           <p>
             A nonprofit wants to understand the fraction of households that have elevated
@@ -798,6 +803,7 @@ sum(sampled_entries == "support") / 1000
       </exercise>
 
       <exercise xml:id="ex-repeated-student-samples">
+       <title>Repeated student samples</title>
         <statement>
           <p>
             Of all freshman at a large college, 16% made the dean's list in the current
