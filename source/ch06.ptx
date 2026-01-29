@@ -1536,103 +1536,531 @@
   
   <!-- Section 7.4: Testing for independence in two-way tables -->
   <section xml:id="sec-chi-square-independence">
-    <title>Testing for Independence in Two-Way Tables</title>
+    <title>Testing for independence in two-way tables</title>
     
     <introduction>
       <p>
-        A two-way table (also called a <term>contingency table</term>) summarizes data for two
-        categorical variables. We often want to know: Are these two variables independent, or is
-        there an association between them?
+        We all buy used products <mdash/> cars, computers, textbooks, and so on <mdash/> and we sometimes assume the sellers of those products will be forthright about any underlying problems with what they're selling. This is not something we should take for granted. Researchers recruited 219 participants in a study where they would sell a used iPod<fn>For readers not as old as the authors, an iPod is basically an iPhone without any cellular service, assuming it was one of the later generations. Earlier generations were more basic.</fn> that was known to have frozen twice in the past. The participants were incentivized to get as much money as they could for the iPod since they would receive a 5% cut of the sale on top of $10 for participating. The researchers wanted to understand what types of questions would elicit the seller to disclose the freezing issue.
+      </p>
+      
+      <p>
+        Unbeknownst to the participants who were the sellers in the study, the buyers were collaborating with the researchers to evaluate the influence of different questions on the likelihood of getting the sellers to disclose the past issues with the iPod. The scripted buyers started with <q>Okay, I guess I'm supposed to go first. So you've had the iPod for 2 years <ellipsis/></q> and ended with one of three questions:
+      </p>
+      
+      <ul>
+        <li>General: What can you tell me about it?</li>
+        <li>Positive Assumption: It doesn't have any problems, does it?</li>
+        <li>Negative Assumption: What problems does it have?</li>
+      </ul>
+      
+      <p>
+        The question is the treatment given to the sellers, and the response is whether the question prompted them to disclose the freezing issue with the iPod. The results are shown in <xref ref="table-ipod-ask-data-summary"/>, and the data suggest that asking the, <em>What problems does it have?</em>, was the most effective at getting the seller to disclose the past freezing issues. However, you should also be asking yourself: could we see these results due to chance alone, or is this in fact evidence that some questions are more effective for getting at the truth?
+      </p>
+      
+      <table xml:id="table-ipod-ask-data-summary">
+        <title>Summary of the iPod study, where a question was posed to the study participant who acted</title>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell>General</cell>
+            <cell>Positive Assumption</cell>
+            <cell>Negative Assumption</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Disclose Problem</cell>
+            <cell>2</cell>
+            <cell>23</cell>
+            <cell>36</cell>
+            <cell>61</cell>
+          </row>
+          <row>
+            <cell>Hide Problem</cell>
+            <cell>71</cell>
+            <cell>50</cell>
+            <cell>37</cell>
+            <cell>158</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Total</cell>
+            <cell>73</cell>
+            <cell>73</cell>
+            <cell>73</cell>
+            <cell>219</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <assemblage>
+        <title>Differences of one-way tables vs two-way tables</title>
+        <p>
+          A one-way table describes counts for each outcome in a single variable. A two-way table describes counts for <em>combinations</em> of outcomes for two variables. When we consider a two-way table, we often would like to know, are these variables related in any way? That is, are they dependent (versus independent)?
+        </p>
+      </assemblage>
+      
+      <p>
+        The hypothesis test for the iPod experiment is really about assessing whether there is statistically significant evidence that the success each question had on getting the participant to disclose the problem with the iPod. In other words, the goal is to check whether the buyer's question was independent of whether the seller disclosed a problem.
       </p>
     </introduction>
     
-    <subsection xml:id="subsec-two-way-tables">
-      <title>Two-Way Tables and Expected Counts</title>
+    <subsection xml:id="subsec-expected-counts-two-way">
+      <title>Expected counts in two-way tables</title>
       
       <p>
-        In a two-way table, we organize data by two categorical variables. To test for independence,
-        we compare observed counts to expected counts under the assumption that the variables are
-        independent.
+        Like with one-way tables, we will need to compute estimated counts for each cell in a two-way table.
       </p>
       
-      <assemblage xml:id="assem-expected-counts">
-        <title>Computing Expected Counts</title>
+      <example xml:id="ex-ipod-compute-exp-aa">
+        <title>Computing expected counts for the General group</title>
+        <statement>
+          <p>
+            From the experiment, we can compute the proportion of all sellers who disclosed the freezing problem as <m>61/219 = 0.2785</m>. If there really is no difference among the questions and 27.85% of sellers were going to disclose the freezing problem no matter the question that was put to them, how many of the 73 people in the General group would we have expected to disclose the freezing problem?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We would predict that <m>0.2785 \times 73 = 20.33</m> sellers would disclose the problem. Obviously we observed fewer than this, though it is not yet clear if that is due to chance variation or whether that is because the questions vary in how effective they are at getting to the truth.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="exercise-ipod-compute-exp-bb">
+        <statement>
+          <p>
+            If the questions were actually equally effective, meaning about 27.85% of respondents would disclose the freezing issue regardless of what question they were asked, about how many sellers would we expect to <em>hide</em> the freezing problem from the Positive Assumption group?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            We would expect <m>(1 - 0.2785) \times 73 = 52.67</m>. It is okay that this result, like the result from <xref ref="ex-ipod-compute-exp-aa"/>, is a fraction.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        We can compute the expected number of sellers who we would expect to disclose or hide the freezing issue for all groups, if the questions had no impact on what they disclosed, using the same strategy employed in <xref ref="ex-ipod-compute-exp-aa"/> and <xref ref="exercise-ipod-compute-exp-bb"/>. These expected counts were used to construct <xref ref="table-ipod-ask-expected"/>, which is the same as <xref ref="table-ipod-ask-data-summary"/>, except now the expected counts have been added in parentheses.
+      </p>
+      
+      <table xml:id="table-ipod-ask-expected">
+        <title>The observed counts and the (expected counts)</title>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell>General</cell>
+            <cell>Positive Assumption</cell>
+            <cell>Negative Assumption</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>Disclose Problem</cell>
+            <cell>2 (20.33)</cell>
+            <cell>23 (20.33)</cell>
+            <cell>36 (20.33)</cell>
+            <cell>61</cell>
+          </row>
+          <row>
+            <cell>Hide Problem</cell>
+            <cell>71 (52.67)</cell>
+            <cell>50 (52.67)</cell>
+            <cell>37 (52.67)</cell>
+            <cell>158</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Total</cell>
+            <cell>73</cell>
+            <cell>73</cell>
+            <cell>73</cell>
+            <cell>219</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <p>
+        The examples and exercises above provided some help in computing expected counts. In general, expected counts for a two-way table may be computed using the row totals, column totals, and the table total. For instance, if there was no difference between the groups, then about 27.85% of each column should be in the first row:
+      </p>
+      
+      <md>
+        <mrow>0.2785 \times (\text{column 1 total}) \amp= 20.33</mrow>
+        <mrow>0.2785 \times (\text{column 2 total}) \amp= 20.33</mrow>
+        <mrow>0.2785 \times (\text{column 3 total}) \amp= 20.33</mrow>
+      </md>
+      
+      <p>
+        Looking back to how 0.2785 was computed <mdash/> as the fraction of sellers who disclosed the freezing issue (<m>61/219</m>) <mdash/> these three expected counts could have been computed as
+      </p>
+      
+      <md>
+        <mrow>\left(\frac{\text{row 1 total}}{\text{table total}}\right) \text{(column 1 total)} \amp= 20.33</mrow>
+        <mrow>\left(\frac{\text{row 1 total}}{\text{table total}}\right) \text{(column 2 total)} \amp= 20.33</mrow>
+        <mrow>\left(\frac{\text{row 1 total}}{\text{table total}}\right) \text{(column 3 total)} \amp= 20.33</mrow>
+      </md>
+      
+      <p>
+        This leads us to a general formula for computing expected counts in a two-way table when we would like to test whether there is strong evidence of an association between the column variable and row variable.
+      </p>
+      
+      <assemblage xml:id="assem-expected-counts-two-way">
+        <title>Computing expected counts in a two-way table</title>
         <p>
-          If two variables are independent, the expected count for a cell in row <m>i</m> and
-          column <m>j</m> is:
+          To identify the expected count for the <m>i^{th}</m> row and <m>j^{th}</m> column, compute
         </p>
-        <md>
-          E_{ij} = \frac{(\text{row } i \text{ total}) \times (\text{column } j \text{ total})}{\text{table total}}
-        </md>
+        <me>
+          \text{Expected Count}_{\text{row }i,\text{ col }j} = \frac{(\text{row $i$ total}) \times (\text{column $j$ total})}{\text{table total}}
+        </me>
       </assemblage>
     </subsection>
     
-    <subsection xml:id="subsec-chi-square-test-independence">
-      <title>The Chi-Square Test for Independence</title>
+    <subsection xml:id="subsec-chi-square-test-two-way">
+      <title>The chi-square test for two-way tables</title>
       
       <p>
-        The chi-square test for independence uses the same test statistic as the goodness of fit test:
+        The chi-square test statistic for a two-way table is found the same way it is found for a one-way table. For each table count, compute
       </p>
       
       <md>
-        \chi^2 = \sum_{all\text{ }cells} \frac{(O - E)^2}{E}
+        <mrow>\text{General formula:} \quad \amp \frac{(\text{observed count } - \text{expected count})^2}{\text{expected count}}</mrow>
+        <mrow>\text{Row 1, Col 1:} \quad \amp \frac{(2 - 20.33)^2}{20.33} = 16.53</mrow>
+        <mrow>\text{Row 1, Col 2:} \quad \amp \frac{(23 - 20.33)^2}{20.33} = 0.35</mrow>
+        <mrow>\amp \vdots</mrow>
+        <mrow>\text{Row 2, Col 3:} \quad \amp \frac{(37 - 52.67)^2}{52.67} = 4.66</mrow>
       </md>
       
       <p>
-        However, the degrees of freedom are calculated differently:
+        Adding the computed value for each cell gives the chi-square test statistic <m>X^2</m>:
       </p>
       
-      <md>
-        df = (\text{number of rows} - 1) \times (\text{number of columns} - 1)
-      </md>
+      <me>
+        X^2 = 16.53 + 0.35 + \cdots + 4.66 = 40.13
+      </me>
       
       <p>
-        <alert>Hypotheses:</alert>
+        Just like before, this test statistic follows a chi-square distribution. However, the degrees of freedom are computed a little differently for a two-way table.<fn>Recall: in the one-way table, the degrees of freedom was the number of cells minus 1.</fn> For two way tables, the degrees of freedom is equal to
       </p>
       
-      <ul>
-        <li><m>H_0</m>: The two variables are independent.</li>
-        <li><m>H_A</m>: The two variables are not independent (they are associated).</li>
-      </ul>
+      <me>
+        df = \text{(number of rows minus 1)}\times \text{(number of columns minus 1)}
+      </me>
       
       <p>
-        <alert>Conditions:</alert>
+        In our example, the degrees of freedom parameter is
       </p>
       
-      <ol>
-        <li><alert>Independence:</alert> Each case that contributes a count to the table must be
-            independent of all other cases.</li>
-        <li><alert>Sample size:</alert> Each expected count must be at least 5.</li>
-      </ol>
+      <me>
+        df = (2-1)\times (3-1) = 2
+      </me>
       
-      <important>
+      <p>
+        If the null hypothesis is true (i.e. the questions had no impact on the sellers in the experiment), then the test statistic <m>X^2 = 40.13</m> closely follows a chi-square distribution with 2 degrees of freedom. Using this information, we can compute the p-value for the test, which is depicted in <xref ref="fig-ipod-chi-sq-tail"/>.
+      </p>
+      
+      <assemblage xml:id="assem-df-two-way">
+        <title>Computing degrees of freedom for a two-way table</title>
         <p>
-          The chi-square test for independence tells us <em>whether</em> there is an association,
-          but it doesn't tell us the nature or strength of that association. If the test is
-          significant, examine the table and consider computing row or column proportions to
-          understand the relationship.
+          When applying the chi-square test to a two-way table, we use
         </p>
-      </important>
+        <me>
+          df = (R-1)\times (C-1)
+        </me>
+        <p>
+          where <m>R</m> is the number of rows in the table and <m>C</m> is the number of columns.
+        </p>
+      </assemblage>
+      
+      <p>
+        When analyzing 2-by-2 contingency tables, one guideline is to use the two-proportion methods introduced in Section<nbsp/>6.2.
+      </p>
+      
+      <figure xml:id="fig-ipod-chi-sq-tail">
+        <caption>Visualization of the p-value for <m>X^2 = 40.13</m> when <m>df = 2</m></caption>
+        <image source="ch_inference_for_props/figures/iPodChiSqTail/iPodChiSqTail" width="65%"/>
+      </figure>
+      
+      <example xml:id="ex-ipod-pvalue">
+        <title>Finding the p-value for the iPod experiment</title>
+        <statement>
+          <p>
+            Find the p-value and draw a conclusion about whether the question affects the sellers likelihood of reporting the freezing problem.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Using a computer, we can compute a very precise value for the tail area above <m>X^2 = 40.13</m> for a chi-square distribution with 2 degrees of freedom: 0.000000002. (If using the table in Appendix<nbsp/>C, we would identify the p-value is smaller than 0.001.) Using a significance level of <m>\alpha=0.05</m>, the null hypothesis is rejected since the p-value is smaller. That is, the data provide convincing evidence that the question asked did affect a seller's likelihood to tell the truth about problems with the iPod.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-diabetes-hypotheses">
+        <title>Diabetes treatment study hypotheses</title>
+        <statement>
+          <p>
+            <xref ref="table-diabetes-summary"/> summarizes the results of an experiment evaluating three treatments for Type<nbsp/>2 Diabetes in patients aged 10-17 who were being treated with metformin. The three treatments considered were continued treatment with metformin (met), treatment with metformin combined with rosiglitazone (rosi), or a lifestyle intervention program. Each patient had a primary outcome, which was either lacked glycemic control (failure) or did not lack that control (success). What are appropriate hypotheses for this test?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <ul>
+              <li><m>H_0</m>: There is no difference in the effectiveness of the three treatments.</li>
+              <li><m>H_A</m>: There is some difference in effectiveness between the three treatments, e.g. perhaps the rosi treatment performed better than lifestyle.</li>
+            </ul>
+          </p>
+        </solution>
+      </example>
+      
+      <table xml:id="table-diabetes-summary">
+        <title>Results for the Type<nbsp/>2 Diabetes study</title>
+        <tabular>
+          <row bottom="minor">
+            <cell></cell>
+            <cell>Failure</cell>
+            <cell>Success</cell>
+            <cell>Total</cell>
+          </row>
+          <row>
+            <cell>lifestyle</cell>
+            <cell>109</cell>
+            <cell>125</cell>
+            <cell>234</cell>
+          </row>
+          <row>
+            <cell>met</cell>
+            <cell>120</cell>
+            <cell>112</cell>
+            <cell>232</cell>
+          </row>
+          <row>
+            <cell>rosi</cell>
+            <cell>90</cell>
+            <cell>143</cell>
+            <cell>233</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Total</cell>
+            <cell>319</cell>
+            <cell>380</cell>
+            <cell>699</cell>
+          </row>
+        </tabular>
+      </table>
+      
+      <exercise xml:id="exercise-diabetes-expected">
+        <statement>
+          <p>
+            A chi-square test for a two-way table may be used to test the hypotheses in <xref ref="ex-diabetes-hypotheses"/>. As a first step, compute the expected values for each of the six table cells.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The expected count for row one / column one is found by multiplying the row one total (234) and column one total (319), then dividing by the table total (699): <m>\frac{234\times 319}{699} = 106.8</m>. Similarly for the second column and the first row: <m>\frac{234\times 380}{699} = 127.2</m>. Row 2: 105.9 and 126.1. Row 3: 106.3 and 126.7.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exercise-diabetes-chi-square">
+        <statement>
+          <p>
+            Compute the chi-square test statistic for the data in <xref ref="table-diabetes-summary"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            For each cell, compute <m>\frac{(\text{obs} - \text{exp})^2}{\text{exp}}</m>. For instance, the first row and first column: <m>\frac{(109-106.8)^2}{106.8} = 0.05</m>. Adding the results of each cell gives the chi-square test statistic: <m>X^2 = 0.05 + \cdots + 2.11 = 8.16</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exercise-diabetes-conclusion">
+        <statement>
+          <p>
+            Because there are 3 rows and 2 columns, the degrees of freedom for the test is <m>df = (3 - 1) \times (2 - 1) = 2</m>. Use <m>X^2 = 8.16</m>, <m>df = 2</m>, evaluate whether to reject the null hypothesis using a significance level of 0.05.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If using a computer, we can identify the p-value as 0.017. That is, we reject the null hypothesis because the p-value is less than 0.05, and we conclude that at least one of the treatments is more or less effective than the others at treating Type<nbsp/>2 Diabetes for glycemic control.
+          </p>
+        </solution>
+      </exercise>
     </subsection>
     
-    <subsection xml:id="subsec-chi-square-limitations">
-      <title>Limitations of Chi-Square Tests</title>
+    <exercises>
+      <title>Section Exercises</title>
       
-      <p>
-        Important considerations when using chi-square tests:
-      </p>
+      <exercise xml:id="exercise-quitters">
+        <title>Quitters</title>
+        <statement>
+          <p>
+            Does being part of a support group affect the ability of people to quit smoking? A county health department enrolled 300 smokers in a randomized experiment. 150 participants were assigned to a group that used a nicotine patch and met weekly with a support group; the other 150 received the patch and did not meet with a support group. At the end of the study, 40 of the participants in the patch plus support group had quit smoking while only 30 smokers had quit in the other group.
+          </p>
+          <ol>
+            <li>Create a two-way table presenting the results of this study.</li>
+            <li>
+              <p>
+                Answer each of the following questions under the null hypothesis that being part of a support group does not affect the ability of people to quit smoking, and indicate whether the expected values are higher or lower than the observed values.
+              </p>
+              <ol>
+                <li>How many subjects in the <q>patch + support</q> group would you expect to quit?</li>
+                <li>How many subjects in the <q>patch only</q> group would you expect to not quit?</li>
+              </ol>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
       
-      <ul>
-        <li>Chi-square tests can only establish whether an association exists; they do not
-            determine causation.</li>
-        <li>The test requires all expected counts to be at least 5. If this condition is not met,
-            consider combining categories or using an alternative test (such as Fisher's exact test).</li>
-        <li>Large sample sizes can make even trivial differences statistically significant. Always
-            consider practical significance alongside statistical significance.</li>
-        <li>Chi-square tests work with counts, not percentages or proportions. Make sure your data
-            are in the correct form.</li>
-      </ul>
-    </subsection>
+      <exercise xml:id="exercise-full-body-scan-part-ii">
+        <title>Full body scan, Part II</title>
+        <statement>
+          <p>
+            The table below summarizes a data set we first encountered in an earlier exercise regarding views on full-body scans and political affiliation. The differences in each political group may be due to chance. Complete the following computations under the null hypothesis of independence between an individual's party affiliation and his support of full-body scans. It may be useful to first add on an extra column for row totals before proceeding with the computations.
+          </p>
+          
+          <table>
+            <title>Full-body scan data by party affiliation</title>
+            <tabular>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell colspan="3" halign="center">Party Affiliation</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell></cell>
+                <cell>Republican</cell>
+                <cell>Democrat</cell>
+                <cell>Independent</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell>Should</cell>
+                <cell>264</cell>
+                <cell>299</cell>
+                <cell>351</cell>
+              </row>
+              <row>
+                <cell>Answer</cell>
+                <cell>Should not</cell>
+                <cell>38</cell>
+                <cell>55</cell>
+                <cell>77</cell>
+              </row>
+              <row>
+                <cell></cell>
+                <cell>Don't know/No answer</cell>
+                <cell>16</cell>
+                <cell>15</cell>
+                <cell>22</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Total</cell>
+                <cell>318</cell>
+                <cell>369</cell>
+                <cell>450</cell>
+              </row>
+            </tabular>
+          </table>
+          
+          <ol>
+            <li>How many Republicans would you expect to not support the use of full-body scans?</li>
+            <li>How many Democrats would you expect to support the use of full-body scans?</li>
+            <li>How many Independents would you expect to not know or not answer?</li>
+          </ol>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exercise-offshore-drilling-part-iii">
+        <title>Offshore drilling, Part III</title>
+        <statement>
+          <p>
+            The table below summarizes a data set we first encountered in an earlier exercise that examines the responses of a random sample of college graduates and non-graduates on the topic of oil drilling. Complete a chi-square test for these data to check whether there is a statistically significant difference in responses from college graduates and non-graduates.
+          </p>
+          
+          <table>
+            <title>Offshore drilling data by college graduate status</title>
+            <tabular>
+              <row bottom="minor">
+                <cell></cell>
+                <cell colspan="2" halign="center">College Grad</cell>
+              </row>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Yes</cell>
+                <cell>No</cell>
+              </row>
+              <row>
+                <cell>Support</cell>
+                <cell>154</cell>
+                <cell>132</cell>
+              </row>
+              <row>
+                <cell>Oppose</cell>
+                <cell>180</cell>
+                <cell>126</cell>
+              </row>
+              <row>
+                <cell>Do not know</cell>
+                <cell>104</cell>
+                <cell>131</cell>
+              </row>
+              <row bottom="minor">
+                <cell>Total</cell>
+                <cell>438</cell>
+                <cell>389</cell>
+              </row>
+            </tabular>
+          </table>
+        </statement>
+      </exercise>
+      
+      <exercise xml:id="exercise-parasitic-worm">
+        <title>Parasitic worm</title>
+        <statement>
+          <p>
+            Lymphatic filariasis is a disease caused by a parasitic worm. Complications of the disease can lead to extreme swelling and other complications. Here we consider results from a randomized experiment that compared three different drug treatment options to clear people of the this parasite, which people are working to eliminate entirely. The results for the second year of the study are given below:
+          </p>
+          
+          <table>
+            <title>Parasitic worm treatment results</title>
+            <tabular>
+              <row bottom="minor">
+                <cell></cell>
+                <cell>Clear at Year 2</cell>
+                <cell>Not Clear at Year 2</cell>
+              </row>
+              <row>
+                <cell>Three drugs</cell>
+                <cell>52</cell>
+                <cell>2</cell>
+              </row>
+              <row>
+                <cell>Two drugs</cell>
+                <cell>31</cell>
+                <cell>24</cell>
+              </row>
+              <row>
+                <cell>Two drugs annually</cell>
+                <cell>42</cell>
+                <cell>14</cell>
+              </row>
+            </tabular>
+          </table>
+          
+          <ol>
+            <li>Set up hypotheses for evaluating whether there is any difference in the performance of the treatments, and also check conditions.</li>
+            <li>
+              <p>
+                Statistical software was used to run a chi-square test, which output:
+              </p>
+              <md>
+                <mrow>X^2 = 23.7 \qquad df = 2 \qquad \text{p-value} = 7.2\text{e-}6</mrow>
+              </md>
+              <p>
+                Use these results to evaluate the hypotheses from part (a), and provide a conclusion in the context of the problem.
+              </p>
+            </li>
+          </ol>
+        </statement>
+      </exercise>
+    </exercises>
   </section>
   
   <!-- Section 7.5: Chapter review -->
