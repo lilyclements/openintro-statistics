@@ -355,7 +355,7 @@
       <exercise xml:id="ex-unexpected-expense">
         <statement>
           <p>
-            In a random sample 765 adults in the United States, 322 say they could not
+            In a random sample of 765 adults in the United States, 322 say they could not
             cover a $400 unexpected expense without borrowing money or going into debt.
           </p>
           <ol>
@@ -856,7 +856,7 @@
             <li>If we want to reduce the standard error of the estimate, we should
                 collect less data.</li>
             <li>If we construct a 90% confidence interval for the percentage of U.S.
-                adults Twitter users who get some news through Twitter, this confidence
+                adult Twitter users who get some news through Twitter, this confidence
                 interval will be wider than a corresponding 99% confidence interval.</li>
           </ol>
         </statement>
@@ -905,7 +905,7 @@
                 appropriate for this interval. Will this new interval be smaller or wider
                 than the 95% confidence interval?</li>
             <li>If a new survey were to be done with 500 Americans, do you think the
-                standard error of the estimate be larger, smaller, or about the same.</li>
+                standard error of the estimate would be larger, smaller, or about the same.</li>
           </ol>
         </statement>
       </exercise>
@@ -1429,7 +1429,7 @@
       <example xml:id="ex-stents-two-sided-important">
         <statement>
           <p>
-            In Section~<xref ref="subsec-ht-framework"/>, we encountered an example where
+            In Section <xref ref="subsec-ht-framework"/>, we encountered an example where
             doctors were interested in determining whether stents would help people who
             had a high risk of stroke. The researchers believed the stents would help.
             Unfortunately, the data showed the opposite: patients who received stents
@@ -1616,7 +1616,7 @@
                 1100 calories. After calorie counts started to be displayed on menus, a
                 nutritionist collected data on the number of calories consumed at this
                 restaurant from a random sample of diners. Do these data provide
-                convincing evidence of a difference in the average calorie intake of a
+                convincing evidence of a difference in the average calorie intake of
                 diners at this restaurant?</li>
             <li>The state of Wisconsin would like to understand the fraction of its
                 adult residents that consumed alcohol in the last year, specifically if
@@ -1630,7 +1630,7 @@
       <exercise xml:id="ex-online-communication">
         <statement>
           <p>
-            A study suggests that 60% of college student spend 10 or more hours per week
+            A study suggests that 60% of college students spend 10 or more hours per week
             communicating with others online. You believe that this is incorrect and
             decide to collect your own sample for a hypothesis test. You randomly sample
             160 students from your dorm and find that 70% spent 10 or more hours a week
@@ -1648,7 +1648,7 @@
       <exercise xml:id="ex-married-at-25">
         <statement>
           <p>
-            A study suggests that the 25% of 25 year olds have gotten married. You
+            A study suggests that 25% of 25 year olds have gotten married. You
             believe that this is incorrect and decide to collect your own sample for a
             hypothesis test. From a random sample of 25 year olds in census data with
             size 776, you find that 24% of them are married. A friend of yours offers to
