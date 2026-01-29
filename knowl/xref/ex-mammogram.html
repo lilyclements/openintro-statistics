@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.26</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4>
+<div class="para">In Canada, about 0.35% of women over 40 will develop breast cancer in any given year. A common screening test for cancer is the mammogram, but this test is not perfect. In about 11% of patients with breast cancer, the test gives a <dfn class="terminology">false negative</dfn>: it indicates a woman does not have breast cancer when she does have breast cancer. Similarly, the test gives a <dfn class="terminology">false positive</dfn> in 7% of patients who do not have breast cancer: it indicates these patients have breast cancer when they actually do not. If we tested a random woman over 40 for breast cancer using a mammogram and the test came back positive — that is, the test suggested the patient has cancer — what is the probability that the patient actually has breast cancer?<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Notice that we are given sufficient information to quickly compute the probability of testing positive if a woman has breast cancer (<span class="process-math">\(1.00 - 0.11 = 0.89\)</span>). However, we seek the inverted probability of cancer given a positive test result.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">This inverted probability can be broken into two pieces:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(\text{has cancer} \mid \text{mammogram+}) = \frac{P(\text{has cancer and mammogram+})}{P(\text{mammogram+})}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">We can construct a tree diagram to organize these probabilities:<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/ch_probability/figures/BreastCancerTreeDiagram.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.27<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><div class="autopermalink" data-description="Figure 3.2.27"><a href="#ex-mammogram-2-4" title="Copy heading and permalink for Figure 3.2.27" aria-label="Copy heading and permalink for Figure 3.2.27">🔗</a></div></figcaption></figure><div class="para logical">
+<div class="para">The probability the patient has breast cancer and the mammogram is positive is:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(\text{has cancer and mammogram+}) \amp= P(\text{mammogram+} \mid \text{has cancer})P(\text{has cancer})\\
+\amp= 0.89 \times 0.0035 = 0.00312
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">The probability of a positive test result is the sum of the two corresponding scenarios:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(\text{mammogram+}) \amp= P(\text{mammogram+ and has cancer}) + P(\text{mammogram+ and no cancer})\\
+\amp= P(\text{has cancer})P(\text{mammogram+} \mid \text{has cancer})\\
+\amp\quad + P(\text{no cancer})P(\text{mammogram+} \mid \text{no cancer})\\
+\amp= 0.0035 \times 0.89 + 0.9965 \times 0.07 = 0.07288
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical">
+<div class="para">Then if the mammogram screening is positive for a patient, the probability the patient has breast cancer is:</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(\text{has cancer} \mid \text{mammogram+}) \amp= \frac{P(\text{has cancer and mammogram+})}{P(\text{mammogram+})}\\
+\amp= \frac{0.00312}{0.07288} \approx 0.0428
+\end{align*}
+</div>
+<div class="para">That is, even if a patient has a positive mammogram screening, there is still only about a 4% chance that she has breast cancer.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-mammogram-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 3.2.26.1"><a href="#ex-mammogram-2" title="Copy heading and permalink for Solution 3.2.26.1" aria-label="Copy heading and permalink for Solution 3.2.26.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 3.2.26"><a href="#ex-mammogram" title="Copy heading and permalink for Example 3.2.26" aria-label="Copy heading and permalink for Example 3.2.26">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-conditional-probability.html#ex-mammogram">in-context</a></span>
+</body>
+</html>

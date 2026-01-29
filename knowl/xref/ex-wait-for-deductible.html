@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding first success in insurance claims.</span>
+</h4>
+<div class="para">Suppose we are working at the insurance company and need to find a case where the person did not exceed her (or his) deductible as a case study. If the probability a person will not exceed her deductible is 0.7 and we are drawing people at random, what are the chances that the first person will not have exceeded her deductible, i.e. be a success? The second person? The third? What about we pull <span class="process-math">\(n - 1\)</span> cases before we find the first success, i.e. the first success is the <span class="process-math">\(n^{th}\)</span> person? (If the first success is the fifth person, then we say <span class="process-math">\(n=5\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ex-wait-for-deductible-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">The probability of stopping after the first person is just the chance the first person will not hit her (or his) deductible: 0.7. The probability the second person is the first to not hit her deductible is</div>
+<div class="displaymath process-math">
+\begin{align*}
+\amp P(\text{second person is the first to not hit deductible})\\
+\amp \quad = P(\text{the first will, the second won't})\\
+\amp \quad = (0.3)(0.7) = 0.21
+\end{align*}
+</div>
+<div class="para">Likewise, the probability it will be the third case is <span class="process-math">\((0.3)(0.3)(0.7) = 0.063\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-wait-for-deductible-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">If the first success is on the <span class="process-math">\(n^{th}\)</span> person, then there are <span class="process-math">\(n-1\)</span> failures and finally 1 success, which corresponds to the probability <span class="process-math">\((0.3)^{n-1}(0.7)\text{.}\)</span> This is the same as <span class="process-math">\((1-0.7)^{n-1}(0.7)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-wait-for-deductible-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 4.2.1.1"><a href="#ex-wait-for-deductible-3" title="Copy heading and permalink for Solution 4.2.1.1" aria-label="Copy heading and permalink for Solution 4.2.1.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 4.2.1: Finding first success in insurance claims"><a href="#ex-wait-for-deductible" title="Copy heading and permalink for Example 4.2.1: Finding first success in insurance claims" aria-label="Copy heading and permalink for Example 4.2.1: Finding first success in insurance claims">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-geometric-distribution.html#ex-wait-for-deductible">in-context</a></span>
+</body>
+</html>
