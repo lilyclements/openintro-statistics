@@ -178,7 +178,9 @@ true);
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-observations-variables" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Observations, variables, and data matrices</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-types-of-variables" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Types of variables</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-relationships-between-variables" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Relationships between variables</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-data-basics.html#sec-data-basics-6" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-explanatory-response-variables" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Explanatory and response variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-data-basics.html#subsec-observational-studies-experiments" class="internal"><span class="codenumber">1.2.5</span> <span class="title">Introducing observational studies and experiments</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-data-basics.html#sec-data-basics-8" class="internal"><span class="codenumber">1.2.6</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -714,18 +716,250 @@ true);
 </div>
 <div class="autopermalink" data-description="Solution 1.2.4.1"><a href="#guided-practice-gradebook-3" title="Copy heading and permalink for Solution 1.2.4.1" aria-label="Copy heading and permalink for Solution 1.2.4.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Checkpoint 1.2.4: Organizing a gradebook"><a href="#guided-practice-gradebook" title="Copy heading and permalink for Checkpoint 1.2.4: Organizing a gradebook" aria-label="Copy heading and permalink for Checkpoint 1.2.4: Organizing a gradebook">🔗</a></div></article></details><div class="para" id="subsec-observations-variables-12"> We consider data for 3,142 counties in the United States. The data includes each county’s name, the state where it resides, its population in 2017, how its population changed from 2010 to 2017, poverty rate, and six additional characteristics.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observations-variables-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<details id="guided-practice-county-data-matrix" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<div class="autopermalink" data-description="Checkpoint 1.2.4: Organizing a gradebook"><a href="#guided-practice-gradebook" title="Copy heading and permalink for Checkpoint 1.2.4: Organizing a gradebook" aria-label="Copy heading and permalink for Checkpoint 1.2.4: Organizing a gradebook">🔗</a></div></article></details><details id="guided-practice-county-data-matrix" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Organizing county data.</span>
-</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="guided-practice-county-data-matrix-2-1">How might the county data described above be organized in a data matrix?<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-county-data-matrix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="guided-practice-county-data-matrix-2-1"> We consider data for 3,142 counties in the United States. The data includes each county’s name, the state where it resides, its population in 2017, how its population changed from 2010 to 2017, poverty rate, and six additional characteristics. How might the county data described above be organized in a data matrix?<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-county-data-matrix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="guided-practice-county-data-matrix-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="guided-practice-county-data-matrix-3-1">Each county may be viewed as a case, and there are eleven pieces of information recorded for each case. A table with 3,142 rows and 11 columns could hold these data, where each row represents a county and each column represents a particular piece of information.<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-county-data-matrix-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Solution 1.2.5.1"><a href="#guided-practice-county-data-matrix-3" title="Copy heading and permalink for Solution 1.2.5.1" aria-label="Copy heading and permalink for Solution 1.2.5.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Checkpoint 1.2.5: Organizing county data"><a href="#guided-practice-county-data-matrix" title="Copy heading and permalink for Checkpoint 1.2.5: Organizing county data" aria-label="Copy heading and permalink for Checkpoint 1.2.5: Organizing county data">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.2.1: Observations, variables, and data matrices"><a href="#subsec-observations-variables" title="Copy heading and permalink for Subsection 1.2.1: Observations, variables, and data matrices" aria-label="Copy heading and permalink for Subsection 1.2.1: Observations, variables, and data matrices">🔗</a></div></section><section class="subsection" id="subsec-types-of-variables"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Checkpoint 1.2.5: Organizing county data"><a href="#guided-practice-county-data-matrix" title="Copy heading and permalink for Checkpoint 1.2.5: Organizing county data" aria-label="Copy heading and permalink for Checkpoint 1.2.5: Organizing county data">🔗</a></div></article></details><div class="para" id="subsec-observations-variables-13">The data described in Guided Practice about the county data represents the <code class="code-inline tex2jax_ignore">county</code> data set, which is shown as a data matrix in <a href="sec-data-basics.html#table-county-data" class="xref" data-knowl="./knowl/xref/table-county-data.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.2.6: Eleven rows from the county data set">Table 1.2.6</a> and with variable descriptions in <a href="sec-data-basics.html#table-county-variables" class="xref" data-knowl="./knowl/xref/table-county-variables.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 1.2.7: Variables and their descriptions for the county data set">Table 1.2.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observations-variables-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-county-data"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Eleven rows from the <code class="code-inline tex2jax_ignore">county</code> data set<div class="autopermalink" data-description="Table 1.2.6: Eleven rows from the county data set"><a href="#table-county-data" title="Copy heading and permalink for Table 1.2.6: Eleven rows from the county data set" aria-label="Copy heading and permalink for Table 1.2.6: Eleven rows from the county data set">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t0 lines"></th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">name</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">state</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">pop</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">pop_change</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">poverty</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">homeownership</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">multi_unit</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">unemp_rate</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">metro</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">median_edu</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">median_hh_income</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">Autauga</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">55504</td>
+<td class="l m b0 r0 l0 t0 lines">1.48</td>
+<td class="l m b0 r0 l0 t0 lines">13.7</td>
+<td class="l m b0 r0 l0 t0 lines">77.5</td>
+<td class="l m b0 r0 l0 t0 lines">7.2</td>
+<td class="l m b0 r0 l0 t0 lines">3.86</td>
+<td class="l m b0 r0 l0 t0 lines">yes</td>
+<td class="l m b0 r0 l0 t0 lines">some_college</td>
+<td class="l m b0 r0 l0 t0 lines">55317</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">Baldwin</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">212628</td>
+<td class="l m b0 r0 l0 t0 lines">9.19</td>
+<td class="l m b0 r0 l0 t0 lines">11.8</td>
+<td class="l m b0 r0 l0 t0 lines">76.7</td>
+<td class="l m b0 r0 l0 t0 lines">22.6</td>
+<td class="l m b0 r0 l0 t0 lines">3.99</td>
+<td class="l m b0 r0 l0 t0 lines">yes</td>
+<td class="l m b0 r0 l0 t0 lines">some_college</td>
+<td class="l m b0 r0 l0 t0 lines">52562</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">Barbour</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">25270</td>
+<td class="l m b0 r0 l0 t0 lines">-6.22</td>
+<td class="l m b0 r0 l0 t0 lines">27.2</td>
+<td class="l m b0 r0 l0 t0 lines">68.0</td>
+<td class="l m b0 r0 l0 t0 lines">11.1</td>
+<td class="l m b0 r0 l0 t0 lines">5.90</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">33368</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">4</td>
+<td class="l m b0 r0 l0 t0 lines">Bibb</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">22668</td>
+<td class="l m b0 r0 l0 t0 lines">0.73</td>
+<td class="l m b0 r0 l0 t0 lines">15.2</td>
+<td class="l m b0 r0 l0 t0 lines">82.9</td>
+<td class="l m b0 r0 l0 t0 lines">6.6</td>
+<td class="l m b0 r0 l0 t0 lines">4.39</td>
+<td class="l m b0 r0 l0 t0 lines">yes</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">43404</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">5</td>
+<td class="l m b0 r0 l0 t0 lines">Blount</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">58013</td>
+<td class="l m b0 r0 l0 t0 lines">0.68</td>
+<td class="l m b0 r0 l0 t0 lines">15.6</td>
+<td class="l m b0 r0 l0 t0 lines">82.0</td>
+<td class="l m b0 r0 l0 t0 lines">3.7</td>
+<td class="l m b0 r0 l0 t0 lines">4.02</td>
+<td class="l m b0 r0 l0 t0 lines">yes</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">47412</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">6</td>
+<td class="l m b0 r0 l0 t0 lines">Bullock</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">10309</td>
+<td class="l m b0 r0 l0 t0 lines">-2.28</td>
+<td class="l m b0 r0 l0 t0 lines">28.5</td>
+<td class="l m b0 r0 l0 t0 lines">76.9</td>
+<td class="l m b0 r0 l0 t0 lines">9.9</td>
+<td class="l m b0 r0 l0 t0 lines">4.93</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">29655</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">Butler</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">19825</td>
+<td class="l m b0 r0 l0 t0 lines">-2.69</td>
+<td class="l m b0 r0 l0 t0 lines">24.4</td>
+<td class="l m b0 r0 l0 t0 lines">69.0</td>
+<td class="l m b0 r0 l0 t0 lines">13.7</td>
+<td class="l m b0 r0 l0 t0 lines">5.49</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">36326</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">8</td>
+<td class="l m b0 r0 l0 t0 lines">Calhoun</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">114728</td>
+<td class="l m b0 r0 l0 t0 lines">-1.51</td>
+<td class="l m b0 r0 l0 t0 lines">18.6</td>
+<td class="l m b0 r0 l0 t0 lines">70.7</td>
+<td class="l m b0 r0 l0 t0 lines">14.3</td>
+<td class="l m b0 r0 l0 t0 lines">4.93</td>
+<td class="l m b0 r0 l0 t0 lines">yes</td>
+<td class="l m b0 r0 l0 t0 lines">some_college</td>
+<td class="l m b0 r0 l0 t0 lines">43686</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">9</td>
+<td class="l m b0 r0 l0 t0 lines">Chambers</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">33713</td>
+<td class="l m b0 r0 l0 t0 lines">-1.20</td>
+<td class="l m b0 r0 l0 t0 lines">18.8</td>
+<td class="l m b0 r0 l0 t0 lines">71.4</td>
+<td class="l m b0 r0 l0 t0 lines">8.7</td>
+<td class="l m b0 r0 l0 t0 lines">4.08</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">37342</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">10</td>
+<td class="l m b0 r0 l0 t0 lines">Cherokee</td>
+<td class="l m b0 r0 l0 t0 lines">Alabama</td>
+<td class="l m b0 r0 l0 t0 lines">25857</td>
+<td class="l m b0 r0 l0 t0 lines">-0.60</td>
+<td class="l m b0 r0 l0 t0 lines">16.1</td>
+<td class="l m b0 r0 l0 t0 lines">77.5</td>
+<td class="l m b0 r0 l0 t0 lines">4.3</td>
+<td class="l m b0 r0 l0 t0 lines">4.05</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">hs_diploma</td>
+<td class="l m b0 r0 l0 t0 lines">40041</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">3142</td>
+<td class="l m b0 r0 l0 t0 lines">Weston</td>
+<td class="l m b0 r0 l0 t0 lines">Wyoming</td>
+<td class="l m b0 r0 l0 t0 lines">6927</td>
+<td class="l m b0 r0 l0 t0 lines">-2.93</td>
+<td class="l m b0 r0 l0 t0 lines">14.4</td>
+<td class="l m b0 r0 l0 t0 lines">77.9</td>
+<td class="l m b0 r0 l0 t0 lines">6.5</td>
+<td class="l m b0 r0 l0 t0 lines">3.98</td>
+<td class="l m b0 r0 l0 t0 lines">no</td>
+<td class="l m b0 r0 l0 t0 lines">some_college</td>
+<td class="l m b0 r0 l0 t0 lines">59605</td>
+</tr>
+</table></div></figure><figure class="table table-like" id="table-county-variables"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Variables and their descriptions for the <code class="code-inline tex2jax_ignore">county</code> data set<div class="autopermalink" data-description="Table 1.2.7: Variables and their descriptions for the county data set"><a href="#table-county-variables" title="Copy heading and permalink for Table 1.2.7: Variables and their descriptions for the county data set" aria-label="Copy heading and permalink for Table 1.2.7: Variables and their descriptions for the county data set">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b2 r0 l0 t0 lines">variable</th>
+<th scope="col" class="l m b2 r0 l0 t0 lines">description</th>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">name</code></td>
+<td class="l m b0 r0 l0 t0 lines">County name.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">state</code></td>
+<td class="l m b0 r0 l0 t0 lines">State where the county resides, or the District of Columbia.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">pop</code></td>
+<td class="l m b0 r0 l0 t0 lines">Population in 2017.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">pop_change</code></td>
+<td class="l m b0 r0 l0 t0 lines">Percent change in the population from 2010 to 2017. For example, the value 1.48 in the first row means the population for this county increased by 1.48% from 2010 to 2017.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">poverty</code></td>
+<td class="l m b0 r0 l0 t0 lines">Percent of the population in poverty.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">homeownership</code></td>
+<td class="l m b0 r0 l0 t0 lines">Percent of the population that lives in their own home or lives with the owner, e.g. children living with parents who own the home.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">multi_unit</code></td>
+<td class="l m b0 r0 l0 t0 lines">Percent of living units that are in multi-unit structures, e.g. apartments.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">unemp_rate</code></td>
+<td class="l m b0 r0 l0 t0 lines">Unemployment rate as a percent.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">metro</code></td>
+<td class="l m b0 r0 l0 t0 lines">Whether the county contains a metropolitan area.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">median_edu</code></td>
+<td class="l m b0 r0 l0 t0 lines">Median education level, which can take a value among below_hs, hs_diploma, some_college, and bachelors.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">median_hh_income</code></td>
+<td class="l m b0 r0 l0 t0 lines">Median household income for the county, where a household’s income equals the total income of its occupants who are 15 years or older.</td>
+</tr>
+</table></div></figure><div class="autopermalink" data-description="Subsection 1.2.1: Observations, variables, and data matrices"><a href="#subsec-observations-variables" title="Copy heading and permalink for Subsection 1.2.1: Observations, variables, and data matrices" aria-label="Copy heading and permalink for Subsection 1.2.1: Observations, variables, and data matrices">🔗</a></div></section><section class="subsection" id="subsec-types-of-variables"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Types of variables</span>
 </h3>
 <div class="para" id="subsec-types-of-variables-2">Examine the <code class="code-inline tex2jax_ignore">unemp_rate</code>, <code class="code-inline tex2jax_ignore">pop</code>, <code class="code-inline tex2jax_ignore">state</code>, and <code class="code-inline tex2jax_ignore">median_edu</code> variables in the <code class="code-inline tex2jax_ignore">county</code> data set. Each of these variables is inherently different from the other three, yet some share certain characteristics.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-types-of-variables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -739,25 +973,25 @@ true);
 <div class="para" id="subsec-types-of-variables-6">Finally, consider the <code class="code-inline tex2jax_ignore">median_edu</code> variable, which describes the median education level of county residents and takes values <code class="code-inline tex2jax_ignore">below_hs</code>, <code class="code-inline tex2jax_ignore">hs_diploma</code>, <code class="code-inline tex2jax_ignore">some_college</code>, or <code class="code-inline tex2jax_ignore">bachelors</code> in each county. This variable seems to be a hybrid: it is a categorical variable but the levels have a natural ordering. A variable with these properties is called an <dfn class="terminology">ordinal</dfn> variable, while a regular categorical variable without this type of special ordering is called a <dfn class="terminology">nominal</dfn> variable. To simplify analyses, any ordinal variable in this book will be treated as a nominal (unordered) categorical variable.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-types-of-variables-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="fig-variable-types"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="external/ch_intro_to_data/figures/variables/variables.pdf" class="contained" alt='A tree diagram showing "all variables" at the top, branching into "numeric" and "categorical". The "numeric" branch splits into "continuous" and "discrete", while the "categorical" branch splits into "nominal (unordered categorical)" and "ordinal (ordered categorical)".'></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Breakdown of variables into their respective types<div class="autopermalink" data-description="Figure 1.2.6"><a href="#fig-variable-types" title="Copy heading and permalink for Figure 1.2.6" aria-label="Copy heading and permalink for Figure 1.2.6">🔗</a></div></figcaption></figure><details id="example-classify-variables" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classifying variables by type.</span>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Breakdown of variables into their respective types<div class="autopermalink" data-description="Figure 1.2.8"><a href="#fig-variable-types" title="Copy heading and permalink for Figure 1.2.8" aria-label="Copy heading and permalink for Figure 1.2.8">🔗</a></div></figcaption></figure><details id="example-classify-variables" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classifying variables by type.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para" id="example-classify-variables-2-1">Data were collected about students in a statistics course. Three variables were recorded for each student: number of siblings, student height, and whether the student had previously taken a statistics course. Classify each of the variables as continuous numerical, discrete numerical, or categorical.<div class="autopermalink" data-description="Paragraph"><a href="#example-classify-variables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="example-classify-variables-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="example-classify-variables-3-1">The number of siblings and student height represent numerical variables. Because the number of siblings is a count, it is discrete. Height varies continuously, so it is a continuous numerical variable. The last variable classifies students into two categories—those who have and those who have not taken a statistics course—which makes this variable categorical.<div class="autopermalink" data-description="Paragraph"><a href="#example-classify-variables-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.2.7.1"><a href="#example-classify-variables-3" title="Copy heading and permalink for Solution 1.2.7.1" aria-label="Copy heading and permalink for Solution 1.2.7.1">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.2.9.1"><a href="#example-classify-variables-3" title="Copy heading and permalink for Solution 1.2.9.1" aria-label="Copy heading and permalink for Solution 1.2.9.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Example 1.2.7: Classifying variables by type"><a href="#example-classify-variables" title="Copy heading and permalink for Example 1.2.7: Classifying variables by type" aria-label="Copy heading and permalink for Example 1.2.7: Classifying variables by type">🔗</a></div></article></details><details id="guided-practice-migraine-variables" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classifying experiment variables.</span>
+<div class="autopermalink" data-description="Example 1.2.9: Classifying variables by type"><a href="#example-classify-variables" title="Copy heading and permalink for Example 1.2.9: Classifying variables by type" aria-label="Copy heading and permalink for Example 1.2.9: Classifying variables by type">🔗</a></div></article></details><details id="guided-practice-migraine-variables" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Classifying experiment variables.</span>
 </h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="guided-practice-migraine-variables-2-1">An experiment is evaluating the effectiveness of a new drug in treating migraines. A <code class="code-inline tex2jax_ignore">group</code> variable is used to indicate the experiment group for each patient: treatment or control. The <code class="code-inline tex2jax_ignore">num_migraines</code> variable represents the number of migraines the patient experienced during a 3-month period. Classify each variable as either numerical or categorical.<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-migraine-variables-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions"><details id="guided-practice-migraine-variables-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="guided-practice-migraine-variables-3-1">The <code class="code-inline tex2jax_ignore">group</code> variable can take just one of two group names, making it categorical. The <code class="code-inline tex2jax_ignore">num_migraines</code> variable describes a count of the number of migraines, which is an outcome where basic arithmetic is sensible, which means this is numerical outcome; more specifically, since it represents a count, <code class="code-inline tex2jax_ignore">num_migraines</code> is a discrete numerical variable.<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-migraine-variables-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 1.2.8.1"><a href="#guided-practice-migraine-variables-3" title="Copy heading and permalink for Solution 1.2.8.1" aria-label="Copy heading and permalink for Solution 1.2.8.1">🔗</a></div>
+<div class="autopermalink" data-description="Solution 1.2.10.1"><a href="#guided-practice-migraine-variables-3" title="Copy heading and permalink for Solution 1.2.10.1" aria-label="Copy heading and permalink for Solution 1.2.10.1">🔗</a></div>
 </div></details></div>
-<div class="autopermalink" data-description="Checkpoint 1.2.8: Classifying experiment variables"><a href="#guided-practice-migraine-variables" title="Copy heading and permalink for Checkpoint 1.2.8: Classifying experiment variables" aria-label="Copy heading and permalink for Checkpoint 1.2.8: Classifying experiment variables">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.2.2: Types of variables"><a href="#subsec-types-of-variables" title="Copy heading and permalink for Subsection 1.2.2: Types of variables" aria-label="Copy heading and permalink for Subsection 1.2.2: Types of variables">🔗</a></div></section><section class="subsection" id="subsec-relationships-between-variables"><h3 class="heading hide-type">
+<div class="autopermalink" data-description="Checkpoint 1.2.10: Classifying experiment variables"><a href="#guided-practice-migraine-variables" title="Copy heading and permalink for Checkpoint 1.2.10: Classifying experiment variables" aria-label="Copy heading and permalink for Checkpoint 1.2.10: Classifying experiment variables">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 1.2.2: Types of variables"><a href="#subsec-types-of-variables" title="Copy heading and permalink for Subsection 1.2.2: Types of variables" aria-label="Copy heading and permalink for Subsection 1.2.2: Types of variables">🔗</a></div></section><section class="subsection" id="subsec-relationships-between-variables"><h3 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relationships between variables</span>
 </h3>
 <div class="para" id="subsec-relationships-between-variables-2">Many analyses are motivated by a researcher looking for a relationship between two or more variables. A social scientist may like to answer some of the following questions:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -785,12 +1019,77 @@ true);
 <div class="para" id="subsec-relationships-between-variables-4">To answer these questions, data must be collected, such as the <code class="code-inline tex2jax_ignore">county</code> data set. Examining summary statistics could provide insights for each of the three questions about counties. Additionally, graphs can be used to visually explore data.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="subsec-relationships-between-variables-5">
-<dfn class="terminology">Scatterplots</dfn> are one type of graph used to study the relationship between two numerical variables. A scatterplot comparing the variables <code class="code-inline tex2jax_ignore">homeownership</code> and <code class="code-inline tex2jax_ignore">multi_unit</code> (the percent of units in multi-unit structures such as apartments and condos) shows that counties with a higher rate of multi-units tend to have lower homeownership rates. We might brainstorm as to why this relationship exists and investigate each idea to determine which are the most reasonable explanations.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<dfn class="terminology">Scatterplots</dfn> are one type of graph used to study the relationship between two numerical variables. <a href="sec-data-basics.html#fig-multiunit-homeownership" class="xref" data-knowl="./knowl/xref/fig-multiunit-homeownership.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.11">Figure 1.2.11</a> compares the variables <code class="code-inline tex2jax_ignore">homeownership</code> and <code class="code-inline tex2jax_ignore">multi_unit</code>, which is the percent of units in multi-unit structures (e.g. apartments, condos). Each point on the plot represents a single county. For instance, the highlighted dot corresponds to County 413 in the <code class="code-inline tex2jax_ignore">county</code> data set: Chattahoochee County, Georgia, which has 39.4% of units in multi-unit structures and a homeownership rate of 31.3%. The scatterplot suggests a relationship between the two variables: counties with a higher rate of multi-units tend to have lower homeownership rates. We might brainstorm as to why this relationship exists and investigate each idea to determine which are the most reasonable explanations.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="subsec-relationships-between-variables-6">The multi-unit and homeownership rates are said to be associated because the plot shows a discernible pattern. When two variables show some connection with one another, they are called <dfn class="terminology">associated</dfn> variables. Associated variables can also be called <dfn class="terminology">dependent</dfn> variables and vice-versa.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="fig-multiunit-homeownership"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="external/ch_intro_to_data/figures/multiunitsVsOwnership/multiunitsVsOwnership.pdf" class="contained" alt="Scatterplot of thousands of counties with the percent of multiunit structures in each county shown on the horizontal axis and homeownership rate shown on the vertical axis. The data range from 0% to almost 100% for both variables. In general, the points are much more concentrated in the upper left corner of the graph and then trend downward for observations further to the right while also becoming more sparse. One point is annotated at the location (39.4%, 31.3%)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A scatterplot of homeownership versus the percent of units that are in multi-unit structures for US counties. The highlighted dot represents Chattahoochee County, Georgia, which has a multi-unit rate of 39.4% and a homeownership rate of 31.3%.<div class="autopermalink" data-description="Figure 1.2.11"><a href="#fig-multiunit-homeownership" title="Copy heading and permalink for Figure 1.2.11" aria-label="Copy heading and permalink for Figure 1.2.11">🔗</a></div></figcaption></figure><div class="para" id="subsec-relationships-between-variables-7">The multi-unit and homeownership rates are said to be associated because the plot shows a discernible pattern. When two variables show some connection with one another, they are called <dfn class="terminology">associated</dfn> variables. Associated variables can also be called <dfn class="terminology">dependent</dfn> variables and vice-versa.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Subsection 1.2.3: Relationships between variables"><a href="#subsec-relationships-between-variables" title="Copy heading and permalink for Subsection 1.2.3: Relationships between variables" aria-label="Copy heading and permalink for Subsection 1.2.3: Relationships between variables">🔗</a></div></section><section class="exercises" id="sec-data-basics-6"><h3 class="heading hide-type">
-<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+<details id="guided-practice-loan50-questions" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Creating research questions.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="guided-practice-loan50-questions-2-1">Examine the variables in the <code class="code-inline tex2jax_ignore">loan50</code> data set. Create two questions about possible relationships between variables in <code class="code-inline tex2jax_ignore">loan50</code> that are of interest to you.<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-loan50-questions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="guided-practice-loan50-questions-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="guided-practice-loan50-questions-3-1">Two example questions: (1) What is the relationship between loan amount and total income? (2) If someone’s income is above the average, will their interest rate tend to be above or below the average?<div class="autopermalink" data-description="Paragraph"><a href="#guided-practice-loan50-questions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.2.12.1"><a href="#guided-practice-loan50-questions-3" title="Copy heading and permalink for Solution 1.2.12.1" aria-label="Copy heading and permalink for Solution 1.2.12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 1.2.12: Creating research questions"><a href="#guided-practice-loan50-questions" title="Copy heading and permalink for Checkpoint 1.2.12: Creating research questions" aria-label="Copy heading and permalink for Checkpoint 1.2.12: Creating research questions">🔗</a></div></article></details><details id="example-pop-change-income" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examining relationship between population change and income.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="example-pop-change-income-2-1">This example examines the relationship between a county’s population change from 2010 to 2017 and median household income, which is visualized as a scatterplot in <a href="sec-data-basics.html#fig-pop-change-income" class="xref" data-knowl="./knowl/xref/fig-pop-change-income.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.14">Figure 1.2.14</a>. Are these variables associated?<div class="autopermalink" data-description="Paragraph"><a href="#example-pop-change-income-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="example-pop-change-income-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="example-pop-change-income-3-1">The larger the median household income for a county, the higher the population growth observed for the county. While this trend isn’t true for every county, the trend in the plot is evident. Since there is some relationship between the variables, they are associated.<div class="autopermalink" data-description="Paragraph"><a href="#example-pop-change-income-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 1.2.13.1"><a href="#example-pop-change-income-3" title="Copy heading and permalink for Solution 1.2.13.1" aria-label="Copy heading and permalink for Solution 1.2.13.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 1.2.13: Examining relationship between population change and income"><a href="#example-pop-change-income" title="Copy heading and permalink for Example 1.2.13: Examining relationship between population change and income" aria-label="Copy heading and permalink for Example 1.2.13: Examining relationship between population change and income">🔗</a></div></article></details><figure class="figure figure-like" id="fig-pop-change-income"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/ch_intro_to_data/figures/pop_change_v_med_income/pop_change_v_med_income.pdf" class="contained" alt="Scatterplot of thousands of counties with the median household income along the horizontal axis (data ranging from $0 to $120,000) and population change over 7 years (data ranging from about -15% to 25%). There is a cloud of points centered around ($45,000, -1%), and the points show a slight trend upwards while also becoming more sparse and volatile for observations corresponding to higher median incomes. One point is annotated at the location ($22,736, -3.63%)."></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A scatterplot showing <code class="code-inline tex2jax_ignore">pop_change</code> against <code class="code-inline tex2jax_ignore">median_hh_income</code>. Owsley County of Kentucky is highlighted, which lost 3.63% of its population from 2010 to 2017 and had median household income of $22,736.<div class="autopermalink" data-description="Figure 1.2.14"><a href="#fig-pop-change-income" title="Copy heading and permalink for Figure 1.2.14" aria-label="Copy heading and permalink for Figure 1.2.14">🔗</a></div></figcaption></figure><div class="para" id="subsec-relationships-between-variables-11">Because there is a downward trend in <a href="sec-data-basics.html#fig-multiunit-homeownership" class="xref" data-knowl="./knowl/xref/fig-multiunit-homeownership.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.11">Figure 1.2.11</a> — counties with more units in multi-unit structures are associated with lower homeownership — these variables are said to be <dfn class="terminology">negatively associated</dfn>. A <dfn class="terminology">positive association</dfn> is shown in the relationship between the <code class="code-inline tex2jax_ignore">median_hh_income</code> and <code class="code-inline tex2jax_ignore">pop_change</code> in <a href="sec-data-basics.html#fig-pop-change-income" class="xref" data-knowl="./knowl/xref/fig-pop-change-income.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 1.2.14">Figure 1.2.14</a>, where counties with higher median household income tend to have higher rates of population growth.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-relationships-between-variables-12">If two variables are not associated, then they are said to be <dfn class="terminology">independent</dfn>. That is, two variables are independent if there is no evident relationship between the two.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="insight remark-like" id="subsec-relationships-between-variables-13"><h4 class="heading">
+<span class="type">Insight</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.15</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Associated or independent, not both.</span>
+</h4>
+<div class="para" id="subsec-relationships-between-variables-13-2">A pair of variables are either related in some way (associated) or not (independent). No pair of variables is both associated and independent.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-relationships-between-variables-13-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Insight 1.2.15: Associated or independent, not both"><a href="#subsec-relationships-between-variables-13" title="Copy heading and permalink for Insight 1.2.15: Associated or independent, not both" aria-label="Copy heading and permalink for Insight 1.2.15: Associated or independent, not both">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.2.3: Relationships between variables"><a href="#subsec-relationships-between-variables" title="Copy heading and permalink for Subsection 1.2.3: Relationships between variables" aria-label="Copy heading and permalink for Subsection 1.2.3: Relationships between variables">🔗</a></div></section><section class="subsection" id="subsec-explanatory-response-variables"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explanatory and response variables</span>
+</h3>
+<div class="para" id="subsec-explanatory-response-variables-2">When we ask questions about the relationship between two variables, we sometimes also want to determine if the change in one variable causes a change in the other. Consider the following rephrasing of an earlier question about the <code class="code-inline tex2jax_ignore">county</code> data set:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<blockquote class="blockquote" id="subsec-explanatory-response-variables-3">
+<div class="para" id="subsec-explanatory-response-variables-3-1">
+<em class="emphasis">If there is an increase in the median household income in a county, does this drive an increase in its population?</em><div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Quotation"><a href="#subsec-explanatory-response-variables-3" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+</blockquote>
+<div class="para" id="subsec-explanatory-response-variables-4">In this question, we are asking whether one variable affects another. If this is our underlying belief, then <em class="emphasis">median household income</em> is the <dfn class="terminology">explanatory variable</dfn> and the <em class="emphasis">population change</em> is the <dfn class="terminology">response variable</dfn> in the hypothesized relationship.<details class="ptx-footnote" aria-live="polite" id="subsec-explanatory-response-variables-4-5"><summary class="ptx-footnote__number" title="Footnote 1.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="subsec-explanatory-response-variables-4-5">Sometimes the explanatory variable is called the <dfn class="terminology">independent variable</dfn> and the response variable is called the <dfn class="terminology">dependent variable</dfn>. However, this becomes confusing since a <em class="emphasis">pair</em> of variables might be independent or dependent, so we avoid this language.</div></details><div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="insight remark-like" id="subsec-explanatory-response-variables-5"><h4 class="heading">
+<span class="type">Insight</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explanatory and response variables.</span>
+</h4>
+<div class="para" id="subsec-explanatory-response-variables-5-2">When we suspect one variable might causally affect another, we label the first variable the <em class="emphasis">explanatory variable</em> and the second the <em class="emphasis">response variable</em>.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-explanatory-response-variables-5-3">For many pairs of variables, there is no hypothesized relationship, and these labels would not be applied to either variable in such cases.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-5-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Insight 1.2.16: Explanatory and response variables"><a href="#subsec-explanatory-response-variables-5" title="Copy heading and permalink for Insight 1.2.16: Explanatory and response variables" aria-label="Copy heading and permalink for Insight 1.2.16: Explanatory and response variables">🔗</a></div></article><div class="para" id="subsec-explanatory-response-variables-6">Bear in mind that the act of labeling the variables in this way does nothing to ensure that a causal relationship exists. A formal evaluation to check whether one variable causes a change in another requires an experiment.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-explanatory-response-variables-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 1.2.4: Explanatory and response variables"><a href="#subsec-explanatory-response-variables" title="Copy heading and permalink for Subsection 1.2.4: Explanatory and response variables" aria-label="Copy heading and permalink for Subsection 1.2.4: Explanatory and response variables">🔗</a></div></section><section class="subsection" id="subsec-observational-studies-experiments"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introducing observational studies and experiments</span>
+</h3>
+<div class="para" id="subsec-observational-studies-experiments-2">There are two primary types of data collection: observational studies and experiments.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observational-studies-experiments-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-observational-studies-experiments-3">Researchers perform an <dfn class="terminology">observational study</dfn> when they collect data in a way that does not directly interfere with how the data arise. For instance, researchers may collect information via surveys, review medical records, or follow a cohort of many similar individuals to study why certain diseases might develop. In each of these situations, researchers merely observe the data that arise. In general, observational studies can provide evidence of a naturally occurring association between variables, but they cannot by themselves show a causal connection.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observational-studies-experiments-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-observational-studies-experiments-4">When researchers want to investigate the possibility of a causal connection, they conduct an <dfn class="terminology">experiment</dfn>. Usually there will be both an explanatory and a response variable. For instance, we may suspect administering a drug will reduce mortality in heart attack patients over the following year. To check if there really is a causal connection between the explanatory variable and the response, researchers will collect a sample of individuals and split them into groups. The individuals in each group are <em class="emphasis">assigned</em> a treatment. When individuals are randomly assigned to a group, the experiment is called a <dfn class="terminology">randomized experiment</dfn>. For example, each heart attack patient in the drug trial could be randomly assigned, perhaps by flipping a coin, into one of two groups: the first group receives a <dfn class="terminology">placebo</dfn> (fake treatment) and the second group receives the drug. See the case study in <a href="sec-stents-strokes.html" class="internal" title="Section 1.1: Case study: using stents to prevent strokes">Section 1.1</a> for another example of an experiment, though that study did not employ a placebo.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observational-studies-experiments-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="insight remark-like" id="subsec-observational-studies-experiments-5"><h4 class="heading">
+<span class="type">Insight</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.17</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Association does not imply causation.</span>
+</h4>
+<div class="para" id="subsec-observational-studies-experiments-5-2">In general, association does not imply causation, and causation can only be inferred from a randomized experiment.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-observational-studies-experiments-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Insight 1.2.17: Association does not imply causation"><a href="#subsec-observational-studies-experiments-5" title="Copy heading and permalink for Insight 1.2.17: Association does not imply causation" aria-label="Copy heading and permalink for Insight 1.2.17: Association does not imply causation">🔗</a></div></article><div class="autopermalink" data-description="Subsection 1.2.5: Introducing observational studies and experiments"><a href="#subsec-observational-studies-experiments" title="Copy heading and permalink for Subsection 1.2.5: Introducing observational studies and experiments" aria-label="Copy heading and permalink for Subsection 1.2.5: Introducing observational studies and experiments">🔗</a></div></section><section class="exercises" id="sec-data-basics-8"><h3 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="ex-air-pollution-components"><h4 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Air pollution and birth outcomes, study components.</span>
@@ -800,20 +1099,20 @@ true);
 <li id="ex-air-pollution-components-2-2-1">
 <div class="para" id="ex-air-pollution-components-2-2-1-1">Identify the main research question of the study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-air-pollution-components-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.1.a"><a href="#ex-air-pollution-components-2-2-1" title="Copy heading and permalink for Item 1.2.4.1.a" aria-label="Copy heading and permalink for Item 1.2.4.1.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.1.a"><a href="#ex-air-pollution-components-2-2-1" title="Copy heading and permalink for Item 1.2.6.1.a" aria-label="Copy heading and permalink for Item 1.2.6.1.a">🔗</a></div>
 </li>
 <li id="ex-air-pollution-components-2-2-2">
 <div class="para" id="ex-air-pollution-components-2-2-2-1">Who are the subjects in this study, and how many are included?<div class="autopermalink" data-description="Paragraph"><a href="#ex-air-pollution-components-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.1.b"><a href="#ex-air-pollution-components-2-2-2" title="Copy heading and permalink for Item 1.2.4.1.b" aria-label="Copy heading and permalink for Item 1.2.4.1.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.1.b"><a href="#ex-air-pollution-components-2-2-2" title="Copy heading and permalink for Item 1.2.6.1.b" aria-label="Copy heading and permalink for Item 1.2.6.1.b">🔗</a></div>
 </li>
 <li id="ex-air-pollution-components-2-2-3">
 <div class="para" id="ex-air-pollution-components-2-2-3-1">What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.<div class="autopermalink" data-description="Paragraph"><a href="#ex-air-pollution-components-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.1.c"><a href="#ex-air-pollution-components-2-2-3" title="Copy heading and permalink for Item 1.2.4.1.c" aria-label="Copy heading and permalink for Item 1.2.4.1.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.1.c"><a href="#ex-air-pollution-components-2-2-3" title="Copy heading and permalink for Item 1.2.6.1.c" aria-label="Copy heading and permalink for Item 1.2.6.1.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.1: Air pollution and birth outcomes, study components"><a href="#ex-air-pollution-components" title="Copy heading and permalink for Exercise 1.2.4.1: Air pollution and birth outcomes, study components" aria-label="Copy heading and permalink for Exercise 1.2.4.1: Air pollution and birth outcomes, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-buteyko-components"><h4 class="heading">
+<div class="autopermalink" data-description="Exercise 1.2.6.1: Air pollution and birth outcomes, study components"><a href="#ex-air-pollution-components" title="Copy heading and permalink for Exercise 1.2.6.1: Air pollution and birth outcomes, study components" aria-label="Copy heading and permalink for Exercise 1.2.6.1: Air pollution and birth outcomes, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-buteyko-components"><h4 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Buteyko method, study components.</span>
 </h4>
 <div class="para" id="ex-buteyko-components-2-1">The Buteyko method is a shallow breathing technique developed by Konstantin Buteyko, a Russian doctor, in 1952. Anecdotal evidence suggests that the Buteyko method can reduce asthma symptoms and improve quality of life. In a scientific study to determine the effectiveness of this method, researchers recruited 600 asthma patients aged 18-69 who relied on medication for asthma treatment. These patients were randomly split into two research groups: one practiced the Buteyko method and the other did not. Patients were scored on quality of life, activity, asthma symptoms, and medication reduction on a scale from 0 to 10. On average, the participants in the Buteyko group experienced a significant reduction in asthma symptoms and an improvement in quality of life.<div class="autopermalink" data-description="Paragraph"><a href="#ex-buteyko-components-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -821,20 +1120,20 @@ true);
 <li id="ex-buteyko-components-2-2-1">
 <div class="para" id="ex-buteyko-components-2-2-1-1">Identify the main research question of the study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-buteyko-components-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.2.a"><a href="#ex-buteyko-components-2-2-1" title="Copy heading and permalink for Item 1.2.4.2.a" aria-label="Copy heading and permalink for Item 1.2.4.2.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.2.a"><a href="#ex-buteyko-components-2-2-1" title="Copy heading and permalink for Item 1.2.6.2.a" aria-label="Copy heading and permalink for Item 1.2.6.2.a">🔗</a></div>
 </li>
 <li id="ex-buteyko-components-2-2-2">
 <div class="para" id="ex-buteyko-components-2-2-2-1">Who are the subjects in this study, and how many are included?<div class="autopermalink" data-description="Paragraph"><a href="#ex-buteyko-components-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.2.b"><a href="#ex-buteyko-components-2-2-2" title="Copy heading and permalink for Item 1.2.4.2.b" aria-label="Copy heading and permalink for Item 1.2.4.2.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.2.b"><a href="#ex-buteyko-components-2-2-2" title="Copy heading and permalink for Item 1.2.6.2.b" aria-label="Copy heading and permalink for Item 1.2.6.2.b">🔗</a></div>
 </li>
 <li id="ex-buteyko-components-2-2-3">
 <div class="para" id="ex-buteyko-components-2-2-3-1">What are the variables in the study? Identify each variable as numerical or categorical. If numerical, state whether the variable is discrete or continuous. If categorical, state whether the variable is ordinal.<div class="autopermalink" data-description="Paragraph"><a href="#ex-buteyko-components-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.2.c"><a href="#ex-buteyko-components-2-2-3" title="Copy heading and permalink for Item 1.2.4.2.c" aria-label="Copy heading and permalink for Item 1.2.4.2.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.2.c"><a href="#ex-buteyko-components-2-2-3" title="Copy heading and permalink for Item 1.2.6.2.c" aria-label="Copy heading and permalink for Item 1.2.6.2.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.2: Buteyko method, study components"><a href="#ex-buteyko-components" title="Copy heading and permalink for Exercise 1.2.4.2: Buteyko method, study components" aria-label="Copy heading and permalink for Exercise 1.2.4.2: Buteyko method, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-cheaters-components"><h4 class="heading">
+<div class="autopermalink" data-description="Exercise 1.2.6.2: Buteyko method, study components"><a href="#ex-buteyko-components" title="Copy heading and permalink for Exercise 1.2.6.2: Buteyko method, study components" aria-label="Copy heading and permalink for Exercise 1.2.6.2: Buteyko method, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-cheaters-components"><h4 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cheaters, study components.</span>
 </h4>
 <div class="para" id="ex-cheaters-components-2-1">Researchers studying the relationship between honesty, age and self-control conducted an experiment on 160 children between the ages of 5 and 15. Participants reported their age, sex, and whether they were an only child or not. The researchers asked each child to toss a fair coin in private and to record the outcome (white or black) on a paper sheet, and said they would only reward children who report white. The study found differences in cheating rates based on instructions and characteristics.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cheaters-components-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -842,20 +1141,20 @@ true);
 <li id="ex-cheaters-components-2-2-1">
 <div class="para" id="ex-cheaters-components-2-2-1-1">Identify the main research question of the study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cheaters-components-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.3.a"><a href="#ex-cheaters-components-2-2-1" title="Copy heading and permalink for Item 1.2.4.3.a" aria-label="Copy heading and permalink for Item 1.2.4.3.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.3.a"><a href="#ex-cheaters-components-2-2-1" title="Copy heading and permalink for Item 1.2.6.3.a" aria-label="Copy heading and permalink for Item 1.2.6.3.a">🔗</a></div>
 </li>
 <li id="ex-cheaters-components-2-2-2">
 <div class="para" id="ex-cheaters-components-2-2-2-1">Who are the subjects in this study, and how many are included?<div class="autopermalink" data-description="Paragraph"><a href="#ex-cheaters-components-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.3.b"><a href="#ex-cheaters-components-2-2-2" title="Copy heading and permalink for Item 1.2.4.3.b" aria-label="Copy heading and permalink for Item 1.2.4.3.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.3.b"><a href="#ex-cheaters-components-2-2-2" title="Copy heading and permalink for Item 1.2.6.3.b" aria-label="Copy heading and permalink for Item 1.2.6.3.b">🔗</a></div>
 </li>
 <li id="ex-cheaters-components-2-2-3">
 <div class="para" id="ex-cheaters-components-2-2-3-1">How many variables were recorded for each subject in the study in order to conclude these findings? State the variables and their types.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cheaters-components-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.3.c"><a href="#ex-cheaters-components-2-2-3" title="Copy heading and permalink for Item 1.2.4.3.c" aria-label="Copy heading and permalink for Item 1.2.4.3.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.3.c"><a href="#ex-cheaters-components-2-2-3" title="Copy heading and permalink for Item 1.2.6.3.c" aria-label="Copy heading and permalink for Item 1.2.6.3.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.3: Cheaters, study components"><a href="#ex-cheaters-components" title="Copy heading and permalink for Exercise 1.2.4.3: Cheaters, study components" aria-label="Copy heading and permalink for Exercise 1.2.4.3: Cheaters, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-stealers-components"><h4 class="heading">
+<div class="autopermalink" data-description="Exercise 1.2.6.3: Cheaters, study components"><a href="#ex-cheaters-components" title="Copy heading and permalink for Exercise 1.2.6.3: Cheaters, study components" aria-label="Copy heading and permalink for Exercise 1.2.6.3: Cheaters, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-stealers-components"><h4 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stealers, study components.</span>
 </h4>
 <div class="para" id="ex-stealers-components-2-1">In a study of the relationship between socio-economic class and unethical behavior, 129 University of California undergraduates at Berkeley were asked to identify themselves as having low or high social-class by comparing themselves to others with the most (least) money, most (least) education, and most (least) respected jobs. They were also presented with a jar of individually wrapped candies and informed that the candies were for children in a nearby laboratory, but that they could take some if they wanted. After completing some unrelated tasks, participants reported the number of candies they had taken. It was found that those who were identified as upper-class took more candy than others.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stealers-components-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -863,295 +1162,55 @@ true);
 <li id="ex-stealers-components-2-2-1">
 <div class="para" id="ex-stealers-components-2-2-1-1">Identify the main research question of the study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stealers-components-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.4.a"><a href="#ex-stealers-components-2-2-1" title="Copy heading and permalink for Item 1.2.4.4.a" aria-label="Copy heading and permalink for Item 1.2.4.4.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.4.a"><a href="#ex-stealers-components-2-2-1" title="Copy heading and permalink for Item 1.2.6.4.a" aria-label="Copy heading and permalink for Item 1.2.6.4.a">🔗</a></div>
 </li>
 <li id="ex-stealers-components-2-2-2">
 <div class="para" id="ex-stealers-components-2-2-2-1">Who are the subjects in this study, and how many are included?<div class="autopermalink" data-description="Paragraph"><a href="#ex-stealers-components-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.4.b"><a href="#ex-stealers-components-2-2-2" title="Copy heading and permalink for Item 1.2.4.4.b" aria-label="Copy heading and permalink for Item 1.2.4.4.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.4.b"><a href="#ex-stealers-components-2-2-2" title="Copy heading and permalink for Item 1.2.6.4.b" aria-label="Copy heading and permalink for Item 1.2.6.4.b">🔗</a></div>
 </li>
 <li id="ex-stealers-components-2-2-3">
 <div class="para" id="ex-stealers-components-2-2-3-1">The study found that students who were identified as upper-class took more candy than others. How many variables were recorded for each subject in the study in order to conclude these findings? State the variables and their types.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stealers-components-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.4.c"><a href="#ex-stealers-components-2-2-3" title="Copy heading and permalink for Item 1.2.4.4.c" aria-label="Copy heading and permalink for Item 1.2.4.4.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.4.c"><a href="#ex-stealers-components-2-2-3" title="Copy heading and permalink for Item 1.2.6.4.c" aria-label="Copy heading and permalink for Item 1.2.6.4.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.4: Stealers, study components"><a href="#ex-stealers-components" title="Copy heading and permalink for Exercise 1.2.4.4: Stealers, study components" aria-label="Copy heading and permalink for Exercise 1.2.4.4: Stealers, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-relax-after-work"><h4 class="heading">
-<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Relaxing after work.</span>
-</h4>
-<div class="para" id="ex-relax-after-work-2-1">The General Social Survey asked the question, “After an average work day, about how many hours do you have to relax or pursue activities that you enjoy?” to a random sample of 1,155 Americans. The average relaxing time was found to be 1.65 hours. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter.<div class="autopermalink" data-description="Paragraph"><a href="#ex-relax-after-work-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-relax-after-work-2-2">
-<li id="ex-relax-after-work-2-2-1">
-<div class="para" id="ex-relax-after-work-2-2-1-1">An American in the sample.<div class="autopermalink" data-description="Paragraph"><a href="#ex-relax-after-work-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.5.a"><a href="#ex-relax-after-work-2-2-1" title="Copy heading and permalink for Item 1.2.4.5.a" aria-label="Copy heading and permalink for Item 1.2.4.5.a">🔗</a></div>
-</li>
-<li id="ex-relax-after-work-2-2-2">
-<div class="para" id="ex-relax-after-work-2-2-2-1">Number of hours spent relaxing after an average work day.<div class="autopermalink" data-description="Paragraph"><a href="#ex-relax-after-work-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.5.b"><a href="#ex-relax-after-work-2-2-2" title="Copy heading and permalink for Item 1.2.4.5.b" aria-label="Copy heading and permalink for Item 1.2.4.5.b">🔗</a></div>
-</li>
-<li id="ex-relax-after-work-2-2-3">
-<div class="para" id="ex-relax-after-work-2-2-3-1">1.65.<div class="autopermalink" data-description="Paragraph"><a href="#ex-relax-after-work-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.5.c"><a href="#ex-relax-after-work-2-2-3" title="Copy heading and permalink for Item 1.2.4.5.c" aria-label="Copy heading and permalink for Item 1.2.4.5.c">🔗</a></div>
-</li>
-<li id="ex-relax-after-work-2-2-4">
-<div class="para" id="ex-relax-after-work-2-2-4-1">Average number of hours all Americans spend relaxing after an average work day.<div class="autopermalink" data-description="Paragraph"><a href="#ex-relax-after-work-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.5.d"><a href="#ex-relax-after-work-2-2-4" title="Copy heading and permalink for Item 1.2.4.5.d" aria-label="Copy heading and permalink for Item 1.2.4.5.d">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.5: Relaxing after work"><a href="#ex-relax-after-work" title="Copy heading and permalink for Exercise 1.2.4.5: Relaxing after work" aria-label="Copy heading and permalink for Exercise 1.2.4.5: Relaxing after work">🔗</a></div></article><article class="exercise exercise-like" id="ex-cats-on-youtube"><h4 class="heading">
-<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Cats on YouTube.</span>
-</h4>
-<div class="para" id="ex-cats-on-youtube-2-1">Suppose you want to estimate the percentage of videos on YouTube that are cat videos. It is impossible for you to watch all videos on YouTube so you use a random video picker to select 1000 videos for you. You find that 2% of these videos are cat videos. Determine which of the following is an observation, a variable, a sample statistic, or a population parameter.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cats-on-youtube-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-cats-on-youtube-2-2">
-<li id="ex-cats-on-youtube-2-2-1">
-<div class="para" id="ex-cats-on-youtube-2-2-1-1">Percentage of all videos on YouTube that are cat videos.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cats-on-youtube-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.6.a"><a href="#ex-cats-on-youtube-2-2-1" title="Copy heading and permalink for Item 1.2.4.6.a" aria-label="Copy heading and permalink for Item 1.2.4.6.a">🔗</a></div>
-</li>
-<li id="ex-cats-on-youtube-2-2-2">
-<div class="para" id="ex-cats-on-youtube-2-2-2-1">2%.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cats-on-youtube-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.6.b"><a href="#ex-cats-on-youtube-2-2-2" title="Copy heading and permalink for Item 1.2.4.6.b" aria-label="Copy heading and permalink for Item 1.2.4.6.b">🔗</a></div>
-</li>
-<li id="ex-cats-on-youtube-2-2-3">
-<div class="para" id="ex-cats-on-youtube-2-2-3-1">A video in your sample.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cats-on-youtube-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.6.c"><a href="#ex-cats-on-youtube-2-2-3" title="Copy heading and permalink for Item 1.2.4.6.c" aria-label="Copy heading and permalink for Item 1.2.4.6.c">🔗</a></div>
-</li>
-<li id="ex-cats-on-youtube-2-2-4">
-<div class="para" id="ex-cats-on-youtube-2-2-4-1">Whether or not a video is a cat video.<div class="autopermalink" data-description="Paragraph"><a href="#ex-cats-on-youtube-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.6.d"><a href="#ex-cats-on-youtube-2-2-4" title="Copy heading and permalink for Item 1.2.4.6.d" aria-label="Copy heading and permalink for Item 1.2.4.6.d">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.6: Cats on YouTube"><a href="#ex-cats-on-youtube" title="Copy heading and permalink for Exercise 1.2.4.6: Cats on YouTube" aria-label="Copy heading and permalink for Exercise 1.2.4.6: Cats on YouTube">🔗</a></div></article><article class="exercise exercise-like" id="ex-course-satisfaction"><h4 class="heading">
-<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Course satisfaction across sections.</span>
-</h4>
-<div class="para" id="ex-course-satisfaction-2-1">A large college class has 160 students. All 160 students attend the lectures together, but the students are divided into 4 groups, each of 40 students, for lab sections administered by different teaching assistants. The professor wants to conduct a survey about how satisfied the students are with the course, and he believes that the lab section a student is in might affect the student’s overall satisfaction with the course.<div class="autopermalink" data-description="Paragraph"><a href="#ex-course-satisfaction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-course-satisfaction-2-2">
-<li id="ex-course-satisfaction-2-2-1">
-<div class="para" id="ex-course-satisfaction-2-2-1-1">What type of study is this?<div class="autopermalink" data-description="Paragraph"><a href="#ex-course-satisfaction-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.7.a"><a href="#ex-course-satisfaction-2-2-1" title="Copy heading and permalink for Item 1.2.4.7.a" aria-label="Copy heading and permalink for Item 1.2.4.7.a">🔗</a></div>
-</li>
-<li id="ex-course-satisfaction-2-2-2">
-<div class="para" id="ex-course-satisfaction-2-2-2-1">Suggest a sampling strategy for carrying out this study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-course-satisfaction-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.7.b"><a href="#ex-course-satisfaction-2-2-2" title="Copy heading and permalink for Item 1.2.4.7.b" aria-label="Copy heading and permalink for Item 1.2.4.7.b">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.7: Course satisfaction across sections"><a href="#ex-course-satisfaction" title="Copy heading and permalink for Exercise 1.2.4.7: Course satisfaction across sections" aria-label="Copy heading and permalink for Exercise 1.2.4.7: Course satisfaction across sections">🔗</a></div></article><article class="exercise exercise-like" id="ex-housing-proposal-dorms"><h4 class="heading">
-<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Housing proposal across dorms.</span>
-</h4>
-<div class="para" id="ex-housing-proposal-dorms-2-1">On a large college campus first-year students and sophomores live in dorms located on the eastern part of the campus and juniors and seniors live in dorms located on the western part of the campus. Suppose you want to collect student opinions on a new housing structure the college administration is proposing and you want to make sure your survey equally represents opinions from students from all years.<div class="autopermalink" data-description="Paragraph"><a href="#ex-housing-proposal-dorms-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-housing-proposal-dorms-2-2">
-<li id="ex-housing-proposal-dorms-2-2-1">
-<div class="para" id="ex-housing-proposal-dorms-2-2-1-1">What type of study is this?<div class="autopermalink" data-description="Paragraph"><a href="#ex-housing-proposal-dorms-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.8.a"><a href="#ex-housing-proposal-dorms-2-2-1" title="Copy heading and permalink for Item 1.2.4.8.a" aria-label="Copy heading and permalink for Item 1.2.4.8.a">🔗</a></div>
-</li>
-<li id="ex-housing-proposal-dorms-2-2-2">
-<div class="para" id="ex-housing-proposal-dorms-2-2-2-1">Suggest a sampling strategy for carrying out this study.<div class="autopermalink" data-description="Paragraph"><a href="#ex-housing-proposal-dorms-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.8.b"><a href="#ex-housing-proposal-dorms-2-2-2" title="Copy heading and permalink for Item 1.2.4.8.b" aria-label="Copy heading and permalink for Item 1.2.4.8.b">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.8: Housing proposal across dorms"><a href="#ex-housing-proposal-dorms" title="Copy heading and permalink for Exercise 1.2.4.8: Housing proposal across dorms" aria-label="Copy heading and permalink for Exercise 1.2.4.8: Housing proposal across dorms">🔗</a></div></article><article class="exercise exercise-like" id="ex-internet-life-expectancy"><h4 class="heading">
-<span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Internet use and life expectancy.</span>
-</h4>
-<div class="para" id="ex-internet-life-expectancy-2-1">A study evaluated the relationship between estimated life expectancy at birth (as of 2014) and percentage of internet users (as of 2009) in 208 countries. A scatterplot shows life expectancy versus percent internet users.<div class="autopermalink" data-description="Paragraph"><a href="#ex-internet-life-expectancy-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-internet-life-expectancy-2-2">
-<li id="ex-internet-life-expectancy-2-2-1">
-<div class="para" id="ex-internet-life-expectancy-2-2-1-1">Describe the relationship between life expectancy and percentage of internet users.<div class="autopermalink" data-description="Paragraph"><a href="#ex-internet-life-expectancy-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.9.a"><a href="#ex-internet-life-expectancy-2-2-1" title="Copy heading and permalink for Item 1.2.4.9.a" aria-label="Copy heading and permalink for Item 1.2.4.9.a">🔗</a></div>
-</li>
-<li id="ex-internet-life-expectancy-2-2-2">
-<div class="para" id="ex-internet-life-expectancy-2-2-2-1">What type of study is this?<div class="autopermalink" data-description="Paragraph"><a href="#ex-internet-life-expectancy-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.9.b"><a href="#ex-internet-life-expectancy-2-2-2" title="Copy heading and permalink for Item 1.2.4.9.b" aria-label="Copy heading and permalink for Item 1.2.4.9.b">🔗</a></div>
-</li>
-<li id="ex-internet-life-expectancy-2-2-3">
-<div class="para" id="ex-internet-life-expectancy-2-2-3-1">State a possible confounding variable that might explain this relationship and describe its potential effect.<div class="autopermalink" data-description="Paragraph"><a href="#ex-internet-life-expectancy-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.9.c"><a href="#ex-internet-life-expectancy-2-2-3" title="Copy heading and permalink for Item 1.2.4.9.c" aria-label="Copy heading and permalink for Item 1.2.4.9.c">🔗</a></div>
-</li>
-</ol> <figure class="figure figure-like" id="fig-internet-life-expectancy"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/ch_intro_to_data/figures/eoce/internet_life_expectancy/internet_life_expectancy.pdf" class="contained" alt="Scatterplot of life expectancy at birth versus percent internet users for 208 countries."></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Life expectancy versus internet use<div class="autopermalink" data-description="Figure 1.2.9"><a href="#fig-internet-life-expectancy" title="Copy heading and permalink for Figure 1.2.9" aria-label="Copy heading and permalink for Figure 1.2.9">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 1.2.4.9: Internet use and life expectancy"><a href="#ex-internet-life-expectancy" title="Copy heading and permalink for Exercise 1.2.4.9: Internet use and life expectancy" aria-label="Copy heading and permalink for Exercise 1.2.4.9: Internet use and life expectancy">🔗</a></div></article><article class="exercise exercise-like" id="ex-stressed-out-part1"><h4 class="heading">
-<span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stressed out, Part I.</span>
-</h4>
-<div class="para" id="ex-stressed-out-part1-2-1">A study surveyed a random sample of otherwise healthy high school students and found that they are more likely to get muscle cramps when they are stressed. The study also noted that students drink more coffee and sleep less when they are stressed.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stressed-out-part1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-stressed-out-part1-2-2">
-<li id="ex-stressed-out-part1-2-2-1">
-<div class="para" id="ex-stressed-out-part1-2-2-1-1">What type of study is this?<div class="autopermalink" data-description="Paragraph"><a href="#ex-stressed-out-part1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.10.a"><a href="#ex-stressed-out-part1-2-2-1" title="Copy heading and permalink for Item 1.2.4.10.a" aria-label="Copy heading and permalink for Item 1.2.4.10.a">🔗</a></div>
-</li>
-<li id="ex-stressed-out-part1-2-2-2">
-<div class="para" id="ex-stressed-out-part1-2-2-2-1">Can this study be used to conclude a causal relationship between increased stress and muscle cramps?<div class="autopermalink" data-description="Paragraph"><a href="#ex-stressed-out-part1-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.10.b"><a href="#ex-stressed-out-part1-2-2-2" title="Copy heading and permalink for Item 1.2.4.10.b" aria-label="Copy heading and permalink for Item 1.2.4.10.b">🔗</a></div>
-</li>
-<li id="ex-stressed-out-part1-2-2-3">
-<div class="para" id="ex-stressed-out-part1-2-2-3-1">State possible confounding variables that might explain the observed relationship between increased stress and muscle cramps.<div class="autopermalink" data-description="Paragraph"><a href="#ex-stressed-out-part1-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.10.c"><a href="#ex-stressed-out-part1-2-2-3" title="Copy heading and permalink for Item 1.2.4.10.c" aria-label="Copy heading and permalink for Item 1.2.4.10.c">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.10: Stressed out, Part I"><a href="#ex-stressed-out-part1" title="Copy heading and permalink for Exercise 1.2.4.10: Stressed out, Part I" aria-label="Copy heading and permalink for Exercise 1.2.4.10: Stressed out, Part I">🔗</a></div></article><article class="exercise exercise-like" id="ex-evaluate-sampling-methods"><h4 class="heading">
-<span class="codenumber">11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evaluate sampling methods.</span>
-</h4>
-<div class="para" id="ex-evaluate-sampling-methods-2-1">A university wants to determine what fraction of its undergraduate student body support a new $25 annual fee to improve the student union. For each proposed method below, indicate whether the method is reasonable or not.<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-sampling-methods-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-evaluate-sampling-methods-2-2">
-<li id="ex-evaluate-sampling-methods-2-2-1">
-<div class="para" id="ex-evaluate-sampling-methods-2-2-1-1">Survey a simple random sample of 500 students.<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-sampling-methods-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.11.a"><a href="#ex-evaluate-sampling-methods-2-2-1" title="Copy heading and permalink for Item 1.2.4.11.a" aria-label="Copy heading and permalink for Item 1.2.4.11.a">🔗</a></div>
-</li>
-<li id="ex-evaluate-sampling-methods-2-2-2">
-<div class="para" id="ex-evaluate-sampling-methods-2-2-2-1">Stratify students by their field of study, then sample 10% of students from each stratum.<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-sampling-methods-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.11.b"><a href="#ex-evaluate-sampling-methods-2-2-2" title="Copy heading and permalink for Item 1.2.4.11.b" aria-label="Copy heading and permalink for Item 1.2.4.11.b">🔗</a></div>
-</li>
-<li id="ex-evaluate-sampling-methods-2-2-3">
-<div class="para" id="ex-evaluate-sampling-methods-2-2-3-1">Cluster students by their ages (e.g. 18 years old in one cluster, 19 years old in one cluster, etc.), then randomly sample three clusters and survey all students in those clusters.<div class="autopermalink" data-description="Paragraph"><a href="#ex-evaluate-sampling-methods-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.11.c"><a href="#ex-evaluate-sampling-methods-2-2-3" title="Copy heading and permalink for Item 1.2.4.11.c" aria-label="Copy heading and permalink for Item 1.2.4.11.c">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.11: Evaluate sampling methods"><a href="#ex-evaluate-sampling-methods" title="Copy heading and permalink for Exercise 1.2.4.11: Evaluate sampling methods" aria-label="Copy heading and permalink for Exercise 1.2.4.11: Evaluate sampling methods">🔗</a></div></article><article class="exercise exercise-like" id="ex-random-digit-dialing"><h4 class="heading">
-<span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Random digit dialing.</span>
-</h4>
-<div class="para" id="ex-random-digit-dialing-2-1">The Gallup Poll uses a procedure called random digit dialing, which creates phone numbers based on a list of all area codes in America in conjunction with the associated number of residential households in each area code. Give a possible reason the Gallup Poll chooses to use random digit dialing instead of picking phone numbers from the phone book.<div class="autopermalink" data-description="Paragraph"><a href="#ex-random-digit-dialing-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Exercise 1.2.4.12: Random digit dialing"><a href="#ex-random-digit-dialing" title="Copy heading and permalink for Exercise 1.2.4.12: Random digit dialing" aria-label="Copy heading and permalink for Exercise 1.2.4.12: Random digit dialing">🔗</a></div></article><article class="exercise exercise-like" id="ex-haters-gonna-hate"><h4 class="heading">
-<span class="codenumber">13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Haters are gonna hate, study confirms.</span>
-</h4>
-<div class="para" id="ex-haters-gonna-hate-2-1">A study asked a group of 200 randomly sampled men and women to evaluate how they felt about various subjects to measure their attitude towards mostly independent stimuli, then presented information about a fictitious microwave oven. People who reacted positively to the subjects also tended to react positively to the microwave oven, and those who reacted negatively tended to react negatively to it.<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-haters-gonna-hate-2-2">
-<li id="ex-haters-gonna-hate-2-2-1">
-<div class="para" id="ex-haters-gonna-hate-2-2-1-1">What are the cases?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.a"><a href="#ex-haters-gonna-hate-2-2-1" title="Copy heading and permalink for Item 1.2.4.13.a" aria-label="Copy heading and permalink for Item 1.2.4.13.a">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-2">
-<div class="para" id="ex-haters-gonna-hate-2-2-2-1">What are the response variables?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.b"><a href="#ex-haters-gonna-hate-2-2-2" title="Copy heading and permalink for Item 1.2.4.13.b" aria-label="Copy heading and permalink for Item 1.2.4.13.b">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-3">
-<div class="para" id="ex-haters-gonna-hate-2-2-3-1">What are the explanatory variables?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.c"><a href="#ex-haters-gonna-hate-2-2-3" title="Copy heading and permalink for Item 1.2.4.13.c" aria-label="Copy heading and permalink for Item 1.2.4.13.c">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-4">
-<div class="para" id="ex-haters-gonna-hate-2-2-4-1">Does the study employ random sampling?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.d"><a href="#ex-haters-gonna-hate-2-2-4" title="Copy heading and permalink for Item 1.2.4.13.d" aria-label="Copy heading and permalink for Item 1.2.4.13.d">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-5">
-<div class="para" id="ex-haters-gonna-hate-2-2-5-1">Is this an observational study or an experiment? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.e"><a href="#ex-haters-gonna-hate-2-2-5" title="Copy heading and permalink for Item 1.2.4.13.e" aria-label="Copy heading and permalink for Item 1.2.4.13.e">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-6">
-<div class="para" id="ex-haters-gonna-hate-2-2-6-1">Can we establish a causal link between the explanatory and response variables?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.f"><a href="#ex-haters-gonna-hate-2-2-6" title="Copy heading and permalink for Item 1.2.4.13.f" aria-label="Copy heading and permalink for Item 1.2.4.13.f">🔗</a></div>
-</li>
-<li id="ex-haters-gonna-hate-2-2-7">
-<div class="para" id="ex-haters-gonna-hate-2-2-7-1">Can the results of the study be generalized to the population at large?<div class="autopermalink" data-description="Paragraph"><a href="#ex-haters-gonna-hate-2-2-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.13.g"><a href="#ex-haters-gonna-hate-2-2-7" title="Copy heading and permalink for Item 1.2.4.13.g" aria-label="Copy heading and permalink for Item 1.2.4.13.g">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.13: Haters are gonna hate, study confirms"><a href="#ex-haters-gonna-hate" title="Copy heading and permalink for Exercise 1.2.4.13: Haters are gonna hate, study confirms" aria-label="Copy heading and permalink for Exercise 1.2.4.13: Haters are gonna hate, study confirms">🔗</a></div></article><article class="exercise exercise-like" id="ex-family-size-bias"><h4 class="heading">
-<span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Family size.</span>
-</h4>
-<div class="para" id="ex-family-size-bias-2-1">Suppose we want to estimate household size. If we select students at random at an elementary school and ask them what their family size is, will this be a good measure of household size? Or will our average be biased? If so, will it overestimate or underestimate the true value?<div class="autopermalink" data-description="Paragraph"><a href="#ex-family-size-bias-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Exercise 1.2.4.14: Family size"><a href="#ex-family-size-bias" title="Copy heading and permalink for Exercise 1.2.4.14: Family size" aria-label="Copy heading and permalink for Exercise 1.2.4.14: Family size">🔗</a></div></article><article class="exercise exercise-like" id="ex-sampling-strategies-social-media"><h4 class="heading">
-<span class="codenumber">15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sampling strategies.</span>
-</h4>
-<div class="para" id="ex-sampling-strategies-social-media-2-1">A statistics student curious about the relationship between the amount of time students spend on social networking sites and their performance at school considers several sampling strategies. For each, name the sampling method proposed and any bias you might expect.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sampling-strategies-social-media-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-sampling-strategies-social-media-2-2">
-<li id="ex-sampling-strategies-social-media-2-2-1">
-<div class="para" id="ex-sampling-strategies-social-media-2-2-1-1">Randomly sample 40 students from the population, give them the survey, ask them to return it the next day.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sampling-strategies-social-media-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.15.a"><a href="#ex-sampling-strategies-social-media-2-2-1" title="Copy heading and permalink for Item 1.2.4.15.a" aria-label="Copy heading and permalink for Item 1.2.4.15.a">🔗</a></div>
-</li>
-<li id="ex-sampling-strategies-social-media-2-2-2">
-<div class="para" id="ex-sampling-strategies-social-media-2-2-2-1">Give out the survey only to friends, making sure each one fills it out.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sampling-strategies-social-media-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.15.b"><a href="#ex-sampling-strategies-social-media-2-2-2" title="Copy heading and permalink for Item 1.2.4.15.b" aria-label="Copy heading and permalink for Item 1.2.4.15.b">🔗</a></div>
-</li>
-<li id="ex-sampling-strategies-social-media-2-2-3">
-<div class="para" id="ex-sampling-strategies-social-media-2-2-3-1">Post a link to an online survey on Facebook and ask friends to fill it out.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sampling-strategies-social-media-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.15.c"><a href="#ex-sampling-strategies-social-media-2-2-3" title="Copy heading and permalink for Item 1.2.4.15.c" aria-label="Copy heading and permalink for Item 1.2.4.15.c">🔗</a></div>
-</li>
-<li id="ex-sampling-strategies-social-media-2-2-4">
-<div class="para" id="ex-sampling-strategies-social-media-2-2-4-1">Randomly sample 5 classes and ask a random sample of students from those classes to fill out the survey.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sampling-strategies-social-media-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.15.d"><a href="#ex-sampling-strategies-social-media-2-2-4" title="Copy heading and permalink for Item 1.2.4.15.d" aria-label="Copy heading and permalink for Item 1.2.4.15.d">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.15: Sampling strategies"><a href="#ex-sampling-strategies-social-media" title="Copy heading and permalink for Exercise 1.2.4.15: Sampling strategies" aria-label="Copy heading and permalink for Exercise 1.2.4.15: Sampling strategies">🔗</a></div></article><article class="exercise exercise-like" id="ex-reading-the-paper"><h4 class="heading">
-<span class="codenumber">16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Reading the paper.</span>
-</h4>
-<div class="para" id="ex-reading-the-paper-2-1">Consider two news excerpts, one about smoking and dementia, and another about sleep disorders and bullying. For each, evaluate whether the conclusions are justified and what can actually be concluded from the studies described.<div class="autopermalink" data-description="Paragraph"><a href="#ex-reading-the-paper-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <ol class="lower-alpha ol-marker-1" id="ex-reading-the-paper-2-2">
-<li id="ex-reading-the-paper-2-2-1">
-<div class="para" id="ex-reading-the-paper-2-2-1-1">Researchers analyzed data on over 23,000 people aged 50-60 and found smokers were more likely to develop dementia. Can we conclude smoking causes dementia later in life? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#ex-reading-the-paper-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.16.a"><a href="#ex-reading-the-paper-2-2-1" title="Copy heading and permalink for Item 1.2.4.16.a" aria-label="Copy heading and permalink for Item 1.2.4.16.a">🔗</a></div>
-</li>
-<li id="ex-reading-the-paper-2-2-2">
-<div class="para" id="ex-reading-the-paper-2-2-2-1">A study collected survey data on children’s sleep habits and bullying behavior and found those with sleep problems were twice as likely to have disruptive behavior or bullying issues. Does this show sleep disorders lead to bullying? If not, how best to describe the conclusion?<div class="autopermalink" data-description="Paragraph"><a href="#ex-reading-the-paper-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="autopermalink" data-description="Item 1.2.4.16.b"><a href="#ex-reading-the-paper-2-2-2" title="Copy heading and permalink for Item 1.2.4.16.b" aria-label="Copy heading and permalink for Item 1.2.4.16.b">🔗</a></div>
-</li>
-</ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.16: Reading the paper"><a href="#ex-reading-the-paper" title="Copy heading and permalink for Exercise 1.2.4.16: Reading the paper" aria-label="Copy heading and permalink for Exercise 1.2.4.16: Reading the paper">🔗</a></div></article><article class="exercise exercise-like" id="ex-migraine-exp-response"><h4 class="heading">
-<span class="codenumber">17<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Migraine and acupuncture, Part II.</span>
+<div class="autopermalink" data-description="Exercise 1.2.6.4: Stealers, study components"><a href="#ex-stealers-components" title="Copy heading and permalink for Exercise 1.2.6.4: Stealers, study components" aria-label="Copy heading and permalink for Exercise 1.2.6.4: Stealers, study components">🔗</a></div></article><article class="exercise exercise-like" id="ex-migraine-exp-response"><h4 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Migraine and acupuncture, Part II.</span>
 </h4>
 <div class="para" id="ex-migraine-exp-response-2-1">A randomized controlled study assigned migraine patients to acupuncture designed for migraines (treatment) or placebo acupuncture (control). Twenty-four hours later, patients reported whether they were pain free. Identify the explanatory and response variables.<div class="autopermalink" data-description="Paragraph"><a href="#ex-migraine-exp-response-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.2.4.17: Migraine and acupuncture, Part II"><a href="#ex-migraine-exp-response" title="Copy heading and permalink for Exercise 1.2.4.17: Migraine and acupuncture, Part II" aria-label="Copy heading and permalink for Exercise 1.2.4.17: Migraine and acupuncture, Part II">🔗</a></div></article><article class="exercise exercise-like" id="ex-sinusitis-exp-response"><h4 class="heading">
-<span class="codenumber">18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sinusitis and antibiotics, Part II.</span>
+<div class="autopermalink" data-description="Exercise 1.2.6.5: Migraine and acupuncture, Part II"><a href="#ex-migraine-exp-response" title="Copy heading and permalink for Exercise 1.2.6.5: Migraine and acupuncture, Part II" aria-label="Copy heading and permalink for Exercise 1.2.6.5: Migraine and acupuncture, Part II">🔗</a></div></article><article class="exercise exercise-like" id="ex-sinusitis-exp-response"><h4 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Sinusitis and antibiotics, Part II.</span>
 </h4>
 <div class="para" id="ex-sinusitis-exp-response-2-1">A study on acute sinusitis compared a 10-day antibiotic course (treatment) to a placebo (control), then asked patients if they experienced improvement in symptoms. Identify the explanatory and response variables.<div class="autopermalink" data-description="Paragraph"><a href="#ex-sinusitis-exp-response-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 1.2.4.18: Sinusitis and antibiotics, Part II"><a href="#ex-sinusitis-exp-response" title="Copy heading and permalink for Exercise 1.2.4.18: Sinusitis and antibiotics, Part II" aria-label="Copy heading and permalink for Exercise 1.2.4.18: Sinusitis and antibiotics, Part II">🔗</a></div></article><article class="exercise exercise-like" id="ex-fishers-irises"><h4 class="heading">
-<span class="codenumber">19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fisher’s irises.</span>
+<div class="autopermalink" data-description="Exercise 1.2.6.6: Sinusitis and antibiotics, Part II"><a href="#ex-sinusitis-exp-response" title="Copy heading and permalink for Exercise 1.2.6.6: Sinusitis and antibiotics, Part II" aria-label="Copy heading and permalink for Exercise 1.2.6.6: Sinusitis and antibiotics, Part II">🔗</a></div></article><article class="exercise exercise-like" id="ex-fishers-irises"><h4 class="heading">
+<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Fisher’s irises.</span>
 </h4>
 <div class="para" id="ex-fishers-irises-2-1">A data set contains sepal length and width, and petal length and width from three species of iris flowers (setosa, versicolor, virginica), with 50 flowers from each species.<div class="autopermalink" data-description="Paragraph"><a href="#ex-fishers-irises-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <ol class="lower-alpha ol-marker-1" id="ex-fishers-irises-2-2">
 <li id="ex-fishers-irises-2-2-1">
 <div class="para" id="ex-fishers-irises-2-2-1-1">How many cases are included?<div class="autopermalink" data-description="Paragraph"><a href="#ex-fishers-irises-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.19.a"><a href="#ex-fishers-irises-2-2-1" title="Copy heading and permalink for Item 1.2.4.19.a" aria-label="Copy heading and permalink for Item 1.2.4.19.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.7.a"><a href="#ex-fishers-irises-2-2-1" title="Copy heading and permalink for Item 1.2.6.7.a" aria-label="Copy heading and permalink for Item 1.2.6.7.a">🔗</a></div>
 </li>
 <li id="ex-fishers-irises-2-2-2">
 <div class="para" id="ex-fishers-irises-2-2-2-1">How many numerical variables are included? Identify each and whether it is continuous or discrete.<div class="autopermalink" data-description="Paragraph"><a href="#ex-fishers-irises-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.19.b"><a href="#ex-fishers-irises-2-2-2" title="Copy heading and permalink for Item 1.2.4.19.b" aria-label="Copy heading and permalink for Item 1.2.4.19.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.7.b"><a href="#ex-fishers-irises-2-2-2" title="Copy heading and permalink for Item 1.2.6.7.b" aria-label="Copy heading and permalink for Item 1.2.6.7.b">🔗</a></div>
 </li>
 <li id="ex-fishers-irises-2-2-3">
 <div class="para" id="ex-fishers-irises-2-2-3-1">How many categorical variables are included? List them and their levels.<div class="autopermalink" data-description="Paragraph"><a href="#ex-fishers-irises-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.19.c"><a href="#ex-fishers-irises-2-2-3" title="Copy heading and permalink for Item 1.2.4.19.c" aria-label="Copy heading and permalink for Item 1.2.4.19.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.7.c"><a href="#ex-fishers-irises-2-2-3" title="Copy heading and permalink for Item 1.2.6.7.c" aria-label="Copy heading and permalink for Item 1.2.6.7.c">🔗</a></div>
 </li>
 </ol> <figure class="figure figure-like" id="fig-fisher-iris"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/ch_intro_to_data/figures/eoce/fisher_irises/irisversicolor.jpg" class="contained" alt="Photo of a purple iris flower."></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Iris versicolor<div class="autopermalink" data-description="Figure 1.2.10"><a href="#fig-fisher-iris" title="Copy heading and permalink for Figure 1.2.10" aria-label="Copy heading and permalink for Figure 1.2.10">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 1.2.4.19: Fisher’s irises"><a href="#ex-fishers-irises" title="Copy heading and permalink for Exercise 1.2.4.19: Fisher’s irises" aria-label="Copy heading and permalink for Exercise 1.2.4.19: Fisher’s irises">🔗</a></div></article><article class="exercise exercise-like" id="ex-smoking-habits-uk"><h4 class="heading">
-<span class="codenumber">20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Smoking habits of UK residents.</span>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.18<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Iris versicolor<div class="autopermalink" data-description="Figure 1.2.18"><a href="#fig-fisher-iris" title="Copy heading and permalink for Figure 1.2.18" aria-label="Copy heading and permalink for Figure 1.2.18">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Exercise 1.2.6.7: Fisher’s irises"><a href="#ex-fishers-irises" title="Copy heading and permalink for Exercise 1.2.6.7: Fisher’s irises" aria-label="Copy heading and permalink for Exercise 1.2.6.7: Fisher’s irises">🔗</a></div></article><article class="exercise exercise-like" id="ex-smoking-habits-uk"><h4 class="heading">
+<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Smoking habits of UK residents.</span>
 </h4>
 <div class="para" id="ex-smoking-habits-uk-2-1">A survey was conducted to study the smoking habits of UK residents. A portion of the data matrix is shown with variables: sex, age, marital status, gross income, smoking status, and cigarettes per day on weekends and weekdays.<div class="autopermalink" data-description="Paragraph"><a href="#ex-smoking-habits-uk-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="table-smoking-habits-uk"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Subset of UK smoking survey<div class="autopermalink" data-description="Table 1.2.11: Subset of UK smoking survey"><a href="#table-smoking-habits-uk" title="Copy heading and permalink for Table 1.2.11: Subset of UK smoking survey" aria-label="Copy heading and permalink for Table 1.2.11: Subset of UK smoking survey">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> <figure class="table table-like" id="table-smoking-habits-uk"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.19<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Subset of UK smoking survey<div class="autopermalink" data-description="Table 1.2.19: Subset of UK smoking survey"><a href="#table-smoking-habits-uk" title="Copy heading and permalink for Table 1.2.19: Subset of UK smoking survey" aria-label="Copy heading and permalink for Table 1.2.19: Subset of UK smoking survey">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
 <th scope="col" class="l m b2 r0 l0 t0 lines"></th>
 <th scope="col" class="l m b2 r0 l0 t0 lines">sex</th>
@@ -1216,54 +1275,54 @@ true);
 <li id="ex-smoking-habits-uk-2-3-1">
 <div class="para" id="ex-smoking-habits-uk-2-3-1-1">What does each row of the data matrix represent?<div class="autopermalink" data-description="Paragraph"><a href="#ex-smoking-habits-uk-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.20.a"><a href="#ex-smoking-habits-uk-2-3-1" title="Copy heading and permalink for Item 1.2.4.20.a" aria-label="Copy heading and permalink for Item 1.2.4.20.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.8.a"><a href="#ex-smoking-habits-uk-2-3-1" title="Copy heading and permalink for Item 1.2.6.8.a" aria-label="Copy heading and permalink for Item 1.2.6.8.a">🔗</a></div>
 </li>
 <li id="ex-smoking-habits-uk-2-3-2">
 <div class="para" id="ex-smoking-habits-uk-2-3-2-1">How many participants were included in the survey?<div class="autopermalink" data-description="Paragraph"><a href="#ex-smoking-habits-uk-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.20.b"><a href="#ex-smoking-habits-uk-2-3-2" title="Copy heading and permalink for Item 1.2.4.20.b" aria-label="Copy heading and permalink for Item 1.2.4.20.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.8.b"><a href="#ex-smoking-habits-uk-2-3-2" title="Copy heading and permalink for Item 1.2.6.8.b" aria-label="Copy heading and permalink for Item 1.2.6.8.b">🔗</a></div>
 </li>
 <li id="ex-smoking-habits-uk-2-3-3">
 <div class="para" id="ex-smoking-habits-uk-2-3-3-1">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.<div class="autopermalink" data-description="Paragraph"><a href="#ex-smoking-habits-uk-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.20.c"><a href="#ex-smoking-habits-uk-2-3-3" title="Copy heading and permalink for Item 1.2.4.20.c" aria-label="Copy heading and permalink for Item 1.2.4.20.c">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.8.c"><a href="#ex-smoking-habits-uk-2-3-3" title="Copy heading and permalink for Item 1.2.6.8.c" aria-label="Copy heading and permalink for Item 1.2.6.8.c">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.20: Smoking habits of UK residents"><a href="#ex-smoking-habits-uk" title="Copy heading and permalink for Exercise 1.2.4.20: Smoking habits of UK residents" aria-label="Copy heading and permalink for Exercise 1.2.4.20: Smoking habits of UK residents">🔗</a></div></article><article class="exercise exercise-like" id="ex-us-airports"><h4 class="heading">
-<span class="codenumber">21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">US Airports.</span>
+<div class="autopermalink" data-description="Exercise 1.2.6.8: Smoking habits of UK residents"><a href="#ex-smoking-habits-uk" title="Copy heading and permalink for Exercise 1.2.6.8: Smoking habits of UK residents" aria-label="Copy heading and permalink for Exercise 1.2.6.8: Smoking habits of UK residents">🔗</a></div></article><article class="exercise exercise-like" id="ex-us-airports"><h4 class="heading">
+<span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">US Airports.</span>
 </h4>
 <div class="para" id="ex-us-airports-2-1">A visualization shows the geographical distribution of airports in the contiguous United States, by ownership and usage type. Each observation is an airport.<div class="autopermalink" data-description="Paragraph"><a href="#ex-us-airports-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig-us-airports"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/ch_intro_to_data/figures/eoce/airports/airports.png" class="contained" alt="Maps showing public/private ownership and use of airports across the US."></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Distribution of US airports by ownership and use<div class="autopermalink" data-description="Figure 1.2.12"><a href="#fig-us-airports" title="Copy heading and permalink for Figure 1.2.12" aria-label="Copy heading and permalink for Figure 1.2.12">🔗</a></div></figcaption></figure> <ol class="lower-alpha ol-marker-1" id="ex-us-airports-2-3">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.20<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Distribution of US airports by ownership and use<div class="autopermalink" data-description="Figure 1.2.20"><a href="#fig-us-airports" title="Copy heading and permalink for Figure 1.2.20" aria-label="Copy heading and permalink for Figure 1.2.20">🔗</a></div></figcaption></figure> <ol class="lower-alpha ol-marker-1" id="ex-us-airports-2-3">
 <li id="ex-us-airports-2-3-1">
 <div class="para" id="ex-us-airports-2-3-1-1">List the variables used in creating this visualization.<div class="autopermalink" data-description="Paragraph"><a href="#ex-us-airports-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.21.a"><a href="#ex-us-airports-2-3-1" title="Copy heading and permalink for Item 1.2.4.21.a" aria-label="Copy heading and permalink for Item 1.2.4.21.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.9.a"><a href="#ex-us-airports-2-3-1" title="Copy heading and permalink for Item 1.2.6.9.a" aria-label="Copy heading and permalink for Item 1.2.6.9.a">🔗</a></div>
 </li>
 <li id="ex-us-airports-2-3-2">
 <div class="para" id="ex-us-airports-2-3-2-1">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.<div class="autopermalink" data-description="Paragraph"><a href="#ex-us-airports-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.21.b"><a href="#ex-us-airports-2-3-2" title="Copy heading and permalink for Item 1.2.4.21.b" aria-label="Copy heading and permalink for Item 1.2.4.21.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.9.b"><a href="#ex-us-airports-2-3-2" title="Copy heading and permalink for Item 1.2.6.9.b" aria-label="Copy heading and permalink for Item 1.2.6.9.b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.21: US Airports"><a href="#ex-us-airports" title="Copy heading and permalink for Exercise 1.2.4.21: US Airports" aria-label="Copy heading and permalink for Exercise 1.2.4.21: US Airports">🔗</a></div></article><article class="exercise exercise-like" id="ex-un-votes"><h4 class="heading">
-<span class="codenumber">22<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">UN Votes.</span>
+<div class="autopermalink" data-description="Exercise 1.2.6.9: US Airports"><a href="#ex-us-airports" title="Copy heading and permalink for Exercise 1.2.6.9: US Airports" aria-label="Copy heading and permalink for Exercise 1.2.6.9: US Airports">🔗</a></div></article><article class="exercise exercise-like" id="ex-un-votes"><h4 class="heading">
+<span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">UN Votes.</span>
 </h4>
 <div class="para" id="ex-un-votes-2-1">A visualization shows voting patterns in the United States, Canada, and Mexico in the UN General Assembly from 1946 to 2015, displaying the percentage of roll calls voting yes for various issues. Each observation is a country/year pair.<div class="autopermalink" data-description="Paragraph"><a href="#ex-un-votes-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <figure class="figure figure-like" id="fig-un-votes"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/ch_intro_to_data/figures/eoce/unvotes/unvotes.png" class="contained" alt="Trends of percent yes votes over time for several UN issues for three countries."></div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>UN General Assembly voting patterns<div class="autopermalink" data-description="Figure 1.2.13"><a href="#fig-un-votes" title="Copy heading and permalink for Figure 1.2.13" aria-label="Copy heading and permalink for Figure 1.2.13">🔗</a></div></figcaption></figure> <ol class="lower-alpha ol-marker-1" id="ex-un-votes-2-3">
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.2.21<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>UN General Assembly voting patterns<div class="autopermalink" data-description="Figure 1.2.21"><a href="#fig-un-votes" title="Copy heading and permalink for Figure 1.2.21" aria-label="Copy heading and permalink for Figure 1.2.21">🔗</a></div></figcaption></figure> <ol class="lower-alpha ol-marker-1" id="ex-un-votes-2-3">
 <li id="ex-un-votes-2-3-1">
 <div class="para" id="ex-un-votes-2-3-1-1">List the variables used in creating this visualization.<div class="autopermalink" data-description="Paragraph"><a href="#ex-un-votes-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.22.a"><a href="#ex-un-votes-2-3-1" title="Copy heading and permalink for Item 1.2.4.22.a" aria-label="Copy heading and permalink for Item 1.2.4.22.a">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.10.a"><a href="#ex-un-votes-2-3-1" title="Copy heading and permalink for Item 1.2.6.10.a" aria-label="Copy heading and permalink for Item 1.2.6.10.a">🔗</a></div>
 </li>
 <li id="ex-un-votes-2-3-2">
 <div class="para" id="ex-un-votes-2-3-2-1">Indicate whether each variable is numerical or categorical. If numerical, state if continuous or discrete. If categorical, indicate if ordinal.<div class="autopermalink" data-description="Paragraph"><a href="#ex-un-votes-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 1.2.4.22.b"><a href="#ex-un-votes-2-3-2" title="Copy heading and permalink for Item 1.2.4.22.b" aria-label="Copy heading and permalink for Item 1.2.4.22.b">🔗</a></div>
+<div class="autopermalink" data-description="Item 1.2.6.10.b"><a href="#ex-un-votes-2-3-2" title="Copy heading and permalink for Item 1.2.6.10.b" aria-label="Copy heading and permalink for Item 1.2.6.10.b">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Exercise 1.2.4.22: UN Votes"><a href="#ex-un-votes" title="Copy heading and permalink for Exercise 1.2.4.22: UN Votes" aria-label="Copy heading and permalink for Exercise 1.2.4.22: UN Votes">🔗</a></div></article><div class="autopermalink" data-description="Exercises 1.2.4: Exercises"><a href="#sec-data-basics-6" title="Copy heading and permalink for Exercises 1.2.4: Exercises" aria-label="Copy heading and permalink for Exercises 1.2.4: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 1.2: Data basics"><a href="#sec-data-basics" title="Copy heading and permalink for Section 1.2: Data basics" aria-label="Copy heading and permalink for Section 1.2: Data basics">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Exercise 1.2.6.10: UN Votes"><a href="#ex-un-votes" title="Copy heading and permalink for Exercise 1.2.6.10: UN Votes" aria-label="Copy heading and permalink for Exercise 1.2.6.10: UN Votes">🔗</a></div></article><div class="autopermalink" data-description="Exercises 1.2.6: Exercises"><a href="#sec-data-basics-8" title="Copy heading and permalink for Exercises 1.2.6: Exercises" aria-label="Copy heading and permalink for Exercises 1.2.6: Exercises">🔗</a></div></section><div class="autopermalink" data-description="Section 1.2: Data basics"><a href="#sec-data-basics" title="Copy heading and permalink for Section 1.2: Data basics" aria-label="Copy heading and permalink for Section 1.2: Data basics">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-stents-strokes.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-sampling-principles.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
