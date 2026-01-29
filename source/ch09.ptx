@@ -16,78 +16,655 @@
   <section xml:id="sec-multiple-regression-intro">
     <title>Introduction to Multiple Regression</title>
     
-    <introduction>
-      <p>
-        Multiple regression extends simple two-variable regression to the case that still has
-        one response but many predictors (denoted <m>x_1, x_2, x_3, \ldots</m>). The method is
-        motivated by scenarios where many variables may be simultaneously connected to an output.
-      </p>
-    </introduction>
+    <p>
+      Multiple regression extends simple two-variable regression to the case that still has
+      one response but many predictors (denoted <m>x_1, x_2, x_3, \ldots</m>). The method is
+      motivated by scenarios where many variables may be simultaneously connected to an output.
+    </p>
+    
+    <p>
+      We will consider data about loans from the peer-to-peer lender, Lending Club, which is a data set we first encountered in Chapters 1 and 2. The loan data includes terms of the loan as well as information about the borrower. The outcome variable we would like to better understand is the interest rate assigned to the loan. For instance, all other characteristics held constant, does it matter how much debt someone already has? Does it matter if their income has been verified? Multiple regression will help us answer these and other questions.
+    </p>
+    
+    <p>
+      The data set <c>loans</c> includes results from 10,000 loans, and we'll be looking at a subset of the available variables, some of which will be new from those we saw in earlier chapters. The first six observations in the data set are shown in <xref ref="fig-loans-data-matrix"/>, and descriptions for each variable are shown in <xref ref="fig-loans-variables"/>. Notice that the past bankruptcy variable (<c>bankruptcy</c>) is an <term>indicator variable</term>, where it takes the value 1 if the borrower had a past bankruptcy in their record and 0 if not. Using an indicator variable in place of a category name allows for these variables to be directly used in regression. Two of the other variables are categorical (<c>income_ver</c> and <c>issued</c>), each of which can take one of a few different non-numerical values; we'll discuss how these are handled in the model in <xref ref="subsec-indicator-categorical-predictors"/>.
+    </p>
+    
+    <figure xml:id="fig-loans-data-matrix">
+      <caption>First six rows from the <c>loans</c> data set.</caption>
+      <tabular>
+        <row bottom="medium">
+          <cell></cell>
+          <cell>interest_rate</cell>
+          <cell>income_ver</cell>
+          <cell>debt_to_income</cell>
+          <cell>credit_util</cell>
+          <cell>bankruptcy</cell>
+          <cell>term</cell>
+          <cell>issued</cell>
+          <cell>credit_checks</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>14.07</cell>
+          <cell>verified</cell>
+          <cell>18.01</cell>
+          <cell>0.55</cell>
+          <cell>0</cell>
+          <cell>60</cell>
+          <cell>Mar2018</cell>
+          <cell>6</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell>12.61</cell>
+          <cell>not</cell>
+          <cell>5.04</cell>
+          <cell>0.15</cell>
+          <cell>1</cell>
+          <cell>36</cell>
+          <cell>Feb2018</cell>
+          <cell>1</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell>17.09</cell>
+          <cell>source_only</cell>
+          <cell>21.15</cell>
+          <cell>0.66</cell>
+          <cell>0</cell>
+          <cell>36</cell>
+          <cell>Feb2018</cell>
+          <cell>4</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell>6.72</cell>
+          <cell>not</cell>
+          <cell>10.16</cell>
+          <cell>0.20</cell>
+          <cell>0</cell>
+          <cell>36</cell>
+          <cell>Jan2018</cell>
+          <cell>0</cell>
+        </row>
+        <row>
+          <cell>5</cell>
+          <cell>14.07</cell>
+          <cell>verified</cell>
+          <cell>57.96</cell>
+          <cell>0.75</cell>
+          <cell>0</cell>
+          <cell>36</cell>
+          <cell>Mar2018</cell>
+          <cell>7</cell>
+        </row>
+        <row>
+          <cell>6</cell>
+          <cell>6.72</cell>
+          <cell>not</cell>
+          <cell>6.46</cell>
+          <cell>0.09</cell>
+          <cell>0</cell>
+          <cell>36</cell>
+          <cell>Jan2018</cell>
+          <cell>6</cell>
+        </row>
+        <row>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+          <cell><m>\vdots</m></cell>
+        </row>
+      </tabular>
+    </figure>
+    
+    <figure xml:id="fig-loans-variables">
+      <caption>Variables and their descriptions for the <c>loans</c> data set.</caption>
+      <tabular>
+        <row bottom="medium">
+          <cell halign="left"><em>variable</em></cell>
+          <cell halign="left"><em>description</em></cell>
+        </row>
+        <row>
+          <cell halign="left"><c>interest_rate</c></cell>
+          <cell halign="left">Interest rate for the loan.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>income_ver</c></cell>
+          <cell halign="left">Categorical variable describing whether the borrower's income source and amount have been verified, with levels <c>verified</c>, <c>source_only</c>, and <c>not</c>.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>debt_to_income</c></cell>
+          <cell halign="left">Debt-to-income ratio, which is the percentage of total debt of the borrower divided by their total income.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>credit_util</c></cell>
+          <cell halign="left">Of all the credit available to the borrower, what fraction are they utilizing. For example, the credit utilization on a credit card would be the card's balance divided by the card's credit limit.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>bankruptcy</c></cell>
+          <cell halign="left">An indicator variable for whether the borrower has a past bankruptcy in her record. This variable takes a value of 1 if the answer is <q>yes</q> and 0 if the answer is <q>no</q>.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>term</c></cell>
+          <cell halign="left">The length of the loan, in months.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>issued</c></cell>
+          <cell halign="left">The month and year the loan was issued, which for these loans is always during the first quarter of 2018.</cell>
+        </row>
+        <row>
+          <cell halign="left"><c>credit_checks</c></cell>
+          <cell halign="left">Number of credit checks in the last 12 months. For example, when filing an application for a credit card, it is common for the company receiving the application to run a credit check.</cell>
+        </row>
+      </tabular>
+    </figure>
     
     <subsection xml:id="subsec-indicator-categorical-predictors">
-      <title>Indicator and Categorical Variables as Predictors</title>
+      <title>Indicator and categorical variables as predictors</title>
       
       <p>
-        In multiple regression, we can include both quantitative and categorical variables as
-        predictors. Indicator variables (also called dummy variables) allow us to include
-        categorical information in a linear regression model.
-      </p>
-      
-      <p>
-        An <term>indicator variable</term> takes a value of 1 when the condition is true and
-        0 when it is false. For a categorical variable with more than two levels, we create
-        multiple indicator variables, one for each level except one. The omitted level is called
-        the <term>reference level</term>.
-      </p>
-      
-      <example xml:id="ex-indicator-variable">
-        <statement>
-          <p>
-            Consider a categorical variable such as income verification status with three levels:
-            verified, source only, and not verified. In a regression model, we would create two
-            indicator variables, leaving one level as the reference.
-          </p>
-        </statement>
-      </example>
-    </subsection>
-    
-    <subsection xml:id="subsec-multiple-regression-equation">
-      <title>Multiple Regression Equation</title>
-      
-      <p>
-        The multiple regression model with <m>k</m> predictors is:
+        Let's start by fitting a linear regression model for interest rate with a single predictor indicating whether or not a person has a bankruptcy in their record:
         <me>
-          \hat{y} = b_0 + b_1 x_1 + b_2 x_2 + \cdots + b_k x_k
+          \widehat{\text{rate}} = 12.33 + 0.74 \times \text{bankruptcy}
         </me>
-        where <m>b_0</m> is the intercept and <m>b_1, b_2, \ldots, b_k</m> are the slopes for
-        each predictor.
+        Results of this model are shown in <xref ref="fig-int-rate-vs-past-bankr-model"/>.
       </p>
       
-      <p>
-        The interpretation of <m>b_i</m> is: for each one-unit increase in <m>x_i</m>, we expect
-        <m>y</m> to increase by <m>b_i</m> units, holding all other predictors constant.
-      </p>
-    </subsection>
-    
-    <subsection xml:id="subsec-interpretation-coefficients">
-      <title>Interpreting Coefficients</title>
+      <figure xml:id="fig-int-rate-vs-past-bankr-model">
+        <caption>Summary of a linear model for predicting interest rate based on whether the borrower has a bankruptcy in their record.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>12.3380</cell>
+            <cell>0.0533</cell>
+            <cell>231.49</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>bankruptcy</cell>
+            <cell>0.7368</cell>
+            <cell>0.1529</cell>
+            <cell>4.82</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell halign="right" colspan="2"><m>df=9998</m></cell>
+          </row>
+        </tabular>
+      </figure>
       
-      <p>
-        The key to interpreting multiple regression coefficients is the phrase <q>holding all
-        other variables constant.</q> This is important because in the real world, variables
-        are often correlated, but multiple regression allows us to isolate the effect of each
-        variable.
-      </p>
-      
-      <definition xml:id="def-coefficient-interpretation">
+      <example xml:id="ex-interpret-bankr-coef">
+        <title>Interpret the coefficient for the past bankruptcy variable</title>
         <statement>
           <p>
-            In multiple regression, the coefficient <m>b_i</m> for predictor <m>x_i</m> represents
-            the expected change in the response variable for a one-unit increase in <m>x_i</m>,
-            while holding all other predictors constant.
+            Interpret the coefficient for the past bankruptcy variable in the model. Is this coefficient significantly different from 0?
           </p>
         </statement>
-      </definition>
+        <solution>
+          <p>
+            The <c>bankruptcy</c> variable takes one of two values: 1 when the borrower has a bankruptcy in their history and 0 otherwise. A slope of 0.74 means that the model predicts a 0.74% higher interest rate for those borrowers with a bankruptcy in their record. (See Section 7.2 for a review of the interpretation for two-level categorical predictor variables.) Examining the regression output in <xref ref="fig-int-rate-vs-past-bankr-model"/>, we can see that the p-value for <c>bankruptcy</c> is very close to zero, indicating there is strong evidence the coefficient is different from zero when using this simple one-predictor model.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        Suppose we had fit a model using a 3-level categorical variable, such as <c>income_ver</c>. The output from software is shown in <xref ref="fig-int-rate-vs-ver-income-model"/>. This regression output provides multiple rows for the <c>income_ver</c> variable. Each row represents the relative difference for each level of <c>income_ver</c>. However, we are missing one of the levels: <c>not</c> (for <em>not verified</em>). The missing level is called the <term>reference level</term>, and it represents the default level that other levels are measured against.
+      </p>
+      
+      <figure xml:id="fig-int-rate-vs-ver-income-model">
+        <caption>Summary of a linear model for predicting interest rate based on whether the borrower's income source and amount has been verified. This predictor has three levels, which results in 2 rows in the regression output.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>11.0995</cell>
+            <cell>0.0809</cell>
+            <cell>137.18</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (source_only)</cell>
+            <cell>1.4160</cell>
+            <cell>0.1107</cell>
+            <cell>12.79</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (verified)</cell>
+            <cell>3.2543</cell>
+            <cell>0.1297</cell>
+            <cell>25.09</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell halign="right" colspan="2"><m>df=9998</m></cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <example xml:id="ex-ver-income-equation">
+        <title>Write an equation for this regression model</title>
+        <statement>
+          <p>
+            How would we write an equation for this regression model?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The equation for the regression model may be written as a model with two predictors:
+            <me>
+              \widehat{\text{rate}} = 11.10 + 1.42 \times \mathbb{1}_{\text{income\_ver = source\_only}} + 3.25 \times \mathbb{1}_{\text{income\_ver = verified}}
+            </me>
+            We use the notation <m>\mathbb{1}_{\text{condition}}</m> to represent indicator variables for when the categorical variable takes a particular value. For example, <m>\mathbb{1}_{\text{income\_ver = source\_only}}</m> would take a value of 1 if <c>income_ver</c> was <c>source_only</c> for a loan, and it would take a value of 0 otherwise. Likewise, <m>\mathbb{1}_{\text{income\_ver = verified}}</m> would take a value of 1 if <c>income_ver</c> took a value of <c>verified</c> and 0 if it took any other value.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        The notation used in <xref ref="ex-ver-income-equation"/> may feel a bit confusing. Let's figure out how to use the equation for each level of the <c>income_ver</c> variable.
+      </p>
+      
+      <example xml:id="ex-compute-avg-rate-not-verified">
+        <title>Compute the average interest rate for borrowers with unverified income</title>
+        <statement>
+          <p>
+            Using the model from <xref ref="ex-ver-income-equation"/>, compute the average interest rate for borrowers whose income source and amount are both unverified.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            When <c>income_ver</c> takes a value of <c>not</c>, then both indicator functions in the equation from <xref ref="ex-ver-income-equation"/> are set to zero:
+            <md>
+              <mrow>\widehat{\text{rate}} \amp = 11.10 + 1.42 \times 0 + 3.25 \times 0</mrow>
+              <mrow>\amp = 11.10</mrow>
+            </md>
+            The average interest rate for these borrowers is 11.1%. Because the <c>not</c> level does not have its own coefficient and it is the reference value, the indicators for the other levels for this variable all drop out.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-compute-avg-rate-source-only">
+        <title>Compute the average interest rate for borrowers with source-only verification</title>
+        <statement>
+          <p>
+            Using the model from <xref ref="ex-ver-income-equation"/>, compute the average interest rate for borrowers whose income source is verified but the amount is not.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            When <c>income_ver</c> takes a value of <c>source_only</c>, then the corresponding variable takes a value of 1 while the other (<m>\mathbb{1}_{\text{income\_ver = verified}}</m>) is 0:
+            <md>
+              <mrow>\widehat{\text{rate}} \amp = 11.10 + 1.42 \times 1 + 3.25 \times 0</mrow>
+              <mrow>\amp = 12.52</mrow>
+            </md>
+            The average interest rate for these borrowers is 12.52%.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="exer-compute-avg-rate-verified">
+        <statement>
+          <p>
+            Compute the average interest rate for borrowers whose income source and amount are both verified.
+          </p>
+        </statement>
+        <hint>
+          <p>
+            When <c>income_ver</c> takes a value of <c>verified</c>, which indicator variable is 1?
+          </p>
+        </hint>
+        <solution>
+          <p>
+            When <c>income_ver</c> takes a value of <c>verified</c>, then the corresponding variable takes a value of 1 while the other (<m>\mathbb{1}_{\text{income\_ver = source\_only}}</m>) is 0:
+            <md>
+              <mrow>\widehat{\text{rate}} \amp = 11.10 + 1.42 \times 0 + 3.25 \times 1</mrow>
+              <mrow>\amp = 14.35</mrow>
+            </md>
+            The average interest rate for these borrowers is 14.35%.
+          </p>
+        </solution>
+      </exercise>
+      
+      <assemblage xml:id="assem-predictors-several-categories">
+        <title>Predictors with several categories</title>
+        <p>
+          When fitting a regression model with a categorical variable that has <m>k</m> levels where <m>k > 2</m>, software will provide a coefficient for <m>k - 1</m> of those levels. For the last level that does not receive a coefficient, this is the <term>reference level</term>, and the coefficients listed for the other levels are all considered relative to this reference level.
+        </p>
+      </assemblage>
+      
+      <exercise xml:id="exer-interpret-income-ver-coef">
+        <statement>
+          <p>
+            Interpret the coefficients in the <c>income_ver</c> model.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Each of the coefficients gives the incremental interest rate for the corresponding level relative to the <c>not</c> level, which is the reference level. For example, for a borrower whose income source and amount have been verified, the model predicts that they will have a 3.25% higher interest rate than a borrower who has not had their income source or amount verified.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        The higher interest rate for borrowers who have verified their income source or amount is surprising. Intuitively, we'd think that a loan would look <em>less</em> risky if the borrower's income has been verified. However, note that the situation may be more complex, and there may be confounding variables that we didn't account for. For example, perhaps lenders require borrowers with poor credit to verify their income. That is, verifying income in our data set might be a signal of some concerns about the borrower rather than a reassurance that the borrower will pay back the loan. For this reason, the borrower could be deemed higher risk, resulting in a higher interest rate. (What other confounding variables might explain this counter-intuitive relationship suggested by the model?)
+      </p>
+      
+      <exercise xml:id="exer-income-ver-diff">
+        <statement>
+          <p>
+            How much larger of an interest rate would we expect for a borrower who has verified their income source and amount vs a borrower whose income source has only been verified?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Relative to the <c>not</c> category, the <c>verified</c> category has an interest rate of 3.25% higher, while the <c>source_only</c> category is only 1.42% higher. Thus, <c>verified</c> borrowers will tend to get an interest rate about <m>3.25\% - 1.42\% = 1.83\%</m> higher than <c>source_only</c> borrowers.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="subsec-including-assessing-many-variables">
+      <title>Including and assessing many variables in a model</title>
+      
+      <p>
+        The world is complex, and it can be helpful to consider many factors at once in statistical modeling. For example, we might like to use the full context of borrower to predict the interest rate they receive rather than using a single variable. This is the strategy used in <term>multiple regression</term>. While we remain cautious about making any causal interpretations using multiple regression on observational data, such models are a common first step in gaining insights or providing some evidence of a causal connection.
+      </p>
+      
+      <p>
+        We want to construct a model that accounts not only for any past bankruptcy or whether the borrower had their income source or amount verified, but simultaneously accounts for all the variables in the data set: <c>income_ver</c>, <c>debt_to_income</c>, <c>credit_util</c>, <c>bankruptcy</c>, <c>term</c>, <c>issued</c>, and <c>credit_checks</c>.
+        <md>
+          <mrow>\widehat{\text{rate}} \amp = \beta_0 + \beta_1 \times \mathbb{1}_{\text{income\_ver = source\_only}} + \beta_2 \times \mathbb{1}_{\text{income\_ver = verified}} + \beta_3 \times \text{debt\_to\_income}</mrow>
+          <mrow>\amp \qquad + \beta_4 \times \text{credit\_util} + \beta_5 \times \text{bankruptcy} + \beta_6 \times \text{term}</mrow>
+          <mrow>\amp \qquad + \beta_7 \times \mathbb{1}_{\text{issued = Jan2018}} + \beta_8 \times \mathbb{1}_{\text{issued = Mar2018}} + \beta_9 \times \text{credit\_checks}</mrow>
+        </md>
+        This equation represents a holistic approach for modeling all of the variables simultaneously. Notice that there are two coefficients for <c>income_ver</c> and also two coefficients for <c>issued</c>, since both are 3-level categorical variables.
+      </p>
+      
+      <p>
+        We estimate the parameters <m>\beta_0, \beta_1, \beta_2, \ldots, \beta_9</m> in the same way as we did in the case of a single predictor. We select <m>b_0, b_1, b_2, \ldots, b_9</m> that minimize the sum of the squared residuals:
+        <men xml:id="eq-sum-sq-res-mult-regr">
+          SSE = e_1^2 + e_2^2 + \cdots + e_{10000}^2 = \sum_{i=1}^{10000} e_i^2 = \sum_{i=1}^{10000} \left(y_i - \hat{y}_i\right)^2
+        </men>
+        where <m>y_i</m> and <m>\hat{y}_i</m> represent the observed interest rates and their estimated values according to the model, respectively. 10,000 residuals are calculated, one for each observation. We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in <xref ref="fig-loans-full-model-output"/>. Using this output, we identify the point estimates <m>b_i</m> of each <m>\beta_i</m>, just as we did in the one-predictor case.
+      </p>
+      
+      <figure xml:id="fig-loans-full-model-output">
+        <caption>Output for the regression model, where <c>interest_rate</c> is the outcome and the variables listed are the predictors.</caption>
+        <tabular>
+          <row bottom="medium">
+            <cell></cell>
+            <cell>Estimate</cell>
+            <cell>Std. Error</cell>
+            <cell>t value</cell>
+            <cell>Pr(<m>></m>|t|)</cell>
+          </row>
+          <row>
+            <cell>(Intercept)</cell>
+            <cell>1.9251</cell>
+            <cell>0.2102</cell>
+            <cell>9.16</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (source_only)</cell>
+            <cell>0.9750</cell>
+            <cell>0.0991</cell>
+            <cell>9.83</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>income_ver (verified)</cell>
+            <cell>2.5374</cell>
+            <cell>0.1172</cell>
+            <cell>21.65</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>debt_to_income</cell>
+            <cell>0.0211</cell>
+            <cell>0.0029</cell>
+            <cell>7.18</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>credit_util</cell>
+            <cell>4.8959</cell>
+            <cell>0.1619</cell>
+            <cell>30.24</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>bankruptcy</cell>
+            <cell>0.3864</cell>
+            <cell>0.1324</cell>
+            <cell>2.92</cell>
+            <cell>0.0035</cell>
+          </row>
+          <row>
+            <cell>term</cell>
+            <cell>0.1537</cell>
+            <cell>0.0039</cell>
+            <cell>38.96</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell>issued (Jan2018)</cell>
+            <cell>0.0276</cell>
+            <cell>0.1081</cell>
+            <cell>0.26</cell>
+            <cell>0.7981</cell>
+          </row>
+          <row>
+            <cell>issued (Mar2018)</cell>
+            <cell>-0.0397</cell>
+            <cell>0.1065</cell>
+            <cell>-0.37</cell>
+            <cell>0.7093</cell>
+          </row>
+          <row>
+            <cell>credit_checks</cell>
+            <cell>0.2282</cell>
+            <cell>0.0182</cell>
+            <cell>12.51</cell>
+            <cell><m>\lt</m>0.0001</cell>
+          </row>
+          <row>
+            <cell></cell>
+            <cell></cell>
+            <cell></cell>
+            <cell halign="right" colspan="2"><m>df=9990</m></cell>
+          </row>
+        </tabular>
+      </figure>
+      
+      <assemblage xml:id="assem-multiple-regression-model">
+        <title>Multiple regression model</title>
+        <p>
+          A multiple regression model is a linear model with many predictors. In general, we write the model as
+          <me>
+            \hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_k x_k
+          </me>
+          when there are <m>k</m> predictors. We always estimate the <m>\beta_i</m> parameters using statistical software.
+        </p>
+      </assemblage>
+      
+      <example xml:id="ex-loans-full-model-eq-w-coef">
+        <title>Write out the regression model using point estimates</title>
+        <statement>
+          <p>
+            Write out the regression model using the point estimates from <xref ref="fig-loans-full-model-output"/>. How many predictors are there in this model?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The fitted model for the interest rate is given by:
+            <md>
+              <mrow>\widehat{\text{rate}} \amp = 1.925 + 0.975 \times \mathbb{1}_{\text{income\_ver = source\_only}} + 2.537 \times \mathbb{1}_{\text{income\_ver = verified}} + 0.021 \times \text{debt\_to\_income}</mrow>
+              <mrow>\amp \qquad + 4.896 \times \text{credit\_util} + 0.386 \times \text{bankruptcy} + 0.154 \times \text{term}</mrow>
+              <mrow>\amp \qquad + 0.028 \times \mathbb{1}_{\text{issued = Jan2018}} - 0.040 \times \mathbb{1}_{\text{issued = Mar2018}} + 0.228 \times \text{credit\_checks}</mrow>
+            </md>
+            If we count up the number of predictor coefficients, we get the <em>effective</em> number of predictors in the model: <m>k = 9</m>. Notice that the <c>issued</c> categorical predictor counts as two, once for the two levels shown in the model. In general, a categorical predictor with <m>p</m> different levels will be represented by <m>p - 1</m> terms in a multiple regression model.
+          </p>
+        </solution>
+      </example>
+      
+      <exercise xml:id="exer-credit-util-coef">
+        <statement>
+          <p>
+            What does <m>\beta_4</m>, the coefficient of variable <c>credit_util</c>, represent? What is the point estimate of <m>\beta_4</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>\beta_4</m> represents the change in interest rate we would expect if someone's credit utilization was 0 and went to 1, all other factors held even. The point estimate is <m>b_4 = 4.90\%</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <example xml:id="ex-compute-residual-first-obs">
+        <title>Compute the residual of the first observation</title>
+        <statement>
+          <p>
+            Compute the residual of the first observation in <xref ref="fig-loans-data-matrix"/> using the equation identified in <xref ref="ex-loans-full-model-eq-w-coef"/>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from <xref ref="ex-loans-full-model-eq-w-coef"/>. For example, <m>\mathbb{1}_{\text{income\_ver = source\_only}}</m> takes a value of 0, <m>\mathbb{1}_{\text{income\_ver = verified}}</m> takes a value of 1 (since the borrower's income source and amount were verified), <c>debt_to_income</c> was 18.01, and so on. This leads to a prediction of <m>\widehat{\text{rate}}_1 = 18.09</m>. The observed interest rate was 14.07%, which leads to a residual of <m>e_1 = 14.07 - 18.09 = -4.02</m>.
+          </p>
+        </solution>
+      </example>
+      
+      <example xml:id="ex-past-bankr-coef-diff-explained">
+        <title>Why does the bankruptcy coefficient differ between models?</title>
+        <statement>
+          <p>
+            We estimated a coefficient for <c>bankruptcy</c> in <xref ref="subsec-indicator-categorical-predictors"/> of <m>b_1 = 0.74</m> with a standard error of <m>SE_{b_1} = 0.15</m> when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If we examined the data carefully, we would see that some predictors are correlated. For instance, when we estimated the connection of the outcome <c>interest_rate</c> and predictor <c>bankruptcy</c> using simple linear regression, we were unable to control for other variables like whether the borrower had her income verified, the borrower's debt-to-income ratio, and other variables. That original model was constructed in a vacuum and did not consider the full context. When we include all of the variables, underlying and unintentional bias that was missed by these other variables is reduced or eliminated. Of course, bias can still exist from other confounding variables.
+          </p>
+        </solution>
+      </example>
+      
+      <p>
+        <xref ref="ex-past-bankr-coef-diff-explained"/> describes a common issue in multiple regression: correlation among predictor variables. We say the two predictor variables are <term>collinear</term> (pronounced as <em>co-linear</em>) when they are correlated, and this collinearity complicates model estimation. While it is impossible to prevent collinearity from arising in observational data, experiments are usually designed to prevent predictors from being collinear.
+      </p>
+      
+      <exercise xml:id="exer-intercept-interpretation">
+        <statement>
+          <p>
+            The estimated value of the intercept is 1.925, and one might be tempted to make some interpretation of this coefficient, such as, it is the model's predicted price when each of the variables take value zero: income source is not verified, the borrower has no debt (debt-to-income and credit utilization are zero), and so on. Is this reasonable? Is there any value gained by making this interpretation?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Many of the variables do take a value 0 for at least one data point, and for those variables, it is reasonable. However, one variable never takes a value of zero: <c>term</c>, which describes the length of the loan, in months. If <c>term</c> is set to zero, then the loan must be paid back immediately; the borrower must give the money back as soon as she receives it, which means it is not a real loan. Ultimately, the interpretation of the intercept in this setting is not insightful.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+    
+    <subsection xml:id="subsec-adjusted-r-squared">
+      <title>Adjusted <m>R^2</m> as a better tool for multiple regression</title>
+      
+      <p>
+        We first used <m>R^2</m> in Section 7.2 to determine the amount of variability in the response that was explained by the model:
+        <me>
+          R^2 = 1 - \frac{\text{variability in residuals}}{\text{variability in the outcome}} = 1 - \frac{Var(e_i)}{Var(y_i)}
+        </me>
+        where <m>e_i</m> represents the residuals of the model and <m>y_i</m> the outcomes. This equation remains valid in the multiple regression framework, but a small enhancement can make it even more informative when comparing models.
+      </p>
+      
+      <exercise xml:id="exer-compute-unadj-r2">
+        <statement>
+          <p>
+            The variance of the residuals for the model given in <xref ref="ex-loans-full-model-eq-w-coef"/> is 18.53, and the variance of the total price in all the auctions is 25.01. Calculate <m>R^2</m> for this model.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>R^2 = 1 - \frac{18.53}{25.01} = 0.2591</m>.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        This strategy for estimating <m>R^2</m> is acceptable when there is just a single variable. However, it becomes less helpful when there are many variables. The regular <m>R^2</m> is a biased estimate of the amount of variability explained by the model when applied to a new sample of data. To get a better estimate, we use the adjusted <m>R^2</m>.
+      </p>
+      
+      <assemblage xml:id="assem-adjusted-r-squared">
+        <title>Adjusted <m>R^2</m> as a tool for model assessment</title>
+        <p>
+          The <term>adjusted <m>R^2</m></term> is computed as
+          <me>
+            R_{adj}^{2} = 1 - \frac{s_{\text{residuals}}^2 / (n-k-1)}{s_{\text{outcome}}^2 / (n-1)} = 1 - \frac{s_{\text{residuals}}^2}{s_{\text{outcome}}^2} \times \frac{n-1}{n-k-1}
+          </me>
+          where <m>n</m> is the number of cases used to fit the model and <m>k</m> is the number of predictor variables in the model. Remember that a categorical predictor with <m>p</m> levels will contribute <m>p - 1</m> to the number of variables in the model.
+        </p>
+      </assemblage>
+      
+      <p>
+        Because <m>k</m> is never negative, the adjusted <m>R^2</m> will be smaller<mdash/>often times just a little smaller<mdash/>than the unadjusted <m>R^2</m>. The reasoning behind the adjusted <m>R^2</m> lies in the <term>degrees of freedom</term> associated with each variance, which is equal to <m>n - k - 1</m> for the multiple regression context. If we were to make predictions for <em>new data</em> using our current model, we would find that the unadjusted <m>R^2</m> would tend to be slightly overly optimistic, while the adjusted <m>R^2</m> formula helps correct this bias.
+      </p>
+      
+      <exercise xml:id="exer-compute-adj-r2">
+        <statement>
+          <p>
+            There were <m>n=10000</m> auctions in the <c>loans</c> data set and <m>k=9</m> predictor variables in the model. Use <m>n</m>, <m>k</m>, and the variances from <xref ref="exer-compute-unadj-r2"/> to calculate <m>R_{adj}^2</m> for the interest rate model.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>R_{adj}^2 = 1 - \frac{18.53}{25.01}\times \frac{10000-1}{10000-9-1} = 0.2584</m>. While the difference is very small, it will be important when we fine tune the model in the next section.
+          </p>
+        </solution>
+      </exercise>
+      
+      <exercise xml:id="exer-r2-vs-adj-r2">
+        <statement>
+          <p>
+            Suppose you added another predictor to the model, but the variance of the errors <m>Var(e_i)</m> didn't go down. What would happen to the <m>R^2</m>? What would happen to the adjusted <m>R^2</m>?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The unadjusted <m>R^2</m> would stay the same and the adjusted <m>R^2</m> would go down.
+          </p>
+        </solution>
+      </exercise>
+      
+      <p>
+        Adjusted <m>R^2</m> could have been used in Chapter 7. However, when there is only <m>k = 1</m> predictors, adjusted <m>R^2</m> is very close to regular <m>R^2</m>, so this nuance isn't typically important when the model has only one predictor.
+      </p>
     </subsection>
   </section>
   
