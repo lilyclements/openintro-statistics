@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<chapter xml:id="ch-summarizing-data" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Summarizing data</title>
+
+  <introduction>
+    <p>
+      This chapter focuses on the mechanics and construction of summary statistics and graphs.
+      We use statistical software for generating the summaries and graphs presented in this chapter and book.
+      However, since this might be your first exposure to these concepts, we take our time in this chapter to detail
+      how to create them.
+      Mastery of the content presented in this chapter will be crucial for understanding the methods and
+      techniques introduced in rest of the book.
+    </p>
+  </introduction>
+
+  <!-- Section 2.1: Examining numerical data -->
+  <section xml:id="sec-numerical-data">
+    <title>Examining numerical data</title>
+
+    <introduction>
+      <p>
+        In this section we will explore techniques for summarizing numerical variables.
+        For example, consider the <c>loan_amount</c> variable from the <c>loan50</c> data set,
+        which represents the loan size for all 50 loans in the data set.
+        This variable is numerical since we can sensibly discuss the numerical difference of the size of two loans.
+        On the other hand, area codes and zip codes are not numerical, but rather they are categorical variables.
+      </p>
+
+      <p>
+        Throughout this section and the next, we will apply these methods using the <c>loan50</c> and <c>county</c>
+        data sets, which were introduced in <xref ref="sec-data-basics"/>.
+        If you'd like to review the variables from either data set, see the relevant data description figures.
+      </p>
+    </introduction>
+
+    <!-- Subsection 2.1.1: Scatterplots for paired data -->
+    <subsection xml:id="subsec-scatterplots">
+      <title>Scatterplots for paired data</title>
+
+      <p>
+        A <term>scatterplot</term> provides a case-by-case view of data for two numerical variables.
+        In a previous figure, a scatterplot was used to examine the homeownership rate against the fraction
+        of housing units that were part of multi-unit properties (e.g. apartments) in the <c>county</c> data set.
+        Another scatterplot is shown in <xref ref="fig-loan50-amt-vs-income"/>, comparing the total income of
+        a borrower (<c>total_income</c>) and the amount they borrowed (<c>loan_amount</c>) for the <c>loan50</c> data set.
+        In any scatterplot, each point represents a single case.
+        Since there are 50 cases in <c>loan50</c>, there are 50 points in <xref ref="fig-loan50-amt-vs-income"/>.
+      </p>
+
+      <figure xml:id="fig-loan50-amt-vs-income">
+        <caption>A scatterplot of <c>total_income</c> versus <c>loan_amount</c> for the <c>loan50</c> data set</caption>
+        <image source="ch_summarizing_data/figures/loan50_amt_vs_interest/loan50_amt_vs_interest.png" width="80%">
+          <description>
+            A scatterplot is shown with "Total Income" along the horizontal axis (range from $0 to $325,000) and
+            "Loan Amount" along the vertical axis (range from $0 to $40,000). The points lie in a range from $2,000
+            to $33,000 in loan amount when total income is smaller than $150,000 (representing most of the points).
+            The range of loan amounts is higher when total income is greater than $175,000, with the range of
+            observations being about $15,000 to $40,000.
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        Looking at <xref ref="fig-loan50-amt-vs-income"/>, we see that there are many borrowers with an income
+        below $100,000 on the left side of the graph, while there are a handful of borrowers with income above $250,000.
+      </p>
+
+      <example xml:id="ex-nonlinear-relationship">
+        <title>Nonlinear relationships in scatterplots</title>
+        <statement>
+          <p>
+            <xref ref="fig-median-income-poverty"/> shows a plot of median household income against the poverty
+            rate for 3,142 counties. What can be said about the relationship between these variables?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The relationship is evidently <term>nonlinear</term>, as highlighted by the dashed line.
+            This is different from previous scatterplots we've seen, which show relationships that do not show
+            much, if any, curvature in the trend.
+          </p>
+        </solution>
+      </example>
+
+      <figure xml:id="fig-median-income-poverty">
+        <caption>A scatterplot of the median household income against the poverty rate for the <c>county</c> data set</caption>
+        <image source="ch_summarizing_data/figures/medianHHIncomePoverty/medianHHIncomePoverty.png" width="80%">
+          <description>
+            A scatterplot of a few thousand points is shown with "Poverty Rate" along the horizontal axis
+            (range from 0% to 55%) and "Median Household Income" along the vertical axis (range from $0 to $130,000).
+            A curved trend line is overlaid on the points starting higher on the left and decreasing as it moves right,
+            but it starts flattening the further right it goes. Below 10% poverty rate, points range from about $40,000
+            to $130,000. Between 10% to 20%, the range is lower at about $25,000 to close to $100,000. For 20% to 30%,
+            the points range from about $22,000 to just over $60,000. For 30% to 50%, the trend is mostly flat with
+            values ranging from about $20,000 to $50,000.
+          </description>
+        </image>
+      </figure>
+
+      <exercise xml:id="ex-scatterplot-usefulness">
+        <title>Value of scatterplots</title>
+        <statement>
+          <p>
+            What do scatterplots reveal about the data, and how are they useful?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Answers may vary. Scatterplots are helpful in quickly spotting associations relating variables,
+            whether those associations come in the form of simple trends or whether those relationships are more complex.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-horseshoe-association">
+        <title>Horseshoe-shaped associations</title>
+        <statement>
+          <p>
+            Describe two variables that would have a horseshoe-shaped association in a scatterplot
+            (<m>\cap</m> or <m>\frown</m>).
+          </p>
+        </statement>
+        <solution>
+          <p>
+            Consider the case where your vertical axis represents something "good" and your horizontal axis
+            represents something that is only good in moderation. Health and water consumption fit this description:
+            we require some water to survive, but consume too much and it becomes toxic and can kill a person.
+          </p>
+        </solution>
+      </exercise>
+    </subsection>
+
+    <!-- Subsection 2.1.2: Dot plots and the mean -->
+    <subsection xml:id="subsec-dot-plots-mean">
+      <title>Dot plots and the mean</title>
+
+      <p>
+        Sometimes two variables are one too many: only one variable may be of interest.
+        In these cases, a dot plot provides the most basic of displays.
+        A <term>dot plot</term> is a one-variable scatterplot; an example using the interest rate of 50 loans
+        is shown in <xref ref="fig-loan-int-rate-dot-plot"/>.
+        A stacked version of this dot plot is shown in <xref ref="fig-loan-int-rate-dot-plot-stacked"/>.
+      </p>
+
+      <figure xml:id="fig-loan-int-rate-dot-plot">
+        <caption>A dot plot of <c>interest_rate</c> for the <c>loan50</c> data set</caption>
+        <image source="ch_summarizing_data/figures/loan_int_rate_dot_plot/loan_int_rate_dot_plot.png" width="76%">
+          <description>
+            A dot plot is shown for the variable "Interest Rate". There is a horizontal axis ranging from about 5%
+            to a bit over 25%, and then several points are shown horizontally above the axis, scattered over the range.
+            There is a higher density of points between 5% to 11%, with a moderate density of points from 12% to about 20%,
+            and then a few more observations at about 22%, 25%, and 26%. A red triangle is also shown at approximately 12%.
+          </description>
+        </image>
+      </figure>
+
+      <figure xml:id="fig-loan-int-rate-dot-plot-stacked">
+        <caption>A stacked dot plot of <c>interest_rate</c> for the <c>loan50</c> data set</caption>
+        <image source="ch_summarizing_data/figures/loan_int_rate_dot_plot/loan_int_rate_dot_plot_stacked.png" width="76%">
+          <description>
+            A stacked dot plot is shown for the variable "Interest Rate". There is a horizontal axis ranging from about 5%
+            to a bit over 25%, and then several stacks of points are shown at values 5%, 6%, 7%, and so on. There are 3 points
+            stacked at 5%, 3 points stacked at 6%, 5 at 7%, 4 at 8%, 5 at 9%, 8 at 10%, 5 at 11%, 1 at 11%, 3 at 12%, then
+            1 each at 14%, 15%, and 16%, 3 at 17%, 2 at 18%, and then 1 each at 19%, 20%, 21%, 25%, and 26%. A red triangle
+            is also shown at approximately 12%. The rates have been rounded to the nearest percent in this plot.
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        The <term>mean</term>, often called the <term>average</term>, is a common way to measure the center of a
+        <term>distribution</term> of data. To compute the mean interest rate, we add up all the interest rates and
+        divide by the number of observations:
+        <md>
+          <mrow>\bar{x} = \frac{10.90\% + 9.92\% + 26.30\% + \cdots + 6.08\%}{50} = 11.57\%</mrow>
+        </md>
+        The sample mean is often labeled <m>\bar{x}</m>. The letter <m>x</m> is being used as a generic placeholder
+        for the variable of interest, <c>interest_rate</c>, and the bar over the <m>x</m> communicates we're looking
+        at the average interest rate, which for these 50 loans was 11.57%. It is useful to think of the mean as the
+        balancing point of the distribution, and it's shown as a triangle in <xref ref="fig-loan-int-rate-dot-plot"/>
+        and <xref ref="fig-loan-int-rate-dot-plot-stacked"/>.
+      </p>
+
+      <assemblage xml:id="def-mean">
+        <title>Mean</title>
+        <p>
+          The sample mean can be computed as the sum of the observed values divided by the number of observations:
+          <md>
+            <mrow>\bar{x} = \frac{x_1 + x_2 + \cdots + x_n}{n}</mrow>
+          </md>
+          where <m>x_1</m>, <m>x_2</m>, <m>\dots</m>, <m>x_n</m> represent the <m>n</m> observed values.
+        </p>
+      </assemblage>
+
+      <exercise xml:id="ex-mean-notation">
+        <title>Understanding mean notation</title>
+        <statement>
+          <p>
+            Examine the equation for the mean. What does <m>x_1</m> correspond to? And <m>x_2</m>?
+            Can you infer a general meaning to what <m>x_i</m> might represent?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <m>x_1</m> corresponds to the interest rate for the first loan in the sample (10.90%),
+            <m>x_2</m> to the second loan's interest rate (9.92%), and <m>x_i</m> corresponds to the
+            interest rate for the <m>i^{th}</m> loan in the data set. For example, if <m>i = 4</m>,
+            then we're examining <m>x_4</m>, which refers to the fourth observation in the data set.
+          </p>
+        </solution>
+      </exercise>
+
+      <exercise xml:id="ex-sample-size-n">
+        <title>Sample size</title>
+        <statement>
+          <p>
+            What was <m>n</m> in this sample of loans?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The sample size was <m>n = 50</m>.
+          </p>
+        </solution>
+      </exercise>
+
+      <p>
+        The <c>loan50</c> data set represents a sample from a larger population of loans made through Lending Club.
+        We could compute a mean for this population in the same way as the sample mean.
+        However, the population mean has a special label: <m>\mu</m>.
+        The symbol <m>\mu</m> is the Greek letter <em>mu</em> and represents the average of all observations in the population.
+        Sometimes a subscript, such as <m>_x</m>, is used to represent which variable the population mean refers to,
+        e.g. <m>\mu_x</m>. Often times it is too expensive to measure the population mean precisely, so we often
+        estimate <m>\mu</m> using the sample mean, <m>\bar{x}</m>.
+      </p>
+
+      <example xml:id="ex-estimating-population-mean">
+        <title>Estimating a population mean</title>
+        <statement>
+          <p>
+            The average interest rate across all loans in the population can be estimated using the sample data.
+            Based on the sample of 50 loans, what would be a reasonable estimate of <m>\mu_x</m>, the mean interest
+            rate for all loans in the full data set?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The sample mean, 11.57%, provides a rough estimate of <m>\mu_x</m>. While it's not perfect,
+            this is our single best guess of the average interest rate of all the loans in the population under study.
+            In later chapters, we will develop tools to characterize the accuracy of <term>point estimates</term>
+            like the sample mean. As you might have guessed, point estimates based on larger samples tend to be
+            more accurate than those based on smaller samples.
+          </p>
+        </solution>
+      </example>
+
+      <example xml:id="ex-mean-for-comparison">
+        <title>Using the mean for comparisons</title>
+        <statement>
+          <p>
+            The mean is useful because it allows us to rescale or standardize a metric into something more easily
+            interpretable and comparable. Provide 2 examples where the mean is useful for making comparisons.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  We would like to understand if a new drug is more effective at treating asthma attacks than
+                  the standard drug. A trial of 1500 adults is set up, where 500 receive the new drug, and 1000
+                  receive a standard drug in the control group. The results show 200 asthma attacks in the new
+                  drug group and 300 in the standard drug group. Comparing the raw counts of 200 to 300 asthma
+                  attacks would make it appear that the new drug is better, but this is an artifact of the
+                  imbalanced group sizes. Instead, we should look at the average number of asthma attacks per
+                  patient in each group: New drug: <m>200 / 500 = 0.4</m>, Standard drug: <m>300 / 1000 = 0.3</m>.
+                  The standard drug has a lower average number of asthma attacks per patient than the average in
+                  the treatment group.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Emilio opened a food truck last year where he sells burritos, and his business has stabilized
+                  over the last 3 months. Over that 3 month period, he has made $11,000 while working 625 hours.
+                  Emilio's average hourly earnings provides a useful statistic for evaluating whether his venture is,
+                  at least from a financial perspective, worth it: <m>\$11000 / 625 \text{ hours} = \$17.60 \text{ per hour}</m>.
+                  By knowing his average hourly wage, Emilio now has put his earnings into a standard unit that is
+                  easier to compare with many other jobs that he might consider.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
+      </example>
+
+      <example xml:id="ex-weighted-mean">
+        <title>Weighted means</title>
+        <statement>
+          <p>
+            Suppose we want to compute the average income per person in the US. To do so, we might first think
+            to take the mean of the per capita incomes across the 3,142 counties in the <c>county</c> data set.
+            What would be a better approach?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            The <c>county</c> data set is special in that each county actually represents many individual people.
+            If we were to simply average across the income variable, we would be treating counties with 5,000 and
+            5,000,000 residents equally in the calculations. Instead, we should compute the total income for each
+            county, add up all the counties' totals, and then divide by the number of people in all the counties.
+            If we completed these steps with the <c>county</c> data, we would find that the per capita income for
+            the US is $30,861. Had we computed the simple mean of per capita income across counties, the result
+            would have been just $26,093! This example used what is called a <term>weighted mean</term>.
+            For more information on this topic, check out online supplements regarding weighted means.
+          </p>
+        </solution>
+      </example>
+    </subsection>
+
+    <!-- Subsection 2.1.3: Histograms and shape -->
+    <subsection xml:id="subsec-histograms-shape">
+      <title>Histograms and shape</title>
+
+      <p>
+        <em>Content for this subsection will continue the pattern established above, converting the remaining
+        LaTeX content for histograms and shape, including figures, examples, and exercises.</em>
+      </p>
+    </subsection>
+
+    <!-- Additional subsections 2.1.4 through 2.1.8 will follow the same pattern -->
+
+  </section>
+
+  <!-- Section 2.2: Considering categorical data -->
+  <section xml:id="sec-categorical-data">
+    <title>Considering categorical data</title>
+    <p>
+      <em>Content for Section 2.2 will be added, following the same pattern as Section 2.1.</em>
+    </p>
+  </section>
+
+  <!-- Section 2.3: Case study malaria vaccine (existing content from current file) -->
+
+</chapter>
