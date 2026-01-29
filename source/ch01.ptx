@@ -1588,118 +1588,529 @@
     <exercises>
       <title>Exercises</title>
 
-      <!-- Exercises 13-28 from sampling_principles_and_strategies.tex -->
-      <exercise xml:id="ex-air-pollution-scope">
+      <exercise xml:id="scope_airpoll">
         <title>Air pollution and birth outcomes, scope of inference</title>
         <statement>
-          <p>For the air pollution and preterm births study: identify population and sample; discuss generalizability and causality.</p>
+          <p>
+            Exercise <xref ref="study_components_airpoll"/> introduces a study where researchers 
+collected data to examine the relationship between air pollutants and preterm 
+births in Southern California. During the study air pollution levels were 
+measured by air quality monitoring stations. Length of gestation data were 
+collected on 143,196 births between the years 1989 and 1993, and air pollution 
+exposure during gestation was calculated for each birth.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Identify the population of interest and the sample in this study.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not the results of the study can be generalized to the 
+population, and if the findings of the study can be used to establish causal relationships.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-cheaters-scope">
+      <exercise xml:id="scope_cheaters">
         <title>Cheaters, scope of inference</title>
         <statement>
-          <p>For the honesty study on 160 children: identify population and sample; discuss generalizability and causality.</p>
+          <p>
+            Exercise <xref ref="study_components_cheaters"/> introduces a study where researchers 
+studying the relationship between honesty, age, and self-control conducted an 
+experiment on 160 children between the ages of 5 and 15. The researchers asked 
+each child to toss a fair coin in private and to record the outcome (white or black) 
+on a paper sheet, and said they would only reward children who report white. 
+Half the students were explicitly told not to cheat and the others were not given 
+any explicit instructions. Differences were observed in the cheating rates in the
+instruction and no instruction groups, as well as some differences across 
+children's characteristics within each group.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Identify the population of interest and the sample in this study.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not the results of the study can be generalized to the 
+population, and if the findings of the study can be used to establish causal 
+relationships.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-buteyko-scope">
+      <exercise xml:id="scope_buteyko">
         <title>Buteyko method, scope of inference</title>
         <statement>
-          <p>For the Buteyko asthma study: identify population and sample; discuss generalizability and causality.</p>
+          <p>
+            Exercise <xref ref="study_components_buteyko"/> introduces a study on using the Buteyko 
+shallow breathing technique to reduce asthma symptoms and improve quality of life.
+As part of this study 600 asthma patients aged 18-69 who relied on medication for 
+asthma treatment were recruited and randomly assigned to two groups: one practiced 
+the Buteyko method and the other did not. Those in the Buteyko group experienced,
+on average, a significant reduction in asthma symptoms and an improvement in quality 
+of life.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Identify the population of interest and the sample in this study.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not the results of the study can be generalized to the 
+population, and if the findings of the study can be used to establish causal 
+relationships.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-stealers-scope">
+      <exercise xml:id="scope_stealers">
         <title>Stealers, scope of inference</title>
         <statement>
-          <p>For the socio-economic class and candy study: identify population and sample; discuss generalizability and causality.</p>
+          <p>
+            Exercise <xref ref="study_components_stealers"/> introduces a study on the relationship 
+between socio-economic class and unethical behavior. As part of this study 129 
+University of California Berkeley undergraduates were asked to identify themselves 
+as having low or high social-class by comparing themselves to others with the most 
+(least) money, most (least) education, and most (least) respected jobs. They were 
+also presented with a jar of individually wrapped candies and informed that the
+candies were for children in a nearby laboratory, but that they could take some if 
+they wanted. After completing some unrelated tasks, participants reported the 
+number of candies they had taken. It was found that those who were identified as 
+upper-class took more candy than others.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Identify the population of interest and the sample in this study.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not the results of the study can be generalized to the 
+population, and if the findings of the study can be used to establish causal 
+relationships.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-relax-after-work-definitions">
+      <exercise xml:id="relax_after_work_definitions">
         <title>Relaxing after work</title>
         <statement>
-          <p>Classify observation, variable, statistic, parameter for the relaxing time survey (mean 1.65 hours).</p>
+          <p>
+            The General 
+Social Survey asked the question, "After an average work day, about how many 
+hours do you have to relax or pursue activities that you enjoy?" to a random 
+sample of 1,155 Americans. The average relaxing time was found to be 1.65 
+hours. Determine which of the following is an observation, a variable, a 
+sample statistic (value calculated based on the observed sample), or a 
+population parameter.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                An American in the sample.
+              </p>
+            </li>
+            <li>
+              <p>
+                Number of hours spent relaxing after an average work day.
+              </p>
+            </li>
+            <li>
+              <p>
+                1.65.
+              </p>
+            </li>
+            <li>
+              <p>
+                Average number of hours all Americans spend relaxing after an average 
+work day.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-cats-on-youtube-definitions">
+      <exercise xml:id="cats_on_youtube_definitions">
         <title>Cats on YouTube</title>
         <statement>
-          <p>Classify observation, variable, statistic, parameter for estimating percent cat videos.</p>
+          <p>
+            Suppose you want to 
+estimate the percentage of videos on YouTube that are cat videos. It is 
+impossible for you to watch all videos on YouTube so you use a random video 
+picker to select 1000 videos for you. You find that 2\% of these videos are 
+cat videos.
+Determine which of the following is an observation, a variable, 
+a sample statistic (value calculated based on the observed sample), 
+or a population parameter.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Percentage of all videos on YouTube that are cat videos.
+              </p>
+            </li>
+            <li>
+              <p>
+                2\%.
+              </p>
+            </li>
+            <li>
+              <p>
+                A video in your sample.
+              </p>
+            </li>
+            <li>
+              <p>
+                Whether or not a video is a cat video.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-course-satisfaction-sections">
+      <exercise xml:id="course_satisfaction_sections">
         <title>Course satisfaction across sections</title>
         <statement>
-          <p>Large class with four lab sections: identify study type and propose sampling strategy.</p>
+          <p>
+            A large college class has 160 students. All 160 students attend the lectures 
+together, but the students are divided into 4 groups, each of 40 students, 
+for lab sections administered by different teaching assistants. The professor 
+wants to conduct a survey about how satisfied the students are with the course, 
+and he believes that the lab section a student is in might affect the student's 
+overall satisfaction with the course.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suggest a sampling strategy for carrying out this study.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-housing-proposal">
+      <exercise xml:id="housing_proposal_dorms">
         <title>Housing proposal across dorms</title>
         <statement>
-          <p>Survey opinions across east/west campus dorms ensuring equal year representation: identify study type and sampling plan.</p>
+          <p>
+            On a large 
+college campus first-year students and sophomores live in dorms located on 
+the eastern part of the campus and juniors and seniors live in dorms located 
+on the western part of the campus. Suppose you want to collect student opinions 
+on a new housing structure the college administration is proposing and you want 
+to make sure your survey equally represents opinions from students from all years.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Suggest a sampling strategy for carrying out this study.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-internet-life-expectancy-scope">
+      <exercise xml:id="internet_life_expectancy">
         <title>Internet use and life expectancy</title>
         <statement>
-          <p>Interpret the life expectancy vs. internet use scatterplot; identify study type and a confounder.</p>
+          <p>
+            The 
+following scatterplot was created as part of a study evaluating the 
+relationship between estimated life expectancy at birth (as of 2014) and 
+percentage of internet users (as of 2009) in 208 countries for which such 
+data were available.<fn>Citation: data:ciaFactbook</fn>
+          </p>
+          <p>
+            \begin{minipage}[c]{0.44\textwidth}
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Describe the relationship between life expectancy and percentage of 
+internet users.
+              </p>
+            </li>
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                State a possible confounding variable that might explain this relationship 
+and describe its potential effect.
+              </p>
+            </li>
+          </ol>
+          <p>
+            %
+[Figure: internet_life_expectancy - Scatterplot with "percent of internet users" (0\% to 100\%) along the horizontal axis and "life expectancy at birth" (50 to 90) along the vertical axis. For 0\% to 15\%, about 100 points are evenly spread between 50 and 75. Then for 15\% to 90\%, the points are concentrated between about 70 and 85, and a slight upward trend is evident.]
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-stressed-out-observational">
+      <exercise xml:id="stressed_out_observational">
         <title>Stressed out, Part I</title>
         <statement>
-          <p>Stress and muscle cramps observational study: study type, causality, possible confounders.</p>
+          <p>
+            A study that 
+surveyed a random sample of otherwise healthy high school students found that 
+they are more likely to get muscle cramps when they are stressed. The study 
+also noted that students drink more coffee and sleep less when they are 
+stressed.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Can this study be used to conclude a causal relationship between 
+increased stress and muscle cramps?
+              </p>
+            </li>
+            <li>
+              <p>
+                State possible confounding variables that might explain the observed 
+relationship between increased stress and muscle cramps.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-evaluate-sampling-methods-union">
+      <exercise xml:id="evaluate_sampling_methods">
         <title>Evaluate sampling methods</title>
         <statement>
-          <p>Assess reasonableness of three proposed sampling designs for a student fee survey.</p>
+          <p>
+            A university wants to 
+determine what fraction of its undergraduate student body support a new \$25 annual fee 
+to improve the student union. For each proposed method below, indicate whether 
+the method is reasonable or not.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Survey a simple random sample of 500 students.
+              </p>
+            </li>
+            <li>
+              <p>
+                Stratify students by their field of study, then sample 10\% of students from 
+each stratum.
+              </p>
+            </li>
+            <li>
+              <p>
+                Cluster students by their ages (e.g. 18 years old in one cluster, 19 years 
+old in one cluster, etc.), then randomly sample three clusters and survey all 
+students in those clusters.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-random-digit-dialing-gallup">
+      <exercise xml:id="random_digit_dialing">
         <title>Random digit dialing</title>
         <statement>
-          <p>Why Gallup uses random digit dialing instead of the phone book.</p>
+          <p>
+            The Gallup Poll uses a 
+procedure called random digit dialing, which creates phone numbers based on 
+a list of all area codes in America in conjunction with the associated number 
+of residential households in each area code. Give a possible reason the Gallup 
+Poll chooses to use random digit dialing instead of picking phone numbers 
+from the phone book.
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-haters-scope">
+      <exercise xml:id="scope_haters">
         <title>Haters are gonna hate, study confirms</title>
         <statement>
-          <p>Dispositional attitude study with fake microwave reviews: identify cases, variables, sampling, design, causality, generalization.</p>
+          <p>
+            A study published in the
+<em>Journal of Personality and Social Psychology</em>
+asked a group of 200 randomly sampled men and
+women to evaluate how they felt about various subjects,
+such as camping, health care, architecture, taxidermy, 
+crossword puzzles, and Japan in order to measure their
+attitude towards mostly independent stimuli.
+Then, they presented the participants with information
+about a new product: a microwave oven. This microwave oven
+does not exist, but the participants didn't know this,
+and were given three positive and three negative fake reviews.
+People who reacted positively to the subjects on the
+dispositional attitude measurement also tended to react 
+positively to the microwave oven, and those who reacted
+negatively tended to react negatively to it.
+Researchers concluded that "some people tend to 
+like things, whereas others tend to dislike things, and a more thorough 
+understanding of this tendency will lead to a more thorough understanding of 
+the psychology of attitudes." <fn>Citation: Hepler:2013</fn>
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What are the cases?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is (are) the response variable(s) in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is (are) the explanatory variable(s) in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                Does the study employ random sampling?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is this an observational study or an experiment? Explain your reasoning.
+              </p>
+            </li>
+            <li>
+              <p>
+                Can we establish a causal link between the explanatory and response 
+variables?
+              </p>
+            </li>
+            <li>
+              <p>
+                Can the results of the study be generalized to the population at large?
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-family-size-bias-question">
+      <exercise xml:id="family_size">
         <title>Family size</title>
         <statement>
-          <p>Surveying elementary students about family size: is the estimate biased and in which direction?</p>
+          <p>
+            Suppose we want to estimate household 
+size, where a "household" is defined as people living together in the 
+same dwelling, and sharing living accommodations. If we select students 
+at random at an elementary school and ask them what their family size is, 
+will this be a good measure of household size? Or will our average be 
+biased? If so, will it overestimate or underestimate the true value?
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-sampling-strategies-social">
+      <exercise xml:id="sampling_strategies">
         <title>Sampling strategies</title>
         <statement>
-          <p>Classify four proposed sampling methods for a social networking survey and discuss bias.</p>
+          <p>
+            A statistics student who is curious about the relationship between the amount of time students spend on social networking sites and their performance at school decides to conduct a survey. Various research strategies for collecting data are described below. In each, name the sampling method proposed and any bias you might expect.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                He randomly samples 40 students from the study's population, gives them the survey, asks them to fill it out and bring it back the next day.
+              </p>
+            </li>
+            <li>
+              <p>
+                He gives out the survey only to his friends, making sure each one of them fills out the survey.
+              </p>
+            </li>
+            <li>
+              <p>
+                He posts a link to an online survey on Facebook and asks his friends to fill out the survey.
+              </p>
+            </li>
+            <li>
+              <p>
+                He randomly samples 5 classes and asks a random sample of students from those classes to fill out the survey.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-reading-paper">
+      <exercise xml:id="reading_paper">
         <title>Reading the paper</title>
         <statement>
-          <p>Evaluate conclusions in two news articles: smoking and dementia; sleep disorders and bullying.</p>
+          <p>
+            Below are excerpts from two 
+articles published in the <em>NY Times</em>:
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                An article titled <em>Risks: Smokers Found More Prone to Dementia</em> 
+states the following: <fn>Citation: news:smokingDementia</fn>
+
+{\footnotesize "Researchers analyzed data from 23,123 health plan members who 
+participated in a voluntary exam and health behavior survey from 1978 to 1985, 
+when they were 50-60 years old. 23 years later, about 25\% of the group had 
+dementia, including 1,136 with Alzheimer's disease and 416 with vascular 
+dementia. After adjusting for other factors, the researchers concluded that 
+pack-a-day smokers were 37\% more likely than nonsmokers to develop dementia, 
+and the risks went up with increased smoking; 44\% for one to two packs a day; 
+and twice the risk for more than two packs."}
+
+Based on this study, can we conclude that smoking causes dementia later in 
+life? Explain your reasoning.
+              </p>
+            </li>
+            <li>
+              <p>
+                Another article titled <em>The School Bully Is Sleepy</em> states the 
+following: <fn>Citation: news:bullySleep</fn>
+
+{\footnotesize "The University of Michigan study, collected survey data from 
+parents on each child's sleep habits and asked both parents and teachers to 
+assess behavioral concerns. About a third of the students studied were 
+identified by parents or teachers as having problems with disruptive behavior 
+or bullying. The researchers found that children who had behavioral issues and 
+those who were identified as bullies were twice as likely to have shown 
+symptoms of sleep disorders."}
+
+A friend of yours who read the article says, "The study shows that sleep 
+disorders lead to bullying in school children." Is this statement justified? 
+If not, how best can you describe the conclusion that can be drawn from this 
+study?
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
+
     </exercises>
   </section>
 
@@ -1761,67 +2172,195 @@
     <exercises>
       <title>Exercises</title>
 
-      <exercise xml:id="ex-light-exam-performance">
+      <exercise xml:id="light_exam_performance">
         <title>Light and exam performance</title>
         <statement>
-          <p>Design: compare lighting types on exam performance, blocking by sex. Identify response, explanatory variable (with levels), and blocking variable.</p>
+          <p>
+            A study is designed to 
+test the effect of light level on exam performance of students. The researcher believes 
+that light levels might have different effects on males and females, so wants to make 
+sure both are equally represented in each treatment. The treatments are fluorescent 
+overhead lighting, yellow overhead lighting, no overhead lighting (only desk lamps).
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What is the response variable?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the explanatory variable? What are its levels?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the blocking variable? What are its levels?
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-vitamin-supplement">
+      <exercise xml:id="vitamin_supplement">
         <title>Vitamin supplements</title>
         <statement>
-          <p>Study with placebo, 1g, 3g vitamin C, 3g vitamin C plus additives; appearance identical. Nurses know assignments; assessors are blinded. No significant differences found.</p>
-          <ol marker="a.">
-            <li><p>Experiment or observational?</p></li>
-            <li><p>Explanatory and response variables?</p></li>
-            <li><p>Were patients blinded?</p></li>
-            <li><p>Was it double-blind?</p></li>
-            <li><p>Does non-adherence introduce confounding?</p></li>
+          <p>
+            To assess the effectiveness of taking large doses
+of vitamin C in reducing the duration of the common cold, 
+researchers recruited 400 healthy volunteers from staff
+and students at a university.
+A quarter of the patients were assigned a placebo,
+and the rest were evenly divided between 1g Vitamin C,
+3g Vitamin C, or 3g Vitamin C plus additives to be
+taken at onset of a cold for the following two days.
+All tablets had identical appearance and packaging.
+The nurses who handed the prescribed pills to the
+patients knew which patient received which treatment,
+but the researchers assessing the patients when they
+were sick did not. 
+No significant differences were observed in any measure
+of cold duration or severity between the four groups,
+and the placebo group had the shortest duration of 
+symptoms.<fn>Citation: Audera:2001</fn>
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Was this an experiment or an observational study? Why?
+              </p>
+            </li>
+            <li>
+              <p>
+                What are the explanatory and response variables in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                Were the patients blinded to their treatment?
+              </p>
+            </li>
+            <li>
+              <p>
+                Was this study double-blind?
+              </p>
+            </li>
+            <li>
+              <p>
+                Participants are ultimately able to choose whether or not to use the pills 
+prescribed to them. We might expect that not all of them will adhere and take their 
+pills. Does this introduce a confounding variable to the study? Explain your reasoning.
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-light-noise-exam">
+      <exercise xml:id="light_noise_exam_performance">
         <title>Light, noise, and exam performance</title>
         <statement>
-          <p>Design tests light (3 levels) and noise (3 levels) on exam performance, blocking by sex.</p>
-          <ol marker="a.">
-            <li><p>What type of study?</p></li>
-            <li><p>How many factors? List factors and levels.</p></li>
-            <li><p>Role of sex variable?</p></li>
+          <p>
+            A study is 
+designed to test the effect of light level and noise level on exam performance of 
+students. The researcher believes that light and noise levels might have different 
+effects on males and females, so wants to make sure both are equally represented in each 
+treatment. The light treatments considered are fluorescent overhead lighting, yellow 
+overhead lighting, no overhead lighting (only desk lamps). The noise treatments 
+considered are no noise, construction noise, and human chatter noise.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                How many factors are considered in this study? Identify them, and describe their 
+levels.
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the role of the sex variable in this study?
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-music-learning">
+      <exercise xml:id="music_learning">
         <title>Music and learning</title>
         <statement>
-          <p>Outline an experiment comparing study with no music, instrumental music, or music with lyrics.</p>
+          <p>
+            You would like to conduct an experiment in 
+class to see if students learn better if they study without any music, with music that 
+has no lyrics (instrumental), or with music that has lyrics. Briefly outline a design for 
+this study.
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-soda-preference">
+      <exercise xml:id="soda_preference">
         <title>Soda preference</title>
         <statement>
-          <p>Outline an experiment to compare regular Coke vs. Diet Coke preference.</p>
+          <p>
+            You would like to conduct an experiment in 
+class to see if your classmates prefer the taste of regular Coke or Diet Coke. Briefly 
+outline a design for this study.
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-exercise-mental-health">
+      <exercise xml:id="exercise_mental_health">
         <title>Exercise and mental health</title>
         <statement>
-          <p>A stratified randomized study assigns half of each age group (18-30, 31-40, 41-55) to exercise twice a week and half to no exercise; mental health measured pre/post.</p>
-          <ol marker="a.">
-            <li><p>Study type?</p></li>
-            <li><p>Treatment and control groups?</p></li>
-            <li><p>Is blocking used? What variable?</p></li>
-            <li><p>Is blinding used?</p></li>
-            <li><p>Can results establish causation and generalize? Explain.</p></li>
-            <li><p>Any reservations about funding this study?</p></li>
+          <p>
+            A researcher is interested 
+in the effects of exercise on mental health and he proposes the following study: Use 
+stratified random sampling to ensure representative proportions of 18-30, 31-40 and 41-
+55 year olds from the population. Next, randomly assign half the subjects from each age 
+group to exercise twice a week, and instruct the rest not to exercise. Conduct a mental 
+health exam at the beginning and at the end of the study, and compare the results.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                What are the treatment and control groups in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                Does this study make use of blocking? If so, what is the blocking variable?
+              </p>
+            </li>
+            <li>
+              <p>
+                Does this study make use of blinding?
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not the results of the study can be used to establish a 
+causal relationship between exercise and mental health, and indicate whether or not the 
+conclusions can be generalized to the population at large.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose you are given the task of determining if this proposed study should get 
+funding. Would you have any reservations about the study proposal?
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
+
     </exercises>
   </section>
 
@@ -1830,131 +2369,438 @@
     <exercises>
       <title>Review exercises</title>
 
-      <exercise xml:id="ex-pet-names">
+      <exercise xml:id="seattle_pet_names">
         <title>Pet names</title>
         <statement>
           <p>
-            Seattle pet registry data show proportions of cats and dogs with each name. A scatterplot compares name popularity.
+            The city of Seattle, WA has an open data portal that
+includes pets registered in the city.
+For each registered pet,
+we have information on the pet's name and species.
+The following visualization plots the proportion of dogs
+with a given name versus the proportion of cats with the
+same name.
+The 20 most common cat and dog names are displayed.
+The diagonal line on the plot is the <m>x = y</m> line;
+if a name appeared on this line, the name's popularity
+would be exactly the same for dogs and cats.
           </p>
-          <figure xml:id="fig-pet-names">
-            <caption>Cat vs. dog name popularity</caption>
-            <image source="ch_intro_to_data/figures/eoce/seattle_pet_names/seattle_pet_names.png" width="90%">
-              <description>Scatterplot of name proportions for cats and dogs; includes diagonal x=y line.</description>
-            </image>
-          </figure>
-          <ol marker="a.">
-            <li><p>Experiment or observational study?</p></li>
-            <li><p>Most common dog and cat names?</p></li>
-            <li><p>Which names are more common for cats than dogs?</p></li>
-            <li><p>Is the relationship positive or negative? Interpret.</p></li>
+          <ol marker="a">
+            <li>
+              <p>
+                Are these data collected as part of an experiment
+ or an observational study?
+              </p>
+            </li>
+            <li>
+              <p>
+                What is the most common dog name? What is the most
+ common cat name?
+              </p>
+            </li>
+            <li>
+              <p>
+                What names are more common for cats than dogs?
+              </p>
+            </li>
+            <li>
+              <p>
+                Is the relationship between the two variables
+ positive or negative? 
+ What does this mean in context of the data?
+              </p>
+            </li>
           </ol>
+          <p>
+            \
+          </p>
+          <p>
+            [Figure: seattle_pet_names - A scatterplot is shown, where each point is labeled with a pet name. The horizontal axis represents "Proportion of cats" and runs from 0.002 to 0.010. The vertical axis represents "Proportion of dogs" and runs from 0.002 to 0.010. There is also a diagonal line (y = x), and only two points fall below this line: "Oliver" at about (0.0045, 0.004) and "Lily" at about (0.005, 0.004). There is a slightly positive trend in the data, the most extreme cases (highest proportions for dogs or cats) are "Lucy" at (0.006, 0.0095), "Charlie" at (0.005, 0.009), "Luna" at (0.0065, 0.007), and "Bella" at (0.005, 0.007).]
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-stressed-out-part2">
+      <exercise xml:id="stressed_out_experiment">
         <title>Stressed out, Part II</title>
         <statement>
-          <p>Half of subjects are randomly assigned to a stressful falling-elevator experience; half to no stress. Determine study type and whether causation can be concluded.</p>
+          <p>
+            In a study evaluating the 
+relationship between stress and muscle cramps, half the subjects are randomly assigned to be exposed to increased stress by being placed into an elevator that falls rapidly and stops abruptly and the other half are left at no or baseline stress.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Can this study be used to conclude a causal relationship between increased stress 
+and muscle cramps?
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-chia-weight-loss">
+      <exercise xml:id="chia_weight_lostt">
         <title>Chia seeds and weight loss</title>
         <statement>
-          <p>38 men and 38 women randomly assigned to chia seeds or placebo for 12 weeks; volunteers. No significant differences found.</p>
-          <ol marker="a.">
-            <li><p>Study type?</p></li>
-            <li><p>Experimental and control treatments?</p></li>
-            <li><p>Was blocking used? If so, what variable?</p></li>
-            <li><p>Was blinding used?</p></li>
-            <li><p>Can we make causal statements? Can we generalize?</p></li>
+          <p>
+            Chia Pets -- those terra-cotta 
+figurines that sprout fuzzy green hair -- made the chia plant a household name. But chia 
+has gained an entirely new reputation as a diet supplement. In one 2009 study, a team 
+of researchers recruited 38 men and divided them randomly into two groups: treatment or 
+control. They also recruited 38 women, and they randomly placed half of these 
+participants into the treatment group and the other half into the control group. One 
+group was given 25 grams of chia seeds twice a day, and the other was given a placebo. 
+The subjects volunteered to be a part of the study. After 12 weeks, the scientists found 
+no significant difference between the groups in appetite or weight loss. 
+<fn>Citation: Nieman:2009</fn>
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                What are the experimental and control treatments in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                Has blocking been used in this study? If so, what is the blocking variable?
+              </p>
+            </li>
+            <li>
+              <p>
+                Has blinding been used in this study?
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether or not we can make a causal statement, and indicate whether or 
+not we can generalize the conclusion to the population at large.
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-city-council-survey">
+      <exercise xml:id="city_council_survey">
         <title>City council survey</title>
         <statement>
-          <p>Household survey across diverse neighborhoods. For each sampling plan (simple random; stratified by neighborhood; cluster; multistage; convenience), name the method and discuss pros/cons.</p>
+          <p>
+            A city council has requested a household survey be conducted
+in a suburban area of their city.
+The area is broken into many distinct and unique neighborhoods,
+some including large homes, some with only apartments, and others
+a diverse mixture of housing structures.
+For each part below,
+identify the sampling methods described,
+and describe the statistical pros and cons of the method
+in the city's context.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Randomly sample 200 households from the city.
+              </p>
+            </li>
+            <li>
+              <p>
+                Divide the city into 20 neighborhoods,
+ and sample 10 households from each neighborhood.
+              </p>
+            </li>
+            <li>
+              <p>
+                Divide the city into 20 neighborhoods,
+ randomly sample 3 neighborhoods,
+ and then sample all households from those 3 neighborhoods.
+              </p>
+            </li>
+            <li>
+              <p>
+                Divide the city into 20 neighborhoods,
+ randomly sample 8 neighborhoods,
+ and then randomly sample 50 households
+ from those neighborhoods.
+              </p>
+            </li>
+            <li>
+              <p>
+                Sample the 200 households closest to the city council offices.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-flawed-reasoning">
+      <exercise xml:id="flawed_reasoning">
         <title>Flawed reasoning</title>
         <statement>
-          <p>Identify flaws and improvements in three scenarios: parent questionnaires on work schedule; follow-up survey with attrition; doctor surveying runners about joint problems.</p>
+          <p>
+            Identify the flaw(s) in reasoning 
+in the following scenarios. Explain what the individuals in the study should 
+have done differently if they wanted to make such strong conclusions.
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                Students at an elementary school are given a questionnaire that they 
+are asked to return after their parents have completed it. One of the questions 
+asked is, "Do you find that your work schedule makes it difficult for you to 
+spend time with your kids after school?" Of the parents who replied, 85\% said 
+"no". Based on these results, the school officials conclude that a great 
+majority of the parents have no difficulty spending time with their kids 
+after school.
+              </p>
+            </li>
+            <li>
+              <p>
+                A survey is conducted on a simple random sample of 1,000 women who 
+recently gave birth, asking them about whether or not they smoked during 
+pregnancy. A follow-up survey asking if the children have respiratory problems 
+is conducted 3 years later.
+However, only 567 of these women are reached at the 
+same address. The researcher reports that these 567 women are representative 
+of all mothers.
+              </p>
+            </li>
+            <li>
+              <p>
+                An orthopedist administers a questionnaire to 30 of his patients who do 
+not have any joint problems and finds that 20 of them regularly go running. 
+He concludes that running decreases the risk of joint problems.
+              </p>
+            </li>
+          </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-income-education-county">
+      <exercise xml:id="income_education_county">
         <title>Income and education in US counties</title>
         <statement>
-          <p>Scatterplot of per capita income vs. percent with bachelor’s degree for US counties.</p>
-          <figure xml:id="fig-county-income-education">
-            <caption>Income vs. education</caption>
-            <image source="ch_intro_to_data/figures/eoce/county_income_education/county_income_education_scatterplot.png" width="85%">
-              <description>Scatterplot of income vs percent with bachelor’s degree for US counties.</description>
-            </image>
-          </figure>
-          <ol marker="a.">
-            <li><p>Identify explanatory and response variables.</p></li>
-            <li><p>Describe the relationship and any unusual observations.</p></li>
-            <li><p>Can we conclude having a bachelor’s degree increases income?</p></li>
+          <p>
+            The scatterplot below shows the relationship between per capita income 
+(in thousands of dollars) and percent of population with a bachelor's 
+degree in 3,143 counties in the US in 2010.
+          </p>
+          <p>
+            \begin{minipage}[c]{0.44\textwidth}
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What are the explanatory and response variables?
+              </p>
+            </li>
+            <li>
+              <p>
+                Describe the relationship between the two variables. Make sure to discuss 
+unusual observations, if any.
+              </p>
+            </li>
+            <li>
+              <p>
+                Can we conclude that having a bachelor's degree increases one's income?
+              </p>
+            </li>
           </ol>
+          <p>
+            [Figure: county_income_education_scatterplot - A scatterplot is shown, with "Percent with Bachelor's Degree" on the horizontal axis (running 0\% to 80\%) and "Per Capita Income" on the vertical axis (running \<m>0 to \</m>65,000). Many thousands of points are shown. For those points with Percent with Bachelor's Degree between 0\% to 20\%, the points typically lie between the vertical ranges of \<m>10,000 and \</m>25,000. For those between 20\% to 40\% on the horizontal, the points lie mostly between \<m>15,000 and \</m>35,000 on the vertical. For those between 40\% and 60\%, the points mostly lie between \<m>25,000 and \</m>45,000. There are only about 5 points with percentages larger than 60\%, and these all lie above \$45,000 on the vertical.]
+          </p>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-eat-better-feel-better">
+      <exercise xml:id="eat_better_feel_better">
         <title>Eat better, feel better</title>
         <statement>
-          <p>Randomized study of three interventions to increase fruit/vegetable intake among university students; only the group given servings showed improved psychological well-being.</p>
-          <ol marker="a.">
-            <li><p>Study type?</p></li>
-            <li><p>Explanatory and response variables?</p></li>
-            <li><p>Can results be generalized?</p></li>
-            <li><p>Can results establish causality?</p></li>
-            <li><p>Revise a headline claiming “proof” accordingly.</p></li>
+          <p>
+            In a public health 
+study on the effects of consumption of fruits and vegetables on psychological 
+well-being in young adults, participants were randomly assigned to three 
+groups: (1) diet-as-usual, (2) an ecological momentary intervention involving 
+text message reminders to increase their fruits and vegetable consumption plus 
+a voucher to purchase them, or (3) a fruit and vegetable intervention in 
+which participants were given two additional daily servings of fresh fruits and 
+vegetables to consume on top of their normal diet. Participants were asked to 
+take a nightly survey on their smartphones.
+Participants were student volunteers at the University of 
+Otago, New Zealand.
+At the end of the 14-day study, only participants in the third
+group showed improvements to their psychological well-being across
+the 14-days relative to the other groups.<fn>Citation: conner2017let</fn>
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the explanatory and response variables.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether the results of the study can be generalized to
+ the population.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether the results of the study can be used to establish
+ causal relationships.
+              </p>
+            </li>
+            <li>
+              <p>
+                A newspaper article reporting on the study states,
+ "The results of this study provide proof that giving young adults
+ fresh fruits and vegetables to eat can have psychological benefits,
+ even over a brief period of time."
+ How would you suggest revising this statement so that it can be
+ supported by the study?
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-screen-time-well-being">
+      <exercise xml:id="screen_time_well_being">
         <title>Screens, teens, and psychological well-being</title>
         <statement>
-          <p>Large observational diary study of screen time and well-being for teens (n=17,247) with covariates. Concluded little clear evidence of harm.</p>
-          <ol marker="a.">
-            <li><p>Study type?</p></li>
-            <li><p>Explanatory variables?</p></li>
-            <li><p>Response variable?</p></li>
-            <li><p>Can results be generalized? Why?</p></li>
-            <li><p>Can results establish causation?</p></li>
+          <p>
+            In a study of three nationally representative large-scale data sets from Ireland, 
+the United States, and the United Kingdom (n = 17,247), teenagers between the 
+ages of 12 to 15 were asked to keep a diary of their screen time and answer questions about how they felt or acted.
+The answers to these questions 
+were then used to compute a psychological well-being score.
+Additional data were collected and included in the analysis,
+such as each child's sex and age, and on the mother’s education,
+ethnicity, psychological distress, and employment.
+The study concluded that there is little clear-cut evidence
+that screen time decreases adolescent
+well-being.<fn>Citation: orben2018screens</fn>
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What type of study is this?
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the explanatory variables.
+              </p>
+            </li>
+            <li>
+              <p>
+                Identify the response variable.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether the results of the study can be generalized
+ to the population, and why.
+              </p>
+            </li>
+            <li>
+              <p>
+                Comment on whether the results of the study can be used
+ to establish causal relationships.
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-stanford-open-policing">
+      <exercise xml:id="stanford_open_policing">
         <title>Stanford Open Policing</title>
         <statement>
-          <p>Summary table shows stops per year, search and arrest rates by county, state, and driver race.</p>
-          <ol marker="a.">
-            <li><p>List variables collected per traffic stop.</p></li>
-            <li><p>Classify each variable (numerical/categorical; continuous/discrete; ordinal).</p></li>
-            <li><p>For analyzing search rates by race, identify response and explanatory variables.</p></li>
+          <p>
+            The Stanford Open Policing project gathers, analyzes, and
+releases records from traffic stops by law enforcement 
+agencies across the United States.
+Their goal is to help researchers, journalists, and policymakers
+investigate and improve interactions between police and the
+public.<fn>Citation: pierson2017large</fn>
+The following is an excerpt from a summary table created based off of the data 
+collected as part of this project.
+          </p>
+          <p>
+            [Table omitted - see LaTeX source]
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What variables were collected on each individual traffic stop
+ in order to create to the summary table above?
+              </p>
+            </li>
+            <li>
+              <p>
+                State whether each variable is numerical or categorical.
+ If numerical, state whether it is continuous or discrete.
+ If categorical, state whether it is ordinal or not.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose we wanted to evaluate whether vehicle search rates
+ are different for drivers of different races.
+ In this analysis, which variable would be the response
+ variable and which variable would be the explanatory variable?
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
 
-      <exercise xml:id="ex-space-launches">
+      <exercise xml:id="space_launches">
         <title>Space launches</title>
         <statement>
-          <p>Table shows launch outcomes by agency type (Private, State, Startup) and era (1957-1999, 2000-2018).</p>
-          <ol marker="a.">
-            <li><p>Variables collected per launch?</p></li>
-            <li><p>Classify each variable.</p></li>
-            <li><p>For studying success rates across agencies and time, identify response and explanatory variables.</p></li>
+          <p>
+            The following summary table shows the number of space
+launches in the US by the type of launching agency and
+the outcome of the launch (success or
+failure).<fn>Citation: data:spacelaunches</fn>
+          </p>
+          <p>
+            [Table omitted - see LaTeX source]
+          </p>
+          <ol marker="a">
+            <li>
+              <p>
+                What variables were collected on each launch in order
+ to create to the summary table above?
+              </p>
+            </li>
+            <li>
+              <p>
+                State whether each variable is numerical or categorical.
+ If numerical, state whether it is continuous or discrete.
+ If categorical, state whether it is ordinal or not.
+              </p>
+            </li>
+            <li>
+              <p>
+                Suppose we wanted to study how the success rate of
+ launches vary between launching agencies and over time.
+ In this analysis, which variable would be the response
+ variable and which variable would be the explanatory
+ variable?
+              </p>
+            </li>
           </ol>
         </statement>
       </exercise>
+
     </exercises>
   </section>
 
