@@ -609,7 +609,7 @@
               </p>
             </stack>
             <image source="ch_regr_simple_linear/figures/eoce/body_measurements_hip_weight_corr_units/body_measurements_weight_hip_girth">
-              <description>A scatter plot with several hundred points is shown. The horizontal axis represents "Hip Girth (cm)" with values ranging from about 80 to 115, with about 4 observations with larger hip girth up to about 130 cm. The vertical axis represents "Weight (kg)" with values ranging from about 40 to 105, with a few observations with larger weights up to 120. For points where Hip Girth is smaller than 90, 95% of points have weight between roughly 45 and 60. For points where Hip Girth is between 90 and 100, 95% of points have heights between roughly 50 and 80. For points where Hip Girth is between 100 and 110, 95% of points have heights between roughly 65 and 90. For points where Hip Girth is between 110 and 115, points have heights between roughly 70 and 105. There are four additional points located at about (115, 120), (115, 90), (118, 90), and (128, 105).</description>
+              <description>A scatter plot with several hundred points is shown. The horizontal axis represents "Hip Girth (cm)" with values ranging from about 80 to 115, with about 4 observations with larger hip girth up to about 130 cm. The vertical axis represents "Weight (kg)" with values ranging from about 40 to 105, with a few observations with larger weights up to 120. For points where Hip Girth is smaller than 90, 95% of points have weight between roughly 45 and 60. For points where Hip Girth is between 90 and 100, 95% of points have weight between roughly 50 and 80. For points where Hip Girth is between 100 and 110, 95% of points have weight between roughly 65 and 90. For points where Hip Girth is between 110 and 115, points have weight between roughly 70 and 105. There are four additional points located at about (115, 120), (115, 90), (118, 90), and (128, 105).</description>
             </image>
           </sidebyside>
         </statement>
@@ -619,7 +619,7 @@
         <title>Correlation, Part I</title>
         <statement>
           <p>
-            What would be the correlation between the ages of husbands and wives if men always married woman who were
+            What would be the correlation between the ages of husbands and wives if men always married women who were
           </p>
           <p>
             <ol>
@@ -669,7 +669,7 @@
       <figure xml:id="fig-elmhurstScatterW2Lines">
         <caption>Gift aid and family income for a random sample of 50 freshman students from Elmhurst College. Two lines are fit to the data, the solid line being the <em>least squares line</em>.</caption>
         <image source="ch_regr_simple_linear/figures/elmhurstScatterW2Lines" width="67%">
-          <description>A scatterplot is shown for a random sample of 50 freshman students from Elmhurst College. The horizontal axis is for "family income" and has values ranging from $0 to about $300,000. The vertical axis is for "gift aid" and has values ranging from $0 to about $35,000. Two lines are fit to the data, which show a downward trend, representing a slight downward trend in the data. One of those lines is a solid line representing what is called the "least squares line". About 10 observations are shown where family income is between $0 and $50,000, and gift aid for these values is roughly between $17,000 and $28,000. About 20 observations are shown where family income is between $50,000 and $100,000, and gift aid for these values is roughly between $10,000 and $33,000. About 10 observations are shown where family income is between $100,000 and $150,000, and gift aid for these values is roughly between $9,000 and $25,000. Three observations are shown where family income is between $150,000 and $200,000, and gift aid for these values of $25,000, $12,000, and $13,000. Six more observations are shown where family income is larger than $200,000, and gift aid for these values range from about $7,000 to $22,000, $12,000, and $13,000. The data in this graph will be frequently discussed throughout this section and referred to as the "Elmhurst data".</description>
+          <description>A scatterplot is shown for a random sample of 50 freshman students from Elmhurst College. The horizontal axis is for "family income" and has values ranging from $0 to about $300,000. The vertical axis is for "gift aid" and has values ranging from $0 to about $35,000. Two lines are fit to the data showing a slight downward trend. One of those lines is a solid line representing what is called the "least squares line". About 10 observations are shown where family income is between $0 and $50,000, and gift aid for these values is roughly between $17,000 and $28,000. About 20 observations are shown where family income is between $50,000 and $100,000, and gift aid for these values is roughly between $10,000 and $33,000. About 10 observations are shown where family income is between $100,000 and $150,000, and gift aid for these values is roughly between $9,000 and $25,000. Three observations are shown where family income is between $150,000 and $200,000, and gift aid for these values are $25,000, $12,000, and $13,000. Six more observations are shown where family income is larger than $200,000, and gift aid for these values ranges from about $7,000 to $22,000. The data in this graph will be frequently discussed throughout this section and referred to as the "Elmhurst data".</description>
         </image>
       </figure>
 
@@ -723,7 +723,7 @@
           </li>
           <li>
             <title>Nearly normal residuals</title>
-            <p>Generally, the residuals must be nearly normal. When this condition is found to be unreasonable, it is usually because of outliers or concerns about influential points, which we'll talk about more in <xref ref="sec-outliers-in-regression"/>. An example of a residual that would be a potentially concern is shown in <xref ref="fig-whatCanGoWrongWithLinearModel"/>, where one observation is clearly much further from the regression line than the others.</p>
+            <p>Generally, the residuals must be nearly normal. When this condition is found to be unreasonable, it is usually because of outliers or concerns about influential points, which we'll talk about more in <xref ref="sec-outliers-in-regression"/>. An example of a residual that would be a potential concern is shown in <xref ref="fig-whatCanGoWrongWithLinearModel"/>, where one observation is clearly much further from the regression line than the others.</p>
           </li>
           <li>
             <title>Constant variability</title>
@@ -803,7 +803,7 @@
           </row>
           <row>
             <cell></cell>
-            <cell colspan="2"><m>R=-0.499</m></cell>
+            <cell colspan="2"><m>R = -0.499</m></cell>
           </row>
         </tabular>
       </figure>
@@ -958,7 +958,7 @@
       
       <blockquote>
         <p>
-          <em>When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen. Consider this: On February <m>6^{th}</m> it was 10 degrees. Today it hit almost 80. At this rate, by August it will be 220 degrees. So clearly folks the climate debate rages on.</em>
+          <em>When those blizzards hit the East Coast this winter, it proved to my satisfaction that global warming was a fraud. That snow was freezing cold. But in an alarming trend, temperatures this spring have risen. Consider this: On February 6th it was 10 degrees. Today it hit almost 80. At this rate, by August it will be 220 degrees. So clearly folks the climate debate rages on.</em>
         </p>
         <attribution>Stephen Colbert, April 6th, 2010<fn>www.cc.com/video-clips/l4nkoq</fn></attribution>
       </blockquote>
@@ -1207,7 +1207,7 @@
       <exercise xml:id="ex-coast-starlight-reg">
         <statement>
           <p>
-            <em>The Coast Starlight, Part II.</em> Exercise 8.1.9 introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 mins, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.
+            <em>The Coast Starlight, Part II.</em> An earlier exercise introduces data on the Coast Starlight Amtrak train that runs from Seattle to Los Angeles. The mean travel time from one stop to the next on the Coast Starlight is 129 minutes, with a standard deviation of 113 minutes. The mean distance traveled from one stop to the next is 108 miles with a standard deviation of 99 miles. The correlation between travel time and distance is 0.636.
           </p>
           <p>
             <ol>
@@ -1215,7 +1215,7 @@
               <li><p>Interpret the slope and the intercept in this context.</p></li>
               <li><p>Calculate <m>R^2</m> of the regression line for predicting travel time from distance traveled for the Coast Starlight, and interpret <m>R^2</m> in the context of the application.</p></li>
               <li><p>The distance between Santa Barbara and Los Angeles is 103 miles. Use the model to estimate the time it takes for the Starlight to travel between these two cities.</p></li>
-              <li><p>It actually takes the Coast Starlight about 168 mins to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.</p></li>
+              <li><p>It actually takes the Coast Starlight about 168 minutes to travel from Santa Barbara to Los Angeles. Calculate the residual and explain the meaning of this residual value.</p></li>
               <li><p>Suppose Amtrak is considering adding a stop to the Coast Starlight 500 miles away from Los Angeles. Would it be appropriate to use this linear model to predict the travel time from Los Angeles to this point?</p></li>
             </ol>
           </p>
@@ -1225,7 +1225,7 @@
       <exercise xml:id="ex-body-measurements-shoulder-height-reg">
         <statement>
           <p>
-            <em>Body measurements, Part III.</em> Exercise 8.1.10 introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.
+            <em>Body measurements, Part III.</em> An earlier exercise introduces data on shoulder girth and height of a group of individuals. The mean shoulder girth is 107.20 cm with a standard deviation of 10.37 cm. The mean height is 171.14 cm with a standard deviation of 9.41 cm. The correlation between height and shoulder girth is 0.67.
           </p>
           <p>
             <ol>
@@ -1234,7 +1234,7 @@
               <li><p>Calculate <m>R^2</m> of the regression line for predicting height from shoulder girth, and interpret it in the context of the application.</p></li>
               <li><p>A randomly selected student from your class has a shoulder girth of 100 cm. Predict the height of this student using the model.</p></li>
               <li><p>The student from part (d) is 160 cm tall. Calculate the residual, and explain what this residual means.</p></li>
-              <li><p>A one year old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child?</p></li>
+              <li><p>A one-year-old has a shoulder girth of 56 cm. Would it be appropriate to use this linear model to predict the height of this child?</p></li>
             </ol>
           </p>
         </statement>
