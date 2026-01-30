@@ -19,6 +19,12 @@
 </figure>
 <p> Test 3 </p>
 
+<figure xml:id="xyu673">
+    <image source="Screenshot_20221025_114715.png" width="50%"/>
+    <caption>Optional caption for the image</caption>
+</figure>
+<p> Test 4 </p>
+
   </introduction>
 
   <!-- Section 1.1: Case study using stents to prevent strokes -->
