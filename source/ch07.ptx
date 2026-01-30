@@ -3966,7 +3966,7 @@
               <li>
                 <p>
                   The college counselor takes another random sample of 100 students and this time finds 
-                  a sample mean of 14.02 units. Should she be surprised that this sample statistic is 
+                  a sample mean of 14.02 credits. Should she be surprised that this sample statistic is 
                   slightly different than the one from the original sample? Explain your reasoning.
                 </p>
               </li>
@@ -4109,7 +4109,7 @@
               </li>
               <li>
                 <p>
-                  Using your answer from part (c) and that the original experiment was a 1% vs 1% 
+                  Use your answer from part (c) and the fact that the original experiment was a 1% vs 1% 
                   experiment to recommend an experiment size to the team.
                 </p>
               </li>
@@ -4290,7 +4290,7 @@
             </image>
           </figure>
           <p>
-            Estimate the average number of exclusive relationships Duke students have been in using a 90% 
+            Estimate the average number of exclusive relationships students have been in using a 90% 
             confidence interval and interpret this interval in context. Check any conditions required for 
             inference, and note any assumptions you must make as you proceed with your calculations and 
             conclusions.

@@ -2025,7 +2025,7 @@
             <figure xml:id="fig-trees-volume-diameter">
               <caption>Volume vs Diameter</caption>
               <image source="ch_regr_simple_linear/figures/eoce/trees_volume_height_diameter/trees_volume_diameter" width="100%">
-                <description>A scatterplot is shown with around 30 points. The horizontal axis is for "Diameter, in inches" and takes values between 8 and 22 inches. The vertical axis is for "Volume, in cubic feet" and takes values between 8 and 80 cubic feet. About 15 points with circumferences smaller than 12 inches, volumes range from about 8 to 25 cubic feet. For the approximately ten points with circumferences between 12 and 16 feet, volumes range from 22 to 35 cubic feet. For the 6 points with circumferences larger than 16 inches, volumes range from 40 to 60 cubic feet, with one outlier with a circumference of 22 inches and a volume of about 80 cubic feet.</description>
+                <description>A scatterplot is shown with around 30 points. The horizontal axis is for "Diameter, in inches" and takes values between 8 and 22 inches. The vertical axis is for "Volume, in cubic feet" and takes values between 8 and 80 cubic feet. About 15 points with diameters smaller than 12 inches have volumes ranging from about 8 to 25 cubic feet. For the approximately ten points with diameters between 12 and 16 inches, volumes range from 22 to 35 cubic feet. For the 6 points with diameters larger than 16 inches, volumes range from 40 to 60 cubic feet, with one outlier with a diameter of 22 inches and a volume of about 80 cubic feet.</description>
               </image>
             </figure>
           </sidebyside>
@@ -2343,7 +2343,7 @@
             </row>
             <row>
               <cell>beauty</cell>
-              <cell></cell>
+              <cell>0.1325</cell>
               <cell>0.0322</cell>
               <cell>4.13</cell>
               <cell>0.0000</cell>
