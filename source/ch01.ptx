@@ -14,10 +14,10 @@
     </p>
 
 <figure xml:id="figure-name">
-    <image source="../latex/images/ch_inference_for_props/figures/bladesTwoSampleHTPValueQC/bladesTwoSampleHTPValueQC.pdf" width="50%"/>
+    <image source="../latex/ch_inference_for_props/figures/bladesTwoSampleHTPValueQC/bladesTwoSampleHTPValueQC.pdf" width="50%"/>
     <caption>Optional caption for the image</caption>
 </figure>
-<p> Test 2 </p>
+<p> Test 3 </p>
 
   </introduction>
 
