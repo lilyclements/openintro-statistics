@@ -2918,6 +2918,77 @@
         they do impact the expected value computations.
       </p>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec34-expected-value">
+        <title>Expected value calculation</title>
+        <statement>
+          <p>
+            A lottery ticket costs $2. You have a 1/1000 chance of winning $500, a 1/100 chance of winning 
+            $10, and otherwise you win nothing. What is the expected value of buying one lottery ticket? 
+            Should you expect to make or lose money in the long run?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec34-discrete-probability-distribution">
+        <title>Discrete probability distribution</title>
+        <statement>
+          <p>
+            A random variable X represents the number of heads when flipping three fair coins. Create a 
+            probability distribution table for X showing all possible values and their probabilities. Verify 
+            that the probabilities sum to 1.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec34-variance-calculation">
+        <title>Variance of a random variable</title>
+        <statement>
+          <p>
+            Given a random variable Y with the following probability distribution: P(Y=1)=0.3, P(Y=2)=0.5, 
+            P(Y=3)=0.2. Calculate the expected value, variance, and standard deviation of Y.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec34-linear-combination">
+        <title>Linear combination of random variables</title>
+        <statement>
+          <p>
+            Suppose X has mean 10 and standard deviation 2, and Y has mean 15 and standard deviation 3. 
+            If X and Y are independent, find the mean and standard deviation of the random variable 
+            Z = 2X + 3Y.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec34-binomial-scenario">
+        <title>Binomial random variable</title>
+        <statement>
+          <p>
+            A basketball player makes 70% of her free throws. If she attempts 10 free throws in a game, 
+            what is the probability she makes exactly 7 of them? What is the expected number of successful 
+            free throws?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec34-sum-of-random-variables">
+        <title>Sum of random variables</title>
+        <statement>
+          <p>
+            A teacher gives two quizzes. Quiz 1 scores have a mean of 80 and standard deviation of 8. 
+            Quiz 2 scores have a mean of 75 and standard deviation of 10. Assuming the quizzes are independent, 
+            what is the mean and standard deviation of the total score (sum of both quizzes)?
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 3.5: Continuous distributions -->
@@ -3079,6 +3150,77 @@
         </solution>
       </exercise>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec35-normal-distribution">
+        <title>Normal distribution properties</title>
+        <statement>
+          <p>
+            A continuous random variable X follows a normal distribution with mean <m>\mu = 100</m> and 
+            standard deviation <m>\sigma = 15</m>. Without calculating exact probabilities, describe where 
+            approximately 68%, 95%, and 99.7% of the data should fall according to the empirical rule.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec35-probability-density">
+        <title>Probability density function</title>
+        <statement>
+          <p>
+            Explain why the probability that a continuous random variable takes on any exact value is zero. 
+            How does this differ from discrete random variables? Why do we need to consider intervals for 
+            continuous variables?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec35-area-under-curve">
+        <title>Area under the curve</title>
+        <statement>
+          <p>
+            The heights of adult males follow approximately a normal distribution with mean 175 cm and 
+            standard deviation 7 cm. If you want to find the proportion of males taller than 182 cm, 
+            what area under the probability density curve would you need to calculate?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec35-continuous-vs-discrete">
+        <title>Continuous vs. discrete distributions</title>
+        <statement>
+          <p>
+            Compare and contrast probability calculations for discrete and continuous random variables. 
+            Specifically, address how you would calculate P(X = 5) for each type and P(X ≤ 5) for each type.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec35-uniform-distribution">
+        <title>Uniform distribution</title>
+        <statement>
+          <p>
+            A random variable Y is uniformly distributed between 0 and 10, meaning it is equally likely to 
+            take any value in this interval. What is the probability that Y falls between 3 and 7? Draw a 
+            diagram showing the probability density function and shade the appropriate area.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec35-percentiles">
+        <title>Percentiles in continuous distributions</title>
+        <statement>
+          <p>
+            Test scores are normally distributed with mean 500 and standard deviation 100. The 90th percentile 
+            score is approximately 628. Explain what this means in terms of the area under the probability 
+            density curve. What percentage of students scored above 628?
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 3.6: Chapter review -->
