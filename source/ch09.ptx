@@ -2046,7 +2046,7 @@
     <title>Multiple regression case study: Mario Kart</title>
     
     <p>
-      We'll consider Ebay auctions of a video game called <em>Mario Kart</em> for the Nintendo Wii. The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost. We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables. For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices? And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions? Multiple regression will help us answer these and other questions.
+      We'll consider eBay auctions of a video game called <em>Mario Kart</em> for the Nintendo Wii. The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost. We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables. For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices? And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions? Multiple regression will help us answer these and other questions.
     </p>
     
     <subsection xml:id="subsec-case-study-data-full-model">
@@ -2193,7 +2193,7 @@
       </exercise>
       
       <p>
-        Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on Ebay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.
+        Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on eBay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.
       </p>
       
       <p>
@@ -2321,7 +2321,7 @@
       <title>Model selection</title>
       
       <p>
-        Let's revisit the model for the Mario Kart auction and complete model selection using backwards selection. Recall that the full model took the following form:
+        Let's revisit the model for the Mario Kart auction and complete model selection using backward selection. Recall that the full model took the following form:
         <me>
           \widehat{\text{price}} = 36.21 + 5.13 \times \text{cond\_new} + 1.08 \times \text{stock\_photo} - 0.03 \times \text{duration} + 7.29 \times \text{wheels}
         </me>
@@ -2363,7 +2363,7 @@
       <exercise xml:id="exer-mario-kart-further-elimination">
         <statement>
           <p>
-            In <xref ref="ex-mario-kart-backward-elimination"/>, we eliminated the <c>duration</c> variable, which resulted in a model with <m>R_{adj}^2 = 0.7128</m>. Let's look at if we would eliminate another variable from the model using backwards elimination:
+            In <xref ref="ex-mario-kart-backward-elimination"/>, we eliminated the <c>duration</c> variable, which resulted in a model with <m>R_{adj}^2 = 0.7128</m>. Let's look at if we would eliminate another variable from the model using backward elimination:
           </p>
           <tabular halign="center">
             <row>
