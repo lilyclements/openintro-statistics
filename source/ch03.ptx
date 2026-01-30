@@ -889,6 +889,77 @@
         </solution>
       </example>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec31-basic-probability">
+        <title>Basic probability calculation</title>
+        <statement>
+          <p>
+            A jar contains 5 red marbles, 3 blue marbles, and 2 green marbles. If you randomly select one 
+            marble from the jar, what is the probability that it is red? What is the probability that it is 
+            not red?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec31-complement-rule">
+        <title>Complement rule</title>
+        <statement>
+          <p>
+            If the probability of rain tomorrow is 0.35, what is the probability that it will not rain 
+            tomorrow? Explain how you used the complement rule to find your answer.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec31-disjoint-events">
+        <title>Disjoint events</title>
+        <statement>
+          <p>
+            Consider rolling a standard six-sided die. Let event A be "rolling an even number" and event B 
+            be "rolling a number greater than 4". Are events A and B disjoint? Explain your reasoning and 
+            calculate <m>P(A \text{ or } B)</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec31-addition-rule">
+        <title>General addition rule</title>
+        <statement>
+          <p>
+            In a class of 30 students, 18 play soccer, 12 play basketball, and 8 play both sports. If a 
+            student is selected at random, what is the probability they play soccer or basketball? Use the 
+            general addition rule to solve this problem.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec31-independence">
+        <title>Testing for independence</title>
+        <statement>
+          <p>
+            You flip two fair coins. Let event A be "the first coin shows heads" and event B be "the second 
+            coin shows heads". Are these events independent? Show your work by checking if 
+            <m>P(A \text{ and } B) = P(A) \times P(B)</m>.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec31-venn-diagram">
+        <title>Venn diagram and probability</title>
+        <statement>
+          <p>
+            Draw a Venn diagram to represent two events A and B where <m>P(A) = 0.6</m>, <m>P(B) = 0.5</m>, 
+            and <m>P(A \text{ and } B) = 0.3</m>. Use your diagram to find <m>P(A \text{ or } B)</m> and 
+            <m>P(\text{neither } A \text{ nor } B)</m>.
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 3.2: Conditional probability -->
@@ -1841,6 +1912,79 @@
         very important and useful, we will not have time to cover much more of it in this book.
       </p>
     </subsection>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec32-conditional-probability-basic">
+        <title>Basic conditional probability</title>
+        <statement>
+          <p>
+            A bag contains 4 red balls and 6 blue balls. You draw one ball, do not replace it, then draw 
+            another ball. What is the probability that the second ball is red, given that the first ball 
+            was blue?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec32-conditional-formula">
+        <title>Conditional probability formula</title>
+        <statement>
+          <p>
+            Given that <m>P(A) = 0.4</m>, <m>P(B) = 0.6</m>, and <m>P(A \text{ and } B) = 0.2</m>, calculate 
+            <m>P(A | B)</m> and <m>P(B | A)</m>. What do these values represent?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec32-tree-diagram">
+        <title>Tree diagram for conditional probability</title>
+        <statement>
+          <p>
+            In a medical test, 95% of people with a disease test positive, while 10% of people without the 
+            disease test positive (false positive). If 2% of the population has the disease, draw a tree 
+            diagram to represent this scenario. What is the probability that a randomly selected person tests 
+            positive?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec32-bayes-theorem">
+        <title>Bayes' Theorem application</title>
+        <statement>
+          <p>
+            Continuing from the previous exercise, if a person tests positive for the disease, what is the 
+            probability they actually have the disease? Use Bayes' Theorem to solve this problem.
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec32-independence-conditional">
+        <title>Independence and conditional probability</title>
+        <statement>
+          <p>
+            If events A and B are independent with <m>P(A) = 0.3</m> and <m>P(B) = 0.5</m>, what is 
+            <m>P(A | B)</m>? How does this compare to <m>P(A)</m>? What does this tell you about independent 
+            events?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec32-two-way-table">
+        <title>Conditional probability from a table</title>
+        <statement>
+          <p>
+            A survey of 200 people asked about their exercise habits (yes/no) and whether they have heart 
+            disease (yes/no). The results showed: 60 people exercise and have no heart disease, 10 exercise 
+            and have heart disease, 40 don't exercise and have no heart disease, and 90 don't exercise and 
+            have heart disease. Given that a person exercises, what is the probability they do not have heart 
+            disease?
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 3.3: Sampling from a small population -->
@@ -2011,6 +2155,75 @@
       without replacement and 0.0231 with replacement. When the sample size is only a small fraction of 
       the population (under 10%), observations are nearly independent even when sampling without replacement.
     </p>
+
+    <exercises>
+      <title>Exercises</title>
+
+      <exercise xml:id="ex-sec33-sampling-without-replacement">
+        <title>Sampling without replacement</title>
+        <statement>
+          <p>
+            A box contains 8 red cards and 12 black cards. You draw 3 cards without replacement. What is 
+            the probability that all three cards are red?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec33-sampling-with-replacement">
+        <title>Sampling with replacement</title>
+        <statement>
+          <p>
+            Using the same box from the previous exercise (8 red and 12 black cards), if you draw 3 cards 
+            with replacement, what is the probability that all three cards are red? How does this compare 
+            to sampling without replacement?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec33-committee-selection">
+        <title>Committee selection</title>
+        <statement>
+          <p>
+            A club has 15 members: 9 women and 6 men. A committee of 4 people is to be selected at random. 
+            What is the probability that the committee consists of 2 women and 2 men?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec33-independence-sample-size">
+        <title>Independence and sample size</title>
+        <statement>
+          <p>
+            A factory produces 10,000 items per day. Quality control randomly selects 50 items to inspect. 
+            Even though the sampling is done without replacement, why can we treat the selections as 
+            approximately independent?
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec33-lottery-tickets">
+        <title>Lottery ticket probability</title>
+        <statement>
+          <p>
+            In a lottery, 100 tickets are sold and 5 prizes will be awarded. If you buy 3 tickets, what is 
+            the probability you win at least one prize? (Assume tickets are drawn without replacement and 
+            you can win at most one prize.)
+          </p>
+        </statement>
+      </exercise>
+
+      <exercise xml:id="ex-sec33-deck-of-cards">
+        <title>Drawing cards</title>
+        <statement>
+          <p>
+            You draw 5 cards from a standard 52-card deck without replacement. What is the probability that 
+            you get exactly 2 hearts? Explain how sampling without replacement affects this calculation.
+          </p>
+        </statement>
+      </exercise>
+
+    </exercises>
+
   </section>
 
   <!-- Section 3.4: Random variables -->
