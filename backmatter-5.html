@@ -581,17 +581,20 @@ true);
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-logistic-regression.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Introduction to Logistic Regression</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-function" class="internal"><span class="codenumber">9.5.1</span> <span class="title">The Logistic Function</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-odds-log-odds" class="internal"><span class="codenumber">9.5.2</span> <span class="title">Odds and Log-Odds</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-coefficient-interpretation-logistic" class="internal"><span class="codenumber">9.5.3</span> <span class="title">Interpreting Logistic Regression Coefficients</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-inference" class="internal"><span class="codenumber">9.5.4</span> <span class="title">Inference in Logistic Regression</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-resume-data" class="internal"><span class="codenumber">9.5.1</span> <span class="title">Resume data</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-modeling-probability-event" class="internal"><span class="codenumber">9.5.2</span> <span class="title">Modeling the probability of an event</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-model-many-variables" class="internal"><span class="codenumber">9.5.3</span> <span class="title">Building the logistic model with many variables</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-logistic-diagnostics" class="internal"><span class="codenumber">9.5.4</span> <span class="title">Diagnostics for the callback rate model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logistic-regression.html#subsec-groups-different-sizes" class="internal"><span class="codenumber">9.5.5</span> <span class="title">Exploring patterns in groups of different sizes</span></a></div></li>
 </ul>
 </li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="exercises-logistic-regression.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-ch09-review.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Chapter Review</span></a></div>
+<div class="toc-title-box"><a href="sec-ch09-review.html" class="internal"><span class="codenumber">9.7</span> <span class="title">Chapter Review</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-summary" class="internal"><span class="codenumber">9.6.1</span> <span class="title">Summary</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-terms" class="internal"><span class="codenumber">9.6.2</span> <span class="title">Terms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-summary" class="internal"><span class="codenumber">9.7.1</span> <span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ch09-review.html#subsec-ch09-terms" class="internal"><span class="codenumber">9.7.2</span> <span class="title">Terms</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ch09-review.html#exercises-ch09-review" class="internal"><span class="codenumber">9.7.3</span> <span class="title">Chapter Review Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -645,8 +648,26 @@ true);
 </h2>
 <div class="indexletter" id="indexletter-c"><div class="indexitem">county data<span class="indexknowl"> <a href="sec-data-basics.html#guided-practice-county-data-matrix" class="xref" data-knowl="./knowl/index/guided-practice-county-data-matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 1.2.5: Organizing county data">Checkpoint</a></span>
 </div></div>
-<div class="indexletter" id="indexletter-l"><div class="indexitem">loan50 data<span class="indexknowl"> <a href="sec-data-basics.html#subsec-observations-variables" class="internal" title="Subsection 1.2.1: Observations, variables, and data matrices">Subsection</a></span>
+<div class="indexletter" id="indexletter-d">
+<div class="indexitem">data</div>
+<div class="subindexitem">resume<span class="indexknowl"> <a href="sec-logistic-regression.html#subsec-resume-data" class="internal" title="Subsection 9.5.1: Resume data">Subsection</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-i"><div class="indexitem">indicator variable<span class="indexknowl"> <a href="sec-logistic-regression.html#fig-resume-variables" class="xref" data-knowl="./knowl/index/fig-resume-variables.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.5.2">Figure</a></span>
 </div></div>
+<div class="indexletter" id="indexletter-l">
+<div class="indexitem">loan50 data<span class="indexknowl"> <a href="sec-data-basics.html#subsec-observations-variables" class="internal" title="Subsection 1.2.1: Observations, variables, and data matrices">Subsection</a></span>
+</div>
+<div class="indexitem">logistic regression<span class="indexknowl"> <a href="sec-logistic-regression.html" class="internal" title="Section 9.5: Introduction to Logistic Regression">Section</a></span>
+</div>
+</div>
+<div class="indexletter" id="indexletter-p"><div class="indexitem">patterns in data<span class="indexknowl"> <a href="sec-logistic-regression.html#subsec-groups-different-sizes" class="internal" title="Subsection 9.5.5: Exploring patterns in groups of different sizes">Subsection</a></span>
+</div></div>
+<div class="indexletter" id="indexletter-r">
+<div class="indexitem">regression</div>
+<div class="subindexitem">logistic<span class="indexknowl"> <a href="sec-logistic-regression.html" class="internal" title="Section 9.5: Introduction to Logistic Regression">Section</a> <a href="sec-logistic-regression.html#sec-logistic-regression-4" class="xref" data-knowl="./knowl/index/sec-logistic-regression-4.html" data-reveal-label="Reveal" data-close-label="Close" title="Paragraph">Paragraph</a></span>
+</div>
+</div>
 <div class="indexletter" id="indexletter-s"><div class="indexitem">stroke<span class="indexknowl"> <a href="sec-stents-strokes.html" class="internal" title="Section 1.1: Case study: using stents to prevent strokes">Section</a></span>
 </div></div>
 <div class="autopermalink" data-description="Index: Index"><a href="#backmatter-5" title="Copy heading and permalink for Index: Index" aria-label="Copy heading and permalink for Index: Index">🔗</a></div></section></div>

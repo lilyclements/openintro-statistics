@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Logistic regression with honors predictor.</span>
+</h4>
+<div class="para logical">
+<div class="para">We start by fitting a model with a single predictor: <code class="code-inline tex2jax_ignore">honors</code>. This variable indicates whether the applicant had any type of honors listed on their resume, such as employee of the month. The following logistic regression model was fit using statistical software:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log_e \left( \frac{p_i}{1-p_i} \right) = -2.4998 + 0.8668 \times\text{honors}
+\end{equation*}
+</div>
+<ol class="lower-alpha ol-marker-1" id="ex-logistic-honors-2-1-3">
+<li>
+<div class="para">If a resume is randomly selected from the study and it does not have any honors listed, what is the probability resulted in a callback?<div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#ex-logistic-honors-2-1-3-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para">What would the probability be if the resume did list some honors?<div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#ex-logistic-honors-2-1-3-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<ol class="lower-alpha ol-marker-1" id="ex-logistic-honors-3-1-1">
+<li>
+<div class="para">If a randomly chosen resume from those sent out is considered, and it does not list honors, then <code class="code-inline tex2jax_ignore">honors</code> takes value 0 and the right side of the model equation equals <span class="process-math">\(-2.4998\text{.}\)</span> Solving for <span class="process-math">\(p_i\text{:}\)</span> <span class="process-math">\(\frac{e^{-2.4998}}{1 + e^{-2.4998}} = 0.076\text{.}\)</span> Just as we labeled a fitted value of <span class="process-math">\(y_i\)</span> with a “hat” in single-variable and multiple regression, we do the same for this probability: <span class="process-math">\(\hat{p}_i = 0.076\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-3-1-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#ex-logistic-honors-3-1-1-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li>
+<div class="para">If the resume had listed some honors, then the right side of the model equation is <span class="process-math">\(-2.4998 + 0.8668 \times 1 = -1.6330\text{,}\)</span> which corresponds to a probability <span class="process-math">\(\hat{p}_i = 0.163\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-3-1-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">Notice that we could examine <span class="process-math">\(-2.4998\)</span> and <span class="process-math">\(-1.6330\)</span> in <a href="sec-logistic-regression.html#fig-logit-transformation" class="xref" data-knowl="./knowl/xref/fig-logit-transformation.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.5.3">Figure 9.5.3</a> to estimate the probability before formally calculating the value.<div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-3-1-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#ex-logistic-honors-3-1-1-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#ex-logistic-honors-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.5.4.1"><a href="#ex-logistic-honors-3" title="Copy heading and permalink for Solution 9.5.4.1" aria-label="Copy heading and permalink for Solution 9.5.4.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 9.5.4: Logistic regression with honors predictor"><a href="#ex-logistic-honors" title="Copy heading and permalink for Example 9.5.4: Logistic regression with honors predictor" aria-label="Copy heading and permalink for Example 9.5.4: Logistic regression with honors predictor">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-logistic-regression.html#ex-logistic-honors">in-context</a></span>
+</body>
+</html>

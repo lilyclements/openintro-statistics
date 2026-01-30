@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Spam filtering, Part I.</span>
+</h4>
+<div class="para logical">
+<div class="para">Spam filters are built on principles similar to those used in logistic regression. We fit a probability that each message is spam or not spam. We have several email variables for this problem: <code class="code-inline tex2jax_ignore">to_multiple</code>, <code class="code-inline tex2jax_ignore">cc</code>, <code class="code-inline tex2jax_ignore">attach</code>, <code class="code-inline tex2jax_ignore">dollar</code>, <code class="code-inline tex2jax_ignore">winner</code>, <code class="code-inline tex2jax_ignore">inherit</code>, <code class="code-inline tex2jax_ignore">password</code>, <code class="code-inline tex2jax_ignore">format</code>, <code class="code-inline tex2jax_ignore">re_subj</code>, <code class="code-inline tex2jax_ignore">exclaim_subj</code>, and <code class="code-inline tex2jax_ignore">sent_email</code>. We won’t describe what each variable means here for the sake of brevity, but each is either a numerical or indicator variable.</div>
+<ol class="lower-alpha ol-marker-1" id="exer-spam-filtering-model-sel-2-1-12">
+<li>
+<div class="para">For variable selection, we fit the full model, which includes all variables, and then we also fit each model where we’ve dropped exactly one of the variables. In each of these reduced models, the AIC value for the model is reported below. Based on these results, which variable, if any, should we drop as part of model selection? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#exer-spam-filtering-model-sel-2-1-12-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r0 l0 t0 lines">Variable Dropped</td>
+<td class="l m b1 r0 l0 t0 lines">AIC</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">None Dropped</td>
+<td class="l m b0 r0 l0 t0 lines">1863.50</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">to_multiple</code></td>
+<td class="l m b0 r0 l0 t0 lines">2023.50</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">cc</code></td>
+<td class="l m b0 r0 l0 t0 lines">1863.18</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">attach</code></td>
+<td class="l m b0 r0 l0 t0 lines">1871.89</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">dollar</code></td>
+<td class="l m b0 r0 l0 t0 lines">1879.70</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">winner</code></td>
+<td class="l m b0 r0 l0 t0 lines">1885.03</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">inherit</code></td>
+<td class="l m b0 r0 l0 t0 lines">1865.55</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">password</code></td>
+<td class="l m b0 r0 l0 t0 lines">1879.31</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">format</code></td>
+<td class="l m b0 r0 l0 t0 lines">2008.85</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">re_subj</code></td>
+<td class="l m b0 r0 l0 t0 lines">1904.60</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">exclaim_subj</code></td>
+<td class="l m b0 r0 l0 t0 lines">1862.76</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">sent_email</code></td>
+<td class="l m b0 r0 l0 t0 lines">1958.18</td>
+</tr>
+</table></div>
+<div class="autopermalink" data-description="Item 9.7.3.3.a"><a href="#exer-spam-filtering-model-sel-2-1-12-1" title="Copy heading and permalink for Item 9.7.3.3.a" aria-label="Copy heading and permalink for Item 9.7.3.3.a">🔗</a></div>
+</li>
+<li>
+<div class="para">Consider the following model selection stage. Here again we’ve computed the AIC for each leave-one-variable-out model. Based on the results, which variable, if any, should we drop as part of model selection? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#exer-spam-filtering-model-sel-2-1-12-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b1 r0 l0 t0 lines">Variable Dropped</td>
+<td class="l m b1 r0 l0 t0 lines">AIC</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">None Dropped</td>
+<td class="l m b0 r0 l0 t0 lines">1862.41</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">to_multiple</code></td>
+<td class="l m b0 r0 l0 t0 lines">2019.55</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">attach</code></td>
+<td class="l m b0 r0 l0 t0 lines">1871.17</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">dollar</code></td>
+<td class="l m b0 r0 l0 t0 lines">1877.73</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">winner</code></td>
+<td class="l m b0 r0 l0 t0 lines">1884.95</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">inherit</code></td>
+<td class="l m b0 r0 l0 t0 lines">1864.52</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">password</code></td>
+<td class="l m b0 r0 l0 t0 lines">1878.19</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">format</code></td>
+<td class="l m b0 r0 l0 t0 lines">2007.45</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">re_subj</code></td>
+<td class="l m b0 r0 l0 t0 lines">1902.94</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">sent_email</code></td>
+<td class="l m b0 r0 l0 t0 lines">1957.56</td>
+</tr>
+</table></div>
+<div class="autopermalink" data-description="Item 9.7.3.3.b"><a href="#exer-spam-filtering-model-sel-2-1-12-2" title="Copy heading and permalink for Item 9.7.3.3.b" aria-label="Copy heading and permalink for Item 9.7.3.3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#exer-spam-filtering-model-sel-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 9.7.3.3: Spam filtering, Part I"><a href="#exer-spam-filtering-model-sel" title="Copy heading and permalink for Exercise 9.7.3.3: Spam filtering, Part I" aria-label="Copy heading and permalink for Exercise 9.7.3.3: Spam filtering, Part I">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-ch09-review.html#exer-spam-filtering-model-sel">in-context</a></span>
+</body>
+</html>
