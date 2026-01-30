@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
     
     steps:
       - name: Checkout repository
@@ -49,4 +52,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output/html
           publish_branch: gh-pages
-          force_orphan: true
+          force_orphan: false
