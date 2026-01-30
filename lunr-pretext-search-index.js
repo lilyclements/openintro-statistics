@@ -8350,34 +8350,304 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "9.1",
   "title": "Introduction to Multiple Regression",
-  "body": " Introduction to Multiple Regression   Multiple regression extends simple two-variable regression to the case that still has one response but many predictors (denoted ). The method is motivated by scenarios where many variables may be simultaneously connected to an output.    Indicator and Categorical Variables as Predictors  In multiple regression, we can include both quantitative and categorical variables as predictors. Indicator variables (also called dummy variables) allow us to include categorical information in a linear regression model.  An indicator variable takes a value of 1 when the condition is true and 0 when it is false. For a categorical variable with more than two levels, we create multiple indicator variables, one for each level except one. The omitted level is called the reference level .    Consider a categorical variable such as income verification status with three levels: verified, source only, and not verified. In a regression model, we would create two indicator variables, leaving one level as the reference.      Multiple Regression Equation  The multiple regression model with predictors is: where is the intercept and are the slopes for each predictor.  The interpretation of is: for each one-unit increase in , we expect to increase by units, holding all other predictors constant.    Interpreting Coefficients  The key to interpreting multiple regression coefficients is the phrase holding all other variables constant. This is important because in the real world, variables are often correlated, but multiple regression allows us to isolate the effect of each variable.    In multiple regression, the coefficient for predictor represents the expected change in the response variable for a one-unit increase in , while holding all other predictors constant.     "
+  "body": " Introduction to Multiple Regression  Multiple regression extends simple two-variable regression to the case that still has one response but many predictors (denoted ). The method is motivated by scenarios where many variables may be simultaneously connected to an output.  We will consider data about loans from the peer-to-peer lender, Lending Club, which is a data set we first encountered in Chapters 1 and 2. The loan data includes terms of the loan as well as information about the borrower. The outcome variable we would like to better understand is the interest rate assigned to the loan. For instance, all other characteristics held constant, does it matter how much debt someone already has? Does it matter if their income has been verified? Multiple regression will help us answer these and other questions.  The data set loans includes results from 10,000 loans, and we'll be looking at a subset of the available variables, some of which will be new from those we saw in earlier chapters. The first six observations in the data set are shown in , and descriptions for each variable are shown in . Notice that the past bankruptcy variable ( bankruptcy ) is an indicator variable , where it takes the value 1 if the borrower had a past bankruptcy in their record and 0 if not. Using an indicator variable in place of a category name allows for these variables to be directly used in regression. Two of the other variables are categorical ( income_ver and issued ), each of which can take one of a few different non-numerical values; we'll discuss how these are handled in the model in .   First six rows from the loans data set.     interest_rate  income_ver  debt_to_income  credit_util  bankruptcy  term  issued  credit_checks    1  14.07  verified  18.01  0.55  0  60  Mar2018  6    2  12.61  not  5.04  0.15  1  36  Feb2018  1    3  17.09  source_only  21.15  0.66  0  36  Feb2018  4    4  6.72  not  10.16  0.20  0  36  Jan2018  0    5  14.07  verified  57.96  0.75  0  36  Mar2018  7    6  6.72  not  6.46  0.09  0  36  Jan2018  6                 Variables and their descriptions for the loans data set.    variable  description    interest_rate  Interest rate for the loan.    income_ver  Categorical variable describing whether the borrower's income source and amount have been verified, with levels verified , source_only , and not .    debt_to_income  Debt-to-income ratio, which is the percentage of total debt of the borrower divided by their total income.    credit_util  Of all the credit available to the borrower, what fraction are they utilizing. For example, the credit utilization on a credit card would be the card's balance divided by the card's credit limit.    bankruptcy  An indicator variable for whether the borrower has a past bankruptcy in her record. This variable takes a value of 1 if the answer is yes and 0 if the answer is no .    term  The length of the loan, in months.    issued  The month and year the loan was issued, which for these loans is always during the first quarter of 2018.    credit_checks  Number of credit checks in the last 12 months. For example, when filing an application for a credit card, it is common for the company receiving the application to run a credit check.      Indicator and categorical variables as predictors  Let's start by fitting a linear regression model for interest rate with a single predictor indicating whether or not a person has a bankruptcy in their record: Results of this model are shown in .   Summary of a linear model for predicting interest rate based on whether the borrower has a bankruptcy in their record.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  12.3380  0.0533  231.49  0.0001    bankruptcy  0.7368  0.1529  4.82  0.0001            Interpret the coefficient for the past bankruptcy variable   Interpret the coefficient for the past bankruptcy variable in the model. Is this coefficient significantly different from 0?    The bankruptcy variable takes one of two values: 1 when the borrower has a bankruptcy in their history and 0 otherwise. A slope of 0.74 means that the model predicts a 0.74% higher interest rate for those borrowers with a bankruptcy in their record. (See Section 7.2 for a review of the interpretation for two-level categorical predictor variables.) Examining the regression output in , we can see that the p-value for bankruptcy is very close to zero, indicating there is strong evidence the coefficient is different from zero when using this simple one-predictor model.    Suppose we had fit a model using a 3-level categorical variable, such as income_ver . The output from software is shown in . This regression output provides multiple rows for the income_ver variable. Each row represents the relative difference for each level of income_ver . However, we are missing one of the levels: not (for not verified ). The missing level is called the reference level , and it represents the default level that other levels are measured against.   Summary of a linear model for predicting interest rate based on whether the borrower's income source and amount has been verified. This predictor has three levels, which results in 2 rows in the regression output.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  11.0995  0.0809  137.18  0.0001    income_ver (source_only)  1.4160  0.1107  12.79  0.0001    income_ver (verified)  3.2543  0.1297  25.09  0.0001            Write an equation for this regression model   How would we write an equation for this regression model?    The equation for the regression model may be written as a model with two predictors: We use the notation to represent indicator variables for when the categorical variable takes a particular value. For example, would take a value of 1 if income_ver was source_only for a loan, and it would take a value of 0 otherwise. Likewise, would take a value of 1 if income_ver took a value of verified and 0 if it took any other value.    The notation used in may feel a bit confusing. Let's figure out how to use the equation for each level of the income_ver variable.   Compute the average interest rate for borrowers with unverified income   Using the model from , compute the average interest rate for borrowers whose income source and amount are both unverified.    When income_ver takes a value of not , then both indicator functions in the equation from are set to zero: The average interest rate for these borrowers is 11.1%. Because the not level does not have its own coefficient and it is the reference value, the indicators for the other levels for this variable all drop out.     Compute the average interest rate for borrowers with source-only verification   Using the model from , compute the average interest rate for borrowers whose income source is verified but the amount is not.    When income_ver takes a value of source_only , then the corresponding variable takes a value of 1 while the other ( ) is 0: The average interest rate for these borrowers is 12.52%.      Compute the average interest rate for borrowers whose income source and amount are both verified.    When income_ver takes a value of verified , which indicator variable is 1?    When income_ver takes a value of verified , then the corresponding variable takes a value of 1 while the other ( ) is 0: The average interest rate for these borrowers is 14.35%.     Predictors with several categories  When fitting a regression model with a categorical variable that has levels where , software will provide a coefficient for of those levels. For the last level that does not receive a coefficient, this is the reference level , and the coefficients listed for the other levels are all considered relative to this reference level.     Interpret the coefficients in the income_ver model.    Each of the coefficients gives the incremental interest rate for the corresponding level relative to the not level, which is the reference level. For example, for a borrower whose income source and amount have been verified, the model predicts that they will have a 3.25% higher interest rate than a borrower who has not had their income source or amount verified.    The higher interest rate for borrowers who have verified their income source or amount is surprising. Intuitively, we'd think that a loan would look less risky if the borrower's income has been verified. However, note that the situation may be more complex, and there may be confounding variables that we didn't account for. For example, perhaps lenders require borrowers with poor credit to verify their income. That is, verifying income in our data set might be a signal of some concerns about the borrower rather than a reassurance that the borrower will pay back the loan. For this reason, the borrower could be deemed higher risk, resulting in a higher interest rate. (What other confounding variables might explain this counter-intuitive relationship suggested by the model?)    How much larger of an interest rate would we expect for a borrower who has verified their income source and amount vs a borrower whose income source has only been verified?    Relative to the not category, the verified category has an interest rate of 3.25% higher, while the source_only category is only 1.42% higher. Thus, verified borrowers will tend to get an interest rate about higher than source_only borrowers.      Including and assessing many variables in a model  The world is complex, and it can be helpful to consider many factors at once in statistical modeling. For example, we might like to use the full context of borrower to predict the interest rate they receive rather than using a single variable. This is the strategy used in multiple regression . While we remain cautious about making any causal interpretations using multiple regression on observational data, such models are a common first step in gaining insights or providing some evidence of a causal connection.  We want to construct a model that accounts not only for any past bankruptcy or whether the borrower had their income source or amount verified, but simultaneously accounts for all the variables in the data set: income_ver , debt_to_income , credit_util , bankruptcy , term , issued , and credit_checks . This equation represents a holistic approach for modeling all of the variables simultaneously. Notice that there are two coefficients for income_ver and also two coefficients for issued , since both are 3-level categorical variables.  We estimate the parameters in the same way as we did in the case of a single predictor. We select that minimize the sum of the squared residuals: where and represent the observed interest rates and their estimated values according to the model, respectively. 10,000 residuals are calculated, one for each observation. We typically use a computer to minimize the sum of squares and compute point estimates, as shown in the sample output in . Using this output, we identify the point estimates of each , just as we did in the one-predictor case.   Output for the regression model, where interest_rate is the outcome and the variables listed are the predictors.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9251  0.2102  9.16  0.0001    income_ver (source_only)  0.9750  0.0991  9.83  0.0001    income_ver (verified)  2.5374  0.1172  21.65  0.0001    debt_to_income  0.0211  0.0029  7.18  0.0001    credit_util  4.8959  0.1619  30.24  0.0001    bankruptcy  0.3864  0.1324  2.92  0.0035    term  0.1537  0.0039  38.96  0.0001    issued (Jan2018)  0.0276  0.1081  0.26  0.7981    issued (Mar2018)  -0.0397  0.1065  -0.37  0.7093    credit_checks  0.2282  0.0182  12.51  0.0001            Multiple regression model  A multiple regression model is a linear model with many predictors. In general, we write the model as when there are predictors. We always estimate the parameters using statistical software.    Write out the regression model using point estimates   Write out the regression model using the point estimates from . How many predictors are there in this model?    The fitted model for the interest rate is given by: If we count up the number of predictor coefficients, we get the effective number of predictors in the model: . Notice that the issued categorical predictor counts as two, once for the two levels shown in the model. In general, a categorical predictor with different levels will be represented by terms in a multiple regression model.      What does , the coefficient of variable credit_util , represent? What is the point estimate of ?     represents the change in interest rate we would expect if someone's credit utilization was 0 and went to 1, all other factors held even. The point estimate is .     Compute the residual of the first observation   Compute the residual of the first observation in using the equation identified in .    To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from . For example, takes a value of 0, takes a value of 1 (since the borrower's income source and amount were verified), debt_to_income was 18.01, and so on. This leads to a prediction of . The observed interest rate was 14.07%, which leads to a residual of .     Why does the bankruptcy coefficient differ between models?   We estimated a coefficient for bankruptcy in of with a standard error of when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?    If we examined the data carefully, we would see that some predictors are correlated. For instance, when we estimated the connection of the outcome interest_rate and predictor bankruptcy using simple linear regression, we were unable to control for other variables like whether the borrower had their income verified, the borrower's debt-to-income ratio, and other variables. That original model was constructed in a vacuum and did not consider the full context. When we include all of the variables, underlying and unintentional bias that was missed by these other variables is reduced or eliminated. Of course, bias can still exist from other confounding variables.     describes a common issue in multiple regression: correlation among predictor variables. We say the two predictor variables are collinear (pronounced as co-linear ) when they are correlated, and this collinearity complicates model estimation. While it is impossible to prevent collinearity from arising in observational data, experiments are usually designed to prevent predictors from being collinear.    The estimated value of the intercept is 1.925, and one might be tempted to make some interpretation of this coefficient, such as, it is the model's predicted price when each of the variables take value zero: income source is not verified, the borrower has no debt (debt-to-income and credit utilization are zero), and so on. Is this reasonable? Is there any value gained by making this interpretation?    Many of the variables do take a value 0 for at least one data point, and for those variables, it is reasonable. However, one variable never takes a value of zero: term , which describes the length of the loan, in months. If term is set to zero, then the loan must be paid back immediately; the borrower must give the money back as soon as they receive it, which means it is not a real loan. Ultimately, the interpretation of the intercept in this setting is not insightful.      Adjusted as a better tool for multiple regression  We first used in Section 7.2 to determine the amount of variability in the response that was explained by the model: where represents the residuals of the model and the outcomes. This equation remains valid in the multiple regression framework, but a small enhancement can make it even more informative when comparing models.    The variance of the residuals for the model given in is 18.53, and the variance of the total interest rate in all the loans is 25.01. Calculate for this model.     .    This strategy for estimating is acceptable when there is just a single variable. However, it becomes less helpful when there are many variables. The regular is a biased estimate of the amount of variability explained by the model when applied to a new sample of data. To get a better estimate, we use the adjusted .   Adjusted as a tool for model assessment  The adjusted is computed as where is the number of cases used to fit the model and is the number of predictor variables in the model. Remember that a categorical predictor with levels will contribute to the number of variables in the model.   Because is never negative, the adjusted will be smaller oftentimes just a little smaller than the unadjusted . The reasoning behind the adjusted lies in the degrees of freedom associated with each variance, which is equal to for the multiple regression context. If we were to make predictions for new data using our current model, we would find that the unadjusted would tend to be slightly overly optimistic, while the adjusted formula helps correct this bias.    There were loans in the loans data set and predictor variables in the model. Use , , and the variances from to calculate for the interest rate model.     . While the difference is very small, it will be important when we fine tune the model in the next section.      Suppose you added another predictor to the model, but the variance of the errors didn't go down. What would happen to the ? What would happen to the adjusted ?    The unadjusted would stay the same and the adjusted would go down.    Adjusted could have been used in Chapter 7. However, when there is only predictor, adjusted is very close to regular , so this nuance isn't typically important when the model has only one predictor.     Baby weights, Part I   The Child Health and Development Studies investigate a range of topics. One study considered all pregnancies between 1960 and 1967 among women in the Kaiser Foundation Health Plan in the San Francisco East Bay area. Here, we study the relationship between smoking and weight of the baby. The variable smoke is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, based on the smoking status of the mother.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  123.05  0.65  189.60  0.0000    smoke  -8.94  1.03  -8.65  0.0000    The variability within the smokers and non-smokers are about equal and the distributions are symmetric. With these conditions satisfied, it is reasonable to apply the model. (Note that we don't need to check linearity since the predictor has only two levels.)    Write the equation of the regression model.  Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers.  Is there a statistically significant relationship between the average birth weight and smoking?       Baby weights, Part II    introduces a data set on birth weight of babies. Another variable we consider is parity , which is 1 if the child is the first-born, and 0 otherwise. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, from parity .     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  120.07  0.60  199.94  0.0000    parity  -1.93  1.19  -1.62  0.1052      Write the equation of the regression model.  Interpret the slope in this context, and calculate the predicted birth weight of first-borns and others.  Is there a statistically significant relationship between the average birth weight and parity?       Baby weights, Part III   We considered the variables smoke and parity , one at a time, in modeling birth weights of babies in and . A more realistic approach to modeling infant weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in days ( gestation ), mother's age in years ( age ), mother's height in inches ( height ), and mother's pregnancy weight in pounds ( weight ). Below are three observations from this data set.     bwt  gestation  parity  age  height  weight  smoke    1  120  284  0  27  62  100  0    2  113  282  0  33  64  135  0              1236  117  297  0  38  65  129  0    The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables included in the data set.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -80.41  14.35  -5.60  0.0000    gestation  0.44  0.03  15.26  0.0000    parity  -3.33  1.13  -2.95  0.0033    age  -0.01  0.09  -0.10  0.9170    height  1.15  0.21  5.63  0.0000    weight  0.05  0.03  1.99  0.0471    smoke  -8.40  0.95  -8.81  0.0000      Write the equation of the regression model that includes all of the variables.  Interpret the slopes of gestation and age in this context.  The coefficient for parity is different than in the linear model shown in . Why might there be a difference?  Calculate the residual for the first observation in the data set.  The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the and the adjusted . Note that there are 1,236 observations in the data set.       Absenteeism, Part I   Researchers interested in the relationship between absenteeism from school and certain demographic characteristics of children collected data from 146 randomly sampled students in rural New South Wales, Australia, in a particular school year. Below are three observations from this data set.     eth  sex  lrn  days    1  0  1  1  2    2  0  1  1  11           146  1  0  0  37    The summary table below shows the results of a linear regression model for predicting the average number of days absent based on ethnic background ( eth : 0 - aboriginal, 1 - not aboriginal), sex ( sex : 0 - female, 1 - male), and learner status ( lrn : 0 - average learner, 1 - slow learner).     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  18.93  2.57  7.37  0.0000    eth  -9.11  2.60  -3.51  0.0000    sex  3.10  2.64  1.18  0.2411    lrn  2.15  2.65  0.81  0.4177      Write the equation of the regression model.  Interpret each one of the slopes in this context.  Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school.  The variance of the residuals is 240.57, and the variance of the number of absent days for all students in the data set is 264.17. Calculate the and the adjusted . Note that there are 146 observations in the data set.       GPA   A survey of 55 Duke University students asked about their GPA, number of hours they study at night, number of nights they go out, and their gender. Summary output of the regression model is shown below. Note that male is coded as 1.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  3.45  0.35  9.85  0.00    studyweek  0.00  0.00  0.27  0.79    sleepnight  0.01  0.05  0.11  0.91    outnight  0.05  0.05  1.01  0.32    gender  -0.08  0.12  -0.68  0.50      Calculate a 95% confidence interval for the coefficient of gender in the model, and interpret it in the context of the data.  Would you expect a 95% confidence interval for the slope of the remaining variables to include 0? Explain.       Cherry trees   Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -57.99  8.64  -6.71  0.00    height  0.34  0.13  2.61  0.01    diameter  4.71  0.26  17.82  0.00      Calculate a 95% confidence interval for the coefficient of height, and interpret it in the context of the data.  One tree in this sample is 79 feet tall, has a diameter of 11.3 inches, and is 24.2 cubic feet in volume. Determine if the model overestimates or underestimates the volume of this tree, and by how much.       "
 },
 {
-  "id": "subsec-indicator-categorical-predictors-3",
+  "id": "sec-multiple-regression-intro-4",
   "level": "2",
-  "url": "sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors-3",
+  "url": "sec-multiple-regression-intro.html#sec-multiple-regression-intro-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "indicator variable reference level "
+  "body": "indicator variable "
 },
 {
-  "id": "ex-indicator-variable",
+  "id": "fig-loans-data-matrix",
   "level": "2",
-  "url": "sec-multiple-regression-intro.html#ex-indicator-variable",
-  "type": "Example",
+  "url": "sec-multiple-regression-intro.html#fig-loans-data-matrix",
+  "type": "Figure",
   "number": "9.1.1",
   "title": "",
-  "body": "  Consider a categorical variable such as income verification status with three levels: verified, source only, and not verified. In a regression model, we would create two indicator variables, leaving one level as the reference.   "
+  "body": " First six rows from the loans data set.     interest_rate  income_ver  debt_to_income  credit_util  bankruptcy  term  issued  credit_checks    1  14.07  verified  18.01  0.55  0  60  Mar2018  6    2  12.61  not  5.04  0.15  1  36  Feb2018  1    3  17.09  source_only  21.15  0.66  0  36  Feb2018  4    4  6.72  not  10.16  0.20  0  36  Jan2018  0    5  14.07  verified  57.96  0.75  0  36  Mar2018  7    6  6.72  not  6.46  0.09  0  36  Jan2018  6               "
 },
 {
-  "id": "def-coefficient-interpretation",
+  "id": "fig-loans-variables",
   "level": "2",
-  "url": "sec-multiple-regression-intro.html#def-coefficient-interpretation",
-  "type": "Definition",
+  "url": "sec-multiple-regression-intro.html#fig-loans-variables",
+  "type": "Figure",
   "number": "9.1.2",
   "title": "",
-  "body": "  In multiple regression, the coefficient for predictor represents the expected change in the response variable for a one-unit increase in , while holding all other predictors constant.   "
+  "body": " Variables and their descriptions for the loans data set.    variable  description    interest_rate  Interest rate for the loan.    income_ver  Categorical variable describing whether the borrower's income source and amount have been verified, with levels verified , source_only , and not .    debt_to_income  Debt-to-income ratio, which is the percentage of total debt of the borrower divided by their total income.    credit_util  Of all the credit available to the borrower, what fraction are they utilizing. For example, the credit utilization on a credit card would be the card's balance divided by the card's credit limit.    bankruptcy  An indicator variable for whether the borrower has a past bankruptcy in her record. This variable takes a value of 1 if the answer is yes and 0 if the answer is no .    term  The length of the loan, in months.    issued  The month and year the loan was issued, which for these loans is always during the first quarter of 2018.    credit_checks  Number of credit checks in the last 12 months. For example, when filing an application for a credit card, it is common for the company receiving the application to run a credit check.    "
+},
+{
+  "id": "fig-int-rate-vs-past-bankr-model",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#fig-int-rate-vs-past-bankr-model",
+  "type": "Figure",
+  "number": "9.1.3",
+  "title": "",
+  "body": " Summary of a linear model for predicting interest rate based on whether the borrower has a bankruptcy in their record.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  12.3380  0.0533  231.49  0.0001    bankruptcy  0.7368  0.1529  4.82  0.0001          "
+},
+{
+  "id": "ex-interpret-bankr-coef",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-interpret-bankr-coef",
+  "type": "Example",
+  "number": "9.1.4",
+  "title": "Interpret the coefficient for the past bankruptcy variable.",
+  "body": " Interpret the coefficient for the past bankruptcy variable   Interpret the coefficient for the past bankruptcy variable in the model. Is this coefficient significantly different from 0?    The bankruptcy variable takes one of two values: 1 when the borrower has a bankruptcy in their history and 0 otherwise. A slope of 0.74 means that the model predicts a 0.74% higher interest rate for those borrowers with a bankruptcy in their record. (See Section 7.2 for a review of the interpretation for two-level categorical predictor variables.) Examining the regression output in , we can see that the p-value for bankruptcy is very close to zero, indicating there is strong evidence the coefficient is different from zero when using this simple one-predictor model.   "
+},
+{
+  "id": "subsec-indicator-categorical-predictors-5",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "reference level "
+},
+{
+  "id": "fig-int-rate-vs-ver-income-model",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#fig-int-rate-vs-ver-income-model",
+  "type": "Figure",
+  "number": "9.1.5",
+  "title": "",
+  "body": " Summary of a linear model for predicting interest rate based on whether the borrower's income source and amount has been verified. This predictor has three levels, which results in 2 rows in the regression output.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  11.0995  0.0809  137.18  0.0001    income_ver (source_only)  1.4160  0.1107  12.79  0.0001    income_ver (verified)  3.2543  0.1297  25.09  0.0001          "
+},
+{
+  "id": "ex-ver-income-equation",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-ver-income-equation",
+  "type": "Example",
+  "number": "9.1.6",
+  "title": "Write an equation for this regression model.",
+  "body": " Write an equation for this regression model   How would we write an equation for this regression model?    The equation for the regression model may be written as a model with two predictors: We use the notation to represent indicator variables for when the categorical variable takes a particular value. For example, would take a value of 1 if income_ver was source_only for a loan, and it would take a value of 0 otherwise. Likewise, would take a value of 1 if income_ver took a value of verified and 0 if it took any other value.   "
+},
+{
+  "id": "ex-compute-avg-rate-not-verified",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-compute-avg-rate-not-verified",
+  "type": "Example",
+  "number": "9.1.7",
+  "title": "Compute the average interest rate for borrowers with unverified income.",
+  "body": " Compute the average interest rate for borrowers with unverified income   Using the model from , compute the average interest rate for borrowers whose income source and amount are both unverified.    When income_ver takes a value of not , then both indicator functions in the equation from are set to zero: The average interest rate for these borrowers is 11.1%. Because the not level does not have its own coefficient and it is the reference value, the indicators for the other levels for this variable all drop out.   "
+},
+{
+  "id": "ex-compute-avg-rate-source-only",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-compute-avg-rate-source-only",
+  "type": "Example",
+  "number": "9.1.8",
+  "title": "Compute the average interest rate for borrowers with source-only verification.",
+  "body": " Compute the average interest rate for borrowers with source-only verification   Using the model from , compute the average interest rate for borrowers whose income source is verified but the amount is not.    When income_ver takes a value of source_only , then the corresponding variable takes a value of 1 while the other ( ) is 0: The average interest rate for these borrowers is 12.52%.   "
+},
+{
+  "id": "exer-compute-avg-rate-verified",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-compute-avg-rate-verified",
+  "type": "Checkpoint",
+  "number": "9.1.9",
+  "title": "",
+  "body": "  Compute the average interest rate for borrowers whose income source and amount are both verified.    When income_ver takes a value of verified , which indicator variable is 1?    When income_ver takes a value of verified , then the corresponding variable takes a value of 1 while the other ( ) is 0: The average interest rate for these borrowers is 14.35%.   "
+},
+{
+  "id": "assem-predictors-several-categories-2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#assem-predictors-several-categories-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "reference level "
+},
+{
+  "id": "exer-interpret-income-ver-coef",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-interpret-income-ver-coef",
+  "type": "Checkpoint",
+  "number": "9.1.10",
+  "title": "",
+  "body": "  Interpret the coefficients in the income_ver model.    Each of the coefficients gives the incremental interest rate for the corresponding level relative to the not level, which is the reference level. For example, for a borrower whose income source and amount have been verified, the model predicts that they will have a 3.25% higher interest rate than a borrower who has not had their income source or amount verified.   "
+},
+{
+  "id": "exer-income-ver-diff",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-income-ver-diff",
+  "type": "Checkpoint",
+  "number": "9.1.11",
+  "title": "",
+  "body": "  How much larger of an interest rate would we expect for a borrower who has verified their income source and amount vs a borrower whose income source has only been verified?    Relative to the not category, the verified category has an interest rate of 3.25% higher, while the source_only category is only 1.42% higher. Thus, verified borrowers will tend to get an interest rate about higher than source_only borrowers.   "
+},
+{
+  "id": "subsec-including-assessing-many-variables-2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#subsec-including-assessing-many-variables-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "multiple regression "
+},
+{
+  "id": "fig-loans-full-model-output",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#fig-loans-full-model-output",
+  "type": "Figure",
+  "number": "9.1.12",
+  "title": "",
+  "body": " Output for the regression model, where interest_rate is the outcome and the variables listed are the predictors.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9251  0.2102  9.16  0.0001    income_ver (source_only)  0.9750  0.0991  9.83  0.0001    income_ver (verified)  2.5374  0.1172  21.65  0.0001    debt_to_income  0.0211  0.0029  7.18  0.0001    credit_util  4.8959  0.1619  30.24  0.0001    bankruptcy  0.3864  0.1324  2.92  0.0035    term  0.1537  0.0039  38.96  0.0001    issued (Jan2018)  0.0276  0.1081  0.26  0.7981    issued (Mar2018)  -0.0397  0.1065  -0.37  0.7093    credit_checks  0.2282  0.0182  12.51  0.0001          "
+},
+{
+  "id": "ex-loans-full-model-eq-w-coef",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-loans-full-model-eq-w-coef",
+  "type": "Example",
+  "number": "9.1.13",
+  "title": "Write out the regression model using point estimates.",
+  "body": " Write out the regression model using point estimates   Write out the regression model using the point estimates from . How many predictors are there in this model?    The fitted model for the interest rate is given by: If we count up the number of predictor coefficients, we get the effective number of predictors in the model: . Notice that the issued categorical predictor counts as two, once for the two levels shown in the model. In general, a categorical predictor with different levels will be represented by terms in a multiple regression model.   "
+},
+{
+  "id": "exer-credit-util-coef",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-credit-util-coef",
+  "type": "Checkpoint",
+  "number": "9.1.14",
+  "title": "",
+  "body": "  What does , the coefficient of variable credit_util , represent? What is the point estimate of ?     represents the change in interest rate we would expect if someone's credit utilization was 0 and went to 1, all other factors held even. The point estimate is .   "
+},
+{
+  "id": "ex-compute-residual-first-obs",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-compute-residual-first-obs",
+  "type": "Example",
+  "number": "9.1.15",
+  "title": "Compute the residual of the first observation.",
+  "body": " Compute the residual of the first observation   Compute the residual of the first observation in using the equation identified in .    To compute the residual, we first need the predicted value, which we compute by plugging values into the equation from . For example, takes a value of 0, takes a value of 1 (since the borrower's income source and amount were verified), debt_to_income was 18.01, and so on. This leads to a prediction of . The observed interest rate was 14.07%, which leads to a residual of .   "
+},
+{
+  "id": "ex-past-bankr-coef-diff-explained",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#ex-past-bankr-coef-diff-explained",
+  "type": "Example",
+  "number": "9.1.16",
+  "title": "Why does the bankruptcy coefficient differ between models?",
+  "body": " Why does the bankruptcy coefficient differ between models?   We estimated a coefficient for bankruptcy in of with a standard error of when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?    If we examined the data carefully, we would see that some predictors are correlated. For instance, when we estimated the connection of the outcome interest_rate and predictor bankruptcy using simple linear regression, we were unable to control for other variables like whether the borrower had their income verified, the borrower's debt-to-income ratio, and other variables. That original model was constructed in a vacuum and did not consider the full context. When we include all of the variables, underlying and unintentional bias that was missed by these other variables is reduced or eliminated. Of course, bias can still exist from other confounding variables.   "
+},
+{
+  "id": "subsec-including-assessing-many-variables-11",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#subsec-including-assessing-many-variables-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "collinear "
+},
+{
+  "id": "exer-intercept-interpretation",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-intercept-interpretation",
+  "type": "Checkpoint",
+  "number": "9.1.17",
+  "title": "",
+  "body": "  The estimated value of the intercept is 1.925, and one might be tempted to make some interpretation of this coefficient, such as, it is the model's predicted price when each of the variables take value zero: income source is not verified, the borrower has no debt (debt-to-income and credit utilization are zero), and so on. Is this reasonable? Is there any value gained by making this interpretation?    Many of the variables do take a value 0 for at least one data point, and for those variables, it is reasonable. However, one variable never takes a value of zero: term , which describes the length of the loan, in months. If term is set to zero, then the loan must be paid back immediately; the borrower must give the money back as soon as they receive it, which means it is not a real loan. Ultimately, the interpretation of the intercept in this setting is not insightful.   "
+},
+{
+  "id": "exer-compute-unadj-r2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-compute-unadj-r2",
+  "type": "Checkpoint",
+  "number": "9.1.18",
+  "title": "",
+  "body": "  The variance of the residuals for the model given in is 18.53, and the variance of the total interest rate in all the loans is 25.01. Calculate for this model.     .   "
+},
+{
+  "id": "assem-adjusted-r-squared-2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#assem-adjusted-r-squared-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "adjusted "
+},
+{
+  "id": "subsec-adjusted-r-squared-6",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#subsec-adjusted-r-squared-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "degrees of freedom "
+},
+{
+  "id": "exer-compute-adj-r2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-compute-adj-r2",
+  "type": "Checkpoint",
+  "number": "9.1.19",
+  "title": "",
+  "body": "  There were loans in the loans data set and predictor variables in the model. Use , , and the variances from to calculate for the interest rate model.     . While the difference is very small, it will be important when we fine tune the model in the next section.   "
+},
+{
+  "id": "exer-r2-vs-adj-r2",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-r2-vs-adj-r2",
+  "type": "Checkpoint",
+  "number": "9.1.20",
+  "title": "",
+  "body": "  Suppose you added another predictor to the model, but the variance of the errors didn't go down. What would happen to the ? What would happen to the adjusted ?    The unadjusted would stay the same and the adjusted would go down.   "
+},
+{
+  "id": "exer-baby-weights-smoke",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-baby-weights-smoke",
+  "type": "Exercise",
+  "number": "9.1.4.1",
+  "title": "Baby weights, Part I.",
+  "body": " Baby weights, Part I   The Child Health and Development Studies investigate a range of topics. One study considered all pregnancies between 1960 and 1967 among women in the Kaiser Foundation Health Plan in the San Francisco East Bay area. Here, we study the relationship between smoking and weight of the baby. The variable smoke is coded 1 if the mother is a smoker, and 0 if not. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, based on the smoking status of the mother.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  123.05  0.65  189.60  0.0000    smoke  -8.94  1.03  -8.65  0.0000    The variability within the smokers and non-smokers are about equal and the distributions are symmetric. With these conditions satisfied, it is reasonable to apply the model. (Note that we don't need to check linearity since the predictor has only two levels.)    Write the equation of the regression model.  Interpret the slope in this context, and calculate the predicted birth weight of babies born to smoker and non-smoker mothers.  Is there a statistically significant relationship between the average birth weight and smoking?     "
+},
+{
+  "id": "exer-baby-weights-parity",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-baby-weights-parity",
+  "type": "Exercise",
+  "number": "9.1.4.2",
+  "title": "Baby weights, Part II.",
+  "body": " Baby weights, Part II    introduces a data set on birth weight of babies. Another variable we consider is parity , which is 1 if the child is the first-born, and 0 otherwise. The summary table below shows the results of a linear regression model for predicting the average birth weight of babies, measured in ounces, from parity .     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  120.07  0.60  199.94  0.0000    parity  -1.93  1.19  -1.62  0.1052      Write the equation of the regression model.  Interpret the slope in this context, and calculate the predicted birth weight of first-borns and others.  Is there a statistically significant relationship between the average birth weight and parity?     "
+},
+{
+  "id": "exer-baby-weights-mlr",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-baby-weights-mlr",
+  "type": "Exercise",
+  "number": "9.1.4.3",
+  "title": "Baby weights, Part III.",
+  "body": " Baby weights, Part III   We considered the variables smoke and parity , one at a time, in modeling birth weights of babies in and . A more realistic approach to modeling infant weights is to consider all possibly related variables at once. Other variables of interest include length of pregnancy in days ( gestation ), mother's age in years ( age ), mother's height in inches ( height ), and mother's pregnancy weight in pounds ( weight ). Below are three observations from this data set.     bwt  gestation  parity  age  height  weight  smoke    1  120  284  0  27  62  100  0    2  113  282  0  33  64  135  0              1236  117  297  0  38  65  129  0    The summary table below shows the results of a regression model for predicting the average birth weight of babies based on all of the variables included in the data set.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -80.41  14.35  -5.60  0.0000    gestation  0.44  0.03  15.26  0.0000    parity  -3.33  1.13  -2.95  0.0033    age  -0.01  0.09  -0.10  0.9170    height  1.15  0.21  5.63  0.0000    weight  0.05  0.03  1.99  0.0471    smoke  -8.40  0.95  -8.81  0.0000      Write the equation of the regression model that includes all of the variables.  Interpret the slopes of gestation and age in this context.  The coefficient for parity is different than in the linear model shown in . Why might there be a difference?  Calculate the residual for the first observation in the data set.  The variance of the residuals is 249.28, and the variance of the birth weights of all babies in the data set is 332.57. Calculate the and the adjusted . Note that there are 1,236 observations in the data set.     "
+},
+{
+  "id": "exer-absenteeism",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-absenteeism",
+  "type": "Exercise",
+  "number": "9.1.4.4",
+  "title": "Absenteeism, Part I.",
+  "body": " Absenteeism, Part I   Researchers interested in the relationship between absenteeism from school and certain demographic characteristics of children collected data from 146 randomly sampled students in rural New South Wales, Australia, in a particular school year. Below are three observations from this data set.     eth  sex  lrn  days    1  0  1  1  2    2  0  1  1  11           146  1  0  0  37    The summary table below shows the results of a linear regression model for predicting the average number of days absent based on ethnic background ( eth : 0 - aboriginal, 1 - not aboriginal), sex ( sex : 0 - female, 1 - male), and learner status ( lrn : 0 - average learner, 1 - slow learner).     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  18.93  2.57  7.37  0.0000    eth  -9.11  2.60  -3.51  0.0000    sex  3.10  2.64  1.18  0.2411    lrn  2.15  2.65  0.81  0.4177      Write the equation of the regression model.  Interpret each one of the slopes in this context.  Calculate the residual for the first observation in the data set: a student who is aboriginal, male, a slow learner, and missed 2 days of school.  The variance of the residuals is 240.57, and the variance of the number of absent days for all students in the data set is 264.17. Calculate the and the adjusted . Note that there are 146 observations in the data set.     "
+},
+{
+  "id": "exer-gpa",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-gpa",
+  "type": "Exercise",
+  "number": "9.1.4.5",
+  "title": "GPA.",
+  "body": " GPA   A survey of 55 Duke University students asked about their GPA, number of hours they study at night, number of nights they go out, and their gender. Summary output of the regression model is shown below. Note that male is coded as 1.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  3.45  0.35  9.85  0.00    studyweek  0.00  0.00  0.27  0.79    sleepnight  0.01  0.05  0.11  0.91    outnight  0.05  0.05  1.01  0.32    gender  -0.08  0.12  -0.68  0.50      Calculate a 95% confidence interval for the coefficient of gender in the model, and interpret it in the context of the data.  Would you expect a 95% confidence interval for the slope of the remaining variables to include 0? Explain.     "
+},
+{
+  "id": "exer-cherry-trees",
+  "level": "2",
+  "url": "sec-multiple-regression-intro.html#exer-cherry-trees",
+  "type": "Exercise",
+  "number": "9.1.4.6",
+  "title": "Cherry trees.",
+  "body": " Cherry trees   Timber yield is approximately equal to the volume of a tree, however, this value is difficult to measure without first cutting the tree down. Instead, other variables, such as height and diameter, may be used to predict a tree's volume and yield. Researchers wanting to understand the relationship between these variables for black cherry trees collected data from 31 such trees in the Allegheny National Forest, Pennsylvania. Height is measured in feet, diameter in inches (at 54 inches above ground), and volume in cubic feet.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  -57.99  8.64  -6.71  0.00    height  0.34  0.13  2.61  0.01    diameter  4.71  0.26  17.82  0.00      Calculate a 95% confidence interval for the coefficient of height, and interpret it in the context of the data.  One tree in this sample is 79 feet tall, has a diameter of 11.3 inches, and is 24.2 cubic feet in volume. Determine if the model overestimates or underestimates the volume of this tree, and by how much.     "
 },
 {
   "id": "sec-model-selection",
@@ -8386,52 +8656,160 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "9.2",
   "title": "Model Selection",
-  "body": " Model Selection   With multiple regression, we have the flexibility to include many predictors, but we must decide which variables to include in our model. Including too many variables can lead to overfitting, while including too few may leave out important information.    R-squared and Adjusted R-squared  Recall that represents the proportion of variation in the response variable that is explained by the predictors. However, increases whenever we add a new variable, even if that variable is not truly helpful.     Adjusted R-squared is a modified version of that accounts for the number of predictors in the model: where is the number of observations and is the number of predictors.    Adjusted can decrease if we add a variable that does not improve the model sufficiently to offset the penalty for adding parameters.    Variable Selection Strategies  Several approaches exist for selecting which variables to include in a multiple regression model:     Backward elimination: Start with all variables and remove the least significant one at each step.     Forward selection: Start with no variables and add the most significant one at each step.     Stepwise selection: A combination of forward and backward approaches.     Best subset selection: Evaluate all possible combinations of predictors.     "
+  "body": " Model Selection  The best model is not always the most complicated. Sometimes including variables that are not evidently important can actually reduce the accuracy of predictions. In this section, we discuss model selection strategies, which will help us eliminate variables from the model that are found to be less important. It's common (and hip, at least in the statistical world) to refer to models that have undergone such variable pruning as parsimonious .  In practice, the model that includes all available explanatory variables is often referred to as the full model . The full model may not be the best model, and if it isn't, we want to identify a smaller model that is preferable.   Identifying variables in the model that may not be helpful  Adjusted describes the strength of a model fit, and it is a useful tool for evaluating which predictors are adding value to the model, where adding value means they are (likely) improving the accuracy in predicting future outcomes.  Let's consider two models, which are shown in and . The first table summarizes the full model since it includes all predictors, while the second does not include the issued variable.   The fit for the full regression model, including the adjusted .     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9251  0.2102  9.16  0.0001    income_ver (source_only)  0.9750  0.0991  9.83  0.0001    income_ver (verified)  2.5374  0.1172  21.65  0.0001    debt_to_income  0.0211  0.0029  7.18  0.0001    credit_util  4.8959  0.1619  30.24  0.0001    bankruptcy  0.3864  0.1324  2.92  0.0035    term  0.1537  0.0039  38.96  0.0001    issued (Jan2018)  0.0276  0.1081  0.26  0.7981    issued (Mar2018)  -0.0397  0.1065  -0.37  0.7093    credit_checks  0.2282  0.0182  12.51  0.0001          The fit for the regression model after dropping the issued variable.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9213  0.1982  9.69  0.0001    income_ver (source_only)  0.9740  0.0991  9.83  0.0001    income_ver (verified)  2.5355  0.1172  21.64  0.0001    debt_to_income  0.0211  0.0029  7.19  0.0001    credit_util  4.8958  0.1619  30.25  0.0001    bankruptcy  0.3869  0.1324  2.92  0.0035    term  0.1537  0.0039  38.97  0.0001    credit_checks  0.2283  0.0182  12.51  0.0001          Which of the two models is better?   Which of the two models is better?    We compare the adjusted of each model to determine which to choose. Since the first model has an smaller than the of the second model, we prefer the second model to the first.    Will the model without issued be better than the model with issued ? We cannot know for sure, but based on the adjusted , this is our best assessment.    Two model selection strategies  Two common strategies for adding or removing variables in a multiple regression model are called backward elimination and forward selection . These techniques are often referred to as stepwise model selection strategies, because they add or delete one variable at a time as they step through the candidate predictors.   Backward elimination starts with the model that includes all potential predictor variables. Variables are eliminated one-at-a-time from the model until we cannot improve the adjusted . The strategy within each elimination step is to eliminate the variable that leads to the largest improvement in adjusted .   Backward elimination with the loans data   Results corresponding to the full model for the loans data are shown in . How should we proceed under the backward elimination strategy?    Our baseline adjusted from the full model is , and we need to determine whether dropping a predictor will improve the adjusted . To check, we fit models that each drop a different predictor, and we record the adjusted :    Exclude...  income_ver  debt_to_income  credit_util  bankruptcy                   term  issued  credit_checks            The model without issued has the highest adjusted of 0.25854, higher than the adjusted for the full model. Because eliminating issued leads to a model with a higher adjusted , we drop issued from the model.  Since we eliminated a predictor from the model in the first step, we see whether we should eliminate any additional predictors. Our baseline adjusted is now . We now fit new models, which consider eliminating each of the remaining predictors in addition to issued :    Exclude issued and...  income_ver  debt_to_income  credit_util                 bankruptcy  term  credit_checks          None of these models lead to an improvement in adjusted , so we do not eliminate any of the remaining predictors. That is, after backward elimination, we are left with the model that keeps all predictors except issued , which we can summarize using the coefficients from :     The forward selection strategy is the reverse of the backward elimination technique. Instead of eliminating variables one-at-a-time, we add variables one-at-a-time until we cannot find any variables that improve the model (as measured by adjusted ).   Forward selection with the loans data   Construct a model for the loans data set using the forward selection strategy.    We start with the model that includes no variables. Then we fit each of the possible models with just one variable. That is, we fit the model including just income_ver , then the model including just debt_to_income , then a model with just credit_util , and so on. Then we examine the adjusted for each of these models:    Add...  income_ver  debt_to_income  credit_util  bankruptcy                   term  issued  credit_checks            In this first step, we compare the adjusted against a baseline model that has no predictors. The no-predictors model always has . The model with one predictor that has the largest adjusted is the model with the term predictor, and because this adjusted is larger than the adjusted from the model with no predictors ( ), we will add this variable to our model.  We repeat the process again, this time considering 2-predictor models where one of the predictors is term and with a new baseline of :    Add term and...  income_ver  debt_to_income  credit_util                 bankruptcy  issued  credit_checks          The best second predictor, credit_util , has a higher adjusted (0.20046) than the baseline (0.12855), so we also add credit_util to the model.  Since we have again added a variable to the model, we continue and see whether it would be beneficial to add a third variable:    Add term , credit_util , and...  income_ver  debt_to_income               bankruptcy  issued  credit_checks          The model adding income_ver improved adjusted (0.24183 from 0.20046), so we add income_ver to the model.  We continue on in this way, next adding debt_to_income , then credit_checks , and bankruptcy . At this point, we come again to the issued variable: adding this variable leads to , while keeping all the other variables but excluding issued leads to a higher . This means we do not add issued . In this example, we have arrived at the same model that we identified from backward elimination.     Model selection strategies  Backward elimination begins with the model having the largest number of predictors and eliminates variables one-by-one until we are satisfied that all remaining variables are important to the model. Forward selection starts with no variables included in the model, then it adds in variables according to their importance until no other important variables are found.   Backward elimination and forward selection sometimes arrive at different final models. If trying both techniques and this happens, it's common to choose the model with the larger .    The p-value approach, an alternative to adjusted  The p-value may be used as an alternative to for model selection:    Backward elimination with the p-value approach  In backward elimination, we would identify the predictor corresponding to the largest p-value. If the p-value is above the significance level, usually , then we would drop that variable, refit the model, and repeat the process. If the largest p-value is less than , then we would not eliminate any predictors and the current model would be our best-fitting model.    Forward selection with the p-value approach  In forward selection with p-values, we reverse the process. We begin with a model that has no predictors, then we fit a model for each possible predictor, identifying the model where the corresponding predictor's p-value is smallest. If that p-value is smaller than , we add it to the model and repeat the process, considering whether to add more variables one-at-a-time. When none of the remaining predictors can be added to the model and have a p-value less than 0.05, then we stop adding variables and the current model would be our best-fitting model.      Examine , which considers the model including all variables except the variable for the month the loan was issued. If we were using the p-value approach with backward elimination and we were considering this model, which of these variables would be up for elimination? Would we drop that variable, or would we keep it in the model?    The bankruptcy predictor is up for elimination since it has the largest p-value. However, since that p-value is smaller than 0.05, we would still keep it in the model.    While the adjusted and p-value approaches are similar, they sometimes lead to different models, with the approach tending to include more predictors in the final model.   Adjusted vs p-value approach  When the sole goal is to improve prediction accuracy, use . This is commonly the case in machine learning applications.  When we care about understanding which variables are statistically significant predictors of the response, or if there is interest in producing a simpler model at the potential cost of a little prediction accuracy, then the p-value approach is preferred.   Regardless of whether you use or the p-value approach, or if you use the backward elimination or forward selection strategy, our job is not done after variable selection. We must still verify the model conditions are reasonable.     Baby weights, Part IV    considers a model that predicts a newborn's weight using several predictors (gestation length, parity, age of mother, height of mother, weight of mother, smoking status of mother). The table below shows the adjusted R-squared for the full model as well as adjusted R-squared values for all models we evaluate in the first step of the backward elimination process.     Model  Adjusted    1  Full model  0.2541    2  No gestation  0.1031    3  No parity  0.2492    4  No age  0.2547    5  No height  0.2311    6  No weight  0.2536    7  No smoking status  0.2072    Which, if any, variable should be removed from the model first?     Absenteeism, Part II    considers a model that predicts the number of days absent using three predictors: ethnic background ( eth ), gender ( sex ), and learner status ( lrn ). The table below shows the adjusted R-squared for the model as well as adjusted R-squared values for all models we evaluate in the first step of the backward elimination process.     Model  Adjusted    1  Full model  0.0701    2  No ethnicity  -0.0033    3  No sex  0.0676    4  No learner status  0.0723    Which, if any, variable should be removed from the model first?     Baby weights, Part V    provides regression output for the full model (including all explanatory variables available in the data set) for predicting birth weight of babies. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?    variable  gestation  parity  age  height  weight  smoke    p-value   0.1052  0.2375        0.1657  0.0013  0.0003  0.0386  0.0229  0.0569       Absenteeism, Part III    provides regression output for the full model, including all explanatory variables available in the data set, for predicting the number of days absent from school. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?    variable  ethnicity  sex  learner status    p-value  0.0007  0.3142  0.5870     0.0714  0.0001  0       Movie lovers, Part I   Suppose a social scientist is interested in studying what makes audiences love or hate a movie. She collects a random sample of movies (genre, length, cast, director, budget, etc.) as well as a measure of the success of the movie (score on a film review aggregator website). If as part of her research she is interested in finding out which variables are significant predictors of movie success, what type of model selection method should she use?     Movie lovers, Part II   Suppose an online media streaming company is interested in building a movie recommendation system. The website maintains data on the movies in their database (genre, length, cast, director, budget, etc.) and additionally collects data from their subscribers (demographic information, previously watched movies, how they rated previously watched movies, etc.). The recommendation system will be deemed successful if subscribers actually watch, and rate highly, the movies recommended to them. Should the company use the adjusted or the p-value approach in selecting variables for their recommendation system?     "
 },
 {
-  "id": "def-adjusted-r-squared",
+  "id": "sec-model-selection-2",
   "level": "2",
-  "url": "sec-model-selection.html#def-adjusted-r-squared",
-  "type": "Definition",
+  "url": "sec-model-selection.html#sec-model-selection-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "parsimonious "
+},
+{
+  "id": "sec-model-selection-3",
+  "level": "2",
+  "url": "sec-model-selection.html#sec-model-selection-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "full model "
+},
+{
+  "id": "fig-loans-full-model-selection",
+  "level": "2",
+  "url": "sec-model-selection.html#fig-loans-full-model-selection",
+  "type": "Figure",
   "number": "9.2.1",
   "title": "",
-  "body": "   Adjusted R-squared is a modified version of that accounts for the number of predictors in the model: where is the number of observations and is the number of predictors.   "
+  "body": " The fit for the full regression model, including the adjusted .     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9251  0.2102  9.16  0.0001    income_ver (source_only)  0.9750  0.0991  9.83  0.0001    income_ver (verified)  2.5374  0.1172  21.65  0.0001    debt_to_income  0.0211  0.0029  7.18  0.0001    credit_util  4.8959  0.1619  30.24  0.0001    bankruptcy  0.3864  0.1324  2.92  0.0035    term  0.1537  0.0039  38.96  0.0001    issued (Jan2018)  0.0276  0.1081  0.26  0.7981    issued (Mar2018)  -0.0397  0.1065  -0.37  0.7093    credit_checks  0.2282  0.0182  12.51  0.0001        "
 },
 {
-  "id": "subsec-variable-selection-3-1-1",
+  "id": "fig-loans-model-all-but-issued",
   "level": "2",
-  "url": "sec-model-selection.html#subsec-variable-selection-3-1-1",
+  "url": "sec-model-selection.html#fig-loans-model-all-but-issued",
+  "type": "Figure",
+  "number": "9.2.2",
+  "title": "",
+  "body": " The fit for the regression model after dropping the issued variable.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  1.9213  0.1982  9.69  0.0001    income_ver (source_only)  0.9740  0.0991  9.83  0.0001    income_ver (verified)  2.5355  0.1172  21.64  0.0001    debt_to_income  0.0211  0.0029  7.19  0.0001    credit_util  4.8958  0.1619  30.25  0.0001    bankruptcy  0.3869  0.1324  2.92  0.0035    term  0.1537  0.0039  38.97  0.0001    credit_checks  0.2283  0.0182  12.51  0.0001        "
+},
+{
+  "id": "ex-which-model-better",
+  "level": "2",
+  "url": "sec-model-selection.html#ex-which-model-better",
+  "type": "Example",
+  "number": "9.2.3",
+  "title": "Which of the two models is better?",
+  "body": " Which of the two models is better?   Which of the two models is better?    We compare the adjusted of each model to determine which to choose. Since the first model has an smaller than the of the second model, we prefer the second model to the first.   "
+},
+{
+  "id": "subsec-two-model-selection-strategies-2",
+  "level": "2",
+  "url": "sec-model-selection.html#subsec-two-model-selection-strategies-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Backward elimination: "
+  "body": "stepwise "
 },
 {
-  "id": "subsec-variable-selection-3-2-1",
+  "id": "subsec-two-model-selection-strategies-3",
   "level": "2",
-  "url": "sec-model-selection.html#subsec-variable-selection-3-2-1",
+  "url": "sec-model-selection.html#subsec-two-model-selection-strategies-3",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Forward selection: "
+  "body": "Backward elimination "
 },
 {
-  "id": "subsec-variable-selection-3-3-1",
+  "id": "ex-loans-backward-elim",
   "level": "2",
-  "url": "sec-model-selection.html#subsec-variable-selection-3-3-1",
+  "url": "sec-model-selection.html#ex-loans-backward-elim",
+  "type": "Example",
+  "number": "9.2.4",
+  "title": "Backward elimination with the loans data.",
+  "body": " Backward elimination with the loans data   Results corresponding to the full model for the loans data are shown in . How should we proceed under the backward elimination strategy?    Our baseline adjusted from the full model is , and we need to determine whether dropping a predictor will improve the adjusted . To check, we fit models that each drop a different predictor, and we record the adjusted :    Exclude...  income_ver  debt_to_income  credit_util  bankruptcy                   term  issued  credit_checks            The model without issued has the highest adjusted of 0.25854, higher than the adjusted for the full model. Because eliminating issued leads to a model with a higher adjusted , we drop issued from the model.  Since we eliminated a predictor from the model in the first step, we see whether we should eliminate any additional predictors. Our baseline adjusted is now . We now fit new models, which consider eliminating each of the remaining predictors in addition to issued :    Exclude issued and...  income_ver  debt_to_income  credit_util                 bankruptcy  term  credit_checks          None of these models lead to an improvement in adjusted , so we do not eliminate any of the remaining predictors. That is, after backward elimination, we are left with the model that keeps all predictors except issued , which we can summarize using the coefficients from :    "
+},
+{
+  "id": "subsec-two-model-selection-strategies-5",
+  "level": "2",
+  "url": "sec-model-selection.html#subsec-two-model-selection-strategies-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
-  "body": "Stepwise selection: "
+  "body": "forward selection "
 },
 {
-  "id": "subsec-variable-selection-3-4-1",
+  "id": "ex-loans-forward-selection",
   "level": "2",
-  "url": "sec-model-selection.html#subsec-variable-selection-3-4-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
+  "url": "sec-model-selection.html#ex-loans-forward-selection",
+  "type": "Example",
+  "number": "9.2.5",
+  "title": "Forward selection with the loans data.",
+  "body": " Forward selection with the loans data   Construct a model for the loans data set using the forward selection strategy.    We start with the model that includes no variables. Then we fit each of the possible models with just one variable. That is, we fit the model including just income_ver , then the model including just debt_to_income , then a model with just credit_util , and so on. Then we examine the adjusted for each of these models:    Add...  income_ver  debt_to_income  credit_util  bankruptcy                   term  issued  credit_checks            In this first step, we compare the adjusted against a baseline model that has no predictors. The no-predictors model always has . The model with one predictor that has the largest adjusted is the model with the term predictor, and because this adjusted is larger than the adjusted from the model with no predictors ( ), we will add this variable to our model.  We repeat the process again, this time considering 2-predictor models where one of the predictors is term and with a new baseline of :    Add term and...  income_ver  debt_to_income  credit_util                 bankruptcy  issued  credit_checks          The best second predictor, credit_util , has a higher adjusted (0.20046) than the baseline (0.12855), so we also add credit_util to the model.  Since we have again added a variable to the model, we continue and see whether it would be beneficial to add a third variable:    Add term , credit_util , and...  income_ver  debt_to_income               bankruptcy  issued  credit_checks          The model adding income_ver improved adjusted (0.24183 from 0.20046), so we add income_ver to the model.  We continue on in this way, next adding debt_to_income , then credit_checks , and bankruptcy . At this point, we come again to the issued variable: adding this variable leads to , while keeping all the other variables but excluding issued leads to a higher . This means we do not add issued . In this example, we have arrived at the same model that we identified from backward elimination.   "
+},
+{
+  "id": "exer-pvalue-backward-elim",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-pvalue-backward-elim",
+  "type": "Checkpoint",
+  "number": "9.2.6",
   "title": "",
-  "body": "Best subset selection: "
+  "body": "  Examine , which considers the model including all variables except the variable for the month the loan was issued. If we were using the p-value approach with backward elimination and we were considering this model, which of these variables would be up for elimination? Would we drop that variable, or would we keep it in the model?    The bankruptcy predictor is up for elimination since it has the largest p-value. However, since that p-value is smaller than 0.05, we would still keep it in the model.   "
+},
+{
+  "id": "exer-baby-weights-backward",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-baby-weights-backward",
+  "type": "Exercise",
+  "number": "9.2.4.1",
+  "title": "Baby weights, Part IV.",
+  "body": " Baby weights, Part IV    considers a model that predicts a newborn's weight using several predictors (gestation length, parity, age of mother, height of mother, weight of mother, smoking status of mother). The table below shows the adjusted R-squared for the full model as well as adjusted R-squared values for all models we evaluate in the first step of the backward elimination process.     Model  Adjusted    1  Full model  0.2541    2  No gestation  0.1031    3  No parity  0.2492    4  No age  0.2547    5  No height  0.2311    6  No weight  0.2536    7  No smoking status  0.2072    Which, if any, variable should be removed from the model first?   "
+},
+{
+  "id": "exer-absenteeism-backward",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-absenteeism-backward",
+  "type": "Exercise",
+  "number": "9.2.4.2",
+  "title": "Absenteeism, Part II.",
+  "body": " Absenteeism, Part II    considers a model that predicts the number of days absent using three predictors: ethnic background ( eth ), gender ( sex ), and learner status ( lrn ). The table below shows the adjusted R-squared for the model as well as adjusted R-squared values for all models we evaluate in the first step of the backward elimination process.     Model  Adjusted    1  Full model  0.0701    2  No ethnicity  -0.0033    3  No sex  0.0676    4  No learner status  0.0723    Which, if any, variable should be removed from the model first?   "
+},
+{
+  "id": "exer-baby-weights-forward",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-baby-weights-forward",
+  "type": "Exercise",
+  "number": "9.2.4.3",
+  "title": "Baby weights, Part V.",
+  "body": " Baby weights, Part V    provides regression output for the full model (including all explanatory variables available in the data set) for predicting birth weight of babies. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?    variable  gestation  parity  age  height  weight  smoke    p-value   0.1052  0.2375        0.1657  0.0013  0.0003  0.0386  0.0229  0.0569     "
+},
+{
+  "id": "exer-absenteeism-forward",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-absenteeism-forward",
+  "type": "Exercise",
+  "number": "9.2.4.4",
+  "title": "Absenteeism, Part III.",
+  "body": " Absenteeism, Part III    provides regression output for the full model, including all explanatory variables available in the data set, for predicting the number of days absent from school. In this exercise we consider a forward-selection algorithm and add variables to the model one-at-a-time. The table below shows the p-value and adjusted of each model where we include only the corresponding predictor. Based on this table, which variable should be added to the model first?    variable  ethnicity  sex  learner status    p-value  0.0007  0.3142  0.5870     0.0714  0.0001  0     "
+},
+{
+  "id": "exer-movie-lovers-pval",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-movie-lovers-pval",
+  "type": "Exercise",
+  "number": "9.2.4.5",
+  "title": "Movie lovers, Part I.",
+  "body": " Movie lovers, Part I   Suppose a social scientist is interested in studying what makes audiences love or hate a movie. She collects a random sample of movies (genre, length, cast, director, budget, etc.) as well as a measure of the success of the movie (score on a film review aggregator website). If as part of her research she is interested in finding out which variables are significant predictors of movie success, what type of model selection method should she use?   "
+},
+{
+  "id": "exer-movie-lovers-adjrsq",
+  "level": "2",
+  "url": "sec-model-selection.html#exer-movie-lovers-adjrsq",
+  "type": "Exercise",
+  "number": "9.2.4.6",
+  "title": "Movie lovers, Part II.",
+  "body": " Movie lovers, Part II   Suppose an online media streaming company is interested in building a movie recommendation system. The website maintains data on the movies in their database (genre, length, cast, director, budget, etc.) and additionally collects data from their subscribers (demographic information, previously watched movies, how they rated previously watched movies, etc.). The recommendation system will be deemed successful if subscribers actually watch, and rate highly, the movies recommended to them. Should the company use the adjusted or the p-value approach in selecting variables for their recommendation system?   "
 },
 {
   "id": "sec-model-assumptions",
@@ -8439,8 +8817,71 @@ var ptx_lunr_docs = [
   "url": "sec-model-assumptions.html",
   "type": "Section",
   "number": "9.3",
-  "title": "Checking Model Assumptions",
-  "body": " Checking Model Assumptions   Like simple linear regression, multiple regression relies on several key assumptions. We can check these assumptions using residual plots and other diagnostic tools.    Residual Diagnostics  The residuals (observed values minus predicted values) should:    Be approximately normally distributed    Have constant variance (homoscedasticity)    Show no patterns when plotted against fitted values    Be independent of each other    We can assess these assumptions using:    Scatter plots of residuals vs. fitted values    Q-Q plots for normality    Histograms of residuals    Scale-location plots for constant variance     "
+  "title": "Checking model conditions using graphs",
+  "body": " Checking model conditions using graphs  Multiple regression methods using the model generally depend on the following four conditions:    the residuals of the model are nearly normal (less important for larger data sets),  the variability of the residuals is nearly constant,  the residuals are independent, and  each variable is linearly related to the outcome.     Diagnostic plots   Diagnostic plots can be used to check each of these conditions. We will consider the model from the Lending Club loans data, and check whether there are any notable concerns:      Check for outliers  In theory, the distribution of the residuals should be nearly normal; in practice, normality can be relaxed for most applications. Instead, we examine a histogram of the residuals to check if there are any outliers: is a histogram of the residuals. Since this is a very large data set, only particularly extreme observations would be a concern in this particular case. There are no extreme observations that might cause a concern.  If we intended to construct what are called prediction intervals for future observations, we would be more strict and require the residuals to be nearly normal. Prediction intervals are further discussed in an online extra on the OpenIntro website: www.openintro.org\/d?id=stat_extra_linear_regression_supp    A histogram of the residuals.   A histogram is shown for residuals, where values range from about -10 to 20. The data is right skewed and centered near 0. The bin -10 to -5 represents about 2% of the values. The bin -5 to 0 represents about 40% of the values. The bin 0 to 5 represents about 45% of the values. The bin 5 to 10 represents about 10% of the values. The remaining bins above 10 have less than 3% of the data.      Absolute values of residuals against fitted values  A plot of the absolute value of the residuals against their corresponding fitted values ( ) is shown in . This plot is helpful to check the condition that the variance of the residuals is approximately constant, and a smoothed line has been added to represent the approximate trend in this plot. There is more evident variability for fitted values that are larger, which we'll discuss further.   Comparing the absolute value of the residuals against the fitted values ( ) is helpful in identifying deviations from the constant variance assumption.   A scatterplot showing absolute residuals on the vertical axis against fitted values on the horizontal axis, with a smoothed trend line overlaid showing slightly increasing variability at higher fitted values.      Residuals in order of their data collection  This type of plot can be helpful when observations were collected in a sequence. Such a plot is helpful in identifying any connection between cases that are close to one another. The loans in this data set were issued over a 3 month period, and the month the loan was issued was not found to be important, suggesting this is not a concern for this data set. In cases where a data set does show some pattern for this check, time series methods may be useful.    Residuals against each predictor variable  We consider a plot of the residuals against each of the predictors in . For those instances where there are only 2-3 groups, box plots are shown. For the numerical outcomes, a smoothed line has been fit to the data to make it easier to review. Ultimately, we are looking for any notable change in variability between groups or pattern in the data.  Here are the things of importance from these plots:    There is some minor differences in variability between the verified income groups.  There is a very clear pattern for the debt-to-income variable. What also stands out is that this variable is very strongly right skewed: there are few observations with very high debt-to-income ratios.  The downward curve on the right side of the credit utilization and credit check plots suggests some minor misfitting for those larger values.     Diagnostic plots for residuals against each of the predictors. For the box plots, we're looking for notable differences in variability. For numerical predictors, we also check for trends or other structure in the data.   First set of diagnostic plots showing residuals against income verification, debt-to-income, and credit utilization.    Second set of diagnostic plots showing residuals against bankruptcy status and term.    Third set of diagnostic plots showing residuals against credit checks.       Having reviewed the diagnostic plots, there are two options. The first option is to, if we're not concerned about the issues observed, use this as the final model; if going this route, it is important to still note any abnormalities observed in the diagnostics. The second option is to try to improve the model, which is what we'll try to do with this particular model fit.    Options for improving the model fit  There are several options for improvement of a model, including transforming variables, seeking out additional variables to fill model gaps, or using more advanced methods that would account for challenges around inconsistent variability or nonlinear relationships between predictors and the outcome.  The main concern for the initial model is that there is a notable nonlinear relationship between the debt-to-income variable observed in . To resolve this issue, we're going to consider a couple strategies for adjusting the relationship between the predictor variable and the outcome.  Let's start by taking a look at a histogram of debt_to_income in . The variable is extremely skewed, and upper values will have a lot of leverage on the fit. Below are several options:    log transformation ( ),  square root transformation ( ),  inverse transformation ( ),  truncation (cap the max value possible)    If we inspected the data more closely, we'd observe some instances where the variable takes a value of 0, and since and are undefined when , we'll exclude these transformations from further consideration. There are ways to make them work, but we'll leave those options to a later course. A square root transformation is valid for all values the variable takes, and truncating some of the larger observations is also a valid approach. We'll consider both of these approaches.   Histogram of debt_to_income , where extreme skew is evident.   A histogram showing debt-to-income ratio with extreme right skew, where most values are below 50 but a few extend to over 150.    To try transforming the variable, we make two new variables representing the transformed versions:     Square root  We create a new variable, sqrt_debt_to_income , where all the values are simply the square roots of the values in debt_to_income , and then refit the model as before. The result is shown in the left panel of . The square root pulled in the higher values a bit, but the fit still doesn't look great since the smoothed line is still wavy.    Truncate at 50  We create a new variable, debt_to_income_50 , where any values in debt_to_income that are greater than 50 are shrunk to exactly 50. Refitting the model once more, the diagnostic plot for this new variable is shown in the right panel of . Here the fit looks much more reasonable, so this appears to be a reasonable approach.     The downside of using transformations is that it reduces the ease of interpreting the results. Fortunately, since the truncation transformation only affects a relatively small number of cases, the interpretation isn't dramatically impacted.   Residual plots for transformed versions of the debt-to-income variable.   Two residual plots are shown, each with a flexible trend line overlaid. The first residual plot is against the variable \"Square root of Debt to Income\", which shows relative stability of the trend line with some deviation downwards on the right where there are almost no values and so is less relevant. The second residual plot is against the variable \"Debt to Income, truncated at 50\", which shows general stability in the trend line throughout the plot.    As a next step to evaluate the new model using the truncated version of debt_to_income , we would complete all the same procedures as before. The other two issues noted while inspecting diagnostics in are still present in the updated model. If we choose to report this model, we would want to also discuss these shortcomings to be transparent in our work. Depending on what the model will be used for, we could either try to bring those under control, or we could stop since those issues aren't severe. Had the non-constant variance been a little more dramatic, it would be a higher priority. Ultimately we decided that the model was reasonable, and we report its final form here:   A sharp eye would notice that the coefficient for debt_to_income_50 is more than twice as large as what the coefficient had been for the debt_to_income variable in the earlier model. This suggests those larger values not only were points with high leverage, but they were influential points that were dramatically impacting the coefficient.   All models are wrong, but some are useful  George E.P. Box  The truth is that no model is perfect. However, even imperfect models can be useful. Reporting a flawed model can be reasonable so long as we are clear and report the model's shortcomings.   Don't report results when conditions are grossly violated. While there is a little leeway in model conditions, don't go too far. If model conditions are very clearly violated, consider a new model, even if it means learning more statistical methods or hiring someone who can help. To help you get started, we've developed a couple additional sections that you may find on OpenIntro's website. These sections provide a light introduction to what are called interaction terms and to fitting nonlinear curves to data, respectively:    www.openintro.org\/d?file=stat_extra_interaction_effects  www.openintro.org\/d?file=stat_extra_nonlinear_relationships       Baby weights, Part VI    presents a regression model for predicting the average birth weight of babies based on length of gestation, parity, height, weight, and smoking status of the mother. Determine if the model assumptions are met using the plots below. If not, describe how to proceed with the analysis.   A histogram of residuals is shown, which has a bell-shaped distribution, is centered at 0, and has a standard deviation of about 12.    A scatterplot of \"residuals\" (vertical axis) against \"fitted values\". The residuals do not show any pattern for different fitted values.    A scatterplot of \"residuals\" (vertical axis) against \"order of collection\". The residuals do not show any pattern across the order of collection variable.    A scatterplot of \"residuals\" (vertical axis) against \"length of gestation\". The residuals do not show any pattern for different lengths of gestation.    A scatterplot of \"residuals\" (vertical axis) against \"parity\", which only takes values 0 and 1. The residuals do not show any apparent patterns across the values 0 and 1 of parity.    A scatterplot of \"residuals\" (vertical axis) against \"height of mother\". The residuals do not show any pattern for different values of \"height of mother\".    A scatterplot of \"residuals\" (vertical axis) against \"weight of mother\". The residuals do not show any pattern for different values of \"weight of mother\".    A scatterplot of \"residuals\" (vertical axis) against \"smoke\", which only takes values 0 and 1. The residuals do not show any pattern for the 0 and 1 values of smoke.      Movie returns, Part I   A FiveThirtyEight.com article reports that Horror movies get nowhere near as much draw at the box office as the big-time summer blockbusters or action\/adventure movies ... but there's a huge incentive for studios to continue pushing them out. The return-on-investment potential for horror movies is absurd. To investigate how the return-on-investment compares between genres and how this relationship has changed over time, an introductory statistics student fit a model predicting the ratio of gross revenue of movies from genre and release year for 1,070 movies released between 2000 and 2018. Using the plots given below, determine if this regression model is appropriate for these data.   A histogram is shown for \"Residuals\", which take values from about -15 to 100. The shape of the distribution is extremely right-skewed but centered at 0. The bin -15 to -10 represents about 1% of the values. The bin -10 to -5 represents about 1% of the values. The bin -5 to 0 represents about 65% of the values. The bin 0 to 5 represents about 25% of the values. The bin 5 to 10 represents about 2% of the values. The bin 10 to 15 represents about 1% of the values. The remaining bins above 15 have far less than 1% of the data.    A scatterplot is shown. The horizontal axis is for \"Fitted Values\", which takes values between 2.5 and 12. The vertical axis is for \"Residuals\" and takes values from -15 to about 90, though only about a dozen values have residuals larger than 25. The points are also colored for different genres: Action, Adventure, Comedy, Drama, and Horror. The points for Action, Adventure, Comedy, and Drama are clustered on the left with Fitted Values between 2.5 and 3.5, and the residuals for these points are largely between -5 and 12. The Horror points have Fitted Values between about 11 and 12, with residuals for these points largely between -10 and 25.    A dot plot is shown for \"residuals\", where points are broken up into different genres: Action, Adventure, Comedy, Drama, and Horror. The residuals for Action, Adventure, Comedy, and Drama groups have residuals for these points largely between -5 and 12. The Horror genre residuals are largely between -10 and 25.    A scatterplot is shown for \"residuals\" (vertical axis) against \"order of collection\" (horizontal axis) from 1 to about 1100. The variability of residuals for the order of collection values from 0 to 600 largely range between -3 and positive 5. The variability of residuals for the order of collection values from 600 to 800 largely range between -5 and positive 10. The variability of residuals for the order of collection values above 800 largely range between -8 and positive 15.    A scatterplot is shown for \"residuals\" (vertical axis) against \"release year\" (horizontal axis) from 2010 to 2018. For each year in the range, the residuals largely range between roughly -10 and positive 12.      "
+},
+{
+  "id": "subsec-diagnostic-plots-2",
+  "level": "2",
+  "url": "sec-model-assumptions.html#subsec-diagnostic-plots-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Diagnostic plots "
+},
+{
+  "id": "subsec-diagnostic-plots-3",
+  "level": "2",
+  "url": "sec-model-assumptions.html#subsec-diagnostic-plots-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "prediction intervals time series "
+},
+{
+  "id": "fig-loans-debt-to-income-hist",
+  "level": "2",
+  "url": "sec-model-assumptions.html#fig-loans-debt-to-income-hist",
+  "type": "Figure",
+  "number": "9.3.4",
+  "title": "",
+  "body": " Histogram of debt_to_income , where extreme skew is evident.   A histogram showing debt-to-income ratio with extreme right skew, where most values are below 50 but a few extend to over 150.   "
+},
+{
+  "id": "fig-loans-diag-evs-transform-debt-to-income",
+  "level": "2",
+  "url": "sec-model-assumptions.html#fig-loans-diag-evs-transform-debt-to-income",
+  "type": "Figure",
+  "number": "9.3.5",
+  "title": "",
+  "body": " Residual plots for transformed versions of the debt-to-income variable.   Two residual plots are shown, each with a flexible trend line overlaid. The first residual plot is against the variable \"Square root of Debt to Income\", which shows relative stability of the trend line with some deviation downwards on the right where there are almost no values and so is less relevant. The second residual plot is against the variable \"Debt to Income, truncated at 50\", which shows general stability in the trend line throughout the plot.   "
+},
+{
+  "id": "subsec-improving-model-fit-15",
+  "level": "2",
+  "url": "sec-model-assumptions.html#subsec-improving-model-fit-15",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "interaction terms nonlinear curves "
+},
+{
+  "id": "exer-baby-weights-conds",
+  "level": "2",
+  "url": "sec-model-assumptions.html#exer-baby-weights-conds",
+  "type": "Exercise",
+  "number": "9.3.3.1",
+  "title": "Baby weights, Part VI.",
+  "body": " Baby weights, Part VI    presents a regression model for predicting the average birth weight of babies based on length of gestation, parity, height, weight, and smoking status of the mother. Determine if the model assumptions are met using the plots below. If not, describe how to proceed with the analysis.   A histogram of residuals is shown, which has a bell-shaped distribution, is centered at 0, and has a standard deviation of about 12.    A scatterplot of \"residuals\" (vertical axis) against \"fitted values\". The residuals do not show any pattern for different fitted values.    A scatterplot of \"residuals\" (vertical axis) against \"order of collection\". The residuals do not show any pattern across the order of collection variable.    A scatterplot of \"residuals\" (vertical axis) against \"length of gestation\". The residuals do not show any pattern for different lengths of gestation.    A scatterplot of \"residuals\" (vertical axis) against \"parity\", which only takes values 0 and 1. The residuals do not show any apparent patterns across the values 0 and 1 of parity.    A scatterplot of \"residuals\" (vertical axis) against \"height of mother\". The residuals do not show any pattern for different values of \"height of mother\".    A scatterplot of \"residuals\" (vertical axis) against \"weight of mother\". The residuals do not show any pattern for different values of \"weight of mother\".    A scatterplot of \"residuals\" (vertical axis) against \"smoke\", which only takes values 0 and 1. The residuals do not show any pattern for the 0 and 1 values of smoke.    "
+},
+{
+  "id": "exer-movie-returns",
+  "level": "2",
+  "url": "sec-model-assumptions.html#exer-movie-returns",
+  "type": "Exercise",
+  "number": "9.3.3.2",
+  "title": "Movie returns, Part I.",
+  "body": " Movie returns, Part I   A FiveThirtyEight.com article reports that Horror movies get nowhere near as much draw at the box office as the big-time summer blockbusters or action\/adventure movies ... but there's a huge incentive for studios to continue pushing them out. The return-on-investment potential for horror movies is absurd. To investigate how the return-on-investment compares between genres and how this relationship has changed over time, an introductory statistics student fit a model predicting the ratio of gross revenue of movies from genre and release year for 1,070 movies released between 2000 and 2018. Using the plots given below, determine if this regression model is appropriate for these data.   A histogram is shown for \"Residuals\", which take values from about -15 to 100. The shape of the distribution is extremely right-skewed but centered at 0. The bin -15 to -10 represents about 1% of the values. The bin -10 to -5 represents about 1% of the values. The bin -5 to 0 represents about 65% of the values. The bin 0 to 5 represents about 25% of the values. The bin 5 to 10 represents about 2% of the values. The bin 10 to 15 represents about 1% of the values. The remaining bins above 15 have far less than 1% of the data.    A scatterplot is shown. The horizontal axis is for \"Fitted Values\", which takes values between 2.5 and 12. The vertical axis is for \"Residuals\" and takes values from -15 to about 90, though only about a dozen values have residuals larger than 25. The points are also colored for different genres: Action, Adventure, Comedy, Drama, and Horror. The points for Action, Adventure, Comedy, and Drama are clustered on the left with Fitted Values between 2.5 and 3.5, and the residuals for these points are largely between -5 and 12. The Horror points have Fitted Values between about 11 and 12, with residuals for these points largely between -10 and 25.    A dot plot is shown for \"residuals\", where points are broken up into different genres: Action, Adventure, Comedy, Drama, and Horror. The residuals for Action, Adventure, Comedy, and Drama groups have residuals for these points largely between -5 and 12. The Horror genre residuals are largely between -10 and 25.    A scatterplot is shown for \"residuals\" (vertical axis) against \"order of collection\" (horizontal axis) from 1 to about 1100. The variability of residuals for the order of collection values from 0 to 600 largely range between -3 and positive 5. The variability of residuals for the order of collection values from 600 to 800 largely range between -5 and positive 10. The variability of residuals for the order of collection values above 800 largely range between -8 and positive 15.    A scatterplot is shown for \"residuals\" (vertical axis) against \"release year\" (horizontal axis) from 2010 to 2018. For each year in the range, the residuals largely range between roughly -10 and positive 12.    "
 },
 {
   "id": "sec-regression-case-study",
@@ -8448,8 +8889,152 @@ var ptx_lunr_docs = [
   "url": "sec-regression-case-study.html",
   "type": "Section",
   "number": "9.4",
-  "title": "Case Study: Mario Kart",
-  "body": " Case Study: Mario Kart  A case study on the relationship between various characteristics of Mario Kart video game items and their prices on the auction website eBay demonstrates the principles of multiple regression in practice.   The Data  The dataset includes information about completed eBay auctions of Mario Kart games, with variables such as:   Price (response variable)  Condition of the item (new vs. used)  Game system (Wii, Nintendo 64, etc.)  Number of wheels\/characters included  Auction duration     Model Development  We can build a multiple regression model to predict Mario Kart prices, starting with all reasonable predictors and using model selection techniques to arrive at a final model.   "
+  "title": "Multiple regression case study: Mario Kart",
+  "body": " Multiple regression case study: Mario Kart  We'll consider eBay auctions of a video game called Mario Kart for the Nintendo Wii. The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost. We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables. For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices? And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions? Multiple regression will help us answer these and other questions.   Data set and the full model  The mariokart data set includes results from 141 auctions. Four observations from this data set are shown in , and descriptions for each variable are shown in . Notice that the condition and stock photo variables are indicator variables, similar to bankruptcy in the loans data set.   Four observations from the mariokart data set.     price  cond_new  stock_photo  duration  wheels    1  51.55  1  1  3  1    2  37.04  0  1  7  1            140  38.76  0  0  7  0    141  54.51  1  1  1  2      Variables and their descriptions for the mariokart data set.    variable  description    price  Final auction price plus shipping costs, in US dollars.    cond_new  Indicator variable for if the game is new (1) or used (0).    stock_photo  Indicator variable for if the auction's main photo is a stock photo.    duration  The length of the auction, in days, taking values from 1 to 10.    wheels  The number of Wii wheels included with the auction. A Wii wheel is an optional steering wheel accessory that holds the Wii controller.       We fit a linear regression model with the game's condition as a predictor of auction price. Results of this model are summarized below:     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  42.8711  0.8140  52.67  0.0001    cond_new  10.8996  1.2583  8.66  0.0001          Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient.    The equation for the line may be written as Examining the regression output, we can see that the p-value for cond_new is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.  The cond_new is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used. This means the 10.90 model coefficient predicts an extra $10.90 for those games that are new versus those that are used.    Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on eBay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.  We want to construct a model that accounts for not only the game condition, as in , but simultaneously accounts for three other variables:  summarizes the full model. Using this output, we identify the point estimates of each coefficient.   Output for the regression model where price is the outcome and cond_new , stock_photo , duration , and wheels are the predictors.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  36.2110  1.5140  23.92  0.0001    cond_new  5.1306  1.0511  4.88  0.0001    stock_photo  1.0803  1.0568  1.02  0.3085    duration  -0.0268  0.1904  -0.14  0.8882    wheels  7.2852  0.5547  13.13  0.0001             Write out the model's equation using the point estimates from . How many predictors are there in this model?     with the predictors.      What does , the coefficient of variable (Wii wheels), represent? What is the point estimate of ?    It is the average difference in auction price for each additional Wii wheel included when holding the other variables constant. The point estimate is .      Compute the residual of the first observation in using the equation identified in .     , where 49.62 was computed using the variables values from the observation and the equation identified in .     Why does the condition coefficient differ between models?   We estimated a coefficient for cond_new in of with a standard error of when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?    If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome price and predictor cond_new using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable wheels . When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).      Model selection  Let's revisit the model for the Mario Kart auction and complete model selection using backward selection. Recall that the full model took the following form:    Backward elimination with Mario Kart data   Results corresponding to the full model for the mariokart data were shown in . For this model, we consider what would happen if dropping each of the variables in the model:    Exclude...  cond_new  stock_photo  duration  wheels           For the full model, . How should we proceed under the backward elimination strategy?    The third model without duration has the highest of 0.7128, so we compare it to for the full model. Because eliminating duration leads to a model with a higher , we drop duration from the model.      In , we eliminated the duration variable, which resulted in a model with . Let's look at if we would eliminate another variable from the model using backward elimination:    Exclude duration and...  cond_new  stock_photo  wheels          Should we eliminate any additional variable, and if so, which variable should we eliminate?    Removing any of the three remaining variables would lead to a decrease in , so we should not remove any additional variables from the model after we removed duration .      After eliminating the auction's duration from the model, we are left with the following reduced model: How much would you predict for the total price for the Mario Kart game if it was used, used a stock photo, and included two wheels and put up for auction during the time period that the Mario Kart data were collected?    We would plug in 0 for cond_new , 1 for stock_photo , and 2 for wheels into the equation, which would return $51.77, which is the total price we would expect for the auction.      Would you be surprised if the seller from didn't get the exact price predicted?    No. The model provides the average auction price we would expect, and the price for one auction to the next will continue to vary a bit (but less than what our prediction would be without the model).      Checking model conditions using graphs  Let's take a closer look at the diagnostics for the Mario Kart model to check if the model we have identified is reasonable.     Check for outliers  A histogram of the residuals is shown in . With a data set well over a hundred, we're primarily looking for major outliers. While one minor outlier appears on the upper end, it is not a concern for this large of a data set.   Histogram of the residuals. No clear outliers are evident.   A histogram is shown for \"Residuals\". The distribution is centered at 0, is slightly right skewed, and has a standard deviation of about 4.      Absolute values of residuals against fitted values  A plot of the absolute value of the residuals against their corresponding fitted values ( ) is shown in . We don't see any obvious deviations from constant variance in this example.   Absolute value of the residuals against the fitted values. No patterns are evident.   Scatterplot of \"Absolute Value of Residuals\" (vertical axis) against \"Fitted Values\" (horizontal axis). The fitted values range from $35 to $65, and the absolute value of the residuals range from $0 to about $10, with no apparent pattern across the range of fitted values.      Residuals in order of their data collection  A plot of the residuals in the order their corresponding auctions were observed is shown in . Here we see no structure that indicates a problem.   Residuals in the order that their corresponding observations were collected. There are no evident patterns.   Scatterplot of \"Residuals\" (vertical axis) against \"Order of Collection\" (horizontal axis). The order of collection runs from 1 to about 140, and the residuals range from -$10 to about positive $10, with no apparent pattern across the range of fitted values.      Residuals against each predictor variable  We consider a plot of the residuals against the cond_new variable, the residuals against the stock_photo variable, and the residuals against the wheels variable. These plots are shown in . For the two-level condition variable, we are guaranteed not to see any remaining trend, and instead we are checking that the variability doesn't fluctuate across groups, which it does not. However, looking at the stock photo variable, we find that there is some difference in the variability of the residuals in the two groups. Additionally, when we consider the residuals against the wheels variable, we see some possible structure. There appears to be curvature in the residuals, indicating the relationship is probably not linear.   For the condition and stock photo variables, we check for differences in the distribution shape or variability of the residuals. In the case of the stock photos variable, we see a little less variability in the unique photo group than the stock photo group. For numerical predictors, we also check for trends or other structure. We see some slight bowing in the residuals against the wheels variable in the bottom plot.   Three plots are shown for \"Residuals\" against different predictor variables \"Condition\", \"Photo Type\", and \"Number of Wheels\". Condition plot: A side-by-side box plot is shown for the condition levels of \"Used\" and \"New\". The median of \"Used\" is at $0 while the median of \"New\" is at about -$2. The boxes in each box plot ranges from about -$3 to positive $3, and the whiskers of each box plot runs from about -$10 to positive $10. There are a couple of points slightly beyond the whiskers. Photo Type plot: A side-by-side box plot is shown for the photo type levels of \"Unique Photo\" and \"Stock Photo\". The median of \"Unique Photos\" is at $0 while the median of \"Stock Photo\" is at about -$1. The boxes in each box plot ranges from about -$3 to positive $3. The whiskers of \"Unique Photo\" box plot ranges from about -$8 to positive $7, and the whiskers of \"Stock Photo\" box plot ranges from about -$11 to positive $11. There are a couple of points slightly beyond the whiskers. Number of Wheels plot: A scatterplot is shown for \"Residuals\" (vertical axis) against \"Number of Wheels\" (horizontal axis) with values from 0 to 4. For 0 wheels, the residuals largely range from -$8 to positive $10. For 1 wheel, the residuals largely range from -$10 to positive $5. For 2 wheels, the residuals largely range from -$8 to positive $10. There are two points with 3 wheels that have residuals of $6 and $11, and one point with 4 wheels that has a residual of about $0.       As with the loans analysis, we would summarize diagnostics when reporting the model results. In the case of this auction data, we would report that there appears to be non-constant variance in the stock photo variable and that there may be a nonlinear relationship between the total price and the number of wheels included for an auction. This information would be important to buyers and sellers who may review the analysis, and omitting this information could be a setback to the very people who the model might assist.   Note: there are no exercises for this section.    "
+},
+{
+  "id": "fig-mario-kart-data-matrix",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mario-kart-data-matrix",
+  "type": "Figure",
+  "number": "9.4.1",
+  "title": "",
+  "body": " Four observations from the mariokart data set.     price  cond_new  stock_photo  duration  wheels    1  51.55  1  1  3  1    2  37.04  0  1  7  1            140  38.76  0  0  7  0    141  54.51  1  1  1  2    "
+},
+{
+  "id": "fig-mario-kart-variables",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mario-kart-variables",
+  "type": "Figure",
+  "number": "9.4.2",
+  "title": "",
+  "body": " Variables and their descriptions for the mariokart data set.    variable  description    price  Final auction price plus shipping costs, in US dollars.    cond_new  Indicator variable for if the game is new (1) or used (0).    stock_photo  Indicator variable for if the auction's main photo is a stock photo.    duration  The length of the auction, in days, taking values from 1 to 10.    wheels  The number of Wii wheels included with the auction. A Wii wheel is an optional steering wheel accessory that holds the Wii controller.    "
+},
+{
+  "id": "exer-cond-new-mario-kart",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-cond-new-mario-kart",
+  "type": "Checkpoint",
+  "number": "9.4.3",
+  "title": "",
+  "body": "  We fit a linear regression model with the game's condition as a predictor of auction price. Results of this model are summarized below:     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  42.8711  0.8140  52.67  0.0001    cond_new  10.8996  1.2583  8.66  0.0001          Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient.    The equation for the line may be written as Examining the regression output, we can see that the p-value for cond_new is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.  The cond_new is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used. This means the 10.90 model coefficient predicts an extra $10.90 for those games that are new versus those that are used.   "
+},
+{
+  "id": "fig-mario-kart-full-model-output",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mario-kart-full-model-output",
+  "type": "Figure",
+  "number": "9.4.4",
+  "title": "",
+  "body": " Output for the regression model where price is the outcome and cond_new , stock_photo , duration , and wheels are the predictors.     Estimate  Std. Error  t value  Pr( |t|)    (Intercept)  36.2110  1.5140  23.92  0.0001    cond_new  5.1306  1.0511  4.88  0.0001    stock_photo  1.0803  1.0568  1.02  0.3085    duration  -0.0268  0.1904  -0.14  0.8882    wheels  7.2852  0.5547  13.13  0.0001          "
+},
+{
+  "id": "exer-mario-kart-full-model-eq",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-mario-kart-full-model-eq",
+  "type": "Checkpoint",
+  "number": "9.4.5",
+  "title": "",
+  "body": "  Write out the model's equation using the point estimates from . How many predictors are there in this model?     with the predictors.   "
+},
+{
+  "id": "exer-wheels-coefficient",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-wheels-coefficient",
+  "type": "Checkpoint",
+  "number": "9.4.6",
+  "title": "",
+  "body": "  What does , the coefficient of variable (Wii wheels), represent? What is the point estimate of ?    It is the average difference in auction price for each additional Wii wheel included when holding the other variables constant. The point estimate is .   "
+},
+{
+  "id": "exer-mario-kart-residual",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-mario-kart-residual",
+  "type": "Checkpoint",
+  "number": "9.4.7",
+  "title": "",
+  "body": "  Compute the residual of the first observation in using the equation identified in .     , where 49.62 was computed using the variables values from the observation and the equation identified in .   "
+},
+{
+  "id": "ex-cond-new-coefficient-difference",
+  "level": "2",
+  "url": "sec-regression-case-study.html#ex-cond-new-coefficient-difference",
+  "type": "Example",
+  "number": "9.4.8",
+  "title": "Why does the condition coefficient differ between models?",
+  "body": " Why does the condition coefficient differ between models?   We estimated a coefficient for cond_new in of with a standard error of when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?    If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome price and predictor cond_new using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable wheels . When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).   "
+},
+{
+  "id": "ex-mario-kart-backward-elimination",
+  "level": "2",
+  "url": "sec-regression-case-study.html#ex-mario-kart-backward-elimination",
+  "type": "Example",
+  "number": "9.4.9",
+  "title": "Backward elimination with Mario Kart data.",
+  "body": " Backward elimination with Mario Kart data   Results corresponding to the full model for the mariokart data were shown in . For this model, we consider what would happen if dropping each of the variables in the model:    Exclude...  cond_new  stock_photo  duration  wheels           For the full model, . How should we proceed under the backward elimination strategy?    The third model without duration has the highest of 0.7128, so we compare it to for the full model. Because eliminating duration leads to a model with a higher , we drop duration from the model.   "
+},
+{
+  "id": "exer-mario-kart-further-elimination",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-mario-kart-further-elimination",
+  "type": "Checkpoint",
+  "number": "9.4.10",
+  "title": "",
+  "body": "  In , we eliminated the duration variable, which resulted in a model with . Let's look at if we would eliminate another variable from the model using backward elimination:    Exclude duration and...  cond_new  stock_photo  wheels          Should we eliminate any additional variable, and if so, which variable should we eliminate?    Removing any of the three remaining variables would lead to a decrease in , so we should not remove any additional variables from the model after we removed duration .   "
+},
+{
+  "id": "exer-mario-kart-price-prediction",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-mario-kart-price-prediction",
+  "type": "Checkpoint",
+  "number": "9.4.11",
+  "title": "",
+  "body": "  After eliminating the auction's duration from the model, we are left with the following reduced model: How much would you predict for the total price for the Mario Kart game if it was used, used a stock photo, and included two wheels and put up for auction during the time period that the Mario Kart data were collected?    We would plug in 0 for cond_new , 1 for stock_photo , and 2 for wheels into the equation, which would return $51.77, which is the total price we would expect for the auction.   "
+},
+{
+  "id": "exer-mario-kart-prediction-variability",
+  "level": "2",
+  "url": "sec-regression-case-study.html#exer-mario-kart-prediction-variability",
+  "type": "Checkpoint",
+  "number": "9.4.12",
+  "title": "",
+  "body": "  Would you be surprised if the seller from didn't get the exact price predicted?    No. The model provides the average auction price we would expect, and the price for one auction to the next will continue to vary a bit (but less than what our prediction would be without the model).   "
+},
+{
+  "id": "fig-mk-diag-res-hist",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mk-diag-res-hist",
+  "type": "Figure",
+  "number": "9.4.13",
+  "title": "",
+  "body": " Histogram of the residuals. No clear outliers are evident.   A histogram is shown for \"Residuals\". The distribution is centered at 0, is slightly right skewed, and has a standard deviation of about 4.   "
+},
+{
+  "id": "fig-mk-diagnostic-evs-abs-f",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mk-diagnostic-evs-abs-f",
+  "type": "Figure",
+  "number": "9.4.14",
+  "title": "",
+  "body": " Absolute value of the residuals against the fitted values. No patterns are evident.   Scatterplot of \"Absolute Value of Residuals\" (vertical axis) against \"Fitted Values\" (horizontal axis). The fitted values range from $35 to $65, and the absolute value of the residuals range from $0 to about $10, with no apparent pattern across the range of fitted values.   "
+},
+{
+  "id": "fig-mk-diagnostic-in-order",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mk-diagnostic-in-order",
+  "type": "Figure",
+  "number": "9.4.15",
+  "title": "",
+  "body": " Residuals in the order that their corresponding observations were collected. There are no evident patterns.   Scatterplot of \"Residuals\" (vertical axis) against \"Order of Collection\" (horizontal axis). The order of collection runs from 1 to about 140, and the residuals range from -$10 to about positive $10, with no apparent pattern across the range of fitted values.   "
+},
+{
+  "id": "fig-mk-diagnostic-evs-variables",
+  "level": "2",
+  "url": "sec-regression-case-study.html#fig-mk-diagnostic-evs-variables",
+  "type": "Figure",
+  "number": "9.4.16",
+  "title": "",
+  "body": " For the condition and stock photo variables, we check for differences in the distribution shape or variability of the residuals. In the case of the stock photos variable, we see a little less variability in the unique photo group than the stock photo group. For numerical predictors, we also check for trends or other structure. We see some slight bowing in the residuals against the wheels variable in the bottom plot.   Three plots are shown for \"Residuals\" against different predictor variables \"Condition\", \"Photo Type\", and \"Number of Wheels\". Condition plot: A side-by-side box plot is shown for the condition levels of \"Used\" and \"New\". The median of \"Used\" is at $0 while the median of \"New\" is at about -$2. The boxes in each box plot ranges from about -$3 to positive $3, and the whiskers of each box plot runs from about -$10 to positive $10. There are a couple of points slightly beyond the whiskers. Photo Type plot: A side-by-side box plot is shown for the photo type levels of \"Unique Photo\" and \"Stock Photo\". The median of \"Unique Photos\" is at $0 while the median of \"Stock Photo\" is at about -$1. The boxes in each box plot ranges from about -$3 to positive $3. The whiskers of \"Unique Photo\" box plot ranges from about -$8 to positive $7, and the whiskers of \"Stock Photo\" box plot ranges from about -$11 to positive $11. There are a couple of points slightly beyond the whiskers. Number of Wheels plot: A scatterplot is shown for \"Residuals\" (vertical axis) against \"Number of Wheels\" (horizontal axis) with values from 0 to 4. For 0 wheels, the residuals largely range from -$8 to positive $10. For 1 wheel, the residuals largely range from -$10 to positive $5. For 2 wheels, the residuals largely range from -$8 to positive $10. There are two points with 3 wheels that have residuals of $6 and $11, and one point with 4 wheels that has a residual of about $0.   "
 },
 {
   "id": "sec-logistic-regression",

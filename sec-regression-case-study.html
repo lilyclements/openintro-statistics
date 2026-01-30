@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Case Study: Mario Kart</title>
+<title>Multiple regression case study: Mario Kart</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -533,27 +533,35 @@ true);
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-multiple-regression-intro.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Introduction to Multiple Regression</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Indicator and Categorical Variables as Predictors</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-multiple-regression-equation" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Multiple Regression Equation</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-interpretation-coefficients" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Interpreting Coefficients</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors" class="internal"><span class="codenumber">9.1.1</span> <span class="title">Indicator and categorical variables as predictors</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-including-assessing-many-variables" class="internal"><span class="codenumber">9.1.2</span> <span class="title">Including and assessing many variables in a model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#subsec-adjusted-r-squared" class="internal"><span class="codenumber">9.1.3</span> <span class="title">Adjusted <span class="process-math">\(R^2\)</span> as a better tool for multiple regression</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-multiple-regression-intro.html#exercises-multiple-regression-intro" class="internal"><span class="codenumber">9.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-model-selection.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Model Selection</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-r-squared-adjusted" class="internal"><span class="codenumber">9.2.1</span> <span class="title">R-squared and Adjusted R-squared</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-variable-selection" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Variable Selection Strategies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-identifying-variables" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Identifying variables in the model that may not be helpful</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-two-model-selection-strategies" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Two model selection strategies</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-selection.html#subsec-pvalue-approach" class="internal"><span class="codenumber">9.2.3</span> <span class="title">The p-value approach, an alternative to adjusted <span class="process-math">\(R^2\)</span></span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-model-selection.html#exercises-model-selection" class="internal"><span class="codenumber">9.2.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
-<div class="toc-title-box"><a href="sec-model-assumptions.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Checking Model Assumptions</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-assumptions.html#subsec-residual-diagnostics" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Residual Diagnostics</span></a></div></li></ul>
+<div class="toc-title-box"><a href="sec-model-assumptions.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Checking model conditions using graphs</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-assumptions.html#subsec-diagnostic-plots" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Diagnostic plots</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-model-assumptions.html#subsec-improving-model-fit" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Options for improving the model fit</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-model-assumptions.html#exercises-checking-model-conditions" class="internal"><span class="codenumber">9.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
 </li>
 <li class="toc-item toc-section contains-active">
-<div class="toc-title-box"><a href="sec-regression-case-study.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Case Study: Mario Kart</span></a></div>
+<div class="toc-title-box"><a href="sec-regression-case-study.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Multiple regression case study: Mario Kart</span></a></div>
 <ul class="structural toc-item-list active">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-case-study-data" class="internal"><span class="codenumber">9.4.1</span> <span class="title">The Data</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-case-study-analysis" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Model Development</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-case-study-data-full-model" class="internal"><span class="codenumber">9.4.1</span> <span class="title">Data set and the full model</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-mario-kart-model-selection" class="internal"><span class="codenumber">9.4.2</span> <span class="title">Model selection</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-regression-case-study.html#subsec-mario-kart-diagnostics" class="internal"><span class="codenumber">9.4.3</span> <span class="title">Checking model conditions using graphs</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section">
@@ -619,48 +627,387 @@ true);
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-regression-case-study"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Case Study: Mario Kart</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Multiple regression case study: Mario Kart</span>
 </h2>
-<div class="para" id="sec-regression-case-study-2">A case study on the relationship between various characteristics of Mario Kart video game items and their prices on the auction website eBay demonstrates the principles of multiple regression in practice.<div class="autopermalink" data-description="Paragraph"><a href="#sec-regression-case-study-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-regression-case-study-2">We’ll consider eBay auctions of a video game called <em class="emphasis">Mario Kart</em> for the Nintendo Wii. The outcome variable of interest is the total price of an auction, which is the highest bid plus the shipping cost. We will try to determine how total price is related to each characteristic in an auction while simultaneously controlling for other variables. For instance, all other characteristics held constant, are longer auctions associated with higher or lower prices? And, on average, how much more do buyers tend to pay for additional Wii wheels (plastic steering wheels that attach to the Wii controller) in auctions? Multiple regression will help us answer these and other questions.<div class="autopermalink" data-description="Paragraph"><a href="#sec-regression-case-study-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<section class="subsection" id="subsec-case-study-data"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Data</span>
+<section class="subsection" id="subsec-case-study-data-full-model"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Data set and the full model</span>
 </h3>
-<div class="para" id="subsec-case-study-data-2">The dataset includes information about completed eBay auctions of Mario Kart games, with variables such as:<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="subsec-case-study-data-full-model-2">The <code class="code-inline tex2jax_ignore">mariokart</code> data set includes results from 141 auctions. Four observations from this data set are shown in <a href="sec-regression-case-study.html#fig-mario-kart-data-matrix" class="xref" data-knowl="./knowl/xref/fig-mario-kart-data-matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.1">Figure 9.4.1</a>, and descriptions for each variable are shown in <a href="sec-regression-case-study.html#fig-mario-kart-variables" class="xref" data-knowl="./knowl/xref/fig-mario-kart-variables.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.2">Figure 9.4.2</a>. Notice that the condition and stock photo variables are indicator variables, similar to <code class="code-inline tex2jax_ignore">bankruptcy</code> in the <code class="code-inline tex2jax_ignore">loans</code> data set.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-full-model-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ul class="disc" id="subsec-case-study-data-3">
-<li id="subsec-case-study-data-3-1">
-<div class="para" id="subsec-case-study-data-3-1-1">Price (response variable)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="fig-mario-kart-data-matrix"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines">price</td>
+<td class="l m b2 r0 l0 t0 lines">cond_new</td>
+<td class="l m b2 r0 l0 t0 lines">stock_photo</td>
+<td class="l m b2 r0 l0 t0 lines">duration</td>
+<td class="l m b2 r0 l0 t0 lines">wheels</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">51.55</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">3</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+<td class="l m b0 r0 l0 t0 lines">37.04</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">140</td>
+<td class="l m b0 r0 l0 t0 lines">38.76</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+<td class="l m b0 r0 l0 t0 lines">7</td>
+<td class="l m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">141</td>
+<td class="l m b0 r0 l0 t0 lines">54.51</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">1</td>
+<td class="l m b0 r0 l0 t0 lines">2</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Four observations from the <code class="code-inline tex2jax_ignore">mariokart</code> data set.<div class="autopermalink" data-description="Figure 9.4.1"><a href="#fig-mario-kart-data-matrix" title="Copy heading and permalink for Figure 9.4.1" aria-label="Copy heading and permalink for Figure 9.4.1">🔗</a></div></figcaption></figure><figure class="figure figure-like" id="fig-mario-kart-variables"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"><dfn class="terminology">variable</dfn></td>
+<td class="l m b2 r0 l0 t0 lines"><dfn class="terminology">description</dfn></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">price</code></td>
+<td class="l m b0 r0 l0 t0 lines">Final auction price plus shipping costs, in US dollars.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">cond_new</code></td>
+<td class="l m b0 r0 l0 t0 lines">Indicator variable for if the game is new (1) or used (0).</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">stock_photo</code></td>
+<td class="l m b0 r0 l0 t0 lines">Indicator variable for if the auction’s main photo is a stock photo.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">duration</code></td>
+<td class="l m b0 r0 l0 t0 lines">The length of the auction, in days, taking values from 1 to 10.</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">wheels</code></td>
+<td class="l m b0 r0 l0 t0 lines">The number of Wii wheels included with the auction. A <em class="emphasis">Wii wheel</em> is an optional steering wheel accessory that holds the Wii controller.</td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Variables and their descriptions for the <code class="code-inline tex2jax_ignore">mariokart</code> data set.<div class="autopermalink" data-description="Figure 9.4.2"><a href="#fig-mario-kart-variables" title="Copy heading and permalink for Figure 9.4.2" aria-label="Copy heading and permalink for Figure 9.4.2">🔗</a></div></figcaption></figure><details id="exer-cond-new-mario-kart" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-cond-new-mario-kart-1-1">We fit a linear regression model with the game’s condition as a predictor of auction price. Results of this model are summarized below:<div class="autopermalink" data-description="Paragraph"><a href="#exer-cond-new-mario-kart-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines">Estimate</td>
+<td class="l m b2 r0 l0 t0 lines">Std. Error</td>
+<td class="l m b2 r0 l0 t0 lines">t value</td>
+<td class="l m b2 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;\)</span>|t|)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(Intercept)</td>
+<td class="l m b0 r0 l0 t0 lines">42.8711</td>
+<td class="l m b0 r0 l0 t0 lines">0.8140</td>
+<td class="l m b0 r0 l0 t0 lines">52.67</td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\lt\)</span>0.0001</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">cond_new</td>
+<td class="l m b0 r0 l0 t0 lines">10.8996</td>
+<td class="l m b0 r0 l0 t0 lines">1.2583</td>
+<td class="l m b0 r0 l0 t0 lines">8.66</td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\lt\)</span>0.0001</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="r m b0 r0 l0 t0 lines" colspan="2"><span class="process-math">\(df=139\)</span></td>
+</tr>
+</table></div> <div class="para" id="exer-cond-new-mario-kart-1-3">Write down the equation for the model, note whether the slope is statistically different from zero, and interpret the coefficient.<div class="autopermalink" data-description="Paragraph"><a href="#exer-cond-new-mario-kart-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-case-study-data-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-case-study-data-3-2">
-<div class="para" id="subsec-case-study-data-3-2-1">Condition of the item (new vs. used)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="solutions"><details id="exer-cond-new-mario-kart-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exer-cond-new-mario-kart-2-1">
+<div class="para">The equation for the line may be written as</div>
+<div class="displaymath process-math" id="exer-cond-new-mario-kart-2-1-1">
+\begin{equation*}
+\widehat{\text{price}} = 42.87 + 10.90 \times \text{cond\_new}
+\end{equation*}
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-case-study-data-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-case-study-data-3-3">
-<div class="para" id="subsec-case-study-data-3-3-1">Game system (Wii, Nintendo 64, etc.)<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para">Examining the regression output, we can see that the p-value for <code class="code-inline tex2jax_ignore">cond_new</code> is very close to zero, indicating there is strong evidence that the coefficient is different from zero when using this simple one-variable model.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exer-cond-new-mario-kart-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-case-study-data-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-case-study-data-3-4">
-<div class="para" id="subsec-case-study-data-3-4-1">Number of wheels/characters included<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="exer-cond-new-mario-kart-2-2">The <code class="code-inline tex2jax_ignore">cond_new</code> is a two-level categorical variable that takes value 1 when the game is new and value 0 when the game is used. This means the 10.90 model coefficient predicts an extra $10.90 for those games that are new versus those that are used.<div class="autopermalink" data-description="Paragraph"><a href="#exer-cond-new-mario-kart-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-case-study-data-3-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-<li id="subsec-case-study-data-3-5">
-<div class="para" id="subsec-case-study-data-3-5-1">Auction duration<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" data-description="Solution 9.4.3.1"><a href="#exer-cond-new-mario-kart-2" title="Copy heading and permalink for Solution 9.4.3.1" aria-label="Copy heading and permalink for Solution 9.4.3.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.3"><a href="#exer-cond-new-mario-kart" title="Copy heading and permalink for Checkpoint 9.4.3" aria-label="Copy heading and permalink for Checkpoint 9.4.3">🔗</a></div></article></details><div class="para" id="subsec-case-study-data-full-model-6">Sometimes there are underlying structures or relationships between predictor variables. For instance, new games sold on eBay tend to come with more Wii wheels, which may have led to higher prices for those auctions. We would like to fit a model that includes all potentially important variables simultaneously. This would help us evaluate the relationship between a predictor variable and the outcome while controlling for the potential influence of other variables.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-full-model-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#subsec-case-study-data-3-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
-</li>
-</ul>
-<div class="autopermalink" data-description="Subsection 9.4.1: The Data"><a href="#subsec-case-study-data" title="Copy heading and permalink for Subsection 9.4.1: The Data" aria-label="Copy heading and permalink for Subsection 9.4.1: The Data">🔗</a></div></section><section class="subsection" id="subsec-case-study-analysis"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Model Development</span>
+<div class="para logical" id="subsec-case-study-data-full-model-7">
+<div class="para">We want to construct a model that accounts for not only the game condition, as in <a href="sec-regression-case-study.html#exer-cond-new-mario-kart" class="xref" data-knowl="./knowl/xref/exer-cond-new-mario-kart.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 9.4.3">Checkpoint 9.4.3</a>, but simultaneously accounts for three other variables:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exer-cond-new-mario-kart.html ./knowl/xref/fig-mario-kart-full-model-output.html" id="subsec-case-study-data-full-model-7-2">
+\begin{align*}
+\widehat{\text{price}} \amp = \beta_0 + \beta_1 \times \text{cond\_new} + \beta_2 \times \text{stock\_photo}\\
+\amp \qquad + \beta_3 \times \text{duration} + \beta_4 \times \text{wheels}
+\end{align*}
+</div>
+<div class="para">
+<a href="sec-regression-case-study.html#fig-mario-kart-full-model-output" class="xref" data-knowl="./knowl/xref/fig-mario-kart-full-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.4">Figure 9.4.4</a> summarizes the full model. Using this output, we identify the point estimates of each coefficient.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-data-full-model-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mario-kart-full-model-output"><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r0 l0 t0 lines"></td>
+<td class="l m b2 r0 l0 t0 lines">Estimate</td>
+<td class="l m b2 r0 l0 t0 lines">Std. Error</td>
+<td class="l m b2 r0 l0 t0 lines">t value</td>
+<td class="l m b2 r0 l0 t0 lines">Pr(<span class="process-math">\(&gt;\)</span>|t|)</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">(Intercept)</td>
+<td class="l m b0 r0 l0 t0 lines">36.2110</td>
+<td class="l m b0 r0 l0 t0 lines">1.5140</td>
+<td class="l m b0 r0 l0 t0 lines">23.92</td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\lt\)</span>0.0001</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">cond_new</td>
+<td class="l m b0 r0 l0 t0 lines">5.1306</td>
+<td class="l m b0 r0 l0 t0 lines">1.0511</td>
+<td class="l m b0 r0 l0 t0 lines">4.88</td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\lt\)</span>0.0001</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">stock_photo</td>
+<td class="l m b0 r0 l0 t0 lines">1.0803</td>
+<td class="l m b0 r0 l0 t0 lines">1.0568</td>
+<td class="l m b0 r0 l0 t0 lines">1.02</td>
+<td class="l m b0 r0 l0 t0 lines">0.3085</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">duration</td>
+<td class="l m b0 r0 l0 t0 lines">-0.0268</td>
+<td class="l m b0 r0 l0 t0 lines">0.1904</td>
+<td class="l m b0 r0 l0 t0 lines">-0.14</td>
+<td class="l m b0 r0 l0 t0 lines">0.8882</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">wheels</td>
+<td class="l m b0 r0 l0 t0 lines">7.2852</td>
+<td class="l m b0 r0 l0 t0 lines">0.5547</td>
+<td class="l m b0 r0 l0 t0 lines">13.13</td>
+<td class="l m b0 r0 l0 t0 lines">
+<span class="process-math">\(\lt\)</span>0.0001</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="r m b0 r0 l0 t0 lines" colspan="2"><span class="process-math">\(df=136\)</span></td>
+</tr>
+</table></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Output for the regression model where <code class="code-inline tex2jax_ignore">price</code> is the outcome and <code class="code-inline tex2jax_ignore">cond_new</code>, <code class="code-inline tex2jax_ignore">stock_photo</code>, <code class="code-inline tex2jax_ignore">duration</code>, and <code class="code-inline tex2jax_ignore">wheels</code> are the predictors.<div class="autopermalink" data-description="Figure 9.4.4"><a href="#fig-mario-kart-full-model-output" title="Copy heading and permalink for Figure 9.4.4" aria-label="Copy heading and permalink for Figure 9.4.4">🔗</a></div></figcaption></figure><details id="exer-mario-kart-full-model-eq" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-mario-kart-full-model-eq-1-1">Write out the model’s equation using the point estimates from <a href="sec-regression-case-study.html#fig-mario-kart-full-model-output" class="xref" data-knowl="./knowl/xref/fig-mario-kart-full-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.4">Figure 9.4.4</a>. How many predictors are there in this model?<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-full-model-eq-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-mario-kart-full-model-eq-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exer-mario-kart-full-model-eq-2-1">
+<div class="displaymath process-math" id="exer-mario-kart-full-model-eq-2-1-1">
+\begin{align*}
+\widehat{\text{price}} \amp = 36.21 + 5.13 \times \text{cond\_new} + 1.08 \times \text{stock\_photo}\\
+\amp \qquad - 0.03 \times \text{duration} + 7.29 \times \text{wheels}
+\end{align*}
+</div>
+<div class="para">with the <span class="process-math">\(k=4\)</span> predictors.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-full-model-eq-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.5.1"><a href="#exer-mario-kart-full-model-eq-2" title="Copy heading and permalink for Solution 9.4.5.1" aria-label="Copy heading and permalink for Solution 9.4.5.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.5"><a href="#exer-mario-kart-full-model-eq" title="Copy heading and permalink for Checkpoint 9.4.5" aria-label="Copy heading and permalink for Checkpoint 9.4.5">🔗</a></div></article></details><details id="exer-wheels-coefficient" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-wheels-coefficient-1-1">What does <span class="process-math">\(\beta_4\text{,}\)</span> the coefficient of variable <span class="process-math">\(x_4\)</span> (Wii wheels), represent? What is the point estimate of <span class="process-math">\(\beta_4\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exer-wheels-coefficient-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-wheels-coefficient-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exer-wheels-coefficient-2-1">It is the average difference in auction price for each additional Wii wheel included when holding the other variables constant. The point estimate is <span class="process-math">\(b_4 = 7.29\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#exer-wheels-coefficient-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.6.1"><a href="#exer-wheels-coefficient-2" title="Copy heading and permalink for Solution 9.4.6.1" aria-label="Copy heading and permalink for Solution 9.4.6.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.6"><a href="#exer-wheels-coefficient" title="Copy heading and permalink for Checkpoint 9.4.6" aria-label="Copy heading and permalink for Checkpoint 9.4.6">🔗</a></div></article></details><details id="exer-mario-kart-residual" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-mario-kart-residual-1-1">Compute the residual of the first observation in <a href="sec-regression-case-study.html#fig-mario-kart-data-matrix" class="xref" data-knowl="./knowl/xref/fig-mario-kart-data-matrix.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.1">Figure 9.4.1</a> using the equation identified in <a href="sec-regression-case-study.html#exer-mario-kart-full-model-eq" class="xref" data-knowl="./knowl/xref/exer-mario-kart-full-model-eq.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 9.4.5">Checkpoint 9.4.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-residual-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-mario-kart-residual-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exer-mario-kart-residual-2-1">
+<span class="process-math">\(e_i = y_i - \hat{y}_i = 51.55 - 49.62 = 1.93\text{,}\)</span> where 49.62 was computed using the variables values from the observation and the equation identified in <a href="sec-regression-case-study.html#exer-mario-kart-full-model-eq" class="xref" data-knowl="./knowl/xref/exer-mario-kart-full-model-eq.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 9.4.5">Checkpoint 9.4.5</a>.<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-residual-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.7.1"><a href="#exer-mario-kart-residual-2" title="Copy heading and permalink for Solution 9.4.7.1" aria-label="Copy heading and permalink for Solution 9.4.7.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.7"><a href="#exer-mario-kart-residual" title="Copy heading and permalink for Checkpoint 9.4.7" aria-label="Copy heading and permalink for Checkpoint 9.4.7">🔗</a></div></article></details><details id="ex-cond-new-coefficient-difference" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why does the condition coefficient differ between models?</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-cond-new-coefficient-difference-2-1">We estimated a coefficient for <code class="code-inline tex2jax_ignore">cond_new</code> in <a href="sec-regression-case-study.html#exer-cond-new-mario-kart" class="xref" data-knowl="./knowl/xref/exer-cond-new-mario-kart.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 9.4.3">Checkpoint 9.4.3</a> of <span class="process-math">\(b_1 = 10.90\)</span> with a standard error of <span class="process-math">\(SE_{b_1} = 1.26\)</span> when using simple linear regression. Why might there be a difference between that estimate and the one in the multiple regression setting?<div class="autopermalink" data-description="Paragraph"><a href="#ex-cond-new-coefficient-difference-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-cond-new-coefficient-difference-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-cond-new-coefficient-difference-3-1">If we examined the data carefully, we would see that there is collinearity among some predictors. For instance, when we estimated the connection of the outcome <code class="code-inline tex2jax_ignore">price</code> and predictor <code class="code-inline tex2jax_ignore">cond_new</code> using simple linear regression, we were unable to control for other variables like the number of Wii wheels included in the auction. That model was biased by the confounding variable <code class="code-inline tex2jax_ignore">wheels</code>. When we use both variables, this particular underlying and unintentional bias is reduced or eliminated (though bias from other confounding variables may still remain).<div class="autopermalink" data-description="Paragraph"><a href="#ex-cond-new-coefficient-difference-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.8.1"><a href="#ex-cond-new-coefficient-difference-3" title="Copy heading and permalink for Solution 9.4.8.1" aria-label="Copy heading and permalink for Solution 9.4.8.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 9.4.8: Why does the condition coefficient differ between models?"><a href="#ex-cond-new-coefficient-difference" title="Copy heading and permalink for Example 9.4.8: Why does the condition coefficient differ between models?" aria-label="Copy heading and permalink for Example 9.4.8: Why does the condition coefficient differ between models?">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 9.4.1: Data set and the full model"><a href="#subsec-case-study-data-full-model" title="Copy heading and permalink for Subsection 9.4.1: Data set and the full model" aria-label="Copy heading and permalink for Subsection 9.4.1: Data set and the full model">🔗</a></div></section><section class="subsection" id="subsec-mario-kart-model-selection"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Model selection</span>
 </h3>
-<div class="para" id="subsec-case-study-analysis-2">We can build a multiple regression model to predict Mario Kart prices, starting with all reasonable predictors and using model selection techniques to arrive at a final model.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-case-study-analysis-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="subsec-mario-kart-model-selection-2">
+<div class="para">Let’s revisit the model for the Mario Kart auction and complete model selection using backward selection. Recall that the full model took the following form:</div>
+<div class="displaymath process-math" id="subsec-mario-kart-model-selection-2-1">
+\begin{equation*}
+\widehat{\text{price}} = 36.21 + 5.13 \times \text{cond\_new} + 1.08 \times \text{stock\_photo} - 0.03 \times \text{duration} + 7.29 \times \text{wheels}
+\end{equation*}
 </div>
-<div class="autopermalink" data-description="Subsection 9.4.2: Model Development"><a href="#subsec-case-study-analysis" title="Copy heading and permalink for Subsection 9.4.2: Model Development" aria-label="Copy heading and permalink for Subsection 9.4.2: Model Development">🔗</a></div></section><div class="autopermalink" data-description="Section 9.4: Case Study: Mario Kart"><a href="#sec-regression-case-study" title="Copy heading and permalink for Section 9.4: Case Study: Mario Kart" aria-label="Copy heading and permalink for Section 9.4: Case Study: Mario Kart">🔗</a></div></section></div>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-model-selection-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<details id="ex-mario-kart-backward-elimination" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Backward elimination with Mario Kart data.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-mario-kart-backward-elimination-2-1">Results corresponding to the full model for the <code class="code-inline tex2jax_ignore">mariokart</code> data were shown in <a href="sec-regression-case-study.html#fig-mario-kart-full-model-output" class="xref" data-knowl="./knowl/xref/fig-mario-kart-full-model-output.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.4">Figure 9.4.4</a>. For this model, we consider what would happen if dropping each of the variables in the model:<div class="autopermalink" data-description="Paragraph"><a href="#ex-mario-kart-backward-elimination-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Exclude...</td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">cond_new</code></td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">stock_photo</code></td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">duration</code></td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">wheels</code></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.6626\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.7107\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.7128\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.3487\)</span></td>
+</tr>
+</table></div> <div class="para" id="ex-mario-kart-backward-elimination-2-3">For the full model, <span class="process-math">\(R_{adj}^2 = 0.7108\text{.}\)</span> How should we proceed under the backward elimination strategy?<div class="autopermalink" data-description="Paragraph"><a href="#ex-mario-kart-backward-elimination-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="ex-mario-kart-backward-elimination-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-mario-kart-backward-elimination-3-1">The third model without <code class="code-inline tex2jax_ignore">duration</code> has the highest <span class="process-math">\(R_{adj}^2\)</span> of 0.7128, so we compare it to <span class="process-math">\(R_{adj}^2\)</span> for the full model. Because eliminating <code class="code-inline tex2jax_ignore">duration</code> leads to a model with a higher <span class="process-math">\(R_{adj}^2\text{,}\)</span> we drop <code class="code-inline tex2jax_ignore">duration</code> from the model.<div class="autopermalink" data-description="Paragraph"><a href="#ex-mario-kart-backward-elimination-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.9.1"><a href="#ex-mario-kart-backward-elimination-3" title="Copy heading and permalink for Solution 9.4.9.1" aria-label="Copy heading and permalink for Solution 9.4.9.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 9.4.9: Backward elimination with Mario Kart data"><a href="#ex-mario-kart-backward-elimination" title="Copy heading and permalink for Example 9.4.9: Backward elimination with Mario Kart data" aria-label="Copy heading and permalink for Example 9.4.9: Backward elimination with Mario Kart data">🔗</a></div></article></details><details id="exer-mario-kart-further-elimination" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-mario-kart-further-elimination-1-1">In <a href="sec-regression-case-study.html#ex-mario-kart-backward-elimination" class="xref" data-knowl="./knowl/xref/ex-mario-kart-backward-elimination.html" data-reveal-label="Reveal" data-close-label="Close" title="Example 9.4.9: Backward elimination with Mario Kart data">Example 9.4.9</a>, we eliminated the <code class="code-inline tex2jax_ignore">duration</code> variable, which resulted in a model with <span class="process-math">\(R_{adj}^2 = 0.7128\text{.}\)</span> Let’s look at if we would eliminate another variable from the model using backward elimination:<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-further-elimination-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Exclude <code class="code-inline tex2jax_ignore">duration</code> and...</td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">cond_new</code></td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">stock_photo</code></td>
+<td class="c m b0 r0 l0 t0 lines"><code class="code-inline tex2jax_ignore">wheels</code></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.6587\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.7124\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(R^2_{adj} = 0.3414\)</span></td>
+</tr>
+</table></div> <div class="para" id="exer-mario-kart-further-elimination-1-3">Should we eliminate any additional variable, and if so, which variable should we eliminate?<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-further-elimination-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-mario-kart-further-elimination-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exer-mario-kart-further-elimination-2-1">Removing any of the three remaining variables would lead to a decrease in <span class="process-math">\(R_{adj}^2\text{,}\)</span> so we should not remove any additional variables from the model after we removed <code class="code-inline tex2jax_ignore">duration</code>.<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-further-elimination-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.10.1"><a href="#exer-mario-kart-further-elimination-2" title="Copy heading and permalink for Solution 9.4.10.1" aria-label="Copy heading and permalink for Solution 9.4.10.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.10"><a href="#exer-mario-kart-further-elimination" title="Copy heading and permalink for Checkpoint 9.4.10" aria-label="Copy heading and permalink for Checkpoint 9.4.10">🔗</a></div></article></details><details id="exer-mario-kart-price-prediction" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para logical" id="exer-mario-kart-price-prediction-1-1">
+<div class="para">After eliminating the auction’s duration from the model, we are left with the following reduced model:</div>
+<div class="displaymath process-math" id="exer-mario-kart-price-prediction-1-1-1">
+\begin{equation*}
+\widehat{\text{price}} = 36.05 + 5.18 \times \text{cond\_new} + 1.12 \times \text{stock\_photo} + 7.30 \times \text{wheels}
+\end{equation*}
+</div>
+<div class="para">How much would you predict for the total price for the Mario Kart game if it was used, used a stock photo, and included two wheels and put up for auction during the time period that the Mario Kart data were collected?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-price-prediction-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-mario-kart-price-prediction-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exer-mario-kart-price-prediction-2-1">We would plug in 0 for <code class="code-inline tex2jax_ignore">cond_new</code>, 1 for <code class="code-inline tex2jax_ignore">stock_photo</code>, and 2 for <code class="code-inline tex2jax_ignore">wheels</code> into the equation, which would return $51.77, which is the total price we would expect for the auction.<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-price-prediction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.11.1"><a href="#exer-mario-kart-price-prediction-2" title="Copy heading and permalink for Solution 9.4.11.1" aria-label="Copy heading and permalink for Solution 9.4.11.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.11"><a href="#exer-mario-kart-price-prediction" title="Copy heading and permalink for Checkpoint 9.4.11" aria-label="Copy heading and permalink for Checkpoint 9.4.11">🔗</a></div></article></details><details id="exer-mario-kart-prediction-variability" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h4></summary><article class="exercise exercise-like knowl__content"><div class="para" id="exer-mario-kart-prediction-variability-1-1">Would you be surprised if the seller from <a href="sec-regression-case-study.html#exer-mario-kart-price-prediction" class="xref" data-knowl="./knowl/xref/exer-mario-kart-price-prediction.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 9.4.11">Checkpoint 9.4.11</a> didn’t get the exact price predicted?<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-prediction-variability-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details id="exer-mario-kart-prediction-variability-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exer-mario-kart-prediction-variability-2-1">No. The model provides the <em class="emphasis">average</em> auction price we would expect, and the price for one auction to the next will continue to vary a bit (but less than what our prediction would be without the model).<div class="autopermalink" data-description="Paragraph"><a href="#exer-mario-kart-prediction-variability-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.4.12.1"><a href="#exer-mario-kart-prediction-variability-2" title="Copy heading and permalink for Solution 9.4.12.1" aria-label="Copy heading and permalink for Solution 9.4.12.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Checkpoint 9.4.12"><a href="#exer-mario-kart-prediction-variability" title="Copy heading and permalink for Checkpoint 9.4.12" aria-label="Copy heading and permalink for Checkpoint 9.4.12">🔗</a></div></article></details><div class="autopermalink" data-description="Subsection 9.4.2: Model selection"><a href="#subsec-mario-kart-model-selection" title="Copy heading and permalink for Subsection 9.4.2: Model selection" aria-label="Copy heading and permalink for Subsection 9.4.2: Model selection">🔗</a></div></section><section class="subsection" id="subsec-mario-kart-diagnostics"><h3 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Checking model conditions using graphs</span>
+</h3>
+<div class="para" id="subsec-mario-kart-diagnostics-2">Let’s take a closer look at the diagnostics for the Mario Kart model to check if the model we have identified is reasonable.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="subsec-mario-kart-diagnostics-3">
+<dl class="description-list">
+<dt id="subsec-mario-kart-diagnostics-3-1-1">Check for outliers<div class="autopermalink" data-description="Item: Check for outliers"><a href="#subsec-mario-kart-diagnostics-3-1-1" title="Copy heading and permalink for Item: Check for outliers" aria-label="Copy heading and permalink for Item: Check for outliers">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-mario-kart-diagnostics-3-1-1-2">A histogram of the residuals is shown in <a href="sec-regression-case-study.html#fig-mk-diag-res-hist" class="xref" data-knowl="./knowl/xref/fig-mk-diag-res-hist.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.13">Figure 9.4.13</a>. With a data set well over a hundred, we’re primarily looking for major outliers. While one minor outlier appears on the upper end, it is not a concern for this large of a data set.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-3-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mk-diag-res-hist"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagResHist.svg" role="img" class="contained" alt='A histogram is shown for "Residuals". The distribution is centered at 0, is slightly right skewed, and has a standard deviation of about 4.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Histogram of the residuals. No clear outliers are evident.<div class="autopermalink" data-description="Figure 9.4.13"><a href="#fig-mk-diag-res-hist" title="Copy heading and permalink for Figure 9.4.13" aria-label="Copy heading and permalink for Figure 9.4.13">🔗</a></div></figcaption></figure>
+</dd>
+<dt id="subsec-mario-kart-diagnostics-3-1-2">Absolute values of residuals against fitted values<div class="autopermalink" data-description="Item: Absolute values of residuals against fitted values"><a href="#subsec-mario-kart-diagnostics-3-1-2" title="Copy heading and permalink for Item: Absolute values of residuals against fitted values" aria-label="Copy heading and permalink for Item: Absolute values of residuals against fitted values">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-mario-kart-diagnostics-3-1-2-2">A plot of the absolute value of the residuals against their corresponding fitted values (<span class="process-math">\(\hat{y}_i\)</span>) is shown in <a href="sec-regression-case-study.html#fig-mk-diagnostic-evs-abs-f" class="xref" data-knowl="./knowl/xref/fig-mk-diagnostic-evs-abs-f.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.14">Figure 9.4.14</a>. We don’t see any obvious deviations from constant variance in this example.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-3-1-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mk-diagnostic-evs-abs-f"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticEvsAbsF.svg" role="img" class="contained" alt='Scatterplot of "Absolute Value of Residuals" (vertical axis) against "Fitted Values" (horizontal axis). The fitted values range from $35 to $65, and the absolute value of the residuals range from $0 to about $10, with no apparent pattern across the range of fitted values.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Absolute value of the residuals against the fitted values. No patterns are evident.<div class="autopermalink" data-description="Figure 9.4.14"><a href="#fig-mk-diagnostic-evs-abs-f" title="Copy heading and permalink for Figure 9.4.14" aria-label="Copy heading and permalink for Figure 9.4.14">🔗</a></div></figcaption></figure>
+</dd>
+<dt id="subsec-mario-kart-diagnostics-3-1-3">Residuals in order of their data collection<div class="autopermalink" data-description="Item: Residuals in order of their data collection"><a href="#subsec-mario-kart-diagnostics-3-1-3" title="Copy heading and permalink for Item: Residuals in order of their data collection" aria-label="Copy heading and permalink for Item: Residuals in order of their data collection">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-mario-kart-diagnostics-3-1-3-2">A plot of the residuals in the order their corresponding auctions were observed is shown in <a href="sec-regression-case-study.html#fig-mk-diagnostic-in-order" class="xref" data-knowl="./knowl/xref/fig-mk-diagnostic-in-order.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.15">Figure 9.4.15</a>. Here we see no structure that indicates a problem.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-3-1-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mk-diagnostic-in-order"><div class="image-box" style="width: 55%; margin-left: 22.5%; margin-right: 22.5%;"><img src="external/ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticInOrder.svg" role="img" class="contained" alt='Scatterplot of "Residuals" (vertical axis) against "Order of Collection" (horizontal axis). The order of collection runs from 1 to about 140, and the residuals range from -$10 to about positive $10, with no apparent pattern across the range of fitted values.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.15<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Residuals in the order that their corresponding observations were collected. There are no evident patterns.<div class="autopermalink" data-description="Figure 9.4.15"><a href="#fig-mk-diagnostic-in-order" title="Copy heading and permalink for Figure 9.4.15" aria-label="Copy heading and permalink for Figure 9.4.15">🔗</a></div></figcaption></figure>
+</dd>
+<dt id="subsec-mario-kart-diagnostics-3-1-4">Residuals against each predictor variable<div class="autopermalink" data-description="Item: Residuals against each predictor variable"><a href="#subsec-mario-kart-diagnostics-3-1-4" title="Copy heading and permalink for Item: Residuals against each predictor variable" aria-label="Copy heading and permalink for Item: Residuals against each predictor variable">🔗</a></div>
+</dt>
+<dd>
+<div class="para" id="subsec-mario-kart-diagnostics-3-1-4-2">We consider a plot of the residuals against the <code class="code-inline tex2jax_ignore">cond_new</code> variable, the residuals against the <code class="code-inline tex2jax_ignore">stock_photo</code> variable, and the residuals against the <code class="code-inline tex2jax_ignore">wheels</code> variable. These plots are shown in <a href="sec-regression-case-study.html#fig-mk-diagnostic-evs-variables" class="xref" data-knowl="./knowl/xref/fig-mk-diagnostic-evs-variables.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 9.4.16">Figure 9.4.16</a>. For the two-level condition variable, we are guaranteed not to see any remaining trend, and instead we are checking that the variability doesn’t fluctuate across groups, which it does not. However, looking at the stock photo variable, we find that there is some difference in the variability of the residuals in the two groups. Additionally, when we consider the residuals against the <code class="code-inline tex2jax_ignore">wheels</code> variable, we see some possible structure. There appears to be curvature in the residuals, indicating the relationship is probably not linear.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-3-1-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-mk-diagnostic-evs-variables"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/ch_regr_mult_and_log/figures/marioKartDiagnostics/mkDiagnosticEvsVariables.svg" role="img" class="contained" alt='Three plots are shown for "Residuals" against different predictor variables "Condition", "Photo Type", and "Number of Wheels". Condition plot: A side-by-side box plot is shown for the condition levels of "Used" and "New". The median of "Used" is at $0 while the median of "New" is at about -$2. The boxes in each box plot ranges from about -$3 to positive $3, and the whiskers of each box plot runs from about -$10 to positive $10. There are a couple of points slightly beyond the whiskers. Photo Type plot: A side-by-side box plot is shown for the photo type levels of "Unique Photo" and "Stock Photo". The median of "Unique Photos" is at $0 while the median of "Stock Photo" is at about -$1. The boxes in each box plot ranges from about -$3 to positive $3. The whiskers of "Unique Photo" box plot ranges from about -$8 to positive $7, and the whiskers of "Stock Photo" box plot ranges from about -$11 to positive $11. There are a couple of points slightly beyond the whiskers. Number of Wheels plot: A scatterplot is shown for "Residuals" (vertical axis) against "Number of Wheels" (horizontal axis) with values from 0 to 4. For 0 wheels, the residuals largely range from -$8 to positive $10. For 1 wheel, the residuals largely range from -$10 to positive $5. For 2 wheels, the residuals largely range from -$8 to positive $10. There are two points with 3 wheels that have residuals of $6 and $11, and one point with 4 wheels that has a residual of about $0.'></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.4.16<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>For the condition and stock photo variables, we check for differences in the distribution shape or variability of the residuals. In the case of the stock photos variable, we see a little less variability in the unique photo group than the stock photo group. For numerical predictors, we also check for trends or other structure. We see some slight bowing in the residuals against the <code class="code-inline tex2jax_ignore">wheels</code> variable in the bottom plot.<div class="autopermalink" data-description="Figure 9.4.16"><a href="#fig-mk-diagnostic-evs-variables" title="Copy heading and permalink for Figure 9.4.16" aria-label="Copy heading and permalink for Figure 9.4.16">🔗</a></div></figcaption></figure>
+</dd>
+</dl>
+<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-mario-kart-diagnostics-4">As with the <code class="code-inline tex2jax_ignore">loans</code> analysis, we would summarize diagnostics when reporting the model results. In the case of this auction data, we would report that there appears to be non-constant variance in the stock photo variable and that there may be a nonlinear relationship between the total price and the number of wheels included for an auction. This information would be important to buyers and sellers who may review the analysis, and omitting this information could be a setback to the very people who the model might assist.<div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsec-mario-kart-diagnostics-5">
+<em class="alert">Note: there are no exercises for this section.</em><div class="autopermalink" data-description="Paragraph"><a href="#subsec-mario-kart-diagnostics-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Subsection 9.4.3: Checking model conditions using graphs"><a href="#subsec-mario-kart-diagnostics" title="Copy heading and permalink for Subsection 9.4.3: Checking model conditions using graphs" aria-label="Copy heading and permalink for Subsection 9.4.3: Checking model conditions using graphs">🔗</a></div></section><div class="autopermalink" data-description="Section 9.4: Multiple regression case study: Mario Kart"><a href="#sec-regression-case-study" title="Copy heading and permalink for Section 9.4: Multiple regression case study: Mario Kart" aria-label="Copy heading and permalink for Section 9.4: Multiple regression case study: Mario Kart">🔗</a></div></section></div>
 <div id="ptx-content-footer" class="ptx-content-footer">
 <a class="previous-button button" href="sec-model-assumptions.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-logistic-regression.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

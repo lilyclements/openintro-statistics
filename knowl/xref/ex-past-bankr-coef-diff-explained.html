@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.1.16</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why does the bankruptcy coefficient differ between models?</span>
+</h4>
+<div class="para">We estimated a coefficient for <code class="code-inline tex2jax_ignore">bankruptcy</code> in <a href="sec-multiple-regression-intro.html#subsec-indicator-categorical-predictors" class="internal" title="Subsection 9.1.1: Indicator and categorical variables as predictors">Subsection 9.1.1</a> of <span class="process-math">\(b_1 = 0.74\)</span> with a standard error of <span class="process-math">\(SE_{b_1} = 0.15\)</span> when using simple linear regression. Why is there a difference between that estimate and the estimated coefficient of 0.39 in the multiple regression setting?<div class="autopermalink" data-description="Paragraph"><a href="#ex-past-bankr-coef-diff-explained-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">If we examined the data carefully, we would see that some predictors are correlated. For instance, when we estimated the connection of the outcome <code class="code-inline tex2jax_ignore">interest_rate</code> and predictor <code class="code-inline tex2jax_ignore">bankruptcy</code> using simple linear regression, we were unable to control for other variables like whether the borrower had their income verified, the borrower’s debt-to-income ratio, and other variables. That original model was constructed in a vacuum and did not consider the full context. When we include all of the variables, underlying and unintentional bias that was missed by these other variables is reduced or eliminated. Of course, bias can still exist from other confounding variables.<div class="autopermalink" data-description="Paragraph"><a href="#ex-past-bankr-coef-diff-explained-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 9.1.16.1"><a href="#ex-past-bankr-coef-diff-explained-3" title="Copy heading and permalink for Solution 9.1.16.1" aria-label="Copy heading and permalink for Solution 9.1.16.1">🔗</a></div>
+</div></details></div>
+<div class="autopermalink" data-description="Example 9.1.16: Why does the bankruptcy coefficient differ between models?"><a href="#ex-past-bankr-coef-diff-explained" title="Copy heading and permalink for Example 9.1.16: Why does the bankruptcy coefficient differ between models?" aria-label="Copy heading and permalink for Example 9.1.16: Why does the bankruptcy coefficient differ between models?">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-multiple-regression-intro.html#ex-past-bankr-coef-diff-explained">in-context</a></span>
+</body>
+</html>
