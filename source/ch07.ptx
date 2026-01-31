@@ -212,10 +212,10 @@
       
       <figure xml:id="tDistCompareToNormalDist">
         <caption>Comparison of a <m>t</m>-distribution and a normal distribution.</caption>
-        <p>
-          [Figure showing a standard normal distribution and a t-distribution overlaid. The t-distribution
-          is more sharply peaked and has thicker tails than the normal distribution.]
-        </p>
+        <image source="ch_inference_for_means/figures/tDistCompareToNormalDist/tDistCompareToNormalDist.png" width="70%">
+          <description>Figure showing a standard normal distribution and a t-distribution overlaid. The t-distribution
+          is more sharply peaked and has thicker tails than the normal distribution.</description>
+        </image>
       </figure>
       
       <p>
@@ -236,10 +236,10 @@
       <figure xml:id="tDistConvergeToNormalDist">
         <caption>The larger the degrees of freedom, the more closely the <m>t</m>-distribution resembles
         the standard normal distribution.</caption>
-        <p>
-          [Figure showing four t-distributions with df=1, 2, 4, and 8 along with a normal distribution.
-          The larger the df, the more closely the t-distribution aligns with the normal distribution.]
-        </p>
+        <image source="ch_inference_for_means/figures/tDistConvergeToNormalDist/tDistConvergeToNormalDist.png" width="70%">
+          <description>Figure showing four t-distributions with df=1, 2, 4, and 8 along with a normal distribution.
+          The larger the df, the more closely the t-distribution aligns with the normal distribution.</description>
+        </image>
       </figure>
       
       <assemblage xml:id="degrees-freedom-def">
@@ -282,10 +282,10 @@
       <figure xml:id="tDistDF18LeftTail2Point10">
         <caption>The <m>t</m>-distribution with 18 degrees of freedom. The area below <m>-2.10</m> has
         been shaded.</caption>
-        <p>
-          [Figure showing a t-distribution with 18 df, with the region below -2.10 shaded, representing
-          roughly 2% to 5% of the distribution.]
-        </p>
+        <image source="ch_inference_for_means/figures/tDistDF18LeftTail2Point10/tDistDF18LeftTail2Point10.png" width="70%">
+          <description>Figure showing a t-distribution with 18 df, with the region below -2.10 shaded, representing
+          roughly 2% to 5% of the distribution.</description>
+        </image>
       </figure>
       
       <example xml:id="t-dist-tail-20df">
@@ -309,10 +309,10 @@
         <caption>Left: The <m>t</m>-distribution with 20 degrees of freedom, with the area above 1.65
         shaded. Right: The <m>t</m>-distribution with 2 degrees of freedom, with the area further than
         3 units from 0 shaded.</caption>
-        <p>
-          [Figure showing two plots: left shows t-dist with 20 df and right tail shaded above 1.65; right
-          shows t-dist with 2 df with both tails beyond ±3 shaded.]
-        </p>
+        <image source="ch_inference_for_means/figures/tDistDF20RightTail1Point65/tDistDF20RightTail1Point65.png" width="70%">
+          <description>Figure showing two plots: left shows t-dist with 20 df and right tail shaded above 1.65; right
+          shows t-dist with 2 df with both tails beyond ±3 shaded.</description>
+        </image>
       </figure>
       
       <example xml:id="t-dist-tail-2df">
@@ -610,11 +610,11 @@
       
       <figure xml:id="run10SampTimeHistogram">
         <caption>A histogram of time for the sample Cherry Blossom Race data.</caption>
-        <p>
-          [Figure showing a histogram of "time" for the sample. The data are nearly symmetric with a
+        <image source="ch_inference_for_means/figures/run10SampTimeHistogram/run10SampTimeHistogram.png" width="70%">
+          <description>Figure showing a histogram of "time" for the sample. The data are nearly symmetric with a
           center at about 100 minutes and a standard deviation of roughly 15 to 20 minutes. All times lie
-          between 50 and 140 minutes.]
-        </p>
+          between 50 and 140 minutes.</description>
+        </image>
       </figure>
       
       <p>
@@ -1071,14 +1071,14 @@
       
       <figure xml:id="diffInTextbookPricesF18">
         <caption>Histogram of the difference in price for each book sampled.</caption>
-        <p>
-          <!-- TODO: Add figure - A histogram is shown for "UCLA bookstore Price minus Amazon Price, 
+        <image source="ch_inference_for_means/figures/textbooksF18/diffInTextbookPricesF18.png" width="70%">
+          <description>A histogram is shown for "UCLA bookstore Price minus Amazon Price, 
           in US dollars", where values range from -$20 to positive $80. The distribution has a prominent 
           peak at or slightly above $0, with the wide majority of data lying between -$20 and positive $20. 
           There are also 4 bins above $20 that have non-zero heights: bin $20 to $30 has a height of 2, 
           bin $30 to $40 has a height of 2, bin $50 to $60 has a height of 1, and bin $70 to $80 has a 
-          height of 1. -->
-        </p>
+          height of 1.</description>
+        </image>
       </figure>
     </subsection>
     
@@ -1540,13 +1540,13 @@
       
       <figure xml:id="stemCellTherapyForHearts">
         <caption>Histograms for both the embryonic stem cell and control group.</caption>
-        <p>
-          <!-- TODO: Add figure - Two histograms are shown, one for "Embryonic stem cell transplant" and
+        <image source="ch_inference_for_means/figures/stemCellTherapyForHearts/stemCellTherapyForHearts.png" width="70%">
+          <description>Two histograms are shown, one for "Embryonic stem cell transplant" and
           one for "Control (no treatment)". The data for the first histogram for the treatment group are
           roughly centered at about 3%, with values ranging from about -5% to positive 15%. The data for
           the second histogram, which represents the control group, is approximately centered at -3%, with
-          values ranging from -10% to about positive 2%. -->
-        </p>
+          values ranging from -10% to about positive 2%.</description>
+        </image>
       </figure>
       
       <p>
@@ -1764,13 +1764,13 @@
       <figure xml:id="babySmokePlotOfTwoGroupsToExamineSkew">
         <caption>The left panel represents birth weights for infants whose mothers smoked. The right
         panel represents the birth weights for infants whose mothers who did not smoke.</caption>
-        <p>
-          <!-- TODO: Add figure - Two histograms are shown for "Newborn Weights, in pounds", one for
+        <image source="ch_inference_for_means/figures/babySmokePlotOfTwoGroupsToExamineSkew/babySmokePlotOfTwoGroupsToExamineSkew.png" width="70%">
+          <description>Two histograms are shown for "Newborn Weights, in pounds", one for
           "Mothers Who Smoked" and one for "Mothers Who Did Not Smoke". The histogram for "Mothers Who
           Smoked" is centered at about 7 and is left-skewed, with values ranging from about 1 pound to
           10 pounds. The histogram for "Mothers Who Did Not Smoke" is centered at about 7.5 and is
-          left-skewed, with values ranging from about 1 pound to 11 pounds. -->
-        </p>
+          left-skewed, with values ranging from about 1 pound to 11 pounds.</description>
+        </image>
       </figure>
       
       <exercise xml:id="babySmokeCalcForWeight">
@@ -1856,12 +1856,12 @@
           </p>
           <figure xml:id="distOfDiffOfSampleMeansForBWOfBabySmokeData">
             <caption>Distribution of the difference of sample means for the baby smoke data.</caption>
-            <p>
-              <!-- TODO: Add figure - A bell-shaped curve that resembles a normal distribution is shown
+            <image source="ch_inference_for_means/figures/distOfDiffOfSampleMeansForBWOfBabySmokeData/distOfDiffOfSampleMeansForBWOfBabySmokeData.png" width="70%">
+              <description>A bell-shaped curve that resembles a normal distribution is shown
               centered at "mu-sub-n minus mu-sub-s equals 0". The upper tail is shaded above a value
               marked as "observed difference", and the corresponding lower tail is also shaded. These
-              tails together appear to represent about 10% to 15% of the area under the distribution. -->
-            </p>
+              tails together appear to represent about 10% to 15% of the area under the distribution.</description>
+            </image>
           </figure>
           <p>
             We find the single tail area using software (or the <m>t</m>-table in the appendix). We'll
@@ -2052,12 +2052,12 @@
       <figure xml:id="pValueOfTwoTailAreaOfExamVersionsWhereDFIs26">
         <caption>The <m>t</m>-distribution with 26 degrees of freedom and the p-value from exam example
         represented as the shaded areas.</caption>
-        <p>
-          <!-- TODO: Add figure - A t-distribution with 26 degrees of freedom is shown along with the
+        <image source="ch_inference_for_means/figures/pValueOfTwoTailAreaOfExamVersionsWhereDFIs26/pValueOfTwoTailAreaOfExamVersionsWhereDFIs26.png" width="70%">
+          <description>A t-distribution with 26 degrees of freedom is shown along with the
           p-value from the exam example represented as shaded area. The t-distribution shown is centered
           at zero, and the upper tail area above T equals 1.15 is shaded along with the area below about
-          -1.15. These shaded tail areas appear to represent roughly 25% of the distribution. -->
-        </p>
+          -1.15. These shaded tail areas appear to represent roughly 25% of the distribution.</description>
+        </image>
       </figure>
       
       <example>
