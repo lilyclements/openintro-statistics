@@ -1798,7 +1798,7 @@
       
       <figure xml:id="fig-ipod-chi-sq-tail">
         <caption>Visualization of the p-value for <m>X^2 = 40.13</m> when <m>df = 2</m></caption>
-        <image source="ch_inference_for_props/figures/iPodChiSqTail/iPodChiSqTail" width="65%"/>
+        <image source="ch_inference_for_props/figures/iPodChiSqTail/iPodChiSqTail.png" width="65%"/>
       </figure>
       
       <example xml:id="ex-ipod-pvalue">
