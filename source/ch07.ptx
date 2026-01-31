@@ -4452,6 +4452,66 @@
         </solution>
       </exercise>
       
+      <!-- Exercise 43 -->
+      <exercise xml:id="tf_anova_1">
+        <title>True / False: ANOVA, Part I</title>
+        <statement>
+          <p>
+            Determine if the following statements are true or false in ANOVA, and explain your reasoning for statements you identify as false.
+          </p>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  As the number of groups increases, the modified significance level for pairwise tests increases as well.
+                </p>
+              </li>
+              <li>
+                <p>
+                  As the total sample size increases, the degrees of freedom for the residuals increases as well.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The constant variance condition can be somewhat relaxed when the sample sizes are relatively consistent across groups.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The independence assumption can be relaxed when the total sample size is large.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <ol>
+              <li>
+                <p>
+                  False. As the number of groups increases, we need to do more pairwise comparisons, so the modified significance level (using Bonferroni correction) decreases, not increases, to maintain the overall error rate.
+                </p>
+              </li>
+              <li>
+                <p>
+                  True. The degrees of freedom for residuals is <m>df_E = n - k</m>, where <m>n</m> is the total sample size and <m>k</m> is the number of groups. As <m>n</m> increases, <m>df_E</m> increases.
+                </p>
+              </li>
+              <li>
+                <p>
+                  True. ANOVA is robust to violations of constant variance when sample sizes are equal or similar across groups.
+                </p>
+              </li>
+              <li>
+                <p>
+                  False. The independence assumption is crucial and cannot be relaxed regardless of sample size. Large sample size does not fix dependence between observations.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </solution>
+      </exercise>
+      
       <!-- Exercise 44 -->
       <exercise xml:id="child_care_hours">
         <title>Child care hours</title>
@@ -4644,66 +4704,6 @@
                 </p>
                 <p>
                   Treatment 1 and Treatment 3 appear to be significantly different from each other.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </solution>
-      </exercise>
-      
-      <!-- Exercise 43 -->
-      <exercise xml:id="tf_anova_1">
-        <title>True / False: ANOVA, Part I</title>
-        <statement>
-          <p>
-            Determine if the following statements are true or false in ANOVA, and explain your reasoning for statements you identify as false.
-          </p>
-          <p>
-            <ol>
-              <li>
-                <p>
-                  As the number of groups increases, the modified significance level for pairwise tests increases as well.
-                </p>
-              </li>
-              <li>
-                <p>
-                  As the total sample size increases, the degrees of freedom for the residuals increases as well.
-                </p>
-              </li>
-              <li>
-                <p>
-                  The constant variance condition can be somewhat relaxed when the sample sizes are relatively consistent across groups.
-                </p>
-              </li>
-              <li>
-                <p>
-                  The independence assumption can be relaxed when the total sample size is large.
-                </p>
-              </li>
-            </ol>
-          </p>
-        </statement>
-        <solution>
-          <p>
-            <ol>
-              <li>
-                <p>
-                  False. As the number of groups increases, we need to do more pairwise comparisons, so the modified significance level (using Bonferroni correction) decreases, not increases, to maintain the overall error rate.
-                </p>
-              </li>
-              <li>
-                <p>
-                  True. The degrees of freedom for residuals is <m>df_E = n - k</m>, where <m>n</m> is the total sample size and <m>k</m> is the number of groups. As <m>n</m> increases, <m>df_E</m> increases.
-                </p>
-              </li>
-              <li>
-                <p>
-                  True. ANOVA is robust to violations of constant variance when sample sizes are equal or similar across groups.
-                </p>
-              </li>
-              <li>
-                <p>
-                  False. The independence assumption is crucial and cannot be relaxed regardless of sample size. Large sample size does not fix dependence between observations.
                 </p>
               </li>
             </ol>
