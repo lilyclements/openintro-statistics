@@ -2397,161 +2397,331 @@ sum(sampled_entries == "support") / 1000
     <subsection xml:id="subsec-p-values">
       <title>Formal Testing Using P-values</title>
       
+      <p>
+        The p-value is a way of quantifying the strength of the evidence against the null
+        hypothesis and in favor of the alternative hypothesis. Statistical hypothesis
+        testing typically uses the p-value method rather than making a decision based on
+        confidence intervals.
+      </p>
+      
       <definition xml:id="def-p-value">
         <title>P-value</title>
         <statement>
           <p>
             The <term>p-value</term> is the probability of observing data at least as
             favorable to the alternative hypothesis as our current data set, if the null
-            hypothesis were true. We typically use a summary statistic of the data, such
-            as the sample proportion, to help compute the p-value.
+            hypothesis were true. We typically use a summary statistic of the data, in
+            this section the sample proportion, to help compute the p-value and evaluate
+            the hypotheses.
           </p>
         </statement>
       </definition>
       
-      <definition xml:id="def-significance-level">
-        <title>Significance Level</title>
+      <example xml:id="ex-coal-hypotheses">
+        <title>Setting up hypotheses for coal energy support</title>
         <statement>
           <p>
-            The <term>significance level</term> <m>\alpha</m> indicates how often we
-            incorrectly reject <m>H_0</m> when it is true. The traditional significance
-            level is <m>\alpha = 0.05</m>.
-          </p>
-        </statement>
-      </definition>
-      
-      <p>
-        When evaluating hypotheses for proportions using the p-value method, we use the
-        null value <m>p_0</m> (not <m>\hat{p}</m>) when checking the success-failure
-        condition and computing the standard error:
-      </p>
-      
-      <me>SE_{\hat{p}} = \sqrt{\frac{p_0(1-p_0)}{n}}</me>
-      
-      <important>
-        <p>
-          When using the p-value method to evaluate a hypothesis test, check the
-          success-failure condition using the null value <m>p_0</m> instead of using
-          the sample proportion. We're supposing the null hypothesis is true, which is
-          different from the confidence interval approach.
-        </p>
-      </important>
-      
-      <p>
-        To compute a p-value:
-      </p>
-      
-      <ol>
-        <li>Calculate the Z-score (standardized test statistic):
-            <me>Z = \frac{\hat{p} - p_0}{SE_{\hat{p}}}</me></li>
-        <li>Find the probability of observing a Z-score at least as extreme as the
-            one calculated, using the standard normal distribution.</li>
-        <li>For a two-sided test, double the tail probability.</li>
-      </ol>
-      
-      <example xml:id="ex-coal-p-value">
-        <title>P-value for coal energy test</title>
-        <statement>
-          <p>
-            Using the coal energy data (<m>\hat{p} = 0.37</m>, <m>n = 1000</m>), compute
-            the p-value for testing <m>H_0: p = 0.5</m> versus <m>H_A: p \neq 0.5</m>.
+            Pew Research asked a random sample of 1000 American adults whether they
+            supported the increased usage of coal to produce energy. Set up hypotheses to
+            evaluate whether a majority of American adults support or oppose the increased
+            usage of coal.
           </p>
         </statement>
         <solution>
           <p>
-            First, check conditions using <m>p_0 = 0.5</m>:
+            The uninteresting result is that there is no majority either way: half of
+            Americans support and the other half oppose expanding the use of coal to
+            produce energy. The alternative hypothesis would be that there is a majority
+            support or oppose (though we do not known which one!) expanding the use of
+            coal. If <m>p</m> represents the proportion supporting, then we can write the
+            hypotheses as
             <md>
-              <mrow>np_0 \amp= 1000 \times 0.5 = 500 \geq 10 \checkmark</mrow>
-              <mrow>n(1-p_0) \amp= 1000 \times 0.5 = 500 \geq 10 \checkmark</mrow>
+              <mrow>H_0: \amp\  p = 0.5</mrow>
+              <mrow>H_A: \amp\  p \neq 0.5</mrow>
             </md>
-          </p>
-          <p>
-            Calculate the standard error using <m>p_0</m>:
-            <me>SE = \sqrt{\frac{0.5 \times 0.5}{1000}} = 0.0158</me>
-          </p>
-          <p>
-            Compute the Z-score:
-            <me>Z = \frac{0.37 - 0.5}{0.0158} = -8.23</me>
-          </p>
-          <p>
-            This is an extremely large Z-score in magnitude. The probability of observing
-            a Z-score this extreme (in either tail) is essentially 0. Therefore,
-            <m>p\text{-value} &lt; 0.0001</m>.
-          </p>
-          <p>
-            Since the p-value is much less than 0.05, we reject <m>H_0</m>. We have
-            extremely strong evidence that a majority of American adults oppose expanding
-            coal energy production.
+            In this case, the null value is <m>p_0 = 0.5</m>.
           </p>
         </solution>
       </example>
+      
+      <p>
+        When evaluating hypotheses for proportions using the p-value method, we will
+        slightly modify how we check the success-failure condition and compute the
+        standard error for the single proportion case. These changes aren't dramatic, but
+        pay close attention to how we use the null value, <m>p_0</m>.
+      </p>
+      
+      <example xml:id="ex-coal-null-distribution">
+        <title>Constructing the null distribution for coal energy support</title>
+        <statement>
+          <p>
+            Pew Research's sample show that 37% of American adults support increased usage
+            of coal. We now wonder, does 37% represent a real difference from the null
+            hypothesis of 50%? What would the sampling distribution of <m>\hat{p}</m> look
+            like if the null hypothesis were true?
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If the null hypothesis were true, the population proportion would be the null
+            value, 0.5. We previously learned that the sampling distribution of
+            <m>\hat{p}</m> will be normal when two conditions are met:
+          </p>
+          <p>
+            <dl>
+              <li>
+                <title>Independence.</title>
+                <p>
+                  The poll was based on a simple random sample, so independence is
+                  satisfied.
+                </p>
+              </li>
+              <li>
+                <title>Success-failure.</title>
+                <p>
+                  Based on the poll's sample size of <m>n = 1000</m>, the success-failure
+                  condition is met, since
+                  <md>
+                    <mrow>np ~ \stackrel{H_0}{=} ~ 1000 \times 0.5 = 500 \qquad\qquad
+                          n(1-p) ~ \stackrel{H_0}{=} ~ 1000 \times (1-0.5) = 500</mrow>
+                  </md>
+                  are both at least 10. Note that the success-failure condition was
+                  checked using the null value, <m>p_0 = 0.5</m>; this is the first
+                  procedural difference from confidence intervals.
+                </p>
+              </li>
+            </dl>
+          </p>
+          <p>
+            If the null hypothesis were true, the sampling distribution indicates that a
+            sample proportion based on <m>n = 1000</m> observations would be normally
+            distributed. Next, we can compute the standard error, where we will again use
+            the null value <m>p_0 = 0.5</m> in the calculation:
+            <me>
+              SE_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}} \quad \stackrel{H_0}{=} \quad
+              \sqrt{\frac{0.5 \times (1-0.5)}{1000}} = 0.016
+            </me>
+            This marks the other procedural difference from confidence intervals: since
+            the sampling distribution is determined under the null proportion, the null
+            value <m>p_0</m> was used for the proportion in the calculation rather than
+            <m>\hat{p}</m>.
+          </p>
+          <p>
+            Ultimately, if the null hypothesis were true, then the sample proportion
+            should follow a normal distribution with mean 0.5 and a standard error of
+            0.016. This distribution is shown in <xref ref="fig-coal-null-distribution"/>.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="fig-coal-null-distribution">
+        <caption>If the null hypothesis were true, this normal distribution describes the distribution of <m>\hat{p}</m>.</caption>
+        <image source="images/ch_foundations_for_inf/figures/normal_dist_mean_500_se_016/normal_dist_mean_500_se_016.png" width="70%">
+          <description>A normal distribution centered at 0.5 with a standard deviation of 0.016 is shown. Additionally, an annotation is located at 0.37 that states, "Observed p-hat equals 0.37".</description>
+        </image>
+      </figure>
+      
+      <assemblage>
+        <title>Checking success-failure and computing <m>SE_{\hat{p}}</m> for a hypothesis test</title>
+        <p>
+          When using the p-value method to evaluate a hypothesis test, we check the
+          conditions for <m>\hat{p}</m> and construct the standard error using the null
+          value, <m>p_0</m>, instead of using the sample proportion.
+        </p>
+        <p>
+          In a hypothesis test with a p-value, we are supposing the null hypothesis is
+          true, which is a different mindset than when we compute a confidence interval.
+          This is why we use <m>p_0</m> instead of <m>\hat{p}</m> when we check
+          conditions and compute the standard error in this context.
+        </p>
+      </assemblage>
+      
+      <p>
+        When we identify the sampling distribution under the null hypothesis, it has a
+        special name: the <term>null distribution</term>. The p-value represents the
+        probability of the observed <m>\hat{p}</m>, or a <m>\hat{p}</m> that is more
+        extreme, if the null hypothesis were true. To find the p-value, we generally find
+        the null distribution, and then we find a tail area in that distribution
+        corresponding to our point estimate.
+      </p>
+      
+      <example xml:id="ex-coal-p-value">
+        <title>Computing the p-value for coal energy support</title>
+        <statement>
+          <p>
+            If the null hypothesis were true, determine the chance of finding
+            <m>\hat{p}</m> at least as far into the tails as 0.37 under the null
+            distribution, which is a normal distribution with mean <m>\mu = 0.5</m> and
+            <m>SE = 0.016</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            This is a normal probability problem where <m>x = 0.37</m>. First, we draw a
+            simple graph to represent the situation, similar to what is shown in <xref
+            ref="fig-coal-null-distribution"/>. Since <m>\hat{p}</m> is so far out in the
+            tail, we know the tail area is going to be very small. To find it, we start by
+            computing the Z-score using the mean of 0.5 and the standard error of 0.016:
+            <me>Z = \frac{0.37 - 0.5}{0.016} = -8.125</me>
+          </p>
+          <p>
+            We can use software to find the tail area: <m>2.2 \times 10^{-16}</m>
+            (0.00000000000000022). If using the normal probability table in the appendix,
+            we'd find that <m>Z = -8.125</m> is off the table, so we would use the
+            smallest area listed: 0.0002.
+          </p>
+          <p>
+            The potential <m>\hat{p}</m>'s in the upper tail beyond 0.63, which are shown
+            in <xref ref="fig-coal-p-value-both-tails"/>, also represent observations at
+            least as extreme as the observed value of 0.37. To account for these values
+            that are also more extreme under the hypothesis setup, we double the lower tail
+            to get an estimate of the p-value: <m>4.4 \times 10^{-16}</m> (or if using the
+            table method, 0.0004).
+          </p>
+          <p>
+            The p-value represents the probability of observing such an extreme sample
+            proportion by chance, if the null hypothesis were true.
+          </p>
+        </solution>
+      </example>
+      
+      <figure xml:id="fig-coal-p-value-both-tails">
+        <caption>If <m>H_0</m> were true, then the values above 0.63 are just as unlikely as values below 0.37.</caption>
+        <image source="images/ch_foundations_for_inf/figures/normal_dist_mean_500_se_016/normal_dist_mean_500_se_016.png" width="70%">
+          <description>A normal distribution centered at 0.5 with a standard deviation of 0.016 is shown. Additionally, the tail areas below 0.37 and above 0.63 are emphasized -- the regions under the normal distribution are nearly zero. Two annotations also appear. First, an annotation located at 0.37 states, "Tail area for p-hat". Second, an annotation located at 0.68 states, "Equally unlikely if H-sub-zero (the null hypothesis) is true".</description>
+        </image>
+      </figure>
+      
+      <example xml:id="ex-coal-decision">
+        <title>Evaluating the coal energy hypothesis test</title>
+        <statement>
+          <p>
+            How should we evaluate the hypotheses using the p-value of <m>4.4 \times
+            10^{-16}</m>? Use the standard significance level of <m>\alpha = 0.05</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            If the null hypothesis were true, there's only an incredibly small chance of
+            observing such an extreme deviation of <m>\hat{p}</m> from 0.5. This means one
+            of the following must be true:
+            <ol>
+              <li>The null hypothesis is true, and we just happened to observe something so
+                  extreme that it only happens about once in every 23 quadrillion times (1
+                  quadrillion = 1 million <m>\times</m> 1 billion).</li>
+              <li>The alternative hypothesis is true, which would be consistent with
+                  observing a sample proportion far from 0.5.</li>
+            </ol>
+            The first scenario is laughably improbable, while the second scenario seems
+            much more plausible.
+          </p>
+          <p>
+            Formally, when we evaluate a hypothesis test, we compare the p-value to the
+            significance level, which in this case is <m>\alpha = 0.05</m>. Since the
+            p-value is less than <m>\alpha</m>, we reject the null hypothesis. That is, the
+            data provide strong evidence against <m>H_0</m>. The data indicate the
+            direction of the difference: a majority of Americans do not support expanding
+            the use of coal-powered energy.
+          </p>
+        </solution>
+      </example>
+      
+      <assemblage>
+        <title>Compare the p-value to <m>\alpha</m> to evaluate <m>H_0</m></title>
+        <p>
+          When the p-value is less than the significance level, <m>\alpha</m>, reject
+          <m>H_0</m>. We would report a conclusion that the data provide strong evidence
+          supporting the alternative hypothesis.
+        </p>
+        <p>
+          When the p-value is greater than <m>\alpha</m>, do not reject <m>H_0</m>, and
+          report that we do not have sufficient evidence to reject the null hypothesis.
+        </p>
+        <p>
+          In either case, it is important to describe the conclusion in the context of the
+          data.
+        </p>
+      </assemblage>
       
       <example xml:id="ex-nuclear-arms-reduction">
         <title>Nuclear arms reduction support</title>
         <statement>
           <p>
-            A Gallup poll conducted in March 2013 found that 56% of a simple random
-            sample of 1,028 US adults supported nuclear arms reduction. Does this
-            provide convincing evidence that a majority of Americans supported nuclear
-            arms reduction at the 5% significance level?
+            A simple random sample of 1,028 US adults in March 2013 show that 56% support
+            nuclear arms reduction. Does this provide convincing evidence that a majority
+            of Americans supported nuclear arms reduction at the 5% significance level?
           </p>
         </statement>
         <solution>
           <p>
-            Set up hypotheses. We want to test whether a majority (more than 50%)
-            support nuclear arms reduction:
-            <md>
-              <mrow>H_0: \amp\  p = 0.50 \quad \text{(no majority)}</mrow>
-              <mrow>H_A: \amp\  p \neq 0.50 \quad \text{(there is a majority)}</mrow>
-            </md>
+            First, check conditions:
           </p>
           <p>
-            <strong>Check conditions:</strong>
-          </p>
-          <ul>
-            <li><strong>Independence:</strong> The poll was a simple random sample,
-                so observations are independent.</li>
-            <li><strong>Success-failure:</strong> Using the null proportion <m>p_0 = 0.5</m>:
-                <m>np_0 = n(1-p_0) = 1028 \times 0.5 = 514 \geq 10</m>. <m>\checkmark</m></li>
-          </ul>
-          <p>
-            <strong>Calculate:</strong> Compute the standard error using <m>p_0 = 0.5</m>:
-            <me>SE = \sqrt{\frac{0.5 \times 0.5}{1028}} = 0.0156</me>
-          </p>
-          <p>
-            Calculate the test statistic:
-            <me>Z = \frac{0.56 - 0.50}{0.0156} = 3.85</me>
-          </p>
-          <p>
-            For this two-sided test, we need to find the probability in both tails.
-            A Z-score of 3.85 is extremely large. Looking at a standard normal table,
-            the upper tail area is approximately 0.0001. Doubling this for the two-sided
-            test: <m>p\text{-value} = 2 \times 0.0001 = 0.0002</m>.
+            <dl>
+              <li>
+                <title>Independence.</title>
+                <p>
+                  The poll was of a simple random sample of US adults, meaning the
+                  observations are independent.
+                </p>
+              </li>
+              <li>
+                <title>Success-failure.</title>
+                <p>
+                  In a one-proportion hypothesis test, this condition is checked using the
+                  null proportion, which is <m>p_0 = 0.5</m> in this context: <m>np_0 =
+                  n(1-p_0) = 1028 \times 0.5 = 514 \geq 10</m>.
+                </p>
+              </li>
+            </dl>
           </p>
           <p>
-            <strong>Conclude:</strong> Since <m>p\text{-value} = 0.0002 &lt; 0.05</m>,
-            we reject <m>H_0</m>. The poll provides convincing evidence that a majority
-            of Americans supported nuclear arms reduction efforts in March 2013.
+            With these conditions verified, we can model <m>\hat{p}</m> using a normal
+            model.
+          </p>
+          <p>
+            Next the standard error can be computed. The null value <m>p_0</m> is used
+            again here, because this is a hypothesis test for a single proportion.
+            <me>
+              SE_{\hat{p}} = \sqrt{\frac{p_0(1-p_0)}{n}} = \sqrt{\frac{0.5 \times
+              (1-0.5)}{1028}} = 0.0156
+            </me>
+          </p>
+          <p>
+            Based on the normal model, the test statistic can be computed as the Z-score
+            of the point estimate:
+            <me>
+              Z = \frac{\text{point estimate} - \text{null value}}{SE} = \frac{0.56 -
+              0.50}{0.0156} = 3.85
+            </me>
+          </p>
+          <p>
+            It's generally helpful to draw null distribution and the tail areas of interest
+            for computing the p-value, as shown in <xref
+            ref="fig-nuclear-arms-p-value"/>. The upper tail area is about 0.0001, and we
+            double this tail area to get the p-value: 0.0002.
+          </p>
+          <p>
+            Because the p-value is smaller than 0.05, we reject <m>H_0</m>. The poll
+            provides convincing evidence that a majority of Americans supported nuclear
+            arms reduction efforts in March 2013.
           </p>
         </solution>
       </example>
       
       <figure xml:id="fig-nuclear-arms-p-value">
-        <caption>The sampling distribution centered at the null value <m>p_0 = 0.5</m> for the nuclear arms test. The tails beyond the observed proportion show the p-value.</caption>
-        <image source="images/ch_foundations_for_inf/figures/nuclearArmsReduction/nuclearArmsReductionPValue.png" width="70%">
+        <caption>A normal distribution centered at 0.5 is shown, which has a standard deviation of about 0.0156. Two tails several standard deviations away from the center are emphasized. The first, at and above 0.56, is annotated with the text "upper tail". The second, which appears to be at and below 0.44, is annotated with the text "lower tail".</caption>
+        <image source="images/ch_foundations_for_inf/figures/nuclearArmsReduction/nuclearArmsReductionPValue.png" width="48%">
           <description>Normal distribution centered at 0.5 showing tail areas for nuclear arms test</description>
         </image>
       </figure>
       
-      <figure xml:id="fig-coal-p-value">
-        <caption>The p-value for the coal energy test, shown as the tail areas beyond the observed Z-score.</caption>
-        <image source="images/ch_foundations_for_inf/figures/normal_dist_mean_500_se_016/normal_dist_mean_500_se_016.png" width="70%">
-          <description>Normal distribution showing extremely small tail areas for coal test</description>
-        </image>
-      </figure>
-      
       <assemblage xml:id="ht-procedure">
-        <title>Four-step hypothesis test procedure</title>
+        <title>Hypothesis testing for a single proportion</title>
+        <p>
+          Once you've determined a one-proportion hypothesis test is the correct
+          procedure, there are four steps to completing the test:
+        </p>
         <p>
           <dl>
             <li>
@@ -2564,7 +2734,7 @@ sum(sampled_entries == "support") / 1000
             </li>
             <li>
               <title>Calculate.</title>
-              <p>If the conditions hold, compute the standard error using <m>p_0</m>, compute the Z-score, and identify the p-value.</p>
+              <p>If the conditions hold, compute the standard error, again using <m>p_0</m>, compute the Z-score, and identify the p-value.</p>
             </li>
             <li>
               <title>Conclude.</title>
@@ -2573,17 +2743,6 @@ sum(sampled_entries == "support") / 1000
           </dl>
         </p>
       </assemblage>
-      
-      <p>
-        Decision rule:
-      </p>
-      
-      <ul>
-        <li>If <m>p\text{-value} &lt; \alpha</m>, reject <m>H_0</m> and conclude there
-            is strong evidence for <m>H_A</m>.</li>
-        <li>If <m>p\text{-value} \geq \alpha</m>, do not reject <m>H_0</m> and conclude
-            there is insufficient evidence for <m>H_A</m>.</li>
-      </ul>
     </subsection>
     
     <subsection xml:id="subsec-significance-level">
