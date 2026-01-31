@@ -624,7 +624,7 @@
       
       <figure xml:id="run10SampTimeHistogram">
         <caption>A histogram of time for the sample Cherry Blossom Race data.</caption>
-        <image source="ch_inference_for_means/run10SampTimeHistogram/run10SampTimeHistogram.png" width="70%">
+        <image source="ch_inference_for_means/run10SampTimeHistogram/run17SampTimeHistogram.png" width="70%">
           <description>Figure showing a histogram of "time" for the sample. The data are nearly symmetric with a
           center at about 100 minutes and a standard deviation of roughly 15 to 20 minutes. All times lie
           between 50 and 140 minutes.</description>
