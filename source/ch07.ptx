@@ -4356,7 +4356,7 @@
         </solution>
       </exercise>
       
-      <!-- Exercise 41 -->
+      <!-- Exercise 42 -->
       <exercise xml:id="work_hours_education">
         <title>Work hours and education</title>
         <statement>
@@ -4591,7 +4591,7 @@
         <title>Prison isolation experiment, Part II</title>
         <statement>
           <p>
-            Exercise 7.30 (prison_isolation_T) introduced an experiment that was conducted with the goal of identifying a treatment that reduces subjects' psychopathic deviant T scores, where this score measures a person's need for control or his rebellion against control. In that exercise you evaluated the success of each treatment individually. An alternative analysis involves comparing the success of treatments. The relevant ANOVA output is given below, and we have checked for you that there are no meaningful differences in variability across the groups.
+            <xref ref="prison_isolation_T"/> introduced an experiment that was conducted with the goal of identifying a treatment that reduces subjects' psychopathic deviant T scores, where this score measures a person's need for control or his rebellion against control. In that exercise you evaluated the success of each treatment individually. An alternative analysis involves comparing the success of treatments. The relevant ANOVA output is given below, and we have checked for you that there are no meaningful differences in variability across the groups.
           </p>
           <table>
             <title>ANOVA table for prison isolation experiment</title>
