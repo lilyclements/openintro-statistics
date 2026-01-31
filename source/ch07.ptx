@@ -2939,7 +2939,7 @@
     
     <figure xml:id="power_curve_neg-3">
       <image source="ch_inference_for_means/power_curve/power_curve_neg-3.png" width="70%">
-        <description>A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts t about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.</description>
+        <description>A line plot is shown with "Sample Size Per Group" on the horizontal axis and "Power" on the vertical axis. The horizontal axis values grow exponentially and has values going from 20 to 50 to 100 to 200 to 500 to 1,000 to 2,000 and finally to 5,000. The line starts at about (20, 0.1) and slowly climbs up to about (50, 0.25), then climbs more quickly up to (100, 0.4), then (200, 0.7), where its growth starts tapering off as nearly flattens at about (500, 0.98). The height of the line is indistinguishable from 1 for sample sizes per group of 1,000 and higher.</description>
       </image>
       <caption>
         The curve shows the power for different sample sizes in the context of the blood pressure example when the true difference is<nbsp/>-3. Having more than about 250 to 350 observations doesn't provide much additional value in detecting an effect when <m>\alpha = 0.05</m>.
