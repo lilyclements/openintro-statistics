@@ -441,7 +441,7 @@
       </exercise>
       
       <exercise xml:id="fireworks_CI_concept">
-        <title>Fireworks on July 4<m>^{\text{th}}</m></title>
+        <title>Fireworks on July <m>4^{th}</m></title>
         <statement>
           <p>
             A local news outlet reported that 56% of 600 randomly sampled Kansas residents planned to set off fireworks on July <m>4^{th}</m>. Determine the margin of error for the 56% point estimate using a 95% confidence level.
